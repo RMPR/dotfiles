@@ -1,0 +1,940 @@
+**** BEGIN LOGGING AT Thu Jun 13 21:48:30 2019
+
+Jun 13 21:48:30 *	Now talking on #aerc
+Jun 13 21:48:30 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+Jun 13 21:48:30 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Mon Jun  3 14:00:47 2019)
+Jun 13 21:55:12 *	cwarden (~cwarden@sage.xerus.org) has joined
+**** BEGIN LOGGING AT Fri Jun 14 06:57:30 2019
+
+Jun 14 06:57:30 *	Now talking on #aerc
+Jun 14 06:57:30 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+Jun 14 06:57:30 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Mon Jun  3 14:00:47 2019)
+Jun 14 07:13:06 *	sindrehan has quit (Quit: The Lounge - https://thelounge.chat)
+Jun 14 07:48:17 *	sindrehan (~sindrehan@46.182.109.110) has joined
+Jun 14 08:25:01 *	encima (88ce059c@gateway/web/freenode/ip.136.206.5.156) has joined
+**** ENDING LOGGING AT Fri Jun 14 08:37:20 2019
+
+**** BEGIN LOGGING AT Fri Jun 14 08:37:20 2019
+
+Jun 14 09:03:13 *	Disconnected ()
+**** ENDING LOGGING AT Fri Jun 14 09:03:13 2019
+
+**** BEGIN LOGGING AT Fri Jun 14 09:26:29 2019
+
+Jun 14 09:26:29 *	Now talking on #aerc
+Jun 14 09:26:29 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+Jun 14 09:26:29 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Mon Jun  3 14:00:47 2019)
+Jun 14 09:45:13 *	Disconnected ()
+**** ENDING LOGGING AT Fri Jun 14 09:45:13 2019
+
+**** BEGIN LOGGING AT Fri Jun 14 09:49:22 2019
+
+Jun 14 09:49:22 *	Now talking on #aerc
+Jun 14 09:49:22 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+Jun 14 09:49:22 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Mon Jun  3 14:00:47 2019)
+Jun 14 10:14:25 *	travis_ (~travis@cpe-70-121-164-42.satx.res.rr.com) has joined
+Jun 14 10:14:40 <travis_>	Hello o/
+Jun 14 10:15:08 <travis_>	does anybody use gmail? if so, should I be using ssl/imap?
+Jun 14 10:16:49 *	travis_ has quit (Client Quit)
+Jun 14 10:19:20 *	Sirplus (~travis@cpe-70-121-164-42.satx.res.rr.com) has joined
+Jun 14 10:19:37 *	Sirplus has quit (Client Quit)
+Jun 14 12:50:43 *	Disconnected ()
+**** ENDING LOGGING AT Fri Jun 14 12:50:43 2019
+
+**** BEGIN LOGGING AT Fri Jun 14 12:51:11 2019
+
+Jun 14 12:51:11 *	Now talking on #aerc
+Jun 14 12:51:11 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+Jun 14 12:51:11 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Mon Jun  3 14:00:47 2019)
+Jun 14 13:18:09 *	joemaro (~joemaro@46.222.228.231) has joined
+Jun 14 13:47:44 *	joemaro has quit (Read error: Connection reset by peer)
+Jun 14 13:48:20 *	joemaro (~joemaro@46.222.228.231) has joined
+Jun 14 13:48:48 *	joemaro has quit (Read error: Connection reset by peer)
+Jun 14 15:15:19 <ddevault>	https://todo.sr.ht/~sircmpwn/aerc2/25
+Jun 14 15:15:26 <ddevault>	this would be a nice ticket for anyone looking for some deeper work
+Jun 14 20:44:32 *	Disconnected ()
+**** ENDING LOGGING AT Fri Jun 14 20:44:32 2019
+
+**** BEGIN LOGGING AT Fri Jun 14 20:45:34 2019
+
+Jun 14 20:45:34 *	Now talking on #aerc
+Jun 14 20:45:34 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+Jun 14 20:45:34 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Mon Jun  3 14:00:47 2019)
+Jun 14 21:14:01 *	joemaro has quit (Remote host closed the connection)
+**** BEGIN LOGGING AT Sun Jun 16 20:02:30 2019
+
+Jun 16 20:02:30 *	Now talking on #aerc
+Jun 16 20:02:30 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+Jun 16 20:02:30 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Mon Jun  3 14:00:47 2019)
+**** ENDING LOGGING AT Sun Jun 16 20:03:41 2019
+
+**** BEGIN LOGGING AT Sun Jun 16 20:03:41 2019
+
+**** ENDING LOGGING AT Sun Jun 16 20:04:10 2019
+
+**** BEGIN LOGGING AT Sun Jun 16 20:04:10 2019
+
+Jun 16 20:07:02 <grayhatter>	ddevault: is that the correct subject format?
+Jun 16 20:21:26 <ddevault>	grayhatter: yes
+Jun 16 20:21:54 <grayhatter>	ddevault: about the worker, is it okay to block the ui thread until the worker responds?
+Jun 16 20:21:57 <grayhatter>	> 
+Jun 16 20:21:59 <grayhatter>	> obviously not
+Jun 16 20:22:17 <grayhatter>	okay then, any suggestions for getting the folder list from aerc?
+Jun 16 20:22:50 <ddevault>	callbacks?
+Jun 16 20:22:51 <grayhatter>	inside commands/msg/move.go
+Jun 16 20:22:54 <ddevault>	we should probably also have an account store
+Jun 16 20:23:17 <grayhatter>	I can ask the worker, but then I'd have to block waiting the cb to respond
+Jun 16 20:23:33 <grayhatter>	otherwise the first [tab] wouldn't work
+Jun 16 20:23:57 <ddevault>	I guess in this case we can block with a timeout
+Jun 16 20:24:13 <ddevault>	or don't block, but cancel it if the user starts doing other stuff
+Jun 16 20:24:33 <grayhatter>	that's... complicated
+Jun 16 20:24:53 <grayhatter>	I wouldn't mind, if it felt right, but it doesn't... It feels more like I'm missing something
+Jun 16 20:25:32 <ddevault>	maybe we can show a spinner while we fetch
+Jun 16 20:28:29 <grayhatter>	I'd rather cache the directorylist somewhere
+Jun 16 20:28:49 <ddevault>	aye
+Jun 16 20:39:17 <grayhatter>	okay,
+Jun 16 20:39:46 <grayhatter>	time to make a design decision, how do you want to handle multiple matches?
+Jun 16 20:40:01 <ddevault>	it's not yet time
+Jun 16 20:40:15 <ddevault>	for now it should still only complete when it's unambiguous
+Jun 16 20:40:24 <grayhatter>	I can punt for longer on the code, but where []string is converted back to string needs a decison now
+Jun 16 20:40:33 <ddevault>	don't complete unless the length is 1
+Jun 16 20:40:37 <grayhatter>	it can be changed later obviously, but...
+Jun 16 20:41:27 <grayhatter>	:move folder
+Jun 16 20:41:44 <grayhatter>	move is unambigious, but folder[1,2,3,4] exist
+Jun 16 20:41:51 <ddevault>	then it should fail to complete
+Jun 16 20:42:02 <ddevault>	this isn't the permanent design, just the first one
+Jun 16 20:42:07 <grayhatter>	obviously, but what should it return
+Jun 16 20:42:17 <ddevault>	folder1, folder2, folder3, folder4
+Jun 16 20:43:02 <grayhatter>	['move', ['folder1', 'folder2', ...]]
+Jun 16 20:43:11 <ddevault>	no
+Jun 16 20:43:13 <ddevault>	bah
+Jun 16 20:43:17 <grayhatter>	see my problem?
+Jun 16 20:43:23 <ddevault>	no, you're just overcomplicating this
+Jun 16 20:43:36 <ddevault>	user types "move folder" then presses tab
+Jun 16 20:43:43 <ddevault>	the exline gives "move folder" to the completion agent
+Jun 16 20:43:53 <ddevault>	the completion agent shell splits it into [move, folder]
+Jun 16 20:44:10 <ddevault>	that it's a move command is already apparent, so it sends [move, folder] to the move commands completer
+Jun 16 20:44:28 <ddevault>	which knows that it expects a folder in that argument (the cursor is always at the last character its given) and pulls a list of folders
+Jun 16 20:44:40 <ddevault>	it then returns a list of possible commands based on folders with that prefix
+Jun 16 20:44:51 <ddevault>	["move folder1", "move folder2", "move folder3", "move folder4"]
+Jun 16 20:44:58 <ddevault>	the exline at this point gives up because len(results) != 1
+Jun 16 20:45:05 <ddevault>	in the future it may do something else
+Jun 16 20:45:06 <grayhatter>	that's what I was asking
+Jun 16 20:45:33 <grayhatter>	where you want the concationation logic to exist
+Jun 16 20:46:03 <grayhatter>	rather; on what level?
+Jun 16 20:46:06 <grayhatter>	wilco
+Jun 16 20:46:06 <ddevault>	just use your best judgement
+Jun 16 20:46:26 <ddevault>	otherwise I'm writing the feature myself, in english, with a faulty emitter, to a faulty parser
+Jun 16 20:46:44 <grayhatter>	solid copy
+Jun 16 20:53:57 *	gjabell has quit (Quit: WeeChat 2.5)
+Jun 16 20:56:02 *	gjabell (~gjabell@24-196-175-107.dhcp.ahvl.nc.charter.com) has joined
+Jun 16 21:23:30 <grayhatter>	okay, as requested, everything should be ~fine
+Jun 16 21:23:45 <ddevault>	coolio
+Jun 16 21:23:46 <ddevault>	thanks
+Jun 16 21:23:49 <ddevault>	will review tomorrow
+Jun 16 21:24:44 <grayhatter>	I couldn't move the inline functions for aerc.go because I don't understand closure in go yet, and didn't want to block on that
+Jun 16 21:25:55 <grayhatter>	oh, it works as I want it to... go is really nice!
+**** ENDING LOGGING AT Sun Jun 16 21:39:24 2019
+
+**** BEGIN LOGGING AT Sun Jun 16 21:39:24 2019
+
+**** ENDING LOGGING AT Sun Jun 16 21:40:20 2019
+
+**** BEGIN LOGGING AT Sun Jun 16 21:40:20 2019
+
+**** ENDING LOGGING AT Sun Jun 16 21:40:40 2019
+
+**** BEGIN LOGGING AT Sun Jun 16 21:40:40 2019
+
+**** ENDING LOGGING AT Sun Jun 16 21:41:15 2019
+
+**** BEGIN LOGGING AT Sun Jun 16 21:41:15 2019
+
+**** ENDING LOGGING AT Sun Jun 16 21:41:48 2019
+
+**** BEGIN LOGGING AT Sun Jun 16 21:41:48 2019
+
+**** ENDING LOGGING AT Sun Jun 16 21:42:15 2019
+
+**** BEGIN LOGGING AT Sun Jun 16 21:42:15 2019
+
+**** ENDING LOGGING AT Sun Jun 16 21:42:31 2019
+
+**** BEGIN LOGGING AT Sun Jun 16 21:42:31 2019
+
+**** ENDING LOGGING AT Sun Jun 16 22:29:59 2019
+
+**** BEGIN LOGGING AT Sun Jun 16 22:29:59 2019
+
+Jun 16 23:02:34 *	bookworm has quit ()
+Jun 16 23:03:40 *	bookworm (~reto@unaffiliated/reto) has joined
+Jun 16 23:18:23 *	dutchie has quit (Ping timeout: 258 seconds)
+Jun 16 23:20:08 *	dutchie (~jholland@unaffiliated/dutchie) has joined
+Jun 16 23:26:26 *	scoots_k has quit (Quit: Page closed)
+Jun 16 23:27:54 *	scoots_k (~scott@c-71-229-194-49.hsd1.co.comcast.net) has joined
+Jun 17 05:09:13 *	Disconnected ()
+**** ENDING LOGGING AT Mon Jun 17 05:09:13 2019
+
+**** BEGIN LOGGING AT Mon Jun 17 05:21:43 2019
+
+Jun 17 05:21:43 *	Now talking on #aerc
+Jun 17 05:21:43 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+Jun 17 05:21:43 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Mon Jun  3 14:00:47 2019)
+Jun 17 05:36:12 *	Disconnected ()
+**** ENDING LOGGING AT Mon Jun 17 05:36:12 2019
+
+**** BEGIN LOGGING AT Mon Jun 17 07:06:52 2019
+
+Jun 17 07:06:52 *	Now talking on #aerc
+Jun 17 07:06:52 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+Jun 17 07:06:52 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Mon Jun  3 14:00:47 2019)
+Jun 17 07:50:58 *	thurloat has quit (Ping timeout: 248 seconds)
+Jun 17 07:51:44 *	flacks has quit (Quit: Leaving)
+Jun 17 09:57:41 *	Disconnected ()
+**** ENDING LOGGING AT Mon Jun 17 09:57:41 2019
+
+**** BEGIN LOGGING AT Mon Jun 17 09:58:24 2019
+
+Jun 17 09:58:24 *	Now talking on #aerc
+Jun 17 09:58:24 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+Jun 17 09:58:24 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Mon Jun  3 14:00:47 2019)
+Jun 17 11:44:16 *	steven- (~steven@unaffiliated/steven) has joined
+Jun 17 11:45:28 *	steven has quit (Ping timeout: 258 seconds)
+Jun 17 11:48:56 *	heliostatic (~heliostat@my.bdlc.co) has joined
+Jun 17 12:00:40 *	pluvano has quit (Remote host closed the connection)
+Jun 17 12:01:37 *	pluvano (~pluvano@gateway/tor-sasl/pluvano) has joined
+Jun 17 12:11:47 *	Disconnected ()
+**** ENDING LOGGING AT Mon Jun 17 12:11:47 2019
+
+**** BEGIN LOGGING AT Mon Jun 17 12:12:14 2019
+
+Jun 17 12:12:14 *	Now talking on #aerc
+Jun 17 12:12:14 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+Jun 17 12:12:14 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Mon Jun  3 14:00:47 2019)
+Jun 17 12:16:19 <heliostatic>	I've been trying to figure out why the date format in the msglist doesn't appear correctly, but in the msgview(er) it does -- https://dsc.cloud/66a285/Screen-Shot-2019-06-17-at-7.16.52-AM/Screen-Shot-2019-06-17-at-7.16.52-AM.png vs https://dsc.cloud/66a285/Screen-Shot-2019-06-17-at-7.16.58-AM/Screen-Shot-2019-06-17-at-7.16.58-AM.png
+Jun 17 12:16:42 <heliostatic>	But I'm at a loss
+Jun 17 12:37:09 <bookworm>	heliostatic: the date format changed... grab the latest defaults from the example config
+Jun 17 12:37:55 <bookworm>	it's not the go time format... meaning Mon Jan 2 15:04:05 MST 2006 in any order that you want
+Jun 17 12:38:00 <bookworm>	now*
+Jun 17 12:42:51 <heliostatic>	 Thanks! Trying now.
+Jun 17 12:44:12 <heliostatic>	Perfect, worked beautifully. I guess aerc.conf doesn't get overwritten when doing make install because it gets generated at first run. Makes sense, but I didn't realize it.
+Jun 17 12:46:40 *	dlax (~dlax@168.ip-51-38-34.eu) has joined
+Jun 15 16:10:33 *	Disconnected ()
+**** ENDING LOGGING AT Tue Jun 15 16:10:33 2021
+
+**** BEGIN LOGGING AT Sat Jun 22 15:50:52 2019
+
+Jun 22 15:50:52 *	Now talking on #aerc
+Jun 22 15:50:52 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+Jun 22 15:50:52 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Mon Jun  3 14:00:47 2019)
+Jun 22 16:02:31 <ddevault>	^^
+**** BEGIN LOGGING AT Sat Jun 22 20:36:05 2019
+
+Jun 22 20:36:05 *	Now talking on #aerc
+Jun 22 20:36:05 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+Jun 22 20:36:05 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Mon Jun  3 14:00:47 2019)
+Jun 22 20:40:40 *	josselin has quit (Ping timeout: 246 seconds)
+Jun 22 20:48:04 *	josselin (~josselin@176-189-164-202.abo.bbox.fr) has joined
+Jun 22 20:52:34 *	josselin has quit (Ping timeout: 246 seconds)
+Jun 22 21:02:33 *	secretsnackbar (46b5bd13@gateway/web/freenode/ip.70.181.189.19) has joined
+Jun 22 21:08:28 *	botsunyuu has quit (Remote host closed the connection)
+Jun 22 21:08:39 *	botsunyuu (~botsunyuu@188.226.135.111) has joined
+Jun 22 21:09:37 *	botsunyuu has quit (Read error: Connection reset by peer)
+Jun 22 21:13:04 *	botsunyuu (~botsunyuu@188.226.135.111) has joined
+Jun 22 21:14:51 *	botsunyuu has quit (Read error: Connection reset by peer)
+Jun 22 21:15:02 *	botsunyuu (~botsunyuu@188.226.135.111) has joined
+Jun 22 21:18:59 *	josselin (~josselin@176-189-164-202.abo.bbox.fr) has joined
+Jun 22 22:26:01 *	josselin has quit (Ping timeout: 246 seconds)
+Jun 22 22:27:24 *	josselin (~josselin@176-189-164-202.abo.bbox.fr) has joined
+Jun 22 22:31:43 *	josselin has quit (Ping timeout: 245 seconds)
+Jun 22 22:40:33 <grayhatter>	git bisect is so nice
+Jun 22 22:48:05 <ddevault>	yes
+Jun 22 22:48:26 <edwinbalani>	thirded
+Jun 22 22:58:50 *	josselin (~josselin@176.189.164.202) has joined
+Jun 22 23:07:28 *	josselin has quit (Ping timeout: 248 seconds)
+Jun 22 23:14:47 <secretsnackbar>	I am wondering about installing Aerc
+Jun 22 23:15:42 <secretsnackbar>	I guess this isn't really a chat room?
+Jun 22 23:22:15 <grayhatter>	no, aerc is an email client...
+Jun 22 23:28:19 <secretsnackbar>	yes I understand that, I thought this was a chat room about the aerc email client
+Jun 22 23:28:33 <bookworm>	secretsnackbar: IRC is not instant... people have lives you know
+Jun 22 23:28:48 <grayhatter>	well... not me
+Jun 22 23:29:29 <bookworm>	then go and work on v8 :P
+Jun 22 23:29:47 <grayhatter>	lol, writing a blog post currently
+Jun 22 23:30:36 <bookworm>	secretsnackbar: as for how to install... there's installation instructions in the readme I guess... if not: make; make install
+Jun 22 23:31:05 <secretsnackbar>	yeah, I am fumbling on them
+Jun 22 23:31:05 <bookworm>	you need go and some other deps, definitely mentioned in the readme
+Jun 22 23:31:28 <secretsnackbar>	because I was trying to follow the instructions and install go
+Jun 22 23:31:28 <bookworm>	so then ask a proper question instead of useless "this isn't a chatroom" ramblings
+Jun 22 23:31:37 <secretsnackbar>	lol
+Jun 22 23:31:45 <bookworm>	that wasn't meant as a joke my dear
+Jun 22 23:32:01 <secretsnackbar>	that doesn't mean it's not funny
+Jun 22 23:32:38 <bookworm>	so? any real question incoming?
+Jun 22 23:32:41 <secretsnackbar>	there was an appropriate response, it was "yes this is a chat room about aerc"
+Jun 22 23:32:58 <bookworm>	no the proper response would have been a kick ban
+Jun 22 23:33:13 <bookworm>	so can we carry on and solve your issue?
+Jun 22 23:35:19 <secretsnackbar>	forgive me, I'm not trying to bother anyone, I just was just trying to follow the instructions at: https://git.sr.ht/~sircmpwn/aerc
+Jun 23 06:39:31 *	Disconnected ()
+**** ENDING LOGGING AT Sun Jun 23 06:39:31 2019
+
+**** BEGIN LOGGING AT Sun Jun 23 06:40:00 2019
+
+Jun 23 06:40:00 *	Now talking on #aerc
+Jun 23 06:40:00 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+Jun 23 06:40:00 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Mon Jun  3 14:00:47 2019)
+Jun 23 06:46:46 *	wired-rein (~rein-rain@ool-18bc621a.dyn.optonline.net) has joined
+Jun 23 06:48:59 *	wired-rein (~rein-rain@ool-18bc621a.dyn.optonline.net) has left ("Leaving")
+**** BEGIN LOGGING AT Sun Jun 23 21:28:09 2019
+
+Jun 23 21:28:09 *	Now talking on #aerc
+Jun 23 21:28:09 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+Jun 23 21:28:09 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Mon Jun  3 14:00:47 2019)
+Jun 23 21:56:35 *	gjabell has quit (Ping timeout: 245 seconds)
+Jun 23 21:58:43 *	gjabell (~gjabell@24-181-218-135.dhcp.hckr.nc.charter.com) has joined
+Jun 23 22:00:46 *	boeg (sid41541@gateway/web/irccloud.com/x-ggjqfrpthawuifkt) has joined
+Jun 23 22:14:25 *	gjabell has quit (Ping timeout: 268 seconds)
+Jun 23 22:14:57 *	gjabell (~gjabell@24-181-218-135.dhcp.hckr.nc.charter.com) has joined
+Jun 23 22:27:28 *	gjabell has quit (Ping timeout: 248 seconds)
+Jun 23 22:29:19 *	gjabell (~gjabell@24-181-218-135.dhcp.hckr.nc.charter.com) has joined
+Jun 23 23:11:22 *	gjabell has quit (Quit: WeeChat 2.5)
+Jun 24 08:47:44 *	Disconnected ()
+**** ENDING LOGGING AT Mon Jun 24 08:47:44 2019
+
+**** BEGIN LOGGING AT Mon Jun 24 08:48:09 2019
+
+Jun 24 08:48:09 *	Now talking on #aerc
+Jun 24 08:48:09 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+Jun 24 08:48:09 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Mon Jun  3 14:00:47 2019)
+Jun 24 09:36:31 <grayhatter>	this RFC is bad -_-
+Jun 24 09:41:11 <grayhatter>	interestingly enough; I'm glad I read it, the updated RFC5322 says
+Jun 24 09:41:28 <grayhatter>	> Comments and folding white spaceSHOULD NOT be used around the "@" in the addr-spec.
+Jun 24 09:41:36 <grayhatter>	https://tools.ietf.org/html/rfc5322#section-3.4.1 
+Jun 24 09:41:50 <grayhatter>	which was going to be my suggestion...
+Jun 24 09:56:11 *	tyxie (~tyx@uppa-nat-193-55-218-3.univ-pau.fr) has joined
+Jun 24 11:02:40 *	Disconnected ()
+**** ENDING LOGGING AT Mon Jun 24 11:02:41 2019
+
+**** BEGIN LOGGING AT Mon Jun 24 11:03:09 2019
+
+Jun 24 11:03:09 *	Now talking on #aerc
+Jun 24 11:03:09 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+Jun 24 11:03:09 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Mon Jun  3 14:00:47 2019)
+**** BEGIN LOGGING AT Thu Jun 27 12:19:08 2019
+
+Jun 27 12:19:08 *	Now talking on #aerc
+Jun 27 12:19:08 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+Jun 27 12:19:08 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Mon Jun  3 14:00:47 2019)
+Jun 27 12:19:17 *	quite (~quite@unaffiliated/quite) has joined
+Jun 27 12:19:20 <quite>	o/
+Jun 27 12:37:09 <quite>	it's somewhat confusing how aerc-terminal swallows various ctrl-keys when running the editor, especially when that is emacs...
+Jun 27 12:37:17 <quite>	guess i'll write more mails in vim for now :}
+Jun 27 12:48:35 *	mg_ is now known as mg
+Jun 27 12:49:26 *	mg is now known as mg-
+Jun 27 14:30:29 <thurloat_>	jorgicio if you write your emails in vim, you could have a vim snippet for your signature
+Jun 27 14:31:52 <ddevault>	you could also rejigger aerc's keybindings to be more emacs-friendly
+Jun 27 14:32:05 <ddevault>	I would accept a patch which adds alternative configs to contrib
+Jun 27 14:36:59 *	_zachs (4a712f98@74.113.47.152) has joined
+Jun 27 14:37:27 <bandali>	it seems that aerc always puts the sender names in double quotes, which in most cases i believe is unnecessary
+Jun 27 14:37:31 <bandali>	except when there’s a comma there, of course
+Jun 27 14:37:34 <bandali>	any other cases?
+Jun 27 14:38:34 <ddevault>	I'm guessing it goes for the simple implementation rather than the most optimal result
+Jun 27 14:40:05 <ddevault>	the algorithm is in /usr/lib/go/src/net/mail/message.go:195
+Jun 27 14:40:28 <bandali>	ah i see, thanks for the pointer
+Jun 27 14:40:44 <ddevault>	looks like at line 233 it always quotes the name without testing if it needs to
+Jun 27 14:40:49 <ddevault>	would fix it here and send patch to upstream go
+Jun 27 14:41:23 <bandali>	right. do you know if sending a patch to go requires signing a CLA or someshit?
+Jun 27 14:41:33 <ddevault>	actually it does, yeah
+Jun 27 14:41:35 <ddevault>	gdi
+Jun 27 14:41:52 *	bandali sighs
+Jun 27 14:42:21 <ddevault>	and their CLA page hangs qutebrowser
+Jun 27 14:42:23 <ddevault>	very ncie
+Jun 27 14:43:20 <bandali>	that’s awesome
+Jun 27 14:43:42 <ddevault>	got enough of it loaded to see that you grant google a do-what-you-want-forever license to your code
+Jun 27 14:43:55 <ddevault>	I would accept a patch moving message.go into our source tree
+Jun 27 14:45:34 <bandali>	haha yeah fuck that
+Jun 27 14:45:36 <bandali>	sounds good
+Jun 27 14:45:53 <bandali>	quick q: do you think emersion’s go-message might be a better place for it?
+Jun 27 14:45:57 <ddevault>	no
+Jun 27 14:46:05 <ddevault>	well, maybe
+Jun 27 14:46:11 <ddevault>	but I dunno if he'd accept a similarly principled patch
+Jun 27 14:46:52 <bandali>	alrighty. let’s see if he chimes in. if not, let’s put it in aerc i guess
+Jun 27 14:49:12 <emersion>	what's this patch about?
+Jun 27 14:49:52 <ddevault>	Also, as a political statement, send them the patch but refuse to sign the CLA
+Jun 27 14:51:04 <bandali>	great idea :)
+Jun 27 14:51:50 <bandali>	emersion, it’s about tweaking double quoting of people’s names in email addresses, but it seems contributing to upstream go requires signing a CLA
+Jun 27 14:51:54 <bandali>	and i refuse to do that
+Jun 27 14:52:18 <bandali>	so we were wondering if you’d be interested in maintaining a copy of go’s message library in your go-message
+Jun 27 14:53:33 <emersion>	ah, yeah, if it's about making the MIME message nicer for humans, i'm not a very big fan of that
+Jun 27 14:55:11 <ddevault>	what follows is my three part rebuttal:
+Jun 27 14:55:35 <ddevault>	(1) the correct approach results in a smaller message and unlike the last time this came up, doesn't require draining a reader into memory to accomplish
+Jun 27 14:55:48 <ddevault>	(2) the code already determines if quoting is necessary for the address part
+Jun 27 14:56:04 <ddevault>	(3) humans do read mime messages often enough for it to matter
+Jun 27 14:58:17 <bandali>	ha, makes sense to me
+Jun 27 15:02:52 <kgz>	mfw I think I've already signed the cla
+Jun 27 15:04:26 <bandali>	hm, i think the only cla i ever signed was clojure’s, but that’s before i knew better :p and didn’t actually end up contributing anything to it anyway either
+Jun 27 15:06:54 <emersion>	if i had the code copied over already i'd consider
+Jun 27 15:07:13 <emersion>	but copying the code just for this is a little bit too much
+Jun 27 15:12:17 *	_zachs has quit (Ping timeout: 260 seconds)
+Jun 27 15:33:19 *	pixelherodev has quit (Ping timeout: 248 seconds)
+Jun 27 15:35:22 *	pixelherodev (znc@2604:bf00:710:0:5054:ff:fe94:ef02) has joined
+Jun 27 15:37:40 *	Disconnected ()
+**** ENDING LOGGING AT Thu Jun 27 15:37:40 2019
+
+**** BEGIN LOGGING AT Thu Jun 27 15:41:43 2019
+
+Jun 27 15:41:43 *	Now talking on #aerc
+Jun 27 15:41:43 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+Jun 27 15:41:43 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Mon Jun  3 14:00:47 2019)
+Jun 27 16:09:52 *	vilhalmer has quit (Ping timeout: 268 seconds)
+Jun 27 16:12:05 *	vilhalmer (~vilhalmer@c-68-34-50-117.hsd1.mi.comcast.net) has joined
+Jun 27 16:35:41 *	josselin has quit (Remote host closed the connection)
+Jun 27 17:30:10 *	Disconnected ()
+**** ENDING LOGGING AT Thu Jun 27 17:30:10 2019
+
+**** BEGIN LOGGING AT Thu Jun 27 17:33:19 2019
+
+Jun 27 17:33:19 *	Now talking on #aerc
+Jun 27 17:33:19 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+Jun 27 17:33:19 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Mon Jun  3 14:00:47 2019)
+Jun 27 18:26:20 *	Disconnected ()
+**** ENDING LOGGING AT Thu Jun 27 18:26:20 2019
+
+**** BEGIN LOGGING AT Thu Jun 27 18:26:49 2019
+
+Jun 27 18:26:49 *	Now talking on #aerc
+Jun 27 18:26:49 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+Jun 27 18:26:49 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Mon Jun  3 14:00:47 2019)
+Jun 27 19:05:16 <dario`>	:D
+Jun 27 20:16:30 *	NEOhidra (~NEOhidra@unaffiliated/neohidra) has joined
+Jun 27 20:41:56 <quite>	but actually using it doesnt lean itself to procrastination! its reply or archive
+Jun 27 21:52:12 *	_nick is now known as yankcrime
+Jun 27 22:12:26 <quite>	the MessageInfo struct has InternalDate and then a Envelope.Date. msglist uses the first, msgviewer the latter, with various consequences
+Jun 27 22:13:01 <quite>	whats up with that? i should continue reading for the source of each i guess... the latter does not grok `Date: Thu, 27 Jun 2019 05:43:54 +0200 (GMT+02:00)`, the former does
+Jun 27 22:19:17 <ddevault>	one of them is the date the mail server received the message, the other is the date the message claims to have been written
+Jun 27 22:19:20 <ddevault>	don't remember which is which
+Jun 27 22:19:51 <quite>	ah, it *should* be Envelope, by the sound of it
+Jun 27 22:20:22 <quite>	mail-server-received, that is
+Jun 27 22:20:29 <quite>	since that's what that is called in SMTP
+Jun 27 22:20:31 <quite>	:)
+Jun 27 22:20:34 <quite>	will look into it
+Jun 27 22:21:22 <quite>	ah, but it is not!
+Jun 27 22:21:36 <quite>	msg.Envelope.Subject e.g.
+Jun 27 22:21:55 <quite>	for me that name is confusing, but i've perhaps read too many RFCs
+Jun 27 22:22:16 <quite>	to, RFCs too much
+Jun 27 22:22:18 <quite>	or
+Jun 27 22:35:03 <edwinbalani>	I would have assumed SMTP envelope as well
+Jun 27 22:35:46 <edwinbalani>	Although that doesn't carry any date or subject information in itself, literally just sender and recipient
+Jun 27 22:38:44 <quite>	indeed
+Jun 27 22:39:34 <quite>	i should have destroy^H^H^H^H^H^Htweaked my go-setup in emacs... 
+Jun 27 22:39:50 <quite>	shouldn't have :)
+Jun 27 22:45:33 <quite>	but i had not read rfc3501
+Jun 27 22:46:27 <quite>	where envelope is precisely what they call those headers
+Jun 27 22:46:31 <quite>	i had read too few :(
+Jun 27 22:47:15 <edwinbalani>	Ah, I'd guessed IMAP terminology is creeping in
+Jun 27 22:47:32 <edwinbalani>	This is related to mailstore access after all
+Jun 27 22:49:11 <quite>	very much so
+Jun 27 22:49:31 <quite>	there is a RFC822Headers as well, reading rfc3501 now 
+Jun 27 23:48:57 *	Novae (~Novae@unaffiliated/novae) has joined
+Jun 28 07:37:20 *	Disconnected ()
+**** ENDING LOGGING AT Fri Jun 28 07:37:20 2019
+
+**** BEGIN LOGGING AT Fri Jun 28 07:38:28 2019
+
+Jun 28 07:38:28 *	Now talking on #aerc
+Jun 28 07:38:28 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+Jun 28 07:38:28 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Mon Jun  3 14:00:47 2019)
+Jun 28 07:44:34 *	eeeeeta (~eta@trainsplorer/developer/eta) has left ("wolp")
+Jun 28 07:50:20 *	Disconnected ()
+**** ENDING LOGGING AT Fri Jun 28 07:50:20 2019
+
+**** BEGIN LOGGING AT Fri Jun 28 13:12:44 2019
+
+Jun 28 13:12:44 *	Now talking on #aerc
+Jun 28 13:12:44 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+Jun 28 13:12:44 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Mon Jun  3 14:00:47 2019)
+**** ENDING LOGGING AT Fri Jun 28 13:16:32 2019
+
+**** BEGIN LOGGING AT Fri Jun 28 13:16:32 2019
+
+Jun 28 13:30:11 *	Disconnected ()
+**** ENDING LOGGING AT Fri Jun 28 13:30:11 2019
+
+**** BEGIN LOGGING AT Fri Jun 28 13:30:25 2019
+
+Jun 28 13:30:25 *	Now talking on #aerc
+Jun 28 13:30:25 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+Jun 28 13:30:25 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Mon Jun  3 14:00:47 2019)
+Jun 28 13:42:00 *	Disconnected ()
+**** ENDING LOGGING AT Fri Jun 28 13:42:00 2019
+
+**** BEGIN LOGGING AT Fri Jun 28 13:42:30 2019
+
+Jun 28 13:42:30 *	Now talking on #aerc
+Jun 28 13:42:30 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+Jun 28 13:42:30 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Mon Jun  3 14:00:47 2019)
+**** BEGIN LOGGING AT Thu Jul 11 00:47:12 2019
+
+Jul 11 00:47:12 *	Now talking on #aerc
+Jul 11 00:47:12 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+Jul 11 00:47:12 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Mon Jun  3 14:00:47 2019)
+Jul 11 02:02:36 *	Disconnected ()
+**** ENDING LOGGING AT Thu Jul 11 02:02:36 2019
+
+**** BEGIN LOGGING AT Thu Jul 11 08:41:53 2019
+
+Jul 11 08:41:53 *	Now talking on #aerc
+Jul 11 08:41:53 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+Jul 11 08:41:53 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Mon Jun  3 14:00:47 2019)
+Jul 11 12:10:16 <ols>	Ankhers if you have brew install just run `brew install dante` and it gives you the socksify binary
+Jul 11 14:45:38 <m1sdirection>	ddevault: for a v2 patch, is is a good practice to in-reply-to your v1 or originate a new thread?
+Jul 11 14:48:49 <ddevault>	m1sdirection: new thread
+Jul 11 14:49:07 <m1sdirection>	thx
+Jul 11 19:10:18 *	Disconnected ()
+**** ENDING LOGGING AT Thu Jul 11 19:10:18 2019
+
+**** BEGIN LOGGING AT Thu Jul 11 19:10:45 2019
+
+Jul 11 19:10:45 *	Now talking on #aerc
+Jul 11 19:10:45 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+Jul 11 19:10:45 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Mon Jun  3 14:00:47 2019)
+Jul 11 21:10:39 <albertito>	hi! does aerc support tagging, like mutt, where I can tag many messages easily and then apply an action to all of them at once?
+Jul 11 21:11:06 <albertito>	(I didn't find it in the docs or bugs but I thought I'd ask just in case :)
+Jul 11 21:13:25 <chiefnoah>	pretty sure it doesn't
+Jul 11 21:13:30 <chiefnoah>	(yet)
+Jul 11 21:55:34 <labib>	Hi aerc community! I'm a first time user on Macos with a small setup issue. When I first went through the new-account form, I used my usual account password but since it has 2FA the password obviously doesn't work. I've since generated a one time password to use with aerc, but now I can't figure out how to delete the account I first setup. The make
+Jul 11 21:55:35 <labib>	file suggests that I should be able to fix this in /usr/local/share/aerc/accounts.conf but for me that file is an empty placeholder. Where is aerc storing the account details for the existing account?
+Jul 11 21:56:17 <labib>	To be more precise, the file itself isn't empty it just contains the documentation text that it would have prior to account setup
+Jul 11 21:57:35 <ddevault>	who is your MTA provider
+Jul 11 21:58:45 <labib>	Hi Drew! I'm a Google Apps user (and the admin for the enterprise) and in my first run through the new-account form used my regular Google Apps password. 
+Jul 11 21:59:19 <labib>	I have a OTP for the account now, but I can't figure out how to delete the original account in aerc. 
+Jul 11 21:59:31 <ddevault>	you have to set up an application password or something
+Jul 11 21:59:41 <ddevault>	oh, just remove accounts.conf
+Jul 11 21:59:45 <ddevault>	it's in ~/.config/aerc/
+Jul 11 21:59:52 <labib>	thank you!
+Jul 11 21:59:53 <ddevault>	probably, I dunno what dumb things macOS might do
+Jul 11 22:00:27 <labib>	I went digging through /usr/local to find something to edit or delete. Appreciate the help!
+Jul 11 22:01:20 <labib>	Removing accounts.conf in ~/.config/aerc worked. Thanks!
+Jul 11 22:09:08 <dkess>	are there any current efforts to package aerc for debian? if not i would be willing to look into it
+Jul 11 22:09:38 <ddevault>	please do
+Jul 12 00:20:48 *	Disconnected ()
+**** ENDING LOGGING AT Fri Jul 12 00:20:48 2019
+
+**** BEGIN LOGGING AT Fri Jul 12 08:03:20 2019
+
+Jul 12 08:03:20 *	Now talking on #aerc
+Jul 12 08:03:20 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+Jul 12 08:03:20 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Mon Jun  3 14:00:47 2019)
+Jul 12 11:53:27 *	Disconnected ()
+**** ENDING LOGGING AT Fri Jul 12 11:53:27 2019
+
+**** BEGIN LOGGING AT Fri Jul 12 11:53:56 2019
+
+Jul 12 11:53:56 *	Now talking on #aerc
+Jul 12 11:53:56 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+Jul 12 11:53:56 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Mon Jun  3 14:00:47 2019)
+Jul 12 13:24:27 *	Disconnected ()
+**** ENDING LOGGING AT Fri Jul 12 13:24:27 2019
+
+**** BEGIN LOGGING AT Fri Jul 12 13:33:52 2019
+
+Jul 12 13:33:52 *	Now talking on #aerc
+Jul 12 13:33:52 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+Jul 12 13:33:52 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Mon Jun  3 14:00:47 2019)
+Jul 12 16:18:57 *	Disconnected ()
+**** ENDING LOGGING AT Fri Jul 12 16:18:57 2019
+
+**** BEGIN LOGGING AT Fri Jul 12 16:41:16 2019
+
+Jul 12 16:41:16 *	Now talking on #aerc
+Jul 12 16:41:16 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+Jul 12 16:41:16 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Mon Jun  3 14:00:47 2019)
+**** BEGIN LOGGING AT Mon Jul 15 19:46:29 2019
+
+Jul 15 19:46:29 *	Now talking on #aerc
+Jul 15 19:46:29 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Jul 15 19:46:29 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Jul 15 20:58:49 *	Disconnected ()
+**** ENDING LOGGING AT Mon Jul 15 20:58:49 2019
+
+**** BEGIN LOGGING AT Mon Jul 15 21:02:21 2019
+
+Jul 15 21:02:21 *	Now talking on #aerc
+Jul 15 21:02:21 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Jul 15 21:02:21 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:14 2019)
+Jul 16 00:53:19 *	Disconnected ()
+**** ENDING LOGGING AT Tue Jul 16 00:53:19 2019
+
+**** BEGIN LOGGING AT Fri Oct 11 15:48:23 2019
+
+Oct 11 15:48:23 *	Now talking on #aerc
+Oct 11 15:48:23 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Oct 11 15:48:23 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Oct 11 16:31:48 *	Disconnected ()
+**** ENDING LOGGING AT Fri Oct 11 16:31:48 2019
+
+**** BEGIN LOGGING AT Fri Oct 11 20:47:11 2019
+
+Oct 11 20:47:11 *	Now talking on #aerc
+Oct 11 20:47:11 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Oct 11 20:47:11 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Oct 11 21:25:34 *	Disconnected ()
+**** ENDING LOGGING AT Fri Oct 11 21:25:34 2019
+
+**** BEGIN LOGGING AT Fri Oct 11 21:28:50 2019
+
+Oct 11 21:28:50 *	Now talking on #aerc
+Oct 11 21:28:50 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Oct 11 21:28:50 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Oct 12 08:36:31 *	Disconnected ()
+**** ENDING LOGGING AT Sat Oct 12 08:36:31 2019
+
+**** BEGIN LOGGING AT Sat Oct 12 08:49:53 2019
+
+Oct 12 08:49:53 *	Now talking on #aerc
+Oct 12 08:49:53 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Oct 12 08:49:53 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+**** ENDING LOGGING AT Sat Oct 12 10:16:01 2019
+
+**** BEGIN LOGGING AT Sat Oct 12 11:40:43 2019
+
+Oct 12 11:40:43 *	Now talking on #aerc
+Oct 12 11:40:43 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Oct 12 11:40:43 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Oct 12 11:40:43 *	Disconnected ()
+**** ENDING LOGGING AT Sat Oct 12 11:40:43 2019
+
+**** BEGIN LOGGING AT Sat Oct 12 11:41:23 2019
+
+Oct 12 11:41:23 *	Now talking on #aerc
+Oct 12 11:41:23 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Oct 12 11:41:23 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Oct 12 12:28:24 *	Disconnected ()
+**** ENDING LOGGING AT Sat Oct 12 12:28:24 2019
+
+**** BEGIN LOGGING AT Sat Oct 12 12:32:19 2019
+
+Oct 12 12:32:19 *	Now talking on #aerc
+Oct 12 12:32:19 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Oct 12 12:32:19 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Oct 12 16:00:13 <j3s>	bookworm: i would be happy to help!
+Oct 12 16:00:57 <j3s>	bookworm: are there any tasks that would be good to start with?
+Oct 12 16:03:00 <uelen[m]>	What lang is aerc written in?
+Oct 12 16:03:45 *	uelen[m] would probably be interested in working on aerc as well
+Oct 12 16:08:31 <bookworm>	uelen[m]: maybe looking at the source would have told you ;) go
+Oct 12 16:09:55 <bookworm>	@j3s exposing the tags in the MessageInfo struct so that we can display them in the messagelist
+Oct 12 16:10:17 <bookworm>	without the @ sign... j3s ∆
+Oct 12 16:11:50 <bookworm>	also, why don't you join us in #aerc-dev?
+Oct 12 16:13:05 <j3s>	i shall!
+Oct 12 16:16:59 <RMPR>	uelen[m]: iirc aerc is written in go
+**** ENDING LOGGING AT Sat Oct 12 16:18:04 2019
+
+**** BEGIN LOGGING AT Sat Oct 12 16:18:19 2019
+
+Oct 12 16:18:19 *	Now talking on #aerc
+Oct 12 16:18:19 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Oct 12 16:18:19 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+**** BEGIN LOGGING AT Sun Oct 13 19:25:04 2019
+
+Oct 13 19:25:04 *	Now talking on #aerc
+Oct 13 19:25:04 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Oct 13 19:25:04 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Oct 13 21:05:22 *	Disconnected ()
+**** ENDING LOGGING AT Sun Oct 13 21:05:22 2019
+
+**** BEGIN LOGGING AT Sun Oct 13 21:08:51 2019
+
+Oct 13 21:08:51 *	Now talking on #aerc
+Oct 13 21:08:51 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Oct 13 21:08:51 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Oct 13 21:12:22 *	Disconnected ()
+**** ENDING LOGGING AT Sun Oct 13 21:12:22 2019
+
+**** BEGIN LOGGING AT Sun Oct 13 21:29:41 2019
+
+Oct 13 21:29:41 *	Now talking on #aerc
+Oct 13 21:29:41 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Oct 13 21:29:41 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Oct 13 23:10:22 *	Disconnected ()
+**** ENDING LOGGING AT Sun Oct 13 23:10:22 2019
+
+**** BEGIN LOGGING AT Fri Oct 18 15:49:49 2019
+
+Oct 18 15:49:49 *	Now talking on #aerc
+Oct 18 15:49:49 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Oct 18 15:49:49 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+**** ENDING LOGGING AT Fri Oct 18 16:04:24 2019
+
+**** BEGIN LOGGING AT Fri Oct 18 16:04:24 2019
+
+**** ENDING LOGGING AT Fri Oct 18 16:05:24 2019
+
+**** BEGIN LOGGING AT Fri Oct 18 16:05:24 2019
+
+**** BEGIN LOGGING AT Sat Oct 19 21:57:25 2019
+
+Oct 19 21:57:25 *	Now talking on #aerc
+Oct 19 21:57:25 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Oct 19 21:57:25 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Oct 20 15:01:57 *	Disconnected ()
+**** ENDING LOGGING AT Sun Oct 20 15:01:57 2019
+
+**** BEGIN LOGGING AT Sun Oct 20 16:20:51 2019
+
+Oct 20 16:20:51 *	Now talking on #aerc
+Oct 20 16:20:51 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Oct 20 16:20:51 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Oct 20 17:06:10 *	Disconnected ()
+**** ENDING LOGGING AT Sun Oct 20 17:06:10 2019
+
+**** BEGIN LOGGING AT Sun Oct 20 21:40:57 2019
+
+Oct 20 21:40:57 *	Now talking on #aerc
+Oct 20 21:40:57 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Oct 20 21:40:57 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Oct 20 23:05:00 *	Disconnected ()
+**** ENDING LOGGING AT Sun Oct 20 23:05:00 2019
+
+**** BEGIN LOGGING AT Sun Oct 20 23:05:28 2019
+
+Oct 20 23:05:28 *	Now talking on #aerc
+Oct 20 23:05:28 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Oct 20 23:05:28 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Oct 21 08:18:34 *	Disconnected ()
+**** ENDING LOGGING AT Mon Oct 21 08:18:34 2019
+
+**** BEGIN LOGGING AT Mon Oct 21 08:19:01 2019
+
+Oct 21 08:19:01 *	Now talking on #aerc
+Oct 21 08:19:01 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Oct 21 08:19:01 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Oct 21 08:50:24 *	Disconnected ()
+**** ENDING LOGGING AT Mon Oct 21 08:50:24 2019
+
+**** BEGIN LOGGING AT Mon Oct 21 08:50:49 2019
+
+Oct 21 08:50:49 *	Now talking on #aerc
+Oct 21 08:50:49 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Oct 21 08:50:49 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+**** ENDING LOGGING AT Mon Oct 21 08:50:58 2019
+
+**** BEGIN LOGGING AT Thu Oct 31 09:17:24 2019
+
+Oct 31 09:17:24 *	Now talking on #aerc
+Oct 31 09:17:24 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Oct 31 09:17:24 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Oct 31 11:39:55 *	Disconnected ()
+**** ENDING LOGGING AT Thu Oct 31 11:39:55 2019
+
+**** BEGIN LOGGING AT Thu Oct 31 11:40:21 2019
+
+Oct 31 11:40:21 *	Now talking on #aerc
+Oct 31 11:40:21 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Oct 31 11:40:21 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Oct 31 11:53:02 *	Disconnected ()
+**** ENDING LOGGING AT Thu Oct 31 11:53:02 2019
+
+**** BEGIN LOGGING AT Thu Oct 31 11:55:48 2019
+
+Oct 31 11:55:48 *	Now talking on #aerc
+Oct 31 11:55:48 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Oct 31 11:55:48 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Oct 31 12:38:08 *	Disconnected ()
+**** ENDING LOGGING AT Thu Oct 31 12:38:08 2019
+
+**** BEGIN LOGGING AT Thu Oct 31 12:38:39 2019
+
+Oct 31 12:38:39 *	Now talking on #aerc
+Oct 31 12:38:39 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Oct 31 12:38:39 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+**** ENDING LOGGING AT Thu Oct 31 12:39:06 2019
+
+**** BEGIN LOGGING AT Wed Nov  6 09:00:38 2019
+
+Nov 06 09:00:38 *	Now talking on #aerc
+Nov 06 09:00:38 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Nov 06 09:00:38 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Nov 06 09:56:23 *	Disconnected ()
+**** ENDING LOGGING AT Wed Nov  6 09:56:23 2019
+
+**** BEGIN LOGGING AT Wed Nov  6 09:59:21 2019
+
+Nov 06 09:59:21 *	Now talking on #aerc
+Nov 06 09:59:21 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Nov 06 09:59:21 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+**** ENDING LOGGING AT Wed Nov  6 10:02:22 2019
+
+**** BEGIN LOGGING AT Thu Nov  7 14:10:04 2019
+
+Nov 07 14:10:04 *	Now talking on #aerc
+Nov 07 14:10:04 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Nov 07 14:10:04 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Nov 07 14:30:19 *	Disconnected ()
+**** ENDING LOGGING AT Thu Nov  7 14:30:19 2019
+
+**** BEGIN LOGGING AT Thu Nov  7 14:30:51 2019
+
+Nov 07 14:30:51 *	Now talking on #aerc
+Nov 07 14:30:51 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Nov 07 14:30:51 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Nov 07 14:57:02 *	Disconnected ()
+**** ENDING LOGGING AT Thu Nov  7 14:57:02 2019
+
+**** BEGIN LOGGING AT Thu Nov  7 14:57:28 2019
+
+Nov 07 14:57:28 *	Now talking on #aerc
+Nov 07 14:57:28 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Nov 07 14:57:28 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Nov 07 15:05:02 *	Disconnected ()
+**** ENDING LOGGING AT Thu Nov  7 15:05:02 2019
+
+**** BEGIN LOGGING AT Thu Nov  7 18:50:32 2019
+
+Nov 07 18:50:32 *	Now talking on #aerc
+Nov 07 18:50:32 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Nov 07 18:50:32 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Nov 07 21:56:54 *	Disconnected ()
+**** ENDING LOGGING AT Thu Nov  7 21:56:54 2019
+
+**** BEGIN LOGGING AT Thu Nov  7 21:57:27 2019
+
+Nov 07 21:57:27 *	Now talking on #aerc
+Nov 07 21:57:27 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Nov 07 21:57:27 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+**** ENDING LOGGING AT Thu Nov  7 23:40:57 2019
+
+**** BEGIN LOGGING AT Sun Dec  8 17:33:08 2019
+
+Dec 08 17:33:08 *	Now talking on #aerc
+Dec 08 17:33:08 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Dec 08 17:33:08 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Dec 09 00:04:52 *	Disconnected ()
+**** ENDING LOGGING AT Mon Dec  9 00:04:52 2019
+
+**** BEGIN LOGGING AT Tue Dec 17 08:16:41 2019
+
+Dec 17 08:16:41 *	Now talking on #aerc
+Dec 17 08:16:41 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Dec 17 08:16:41 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+**** ENDING LOGGING AT Tue Dec 17 09:12:32 2019
+
+**** BEGIN LOGGING AT Tue Dec 17 09:12:32 2019
+
+**** ENDING LOGGING AT Tue Dec 17 09:13:48 2019
+
+**** BEGIN LOGGING AT Tue Dec 17 09:13:48 2019
+
+**** ENDING LOGGING AT Tue Dec 17 09:22:46 2019
+
+**** BEGIN LOGGING AT Tue Dec 17 09:22:46 2019
+
+**** BEGIN LOGGING AT Thu Jan  2 10:45:03 2020
+
+Jan 02 10:45:03 *	Now talking on #aerc
+Jan 02 10:45:03 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Jan 02 10:45:03 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Jan 02 16:54:49 *	Disconnected ()
+**** ENDING LOGGING AT Thu Jan  2 16:54:49 2020
+
+**** BEGIN LOGGING AT Thu Jan  2 16:55:14 2020
+
+Jan 02 16:55:14 *	Now talking on #aerc
+Jan 02 16:55:14 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Jan 02 16:55:14 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Jan 02 17:11:59 *	Disconnected ()
+**** ENDING LOGGING AT Thu Jan  2 17:11:59 2020
+
+**** BEGIN LOGGING AT Thu Jan  2 17:12:25 2020
+
+Jan 02 17:12:25 *	Now talking on #aerc
+Jan 02 17:12:25 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Jan 02 17:12:25 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Jan 02 22:10:16 <gcraggs>	Hi All - Just installed aerc, but when trying to launch it I'm getting "panic: character set not supported". I've tried in both Alacritty and termite. Any suggestions on how to get it working? (aerc -v = 0.3.0)
+Jan 02 22:16:43 <bookworm>	what's your TERM/locale?
+Jan 02 22:22:16 <gcraggs>	en_GB.UTF_8 - just been digging through the tcell source and tried setting TERM=UTF_8 which solves the issue
+Jan 02 22:25:24 <gcraggs>	Not sure if en_GB.UTF_8 is a valid value, or where it's being set though
+Jan 02 22:28:32 <bookworm>	not on my system
+Jan 02 22:29:05 <bookworm>	what Distro are you on? For me the locale is called en_GB.UTF-8, note the '-' instead of the underscore
+Jan 02 22:31:28 <bookworm>	if you have a systemd based distro you can query the locales with `localectl list-locales`
+Jan 02 22:36:49 <gcraggs>	I'm using arch. That command lists only the locale you have, so I must have an invalid configuration somewhere. Thanks for helping me! Don't suppose you know where the locale would be set?
+Jan 02 22:39:55 <gcraggs>	Nevermind, looks like localectl can set that too. Thanks again for helping!
+Jan 02 22:44:30 <bookworm>	that command lists the *available* locales :)
+**** ENDING LOGGING AT Thu Jan  2 23:34:56 2020
+
+**** BEGIN LOGGING AT Wed Jan 22 10:34:15 2020
+
+Jan 22 10:34:15 *	Now talking on #aerc
+Jan 22 10:34:15 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Jan 22 10:34:15 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Jan 22 13:21:00 *	Disconnected ()
+**** ENDING LOGGING AT Wed Jan 22 13:21:00 2020
+
+**** BEGIN LOGGING AT Wed Jan 22 13:24:40 2020
+
+Jan 22 13:24:40 *	Now talking on #aerc
+Jan 22 13:24:40 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Jan 22 13:24:40 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Jan 22 13:30:00 *	Disconnected ()
+**** ENDING LOGGING AT Wed Jan 22 13:30:00 2020
+
+**** BEGIN LOGGING AT Wed Jan 22 13:32:40 2020
+
+Jan 22 13:32:40 *	Now talking on #aerc
+Jan 22 13:32:40 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Jan 22 13:32:40 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+**** ENDING LOGGING AT Wed Jan 22 16:37:31 2020
+
+**** BEGIN LOGGING AT Wed Feb 19 11:51:10 2020
+
+Feb 19 11:51:10 *	Now talking on #aerc
+Feb 19 11:51:10 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Feb 19 11:51:10 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Feb 19 12:20:50 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb 19 12:20:50 2020
+
+**** BEGIN LOGGING AT Wed Feb 19 12:25:15 2020
+
+Feb 19 12:25:15 *	Now talking on #aerc
+Feb 19 12:25:15 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Feb 19 12:25:15 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Feb 19 12:25:20 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb 19 12:25:20 2020
+
+**** BEGIN LOGGING AT Wed Feb 19 12:25:55 2020
+
+Feb 19 12:25:55 *	Now talking on #aerc
+Feb 19 12:25:55 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Feb 19 12:25:55 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Feb 19 12:27:20 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb 19 12:27:20 2020
+
+**** BEGIN LOGGING AT Wed Feb 19 12:27:52 2020
+
+Feb 19 12:27:52 *	Now talking on #aerc
+Feb 19 12:27:52 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Feb 19 12:27:52 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Feb 19 12:41:50 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb 19 12:41:50 2020
+
+**** BEGIN LOGGING AT Wed Feb 19 12:42:18 2020
+
+Feb 19 12:42:18 *	Now talking on #aerc
+Feb 19 12:42:18 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Feb 19 12:42:18 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Feb 19 13:36:50 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb 19 13:36:50 2020
+
+**** BEGIN LOGGING AT Wed Feb 19 13:37:36 2020
+
+Feb 19 13:37:36 *	Now talking on #aerc
+Feb 19 13:37:36 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Feb 19 13:37:36 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Feb 19 13:50:20 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb 19 13:50:20 2020
+
+**** BEGIN LOGGING AT Wed Feb 19 13:51:27 2020
+
+Feb 19 13:51:27 *	Now talking on #aerc
+Feb 19 13:51:27 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Feb 19 13:51:27 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Feb 19 14:39:50 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb 19 14:39:50 2020
+

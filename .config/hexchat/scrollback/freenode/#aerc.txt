@@ -1,0 +1,861 @@
+T 1560458910 19*	Now talking on 22#aerc
+T 1560458910 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+T 1560458910 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Mon Jun  3 14:00:47 2019)
+T 1560459312 23*	cwarden (~cwarden@sage.xerus.org23) has joined
+T 1560491850 19*	Now talking on 22#aerc
+T 1560491850 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+T 1560491850 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Mon Jun  3 14:00:47 2019)
+T 1560492786 24*	sindrehan has quit (Quit: The Lounge - https://thelounge.chat)
+T 1560494897 23*	sindrehan (~sindrehan@46.182.109.11023) has joined
+T 1560497101 23*	encima (88ce059c@gateway/web/freenode/ip.136.206.5.15623) has joined
+T 1560499393 20*	Disconnected (20)
+T 1560500789 19*	Now talking on 22#aerc
+T 1560500789 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+T 1560500789 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Mon Jun  3 14:00:47 2019)
+T 1560501913 20*	Disconnected (20)
+T 1560501962 20*	Disconnected (20Remote host closed socket)
+T 1560502016 20*	Disconnected (20Remote host closed socket)
+T 1560502073 20*	Disconnected (20Remote host closed socket)
+T 1560502136 20*	Disconnected (20Remote host closed socket)
+T 1560502162 19*	Now talking on 22#aerc
+T 1560502162 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+T 1560502162 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Mon Jun  3 14:00:47 2019)
+T 1560503665 23*	travis_ (~travis@cpe-70-121-164-42.satx.res.rr.com23) has joined
+T 1560503680 18<25travis_18>	Hello o/
+T 1560503708 18<25travis_18>	does anybody use gmail? if so, should I be using ssl/imap?
+T 1560503809 24*	travis_ has quit (Client Quit)
+T 1560503960 23*	Sirplus (~travis@cpe-70-121-164-42.satx.res.rr.com23) has joined
+T 1560503977 24*	Sirplus has quit (Client Quit)
+T 1560513043 20*	Disconnected (20)
+T 1560513071 19*	Now talking on 22#aerc
+T 1560513071 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+T 1560513071 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Mon Jun  3 14:00:47 2019)
+T 1560514689 23*	joemaro (~joemaro@46.222.228.23123) has joined
+T 1560516464 24*	joemaro has quit (Read error: Connection reset by peer)
+T 1560516500 23*	joemaro (~joemaro@46.222.228.23123) has joined
+T 1560516528 24*	joemaro has quit (Read error: Connection reset by peer)
+T 1560521719 18<22ddevault18>	https://todo.sr.ht/~sircmpwn/aerc2/25
+T 1560521726 18<22ddevault18>	this would be a nice ticket for anyone looking for some deeper work
+T 1560541472 20*	Disconnected (20)
+T 1560541528 22*	26RMPR sets mode 24+Z on 22RMPR
+T 1560541528 22*	26RMPR sets mode 24+i on 22RMPR
+T 1560541528 -18freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
+T 1560541528 24*	Received a CTCP 24VERSION from 18freenode-connect
+T 1560541534 19*	Now talking on 22#aerc
+T 1560541534 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+T 1560541534 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Mon Jun  3 14:00:47 2019)
+T 1560543241 24*	joemaro has quit (Remote host closed the connection)
+T 1560711750 19*	Now talking on 22#aerc
+T 1560711750 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+T 1560711750 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Mon Jun  3 14:00:47 2019)
+T 1560712022 18<24grayhatter18>	ddevault: is that the correct subject format?
+T 1560712886 18<22ddevault18>	grayhatter: yes
+T 1560712914 18<24grayhatter18>	ddevault: about the worker, is it okay to block the ui thread until the worker responds?
+T 1560712917 18<24grayhatter18>	> 
+T 1560712919 18<24grayhatter18>	> obviously not
+T 1560712937 18<24grayhatter18>	okay then, any suggestions for getting the folder list from aerc?
+T 1560712970 18<22ddevault18>	callbacks?
+T 1560712971 18<24grayhatter18>	inside commands/msg/move.go
+T 1560712974 18<22ddevault18>	we should probably also have an account store
+T 1560712997 18<24grayhatter18>	I can ask the worker, but then I'd have to block waiting the cb to respond
+T 1560713013 18<24grayhatter18>	otherwise the first [tab] wouldn't work
+T 1560713037 18<22ddevault18>	I guess in this case we can block with a timeout
+T 1560713053 18<22ddevault18>	or don't block, but cancel it if the user starts doing other stuff
+T 1560713073 18<24grayhatter18>	that's... complicated
+T 1560713093 18<24grayhatter18>	I wouldn't mind, if it felt right, but it doesn't... It feels more like I'm missing something
+T 1560713132 18<22ddevault18>	maybe we can show a spinner while we fetch
+T 1560713309 18<24grayhatter18>	I'd rather cache the directorylist somewhere
+T 1560713329 18<22ddevault18>	aye
+T 1560713957 18<24grayhatter18>	okay,
+T 1560713986 18<24grayhatter18>	time to make a design decision, how do you want to handle multiple matches?
+T 1560714001 18<22ddevault18>	it's not yet time
+T 1560714015 18<22ddevault18>	for now it should still only complete when it's unambiguous
+T 1560714024 18<24grayhatter18>	I can punt for longer on the code, but where []string is converted back to string needs a decison now
+T 1560714033 18<22ddevault18>	don't complete unless the length is 1
+T 1560714037 18<24grayhatter18>	it can be changed later obviously, but...
+T 1560714087 18<24grayhatter18>	:move folder
+T 1560714104 18<24grayhatter18>	move is unambigious, but folder[1,2,3,4] exist
+T 1560714111 18<22ddevault18>	then it should fail to complete
+T 1560714122 18<22ddevault18>	this isn't the permanent design, just the first one
+T 1560714127 18<24grayhatter18>	obviously, but what should it return
+T 1560714137 18<22ddevault18>	folder1, folder2, folder3, folder4
+T 1560714182 18<24grayhatter18>	['move', ['folder1', 'folder2', ...]]
+T 1560714191 18<22ddevault18>	no
+T 1560714193 18<22ddevault18>	bah
+T 1560714197 18<24grayhatter18>	see my problem?
+T 1560714203 18<22ddevault18>	no, you're just overcomplicating this
+T 1560714216 18<22ddevault18>	user types "move folder" then presses tab
+T 1560714223 18<22ddevault18>	the exline gives "move folder" to the completion agent
+T 1560714233 18<22ddevault18>	the completion agent shell splits it into [move, folder]
+T 1560714250 18<22ddevault18>	that it's a move command is already apparent, so it sends [move, folder] to the move commands completer
+T 1560714268 18<22ddevault18>	which knows that it expects a folder in that argument (the cursor is always at the last character its given) and pulls a list of folders
+T 1560714280 18<22ddevault18>	it then returns a list of possible commands based on folders with that prefix
+T 1560714291 18<22ddevault18>	["move folder1", "move folder2", "move folder3", "move folder4"]
+T 1560714298 18<22ddevault18>	the exline at this point gives up because len(results) != 1
+T 1560714305 18<22ddevault18>	in the future it may do something else
+T 1560714306 18<24grayhatter18>	that's what I was asking
+T 1560714333 18<24grayhatter18>	where you want the concationation logic to exist
+T 1560714363 18<24grayhatter18>	rather; on what level?
+T 1560714366 18<24grayhatter18>	wilco
+T 1560714366 18<22ddevault18>	just use your best judgement
+T 1560714386 18<22ddevault18>	otherwise I'm writing the feature myself, in english, with a faulty emitter, to a faulty parser
+T 1560714404 18<24grayhatter18>	solid copy
+T 1560714837 24*	gjabell has quit (Quit: WeeChat 2.5)
+T 1560714962 23*	gjabell (~gjabell@24-196-175-107.dhcp.ahvl.nc.charter.com23) has joined
+T 1560716610 18<24grayhatter18>	okay, as requested, everything should be ~fine
+T 1560716625 18<22ddevault18>	coolio
+T 1560716626 18<22ddevault18>	thanks
+T 1560716629 18<22ddevault18>	will review tomorrow
+T 1560716684 18<24grayhatter18>	I couldn't move the inline functions for aerc.go because I don't understand closure in go yet, and didn't want to block on that
+T 1560716755 18<24grayhatter18>	oh, it works as I want it to... go is really nice!
+T 1560722554 24*	bookworm has quit ()
+T 1560722620 23*	bookworm (~reto@unaffiliated/reto23) has joined
+T 1560723503 24*	dutchie has quit (Ping timeout: 258 seconds)
+T 1560723608 23*	dutchie (~jholland@unaffiliated/dutchie23) has joined
+T 1560723986 24*	scoots_k has quit (Quit: Page closed)
+T 1560724074 23*	scoots_k (~scott@c-71-229-194-49.hsd1.co.comcast.net23) has joined
+T 1560744553 20*	Disconnected (20)
+T 1560745298 22*	26RMPR sets mode 24+Z on 22RMPR
+T 1560745298 22*	26RMPR sets mode 24+i on 22RMPR
+T 1560745298 -18freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
+T 1560745298 24*	Received a CTCP 24VERSION from 18freenode-connect
+T 1560745303 19*	Now talking on 22#aerc
+T 1560745303 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+T 1560745303 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Mon Jun  3 14:00:47 2019)
+T 1560746172 20*	Disconnected (20)
+T 1560751606 22*	26RMPR sets mode 24+Z on 22RMPR
+T 1560751606 22*	26RMPR sets mode 24+i on 22RMPR
+T 1560751607 -18freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
+T 1560751607 24*	Received a CTCP 24VERSION from 18freenode-connect
+T 1560751612 19*	Now talking on 22#aerc
+T 1560751612 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+T 1560751612 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Mon Jun  3 14:00:47 2019)
+T 1560754258 24*	thurloat has quit (Ping timeout: 248 seconds)
+T 1560754304 24*	flacks has quit (Quit: Leaving)
+T 1560761861 20*	Disconnected (20)
+T 1560761898 22*	26RMPR sets mode 24+Z on 22RMPR
+T 1560761898 22*	26RMPR sets mode 24+i on 22RMPR
+T 1560761899 -18freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
+T 1560761899 24*	Received a CTCP 24VERSION from 18freenode-connect
+T 1560761904 19*	Now talking on 22#aerc
+T 1560761904 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+T 1560761904 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Mon Jun  3 14:00:47 2019)
+T 1560768256 23*	steven- (~steven@unaffiliated/steven23) has joined
+T 1560768328 24*	steven has quit (Ping timeout: 258 seconds)
+T 1560768536 23*	heliostatic (~heliostat@my.bdlc.co23) has joined
+T 1560769240 24*	pluvano has quit (Remote host closed the connection)
+T 1560769297 23*	pluvano (~pluvano@gateway/tor-sasl/pluvano23) has joined
+T 1560769907 20*	Disconnected (20)
+T 1560769929 22*	26RMPR sets mode 24+Z on 22RMPR
+T 1560769929 22*	26RMPR sets mode 24+i on 22RMPR
+T 1560769929 -18freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
+T 1560769929 24*	Received a CTCP 24VERSION from 18freenode-connect
+T 1560769934 19*	Now talking on 22#aerc
+T 1560769934 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+T 1560769934 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Mon Jun  3 14:00:47 2019)
+T 1560770179 18<28heliostatic18>	I've been trying to figure out why the date format in the msglist doesn't appear correctly, but in the msgview(er) it does -- https://dsc.cloud/66a285/Screen-Shot-2019-06-17-at-7.16.52-AM/Screen-Shot-2019-06-17-at-7.16.52-AM.png vs https://dsc.cloud/66a285/Screen-Shot-2019-06-17-at-7.16.58-AM/Screen-Shot-2019-06-17-at-7.16.58-AM.png
+T 1560770202 18<28heliostatic18>	But I'm at a loss
+T 1560771429 18<28bookworm18>	heliostatic: the date format changed... grab the latest defaults from the example config
+T 1560771475 18<28bookworm18>	it's not the go time format... meaning Mon Jan 2 15:04:05 MST 2006 in any order that you want
+T 1560771480 18<28bookworm18>	now*
+T 1560771771 18<28heliostatic18>	 Thanks! Trying now.
+T 1560771852 18<28heliostatic18>	Perfect, worked beautifully. I guess aerc.conf doesn't get overwritten when doing make install because it gets generated at first run. Makes sense, but I didn't realize it.
+T 1560772000 23*	dlax (~dlax@168.ip-51-38-34.eu23) has joined
+T 1623769833 20*	Disconnected (20)
+T 1561215052 19*	Now talking on 22#aerc
+T 1561215052 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+T 1561215052 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Mon Jun  3 14:00:47 2019)
+T 1561215751 18<22ddevault18>	^^
+T 1561232165 19*	Now talking on 22#aerc
+T 1561232165 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+T 1561232165 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Mon Jun  3 14:00:47 2019)
+T 1561232440 24*	josselin has quit (Ping timeout: 246 seconds)
+T 1561232884 23*	josselin (~josselin@176-189-164-202.abo.bbox.fr23) has joined
+T 1561233154 24*	josselin has quit (Ping timeout: 246 seconds)
+T 1561233753 23*	secretsnackbar (46b5bd13@gateway/web/freenode/ip.70.181.189.1923) has joined
+T 1561234108 24*	botsunyuu has quit (Remote host closed the connection)
+T 1561234119 23*	botsunyuu (~botsunyuu@188.226.135.11123) has joined
+T 1561234177 24*	botsunyuu has quit (Read error: Connection reset by peer)
+T 1561234384 23*	botsunyuu (~botsunyuu@188.226.135.11123) has joined
+T 1561234491 24*	botsunyuu has quit (Read error: Connection reset by peer)
+T 1561234502 23*	botsunyuu (~botsunyuu@188.226.135.11123) has joined
+T 1561234739 23*	josselin (~josselin@176-189-164-202.abo.bbox.fr23) has joined
+T 1561238761 24*	josselin has quit (Ping timeout: 246 seconds)
+T 1561238844 23*	josselin (~josselin@176-189-164-202.abo.bbox.fr23) has joined
+T 1561239103 24*	josselin has quit (Ping timeout: 245 seconds)
+T 1561239633 18<24grayhatter18>	git bisect is so nice
+T 1561240085 18<22ddevault18>	yes
+T 1561240106 18<28edwinbalani18>	thirded
+T 1561240730 23*	josselin (~josselin@176.189.164.20223) has joined
+T 1561241248 24*	josselin has quit (Ping timeout: 248 seconds)
+T 1561241687 18<28secretsnackbar18>	I am wondering about installing Aerc
+T 1561241742 18<28secretsnackbar18>	I guess this isn't really a chat room?
+T 1561242135 18<24grayhatter18>	no, aerc is an email client...
+T 1561242499 18<28secretsnackbar18>	yes I understand that, I thought this was a chat room about the aerc email client
+T 1561242513 18<28bookworm18>	secretsnackbar: IRC is not instant... people have lives you know
+T 1561242528 18<24grayhatter18>	well... not me
+T 1561242569 18<28bookworm18>	then go and work on v8 :P
+T 1561242587 18<24grayhatter18>	lol, writing a blog post currently
+T 1561242636 18<28bookworm18>	secretsnackbar: as for how to install... there's installation instructions in the readme I guess... if not: make; make install
+T 1561242665 18<28secretsnackbar18>	yeah, I am fumbling on them
+T 1561242665 18<28bookworm18>	you need go and some other deps, definitely mentioned in the readme
+T 1561242688 18<28secretsnackbar18>	because I was trying to follow the instructions and install go
+T 1561242688 18<28bookworm18>	so then ask a proper question instead of useless "this isn't a chatroom" ramblings
+T 1561242697 18<28secretsnackbar18>	lol
+T 1561242705 18<28bookworm18>	that wasn't meant as a joke my dear
+T 1561242721 18<28secretsnackbar18>	that doesn't mean it's not funny
+T 1561242758 18<28bookworm18>	so? any real question incoming?
+T 1561242761 18<28secretsnackbar18>	there was an appropriate response, it was "yes this is a chat room about aerc"
+T 1561242778 18<28bookworm18>	no the proper response would have been a kick ban
+T 1561242793 18<28bookworm18>	so can we carry on and solve your issue?
+T 1561242919 18<28secretsnackbar18>	forgive me, I'm not trying to bother anyone, I just was just trying to follow the instructions at: https://git.sr.ht/~sircmpwn/aerc
+T 1561268371 20*	Disconnected (20)
+T 1561268400 19*	Now talking on 22#aerc
+T 1561268400 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+T 1561268400 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Mon Jun  3 14:00:47 2019)
+T 1561268806 23*	wired-rein (~rein-rain@ool-18bc621a.dyn.optonline.net23) has joined
+T 1561268939 24*	wired-rein (~rein-rain@ool-18bc621a.dyn.optonline.net24) has left ("Leaving")
+T 1561321689 19*	Now talking on 22#aerc
+T 1561321689 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+T 1561321689 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Mon Jun  3 14:00:47 2019)
+T 1561323395 24*	gjabell has quit (Ping timeout: 245 seconds)
+T 1561323523 23*	gjabell (~gjabell@24-181-218-135.dhcp.hckr.nc.charter.com23) has joined
+T 1561323646 23*	boeg (sid41541@gateway/web/irccloud.com/x-ggjqfrpthawuifkt23) has joined
+T 1561324465 24*	gjabell has quit (Ping timeout: 268 seconds)
+T 1561324497 23*	gjabell (~gjabell@24-181-218-135.dhcp.hckr.nc.charter.com23) has joined
+T 1561325248 24*	gjabell has quit (Ping timeout: 248 seconds)
+T 1561325359 23*	gjabell (~gjabell@24-181-218-135.dhcp.hckr.nc.charter.com23) has joined
+T 1561327882 24*	gjabell has quit (Quit: WeeChat 2.5)
+T 1561362464 20*	Disconnected (20)
+T 1561362489 19*	Now talking on 22#aerc
+T 1561362489 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+T 1561362489 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Mon Jun  3 14:00:47 2019)
+T 1561365391 18<24grayhatter18>	this RFC is bad -_-
+T 1561365671 18<24grayhatter18>	interestingly enough; I'm glad I read it, the updated RFC5322 says
+T 1561365688 18<24grayhatter18>	> Comments and folding white spaceSHOULD NOT be used around the "@" in the addr-spec.
+T 1561365696 18<24grayhatter18>	https://tools.ietf.org/html/rfc5322#section-3.4.1 
+T 1561365710 18<24grayhatter18>	which was going to be my suggestion...
+T 1561366571 23*	tyxie (~tyx@uppa-nat-193-55-218-3.univ-pau.fr23) has joined
+T 1561370560 20*	Disconnected (20)
+T 1561370589 19*	Now talking on 22#aerc
+T 1561370589 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+T 1561370589 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Mon Jun  3 14:00:47 2019)
+T 1561634348 19*	Now talking on 22#aerc
+T 1561634348 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+T 1561634348 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Mon Jun  3 14:00:47 2019)
+T 1561634357 23*	quite (~quite@unaffiliated/quite23) has joined
+T 1561634360 18<24quite18>	o/
+T 1561635429 18<24quite18>	it's somewhat confusing how aerc-terminal swallows various ctrl-keys when running the editor, especially when that is emacs...
+T 1561635437 18<24quite18>	guess i'll write more mails in vim for now :}
+T 1561636115 24*	28mg_ is now known as 18mg
+T 1561636166 24*	28mg is now known as 18mg-
+T 1561642229 18<27thurloat_18>	jorgicio if you write your emails in vim, you could have a vim snippet for your signature
+T 1561642312 18<22ddevault18>	you could also rejigger aerc's keybindings to be more emacs-friendly
+T 1561642325 18<22ddevault18>	I would accept a patch which adds alternative configs to contrib
+T 1561642619 23*	_zachs (4a712f98@74.113.47.15223) has joined
+T 1561642647 18<25bandali18>	it seems that aerc always puts the sender names in double quotes, which in most cases i believe is unnecessary
+T 1561642651 18<25bandali18>	except when there’s a comma there, of course
+T 1561642654 18<25bandali18>	any other cases?
+T 1561642714 18<22ddevault18>	I'm guessing it goes for the simple implementation rather than the most optimal result
+T 1561642805 18<22ddevault18>	the algorithm is in /usr/lib/go/src/net/mail/message.go:195
+T 1561642828 18<25bandali18>	ah i see, thanks for the pointer
+T 1561642844 18<22ddevault18>	looks like at line 233 it always quotes the name without testing if it needs to
+T 1561642849 18<22ddevault18>	would fix it here and send patch to upstream go
+T 1561642883 18<25bandali18>	right. do you know if sending a patch to go requires signing a CLA or someshit?
+T 1561642893 18<22ddevault18>	actually it does, yeah
+T 1561642895 18<22ddevault18>	gdi
+T 1561642912 18*	25bandali sighs
+T 1561642941 18<22ddevault18>	and their CLA page hangs qutebrowser
+T 1561642943 18<22ddevault18>	very ncie
+T 1561643000 18<25bandali18>	that’s awesome
+T 1561643022 18<22ddevault18>	got enough of it loaded to see that you grant google a do-what-you-want-forever license to your code
+T 1561643035 18<22ddevault18>	I would accept a patch moving message.go into our source tree
+T 1561643134 18<25bandali18>	haha yeah fuck that
+T 1561643136 18<25bandali18>	sounds good
+T 1561643153 18<25bandali18>	quick q: do you think emersion’s go-message might be a better place for it?
+T 1561643157 18<22ddevault18>	no
+T 1561643165 18<22ddevault18>	well, maybe
+T 1561643171 18<22ddevault18>	but I dunno if he'd accept a similarly principled patch
+T 1561643212 18<25bandali18>	alrighty. let’s see if he chimes in. if not, let’s put it in aerc i guess
+T 1561643352 18<22emersion18>	what's this patch about?
+T 1561643392 18<22ddevault18>	Also, as a political statement, send them the patch but refuse to sign the CLA
+T 1561643464 18<25bandali18>	great idea :)
+T 1561643510 18<25bandali18>	emersion, it’s about tweaking double quoting of people’s names in email addresses, but it seems contributing to upstream go requires signing a CLA
+T 1561643514 18<25bandali18>	and i refuse to do that
+T 1561643538 18<25bandali18>	so we were wondering if you’d be interested in maintaining a copy of go’s message library in your go-message
+T 1561643613 18<22emersion18>	ah, yeah, if it's about making the MIME message nicer for humans, i'm not a very big fan of that
+T 1561643711 18<22ddevault18>	what follows is my three part rebuttal:
+T 1561643735 18<22ddevault18>	(1) the correct approach results in a smaller message and unlike the last time this came up, doesn't require draining a reader into memory to accomplish
+T 1561643748 18<22ddevault18>	(2) the code already determines if quoting is necessary for the address part
+T 1561643764 18<22ddevault18>	(3) humans do read mime messages often enough for it to matter
+T 1561643897 18<25bandali18>	ha, makes sense to me
+T 1561644172 18<29kgz18>	mfw I think I've already signed the cla
+T 1561644266 18<25bandali18>	hm, i think the only cla i ever signed was clojure’s, but that’s before i knew better :p and didn’t actually end up contributing anything to it anyway either
+T 1561644414 18<22emersion18>	if i had the code copied over already i'd consider
+T 1561644433 18<22emersion18>	but copying the code just for this is a little bit too much
+T 1561644737 24*	_zachs has quit (Ping timeout: 260 seconds)
+T 1561645999 24*	pixelherodev has quit (Ping timeout: 248 seconds)
+T 1561646122 23*	pixelherodev (znc@2604:bf00:710:0:5054:ff:fe94:ef0223) has joined
+T 1561646260 20*	Disconnected (20)
+T 1561646309 20*	Disconnected (20Remote host closed socket)
+T 1561646359 20*	Disconnected (20Remote host closed socket)
+T 1561646409 20*	Disconnected (20Remote host closed socket)
+T 1561646478 20*	Disconnected (20Remote host closed socket)
+T 1561646503 19*	Now talking on 22#aerc
+T 1561646503 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+T 1561646503 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Mon Jun  3 14:00:47 2019)
+T 1561648192 24*	vilhalmer has quit (Ping timeout: 268 seconds)
+T 1561648325 23*	vilhalmer (~vilhalmer@c-68-34-50-117.hsd1.mi.comcast.net23) has joined
+T 1561649741 24*	josselin has quit (Remote host closed the connection)
+T 1561653010 20*	Disconnected (20)
+T 1561653058 20*	Disconnected (20Remote host closed socket)
+T 1561653122 20*	Disconnected (20Remote host closed socket)
+T 1561653173 20*	Disconnected (20Remote host closed socket)
+T 1561653199 19*	Now talking on 22#aerc
+T 1561653199 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+T 1561653199 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Mon Jun  3 14:00:47 2019)
+T 1561656380 20*	Disconnected (20)
+T 1561656409 19*	Now talking on 22#aerc
+T 1561656409 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+T 1561656409 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Mon Jun  3 14:00:47 2019)
+T 1561658716 18<22dario`18>	:D
+T 1561662990 23*	NEOhidra (~NEOhidra@unaffiliated/neohidra23) has joined
+T 1561664516 18<24quite18>	but actually using it doesnt lean itself to procrastination! its reply or archive
+T 1561668732 24*	28_nick is now known as 18yankcrime
+T 1561669946 18<24quite18>	the MessageInfo struct has InternalDate and then a Envelope.Date. msglist uses the first, msgviewer the latter, with various consequences
+T 1561669981 18<24quite18>	whats up with that? i should continue reading for the source of each i guess... the latter does not grok `Date: Thu, 27 Jun 2019 05:43:54 +0200 (GMT+02:00)`, the former does
+T 1561670357 18<22ddevault18>	one of them is the date the mail server received the message, the other is the date the message claims to have been written
+T 1561670360 18<22ddevault18>	don't remember which is which
+T 1561670391 18<24quite18>	ah, it *should* be Envelope, by the sound of it
+T 1561670422 18<24quite18>	mail-server-received, that is
+T 1561670429 18<24quite18>	since that's what that is called in SMTP
+T 1561670431 18<24quite18>	:)
+T 1561670434 18<24quite18>	will look into it
+T 1561670482 18<24quite18>	ah, but it is not!
+T 1561670496 18<24quite18>	msg.Envelope.Subject e.g.
+T 1561670515 18<24quite18>	for me that name is confusing, but i've perhaps read too many RFCs
+T 1561670536 18<24quite18>	to, RFCs too much
+T 1561670538 18<24quite18>	or
+T 1561671303 18<28edwinbalani18>	I would have assumed SMTP envelope as well
+T 1561671346 18<28edwinbalani18>	Although that doesn't carry any date or subject information in itself, literally just sender and recipient
+T 1561671524 18<24quite18>	indeed
+T 1561671574 18<24quite18>	i should have destroy^H^H^H^H^H^Htweaked my go-setup in emacs... 
+T 1561671590 18<24quite18>	shouldn't have :)
+T 1561671933 18<24quite18>	but i had not read rfc3501
+T 1561671987 18<24quite18>	where envelope is precisely what they call those headers
+T 1561671991 18<24quite18>	i had read too few :(
+T 1561672035 18<28edwinbalani18>	Ah, I'd guessed IMAP terminology is creeping in
+T 1561672052 18<28edwinbalani18>	This is related to mailstore access after all
+T 1561672151 18<24quite18>	very much so
+T 1561672171 18<24quite18>	there is a RFC822Headers as well, reading rfc3501 now 
+T 1561675737 23*	Novae (~Novae@unaffiliated/novae23) has joined
+T 1561703840 20*	Disconnected (20)
+T 1561703908 19*	Now talking on 22#aerc
+T 1561703908 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+T 1561703908 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Mon Jun  3 14:00:47 2019)
+T 1561704274 24*	eeeeeta (~eta@trainsplorer/developer/eta24) has left ("wolp")
+T 1561704620 20*	Disconnected (20)
+T 1561723964 19*	Now talking on 22#aerc
+T 1561723964 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+T 1561723964 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Mon Jun  3 14:00:47 2019)
+T 1561725011 20*	Disconnected (20)
+T 1561725019 22*	26RMPR sets mode 24+Z on 22RMPR
+T 1561725019 22*	26RMPR sets mode 24+i on 22RMPR
+T 1561725020 -18freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
+T 1561725020 24*	Received a CTCP 24VERSION from 18freenode-connect
+T 1561725025 19*	Now talking on 22#aerc
+T 1561725025 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+T 1561725025 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Mon Jun  3 14:00:47 2019)
+T 1561725720 20*	Disconnected (20)
+T 1561725750 19*	Now talking on 22#aerc
+T 1561725750 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+T 1561725750 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Mon Jun  3 14:00:47 2019)
+T 1562802432 19*	Now talking on 22#aerc
+T 1562802432 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+T 1562802432 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Mon Jun  3 14:00:47 2019)
+T 1562806956 20*	Disconnected (20)
+T 1562830913 19*	Now talking on 22#aerc
+T 1562830913 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+T 1562830913 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Mon Jun  3 14:00:47 2019)
+T 1562843416 18<20ols18>	Ankhers if you have brew install just run `brew install dante` and it gives you the socksify binary
+T 1562852738 18<20m1sdirection18>	ddevault: for a v2 patch, is is a good practice to in-reply-to your v1 or originate a new thread?
+T 1562852929 18<22ddevault18>	m1sdirection: new thread
+T 1562852947 18<20m1sdirection18>	thx
+T 1562868618 20*	Disconnected (20)
+T 1562868645 19*	Now talking on 22#aerc
+T 1562868645 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+T 1562868645 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Mon Jun  3 14:00:47 2019)
+T 1562875839 18<24albertito18>	hi! does aerc support tagging, like mutt, where I can tag many messages easily and then apply an action to all of them at once?
+T 1562875866 18<24albertito18>	(I didn't find it in the docs or bugs but I thought I'd ask just in case :)
+T 1562876005 18<27chiefnoah18>	pretty sure it doesn't
+T 1562876010 18<27chiefnoah18>	(yet)
+T 1562878534 18<22labib18>	Hi aerc community! I'm a first time user on Macos with a small setup issue. When I first went through the new-account form, I used my usual account password but since it has 2FA the password obviously doesn't work. I've since generated a one time password to use with aerc, but now I can't figure out how to delete the account I first setup. The make
+T 1562878535 18<22labib18>	file suggests that I should be able to fix this in /usr/local/share/aerc/accounts.conf but for me that file is an empty placeholder. Where is aerc storing the account details for the existing account?
+T 1562878577 18<22labib18>	To be more precise, the file itself isn't empty it just contains the documentation text that it would have prior to account setup
+T 1562878655 18<22ddevault18>	who is your MTA provider
+T 1562878725 18<22labib18>	Hi Drew! I'm a Google Apps user (and the admin for the enterprise) and in my first run through the new-account form used my regular Google Apps password. 
+T 1562878759 18<22labib18>	I have a OTP for the account now, but I can't figure out how to delete the original account in aerc. 
+T 1562878771 18<22ddevault18>	you have to set up an application password or something
+T 1562878781 18<22ddevault18>	oh, just remove accounts.conf
+T 1562878785 18<22ddevault18>	it's in ~/.config/aerc/
+T 1562878792 18<22labib18>	thank you!
+T 1562878793 18<22ddevault18>	probably, I dunno what dumb things macOS might do
+T 1562878827 18<22labib18>	I went digging through /usr/local to find something to edit or delete. Appreciate the help!
+T 1562878880 18<22labib18>	Removing accounts.conf in ~/.config/aerc worked. Thanks!
+T 1562879348 18<28dkess18>	are there any current efforts to package aerc for debian? if not i would be willing to look into it
+T 1562879378 18<22ddevault18>	please do
+T 1562887248 20*	Disconnected (20)
+T 1562914994 20*	Disconnected (20Remote host closed socket)
+T 1562915000 19*	Now talking on 22#aerc
+T 1562915000 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+T 1562915000 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Mon Jun  3 14:00:47 2019)
+T 1562915042 20*	Disconnected (20Remote host closed socket)
+T 1562915106 20*	Disconnected (20Remote host closed socket)
+T 1562915170 20*	Disconnected (20Remote host closed socket)
+T 1562915238 20*	Disconnected (20Remote host closed socket)
+T 1562915312 20*	Disconnected (20Remote host closed socket)
+T 1562915386 20*	Disconnected (20Remote host closed socket)
+T 1562915460 20*	Disconnected (20Remote host closed socket)
+T 1562915523 20*	Disconnected (20Remote host closed socket)
+T 1562915585 20*	Disconnected (20Remote host closed socket)
+T 1562915645 20*	Disconnected (20Remote host closed socket)
+T 1562915719 20*	Disconnected (20Remote host closed socket)
+T 1562915776 20*	Disconnected (20Remote host closed socket)
+T 1562915822 20*	Disconnected (20Remote host closed socket)
+T 1562915868 20*	Disconnected (20Remote host closed socket)
+T 1562915926 20*	Disconnected (20Remote host closed socket)
+T 1562915968 20*	Disconnected (20Remote host closed socket)
+T 1562916010 20*	Disconnected (20Remote host closed socket)
+T 1562916073 20*	Disconnected (20Remote host closed socket)
+T 1562916115 20*	Disconnected (20Remote host closed socket)
+T 1562916157 20*	Disconnected (20Remote host closed socket)
+T 1562916199 20*	Disconnected (20Remote host closed socket)
+T 1562916241 20*	Disconnected (20Remote host closed socket)
+T 1562916283 20*	Disconnected (20Remote host closed socket)
+T 1562916325 20*	Disconnected (20Remote host closed socket)
+T 1562916367 20*	Disconnected (20Remote host closed socket)
+T 1562916409 20*	Disconnected (20Remote host closed socket)
+T 1562916456 20*	Disconnected (20Remote host closed socket)
+T 1562916532 20*	Disconnected (20Remote host closed socket)
+T 1562916577 20*	Disconnected (20Remote host closed socket)
+T 1562916627 20*	Disconnected (20Remote host closed socket)
+T 1562916677 20*	Disconnected (20Remote host closed socket)
+T 1562916727 20*	Disconnected (20Remote host closed socket)
+T 1562916777 20*	Disconnected (20Remote host closed socket)
+T 1562916827 20*	Disconnected (20Remote host closed socket)
+T 1562916889 20*	Disconnected (20Remote host closed socket)
+T 1562916953 20*	Disconnected (20Remote host closed socket)
+T 1562917019 20*	Disconnected (20Remote host closed socket)
+T 1562917060 20*	Disconnected (20Remote host closed socket)
+T 1562917102 20*	Disconnected (20Remote host closed socket)
+T 1562917153 20*	Disconnected (20Remote host closed socket)
+T 1562917217 20*	Disconnected (20Remote host closed socket)
+T 1562928807 20*	Disconnected (20)
+T 1562928836 19*	Now talking on 22#aerc
+T 1562928836 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+T 1562928836 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Mon Jun  3 14:00:47 2019)
+T 1562934267 20*	Disconnected (20)
+T 1562934832 19*	Now talking on 22#aerc
+T 1562934832 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+T 1562934832 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Mon Jun  3 14:00:47 2019)
+T 1562936841 20*	Disconnected (20Connection timed out)
+T 1562936890 20*	Disconnected (20Remote host closed socket)
+T 1562936936 20*	Disconnected (20Remote host closed socket)
+T 1562936982 20*	Disconnected (20Remote host closed socket)
+T 1562937028 20*	Disconnected (20Remote host closed socket)
+T 1562937078 20*	Disconnected (20Remote host closed socket)
+T 1562937128 20*	Disconnected (20Remote host closed socket)
+T 1562937178 20*	Disconnected (20Remote host closed socket)
+T 1562937220 20*	Disconnected (20Remote host closed socket)
+T 1562937262 20*	Disconnected (20Remote host closed socket)
+T 1562937328 20*	Disconnected (20Remote host closed socket)
+T 1562937378 20*	Disconnected (20Remote host closed socket)
+T 1562937428 20*	Disconnected (20Remote host closed socket)
+T 1562937488 20*	Disconnected (20Remote host closed socket)
+T 1562937534 20*	Disconnected (20Remote host closed socket)
+T 1562937580 20*	Disconnected (20Remote host closed socket)
+T 1562937627 20*	Disconnected (20Remote host closed socket)
+T 1562937677 20*	Disconnected (20Remote host closed socket)
+T 1562937727 20*	Disconnected (20Remote host closed socket)
+T 1562937777 20*	Disconnected (20Remote host closed socket)
+T 1562937827 20*	Disconnected (20Remote host closed socket)
+T 1562937877 20*	Disconnected (20Remote host closed socket)
+T 1562937928 20*	Disconnected (20Remote host closed socket)
+T 1562937978 20*	Disconnected (20Remote host closed socket)
+T 1562938028 20*	Disconnected (20Remote host closed socket)
+T 1562938081 20*	Disconnected (20Remote host closed socket)
+T 1562938145 20*	Disconnected (20Remote host closed socket)
+T 1562938209 20*	Disconnected (20Remote host closed socket)
+T 1562938273 20*	Disconnected (20Remote host closed socket)
+T 1562938337 20*	Disconnected (20Remote host closed socket)
+T 1562938402 20*	Disconnected (20Remote host closed socket)
+T 1562938452 20*	Disconnected (20Remote host closed socket)
+T 1562938502 20*	Disconnected (20Remote host closed socket)
+T 1562938546 20*	Disconnected (20Remote host closed socket)
+T 1562938592 20*	Disconnected (20Remote host closed socket)
+T 1562938638 20*	Disconnected (20Remote host closed socket)
+T 1562938703 20*	Disconnected (20Remote host closed socket)
+T 1562938753 20*	Disconnected (20Remote host closed socket)
+T 1562938803 20*	Disconnected (20Remote host closed socket)
+T 1562938852 20*	Disconnected (20Remote host closed socket)
+T 1562938902 20*	Disconnected (20Remote host closed socket)
+T 1562938952 20*	Disconnected (20Remote host closed socket)
+T 1562939005 20*	Disconnected (20Remote host closed socket)
+T 1562939047 20*	Disconnected (20Remote host closed socket)
+T 1562939089 20*	Disconnected (20Remote host closed socket)
+T 1562939144 20*	Disconnected (20Remote host closed socket)
+T 1562939190 20*	Disconnected (20Remote host closed socket)
+T 1562939236 20*	Disconnected (20Remote host closed socket)
+T 1562939302 20*	Disconnected (20Remote host closed socket)
+T 1562939352 20*	Disconnected (20Remote host closed socket)
+T 1562939402 20*	Disconnected (20Remote host closed socket)
+T 1562939452 20*	Disconnected (20Remote host closed socket)
+T 1562939502 20*	Disconnected (20Remote host closed socket)
+T 1562939552 20*	Disconnected (20Remote host closed socket)
+T 1562939603 20*	Disconnected (20Remote host closed socket)
+T 1562939653 20*	Disconnected (20Remote host closed socket)
+T 1562939703 20*	Disconnected (20Remote host closed socket)
+T 1562939765 20*	Disconnected (20Remote host closed socket)
+T 1562939811 20*	Disconnected (20Remote host closed socket)
+T 1562939857 20*	Disconnected (20Remote host closed socket)
+T 1562939920 20*	Disconnected (20Remote host closed socket)
+T 1562939982 20*	Disconnected (20Remote host closed socket)
+T 1562940027 20*	Disconnected (20Remote host closed socket)
+T 1562940077 20*	Disconnected (20Remote host closed socket)
+T 1562940127 20*	Disconnected (20Remote host closed socket)
+T 1562940179 20*	Disconnected (20Remote host closed socket)
+T 1562940225 20*	Disconnected (20Remote host closed socket)
+T 1562940271 20*	Disconnected (20Remote host closed socket)
+T 1562940328 20*	Disconnected (20Remote host closed socket)
+T 1562940378 20*	Disconnected (20Remote host closed socket)
+T 1562940428 20*	Disconnected (20Remote host closed socket)
+T 1562940478 20*	Disconnected (20Remote host closed socket)
+T 1562940528 20*	Disconnected (20Remote host closed socket)
+T 1562940578 20*	Disconnected (20Remote host closed socket)
+T 1562940628 20*	Disconnected (20Remote host closed socket)
+T 1562940678 20*	Disconnected (20Remote host closed socket)
+T 1562940728 20*	Disconnected (20Remote host closed socket)
+T 1562940778 20*	Disconnected (20Remote host closed socket)
+T 1562940828 20*	Disconnected (20Remote host closed socket)
+T 1562940878 20*	Disconnected (20Remote host closed socket)
+T 1562940953 20*	Disconnected (20Remote host closed socket)
+T 1562941027 20*	Disconnected (20Remote host closed socket)
+T 1562941084 20*	Disconnected (20Remote host closed socket)
+T 1562941126 20*	Disconnected (20Remote host closed socket)
+T 1562941168 20*	Disconnected (20Remote host closed socket)
+T 1562941212 20*	Disconnected (20Remote host closed socket)
+T 1562941286 20*	Disconnected (20Remote host closed socket)
+T 1562941360 20*	Disconnected (20Remote host closed socket)
+T 1562941408 20*	Disconnected (20Remote host closed socket)
+T 1562941470 20*	Disconnected (20Remote host closed socket)
+T 1562941532 20*	Disconnected (20Remote host closed socket)
+T 1562941578 20*	Disconnected (20Remote host closed socket)
+T 1562941628 20*	Disconnected (20Remote host closed socket)
+T 1562941678 20*	Disconnected (20Remote host closed socket)
+T 1562941749 20*	Disconnected (20Remote host closed socket)
+T 1562941811 20*	Disconnected (20Remote host closed socket)
+T 1562941853 20*	Disconnected (20Remote host closed socket)
+T 1562941903 20*	Disconnected (20Remote host closed socket)
+T 1562941953 20*	Disconnected (20Remote host closed socket)
+T 1562941997 20*	Disconnected (20Remote host closed socket)
+T 1562942059 20*	Disconnected (20Remote host closed socket)
+T 1562942121 20*	Disconnected (20Remote host closed socket)
+T 1562942176 20*	Disconnected (20Remote host closed socket)
+T 1562942218 20*	Disconnected (20Remote host closed socket)
+T 1562942260 20*	Disconnected (20Remote host closed socket)
+T 1562942322 20*	Disconnected (20Remote host closed socket)
+T 1562942396 20*	Disconnected (20Remote host closed socket)
+T 1562942452 20*	Disconnected (20Remote host closed socket)
+T 1562942502 20*	Disconnected (20Remote host closed socket)
+T 1562942552 20*	Disconnected (20Remote host closed socket)
+T 1562942602 20*	Disconnected (20Remote host closed socket)
+T 1562942652 20*	Disconnected (20Remote host closed socket)
+T 1562942702 20*	Disconnected (20Remote host closed socket)
+T 1562942753 20*	Disconnected (20Remote host closed socket)
+T 1562942817 20*	Disconnected (20Remote host closed socket)
+T 1562942881 20*	Disconnected (20Remote host closed socket)
+T 1562942951 20*	Disconnected (20Remote host closed socket)
+T 1562943025 20*	Disconnected (20Remote host closed socket)
+T 1562943094 20*	Disconnected (20Remote host closed socket)
+T 1562943170 20*	Disconnected (20Remote host closed socket)
+T 1562943246 20*	Disconnected (20Remote host closed socket)
+T 1562943322 20*	Disconnected (20Remote host closed socket)
+T 1562943393 20*	Disconnected (20Remote host closed socket)
+T 1562943457 20*	Disconnected (20Remote host closed socket)
+T 1562943512 20*	Disconnected (20Remote host closed socket)
+T 1562943588 20*	Disconnected (20Remote host closed socket)
+T 1562943649 20*	Disconnected (20Remote host closed socket)
+T 1562943713 20*	Disconnected (20Remote host closed socket)
+T 1562943764 20*	Disconnected (20Remote host closed socket)
+T 1562943826 20*	Disconnected (20Remote host closed socket)
+T 1562943888 20*	Disconnected (20Remote host closed socket)
+T 1562943968 20*	Disconnected (20Remote host closed socket)
+T 1562944044 20*	Disconnected (20Remote host closed socket)
+T 1562944102 20*	Disconnected (20Remote host closed socket)
+T 1562944152 20*	Disconnected (20Remote host closed socket)
+T 1562944202 20*	Disconnected (20Remote host closed socket)
+T 1562944252 20*	Disconnected (20Remote host closed socket)
+T 1562944302 20*	Disconnected (20Remote host closed socket)
+T 1562944352 20*	Disconnected (20Remote host closed socket)
+T 1562944402 20*	Disconnected (20Remote host closed socket)
+T 1562944452 20*	Disconnected (20Remote host closed socket)
+T 1562944502 20*	Disconnected (20Remote host closed socket)
+T 1562944553 20*	Disconnected (20Remote host closed socket)
+T 1562944603 20*	Disconnected (20Remote host closed socket)
+T 1562944653 20*	Disconnected (20Remote host closed socket)
+T 1562944737 20*	Disconnected (20)
+T 1562946076 19*	Now talking on 22#aerc
+T 1562946076 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - Stick around a while, your question might not be answered immediately
+T 1562946076 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Mon Jun  3 14:00:47 2019)
+T 1562946113 20*	Disconnected (20Remote host closed socket)
+T 1562946159 20*	Disconnected (20Remote host closed socket)
+T 1562946205 20*	Disconnected (20Remote host closed socket)
+T 1562946253 20*	Disconnected (20Remote host closed socket)
+T 1562946303 20*	Disconnected (20Remote host closed socket)
+T 1562946353 20*	Disconnected (20Remote host closed socket)
+T 1562946401 20*	Disconnected (20Remote host closed socket)
+T 1562946465 20*	Disconnected (20Remote host closed socket)
+T 1562946529 20*	Disconnected (20Remote host closed socket)
+T 1562946593 20*	Disconnected (20Remote host closed socket)
+T 1562946657 20*	Disconnected (20Remote host closed socket)
+T 1562946702 20*	Disconnected (20Remote host closed socket)
+T 1562946752 20*	Disconnected (20Remote host closed socket)
+T 1562946802 20*	Disconnected (20Remote host closed socket)
+T 1562946852 20*	Disconnected (20Remote host closed socket)
+T 1562946902 20*	Disconnected (20Remote host closed socket)
+T 1562946952 20*	Disconnected (20Remote host closed socket)
+T 1562947002 20*	Disconnected (20Remote host closed socket)
+T 1562947052 20*	Disconnected (20Remote host closed socket)
+T 1562947102 20*	Disconnected (20Remote host closed socket)
+T 1562947169 20*	Disconnected (20Remote host closed socket)
+T 1562947233 20*	Disconnected (20Remote host closed socket)
+T 1562947280 20*	Disconnected (20Remote host closed socket)
+T 1562947354 20*	Disconnected (20Remote host closed socket)
+T 1562947426 20*	Disconnected (20Remote host closed socket)
+T 1562947502 20*	Disconnected (20Remote host closed socket)
+T 1562947576 20*	Disconnected (20Remote host closed socket)
+T 1562947628 20*	Disconnected (20Remote host closed socket)
+T 1562947678 20*	Disconnected (20Remote host closed socket)
+T 1562947728 20*	Disconnected (20Remote host closed socket)
+T 1562947783 20*	Disconnected (20Remote host closed socket)
+T 1562947825 20*	Disconnected (20Remote host closed socket)
+T 1562947867 20*	Disconnected (20Remote host closed socket)
+T 1562947937 20*	Disconnected (20Remote host closed socket)
+T 1562948001 20*	Disconnected (20Remote host closed socket)
+T 1563216389 19*	Now talking on 22#aerc
+T 1563216389 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1563216389 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1563220729 20*	Disconnected (20)
+T 1563220941 19*	Now talking on 22#aerc
+T 1563220941 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1563220941 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:14 2019)
+T 1563234799 20*	Disconnected (20)
+T 1570805303 19*	Now talking on 22#aerc
+T 1570805303 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1570805303 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1570807908 20*	Disconnected (20)
+T 1570823231 19*	Now talking on 22#aerc
+T 1570823231 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1570823231 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1570825534 20*	Disconnected (20)
+T 1570825597 20*	Disconnected (20Remote host closed socket)
+T 1570825649 20*	Disconnected (20Remote host closed socket)
+T 1570825701 20*	Disconnected (20Remote host closed socket)
+T 1570825730 19*	Now talking on 22#aerc
+T 1570825730 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1570825730 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1570865791 20*	Disconnected (20)
+T 1570866593 19*	Now talking on 22#aerc
+T 1570866593 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1570866593 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1570876843 19*	Now talking on 22#aerc
+T 1570876843 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1570876843 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1570876843 20*	Disconnected (20)
+T 1570876851 20*	Disconnected (20)
+T 1570876857 20*	Disconnected (20)
+T 1570876865 20*	Disconnected (20)
+T 1570876883 19*	Now talking on 22#aerc
+T 1570876883 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1570876883 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1570879704 20*	Disconnected (20)
+T 1570879768 20*	Disconnected (20Remote host closed socket)
+T 1570879816 20*	Disconnected (20Remote host closed socket)
+T 1570879864 20*	Disconnected (20Remote host closed socket)
+T 1570879911 20*	Disconnected (20Remote host closed socket)
+T 1570879939 19*	Now talking on 22#aerc
+T 1570879939 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1570879939 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1570892413 18<22j3s18>	bookworm: i would be happy to help!
+T 1570892457 18<22j3s18>	bookworm: are there any tasks that would be good to start with?
+T 1570892580 18<22uelen[m]18>	What lang is aerc written in?
+T 1570892625 18*	22uelen[m] would probably be interested in working on aerc as well
+T 1570892911 18<28bookworm18>	uelen[m]: maybe looking at the source would have told you ;) go
+T 1570892995 18<28bookworm18>	@j3s exposing the tags in the MessageInfo struct so that we can display them in the messagelist
+T 1570893017 18<28bookworm18>	without the @ sign... j3s ∆
+T 1570893110 18<28bookworm18>	also, why don't you join us in #aerc-dev?
+T 1570893185 18<22j3s18>	i shall!
+T 1570893419 20<RMPR>30	uelen[m]: iirc aerc is written in go
+T 1570893499 19*	Now talking on 22#aerc
+T 1570893499 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1570893499 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1570991104 19*	Now talking on 22#aerc
+T 1570991104 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1570991104 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1570997122 20*	Disconnected (20)
+T 1570997331 19*	Now talking on 22#aerc
+T 1570997331 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1570997331 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1570997542 20*	Disconnected (20)
+T 1570998581 19*	Now talking on 22#aerc
+T 1570998581 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1570998581 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1571004622 20*	Disconnected (20)
+T 1571004646 23*	28RMPR is already in use. Retrying with 18...
+T 1571004686 20*	Disconnected (20Remote host closed socket)
+T 1571004706 23*	28RMPR is already in use. Retrying with 18...
+T 1571004734 20*	Disconnected (20Remote host closed socket)
+T 1571004751 23*	28RMPR is already in use. Retrying with 18...
+T 1571004891 FiSHLiM plugin unloaded
+T 1571410189 19*	Now talking on 22#aerc
+T 1571410189 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1571410189 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1571518645 19*	Now talking on 22#aerc
+T 1571518645 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1571518645 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1571580117 20*	Disconnected (20)
+T 1571584851 19*	Now talking on 22#aerc
+T 1571584851 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1571584851 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1571587570 20*	Disconnected (20)
+T 1571604057 19*	Now talking on 22#aerc
+T 1571604057 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1571604057 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1571609100 20*	Disconnected (20)
+T 1571609128 19*	Now talking on 22#aerc
+T 1571609128 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1571609128 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1571642314 20*	Disconnected (20)
+T 1571642341 19*	Now talking on 22#aerc
+T 1571642341 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1571642341 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1571642362 20*	Disconnected (20Remote host closed socket)
+T 1571642404 20*	Disconnected (20Remote host closed socket)
+T 1571642482 20*	Disconnected (20Remote host closed socket)
+T 1571644224 20*	Disconnected (20)
+T 1571644249 19*	Now talking on 22#aerc
+T 1571644249 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1571644249 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1572509844 19*	Now talking on 22#aerc
+T 1572509844 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1572509844 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1572518395 20*	Disconnected (20)
+T 1572518421 19*	Now talking on 22#aerc
+T 1572518421 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1572518421 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1572519182 20*	Disconnected (20)
+T 1572519348 19*	Now talking on 22#aerc
+T 1572519348 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1572519348 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1572521888 20*	Disconnected (20)
+T 1572521919 19*	Now talking on 22#aerc
+T 1572521919 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1572521919 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1573027238 19*	Now talking on 22#aerc
+T 1573027238 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1573027238 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1573030583 20*	Disconnected (20)
+T 1573030653 20*	Disconnected (20Remote host closed socket)
+T 1573030731 20*	Disconnected (20Remote host closed socket)
+T 1573030761 19*	Now talking on 22#aerc
+T 1573030761 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1573030761 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1573132204 19*	Now talking on 22#aerc
+T 1573132204 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1573132204 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1573133419 20*	Disconnected (20)
+T 1573133451 19*	Now talking on 22#aerc
+T 1573133451 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1573133451 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1573135022 20*	Disconnected (20)
+T 1573135048 19*	Now talking on 22#aerc
+T 1573135048 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1573135048 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1573135502 20*	Disconnected (20)
+T 1573149032 19*	Now talking on 22#aerc
+T 1573149032 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1573149032 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1573160214 20*	Disconnected (20)
+T 1573160247 19*	Now talking on 22#aerc
+T 1573160247 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1573160247 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1575822788 19*	Now talking on 22#aerc
+T 1575822788 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1575822788 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1575846292 20*	Disconnected (20)
+T 1576567001 19*	Now talking on 22#aerc
+T 1576567001 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1576567001 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1577958303 19*	Now talking on 22#aerc
+T 1577958303 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1577958303 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1577980489 20*	Disconnected (20)
+T 1577980514 19*	Now talking on 22#aerc
+T 1577980514 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1577980514 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1577981519 20*	Disconnected (20)
+T 1577981545 19*	Now talking on 22#aerc
+T 1577981545 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1577981545 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1577999416 18<26gcraggs18>	Hi All - Just installed aerc, but when trying to launch it I'm getting "panic: character set not supported". I've tried in both Alacritty and termite. Any suggestions on how to get it working? (aerc -v = 0.3.0)
+T 1577999803 18<28bookworm18>	what's your TERM/locale?
+T 1578000136 18<26gcraggs18>	en_GB.UTF_8 - just been digging through the tcell source and tried setting TERM=UTF_8 which solves the issue
+T 1578000324 18<26gcraggs18>	Not sure if en_GB.UTF_8 is a valid value, or where it's being set though
+T 1578000512 18<28bookworm18>	not on my system
+T 1578000545 18<28bookworm18>	what Distro are you on? For me the locale is called en_GB.UTF-8, note the '-' instead of the underscore
+T 1578000688 18<28bookworm18>	if you have a systemd based distro you can query the locales with `localectl list-locales`
+T 1578001009 18<26gcraggs18>	I'm using arch. That command lists only the locale you have, so I must have an invalid configuration somewhere. Thanks for helping me! Don't suppose you know where the locale would be set?
+T 1578001195 18<26gcraggs18>	Nevermind, looks like localectl can set that too. Thanks again for helping!
+T 1578001470 18<28bookworm18>	that command lists the *available* locales :)
+T 1579685655 19*	Now talking on 22#aerc
+T 1579685655 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1579685655 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1579695660 20*	Disconnected (20)
+T 1579695852 20*	Disconnected (20Remote host closed socket)
+T 1579695880 19*	Now talking on 22#aerc
+T 1579695880 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1579695880 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1579696200 20*	Disconnected (20)
+T 1579696360 19*	Now talking on 22#aerc
+T 1579696360 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1579696360 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1582109470 19*	Now talking on 22#aerc
+T 1582109470 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1582109470 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1582111250 20*	Disconnected (20)
+T 1582111365 20*	Disconnected (20Remote host closed socket)
+T 1582111431 20*	Disconnected (20Remote host closed socket)
+T 1582111515 19*	Now talking on 22#aerc
+T 1582111515 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1582111515 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1582111520 20*	Disconnected (20)
+T 1582111555 19*	Now talking on 22#aerc
+T 1582111555 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1582111555 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1582111640 20*	Disconnected (20)
+T 1582111672 19*	Now talking on 22#aerc
+T 1582111672 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1582111672 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1582112510 20*	Disconnected (20)
+T 1582112538 19*	Now talking on 22#aerc
+T 1582112538 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1582112538 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1582115810 20*	Disconnected (20)
+T 1582115856 19*	Now talking on 22#aerc
+T 1582115856 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1582115856 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1582116620 20*	Disconnected (20)
+T 1582116687 19*	Now talking on 22#aerc
+T 1582116687 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1582116687 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1582119590 20*	Disconnected (20)

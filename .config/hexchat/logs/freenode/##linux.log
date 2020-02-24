@@ -1,0 +1,116 @@
+**** BEGIN LOGGING AT Mon Apr 22 12:32:13 2019
+
+Apr 22 12:32:13 *	Now talking on ##linux
+Apr 22 12:32:13 *	Topic for ##linux is: Channel website: https://freenode.linux.community | Pastebin: https://paste.linux.community | Need an op? Join ##linux-ops | CoC? ##linux-offtopic, please.
+Apr 22 12:32:13 *	Topic for ##linux set by sauvin (Tue Sep 18 20:14:08 2018)
+Apr 22 12:32:13 -ChanServ-	[##linux] Please see https://freenode.linux.community/how-to-connect/ on how to register or identify your nick. By joining this channel you agree to abide by the channel rules and guidelines laid out at https://freenode.linux.community/channel-rules/.
+Apr 22 12:32:13 *	Channel ##linux url: http://linux.chat
+Apr 22 12:32:42 *	linelevel has quit (Remote host closed the connection)
+Apr 22 12:32:57 *	linelevel (~linelevel@unaffiliated/linelevel) has joined
+Apr 22 12:33:29 *	caecias has quit (Ping timeout: 244 seconds)
+Apr 22 12:34:05 *	BluesKaj has quit (Quit: Konversation terminated!)
+Apr 22 12:34:28 *	pabed (~Thunderbi@5.116.37.168) has joined
+Apr 22 12:35:49 *	kristijonas (~kristijon@78-56-32-39.static.zebra.lt) has joined
+Apr 22 12:36:13 *	BluesKaj_ (~kaj@unaffiliated/blueskaj) has joined
+Apr 22 12:36:24 *	BluesKaj_ has quit (Client Quit)
+Apr 22 12:36:59 *	TheWild (~Thunderbi@5.174.31.0) has joined
+Apr 22 12:37:06 *	mehjari has quit (Ping timeout: 256 seconds)
+Apr 22 12:37:09 <TheWild>	hello
+Apr 22 12:37:22 *	norova_ has quit (Ping timeout: 268 seconds)
+Apr 22 12:37:53 *	ice9 has quit (Read error: Connection reset by peer)
+Apr 22 12:38:41 *	DmitryBochkarev has quit (Remote host closed the connection)
+Apr 22 12:38:54 *	BluesKaj (kaj@gateway/vpn/privateinternetaccess/blueskaj) has joined
+Apr 22 12:39:10 *	CaptainN has quit (Ping timeout: 244 seconds)
+Apr 22 12:39:16 *	DmitryBochkarev (~DmitryBoc@212.104.75.232) has joined
+Apr 22 12:40:00 *	layer has quit (Ping timeout: 246 seconds)
+Apr 22 12:40:21 *	gulver has quit (Ping timeout: 246 seconds)
+Apr 22 12:40:43 *	pabed has quit (Ping timeout: 244 seconds)
+Apr 22 12:41:03 <TheWild>	I have some trouble with ddrescue (or just that my CD/DVD reader is buggy). Recovering a CD (1.iso). Well, some sectors couldn't be read at first but were read eventually after some work from ddrescue. Some couldn't be read at all. Eject, clean up, try again with "retry" flag. Done. 100%.
+Apr 22 12:41:15 *	toddynho (toddynho@2001:470:8afc:cafe::4:a11) has joined
+Apr 22 12:41:38 *	Necktwi has quit (Ping timeout: 246 seconds)
+Apr 22 12:41:45 <TheWild>	To be sure, I created new directory and ddrescued again the whole disk from scratch (without mapfile). Again, 100%. Wow!
+Apr 22 12:42:09 <TheWild>	now the final test:  cmp -l 1.iso 2.iso
+Apr 22 12:42:19 *	JavaKing has quit (Remote host closed the connection)
+Apr 22 12:42:39 *	JavaKing (JavaKing@gateway/vpn/privateinternetaccess/javaking) has joined
+Apr 22 12:42:40 <TheWild>	clearly shows the differences :/. I bet that's 1.iso that contiains some garbage data.
+Apr 22 12:42:45 *	keepLearning512 (~keepLearn@106.51.72.155) has joined
+Apr 22 12:42:59 <lleo>	strip ecc data?
+Apr 22 12:43:01 <TheWild>	ddrescue claims in mapfile those sectors were eventually read fine.
+Apr 22 12:43:25 <TheWild>	is that ddrescue bug or just something stinks in the CD/DVD reader?
+Apr 22 12:43:32 *	knidos (~knidos@88.244.229.60) has joined
+Apr 22 12:43:32 *	pabed (~Thunderbi@81.12.52.130) has joined
+Apr 22 12:44:01 <lleo>	with sg_utils or worse?
+Apr 22 12:44:44 <TheWild>	this is not about raw 2352-byte sectors that I was asking yesterday
+Apr 22 12:44:46 *	esp32_prog (~esp32_pro@lstlambert-656-1-2-250.w90-63.abo.wanadoo.fr) has joined
+Apr 22 12:44:46 *	GreyXor (~GreyXor@82-64-83-119.subs.proxad.net) has joined
+Apr 22 12:45:26 <TheWild>	This is about: I can't trust either ddrescue or CD/DVD reader - which one is to blame?
+Apr 22 12:47:10 *	plusone has quit (Quit: plusone)
+Apr 22 12:48:33 *	doodlebug has quit (Ping timeout: 268 seconds)
+Apr 22 12:48:41 <TheWild>	I have to keep those old CDs and read them from time to time and track down differences.
+Apr 22 12:49:09 *	indistylo (~aruns_@27.59.52.185) has joined
+Apr 22 14:31:22 *	Disconnected ()
+**** ENDING LOGGING AT Mon Apr 22 14:31:22 2019
+
+**** BEGIN LOGGING AT Tue Apr 23 14:24:30 2019
+
+Apr 23 14:24:30 *	Now talking on ##linux
+Apr 23 14:24:30 *	Topic for ##linux is: Channel website: https://freenode.linux.community | Pastebin: https://paste.linux.community | Need an op? Join ##linux-ops | CoC? ##linux-offtopic, please.
+Apr 23 14:24:30 *	Topic for ##linux set by sauvin (Tue Sep 18 20:14:08 2018)
+Apr 23 14:24:30 -ChanServ-	[##linux] Please see https://freenode.linux.community/how-to-connect/ on how to register or identify your nick. By joining this channel you agree to abide by the channel rules and guidelines laid out at https://freenode.linux.community/channel-rules/.
+Apr 23 14:24:30 *	Channel ##linux url: http://linux.chat
+Apr 23 14:24:31 <pantsu>	banisterfiend: "but sysv is so simple and is much easier to debug than systemd since it is just shell scripts!"
+Apr 23 14:24:33 <pantsu>	:p
+Apr 23 14:24:35 *	h4v3st has quit (Ping timeout: 256 seconds)
+Apr 23 14:24:41 *	ahjolinna has quit (Read error: Connection reset by peer)
+Apr 23 14:24:46 <pantsu>	banisterfiend: you could add some printf debugging
+Apr 23 14:24:48 <yustin>	:D
+Apr 23 14:25:06 <gofio>	it just stays there, no blinking or nothing, just "loading". Should I WAIT I guess?
+Apr 23 14:25:11 <pantsu>	see if the script gets executed at all
+Apr 23 14:25:31 <pantsu>	and if not, add some printf debugging to the rc.sysinit etc themself
+Apr 23 14:25:40 <gofio>	it shows the word "loading" now triceratux roboirc
+Apr 23 14:26:26 *	indistylo has quit (Remote host closed the connection)
+Apr 23 14:26:45 *	triceratux googles chkconfig
+Apr 23 14:27:01 *	Michel (~Michel@unaffiliated/michel) has joined
+Apr 23 14:27:05 *	indistylo (~aruns_@106.51.25.10) has joined
+Apr 23 14:27:37 <gofio>	if that was for me triceratux  i've googled it
+Apr 23 14:27:59 *	czwolf has quit (Ping timeout: 276 seconds)
+Apr 23 14:28:51 <qswz>	pantsu: nothing crazy: https://gist.github.com/caub/e01b022d4706dc8e0e419f8dc1dc0c90, cryptodan I'll try that
+Apr 23 14:28:56 <banisterfiend>	pantsu https://gist.github.com/banister/060d0398a7438e3b99e1bf4df9d1f724
+Apr 23 14:29:06 <gofio>	the black screen now has the word "loading" at the top left pantsu
+Apr 23 14:29:12 *	pd09041999 has quit (Ping timeout: 245 seconds)
+Apr 23 14:29:14 <qswz>	I've disabled quiet splasg and sudo update-grub2
+Apr 23 14:29:15 *	indistylo has quit (Remote host closed the connection)
+Apr 23 14:29:16 <triceratux>	banisterfiend: one thing i can say is the mx forum is highly responsive & friendly. & theyre bracing for what will happen now that mx is going to be on top of distrowatch for several months https://forum.mxlinux.org/viewtopic.php?f=94&t=48858
+Apr 23 14:29:18 <qswz>	splash*
+Apr 23 14:29:26 *	gulver has quit (Quit: WeeChat 2.4)
+Apr 23 14:29:46 *	czwolf (~Cz@2607:5300:60:1176::1) has joined
+Apr 23 14:29:49 <djph>	triceratux: run and hide?
+Apr 23 14:29:53 <banisterfiend>	triceratux thanks! :) I just wonder why this damn thing doesn't work, looks like i did everything right afaict
+Apr 23 14:30:12 <pantsu>	hmm gist doesn't want to render it
+Apr 23 14:30:14 <triceratux>	banisterfiend: yer a poster child for migrating to systemd :)
+Apr 23 14:30:32 *	indistylo (~aruns_@106.51.25.10) has joined
+Apr 23 14:30:32 <qswz>	I hate systemd as well
+Apr 23 14:30:40 <pantsu>	f5f5f5f5f5f5f5f5f5 and it sort of works
+Apr 23 14:30:55 *	pd09041999 (~pd0904199@14.139.61.130) has joined
+Apr 23 14:30:59 <azizLIGHT>	how do i ensure that reverse ssh tunnel stays permanent? just putting it in cronjob is enough to handle disconnects and reconnects and network changes?
+Apr 23 14:31:08 *	tnewman (~tnewman@36.231.29.52) has joined
+Apr 23 14:31:14 *	rickardo1 has quit (Ping timeout: 276 seconds)
+Apr 23 14:31:21 *	garvin13 (~textual@66.254.239.55) has joined
+Apr 23 14:31:39 <cryptodan>	qswz: so what did "sudo shutdown -h now" yield?
+Apr 23 14:31:47 <cluelessperson>	azizLIGHT: why are you making a permanent reverse ssh tunnel?
+Apr 23 14:31:47 <pantsu>	qswz: 40 sec wait for the kernel is quite impressive
+Apr 23 14:31:53 <kadiro>	gofio, see this https://ubuntuforums.org/showthread.php?t=1520821
+Apr 23 14:31:55 *	qswz has quit (Remote host closed the connection)
+Apr 23 14:32:16 *	yakiza (~yakiza@148.253.167.42) has joined
+Apr 23 14:32:22 <gofio>	thanks kadiro, reading now
+Apr 23 14:33:35 <azizLIGHT>	cluelessperson: to handle cgnat
+Apr 23 14:33:43 *	qswz (~caub@vau06-3-82-247-80-102.fbx.proxad.net) has joined
+Apr 23 14:33:52 <azizLIGHT>	cannot setup port forwarding on 4g isp
+Apr 23 14:33:53 <qswz>	cryptodan: back from sudo shutdown -h now, so it was fast
+Apr 23 14:33:56 *	con3 has quit (Quit: KVIrc 4.9.3 Aria http://www.kvirc.net/)
+Apr 23 14:34:05 *	pd09041999 has quit (Excess Flood)
+Apr 23 14:34:17 <qswz>	Sorry I missed what the other user told me
+Apr 23 14:34:17 <cryptodan>	qswz: then your issue is with the gui command via your desktop environment
+Apr 23 14:34:31 <qswz>	ah ok
+Apr 23 14:34:38 *	pd09041999 (~pd0904199@14.139.61.130) has joined
+Apr 23 14:34:39 <qswz>	a lxde issue then

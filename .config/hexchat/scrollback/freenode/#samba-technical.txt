@@ -1,0 +1,901 @@
+T 1553211917 19*	Now talking on 22#samba-technical
+T 1553211917 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1553211917 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1553211918 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1553211918 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1553212089 20<RMPR>30	Hello, I'm a student willing to participate to GSOC 2019, first of all, I wonder if I'm in the right room for that 
+T 1553212099 20<RMPR>30	?
+T 1553212127 
+Commands Available:
+
+T 1553212127   ADDBUTTON ADDSERVER ALLCHAN   ALLCHANL  ALLSERV
+T 1553212127   AWAY      BACK      BAN       CHANOPT   CHARSET
+T 1553212127   CLEAR     CLOSE     COUNTRY   CTCP      CYCLE
+T 1553212127   DCC       DEBUG     DEHOP     DELBUTTON DEOP
+T 1553212127   DEVOICE   DISCON    DNS       DOAT      ECHO
+T 1553212127   EXEC      EXECCONT  EXECKILL  EXECSTOP  EXECWRITE
+T 1553212127   FLUSHQ    GATE      GETBOOL   GETFILE   GETINT
+T 1553212127   GETSTR    GHOST     GUI       HELP      HOP
+T 1553212127   ID        IGNORE    INVITE    JOIN      KICK
+T 1553212127   KICKBAN   KILLALL   LAGCHECK  LASTLOG   LIST
+T 1553212127   LOAD      MDEHOP    MDEOP     ME        MENU
+T 1553212127   MHOP      MKICK     MODE      MOP       MSG
+T 1553212127   NAMES     NCTCP     NEWSERVER NICK      NOTICE
+T 1553212127   NOTIFY    OP        PART      PING      QUERY
+T 1553212127   QUIET     QUIT      QUOTE     RECONNECT RECV
+T 1553212127   RELOAD    SAY       SEND      SERVCHAN  SERVER
+T 1553212127   SET       SETCURSOR SETTAB    SETTEXT   SPLAY
+T 1553212127   TOPIC     TRAY      UNBAN     UNIGNORE  UNLOAD
+T 1553212127   UNQUIET   URL       USELECT   USERLIST  VOICE
+T 1553212127   WALLCHAN  WALLCHOP  
+T 1553212127 
+User defined commands:
+
+T 1553212127   ACTION    AME       ANICK     AMSG      BANLIST
+T 1553212127   CHAT      DIALOG    DMSG      EXIT      GREP
+T 1553212127   IGNALL    J         KILL      LEAVE     M
+T 1553212127   OMSG      ONOTICE   RAW       SERVHELP  SPING
+T 1553212127   SQUERY    SSLSERVER SV        UMODE     UPTIME
+T 1553212127   VER       VERSION   WALLOPS   WI        WII
+T 1553212127   
+T 1553212127 
+Plugin defined commands:
+
+T 1553212127   UNLOAD    TRAY      PL        RELOADALL UNLOADALL
+T 1553212127   PL_RELOAD RELOAD    UNLOAD    LOAD      LUA
+T 1553212127   RELOAD    UNLOAD    LOAD      RELOAD    UNLOAD
+T 1553212127   LOAD      PY        ME        MSG+      NOTICE+
+T 1553212127   TOPIC+    KEYX      DELKEY    SETKEY    CHECKSUM
+T 1553212127   SYSINFO   IDENTD    TIMER     
+T 1553212127 
+Type /HELP <command> for more information, or /HELP -l
+
+T 1553212214 24*	jelmer has quit (Ping timeout: 252 seconds)
+T 1553212324 23*	jelmer (~jelmer@samba/team/jelmer23) has joined
+T 1553213466 24*	amitay has quit (Ping timeout: 250 seconds)
+T 1553216299 18<abartlet18>	sort of
+T 1553216333 18<abartlet18>	Samba hasn't been a very IRC-orientated project for a long time, so samba-technical mailing list would be a good place to start
+T 1553216339 18<abartlet18>	so while we are here, we are not really here :-)
+T 1553219202 23*	amitay (~amitay@122.99.82.1023) has joined
+T 1553222864 23*	slowfranklin (~slowfrank@p5DF5830F.dip0.t-ipconnect.de23) has joined
+T 1553222887 24*	slowfranklin has quit (Client Quit)
+T 1553226587 24*	pcacjr has quit (Quit: Real life happens...)
+T 1553226716 23*	pcacjr (~pcacjr@torg.zytor.com23) has joined
+T 1553229533 24*	abartlet has quit (Quit: Leaving.)
+T 1553230337 23*	abartlet (~abartlet@samba/team/abartlet23) has joined
+T 1553230337 22*	26ChanServ gives channel operator status to 18abartlet
+T 1553231384 24*	abartlet has quit (Quit: Leaving.)
+T 1553232379 23*	slowfranklin (~slowfrank@p5DF5830F.dip0.t-ipconnect.de23) has joined
+T 1553232880 24*	slowfranklin has quit (Quit: slowfranklin)
+T 1553233755 23*	slowfranklin (~slowfrank@p5DF5830F.dip0.t-ipconnect.de23) has joined
+T 1553233823 20<RMPR>30	Thanks
+T 1553235158 24*	slowfranklin has quit (Quit: slowfranklin)
+T 1553250577 19*	Now talking on 22#samba-technical
+T 1553250577 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1553250577 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1553250577 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1553250577 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1553251638 24*	jelmer has quit (Ping timeout: 252 seconds)
+T 1553252130 23*	noelp (~noelp---@opensuse/member/npower23) has joined
+T 1553252141 23*	jelmer (~jelmer@samba/team/jelmer23) has joined
+T 1553252896 24*	SanBadger has quit (Quit: KVIrc 4.9.3 Aria http://www.kvirc.net/)
+T 1553256875 24*	infernix has quit (*.net *.split)
+T 1553256875 24*	idra has quit (*.net *.split)
+T 1553256935 23*	infernix (nix@unaffiliated/infernix23) has joined
+T 1553257261 23*	idra (~simo@samba/team/simo23) has joined
+T 1553257261 22*	26ChanServ gives channel operator status to 18idra
+T 1553258138 24*	mobidyc has quit (Ping timeout: 272 seconds)
+T 1553804193 19*	Now talking on 22#samba-technical
+T 1553804193 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1553804193 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1553804193 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1553804193 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1553807345 24*	slowfranklin has quit (Quit: slowfranklin)
+T 1553808578 24*	GurliGebis has quit (Ping timeout: 245 seconds)
+T 1553808660 23*	slowfranklin (~slowfrank@p5DF5830F.dip0.t-ipconnect.de23) has joined
+T 1553810094 20*	Disconnected (20)
+T 1553810192 23*	28RMPR is already in use. Retrying with 18...
+T 1553810228 20*	Disconnected (20Remote host closed socket)
+T 1553810246 23*	28RMPR is already in use. Retrying with 18...
+T 1553810295 20*	Disconnected (20Remote host closed socket)
+T 1553810313 22*	26RMPR sets mode 24+Z on 22RMPR
+T 1553810313 22*	26RMPR sets mode 24+i on 22RMPR
+T 1553810313 -18NickServ-	This nickname is registered. Please choose a different nickname, or identify via /msg NickServ identify <password>.
+T 1553810314 -18freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
+T 1553810314 24*	Received a CTCP 24VERSION from 18freenode-connect
+T 1553826444 20*	Disconnected (20)
+T 1553839693 22*	26RMPR sets mode 24+Z on 22RMPR
+T 1553839693 22*	26RMPR sets mode 24+i on 22RMPR
+T 1553839693 -18NickServ-	This nickname is registered. Please choose a different nickname, or identify via /msg NickServ identify <password>.
+T 1553839694 -18freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
+T 1553839694 24*	Received a CTCP 24VERSION from 18freenode-connect
+T 1560509904 19*	Now talking on 22#samba-technical
+T 1560509904 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1560509904 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1560509904 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1560509904 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1560510692 23*	mobidyc (~mobidyc@vpn.scality.com23) has joined
+T 1560511798 19<aaptel>	RMPR: hello
+T 1560513043 20*	Disconnected (20)
+T 1560513071 19*	Now talking on 22#samba-technical
+T 1560513071 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1560513071 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1560513071 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1560513071 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1560514078 24*	BRLX has quit (Quit: BRLX)
+T 1560514967 24*	gbkersey has quit (Remote host closed the connection)
+T 1560515100 23*	gbkersey (~gbkersey@unaffiliated/gbkersey23) has joined
+T 1560520476 24*	mobidyc has quit (Quit: mobidyc)
+T 1560520504 23*	mobidyc (~mobidyc@vpn.scality.com23) has joined
+T 1560520775 20<RMPR>30	aaptel: hi !
+T 1560520839 18<20aaptel18>	now you know my nick on irc :)
+T 1560520901 24*	bbaumbach has quit (Quit: Leaving.)
+T 1560520902 20<RMPR>30	copy that :)
+T 1560523134 23*	chsc (~chsc@samba/team/chsc23) has joined
+T 1560523448 24*	chsc has quit (Ping timeout: 248 seconds)
+T 1560525381 23*	ddiss (ddiss@nat/novell/x-oaqbvwrchwzszmal23) has joined
+T 1560527653 23*	chsc (~chsc@samba/team/chsc23) has joined
+T 1560528912 24*	scabrero has quit (Quit: Leaving)
+T 1560529604 23*	michael8888 (~Michael@103.121.17.4223) has joined
+T 1560530739 23*	GurliGebis (~GurliGebi@unaffiliated/gurligebis23) has joined
+T 1560541472 20*	Disconnected (20)
+T 1560541534 19*	Now talking on 22#samba-technical
+T 1560541534 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1560541534 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1560541535 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1560541535 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1560544922 24*	dmulder has quit (Remote host closed the connection)
+T 1560545150 24*	28wagle_ is now known as 18wagle
+T 1560545436 24*	noelp has quit (Remote host closed the connection)
+T 1560545457 24*	GurliGebis has quit (Ping timeout: 246 seconds)
+T 1560711750 19*	Now talking on 22#samba-technical
+T 1560711750 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1560711750 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1560711751 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1560711751 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1560717431 23*	GurliGebis (~GurliGebi@unaffiliated/gurligebis23) has joined
+T 1560718177 24*	GurliGebis has quit (Ping timeout: 272 seconds)
+T 1560744553 20*	Disconnected (20)
+T 1560745303 19*	Now talking on 22#samba-technical
+T 1560745303 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1560745303 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1560745303 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1560745303 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1560746172 20*	Disconnected (20)
+T 1560751612 19*	Now talking on 22#samba-technical
+T 1560751612 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1560751612 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1560751612 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1560751612 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1560753687 23*	BRLX (~Thunderbi@rtr.ak-p.at23) has joined
+T 1560754590 23*	scabrero (~kernevil@188.65.91.14923) has joined
+T 1560755403 23*	bbaumbach (~bbaumba@proxy.sernet.net23) has joined
+T 1560759415 24*	amitay has quit (Ping timeout: 248 seconds)
+T 1560761861 20*	Disconnected (20)
+T 1560761904 19*	Now talking on 22#samba-technical
+T 1560761904 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1560761904 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1560761905 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1560761905 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1560763474 23*	noelp (~noelp---@opensuse/member/npower23) has joined
+T 1560769730 23*	mobidyc (~mobidyc@92.184.112.21023) has joined
+T 1560769907 20*	Disconnected (20)
+T 1560769934 19*	Now talking on 22#samba-technical
+T 1560769934 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1560769934 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1560769935 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1560769935 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1560770313 24*	mobidyc has quit (Ping timeout: 272 seconds)
+T 1623769833 20*	Disconnected (20)
+T 1561215052 19*	Now talking on 22#samba-technical
+T 1561215052 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1561215052 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1561215052 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1561215052 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1561232165 19*	Now talking on 22#samba-technical
+T 1561232165 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1561232165 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1561232165 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1561232165 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1561241315 24*	gbkersey has quit (Remote host closed the connection)
+T 1561241478 23*	gbkersey (~gbkersey@unaffiliated/gbkersey23) has joined
+T 1561268371 20*	Disconnected (20)
+T 1561268395 22*	26RMPR sets mode 24+Z on 22RMPR
+T 1561268395 22*	26RMPR sets mode 24+i on 22RMPR
+T 1561268395 -18freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
+T 1561268395 24*	Received a CTCP 24VERSION from 18freenode-connect
+T 1561268400 19*	Now talking on 22#samba-technical
+T 1561268400 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1561268400 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1561268401 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1561268401 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1561321689 19*	Now talking on 22#samba-technical
+T 1561321689 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1561321689 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1561321690 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1561321690 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1561324560 24*	mobidyc has quit (Quit: mobidyc)
+T 1561329106 23*	mobidyc (~mobidyc@2a01cb0805e9d700c36c316f73d769a1.ipv6.abo.wanadoo.fr23) has joined
+T 1561329178 24*	mobidyc has quit (Client Quit)
+T 1561337516 24*	jelmer has quit (Remote host closed the connection)
+T 1561337587 23*	jelmer (~jelmer@samba/team/jelmer23) has joined
+T 1561362464 20*	Disconnected (20)
+T 1561362489 19*	Now talking on 22#samba-technical
+T 1561362489 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1561362489 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1561362489 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1561362489 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1561363397 23*	mobidyc (~mobidyc@204.13-14-84.ripe.coltfrance.com23) has joined
+T 1561369982 23*	mobidyc_ (~mobidyc@vpn.scality.com23) has joined
+T 1561370048 24*	mobidyc has quit (Ping timeout: 248 seconds)
+T 1561370048 24*	28mobidyc_ is now known as 18mobidyc
+T 1561370560 20*	Disconnected (20)
+T 1561370589 19*	Now talking on 22#samba-technical
+T 1561370589 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1561370589 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1561370589 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1561370589 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1561372776 23*	mobidyc_ (~mobidyc@204.13-14-84.ripe.coltfrance.com23) has joined
+T 1561372863 24*	mobidyc has quit (Ping timeout: 244 seconds)
+T 1561372863 24*	28mobidyc_ is now known as 18mobidyc
+T 1561372865 23*	jlayton_ (jlayton@nat/redhat/x-fhmfuvklczisubya23) has joined
+T 1561372966 24*	jlayton has quit (Ping timeout: 264 seconds)
+T 1561634348 19*	Now talking on 22#samba-technical
+T 1561634348 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1561634348 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1561634348 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1561634348 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1561643084 23*	GurliGebis (~GurliGebi@unaffiliated/gurligebis23) has joined
+T 1561643271 23*	dmulder (~dmulder@74.122.77.9423) has joined
+T 1561644334 24*	GurliGebis has quit (Ping timeout: 245 seconds)
+T 1561646260 20*	Disconnected (20)
+T 1561646282 23*	28RMPR is already in use. Retrying with 18...
+T 1561646309 20*	Disconnected (20Remote host closed socket)
+T 1561646331 23*	28RMPR is already in use. Retrying with 18...
+T 1561646359 20*	Disconnected (20Remote host closed socket)
+T 1561646377 23*	28RMPR is already in use. Retrying with 18...
+T 1561646409 20*	Disconnected (20Remote host closed socket)
+T 1561646428 23*	28RMPR is already in use. Retrying with 18...
+T 1561646478 20*	Disconnected (20Remote host closed socket)
+T 1561646498 22*	26RMPR sets mode 24+Z on 22RMPR
+T 1561646498 22*	26RMPR sets mode 24+i on 22RMPR
+T 1561646498 -18freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
+T 1561646498 24*	Received a CTCP 24VERSION from 18freenode-connect
+T 1561646503 19*	Now talking on 22#samba-technical
+T 1561646503 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1561646503 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1561646504 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1561646504 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1561650332 23*	gladiac (~asn@milliways.cryptomilk.org23) has joined
+T 1561650347 18<28gladiac18>	scabrero: wooohooo! :-)
+T 1561650370 18<24scabrero18>	:)
+T 1561650660 24*	mobidyc has quit (Quit: mobidyc)
+T 1561653010 20*	Disconnected (20)
+T 1561653032 23*	28RMPR is already in use. Retrying with 18...
+T 1561653058 20*	Disconnected (20Remote host closed socket)
+T 1561653080 23*	28RMPR is already in use. Retrying with 18...
+T 1561653122 20*	Disconnected (20Remote host closed socket)
+T 1561653142 23*	28RMPR is already in use. Retrying with 18...
+T 1561653173 20*	Disconnected (20Remote host closed socket)
+T 1561653193 22*	26RMPR sets mode 24+Z on 22RMPR
+T 1561653193 22*	26RMPR sets mode 24+i on 22RMPR
+T 1561653193 -18freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
+T 1561653193 24*	Received a CTCP 24VERSION from 18freenode-connect
+T 1561653199 19*	Now talking on 22#samba-technical
+T 1561653199 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1561653199 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1561653199 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1561653199 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1561653817 23*	Zombie (~masterz@h181.193.184.173.dynamic.ip.windstream.net23) has joined
+T 1561653848 18<22Zombie18>	Is there any safe way to modify a User's SID in Samba 4 AD?
+T 1561654118 18<22Zombie18>	 I have a Samba problem with eGroupware. Samba 4 is screwing with my eGroupware UIDs causing Havoc. Samba 4 uses the last four Didgets of the SID rather than the UID Number.
+T 1561654518 24*	BRLX has quit (Quit: BRLX)
+T 1561656380 20*	Disconnected (20)
+T 1561656403 22*	26RMPR sets mode 24+Z on 22RMPR
+T 1561656403 22*	26RMPR sets mode 24+i on 22RMPR
+T 1561656403 -18freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
+T 1561656403 24*	Received a CTCP 24VERSION from 18freenode-connect
+T 1561656409 19*	Now talking on 22#samba-technical
+T 1561656409 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1561656409 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1561656410 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1561656410 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1561660008 24*	noelp has quit (Ping timeout: 258 seconds)
+T 1561661164 23*	BRLX (~Thunderbi@188-22-167-241.hdsl.highway.telekom.at23) has joined
+T 1561661366 24*	BRLX has quit (Client Quit)
+T 1561662121 23*	mobidyc (~mobidyc@195-67-91-227.customer.telia.com23) has joined
+T 1561666480 24*	dmulder has quit (Quit: Leaving)
+T 1561667943 18<22Zombie18>	Anyone here?
+T 1561703840 20*	Disconnected (20)
+T 1561703902 22*	26RMPR sets mode 24+Z on 22RMPR
+T 1561703902 22*	26RMPR sets mode 24+i on 22RMPR
+T 1561703902 -18freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
+T 1561703903 24*	Received a CTCP 24VERSION from 18freenode-connect
+T 1561703908 19*	Now talking on 22#samba-technical
+T 1561703908 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1561703908 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1561703908 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1561703908 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1561704620 20*	Disconnected (20)
+T 1561723964 19*	Now talking on 22#samba-technical
+T 1561723964 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1561723964 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1561723964 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1561723964 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1561724004 18<22Zombie18>	So, I need to know how to safely set the last 4 of a given SSID.
+T 1561724012 18<22Zombie18>	So, I need to know how to safely set the last 4 of a given Object SID.
+T 1561724144 23*	GurliGebis (~GurliGebi@unaffiliated/gurligebis23) has joined
+T 1561724447 18<22Zombie18>	I've found a real serious problem I need help with.
+T 1561724451 18<22Zombie18>	I need to know how to safely set the last 4 of a given Object SID.
+T 1561724454 18<22Zombie18>	I have a Samba problem with eGroupware. Samba 4 is screwing with my eGroupware UIDs causing Havoc. Samba 4 uses the last four Digits of the SID rather than the UID Number. I need to know how to alter my user entry SID so that the last four digits of the SID is congruent with the UID Numbers of my users.
+T 1561725011 20*	Disconnected (20)
+T 1561725025 19*	Now talking on 22#samba-technical
+T 1561725025 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1561725025 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1561725025 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1561725025 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1561725720 20*	Disconnected (20)
+T 1561725750 19*	Now talking on 22#samba-technical
+T 1561725750 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1561725750 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1561725750 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1561725750 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1561733719 18<19jelmer18>	Zombie: please ask non-development questions in #samba
+T 1562802432 19*	Now talking on 22#samba-technical
+T 1562802432 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1562802432 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1562802432 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1562802432 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1562806956 20*	Disconnected (20)
+T 1562830913 19*	Now talking on 22#samba-technical
+T 1562830913 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1562830913 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1562830913 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1562830913 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1562838184 18<28gladiac18>	aaptel: ping
+T 1562848904 18<20aaptel18>	gladiac: pong
+T 1562848944 18<20aaptel18>	gladiac: what exactly do you want to know about dfs
+T 1562849264 18<28gladiac18>	aaptel: when have the latest features been added?
+T 1562849276 18<28gladiac18>	and has this stuff been backported to any stable kernel release?
+T 1562849464 18<20aaptel18>	gladiac: v5.0 was the initial code for dfs failover
+T 1562849482 18<20aaptel18>	and there has been a couple of fixes since then
+T 1562868618 20*	Disconnected (20)
+T 1562868645 19*	Now talking on 22#samba-technical
+T 1562868645 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1562868645 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1562868645 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1562868645 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1562887248 20*	Disconnected (20)
+T 1562914994 20*	Disconnected (20Remote host closed socket)
+T 1562915000 19*	Now talking on 22#samba-technical
+T 1562915000 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1562915000 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1562915000 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1562915000 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1562915042 20*	Disconnected (20Remote host closed socket)
+T 1562915106 20*	Disconnected (20Remote host closed socket)
+T 1562915170 20*	Disconnected (20Remote host closed socket)
+T 1562915238 20*	Disconnected (20Remote host closed socket)
+T 1562915312 20*	Disconnected (20Remote host closed socket)
+T 1562915386 20*	Disconnected (20Remote host closed socket)
+T 1562915460 20*	Disconnected (20Remote host closed socket)
+T 1562915523 20*	Disconnected (20Remote host closed socket)
+T 1562915585 20*	Disconnected (20Remote host closed socket)
+T 1562915645 20*	Disconnected (20Remote host closed socket)
+T 1562915719 20*	Disconnected (20Remote host closed socket)
+T 1562915776 20*	Disconnected (20Remote host closed socket)
+T 1562915822 20*	Disconnected (20Remote host closed socket)
+T 1562915868 20*	Disconnected (20Remote host closed socket)
+T 1562915926 20*	Disconnected (20Remote host closed socket)
+T 1562915968 20*	Disconnected (20Remote host closed socket)
+T 1562916010 20*	Disconnected (20Remote host closed socket)
+T 1562916073 20*	Disconnected (20Remote host closed socket)
+T 1562916115 20*	Disconnected (20Remote host closed socket)
+T 1562916157 20*	Disconnected (20Remote host closed socket)
+T 1562916199 20*	Disconnected (20Remote host closed socket)
+T 1562916241 20*	Disconnected (20Remote host closed socket)
+T 1562916283 20*	Disconnected (20Remote host closed socket)
+T 1562916325 20*	Disconnected (20Remote host closed socket)
+T 1562916367 20*	Disconnected (20Remote host closed socket)
+T 1562916409 20*	Disconnected (20Remote host closed socket)
+T 1562916456 20*	Disconnected (20Remote host closed socket)
+T 1562916532 20*	Disconnected (20Remote host closed socket)
+T 1562916577 20*	Disconnected (20Remote host closed socket)
+T 1562916627 20*	Disconnected (20Remote host closed socket)
+T 1562916677 20*	Disconnected (20Remote host closed socket)
+T 1562916727 20*	Disconnected (20Remote host closed socket)
+T 1562916777 20*	Disconnected (20Remote host closed socket)
+T 1562916827 20*	Disconnected (20Remote host closed socket)
+T 1562916889 20*	Disconnected (20Remote host closed socket)
+T 1562916953 20*	Disconnected (20Remote host closed socket)
+T 1562917019 20*	Disconnected (20Remote host closed socket)
+T 1562917060 20*	Disconnected (20Remote host closed socket)
+T 1562917102 20*	Disconnected (20Remote host closed socket)
+T 1562917153 20*	Disconnected (20Remote host closed socket)
+T 1562917217 20*	Disconnected (20Remote host closed socket)
+T 1562928807 20*	Disconnected (20)
+T 1562928836 19*	Now talking on 22#samba-technical
+T 1562928836 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1562928836 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1562928836 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1562928836 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1562934267 20*	Disconnected (20)
+T 1562934832 19*	Now talking on 22#samba-technical
+T 1562934832 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1562934832 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1562934833 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1562934833 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1562936841 20*	Disconnected (20Connection timed out)
+T 1562936890 20*	Disconnected (20Remote host closed socket)
+T 1562936936 20*	Disconnected (20Remote host closed socket)
+T 1562936982 20*	Disconnected (20Remote host closed socket)
+T 1562937028 20*	Disconnected (20Remote host closed socket)
+T 1562937078 20*	Disconnected (20Remote host closed socket)
+T 1562937128 20*	Disconnected (20Remote host closed socket)
+T 1562937178 20*	Disconnected (20Remote host closed socket)
+T 1562937220 20*	Disconnected (20Remote host closed socket)
+T 1562937262 20*	Disconnected (20Remote host closed socket)
+T 1562937328 20*	Disconnected (20Remote host closed socket)
+T 1562937378 20*	Disconnected (20Remote host closed socket)
+T 1562937428 20*	Disconnected (20Remote host closed socket)
+T 1562937488 20*	Disconnected (20Remote host closed socket)
+T 1562937534 20*	Disconnected (20Remote host closed socket)
+T 1562937580 20*	Disconnected (20Remote host closed socket)
+T 1562937627 20*	Disconnected (20Remote host closed socket)
+T 1562937677 20*	Disconnected (20Remote host closed socket)
+T 1562937727 20*	Disconnected (20Remote host closed socket)
+T 1562937777 20*	Disconnected (20Remote host closed socket)
+T 1562937827 20*	Disconnected (20Remote host closed socket)
+T 1562937877 20*	Disconnected (20Remote host closed socket)
+T 1562937928 20*	Disconnected (20Remote host closed socket)
+T 1562937978 20*	Disconnected (20Remote host closed socket)
+T 1562938028 20*	Disconnected (20Remote host closed socket)
+T 1562938081 20*	Disconnected (20Remote host closed socket)
+T 1562938145 20*	Disconnected (20Remote host closed socket)
+T 1562938209 20*	Disconnected (20Remote host closed socket)
+T 1562938273 20*	Disconnected (20Remote host closed socket)
+T 1562938337 20*	Disconnected (20Remote host closed socket)
+T 1562938402 20*	Disconnected (20Remote host closed socket)
+T 1562938452 20*	Disconnected (20Remote host closed socket)
+T 1562938502 20*	Disconnected (20Remote host closed socket)
+T 1562938546 20*	Disconnected (20Remote host closed socket)
+T 1562938592 20*	Disconnected (20Remote host closed socket)
+T 1562938638 20*	Disconnected (20Remote host closed socket)
+T 1562938703 20*	Disconnected (20Remote host closed socket)
+T 1562938753 20*	Disconnected (20Remote host closed socket)
+T 1562938803 20*	Disconnected (20Remote host closed socket)
+T 1562938852 20*	Disconnected (20Remote host closed socket)
+T 1562938902 20*	Disconnected (20Remote host closed socket)
+T 1562938952 20*	Disconnected (20Remote host closed socket)
+T 1562939005 20*	Disconnected (20Remote host closed socket)
+T 1562939047 20*	Disconnected (20Remote host closed socket)
+T 1562939089 20*	Disconnected (20Remote host closed socket)
+T 1562939144 20*	Disconnected (20Remote host closed socket)
+T 1562939190 20*	Disconnected (20Remote host closed socket)
+T 1562939236 20*	Disconnected (20Remote host closed socket)
+T 1562939302 20*	Disconnected (20Remote host closed socket)
+T 1562939352 20*	Disconnected (20Remote host closed socket)
+T 1562939402 20*	Disconnected (20Remote host closed socket)
+T 1562939452 20*	Disconnected (20Remote host closed socket)
+T 1562939502 20*	Disconnected (20Remote host closed socket)
+T 1562939552 20*	Disconnected (20Remote host closed socket)
+T 1562939603 20*	Disconnected (20Remote host closed socket)
+T 1562939653 20*	Disconnected (20Remote host closed socket)
+T 1562939703 20*	Disconnected (20Remote host closed socket)
+T 1562939765 20*	Disconnected (20Remote host closed socket)
+T 1562939811 20*	Disconnected (20Remote host closed socket)
+T 1562939857 20*	Disconnected (20Remote host closed socket)
+T 1562939920 20*	Disconnected (20Remote host closed socket)
+T 1562939982 20*	Disconnected (20Remote host closed socket)
+T 1562940027 20*	Disconnected (20Remote host closed socket)
+T 1562940077 20*	Disconnected (20Remote host closed socket)
+T 1562940127 20*	Disconnected (20Remote host closed socket)
+T 1562940179 20*	Disconnected (20Remote host closed socket)
+T 1562940225 20*	Disconnected (20Remote host closed socket)
+T 1562940271 20*	Disconnected (20Remote host closed socket)
+T 1562940328 20*	Disconnected (20Remote host closed socket)
+T 1562940378 20*	Disconnected (20Remote host closed socket)
+T 1562940428 20*	Disconnected (20Remote host closed socket)
+T 1562940478 20*	Disconnected (20Remote host closed socket)
+T 1562940528 20*	Disconnected (20Remote host closed socket)
+T 1562940578 20*	Disconnected (20Remote host closed socket)
+T 1562940628 20*	Disconnected (20Remote host closed socket)
+T 1562940678 20*	Disconnected (20Remote host closed socket)
+T 1562940728 20*	Disconnected (20Remote host closed socket)
+T 1562940778 20*	Disconnected (20Remote host closed socket)
+T 1562940828 20*	Disconnected (20Remote host closed socket)
+T 1562940878 20*	Disconnected (20Remote host closed socket)
+T 1562940953 20*	Disconnected (20Remote host closed socket)
+T 1562941027 20*	Disconnected (20Remote host closed socket)
+T 1562941084 20*	Disconnected (20Remote host closed socket)
+T 1562941126 20*	Disconnected (20Remote host closed socket)
+T 1562941168 20*	Disconnected (20Remote host closed socket)
+T 1562941212 20*	Disconnected (20Remote host closed socket)
+T 1562941286 20*	Disconnected (20Remote host closed socket)
+T 1562941360 20*	Disconnected (20Remote host closed socket)
+T 1562941408 20*	Disconnected (20Remote host closed socket)
+T 1562941470 20*	Disconnected (20Remote host closed socket)
+T 1562941532 20*	Disconnected (20Remote host closed socket)
+T 1562941578 20*	Disconnected (20Remote host closed socket)
+T 1562941628 20*	Disconnected (20Remote host closed socket)
+T 1562941678 20*	Disconnected (20Remote host closed socket)
+T 1562941749 20*	Disconnected (20Remote host closed socket)
+T 1562941811 20*	Disconnected (20Remote host closed socket)
+T 1562941853 20*	Disconnected (20Remote host closed socket)
+T 1562941903 20*	Disconnected (20Remote host closed socket)
+T 1562941953 20*	Disconnected (20Remote host closed socket)
+T 1562941997 20*	Disconnected (20Remote host closed socket)
+T 1562942059 20*	Disconnected (20Remote host closed socket)
+T 1562942121 20*	Disconnected (20Remote host closed socket)
+T 1562942176 20*	Disconnected (20Remote host closed socket)
+T 1562942218 20*	Disconnected (20Remote host closed socket)
+T 1562942260 20*	Disconnected (20Remote host closed socket)
+T 1562942322 20*	Disconnected (20Remote host closed socket)
+T 1562942396 20*	Disconnected (20Remote host closed socket)
+T 1562942452 20*	Disconnected (20Remote host closed socket)
+T 1562942502 20*	Disconnected (20Remote host closed socket)
+T 1562942552 20*	Disconnected (20Remote host closed socket)
+T 1562942602 20*	Disconnected (20Remote host closed socket)
+T 1562942652 20*	Disconnected (20Remote host closed socket)
+T 1562942702 20*	Disconnected (20Remote host closed socket)
+T 1562942753 20*	Disconnected (20Remote host closed socket)
+T 1562942817 20*	Disconnected (20Remote host closed socket)
+T 1562942881 20*	Disconnected (20Remote host closed socket)
+T 1562942951 20*	Disconnected (20Remote host closed socket)
+T 1562943025 20*	Disconnected (20Remote host closed socket)
+T 1562943094 20*	Disconnected (20Remote host closed socket)
+T 1562943170 20*	Disconnected (20Remote host closed socket)
+T 1562943246 20*	Disconnected (20Remote host closed socket)
+T 1562943322 20*	Disconnected (20Remote host closed socket)
+T 1562943393 20*	Disconnected (20Remote host closed socket)
+T 1562943457 20*	Disconnected (20Remote host closed socket)
+T 1562943512 20*	Disconnected (20Remote host closed socket)
+T 1562943588 20*	Disconnected (20Remote host closed socket)
+T 1562943649 20*	Disconnected (20Remote host closed socket)
+T 1562943713 20*	Disconnected (20Remote host closed socket)
+T 1562943764 20*	Disconnected (20Remote host closed socket)
+T 1562943826 20*	Disconnected (20Remote host closed socket)
+T 1562943888 20*	Disconnected (20Remote host closed socket)
+T 1562943968 20*	Disconnected (20Remote host closed socket)
+T 1562944044 20*	Disconnected (20Remote host closed socket)
+T 1562944102 20*	Disconnected (20Remote host closed socket)
+T 1562944152 20*	Disconnected (20Remote host closed socket)
+T 1562944202 20*	Disconnected (20Remote host closed socket)
+T 1562944252 20*	Disconnected (20Remote host closed socket)
+T 1562944302 20*	Disconnected (20Remote host closed socket)
+T 1562944352 20*	Disconnected (20Remote host closed socket)
+T 1562944402 20*	Disconnected (20Remote host closed socket)
+T 1562944452 20*	Disconnected (20Remote host closed socket)
+T 1562944502 20*	Disconnected (20Remote host closed socket)
+T 1562944553 20*	Disconnected (20Remote host closed socket)
+T 1562944603 20*	Disconnected (20Remote host closed socket)
+T 1562944653 20*	Disconnected (20Remote host closed socket)
+T 1562944737 20*	Disconnected (20)
+T 1562946076 19*	Now talking on 22#samba-technical
+T 1562946076 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1562946076 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1562946077 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1562946077 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1562946113 20*	Disconnected (20Remote host closed socket)
+T 1562946159 20*	Disconnected (20Remote host closed socket)
+T 1562946205 20*	Disconnected (20Remote host closed socket)
+T 1562946253 20*	Disconnected (20Remote host closed socket)
+T 1562946303 20*	Disconnected (20Remote host closed socket)
+T 1562946353 20*	Disconnected (20Remote host closed socket)
+T 1562946401 20*	Disconnected (20Remote host closed socket)
+T 1562946465 20*	Disconnected (20Remote host closed socket)
+T 1562946529 20*	Disconnected (20Remote host closed socket)
+T 1562946593 20*	Disconnected (20Remote host closed socket)
+T 1562946657 20*	Disconnected (20Remote host closed socket)
+T 1562946702 20*	Disconnected (20Remote host closed socket)
+T 1562946752 20*	Disconnected (20Remote host closed socket)
+T 1562946802 20*	Disconnected (20Remote host closed socket)
+T 1562946852 20*	Disconnected (20Remote host closed socket)
+T 1562946902 20*	Disconnected (20Remote host closed socket)
+T 1562946952 20*	Disconnected (20Remote host closed socket)
+T 1562947002 20*	Disconnected (20Remote host closed socket)
+T 1562947052 20*	Disconnected (20Remote host closed socket)
+T 1562947102 20*	Disconnected (20Remote host closed socket)
+T 1562947169 20*	Disconnected (20Remote host closed socket)
+T 1562947233 20*	Disconnected (20Remote host closed socket)
+T 1562947280 20*	Disconnected (20Remote host closed socket)
+T 1562947354 20*	Disconnected (20Remote host closed socket)
+T 1562947426 20*	Disconnected (20Remote host closed socket)
+T 1562947502 20*	Disconnected (20Remote host closed socket)
+T 1562947576 20*	Disconnected (20Remote host closed socket)
+T 1562947628 20*	Disconnected (20Remote host closed socket)
+T 1562947678 20*	Disconnected (20Remote host closed socket)
+T 1562947728 20*	Disconnected (20Remote host closed socket)
+T 1562947783 20*	Disconnected (20Remote host closed socket)
+T 1562947825 20*	Disconnected (20Remote host closed socket)
+T 1562947867 20*	Disconnected (20Remote host closed socket)
+T 1562947937 20*	Disconnected (20Remote host closed socket)
+T 1562948001 20*	Disconnected (20Remote host closed socket)
+T 1563216389 19*	Now talking on 22#samba-technical
+T 1563216389 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1563216389 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1563216389 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1563216389 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1563220729 20*	Disconnected (20)
+T 1563220941 19*	Now talking on 22#samba-technical
+T 1563220941 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1563220941 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1563220941 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1563220941 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1563234799 20*	Disconnected (20)
+T 1570805303 19*	Now talking on 22#samba-technical
+T 1570805303 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1570805303 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1570805304 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1570805304 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1570807908 20*	Disconnected (20)
+T 1570823231 19*	Now talking on 22#samba-technical
+T 1570823231 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1570823231 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1570823232 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1570823232 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1570825249 22*	26ChanServ gives channel operator status to 18simo
+T 1570825534 20*	Disconnected (20)
+T 1570825597 20*	Disconnected (20Remote host closed socket)
+T 1570825649 20*	Disconnected (20Remote host closed socket)
+T 1570825701 20*	Disconnected (20Remote host closed socket)
+T 1570825730 19*	Now talking on 22#samba-technical
+T 1570825730 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1570825730 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1570825730 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1570825730 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1570838713 22*	26ChanServ gives channel operator status to 18simo
+T 1570865791 20*	Disconnected (20)
+T 1570866593 19*	Now talking on 22#samba-technical
+T 1570866593 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1570866593 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1570866593 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1570866593 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1570876843 19*	Now talking on 22#samba-technical
+T 1570876843 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1570876843 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1570876843 20*	Disconnected (20)
+T 1570876851 20*	Disconnected (20)
+T 1570876857 20*	Disconnected (20)
+T 1570876865 20*	Disconnected (20)
+T 1570876883 19*	Now talking on 22#samba-technical
+T 1570876883 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1570876883 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1570876896 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1570876896 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1570879704 20*	Disconnected (20)
+T 1570879768 20*	Disconnected (20Remote host closed socket)
+T 1570879816 20*	Disconnected (20Remote host closed socket)
+T 1570879864 20*	Disconnected (20Remote host closed socket)
+T 1570879911 20*	Disconnected (20Remote host closed socket)
+T 1570879939 19*	Now talking on 22#samba-technical
+T 1570879939 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1570879939 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1570879939 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1570879939 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1570991104 19*	Now talking on 22#samba-technical
+T 1570991104 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1570991104 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1570991104 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1570991104 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1570997122 20*	Disconnected (20)
+T 1570997331 19*	Now talking on 22#samba-technical
+T 1570997331 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1570997331 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1570997332 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1570997332 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1570997542 20*	Disconnected (20)
+T 1570998581 19*	Now talking on 22#samba-technical
+T 1570998581 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1570998581 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1570998582 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1570998582 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1571004622 20*	Disconnected (20)
+T 1571004686 20*	Disconnected (20Remote host closed socket)
+T 1571004734 20*	Disconnected (20Remote host closed socket)
+T 1571004891 Python interface unloaded
+T 1571410189 19*	Now talking on 22#samba-technical
+T 1571410189 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1571410189 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1571410189 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1571410189 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1571518645 19*	Now talking on 22#samba-technical
+T 1571518645 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1571518645 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1571518646 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1571518646 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1571527363 18<20Milhouse18>	Ping Uri?
+T 1571580117 20*	Disconnected (20)
+T 1571584851 19*	Now talking on 22#samba-technical
+T 1571584851 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1571584851 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1571584851 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1571584851 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1571587570 20*	Disconnected (20)
+T 1571604056 19*	Now talking on 22#samba-technical
+T 1571604057 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1571604057 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1571604057 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1571604057 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1571609100 20*	Disconnected (20)
+T 1571609128 19*	Now talking on 22#samba-technical
+T 1571609128 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1571609128 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1571609128 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1571609128 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1571612533 22*	26ChanServ gives channel operator status to 18simo
+T 1571612614 22*	26ChanServ gives channel operator status to 18abartlet
+T 1571642314 20*	Disconnected (20)
+T 1571642341 19*	Now talking on 22#samba-technical
+T 1571642341 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1571642341 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1571642341 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1571642341 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1571642362 20*	Disconnected (20Remote host closed socket)
+T 1571642404 20*	Disconnected (20Remote host closed socket)
+T 1571642482 20*	Disconnected (20Remote host closed socket)
+T 1571644224 20*	Disconnected (20)
+T 1571644249 19*	Now talking on 22#samba-technical
+T 1571644249 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1571644249 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1571644249 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1571644249 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1572509844 19*	Now talking on 22#samba-technical
+T 1572509844 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1572509844 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1572509844 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1572509844 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1572518395 20*	Disconnected (20)
+T 1572518421 19*	Now talking on 22#samba-technical
+T 1572518421 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1572518421 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1572518421 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1572518421 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1572519182 20*	Disconnected (20)
+T 1572519348 19*	Now talking on 22#samba-technical
+T 1572519348 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1572519348 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1572519348 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1572519348 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1572521888 20*	Disconnected (20)
+T 1572521919 19*	Now talking on 22#samba-technical
+T 1572521919 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1572521919 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1572521919 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1572521919 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1573027238 19*	Now talking on 22#samba-technical
+T 1573027238 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1573027238 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1573027238 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1573027238 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1573030583 20*	Disconnected (20)
+T 1573030653 20*	Disconnected (20Remote host closed socket)
+T 1573030731 20*	Disconnected (20Remote host closed socket)
+T 1573030760 19*	Now talking on 22#samba-technical
+T 1573030760 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1573030760 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1573030761 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1573030761 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1573132204 19*	Now talking on 22#samba-technical
+T 1573132204 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1573132204 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1573132207 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1573132207 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1573133419 20*	Disconnected (20)
+T 1573133450 19*	Now talking on 22#samba-technical
+T 1573133450 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1573133450 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1573133451 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1573133451 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1573135022 20*	Disconnected (20)
+T 1573135048 19*	Now talking on 22#samba-technical
+T 1573135048 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1573135048 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1573135049 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1573135049 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1573135502 20*	Disconnected (20)
+T 1573149032 19*	Now talking on 22#samba-technical
+T 1573149032 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1573149032 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1573149032 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1573149032 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1573160214 20*	Disconnected (20)
+T 1573160247 19*	Now talking on 22#samba-technical
+T 1573160247 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1573160247 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1573160247 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1573160247 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1575822788 19*	Now talking on 22#samba-technical
+T 1575822788 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1575822788 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1575822788 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1575822788 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1575833510 22*	26ChanServ gives channel operator status to 18abartlet
+T 1575846292 20*	Disconnected (20)
+T 1576567001 19*	Now talking on 22#samba-technical
+T 1576567001 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1576567001 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1576567001 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1576567001 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1577958303 19*	Now talking on 22#samba-technical
+T 1577958303 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1577958303 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1577958303 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1577958303 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1577980489 20*	Disconnected (20)
+T 1577980514 19*	Now talking on 22#samba-technical
+T 1577980514 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1577980514 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1577980515 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1577980515 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1577981519 20*	Disconnected (20)
+T 1577981545 19*	Now talking on 22#samba-technical
+T 1577981545 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1577981545 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1577981545 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1577981545 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1579685655 19*	Now talking on 22#samba-technical
+T 1579685655 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1579685655 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1579685655 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1579685655 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1579695660 20*	Disconnected (20)
+T 1579695852 20*	Disconnected (20Remote host closed socket)
+T 1579695880 19*	Now talking on 22#samba-technical
+T 1579695880 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1579695880 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1579695880 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1579695880 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1579696200 20*	Disconnected (20)
+T 1579696360 19*	Now talking on 22#samba-technical
+T 1579696360 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1579696360 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1579696360 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1579696360 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1582109470 19*	Now talking on 22#samba-technical
+T 1582109470 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1582109470 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1582109474 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1582109474 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1582111250 20*	Disconnected (20)
+T 1582111365 20*	Disconnected (20Remote host closed socket)
+T 1582111431 20*	Disconnected (20Remote host closed socket)
+T 1582111515 19*	Now talking on 22#samba-technical
+T 1582111515 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1582111515 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1582111516 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1582111516 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1582111520 20*	Disconnected (20)
+T 1582111555 19*	Now talking on 22#samba-technical
+T 1582111555 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1582111555 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1582111570 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1582111570 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1582111640 20*	Disconnected (20)
+T 1582111672 19*	Now talking on 22#samba-technical
+T 1582111672 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1582111672 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1582111672 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1582111672 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1582112510 20*	Disconnected (20)
+T 1582112538 19*	Now talking on 22#samba-technical
+T 1582112538 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1582112538 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1582112538 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1582112538 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1582114515 18<20Milhouse18>	Is it possible to avoid the perl errors with 4.12-rc3? http://ix.io/2c8i
+T 1582114583 18<20Milhouse18>	We don't have this perl issue when building 4.11.6 so presumably the pidl code isn't always used when building 4.11.6 (perhaps it's now being built incorrectly by 4.12-rc?)
+T 1582115067 18<20Milhouse18>	Or maybe this commit is relevant: https://github.com/samba-team/samba/commit/83ffe6752d589180eac96d7b8e7d1a54e3476bfd - hmmm, no longer supplied so this is a new dependency.
+T 1582115810 20*	Disconnected (20)
+T 1582115856 19*	Now talking on 22#samba-technical
+T 1582115856 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1582115856 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1582115859 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1582115859 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1582116620 20*	Disconnected (20)
+T 1582116687 19*	Now talking on 22#samba-technical
+T 1582116687 22*	Topic for 22#samba-technical is: logs on http://irclog.samba.org/ - Ask non-development questions in #samba
+T 1582116687 22*	Topic for 22#samba-technical set by 26abartlet!~abartlet@samba/team/abartlet (24Sun Apr 12 23:26:39 2015)
+T 1582116689 -18ChanServ-	[#samba-technical] This is a forum for samba developers. This is not a 'help' channel. For this see #samba or (much better) do some reading - http://samba.org - and mail the user's list - samba@samba.org - if you are still stuck.
+T 1582116689 22*	Channel 22#samba-technical url: 24http://www.samba.org
+T 1582119590 20*	Disconnected (20)
