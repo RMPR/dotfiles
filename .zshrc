@@ -212,4 +212,5 @@ alias u="umount"
 alias code="codium"
 alias docker="podman"
 
+source ~/.profile
 source /home/rufus/.config/broot/launcher/bash/br

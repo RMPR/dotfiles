@@ -62,3 +62,5 @@ export SCM_CHECK=true
 source "$BASH_IT"/bash_it.sh
 
 source /home/rufus/.config/broot/launcher/bash/br
+
+source ~/.profile
