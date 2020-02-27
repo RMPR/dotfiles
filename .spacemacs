@@ -52,7 +52,7 @@ values."
      org
      shell
      (shell :variables
-            shell-default-shell 'eshell
+            shell-default-shell 'multi-term
             shell-default-height 30
             shell-default-position 'bottom)
      ;; spell-checking
