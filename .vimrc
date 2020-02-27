@@ -14,6 +14,7 @@ set t_Co=256
 
 
 set nocompatible
+set smartcase
 syntax on
 set nowrap
 set encoding=utf-8
