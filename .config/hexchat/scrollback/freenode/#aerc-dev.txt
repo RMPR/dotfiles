@@ -159,3 +159,133 @@ T 1582116685 19*	Now talking on 22#aerc-dev
 T 1582116685 22*	Topic for 22#aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
 T 1582116685 22*	Topic for 22#aerc-dev set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:50:39 2019)
 T 1582119590 20*	Disconnected (20)
+T 1582915867 19*	Now talking on 22#aerc-dev
+T 1582915867 22*	Topic for 22#aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+T 1582915867 22*	Topic for 22#aerc-dev set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:50:39 2019)
+T 1582916786 20*	Disconnected (20)
+T 1582917013 19*	Now talking on 22#aerc-dev
+T 1582917013 22*	Topic for 22#aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+T 1582917013 22*	Topic for 22#aerc-dev set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:50:39 2019)
+T 1582917551 20*	Disconnected (20)
+T 1582917614 20*	Disconnected (20Remote host closed socket)
+T 1582917679 20*	Disconnected (20Remote host closed socket)
+T 1582917704 19*	Now talking on 22#aerc-dev
+T 1582917704 22*	Topic for 22#aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+T 1582917704 22*	Topic for 22#aerc-dev set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:50:39 2019)
+T 1582923232 19*	Now talking on 22#aerc-dev
+T 1582923232 22*	Topic for 22#aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+T 1582923232 22*	Topic for 22#aerc-dev set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:50:39 2019)
+T 1582931194 20*	Disconnected (20)
+T 1582962234 19*	Now talking on 22#aerc-dev
+T 1582962234 22*	Topic for 22#aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+T 1582962234 22*	Topic for 22#aerc-dev set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:50:39 2019)
+T 1582983807 19*	Now talking on 22#aerc-dev
+T 1582983807 22*	Topic for 22#aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+T 1582983807 22*	Topic for 22#aerc-dev set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:50:39 2019)
+T 1582984165 18<28bookworm18>	jeffas: what's the use for the pinning? Not against it but I fail to see the use case
+T 1582984212 18<28bookworm18>	the only thing I don't like is the duplication of pin and pin-tab
+T 1582984216 18<28bookworm18>	isn't one name enough?
+T 1582984223 18<28bookworm18>	pin-tab seems better to me
+T 1582984763 18<28bookworm18>	unpinning should probably move the tab to the right again, normally on the left there's supposed to be the msglist. So if you suddenly have a normal mail there that's kinda strange. Or do you have a different view on the matter?
+T 1582988453 18<22jeffas18>	bookworm: I was implementing the pinning since there was the todo https://todo.sr.ht/~sircmpwn/aerc2/230. I think it could be useful if someone wanted to pin a terminal tab or something else. Yep, the v2 removed the extra aliases so now it is just the *-tab ones. Unpinning currently moves the tab to the right of the pinned ones but I can see how that is strange since the msglist ones aen't pinned. Would it make sense to have
+T 1582988453 18<22jeffas18>	the order be something like msglists | pinned | others. Then pinning an other moves it to pinned but pinning a msglist keeps it where it is but shortens the name?
+T 1582988587 18<28bookworm18>	not sure that shortening the name is something I'd do, not if there's room
+T 1582988612 18<28bookworm18>	will be hard to differentiate if you have tabs c and c
+T 1582988639 18<28bookworm18>	I see spec from Drew. Fair enough
+T 1582988686 18<28bookworm18>	yes, your suggestion to keep the msglists to the left sounds good to me, but maybe ask Drew what he wants
+T 1582988759 18<22jeffas18>	Yeah, it would be difficult to differentiate them. Is there some way we could mark the tab as pinned if we don't shorten the name? Maybe adding a '-' at the start of the tab?
+T 1582988792 18<28bookworm18>	I'd use a * but that's bikeshedding
+T 1582988809 18<28bookworm18>	I'd prefer that but it's not my call
+T 1582988832 18<28bookworm18>	(that being some different marking instead of shortening to a single char)
+T 1582989091 18<22ddevault18>	the reason tabstrip and tabcontent are separate pieces is so that they can be put in separate places
+T 1582989504 18<22jeffas18>	Sure but I think that the tabs should encapsulate both pieces and can sort out their arrangement itself. The patch still gives the flexibility to have the pieces in different arrangements if we add that later, it just simplifies things without having parent pointers and such.
+T 1582989551 18<22ddevault18>	no, the whole idea of this design is to let the parent sort out the arrangement
+T 1582989555 18<22ddevault18>	I don't really like this tbh
+T 1582990061 18<22jeffas18>	No worries
+T 1582998123 20*	Disconnected (20)
+T 1582998150 19*	Now talking on 22#aerc-dev
+T 1582998150 22*	Topic for 22#aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+T 1582998150 22*	Topic for 22#aerc-dev set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:50:39 2019)
+T 1583000173 18<22ddevault18>	jeffas: can you rework pinned tabs to work without the other refactoring
+T 1583000245 18<22jeffas18>	Sure, what are your thoughts on the above? (should pinned tabs go to the left of accountview tabs regardless and is just the first character sufficient or should there be some other identifier?)
+T 1583000297 18<22ddevault18>	let's remember where it was before being pinned, and move it back there when unpinned
+T 1583000302 18<22ddevault18>	and keep them to the left
+T 1583000308 18<22ddevault18>	let's also add a command to move tabs around arbitrarily
+T 1583000323 18<22ddevault18>	as for the title, let's give it a single configurable character
+T 1583000335 18<22ddevault18>	I'd recommend ` by default, cause it looks like a pin
+T 1583009923 20*	Disconnected (20)
+T 1583010206 19*	Now talking on 22#aerc-dev
+T 1583010206 22*	Topic for 22#aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+T 1583010206 22*	Topic for 22#aerc-dev set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:50:39 2019)
+T 1583010734 20*	Disconnected (20)
+T 1583147412 19*	Now talking on 22#aerc-dev
+T 1583147412 22*	Topic for 22#aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+T 1583147412 22*	Topic for 22#aerc-dev set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:50:39 2019)
+T 1584531726 19*	Now talking on 22#aerc-dev
+T 1584531726 22*	Topic for 22#aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+T 1584531726 22*	Topic for 22#aerc-dev set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:50:39 2019)
+T 1584535066 20*	Disconnected (20)
+T 1584535100 19*	Now talking on 22#aerc-dev
+T 1584535100 22*	Topic for 22#aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+T 1584535100 22*	Topic for 22#aerc-dev set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:50:39 2019)
+T 1584543278 20*	Disconnected (20)
+T 1584543303 19*	Now talking on 22#aerc-dev
+T 1584543303 22*	Topic for 22#aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+T 1584543303 22*	Topic for 22#aerc-dev set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:50:39 2019)
+T 1584567528 20*	Disconnected (20)
+T 1584567552 19*	Now talking on 22#aerc-dev
+T 1584567552 22*	Topic for 22#aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+T 1584567552 22*	Topic for 22#aerc-dev set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:50:39 2019)
+T 1584568608 20*	Disconnected (20)
+T 1584602731 19*	Now talking on 22#aerc-dev
+T 1584602731 22*	Topic for 22#aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+T 1584602731 22*	Topic for 22#aerc-dev set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:50:39 2019)
+T 1584610124 20*	Disconnected (20)
+T 1584610152 19*	Now talking on 22#aerc-dev
+T 1584610152 22*	Topic for 22#aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+T 1584610152 22*	Topic for 22#aerc-dev set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:50:39 2019)
+T 1584619118 20*	Disconnected (20)
+T 1584619144 19*	Now talking on 22#aerc-dev
+T 1584619144 22*	Topic for 22#aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+T 1584619144 22*	Topic for 22#aerc-dev set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:50:39 2019)
+T 1584620168 20*	Disconnected (20)
+T 1584620217 20*	Disconnected (20Remote host closed socket)
+T 1584620285 20*	Disconnected (20Remote host closed socket)
+T 1584620353 20*	Disconnected (20Remote host closed socket)
+T 1584620373 19*	Now talking on 22#aerc-dev
+T 1584620373 22*	Topic for 22#aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+T 1584620373 22*	Topic for 22#aerc-dev set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:50:39 2019)
+T 1584620678 20*	Disconnected (20)
+T 1584620723 20*	Disconnected (20Remote host closed socket)
+T 1584620791 20*	Disconnected (20Remote host closed socket)
+T 1584620859 20*	Disconnected (20Remote host closed socket)
+T 1584620886 19*	Now talking on 22#aerc-dev
+T 1584620886 22*	Topic for 22#aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+T 1584620886 22*	Topic for 22#aerc-dev set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:50:39 2019)
+T 1584623318 20*	Disconnected (20)
+T 1584623365 19*	Now talking on 22#aerc-dev
+T 1584623365 22*	Topic for 22#aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+T 1584623365 22*	Topic for 22#aerc-dev set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:50:39 2019)
+T 1584627968 20*	Disconnected (20)
+T 1584628059 20*	Disconnected (20Remote host closed socket)
+T 1584628105 20*	Disconnected (20Remote host closed socket)
+T 1584628173 20*	Disconnected (20Remote host closed socket)
+T 1584628198 19*	Now talking on 22#aerc-dev
+T 1584628198 22*	Topic for 22#aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+T 1584628198 22*	Topic for 22#aerc-dev set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:50:39 2019)
+T 1584645040 20*	Disconnected (20)
+T 1584645169 19*	Now talking on 22#aerc-dev
+T 1584645169 22*	Topic for 22#aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+T 1584645169 22*	Topic for 22#aerc-dev set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:50:39 2019)
+T 1584695155 20*	Disconnected (20)
+T 1584695183 19*	Now talking on 22#aerc-dev
+T 1584695183 22*	Topic for 22#aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+T 1584695183 22*	Topic for 22#aerc-dev set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:50:39 2019)
+T 1584709397 20*	Disconnected (20)
+T 1584709424 19*	Now talking on 22#aerc-dev
+T 1584709424 22*	Topic for 22#aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+T 1584709424 22*	Topic for 22#aerc-dev set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:50:39 2019)
+T 1584711652 20*	Disconnected (20)
+T 1584711680 19*	Now talking on 22#aerc-dev
+T 1584711680 22*	Topic for 22#aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+T 1584711680 22*	Topic for 22#aerc-dev set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:50:39 2019)

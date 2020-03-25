@@ -1110,3 +1110,314 @@ T 1582116687 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <
 T 1582116687 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
 T 1582118464 18<20FromGitter18>	<jr0cket> The nice thing about Emacs is you have choice
 T 1582119590 20*	Disconnected (20)
+T 1582915861 19*	Now talking on 22#spacemacs
+T 1582915861 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1582915861 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1582916786 20*	Disconnected (20)
+T 1582917013 19*	Now talking on 22#spacemacs
+T 1582917013 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1582917013 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1582917551 20*	Disconnected (20)
+T 1582917614 20*	Disconnected (20Remote host closed socket)
+T 1582917679 20*	Disconnected (20Remote host closed socket)
+T 1582917704 19*	Now talking on 22#spacemacs
+T 1582917704 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1582917704 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1582923232 19*	Now talking on 22#spacemacs
+T 1582923232 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1582923232 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1582927763 18<20FromGitter18>	<wminshew_twitter> ```code paste, see link``` [https://gitter.im/syl20bnr/spacemacs?at=5e598f933ca0375cb38f20d1]
+T 1582927775 18<20FromGitter18>	<wminshew_twitter> ```code paste, see link``` [https://gitter.im/syl20bnr/spacemacs?at=5e598f9f4eefc06dcf25651d]
+T 1582927836 18<20FromGitter18>	<wminshew_twitter> any idea what's going on or how to fix it..?
+T 1582928107 18<20FromGitter18>	<wminshew_twitter> hm
+T 1582928113 18<20FromGitter18>	<wminshew_twitter> appears to not be recognizing my projects
+T 1582928244 18<20FromGitter18>	<wminshew_twitter> shouldn't it automatically recognize the projects spacemacs recognizes?
+T 1582928258 18<20FromGitter18>	<wminshew_twitter> or do i have to manually enter the projects into it separately?
+T 1582931194 20*	Disconnected (20)
+T 1582962234 19*	Now talking on 22#spacemacs
+T 1582962234 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1582962234 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1582983807 19*	Now talking on 22#spacemacs
+T 1582983807 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1582983807 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1582988327 18<20FromGitter18>	<jr0cket> @Martinsos sorry, I didn't find it clear why you want to run Emacs in a terminal.  It is just because you are doing Git on the command line? You can configure `.spacemacs` to run a persistent server, there is specific entries for this already.  You can configure `.gitconfig` to use `emacsclient` as it's editor, so if you don't specify a message, then `emacsclient` will be used to open a buffer in Emacs instantly.  
+T 1582988327 18<20FromGitter18>	... If it's only for got, you could instead use Magit.  Add the `git` layer to `.spacemacs` and use `SPC g s` to open git status, from where you can stage, commit, pull, push, etc.
+T 1582988476 18<20FromGitter18>	<jr0cket> I always have Emacs running, so it never takes any time to start.
+T 1582990671 18<20FromGitter18>	<Martinsos> Thanks all -> it is normally for some quick git stuff (I still find it easier to do it from terminal than magit) or to edit some file real quickly if I am already at it in terminal. ⏎ Ok, so you are all suggesting doing it via daemon -> I will try that more than, I was having issues with it but I am sure there is a way to get it working properly. Thanks!
+T 1582990741 18<20FromGitter18>	<mitchell-horning> @mitchell-horning Mischief manage, my question was answered in the lispy readme. There is a larger problem that where lispy-mode's map is lower in precedence than evil's, so evil has quashed some important keybindings. I will likely manually remap, but a way to specify minor mode keymap precedence might be nice
+T 1582991335 18<20FromGitter18>	<Martinsos> @ANGkeith I did as you said, and daemon is running, however I get following behaviour: emacsclient -nw is still doing some loading (snippets and some stuff), so I still have to wait couple of seconds until I can start using spacemacs. I tried opening another emacsclient -nw at the same time, and that one turned on immediatelly. However, when I tried to close that second one, it also closed the first one! Each 
+T 1582991335 18<20FromGitter18>	... those was in different terminal. So I am not sure what is the benefit of daemon if it behaves like this hm! Or maybe they are not really using daemon? I checked with `ps` and I see daemon running. ⏎ Here is my service file (it came with emacs installation, I am on arch, emacs version 26.3 . ⏎  ⏎ ```code paste, see link` ... [https://gitter.im/syl20bnr/spacemacs?at=5e5a87e7ca2f5a558d5942e3]
+T 1582991593 18<20FromGitter18>	<Martinsos> I can't even stop the daemon, I tried running `systemctl stop --user emacs` and now there is process `emacsclient --eval (kill-emacs)` that is just stuck.
+T 1582991624 18<20FromGitter18>	<Martinsos> actually it seems it killed it now, after 2 minutes
+T 1582993313 18<20FromGitter18>	<aeschylus> Hi All. I've been experiencing this problem: https://github.com/syl20bnr/spacemacs/issues/9358#issuecomment-365136989 ⏎  ⏎ React files aren't recognised as such. I would like to paste this line that supposedly solves the problem somewhere, but I don't know where to paste it: ⏎  ⏎ ```code paste, see link``` [https://gitter.im/syl20bnr/spacemacs?at=5e5a8fa1ec7f8746aaa4c38c]
+T 1582993324 18<20FromGitter18>	<aeschylus> Which dotfile does it go in and where?
+T 1582993337 18<20FromGitter18>	<aeschylus> I'm not extremely familiar with Elisp
+T 1582993634 18<20FromGitter18>	<nixmaniack> @aeschylus You can add that in your `~/.spacemacs` file in the `dotspacemacs/user-config` section/function.
+T 1582993855 18<20FromGitter18>	<aeschylus> @nixmaniack Gracias!
+T 1582995795 18<20FromGitter18>	<paxsali> How can I remap Helm's mini buffer help menu ```C-c ?``` to ```C-c m```? The default ```C-c ?``` does not work on my language/keyboard. The mapped function is ```helm-help```. You can see a list of all functions by pressing ```C-c```inside a helm mini buffer and then wait for menu to pop up.
+T 1582998123 20*	Disconnected (20)
+T 1582998150 19*	Now talking on 22#spacemacs
+T 1582998150 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1582998150 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1583000456 18<20FromGitter18>	<ANGkeith> @Martinsos  ⏎ Yeah, my very initial startup of emacsclient is a little slow as well, but it's a one time thing, i dont think it will affect your user experience too much. ⏎  ⏎ If you are using evil mode, exit using `:q` otherwise you can exit using `C-x C-c` instead.  ⏎  ... [https://gitter.im/syl20bnr/spacemacs?at=5e5aab88ec7f8746aaa5035b]
+T 1583009923 20*	Disconnected (20)
+T 1583010207 19*	Now talking on 22#spacemacs
+T 1583010207 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1583010207 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1583010734 20*	Disconnected (20)
+T 1583147412 19*	Now talking on 22#spacemacs
+T 1583147412 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1583147412 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1583156062 18<20FromGitter18>	<gcentauri> Wilk, yes that seems like the problem. Emacs 26.1 deprecated when-let, seems like the Vue layer is still using it?
+T 1583156750 18<20FromGitter18>	<gcentauri> Maybe it's somewhere else. I have only been on my phone and haven't been able to look closely at what is calling it
+T 1583157498 18<20FromGitter18>	<gcentauri> Wilk - what version of spacemacs are you using?
+T 1583158009 18<20FromGitter18>	<gcentauri> i'm not sure, oddly, when-let is still defined for me, and the place in spacemacs that looks like it is calling `when-let` for you is actually written as `when-let*`
+T 1583158178 18<20FromGitter18>	<gcentauri> maybe you need to recompile some of the code
+T 1583162062 18<20FromGitter18>	<BrandonShega> Is there a way to figure out which commit hash my spacemacs is using? If I do `SPC f e v` I just get 0.300.0, but I'd like to know that the emacs that I'm opening is on the latest.  Sometimes I can't tell when using `emacsclient`
+T 1584531726 19*	Now talking on 22#spacemacs
+T 1584531726 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1584531726 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1584533725 18<20FromGitter18>	<vv111y> > Anyone who got an opinion on which browser let's you achieve most integration with Emacs/spacemacs? I have just Firefox (with vim vixen) in EXWM for now, something between that and eww would be nice. Going to try https://github.com/atlas-engineer/next next  ⏎  ⏎ @nhmacuk I was curious about that too. There isn't much yet afaik, hopefully more work will be done there. If you try out next I would like to know 
+T 1584533725 18<20FromGitter18>	... how it goes
+T 1584533824 18<20FromGitter18>	<vv111y> > Anyone who has experience running the HEAD version of GNU Emacs in combination with spacemacs? ⏎  ⏎ @nhmacuk I just updated to emacs 28 on both mac and linux. 2 days in so far so good.
+T 1584535066 20*	Disconnected (20)
+T 1584535101 19*	Now talking on 22#spacemacs
+T 1584535101 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1584535101 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1584538222 18<20FromGitter18>	<nixmaniack> @Cassiel-girl There are ways in which you can get it working but it's the terminal that you'd need to configure. Currently, there's no standard keycode defined for sending `C-<ret>` to app running inside terminal, hence emacs can't do much about that. What you can do is, rebind those functions for something which gets recognized inside terminal emacs.
+T 1584543278 20*	Disconnected (20)
+T 1584543303 19*	Now talking on 22#spacemacs
+T 1584543303 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1584543303 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1584545722 18<20FromGitter18>	<lucaregini> sly
+T 1584549508 18<20FromGitter18>	<hsheikhali> I got a question guys. I'm new to spacemacs and I wanted to know how to configure company mode with react js and just js in general
+T 1584549533 18<20FromGitter18>	<hsheikhali> Not sure how to get it working but intellesence just does not work :(
+T 1584549950 18<20FromGitter18>	<gcentauri> @hsheikhali you're going to need to use the LSP layer
+T 1584549996 18<20FromGitter18>	<gcentauri> i still haven't gotten it fully configured, but that is what will provide the intellisense type features
+T 1584567528 20*	Disconnected (20)
+T 1584567552 19*	Now talking on 22#spacemacs
+T 1584567552 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1584567552 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1584567596 18<20FromGitter18>	<yyoncho> The demo is created using the docker image
+T 1584567646 18<20FromGitter18>	<gcentauri> thanks @yyoncho - i'm trying it naively with `--with-nativecomp`
+T 1584568608 20*	Disconnected (20)
+T 1584602731 19*	Now talking on 22#spacemacs
+T 1584602731 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1584602731 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1584603257 18<20FromGitter18>	<samhedin> @tinix_gitlab I started using jetbrains mono a while back, it's similar to consolas which was my favorite before.
+T 1584603555 18<20FromGitter18>	<samhedin> Here is the native compilation info page if anyone is still looking: https://akrl.sdf.org/gccemacs.html
+T 1584610124 20*	Disconnected (20)
+T 1584610152 19*	Now talking on 22#spacemacs
+T 1584610152 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1584610152 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1584614441 18<20FromGitter18>	<jr0cket> I use Ubuntu Mono, it's very nice at a range of sizes
+T 1584615137 18<20FromGitter18>	<jr0cket> @paxsali nightly builds of Emacs (now version 28) are available as .deb packages for Ubuntu via its Emacs PPA https://launchpad.net/~ubuntu-elisp/+archive/ubuntu/ppa
+T 1584619118 20*	Disconnected (20)
+T 1584619145 19*	Now talking on 22#spacemacs
+T 1584619145 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1584619145 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1584620168 20*	Disconnected (20)
+T 1584620217 20*	Disconnected (20Remote host closed socket)
+T 1584620285 20*	Disconnected (20Remote host closed socket)
+T 1584620353 20*	Disconnected (20Remote host closed socket)
+T 1584620374 19*	Now talking on 22#spacemacs
+T 1584620374 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1584620374 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1584620678 20*	Disconnected (20)
+T 1584620723 20*	Disconnected (20Remote host closed socket)
+T 1584620791 20*	Disconnected (20Remote host closed socket)
+T 1584620859 20*	Disconnected (20Remote host closed socket)
+T 1584620886 19*	Now talking on 22#spacemacs
+T 1584620886 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1584620886 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1584621898 18<20FromGitter18>	<raszi> hi, I would like to set an extra key-binding to the smartparens when I am editing lisp files (including clojure)
+T 1584621904 18<20FromGitter18>	<raszi> but I am having trouble doing that so
+T 1584621929 18<20FromGitter18>	<raszi> what I would like to achieve is when I hit `SPC  k [` then it should call the sp-wrap-square function
+T 1584621974 18<20FromGitter18>	<raszi> `spacemacs/set-leader-keys-for-major-mode` is adding to the `, k [` which is not what I am looking for
+T 1584622011 18<20FromGitter18>	<raszi> https://github.com/syl20bnr/spacemacs/blob/master/doc/DOCUMENTATION.org#editing-lisp-code
+T 1584622022 18<20FromGitter18>	<raszi> I would like to extend this list technically ^
+T 1584623318 20*	Disconnected (20)
+T 1584623366 19*	Now talking on 22#spacemacs
+T 1584623366 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1584623366 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1584624181 18<20FromGitter18>	<Cassiel-girl> (add-hook 'c++-mode-hook ⏎  ⏎ ```code paste, see link``` [https://gitter.im/syl20bnr/spacemacs?at=5e7372381e369d63dff50663]
+T 1584624291 18<20FromGitter18>	<Cassiel-girl> why this not working in c++ mode? company mode is woring, but company-backdends is the original value. And I am sure the hook is  be performed.
+T 1584625024 18<20FromGitter18>	<tinix_gitlab> thanks people about the fonts !!!
+T 1584625620 18<20FromGitter18>	<dalanicolai_gitlab> Hi guys! Is it right that from the init-function in the `packages.el` of a layer, I can only run function defined in `funcs.el`?
+T 1584625753 18<20FromGitter18>	<dalanicolai_gitlab> It seems I can not call (lsp) directly from there, but I can put it in a function in `funcs.el` and then call that funtion from the init-function in `packages.el`
+T 1584625794 18<20FromGitter18>	<dalanicolai_gitlab> https://github.com/syl20bnr/spacemacs/blob/master/doc/LAYERS.org#anatomy-of-a-layer
+T 1584625879 18<20FromGitter18>	<dalanicolai_gitlab> Here indeed it says funcs.el that all function used by the layer should be declared there... but I do not know what means "all" here... I would expect that I can just call any available function
+T 1584626021 18<20FromGitter18>	<raszi> ```(spacemacs/set-leader-keys (kbd "k {") 'sp-wrap-curly)``````
+T 1584626024 18<20FromGitter18>	<raszi> this is what I did so far
+T 1584627135 18<20FromGitter18>	<Cassiel-girl> @Cassiel-girl ⏎ (add-hook 'c++-mode-hook ⏎  ⏎ ```code paste, see link``` ⏎  ... [https://gitter.im/syl20bnr/spacemacs?at=5e737dc3949f6d2d8e5a4753]
+T 1584627968 20*	Disconnected (20)
+T 1584628059 20*	Disconnected (20Remote host closed socket)
+T 1584628105 20*	Disconnected (20Remote host closed socket)
+T 1584628173 20*	Disconnected (20Remote host closed socket)
+T 1584628199 19*	Now talking on 22#spacemacs
+T 1584628199 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1584628199 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1584629817 18<20FromGitter18>	<dalanicolai_gitlab> @Cassiel-girl Does it have something to do with the warning in section 12.11.2 here (https://www.gnu.org/software/emacs/manual/html_node/elisp/Creating-Buffer_002dLocal.html)?
+T 1584630136 18<20FromGitter18>	<dalanicolai_gitlab> (add-hook 'c++-mode-hook nil t
+T 1584630257 18<20FromGitter18>	<dalanicolai_gitlab> https://www.gnu.org/software/emacs/manual/html_node/elisp/Setting-Hooks.html
+T 1584630345 18<20FromGitter18>	<gcentauri> @dalanicolai_gitlab - you need to be careful about calling functions from other packages in your layer. i don't know the context, but it could be that `lsp` is not loaded where you're trying to call it?
+T 1584630417 18<20FromGitter18>	<dalanicolai_gitlab> I put it in a   (if (configuration-layer/layer-used-p 'lsp)
+T 1584630456 18<20FromGitter18>	<dalanicolai_gitlab> And when it tries to run (lsp) but it gives some error message
+T 1584630539 18<20FromGitter18>	<gcentauri> huh... maybe also needs a `with-eval-after-load`?
+T 1584630584 18<20FromGitter18>	<dalanicolai_gitlab> Actually I tried to get the error message now
+T 1584630600 18<20FromGitter18>	<dalanicolai_gitlab> But I did not use this
+T 1584630604 18<20FromGitter18>	<dalanicolai_gitlab> And now it works
+T 1584630625 18<20FromGitter18>	<gcentauri> is this after interacting with lsp in your current emacs session?
+T 1584630669 18<20FromGitter18>	<dalanicolai_gitlab> No fresh restart
+T 1584630686 18<20FromGitter18>	<gcentauri> :shrug:
+T 1584630693 18<20FromGitter18>	<gcentauri> magic
+T 1584630695 18<20FromGitter18>	<gcentauri> :P
+T 1584630716 18<20FromGitter18>	<dalanicolai_gitlab> Now I put in this again and the error is back
+T 1584630718 18<20FromGitter18>	<dalanicolai_gitlab> (if (configuration-layer/layer-used-p 'lsp)
+T 1584630779 18<20FromGitter18>	<dalanicolai_gitlab> Took it out again, restarted and again it works
+T 1584630976 18<20FromGitter18>	<dalanicolai_gitlab> Put it in again the error is back
+T 1584630990 18<20FromGitter18>	<dalanicolai_gitlab> ```code paste, see link``` [https://gitter.im/syl20bnr/spacemacs?at=5e738cd1a2e37e3a0346d143]
+T 1584631059 18<20FromGitter18>	<dalanicolai_gitlab> Anyway... this answered my question... so I can call just (lsp) from here
+T 1584631072 18<20FromGitter18>	<dalanicolai_gitlab> But I prefer to check for the layer of course
+T 1584631144 18<20FromGitter18>	<dalanicolai_gitlab> So when I put the  ⏎  ⏎ ```'(if (configuration-layer/layer-used-p 'lsp) ⏎                                   (lsp))``` ⏎  ⏎ part in a different function in funcs.el and then call that from the :init here then it works [https://gitter.im/syl20bnr/spacemacs?at=5e738d6b0f0687340b4123f4]
+T 1584631262 18<20FromGitter18>	<gcentauri> must be some arcane load order thing going on
+T 1584631276 18<20FromGitter18>	<dalanicolai_gitlab> So it gives `file mode specification error: (invalid-function (lsp))`
+T 1584631288 18<20FromGitter18>	<dalanicolai_gitlab> I really don't get it
+T 1584631307 18<20FromGitter18>	<dalanicolai_gitlab> But anyway... I know how to avoid it
+T 1584631318 18<20FromGitter18>	<gcentauri> so the `if` in the `use-package` does not work, but in the `funcs.el` wrapped in a function it does?
+T 1584631347 18<20FromGitter18>	<dalanicolai_gitlab> Yes
+T 1584631375 18<20FromGitter18>	<dalanicolai_gitlab> Well in the use-package it also tries to call (lsp)
+T 1584631381 18<20FromGitter18>	<dalanicolai_gitlab> but then it gives an error
+T 1584631386 18<20FromGitter18>	<yyoncho> @dalanicolai_gitlab how do you reffer lsp-mode package?
+T 1584631397 18<20FromGitter18>	<yyoncho> You probably have deleted the autoloads file
+T 1584631428 18<20FromGitter18>	<dalanicolai_gitlab> I just updated my spacemacs packages
+T 1584631437 18<20FromGitter18>	<dalanicolai_gitlab> Don't think I deleted anything
+T 1584631462 18<20FromGitter18>	<dalanicolai_gitlab> lsp-mode is just installed via the lsp-layer
+T 1584631463 18<20FromGitter18>	<yyoncho> you did PR in lsp-mode package - how do you load it?
+T 1584631474 18<20FromGitter18>	<dalanicolai_gitlab> I don't load that one anymore
+T 1584631483 18<20FromGitter18>	<dalanicolai_gitlab> I just updated the packages from melpa
+T 1584631494 18<20FromGitter18>	<dalanicolai_gitlab> just the lsp layer
+T 1584631511 18<20FromGitter18>	<yyoncho> because `lsp` function is autoloaded -  this means that you should be able to call (lsp) without requiring lsp-mode.el
+T 1584631541 18<20FromGitter18>	<dalanicolai_gitlab> I can indeed
+T 1584631544 18<20FromGitter18>	<dalanicolai_gitlab> But not in this way
+T 1584631578 18<20FromGitter18>	<dalanicolai_gitlab> But when I create a function with only this in there ⏎  ⏎ ```'(if (configuration-layer/layer-used-p 'lsp)           (lsp))``` [https://gitter.im/syl20bnr/spacemacs?at=5e738f1d671a621fe09dd128]
+T 1584631692 18<20FromGitter18>	<dalanicolai_gitlab> I removed everything from my spacemacs file to load the lsp-mode in some other way
+T 1584631803 18<20FromGitter18>	<dalanicolai_gitlab> So when I remove that `'(if (configuration-layer/layer-used-p 'lsp)` then it just works
+T 1584631825 18<20FromGitter18>	<dalanicolai_gitlab> from the use-package
+T 1584631977 18<20FromGitter18>	<anddam> while using neotree and projectile is there a way to set a project's root?
+T 1584631996 18<20FromGitter18>	<dalanicolai_gitlab> put a .projectile file in the root folder
+T 1584631999 18<20FromGitter18>	<anddam> I am manually creating a .projectile file since I could not find a way to tell any of those "this is a project root"
+T 1584632003 18<20FromGitter18>	<anddam> ok
+T 1584632043 18<20FromGitter18>	<dalanicolai_gitlab> Yes fine... or initiate some version control in that directory
+T 1584632049 18<20FromGitter18>	<dalanicolai_gitlab> alternatively
+T 1584632233 18<20FromGitter18>	<Cassiel-girl> (add-hook 'c++-mode-hook ⏎ (lambda () ⏎ (set (make-local-variable 'company-backends) ⏎ '((company-keywords))) ⏎ why company-backdends is the original value in c++-mode? company mode is woring and I am sure the hook is be performed. [https://gitter.im/syl20bnr/spacemacs?at=5e7391ac8f72d84d0e06d93b]
+T 1584632235 18<20FromGitter18>	<Cassiel-girl> who can help me?
+T 1584632263 18<20FromGitter18>	<dalanicolai_gitlab> Hi I answered you half an hour ago or so
+T 1584632269 18<20FromGitter18>	<dalanicolai_gitlab> Just look a little up
+T 1584632309 18<20FromGitter18>	<dalanicolai_gitlab> @Cassiel-girl it is not a straight answer
+T 1584632345 18<20FromGitter18>	<dalanicolai_gitlab> @Cassiel-girl found it?
+T 1584632742 18<20FromGitter18>	<Cassiel-girl> Could you make a detailed explain?
+T 1584632749 18<20FromGitter18>	<Cassiel-girl> I can't understand it.
+T 1584632751 18<20FromGitter18>	<anddam> @dalanicolai_gitlab I have a project root with multiple repos in it
+T 1584632772 18<20FromGitter18>	<anddam> well I figure I still should put the main repo under revision control…
+T 1584632773 18<20FromGitter18>	<dalanicolai_gitlab> @Cassiel-girl Haha, me neither...
+T 1584632788 18<20FromGitter18>	<dalanicolai_gitlab> But I will try
+T 1584632870 18<20FromGitter18>	<dalanicolai_gitlab> @anddam I don't know much about projectile yet
+T 1584632888 18<20FromGitter18>	<dalanicolai_gitlab> But do you want a project for the LSP?
+T 1584633018 18<20FromGitter18>	<rommeswi> Hi, I just encountered a strange problem: whenever I type a "^", it does not type the symbol but waits for another input. If I then type a "2", it creates a little "squared" symbol, if I type a space " ", it will create a "^" symbol in the text. I'm using spacemacs, evil mode with auctex. I don't even know how to call this problem to properly search for it :-D
+T 1584633072 18<20FromGitter18>	<dalanicolai_gitlab> @anddam You can not find the answer here (https://projectile.readthedocs.io/en/latest/projects/#adding-custom-project-types)?
+T 1584633124 18<20FromGitter18>	<rommeswi> I also don't even know if this is a feature of vim, emacs, spacemacs, auctex....
+T 1584633200 18<20FromGitter18>	<gcentauri> @rommeswi my guess is auxtex
+T 1584633268 18<20FromGitter18>	<rommeswi> Ah, interesting, I just tested it in an empty non-tex buffer and the problem is the same.
+T 1584633284 18<20FromGitter18>	<dalanicolai_gitlab> @Cassiel-girl It is not completely clear to me what you want...
+T 1584633326 18<20FromGitter18>	<dalanicolai_gitlab> Ah... okay
+T 1584633328 18<20FromGitter18>	<dalanicolai_gitlab> wait
+T 1584633394 18<20FromGitter18>	<gcentauri> @rommeswi - oh really... if you `SPC h d m` it will tell you all the modes that are active... it will be a lot but it doesn't happen for me normally
+T 1584633565 18<20FromGitter18>	<dalanicolai_gitlab> @Cassiel-girl does this work?
+T 1584633577 18<20FromGitter18>	<dalanicolai_gitlab> ```code paste, see link``` [https://gitter.im/syl20bnr/spacemacs?at=5e7396ec46e658435e9fb477]
+T 1584633632 18<20FromGitter18>	<Cassiel-girl> (defun init-completion/post-init-company()                                                                                                                                          ⏎   (use-package company                                                                                                                                                              ⏎  ⏎ ```code paste, see link``` 
+T 1584633633 18<20FromGitter18>	... [https://gitter.im/syl20bnr/spacemacs?at=5e739724d26835340ca8ecfa]
+T 1584633663 18<20FromGitter18>	<gcentauri> @rommeswi you could also try `SPC h d k ^` and see if it tells you what its doing
+T 1584633675 18<20FromGitter18>	<gcentauri> @Cassiel-girl - are you trying to define your own layer?
+T 1584633697 18<20FromGitter18>	<Cassiel-girl> I want to add a hook to  c++-mode and company mode. The hook changes the company-backends.
+T 1584633722 18<20FromGitter18>	<dalanicolai_gitlab> A.. I see `company-keywords` needs an argument
+T 1584633760 18<20FromGitter18>	<rommeswi> Here are minor modes I could imagine cause this by the description: Transient-mark, Auto-Composition, spacemacs-leader-override-mode, eval-sexp-fu-flash
+T 1584633764 18<20FromGitter18>	<rommeswi> Do any ring a bell?
+T 1584633787 18<20FromGitter18>	<Cassiel-girl> @dalanicolai_gitlab your code not work.
+T 1584633807 18<20FromGitter18>	<rommeswi> @gcentauri I tried this and it again does not register the key. Only once i press "^" and then " " it even displays something
+T 1584633818 18<20FromGitter18>	<Cassiel-girl> @syl20bnr
+T 1584633852 18<20FromGitter18>	<gcentauri> @rommeswi - could be an Evil thing i guess, I don't use evil so i don't know. does it happen in the `*scratch*` buffer?
+T 1584633878 18<20FromGitter18>	<gcentauri> @Cassiel-girl the recommended way to set your c-c++ backend is with a layer variable.  are you on `master` or `develop` branch?
+T 1584633883 18<20FromGitter18>	<rommeswi> @gcentauri yep, even in the scratch
+T 1584633888 18<20FromGitter18>	<gcentauri> `(c-c++ :variables c-c++-backend 'lsp-clangd)`
+T 1584633940 18<20FromGitter18>	<Cassiel-girl> @dalanicolai_gitlab It seems a problem of spacemacs add hook to special mode.
+T 1584633996 18<20FromGitter18>	<dalanicolai_gitlab> @Cassiel-girl I think grant knows more about this then me
+T 1584634076 18<20FromGitter18>	<dalanicolai_gitlab> Haha... I think spacemacs should be able enough for that
+T 1584634094 18<20FromGitter18>	<rommeswi> @gcentauri I fixed it. It was a problem with the X server and WSL on windows. Thank you for your help.
+T 1584634119 18<20FromGitter18>	<gcentauri> :P lol
+T 1584634178 18<20FromGitter18>	<rommeswi> Once it was clear to me that no strange editing mode like this exists within spacemacs, the culprit was quickly found!
+T 1584634196 18<20FromGitter18>	<gcentauri> @Cassiel-girl - according to the documentation on the `develop` branch, the recommended way to configure C++ is with the LSP backend, which also works for completion (company)
+T 1584634220 18<20FromGitter18>	<gcentauri> it might be that what you're running into is two conflicting pieces of code are setting your company backends
+T 1584634252 18<20FromGitter18>	<gcentauri> @rommeswi - you *could* have behavior like that in Emacs, but it should only exist in modes with like... math symbol inputs
+T 1584634669 18<20FromGitter18>	<rommeswi> brrrr, I'm glad I don't have to work in such modes ;-)
+T 1584634679 18<20FromGitter18>	<Cassiel-girl> @rommeswi Yeah, I am on the newest develop branch. And I am configuring my own layer.
+T 1584634752 18<20FromGitter18>	<Cassiel-girl> I do  not use official c-c++ layer.  And I want to find the problem and make my layer work.
+T 1584634959 18<20FromGitter18>	<rommeswi> @Cassiel-girl Sorry, I don't think you pinged the right person :-)
+T 1584635142 18<20FromGitter18>	<dalanicolai_gitlab> @Cassiel-girl  anyway... I think you are at least forgetting to quote the lambda
+T 1584635181 18<20FromGitter18>	<dalanicolai_gitlab> Ah... you got another strategy already
+T 1584635704 18<20FromGitter18>	<Cassiel-girl> @gcentauri
+T 1584635713 18<20FromGitter18>	<Cassiel-girl> @rommeswi sorry, I want to ping gcentauri
+T 1584636396 18<20FromGitter18>	<Cassiel-girl> (add-hook 'c++-mode-hook                                                                                                                                                       ⏎  ⏎ ```code paste, see link``` [https://gitter.im/syl20bnr/spacemacs?at=5e73a1eff5b9723ad9ad4767]
+T 1584636403 18<20FromGitter18>	<Cassiel-girl> @dalanicolai_gitlab
+T 1584636884 18<20FromGitter18>	<gcentauri> @Cassiel-girl - it looks like the `company-backends` variable automatically becomes buffer local when set. the global value of the variable for me is `nil` but depending on what buffer i'm in, it gets set
+T 1584637010 18<20FromGitter18>	<gcentauri> you may want to check out `spacemacs|add-company-backends` macro
+T 1584637292 18<20FromGitter18>	<Cassiel-girl> @gcentauri could your show me some code.
+T 1584637307 18<20FromGitter18>	<Cassiel-girl> I have falled into this problem very time.
+T 1584637358 18<20FromGitter18>	<gcentauri> here's how the lsp company backends are currently set up: ⏎  ⏎ ```code paste, see link``` [https://gitter.im/syl20bnr/spacemacs?at=5e73a5b1d26835340ca91f51]
+T 1584637393 18<20FromGitter18>	<gcentauri> ```code paste, see link``` [https://gitter.im/syl20bnr/spacemacs?at=5e73a5d436d1465a4e331d22]
+T 1584637463 18<20FromGitter18>	<gcentauri> i've never done it before myself, but `SPC h d f` has good documentation on `spacemacs|add-company-backends`
+T 1584638510 18<20FromGitter18>	<Cassiel-girl> #'spacemacs//c-c++-setup-company
+T 1584638529 18<20FromGitter18>	<Cassiel-girl> what does this sentence means?
+T 1584638848 18<20FromGitter18>	<igoralmeida> this is quoting function `spacemacs//c-c++-setup-company`
+T 1584639274 18<20FromGitter18>	<Cassiel-girl> c-h f  ,    I can't find c-mode-local-vars-hook
+T 1584639393 18<20FromGitter18>	<gcentauri> @Cassiel-girl i also can't find that hook, it must be created in this layer
+T 1584640381 18<20FromGitter18>	<igoralmeida> aren't hooks vars, though? </dumbquestion>
+T 1584641007 18<20FromGitter18>	<Cassiel-girl> where is the c-mode-local-vars-hook definition?
+T 1584641060 18<20FromGitter18>	<Cassiel-girl> I can't find it, so confusing.
+T 1584641374 18<20FromGitter18>	<anddam> should `counsel-projectile-find-file` let me find files in a while projectile project?
+T 1584641421 18<20FromGitter18>	<anddam> I am only asked to match a small set of files, roughly in project's root, ideally I'd like something (fuzzy) searching full paths through the whole project
+T 1584641598 18<20FromGitter18>	<gcentauri> @anddam try `SPC /`?
+T 1584641620 18<20FromGitter18>	<gcentauri> @Cassiel-girl i think those variables are defined on the spot in the `add-hook` call
+T 1584641724 18<20FromGitter18>	<anddam> @gcentauri that's grepping (actually silver-searching) the content, still nice
+T 1584641744 18<20FromGitter18>	<anddam> but I want to jump to a file I know is in the project, possibly without having to navigate the whole path
+T 1584641927 18<20FromGitter18>	<gcentauri> `SPC p f`
+T 1584641981 18<20FromGitter18>	<gcentauri> which does launch `counsel-projectile-find-file` if you use ivy
+T 1584642025 18<20FromGitter18>	<gcentauri>  (https://files.gitter.im/syl20bnr/spacemacs/y88x/image.png)
+T 1584645040 20*	Disconnected (20)
+T 1584645170 19*	Now talking on 22#spacemacs
+T 1584645170 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1584645170 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1584645204 18<20FromGitter18>	<gcentauri> this invokes the Emacs function `describe-function`.  mnemonically it is "help describe function" in Spacemacs
+T 1584645253 18<20FromGitter18>	<gcentauri> recompiling packages is under `SPC f e c` ( "file, emacs, compile" )
+T 1584645292 18<20FromGitter18>	<Cassiel-girl> who know all the function position call sequence in spacemacs configuration?
+T 1584695155 20*	Disconnected (20)
+T 1584695183 19*	Now talking on 22#spacemacs
+T 1584695183 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1584695183 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1584703431 18<20FromGitter18>	<aholyoake-bc> Hi Guys, does anyone have a link for up-to-date instructions for using go-mode for projects that use go mod?
+T 1584703451 18<20FromGitter18>	<aholyoake-bc> I'm having terrible trouble getting go guru to behave
+T 1584709397 20*	Disconnected (20)
+T 1584709424 19*	Now talking on 22#spacemacs
+T 1584709424 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1584709424 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1584711652 20*	Disconnected (20)
+T 1584711682 19*	Now talking on 22#spacemacs
+T 1584711682 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1584711682 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1584713840 18<20FromGitter18>	<gcentauri> zakozazz: https://masteringemacs.org/article/diacritics-in-emacs
+T 1584713906 18<19zakozazz18>	thanks gcentauri I will check it!
+T 1584713916 18<20FromGitter18>	<gcentauri> looks like maybe more than one way to do it, but you can switch to different input modes with `C-\` - I'm sure you can find one that works :)
+T 1584714189 18<20FromGitter18>	<gcentauri> @paxsali - yeah looks like nothing "official" for documentation aside from the directive tags. i haven't seen many examples with additional comments, but i'm sure they're out there
+T 1584714625 18<20FromGitter18>	<paxsali> How does one tell yasnippet not to create a newline when you're trying to expand something in the middle of the sentence? E.g. you type ```Hello keytrigger World!". Suppose ```keytrigger``` is a key that can be expanded into ```${1:my} ${2:very} ${3:beautiful}```. When you go to the end of ```keytrigger``` and press ```C-p``` for expand, it actually breaks everything into two lines: Lineno 1: ```Hello my very 
+T 1584714626 18<20FromGitter18>	... beautiful``` and Lineno 2: ```World!```.
+T 1584714693 18<20FromGitter18>	<paxsali> Obviously my snippet itself doesn't have multiple lines.

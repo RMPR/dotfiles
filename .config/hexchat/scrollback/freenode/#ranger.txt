@@ -1307,3 +1307,209 @@ T 1582118238 18<27vifon18>	watered: Not possible.
 T 1582118287 18<27vifon18>	The removed files that are still open are no longer visible.
 T 1582118288 18<27vifon18>	The files you can see are fine.
 T 1582119590 20*	Disconnected (20)
+T 1582915861 19*	Now talking on 22#ranger
+T 1582915861 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1582915861 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1582916786 20*	Disconnected (20)
+T 1582917013 19*	Now talking on 22#ranger
+T 1582917013 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1582917013 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1582917551 20*	Disconnected (20)
+T 1582917614 20*	Disconnected (20Remote host closed socket)
+T 1582917679 20*	Disconnected (20Remote host closed socket)
+T 1582917704 19*	Now talking on 22#ranger
+T 1582917704 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1582917704 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1582923232 19*	Now talking on 22#ranger
+T 1582923232 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1582923232 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1582927126 18<19grobi18>	good night, rangers 😲
+T 1582927404 18<22__monty__18>	nn, grobi 
+T 1582928704 18<22__monty__18>	nn, peeps
+T 1582929680 18<29maerwald18>	Since ranger is writte in python... I assume it handles filepaths as utf-8 and not bytestring on unix?
+T 1582929715 18<22__monty__18>	It's messy.
+T 1582929765 18<22__monty__18>	Fwiw I haven't run into issues with that yet though.
+T 1582929783 18<29maerwald18>	Well, the one thing a filemanager should get right is handling filepaths :P
+T 1582929799 18<22__monty__18>	And it does. I'm just always surprised it does.
+T 1582929807 18<29maerwald18>	I was looking at hunter (written in rust), but it seems buggy
+T 1582929827 18<22__monty__18>	You should give ranger a shot before you knock it.
+T 1582929829 18<29maerwald18>	Though rusts OsString should be sorta safe, although it makes no effort to not have developers convert to and from utf-8 randomly
+T 1582929886 18<22__monty__18>	Pretending filenames are utf-8 doesn't really do any harm if it's just for presentation.
+T 1582929908 18<29maerwald18>	yeah, but it's likely they are shoe-horned that way into the syscalls
+T 1582929956 18<22__monty__18>	Not sure what you suspect might go wrong? If you pass the bits unaltered there's no problem.
+T 1582929981 18<22__monty__18>	I dare you to find bugs related to the handling of filenames in ranger.
+T 1582929990 18<29maerwald18>	I mean, once they were converted to utf-8, the information of the original encoding is lost and it is pure luck whether passing it to a syscall does what you think
+T 1582929995 18<22__monty__18>	Either we get a satisfied user or we get a good bug report : )
+T 1582930009 18<22__monty__18>	There's no converting.
+T 1582930023 18<22__monty__18>	You try to read random bytes as if they're utf-8.
+T 1582930026 18<29maerwald18>	that was my question... are they kept as bytes or utf-8
+T 1582930047 18<22__monty__18>	They're kept as strings for the UI.
+T 1582930069 18<22__monty__18>	To date I've only had to fix a single bug because of this and it had nothing to do with syscalls.
+T 1582930096 18<22__monty__18>	Seriously, give it a spin, you might be pleasantly surprised.
+T 1582931194 20*	Disconnected (20)
+T 1582931232 FiSHLiM plugin unloaded
+T 1582962234 19*	Now talking on 22#ranger
+T 1582962234 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1582962234 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1582983807 19*	Now talking on 22#ranger
+T 1582983807 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1582983807 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1582985895 18<29maerwald18>	I'm currently using hunter
+T 1582985912 18<29maerwald18>	https://github.com/rabite0/hunter
+T 1582985913 18<25RoboBobob18>	maerwald: GitHub - rabite0/hunter: The fastest file manager in the galaxy!
+T 1582985937 18<29maerwald18>	It's heavily inspired by ranger
+T 1582986198 18<22__monty__18>	Hmm, vifon, did we ever agree on listing alternatives? I think we talked about listing them in the README, I know we have a wiki section.
+T 1582986928 18<27vifon18>	__monty__: I don't recall.
+T 1582994441 18<19Elodin18>	__monty__: thanks
+T 1582994462 18<22__monty__18>	Elodin: np
+T 1582994518 18<19Elodin18>	i tried vifm, however one thing i really like about ranger is the open with capability where we can set multiple ways to open things and leave it there
+T 1582994728 18<22__monty__18>	You could use rifle with vifm. Not sure how hard it'd be to implement a bit of integration to show options.
+T 1582998123 20*	Disconnected (20)
+T 1582998150 19*	Now talking on 22#ranger
+T 1582998150 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1582998150 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1583009923 20*	Disconnected (20)
+T 1583010207 19*	Now talking on 22#ranger
+T 1583010207 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1583010207 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1583010734 20*	Disconnected (20)
+T 1583147412 19*	Now talking on 22#ranger
+T 1583147412 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1583147412 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1584531726 19*	Now talking on 22#ranger
+T 1584531726 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1584531726 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1584535066 20*	Disconnected (20)
+T 1584535101 19*	Now talking on 22#ranger
+T 1584535101 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1584535101 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1584543278 20*	Disconnected (20)
+T 1584543303 19*	Now talking on 22#ranger
+T 1584543303 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1584543303 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1584549843 18<22eggbean18>	How do I run ranger once it has been installed using pip?
+T 1584549965 18<22__monty__18>	eggbean: Just invoked `ranger` on the command line.
+T 1584549981 18<22__monty__18>	Make sure you installed ranger-fm, not ranger.
+T 1584550018 18<22eggbean18>	$ pip install ranger-fm
+T 1584550027 18<22eggbean18>	$ ranger
+T 1584550029 18<22eggbean18>	-bash: ranger: command not found
+T 1584550032 18<22eggbean18>	__monty__: ?
+T 1584550107 18<22__monty__18>	check whether there's a ranger script in ~/.local/bin
+T 1584550148 18<22eggbean18>	yes, it's there
+T 1584550187 18<22eggbean18>	I can run it from there. A problem with my $PATH probably?
+T 1584550197 18<22__monty__18>	Is ~/.local/bin in your PATH?
+T 1584550201 18<22__monty__18>	Yeah, probably.
+T 1584550230 18<22__monty__18>	Welcome btw, hope you like ranger!
+T 1584550242 18<22eggbean18>	No, I'll fix it.  Thanks
+T 1584550372 18<22eggbean18>	In article about ranger spookily appeared on my suggested links in the google app, after asking if anybody knew of a tool like this on ##linux last night
+T 1584550447 18<22__monty__18>	Very spooky! 😱
+T 1584550513 18*	22__monty__ kicks another couple bucks google's way for trapping another innocent >.> <.<
+T 1584567528 20*	Disconnected (20)
+T 1584567552 19*	Now talking on 22#ranger
+T 1584567552 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1584567552 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1584568608 20*	Disconnected (20)
+T 1584602731 19*	Now talking on 22#ranger
+T 1584602731 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1584602731 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1584610124 20*	Disconnected (20)
+T 1584610152 19*	Now talking on 22#ranger
+T 1584610152 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1584610152 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1584619118 20*	Disconnected (20)
+T 1584619145 19*	Now talking on 22#ranger
+T 1584619145 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1584619145 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1584620168 20*	Disconnected (20)
+T 1584620217 20*	Disconnected (20Remote host closed socket)
+T 1584620285 20*	Disconnected (20Remote host closed socket)
+T 1584620353 20*	Disconnected (20Remote host closed socket)
+T 1584620374 19*	Now talking on 22#ranger
+T 1584620374 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1584620374 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1584620678 20*	Disconnected (20)
+T 1584620723 20*	Disconnected (20Remote host closed socket)
+T 1584620791 20*	Disconnected (20Remote host closed socket)
+T 1584620859 20*	Disconnected (20Remote host closed socket)
+T 1584620886 19*	Now talking on 22#ranger
+T 1584620886 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1584620886 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1584623318 20*	Disconnected (20)
+T 1584623366 19*	Now talking on 22#ranger
+T 1584623366 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1584623366 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1584627968 20*	Disconnected (20)
+T 1584628059 20*	Disconnected (20Remote host closed socket)
+T 1584628105 20*	Disconnected (20Remote host closed socket)
+T 1584628173 20*	Disconnected (20Remote host closed socket)
+T 1584628199 19*	Now talking on 22#ranger
+T 1584628199 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1584628199 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1584645040 20*	Disconnected (20)
+T 1584645170 19*	Now talking on 22#ranger
+T 1584645170 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1584645170 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1584695155 20*	Disconnected (20)
+T 1584695183 19*	Now talking on 22#ranger
+T 1584695183 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1584695183 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1584702879 18<26zaeph18>	Pro-tip: Spring cleaning is also the perfect opportunity to diff master's rifle.conf & scope.sh to make sure that your personal files is up to dateger
+T 1584702882 18<26zaeph18>	Whoops.
+T 1584702911 18<26zaeph18>	Opened a terminal, lost focus on the chat, and then pressed enter. -.-
+T 1584702978 18<26zaeph18>	But yeah, as I was writing it, I wondered whether the system's rifle.conf and scope.sh get loaded in their entirety if you have a personal file in your ~.  Pretty sure there was a setting for this.
+T 1584703004 18<22__monty__18>	Nope
+T 1584703011 18<26zaeph18>	Wasn't it RANGER_LOAD_DEFAULT_RC=FALSE ?
+T 1584703018 18<22__monty__18>	Scope file is configured in rc.conf.
+T 1584703038 18<22__monty__18>	Rifle can only read a single config because it's too hard with the precedence rules.
+T 1584703048 18<22__monty__18>	That's only for rc.conf.
+T 1584703060 18<26zaeph18>	Oh, right.  Thanks for clarifying.
+T 1584703062 18<22__monty__18>	And the _RC suffix should point out : )
+T 1584703067 18<22__monty__18>	*As
+T 1584703164 18<26zaeph18>	It's been a while since I've last modified my rc.conf, and I assumed that 'rc' was including rifle.conf and scope.sh rather than *just* ranger's config.
+T 1584703180 18<26zaeph18>	At any rate, my original point stand: good time to diff/merge. :p
+T 1584703220 18<22__monty__18>	Weird assumption.
+T 1584703233 18<22__monty__18>	That's not how rc files work. Which is what rc.conf is based on.
+T 1584703328 18<26zaeph18>	It's because it completely flew over my head that rc.conf worked like a traditional rc-file.  I just assumed that it stood for 'ranger config'.
+T 1584703350 18<26zaeph18>	The logic's pretty unsound on that one, don't try to salvage it. :o)
+T 1584703390 18<22__monty__18>	RangerConfig.conf >.<
+T 1584703466 18<26zaeph18>	Who cares about rc files when you can have an init.el. ¯\_(ツ)_/¯
+T 1584703622 18<22__monty__18>	Sounds a lot like an rc file ; p
+T 1584703646 18<26zaeph18>	HERESY!
+T 1584709397 20*	Disconnected (20)
+T 1584709424 19*	Now talking on 22#ranger
+T 1584709424 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1584709424 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1584711652 20*	Disconnected (20)
+T 1584711682 19*	Now talking on 22#ranger
+T 1584711682 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1584711682 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1584712624 18<26zaeph18>	Always hate debugging race conditions.
+T 1584712678 18<26zaeph18>	Traced it down to a program that forks to the background without providing any means to get the PID.
+T 1584712860 18<26zaeph18>	Basically, I'm generating a screenshot for i3lock to use, and after running i3lock, I need to run two other functions *whilst* i3lock is running, one of which is a cleanup for the screenshot.
+T 1584712900 18<26zaeph18>	I could just make i3lock not fork to the background, but I need the other function (the one which isn't a cleanup) to run after i3lock has been started.  Such a mess.
+T 1584712968 18<26zaeph18>	Maybe I could get it to run before the lock.  Uhm...  O'boy, here I go coding again!
+T 1584713165 18<22__monty__18>	Weird, returning the child's PID is literally what fork does.
+T 1584713357 18<26zaeph18>	Yeah.  Well, since I'm safeguarding against running concurrent versions of i3lock, I can just pgrep the pid right after running it, but it isn't Beautiful™.
+T 1584713400 18<22__monty__18>	How are you forking that you can't get the pid though?
+T 1584713424 18<26zaeph18>	i3lock's default behaviour is to fork without giving you the PID.
+T 1584713440 18<26zaeph18>	There's an option to have it not-fork, in which case you can bg it and retrieve the PID as you would normally with $!.
+T 1584713560 18<26zaeph18>	But the problem is that it's a script meant to be run automatically on suspend with systemd, so I can't have it stay alive during--
+T 1584713569 18<26zaeph18>	OK, I'll bottomline it: it's a clusterfuck.
+T 1584713625 18<26zaeph18>	All I wanted is to have the same script be used for manual and automatic suspend when closing the lid. -.-
+T 1584713759 18<26zaeph18>	But it works, so I won't complain too much.
+T 1584713914 18<22__monty__18>	Can't you simply fork the non-forking version of i3lock?
+T 1584713937 18<22__monty__18>	I.e., call `fork i3lock`.
+T 1584714028 18<26zaeph18>	I could, but I also wanted my script to handle the clean-up (like removing the screenshot), but for that, the script needs to track the status of the i3lock process, which hangs systemd's suspend.
+T 1584714075 18<26zaeph18>	The right way to do it would be to have a resume script handle the cleanup, but I can't be arsed passing all files that instructions to another process, like the path to the screenshot and all that.
+T 1584714113 18<22__monty__18>	And why don't you just write a systemd service and invoke it manually with systemctl suspend?
+T 1584714188 18<26zaeph18>	Because I use a wrapper around 'systemctl suspend' to allow me to cancel it if I don't want to suspend after all, and which makes heavy use of dunst's notifications.
+T 1584714255 18<26zaeph18>	This whole lock-suspend procedure is one of the earliest thing I've wrote on that computer, and it's become quite complex.  It went through revisions to streamline the interactions, but in cases like this, it's pretty rough.
+T 1584714287 18<22__monty__18>	How about the service starting a timer that triggers the actual service?
+T 1584714333 18<26zaeph18>	And making it cancellable?  Could work.  I'd just have to isolate the cancelling element of the main locking script.
+T 1584714367 18<22__monty__18>	Well cancelling would just be stopping the timer.
+T 1584714377 18<26zaeph18>	It's actually the main problem: it's the script itself that handles the cancellation, not a wrapper.  It's done fairly reliably with PIDs, though.
+T 1584714394 18<26zaeph18>	Yeah, I guess it could work like this. :)
+T 1584714406 18<22__monty__18>	Wow, just listened to Cage's Four Minutes, Thirty-three Seconds, :') so moving.
+T 1584714626 18<26zaeph18>	That's… interesting.
+T 1584715033 18<22__monty__18>	Had no idea Pixar made things like this: https://www.youtube.com/watch?v=b5zMtCvWhG0
+T 1584715035 18<25RoboBobob18>	__monty__: Jan Hammer - Beyond The Mind's Eye (Complete Film)  [OFFICIAL] - YouTube

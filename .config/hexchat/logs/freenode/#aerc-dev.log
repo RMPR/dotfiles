@@ -311,3 +311,212 @@ Feb 19 13:51:25 *	Topic for #aerc-dev set by ddevault!znc@sourcehut/staff/ddevau
 Feb 19 14:39:50 *	Disconnected ()
 **** ENDING LOGGING AT Wed Feb 19 14:39:50 2020
 
+**** BEGIN LOGGING AT Fri Feb 28 19:51:07 2020
+
+Feb 28 19:51:07 *	Now talking on #aerc-dev
+Feb 28 19:51:07 *	Topic for #aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+Feb 28 19:51:07 *	Topic for #aerc-dev set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:50:39 2019)
+Feb 28 20:06:26 *	Disconnected ()
+**** ENDING LOGGING AT Fri Feb 28 20:06:26 2020
+
+**** BEGIN LOGGING AT Fri Feb 28 20:10:13 2020
+
+Feb 28 20:10:13 *	Now talking on #aerc-dev
+Feb 28 20:10:13 *	Topic for #aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+Feb 28 20:10:13 *	Topic for #aerc-dev set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:50:39 2019)
+Feb 28 20:19:11 *	Disconnected ()
+**** ENDING LOGGING AT Fri Feb 28 20:19:11 2020
+
+**** BEGIN LOGGING AT Fri Feb 28 20:21:44 2020
+
+Feb 28 20:21:44 *	Now talking on #aerc-dev
+Feb 28 20:21:44 *	Topic for #aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+Feb 28 20:21:44 *	Topic for #aerc-dev set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:50:39 2019)
+**** ENDING LOGGING AT Fri Feb 28 20:24:23 2020
+
+**** BEGIN LOGGING AT Fri Feb 28 21:53:52 2020
+
+Feb 28 21:53:52 *	Now talking on #aerc-dev
+Feb 28 21:53:52 *	Topic for #aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+Feb 28 21:53:52 *	Topic for #aerc-dev set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:50:39 2019)
+Feb 29 00:06:34 *	Disconnected ()
+**** ENDING LOGGING AT Sat Feb 29 00:06:34 2020
+
+**** BEGIN LOGGING AT Sat Feb 29 08:43:54 2020
+
+Feb 29 08:43:54 *	Now talking on #aerc-dev
+Feb 29 08:43:54 *	Topic for #aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+Feb 29 08:43:54 *	Topic for #aerc-dev set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:50:39 2019)
+**** BEGIN LOGGING AT Sat Feb 29 14:43:27 2020
+
+Feb 29 14:43:27 *	Now talking on #aerc-dev
+Feb 29 14:43:27 *	Topic for #aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+Feb 29 14:43:27 *	Topic for #aerc-dev set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:50:39 2019)
+Feb 29 14:49:25 <bookworm>	jeffas: what's the use for the pinning? Not against it but I fail to see the use case
+Feb 29 14:50:12 <bookworm>	the only thing I don't like is the duplication of pin and pin-tab
+Feb 29 14:50:16 <bookworm>	isn't one name enough?
+Feb 29 14:50:23 <bookworm>	pin-tab seems better to me
+Feb 29 14:59:23 <bookworm>	unpinning should probably move the tab to the right again, normally on the left there's supposed to be the msglist. So if you suddenly have a normal mail there that's kinda strange. Or do you have a different view on the matter?
+Feb 29 16:00:53 <jeffas>	bookworm: I was implementing the pinning since there was the todo https://todo.sr.ht/~sircmpwn/aerc2/230. I think it could be useful if someone wanted to pin a terminal tab or something else. Yep, the v2 removed the extra aliases so now it is just the *-tab ones. Unpinning currently moves the tab to the right of the pinned ones but I can see how that is strange since the msglist ones aen't pinned. Would it make sense to have
+Feb 29 16:00:53 <jeffas>	the order be something like msglists | pinned | others. Then pinning an other moves it to pinned but pinning a msglist keeps it where it is but shortens the name?
+Feb 29 16:03:07 <bookworm>	not sure that shortening the name is something I'd do, not if there's room
+Feb 29 16:03:32 <bookworm>	will be hard to differentiate if you have tabs c and c
+Feb 29 16:03:59 <bookworm>	I see spec from Drew. Fair enough
+Feb 29 16:04:46 <bookworm>	yes, your suggestion to keep the msglists to the left sounds good to me, but maybe ask Drew what he wants
+Feb 29 16:05:59 <jeffas>	Yeah, it would be difficult to differentiate them. Is there some way we could mark the tab as pinned if we don't shorten the name? Maybe adding a '-' at the start of the tab?
+Feb 29 16:06:32 <bookworm>	I'd use a * but that's bikeshedding
+Feb 29 16:06:49 <bookworm>	I'd prefer that but it's not my call
+Feb 29 16:07:12 <bookworm>	(that being some different marking instead of shortening to a single char)
+Feb 29 16:11:31 <ddevault>	the reason tabstrip and tabcontent are separate pieces is so that they can be put in separate places
+Feb 29 16:18:24 <jeffas>	Sure but I think that the tabs should encapsulate both pieces and can sort out their arrangement itself. The patch still gives the flexibility to have the pieces in different arrangements if we add that later, it just simplifies things without having parent pointers and such.
+Feb 29 16:19:11 <ddevault>	no, the whole idea of this design is to let the parent sort out the arrangement
+Feb 29 16:19:15 <ddevault>	I don't really like this tbh
+Feb 29 16:27:41 <jeffas>	No worries
+Feb 29 18:42:03 *	Disconnected ()
+**** ENDING LOGGING AT Sat Feb 29 18:42:03 2020
+
+**** BEGIN LOGGING AT Sat Feb 29 18:42:30 2020
+
+Feb 29 18:42:30 *	Now talking on #aerc-dev
+Feb 29 18:42:30 *	Topic for #aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+Feb 29 18:42:30 *	Topic for #aerc-dev set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:50:39 2019)
+Feb 29 19:16:13 <ddevault>	jeffas: can you rework pinned tabs to work without the other refactoring
+Feb 29 19:17:25 <jeffas>	Sure, what are your thoughts on the above? (should pinned tabs go to the left of accountview tabs regardless and is just the first character sufficient or should there be some other identifier?)
+Feb 29 19:18:17 <ddevault>	let's remember where it was before being pinned, and move it back there when unpinned
+Feb 29 19:18:22 <ddevault>	and keep them to the left
+Feb 29 19:18:28 <ddevault>	let's also add a command to move tabs around arbitrarily
+Feb 29 19:18:43 <ddevault>	as for the title, let's give it a single configurable character
+Feb 29 19:18:55 <ddevault>	I'd recommend ` by default, cause it looks like a pin
+Feb 29 21:58:43 *	Disconnected ()
+**** ENDING LOGGING AT Sat Feb 29 21:58:43 2020
+
+**** BEGIN LOGGING AT Sat Feb 29 22:03:26 2020
+
+Feb 29 22:03:26 *	Now talking on #aerc-dev
+Feb 29 22:03:26 *	Topic for #aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+Feb 29 22:03:26 *	Topic for #aerc-dev set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:50:39 2019)
+Feb 29 22:12:14 *	Disconnected ()
+**** ENDING LOGGING AT Sat Feb 29 22:12:14 2020
+
+**** BEGIN LOGGING AT Mon Mar  2 12:10:12 2020
+
+Mar 02 12:10:12 *	Now talking on #aerc-dev
+Mar 02 12:10:12 *	Topic for #aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+Mar 02 12:10:12 *	Topic for #aerc-dev set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:50:39 2019)
+**** BEGIN LOGGING AT Wed Mar 18 12:42:06 2020
+
+Mar 18 12:42:06 *	Now talking on #aerc-dev
+Mar 18 12:42:06 *	Topic for #aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+Mar 18 12:42:06 *	Topic for #aerc-dev set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:50:39 2019)
+Mar 18 13:37:46 *	Disconnected ()
+**** ENDING LOGGING AT Wed Mar 18 13:37:46 2020
+
+**** BEGIN LOGGING AT Wed Mar 18 13:38:20 2020
+
+Mar 18 13:38:20 *	Now talking on #aerc-dev
+Mar 18 13:38:20 *	Topic for #aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+Mar 18 13:38:20 *	Topic for #aerc-dev set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:50:39 2019)
+Mar 18 15:54:38 *	Disconnected ()
+**** ENDING LOGGING AT Wed Mar 18 15:54:38 2020
+
+**** BEGIN LOGGING AT Wed Mar 18 15:55:03 2020
+
+Mar 18 15:55:03 *	Now talking on #aerc-dev
+Mar 18 15:55:03 *	Topic for #aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+Mar 18 15:55:03 *	Topic for #aerc-dev set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:50:39 2019)
+Mar 18 22:38:48 *	Disconnected ()
+**** ENDING LOGGING AT Wed Mar 18 22:38:48 2020
+
+**** BEGIN LOGGING AT Wed Mar 18 22:39:12 2020
+
+Mar 18 22:39:12 *	Now talking on #aerc-dev
+Mar 18 22:39:12 *	Topic for #aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+Mar 18 22:39:12 *	Topic for #aerc-dev set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:50:39 2019)
+Mar 18 22:56:48 *	Disconnected ()
+**** ENDING LOGGING AT Wed Mar 18 22:56:48 2020
+
+**** BEGIN LOGGING AT Thu Mar 19 08:25:31 2020
+
+Mar 19 08:25:31 *	Now talking on #aerc-dev
+Mar 19 08:25:31 *	Topic for #aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+Mar 19 08:25:31 *	Topic for #aerc-dev set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:50:39 2019)
+Mar 19 10:28:44 *	Disconnected ()
+**** ENDING LOGGING AT Thu Mar 19 10:28:44 2020
+
+**** BEGIN LOGGING AT Thu Mar 19 10:29:12 2020
+
+Mar 19 10:29:12 *	Now talking on #aerc-dev
+Mar 19 10:29:12 *	Topic for #aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+Mar 19 10:29:12 *	Topic for #aerc-dev set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:50:39 2019)
+Mar 19 12:58:38 *	Disconnected ()
+**** ENDING LOGGING AT Thu Mar 19 12:58:38 2020
+
+**** BEGIN LOGGING AT Thu Mar 19 12:59:04 2020
+
+Mar 19 12:59:04 *	Now talking on #aerc-dev
+Mar 19 12:59:04 *	Topic for #aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+Mar 19 12:59:04 *	Topic for #aerc-dev set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:50:39 2019)
+Mar 19 13:16:08 *	Disconnected ()
+**** ENDING LOGGING AT Thu Mar 19 13:16:08 2020
+
+**** BEGIN LOGGING AT Thu Mar 19 13:19:33 2020
+
+Mar 19 13:19:33 *	Now talking on #aerc-dev
+Mar 19 13:19:33 *	Topic for #aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+Mar 19 13:19:33 *	Topic for #aerc-dev set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:50:39 2019)
+Mar 19 13:24:38 *	Disconnected ()
+**** ENDING LOGGING AT Thu Mar 19 13:24:38 2020
+
+**** BEGIN LOGGING AT Thu Mar 19 13:28:06 2020
+
+Mar 19 13:28:06 *	Now talking on #aerc-dev
+Mar 19 13:28:06 *	Topic for #aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+Mar 19 13:28:06 *	Topic for #aerc-dev set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:50:39 2019)
+Mar 19 14:08:38 *	Disconnected ()
+**** ENDING LOGGING AT Thu Mar 19 14:08:38 2020
+
+**** BEGIN LOGGING AT Thu Mar 19 14:09:25 2020
+
+Mar 19 14:09:25 *	Now talking on #aerc-dev
+Mar 19 14:09:25 *	Topic for #aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+Mar 19 14:09:25 *	Topic for #aerc-dev set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:50:39 2019)
+Mar 19 15:26:08 *	Disconnected ()
+**** ENDING LOGGING AT Thu Mar 19 15:26:08 2020
+
+**** BEGIN LOGGING AT Thu Mar 19 15:29:58 2020
+
+Mar 19 15:29:58 *	Now talking on #aerc-dev
+Mar 19 15:29:58 *	Topic for #aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+Mar 19 15:29:58 *	Topic for #aerc-dev set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:50:39 2019)
+Mar 19 20:10:40 *	Disconnected ()
+**** ENDING LOGGING AT Thu Mar 19 20:10:40 2020
+
+**** BEGIN LOGGING AT Thu Mar 19 20:12:49 2020
+
+Mar 19 20:12:49 *	Now talking on #aerc-dev
+Mar 19 20:12:49 *	Topic for #aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+Mar 19 20:12:49 *	Topic for #aerc-dev set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:50:39 2019)
+Mar 20 10:05:55 *	Disconnected ()
+**** ENDING LOGGING AT Fri Mar 20 10:05:55 2020
+
+**** BEGIN LOGGING AT Fri Mar 20 10:06:23 2020
+
+Mar 20 10:06:23 *	Now talking on #aerc-dev
+Mar 20 10:06:23 *	Topic for #aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+Mar 20 10:06:23 *	Topic for #aerc-dev set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:50:39 2019)
+Mar 20 14:03:17 *	Disconnected ()
+**** ENDING LOGGING AT Fri Mar 20 14:03:17 2020
+
+**** BEGIN LOGGING AT Fri Mar 20 14:03:44 2020
+
+Mar 20 14:03:44 *	Now talking on #aerc-dev
+Mar 20 14:03:44 *	Topic for #aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+Mar 20 14:03:44 *	Topic for #aerc-dev set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:50:39 2019)
+Mar 20 14:40:52 *	Disconnected ()
+**** ENDING LOGGING AT Fri Mar 20 14:40:52 2020
+
+**** BEGIN LOGGING AT Fri Mar 20 14:41:20 2020
+
+Mar 20 14:41:20 *	Now talking on #aerc-dev
+Mar 20 14:41:20 *	Topic for #aerc-dev is: aerc development chat - https://aerc-mail.org - end-user support available in #aerc
+Mar 20 14:41:20 *	Topic for #aerc-dev set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:50:39 2019)
