@@ -2460,3 +2460,1592 @@ Mar 20 16:31:45 <launchpadmcquak>	centos mock: https://pastebin.com/7gX4suCF
 Mar 20 16:31:46 <launchpadmcquak>	fedora mock (.tpl file): https://pastebin.com/Yt74qyTa
 Mar 20 16:32:49 <launchpadmcquak>	fpaste? paste.fp.o?  this is nothing short of amazing!!
 Mar 20 16:32:55 <launchpadmcquak>	<---n00b
+**** BEGIN LOGGING AT Thu Apr  2 09:38:28 2020
+
+Apr 02 09:38:28 *	Now talking on #fedora
+Apr 02 09:38:28 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 02 09:38:28 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 02 09:38:28 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 02 10:34:09 <skierpage>	kanarip: no matter, I see it's reported issue with a workaround, https://pagure.io/phabphourphedora/issue/8
+Apr 02 11:33:55 <rudrab>	hi, when trying to load my dconf  setting to fedora (setting was created by fedora-31, loading to fedora-31), I am getting error: The operation attempted to modify one or more non-writable keys
+Apr 02 11:34:49 <rudrab>	I tried the same file loading to clearlinux, and that worked. So, I guess, my file is ok, fedora has put some lock on dconf
+Apr 02 11:34:59 <rudrab>	can anybody kindly help?
+Apr 02 11:41:19 <rudrab>	also, /etc/dconf/db/local.d/locks is empty
+Apr 02 11:44:20 <Khaytsus>	And /etc/dconf/db/database.d/locks
+Apr 02 11:45:22 <Khaytsus>	There are 3-4 locks directories..  I don't see anythihng here, but i also don't use gnome's hell
+Apr 02 11:46:00 <Khaytsus>	Also make sure your selinux contexts aren't wrong, and obviously permissions
+Apr 02 11:46:26 <rudrab>	database.d/ dir doesnt exist
+Apr 02 11:46:56 <rudrab>	btw, i am loading the dconf as normal user ...not as root
+Apr 02 11:47:07 <ersen>	are you trying to import '/org/gnome/login-screen' ?
+Apr 02 11:47:56 <rudrab>	ersen: you mean org/gnome/login-screen]enable-fingerprint-authentication=trueenable-password-authentication=trueenable-smartcard-authentication=false lines?
+Apr 02 11:48:12 <ersen>	yes
+Apr 02 11:48:18 <rudrab>	yes...those are there
+Apr 02 11:48:27 <ersen>	exclude them and try again
+Apr 02 11:49:21 <rudrab>	is there any option to exclude? or I just delete them?
+Apr 02 11:49:49 <ersen>	just delete them if you are trying to import from a file
+Apr 02 11:50:30 <rudrab>	ah...great. that was the culprit
+Apr 02 11:51:16 <rudrab>	thanks ersen
+Apr 02 11:51:47 <ersen>	you are welcome
+Apr 02 11:56:57 <miscing>	Hi, i have a strange issue. I have an external keyboard connected to my laptop. However certain commands don't work, for example i have binded ctrl+ctrl to change keyboard layout. It triggers correctly on laptop, but not with external keyboard. I used XEV to double check that the keycodes send are the exact same on each keyboard. Any suggestions
+Apr 02 11:56:57 <miscing>	what it could be/where to look?
+Apr 02 12:38:17 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr  2 12:38:17 2020
+
+**** BEGIN LOGGING AT Thu Apr  2 12:38:42 2020
+
+Apr 02 12:38:42 *	Now talking on #fedora
+Apr 02 12:38:42 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 02 12:38:42 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 02 12:38:43 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 02 12:55:05 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr  2 12:55:05 2020
+
+**** BEGIN LOGGING AT Thu Apr  2 12:55:31 2020
+
+Apr 02 12:55:31 *	Now talking on #fedora
+Apr 02 12:55:31 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 02 12:55:31 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 02 12:55:31 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 02 13:37:38 <coz_>	 no wineHQ for F32 yet!
+Apr 02 13:38:12 <Southern_Gentlem>	coz_, was there a winehq for f31?
+Apr 02 13:39:22 <Southern_Gentlem>	a quick look at koji that would be a NO
+Apr 02 13:39:45 <coz_>	Southern_Gentlem, yes there was
+Apr 02 13:40:11 <Southern_Gentlem>	give me the koji link for it
+Apr 02 13:41:03 <Southern_Gentlem>	coz_, not in the fedora or rpmfusion repos
+Apr 02 13:41:13 <coz_>	no hold on
+Apr 02 13:41:25 <Khaytsus>	It was a third party repo coz_
+Apr 02 13:41:43 <coz_>	Southern_Gentlem, https://wiki.winehq.org/Fedora
+Apr 02 13:41:55 <Khaytsus>	It was a third party repo coz_
+Apr 02 13:41:59 <coz_>	Khaytsus, ok
+Apr 02 13:42:03 <Southern_Gentlem>	and what do you need winehq when all the packages are native to fedora
+Apr 02 13:42:31 <coz_>	Southern_Gentlem, well for lutris but that is not real important
+Apr 02 15:42:44 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr  2 15:42:44 2020
+
+**** BEGIN LOGGING AT Thu Apr  2 15:43:12 2020
+
+Apr 02 15:43:12 *	Now talking on #fedora
+Apr 02 15:43:12 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 02 15:43:12 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 02 15:43:12 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 02 15:43:38 <AlexMax>	Nothing.
+Apr 02 15:43:47 <AlexMax>	HOWEVER, I am running docker.
+Apr 02 15:44:01 <billings>	is it the docker container that's having that issue?
+Apr 02 15:44:01 <AlexMax>	And I do have that kernel option enabled that allows me to run docker
+Apr 02 15:44:03 <mrvenkman>	That'll be it
+Apr 02 15:44:13 <AlexMax>	(Sorry, I wanted to use podman, but i needed docker-compose)
+Apr 02 15:44:33 <billings>	there's a podman-compose but it doesn't work with user containers
+Apr 02 15:44:41 <billings>	so you have to sudo like a caveman
+Apr 02 15:44:47 <AlexMax>	Yeah I saw, plus it looked sparsely maintained
+Apr 02 15:44:58 <mrvenkman>	So I guess he doesn't have to worry, billings ?
+Apr 02 15:45:32 <AlexMax>	I have no docker containers running though
+Apr 02 15:45:45 <AlexMax>	They're all stopped
+Apr 02 15:46:43 <mrvenkman>	can you telnet to yourip:8080 ?
+Apr 02 15:46:55 <AlexMax>	I tried netcat, connection refused
+Apr 02 15:47:36 <mrvenkman>	I'm out of suggestions mate :( Sorry. (I'm quite new though)
+Apr 02 15:47:48 <AlexMax>	No, I appreciate your help
+Apr 02 15:48:02 <mrvenkman>	:)
+Apr 02 15:48:03 <AlexMax>	that goes for everybody ITC
+Apr 02 15:48:51 <billings>	not sure what else could be hanging on to that port but not reporting it through lsof
+Apr 02 15:49:03 <billings>	don't kill -9 in the future
+Apr 02 15:49:04 <AlexMax>	OH SON OF A GUN
+Apr 02 15:49:15 <AlexMax>	Oh man this is the biggest PBKAC in the world
+Apr 02 15:49:30 <AlexMax>	Don't know if I should even say what it was because oh man I'm embarassed.
+Apr 02 15:50:08 <AlexMax>	Rest assured, it was my fault, and I'm sorry that I sent everybody on a wild goose chase.
+Apr 02 15:50:19 <mrvenkman>	hahah
+Apr 02 15:50:23 <mrvenkman>	wrong shell?
+Apr 02 15:50:32 <AlexMax>	No.  I wasn't scrolled up all the way.
+Apr 02 15:50:40 <mrvenkman>	LOL
+Apr 02 15:50:51 <AlexMax>	And missed where there was a second server create that I had forgotten about, from some testing I had done.
+Apr 02 15:51:14 <mrvenkman>	AlexMax, "Usually when I fix these sort of obscure problems I learn something."
+Apr 02 15:51:35 <AlexMax>	Hey, you joke, but I still learned something.
+Apr 02 15:51:37 <AlexMax>	I had no idea ss was even a thing.
+Apr 02 15:51:39 <mrvenkman>	You learned to check
+Apr 02 15:51:46 <AlexMax>	Another tool for the toolbelt.
+Apr 02 15:51:53 <mrvenkman>	Good man :)
+Apr 02 15:52:30 <billings>	ss is effectively the replacement for netstat
+Apr 02 15:52:35 <billings>	which is no longer maintained iirc
+Apr 02 15:58:52 <mrvenkman>	Question: is my location and router IP address visible to everyone here?
+Apr 02 15:59:43 <billings>	mrvenkman: ~mrvenkman@cpc127002-macc4-2-0-cust55.1-3.cable.virginm.net
+Apr 02 16:00:03 <mrvenkman>	ok
+Apr 02 16:00:05 <mrvenkman>	:(
+Apr 02 16:00:11 <billings>	you can get a freenode mask
+Apr 02 16:00:20 <mrvenkman>	how do I do that?
+Apr 02 16:00:38 <mrvenkman>	I am worried that Southern_Gentlem is buying a shit load of movies.
+Apr 02 16:00:45 <billings>	cloak, rather
+Apr 02 16:00:47 <billings>	https://freenode.net/kb/answer/cloaks
+Apr 02 16:00:50 <billings>	sorry
+Apr 02 16:00:54 <Southern_Gentlem>	mrvenkman, i dont have time for that
+Apr 02 16:00:56 <mrvenkman>	billings, thanks.
+Apr 02 16:01:02 <mrvenkman>	Southern_Gentlem, lol!
+Apr 02 16:01:08 <Southern_Gentlem>	and google for fedora cloaks
+Apr 02 16:01:21 <billings>	for example, my cloak makes me appear in whois as ~root@centos/community/billings
+Apr 02 16:01:48 <Southern_Gentlem>	mrvenkman,  i have been here since fc1 so i am here to help, i have making fedora respins since fc5
+Apr 02 16:02:00 <mrvenkman>	billings, would you say it's pretty insecure for me to not have a cloak?
+Apr 02 16:02:06 <billings>	eh
+Apr 02 16:02:06 <Southern_Gentlem>	no
+Apr 02 16:02:25 <Southern_Gentlem>	i have a cloak because i am a chanop
+Apr 02 16:02:30 <mrvenkman>	Southern_Gentlem, thanks :)
+Apr 02 16:04:35 <mrvenkman>	Could you guys hack my router?
+Apr 02 16:04:43 <mrvenkman>	If you wanted.
+Apr 02 16:05:10 <mrvenkman>	Can I have a cloak?
+Apr 02 16:05:49 <Southern_Gentlem>	mrvenkman,  not with that no
+Apr 02 16:05:49 <mrvenkman>	I'm worried now.
+Apr 02 16:05:56 <mrvenkman>	Ok, :) Phew!
+Apr 02 16:06:16 <Southern_Gentlem>	mrvenkman,  be sure that you are not running your routors default passphrase
+Apr 02 16:06:47 <mrvenkman>	Southern_Gentlem, I don't think I am. :)
+Apr 02 16:07:04 <Southern_Gentlem>	dont think KNOW
+Apr 02 16:08:50 <mrvenkman>	I suppose the passphrase will probably be just ""
+Apr 02 16:09:03 <mrvenkman>	So I know.
+Apr 02 16:09:03 <mrvenkman>	lol
+Apr 02 16:10:18 <mrvenkman>	Southern_Gentlem, thank you for your help since fc1
+Apr 02 16:10:31 <mrvenkman>	The system is running lovely.
+Apr 02 16:11:32 <mrvenkman>	I have Fedora31 running on a Ryzen5 processor, lenovo ideapad c340
+Apr 02 16:11:49 <mrvenkman>	It's fast!!!
+Apr 02 16:18:09 <fedbot>	*** F31-20200319 updated lives available: https://tinyurl.com/Live-respins2  Built by the Fedora Respin Sig more info #fedora-respins ***
+Apr 02 16:19:23 <kanarip>	skierpage, what php trusts is a global php-curl configuration thing
+Apr 02 16:19:50 <kanarip>	skierpage, packages in phabricator should most definitely not be distributing their own CA bundles
+Apr 02 16:23:10 <Southern_Gentlem>	kanarip, geez 5 hours late on that one
+Apr 02 16:23:34 <kanarip>	i'm just seeing me having been mentioned
+Apr 02 16:23:40 <kanarip>	Southern_Gentlem, how are you doing?
+Apr 02 16:23:49 <Southern_Gentlem>	SSDD bud and you
+Apr 02 16:24:01 <kanarip>	as well as could be expected i suppose
+Apr 02 16:24:10 <kanarip>	busy as **** tho
+Apr 02 16:26:32 <Southern_Gentlem>	all the years of giving support in here is now paying off, most of what i am doing is supporting profs over zoom
+Apr 02 16:27:23 <axk4545>	!fas
+Apr 02 16:27:49 <Southern_Gentlem>	axk4545, what are you trying to do
+Apr 02 16:29:19 <axk4545>	Trying to remember my FAS ID. Been so long since I used it and about the same since I have used bot commands here.
+Apr 02 16:29:29 <Southern_Gentlem>	.fasinfo axk4545
+Apr 02 16:30:14 <Southern_Gentlem>	.fas axk4545
+Apr 02 16:30:58 <Southern_Gentlem>	axk4545, check pm
+Apr 02 16:36:15 <fedbot>	*** F31-20200319 updated lives available: https://tinyurl.com/Live-respins2  Built by the Fedora Respin Sig more info #fedora-respins ***
+Apr 02 16:37:41 <sdgathman>	When I update the kernel on f31, it uses the wrong LV for grubby.
+Apr 02 16:38:08 <sdgathman>	https://paste.centos.org/view/b4ae44c2
+Apr 02 16:38:24 <Southern_Gentlem>	sdgathman, well it very funny that all this strange stuff always happens to you
+Apr 02 16:38:37 <sdgathman>	Southern_Gentlem: because I experiment.
+Apr 02 16:38:42 <sdgathman>	The correct LV is f31
+Apr 02 16:38:57 <Southern_Gentlem>	yes because you love to shoot yourself in the foot
+Apr 02 16:39:31 <sdgathman>	Background: I did an install of test version of Fedora to LV root, using the same /boot
+Apr 02 16:39:35 <Southern_Gentlem>	and 5.5.13 pushed this morning as well
+Apr 02 16:40:21 <sdgathman>	So the insns to use root LV are stored somewhere in /boot
+Apr 02 16:40:43 <sdgathman>	BLS does this
+Apr 02 16:41:29 <sdgathman>	I suppose I could switch back to BLSCFG=false
+Apr 02 16:41:41 <sdgathman>	But I do try to use the new stuff in Fedora.
+Apr 02 16:42:13 <sdgathman>	So, where does BLS store the root LV to use ??
+Apr 02 16:42:22 <Southern_Gentlem>	no idea
+Apr 02 16:42:37 <sdgathman>	I tried updating all kernels with grubby - didn't help.  (Other than the one I just installed.)
+Apr 02 16:43:19 <sdgathman>	Southern_Gentlem: 5.5.13 is waiting to test whatever advice I receive (not from you, obviously).  This problem only happens on kernel update.
+Apr 02 16:43:45 <Southern_Gentlem>	5.5.13 pushed to the mirrors this morning at 4am
+Apr 02 16:43:52 <Southern_Gentlem>	edt
+Apr 02 16:44:07 <sdgathman>	I am fully aware.  I get the emails.  See above.
+Apr 02 16:44:43 <Southern_Gentlem>	sdgathman,  is bls default in fedora
+Apr 02 16:44:48 <sdgathman>	Yes
+Apr 02 16:45:02 <Southern_Gentlem>	then why are you the only one with issues
+Apr 02 16:45:05 <sdgathman>	GRUB_ENABLE_BLSCFG=true
+Apr 02 16:46:05 <sdgathman>	I am not personally in any danger - it is easy enough to run grubby to fix it.
+Apr 02 16:47:03 <sdgathman>	And if I forget, to edit the kernel args in grub
+Apr 02 16:48:30 <sdgathman>	The goal is to find out why grubby does this, and if it turns out to be a bug (as opposed to "BLS doesn't support multiple installs with same /boot"), then fix it.
+Apr 02 16:49:29 <sdgathman>	This is not something that would endanger a regular Fedora user that doesn't have multiple Fedora installs on a desktop.
+Apr 02 16:50:51 <Southern_Gentlem>	i would be more worried about win/fedora/other linux distro
+Apr 02 16:54:14 <sdgathman>	BLS also breaks the upgrade procedure here: https://fedoramagazine.org/use-lvm-upgrade-fedora/
+Apr 02 16:56:10 <sdgathman>	Googling "where does BLS get its data" tells me lots of stuff about Bureau of Labor Statistics :-)
+Apr 02 17:01:46 <sdgathman>	Southern_Gentlem: in grub2.cfg there is a line:
+Apr 02 17:02:03 <sdgathman>	set default_kernelopts="root=/dev/mapper/vg_melissa-f31 ro resume=/dev/mapper/vg_melissa-swap rd.lvm.lv=vg_melissa/f31 rd.lvm.lv=vg_melissa/swap rhgb quiet"
+Apr 02 17:02:14 <sdgathman>	Which I just changed from root to f31
+Apr 02 17:02:31 <sdgathman>	About to update to 5.5.13 and see if that fixes it.
+Apr 02 17:03:51 *	Southern_Gentlem wishes we could tell livemedia-creator to alwayss install and verify the kernel last 
+Apr 02 17:07:23 <sdgathman>	Southern_Gentlem: Nope.  Changing default_kernelopts did not fix it..  And, I've used up my update.
+Apr 02 17:08:28 <sdgathman>	the /boot/loader/entries have this line: options $kernelopts
+Apr 02 17:08:43 <sdgathman>	The the question is, where does kernelopts come from ???
+Apr 02 17:09:29 <cheese-e-boi>	Hello, I am making a spin of Fedora and I am trying to create a package with configurations files, however this causes a package conflict when they're installed. What would be a better way of changing the default configuration files of the system in a manner that will not cause this issue?
+Apr 02 17:09:53 <sdgathman>	BLS also stands for Basic Life Support
+Apr 02 17:11:21 <Khaytsus>	cheese-e-boi: rebuild your own packages with those configs?
+Apr 02 17:11:30 <sdgathman>	Southern_Gentlem: https://bugzilla.redhat.com/show_bug.cgi?id=1651686
+Apr 02 17:12:00 <sdgathman>	Looks like you have to edit the grub2 environment variable.  Which is *not* friendly.
+Apr 02 17:12:43 <sdgathman>	Eh, it's no worse than grubby
+Apr 02 17:13:26 <cheese-e-boi>	Khaytsus: I guess I could but it just seems a bit overkill. But if that's the only option, I guess I'll do that. Thank you
+Apr 02 17:13:52 <Southern_Gentlem>	cheese-e-boi, what are you doing
+Apr 02 17:14:25 <josvuk>	hello, i have f31 running in vbox on win10 host, know i have to make a backup because i have to rezise my system hd (only somme MB free) what tool should i use?
+Apr 02 17:14:55 <Southern_Gentlem>	cheese-e-boi, why not change those configs in the ks
+Apr 02 17:14:55 <cheese-e-boi>	I'm attempting to make a Spin of Fedora with XFCE with some configuration changes using livecd-tools
+Apr 02 17:15:17 <cheese-e-boi>	I might do that too
+Apr 02 17:15:42 <Southern_Gentlem>	what changes are you making and did you start with the xfce ks or did you create your own
+Apr 02 17:15:43 <cheese-e-boi>	It just sounded simpler to do that within a package but you're probably right
+Apr 02 17:16:15 <cheese-e-boi>	I started with the base and repo kickstarts
+Apr 02 17:16:46 <Southern_Gentlem>	cheese-e-boi, https://fedoraproject.org/wiki/Livemedia-creator-_How_to_create_and_use_a_Live_CD
+Apr 02 17:16:46 <Khaytsus>	What are you specifically trying to accompilsh, maybe Southern_Gentlem can suggest a better way
+Apr 02 17:17:03 <Southern_Gentlem>	pull and flatten the xfce ks
+Apr 02 17:17:19 <cheese-e-boi>	That's what I'm doing actually
+Apr 02 17:17:23 <Southern_Gentlem>	be sure you edit fedora.repo and set to non-rawhide
+Apr 02 17:17:33 <cheese-e-boi>	But I want to change the default shell for zsh first of all
+Apr 02 17:17:41 <cheese-e-boi>	Yeah I've messed around for a bit with that
+Apr 02 17:17:44 <sdgathman>	Southern_Gentlem: Setting an entry with grubby replaces $kernelopts with the new setting
+Apr 02 17:18:17 <cheese-e-boi>	If you want to see what I've done I could send the gitlab link
+Apr 02 17:18:22 <sdgathman>	So changing grub2 env changes all entries still using $kernelopts
+Apr 02 17:19:12 <sdgathman>	Is there a way to make grubby use /etc/default/grub instead of a grub2 env variable ?
+Apr 02 17:19:21 <cheese-e-boi>	Actually, I'll probably not make a package for this stuff; I'll just do it manually. Thanks for the help though
+Apr 02 17:20:01 <Southern_Gentlem>	sdgathman, no
+Apr 02 17:20:49 <sdgathman>	Maybe changing grub2.cfg to set kernelopts=... instead of set default_kernelopts=...
+Apr 02 17:24:30 <sdgathman>	I'll try that out when testing f32 beta
+Apr 02 17:37:51 <drindt>	hello ladies and gents, i appreciate your support. I open with nautilus an smb share (same since years) and from now on the permissions are shown wrong, timestamps too and so on. When i go in the mounted folder from gvfs it shows the same issues. So its not nautilus related. Opened the share with windows as usual, works as expected and the years before. Haven't found any information about this strange issue. Maybe someone can help me? Thank you
+Apr 02 17:37:53 <drindt>	for reading.
+Apr 02 17:44:47 <sdgathman>	drindt: I remember reading that Windows had changed CIFS security protocol, but I don't remember where.  Is the share served by an updated Windows box?
+Apr 02 17:45:39 <icebp241>	im trying to do a fresh 31 install on kvm on a host running 31. when the iso boot i see graphics, but not anaconda
+Apr 02 17:45:56 <icebp241>	i cant switch to it, i left it alone for a few, i get nadda
+Apr 02 17:46:22 <drindt>	 the security is not the issue, i fixed that already, but now files are shown as folders and with wrong timestamps
+Apr 02 17:46:33 <Southern_Gentlem>	icebp241, what iso are you using
+Apr 02 17:46:52 <icebp241>	Southern_Gentlem Fedora-Workstation-Live-x86_64-31-1.9.iso
+Apr 02 17:47:04 <Southern_Gentlem>	grab the updated iso out of the topic
+Apr 02 17:47:21 <icebp241>	alright, thanks
+Apr 02 17:47:49 <Khaytsus>	drindt: What change from when it worked to when it didn't
+Apr 02 17:48:23 <drindt>	Khaytsus: i would like to know it too. :) I assume this happens after the last fedora upgrade but not sure.
+Apr 02 17:49:34 <sdgathman>	drindt: Is this related?  https://www.ibm.com/support/knowledgecenter/STXKQY_4.2.1/com.ibm.spectrum.scale.v4r21.doc/bl1pdg_winsmb2.htm
+Apr 02 17:49:57 <sdgathman>	Is Windows or Fedora (or something else) serving the CIFS share?
+Apr 02 17:51:10 <drindt>	It's a fritz.box, a router
+Apr 02 17:51:26 <sdgathman>	Using SMB1 or SMB2 ?
+Apr 02 17:51:51 <sdgathman>	And has the fritz.box been updated? :-)
+Apr 02 17:53:26 <sdgathman>	SMB2 requires accurate change notification implementation - without it you get "inconsistent view of the namespace".
+Apr 02 17:53:43 <icebp241>	Southern_Gentlem no luck with F31-WORK-x86_64-LIVE-20200319.iso either
+Apr 02 17:54:05 <sdgathman>	icebp241: how much RAM for the VM?
+Apr 02 17:54:14 <sdgathman>	I think you need at least 2G now.
+Apr 02 17:54:24 <icebp241>	sdgathman 8GB
+Apr 02 17:54:31 <icebp241>	4 vCPUs
+Apr 02 17:54:33 <sdgathman>	That should be no problem.
+Apr 02 17:55:03 *	sdgathman just upgraded from 8 to 16GB on VM host in Jan...
+Apr 02 17:55:54 <chilversc>	sdgathman: can you get to a text terminal and check journalctl / dmesg?
+Apr 02 17:56:23 <sdgathman>	chilversc: for what problem?
+Apr 02 17:56:42 <sdgathman>	Or did you mean icebp241?
+Apr 02 17:58:26 <icebp241>	chilversc nothing stands out
+Apr 02 17:58:43 <chilversc>	sdgathman: sorry, got the wrong nick there
+Apr 02 18:22:49 <fedbot>	*** F31-20200319 updated lives available: https://tinyurl.com/Live-respins2  Built by the Fedora Respin Sig more info #fedora-respins ***
+Apr 02 22:08:10 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr  2 22:08:10 2020
+
+**** BEGIN LOGGING AT Thu Apr  2 22:08:39 2020
+
+Apr 02 22:08:39 *	Now talking on #fedora
+Apr 02 22:08:39 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 02 22:08:39 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 02 22:08:41 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 02 22:59:57 <mpduty>	#fs
+Apr 03 00:56:54 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr  3 00:56:54 2020
+
+**** BEGIN LOGGING AT Fri Apr  3 09:06:40 2020
+
+Apr 03 09:06:40 *	Now talking on #fedora
+Apr 03 09:06:40 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 03 09:06:40 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 03 09:06:41 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 03 09:23:54 <Cymew>	Hi. I just wrote a markdown document in emacs, and when I want to preview it, I seems to be lacking a "markdown" binary to render it. Which package provides that? It seems dnf is not helpful.
+Apr 03 09:33:09 <Cymew>	Nevermind, found the "discount" package.
+Apr 03 09:57:57 <marmulak>	is it normal for dnf to segfault after downloading package files
+Apr 03 09:58:31 <[Enrico]>	nope
+Apr 03 09:59:09 <marmulak>	isn't that weird
+Apr 03 11:31:41 <rindolf>	Hi all! I am getting an OCI error with podman/docker on f32 - https://paste.centos.org/view/43bd2158
+Apr 03 11:39:33 <rindolf>	it seems to be working as user 'root' :(
+Apr 03 11:47:14 <FranciscoD>	rindolf: hrm, not seen that: is this a fresh install?
+Apr 03 11:47:17 <FranciscoD>	or an upgrade?
+Apr 03 11:47:47 <rindolf>	FranciscoD: an upgrade
+Apr 03 11:47:54 <FranciscoD>	hrm, me too
+Apr 03 11:48:04 <FranciscoD>	anything in the journal: `journalctl -b` ?
+Apr 03 11:49:08 <FranciscoD>	rindolf: trying to reproduce it now
+Apr 03 11:49:36 <FranciscoD>	rindolf: worked here XD
+Apr 03 11:50:26 <rindolf>	FranciscoD: oh, that sucks
+Apr 03 11:51:00 <FranciscoD>	https://paste.centos.org/view/23b17a71
+Apr 03 11:51:41 <FranciscoD>	will need some debugging, not sure where to start though.
+Apr 03 11:51:42 <FranciscoD>	try #podman?
+Apr 03 11:53:02 <rindolf>	FranciscoD: https://paste.centos.org/view/66b1d19c
+Apr 03 11:54:03 <FranciscoD>	I some context related info
+Apr 03 11:54:08 <FranciscoD>	selinux labelling maybe?
+Apr 03 11:54:59 <FranciscoD>	try the selinux troubleshooter? `sudo dnf install /usr/bin/sealert`?
+Apr 03 11:55:05 <FranciscoD>	that'll list denials
+Apr 03 11:55:35 <FranciscoD>	simple way of checking is also to `sudo setenforce 0` to temporarily set selinux to permissive and checking if it works
+Apr 03 12:11:56 <rindolf>	FranciscoD: sudo setenforce 0 did not help
+Apr 03 12:15:21 <FranciscoD>	aye, lets hope the #podman folks can help figure it out
+Apr 03 12:19:23 <rindolf>	FranciscoD: thanks
+Apr 03 14:31:25 *	billings wonders if cgroupsv2 was disabled
+Apr 03 15:40:42 <mfilipe[m]>	something is wrong with my software store. flathub already updated the riot app but my software store doesn't show it to update. anyone knows what is wrong?
+Apr 03 15:48:02 <Southern_Gentlem>	had you applied updates earlier and it applied and you didnt realize
+Apr 03 15:48:14 <Southern_Gentlem>	??
+Apr 03 15:50:30 <retentiveboy>	Feeling silly for having to ask...  FServer31 instance in a VM without issues. Shutdown, added second network interface, booted back up.  Can't SSH into it now on the original interface but can on DHCP address it pulled on the added interface. tcpdump shows first packet of Inbound connection on the original interface then stalls.
+Apr 03 15:51:08 <retentiveboy>	Disabled firewall, no change.  disabled selinux, no change.
+Apr 03 15:51:40 <retentiveboy>	netstat -an show it's listening on 0.0.0.0:22 as expected.
+Apr 03 15:51:58 <retentiveboy>	adjusted sshd configs to listen on the original IP, not 0.0.0.0. no change.
+Apr 03 15:52:21 <Puck`>	how about firewalls, retentiveboy ?
+Apr 03 15:52:32 <Puck`>	try stopping firewalld sercice
+Apr 03 15:52:35 <Puck`>	*service
+Apr 03 15:52:43 <retentiveboy>	systemctl stop firewalld, no change.
+Apr 03 15:53:26 <retentiveboy>	tcpdump shows initial inbound packet so no firewall on the client in the way.
+Apr 03 15:53:51 <retentiveboy>	weird.
+Apr 03 15:54:01 <prussian>	firewalld may be activated via dbus/socket
+Apr 03 15:54:11 <prussian>	if you really want it dead, systemctl mask firewalld
+Apr 03 15:54:13 <dowdle>	retentiveboy: When working with multiple network interfaces, I'm guessing you need to mark one of them as "do not use this as a default gateway".
+Apr 03 15:54:14 <retentiveboy>	iptables -L shows empty tables
+Apr 03 15:55:14 <retentiveboy>	ah, yes...  routing issue.  I see responses going out the other interface.
+Apr 03 15:55:23 <retentiveboy>	thx, dowdle
+Apr 03 15:55:46 <prussian>	I was just gonna say, check ip route output
+Apr 03 16:01:33 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr  3 16:01:33 2020
+
+**** BEGIN LOGGING AT Fri Apr  3 20:50:36 2020
+
+Apr 03 20:50:36 *	Now talking on #fedora
+Apr 03 20:50:36 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 03 20:50:36 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 03 20:50:36 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 03 21:25:58 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr  3 21:25:58 2020
+
+**** BEGIN LOGGING AT Fri Apr  3 23:31:54 2020
+
+Apr 03 23:31:54 *	Now talking on #fedora
+Apr 03 23:31:54 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 03 23:31:54 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 03 23:31:55 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 03 23:35:07 <alloy>	greetings #fedora :)
+Apr 03 23:37:00 <alloy>	I've got fedora server 31 running in vmware workstation as a test machine.... the network adaptor ens33 keeps dropping out then coming back, is this something you'all see a lot of?
+Apr 03 23:39:53 <daniel-wtd>	alloy: In vsphere/esx and kvm or vagrant (libvirt) I cannot see this behaviour. Havent used vmware workstation for years. :/
+Apr 03 23:40:20 <alloy>	it's one of the few pieces of software I buy :)
+Apr 03 23:40:51 <alloy>	(not because I'm some rabid pirate, it's just super useful - works really nicely with esx as a console etc)
+Apr 03 23:42:06 <alloy>	I think it might be a vmware thing, although I have an identical VM running ubuntu server and that doesn't seem to do it... (i'm pairing the terminals to test commands in both distros)
+Apr 03 23:45:09 <alloy>	oops, sorry to bother yas, it's happening in ubuntu too...
+Apr 03 23:45:16 *	alloy shakes fist at vmware
+Apr 03 23:45:59 <alloy>	daniel-wtd, give workstation pro a go though, it's fine software (this glitch not withstanding) :D
+Apr 03 23:46:12 <alloy>	ciao
+Apr 03 23:46:26 <daniel-wtd>	im using vsphere only because custmers have it in use ^^
+Apr 03 23:46:40 <daniel-wtd>	for me and my company, 100% open source for infrastructure ^^
+Apr 03 23:47:12 <specing>	alloy: stop promoting proprietary software. It is not cool.
+Apr 03 23:48:05 <alloy>	specing, hah really?  vmware have done so much for Linux I disagree.
+Apr 03 23:48:59 <alloy>	I've been using GNU/Linux since the 90s, everything I do is opensource, I've contributed code, and like I said it's one of the only things I buy because it helps my work as a career Linux Engineer so much.
+Apr 03 23:49:24 <alloy>	it was a tip, not a promotion.
+Apr 03 23:49:30 <specing>	Like violate the GPL?
+Apr 03 23:49:42 <alloy>	so you are anti Red Hat then?
+Apr 03 23:49:42 <daniel-wtd>	nevertheless, this is a fedora channel and not a "lets promote your personal software preference" channel
+Apr 03 23:49:51 <daniel-wtd>	Red Hat = Open Source
+Apr 03 23:51:32 <alloy>	wow, you guys need to relax.
+Apr 03 23:54:27 <alloy>	it was a friend of mine (another mike) that noticed vmware were using the kernel in the way they were back in the early 2000s, since then they have changed that, it's old news.
+Apr 03 23:54:28 <dowdle>	alloy: I bought VMware for Linux in 1999... and ran Windows 98 in it.  We use VMware at work... not me though... I prefer the Linux native hypervisor, KVM.
+Apr 03 23:54:49 <alloy>	dowdle, yeah that's when I started using it too :)
+Apr 03 23:56:53 <dowdle>	alloy: I work for a university and we subscribe to some academic program VMware has (admin'ed by On-the-Hub) and I could get VMware at no cost to me, but I prefer to use KVM.  I'm not fond of building kernel stubb modules every time the kernel gets updated... and Fedora is usually pretty darn closed to the latest, greatest upstream kernel release... which 3rd party modules sometimes have a problem with.
+**** BEGIN LOGGING AT Sat Apr  4 09:36:09 2020
+
+Apr 04 09:36:09 *	Now talking on #fedora
+Apr 04 09:36:09 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 04 09:36:09 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 04 09:36:09 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 04 12:01:49 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr  4 12:01:49 2020
+
+**** BEGIN LOGGING AT Sat Apr  4 12:06:58 2020
+
+Apr 04 12:06:58 *	Now talking on #fedora
+Apr 04 12:06:58 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 04 12:06:58 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 04 12:06:58 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 04 14:39:46 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr  4 14:39:46 2020
+
+**** BEGIN LOGGING AT Sat Apr  4 17:12:18 2020
+
+Apr 04 17:12:18 *	Now talking on #fedora
+Apr 04 17:12:18 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 04 17:12:18 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 04 17:12:19 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 04 17:16:00 <FixPleaseTo>	it strikes me that maybe developing 64 bit computing would have *begun with* 100% backward compatibility.  otherwise it's a *downgrade* unless of course everything could immediately be ported to 64 bit, and the prior platform made irrelevant.  clearly that scenario didn't come about, so why is there no compatibility?
+Apr 04 17:16:41 <FixPleaseTo>	I thought we're telling the compiler to "make 32 bit!" and all it's saying is "unable to comply".  robots have gotten shot in the face for less than that, I believe
+Apr 04 17:18:05 <Khaytsus>	FixPleaseTo: what is this, 2005?
+Apr 04 17:19:17 <Khaytsus>	I'm 99% sure you're doing something wrong, don't have something installed..  ther'es 3800 devel packages that are i686 devel
+Apr 04 17:19:50 <Khaytsus>	Could be a bug, who knows..  log one if you try to compile something you understand
+Apr 04 18:06:13 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr  4 18:06:13 2020
+
+**** BEGIN LOGGING AT Sat Apr  4 18:06:42 2020
+
+Apr 04 18:06:42 *	Now talking on #fedora
+Apr 04 18:06:42 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 04 18:06:42 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 04 18:06:43 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 04 18:09:02 <kk4ewt>	whatnow11 nope
+Apr 04 18:20:33 <ghabit>	> Fedora is the community supported test bed for RHEL.  RHEL updates pick up a Fedora release, such as RHEL8 was based on Fedora 28, 7 was based on Fedora 19, etc.
+Apr 04 18:20:33 <ghabit>	Thank you a lot.
+Apr 04 18:37:22 <gambl0re>	i keep getting weekly updates for GNOME Application Platform which is about 300MB. is this normal?
+Apr 04 19:18:58 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr  4 19:18:58 2020
+
+**** BEGIN LOGGING AT Sat Apr  4 19:19:26 2020
+
+Apr 04 19:19:26 *	Now talking on #fedora
+Apr 04 19:19:26 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 04 19:19:26 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 04 19:19:26 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 04 19:23:20 <Khaytsus>	Or read the page
+Apr 04 19:23:35 <Khaytsus>	I don't arbitrarily link stuff.
+Apr 04 22:00:30 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr  4 22:00:30 2020
+
+**** BEGIN LOGGING AT Sat Apr  4 22:01:15 2020
+
+Apr 04 22:01:15 *	Now talking on #fedora
+Apr 04 22:01:15 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 04 22:01:15 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 04 22:01:15 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 04 22:05:57 <z22_temp>	Hi
+Apr 04 22:16:59 <LRB>	Anybody know of a method to disable the disabling of a mouse pad while typing? There's apparently a bug in the xfce4 that's shipping with Fedora 31. I'm just looking for a command or something to directly interact with the settings.
+Apr 04 22:27:03 <z22_temp>	For Touchpad in gpaphic env is in system settings/Hardware/Input Devices/Touchpad/EnableDisable Toouchpad ...
+Apr 04 22:31:04 <LRB>	I'm not really sure what you mean. I'm not seeing that in xfce4-settings-editor or xfce4-settings-manager
+Apr 04 22:33:45 <z22_temp>	sorry, i'm in kde, there must be something similar.
+Apr 04 22:34:20 <LRB>	There is usually. There's a bug preventing it from appearing in the xfce4-settings-manager
+Apr 04 22:34:26 <chrisawi>	LRB: is the xfce spin using libinput or synaptics?
+Apr 04 22:34:51 <LRB>	chrisawi: It's using synaptics.
+Apr 04 22:35:47 <LRB>	Somebody said to install xorg-x11-drv-synaptics-legacy but that caused my touchpad to ignore the "natural scrolling" or whatever it's called in xfce4
+Apr 04 22:36:00 <LRB>	reversed scrolling
+Apr 04 22:36:34 <chrisawi>	if that package wasn't installed already, then you were using libinput before
+Apr 04 22:37:04 <LRB>	Ah. It's showing up as a synaptics device even when the package isn't installed, so maybe that's why I was confused
+Apr 04 22:38:40 <chrisawi>	for libinput, you can configure it at runtime with xinput like this: https://elementaryos.stackexchange.com/a/9306
+Apr 04 22:39:10 <chrisawi>	for the synaptics driver, there is a `synclient` command
+Apr 04 22:39:34 <LRB>	Ah cool, thanks
+Apr 04 23:42:15 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr  4 23:42:15 2020
+
+**** BEGIN LOGGING AT Sat Apr  4 23:42:41 2020
+
+Apr 04 23:42:41 *	Now talking on #fedora
+Apr 04 23:42:41 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 04 23:42:41 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 04 23:42:42 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 05 00:25:01 <alvaroflm>	hi all !
+Apr 05 00:25:22 <alvaroflm>	i have been trying to reaolve an iptabled/firewalld issue
+Apr 05 00:25:38 <alvaroflm>	i anyone can lend a hjand it would be great
+Apr 05 00:26:11 <alvaroflm>	I have been trying to use native ipset with firewalld but so so far no luck, here are the commands and logs https://paste.centos.org/view/f7e978ee
+Apr 05 00:26:36 <alvaroflm>	i used the fail2ban script as asource
+Apr 05 00:27:16 <alvaroflm>	i have no errors but when I try to connect to aservice using a whitelisted ip doesnt let me
+Apr 05 00:45:29 <jlay>	has anyone noticed on 32 beta that they aren't able to choose a DE?  the old cog wheel seems to be missing, even though I should have plenty of options around.  FWIW, switchdesk didn't work out either
+Apr 05 00:47:31 <puff420>	created a user now I don't see the fingerprint section on gnome -> users
+Apr 05 00:47:55 <puff420>	user is a member of group root
+Apr 05 00:53:48 <puff420>	any idea
+Apr 05 00:58:23 <puff420>	yo yo
+Apr 05 00:58:27 <puff420>	anyone around
+**** ENDING LOGGING AT Sun Apr  5 01:01:58 2020
+
+**** BEGIN LOGGING AT Fri Apr 10 09:59:51 2020
+
+Apr 10 09:59:51 *	Now talking on #fedora
+Apr 10 09:59:51 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 10 09:59:51 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 10 09:59:51 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 10 11:08:05 <Heaton-IR>	Hi my fedora repository is so slow how can i fix this problem?
+Apr 10 11:24:39 <coz_>	ugnius, did you finally get Fedora installed?
+Apr 10 11:58:32 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 10 11:58:32 2020
+
+**** BEGIN LOGGING AT Fri Apr 10 12:09:11 2020
+
+Apr 10 12:09:11 *	Now talking on #fedora
+Apr 10 12:09:11 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 10 12:09:11 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 10 12:09:12 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 10 12:16:08 <ugnius>	coz_: yes, everything went fine after switching edd=off (enhanced disk detection), just gnome was too heavy, installed fedora mate spin, actually now writing from fedora :), thanks
+Apr 10 13:19:49 <fedbot>	*** F31-20200408 updated lives available: https://tinyurl.com/Live-respins2  Built by the Fedora Respin Sig more info #fedora-respins ***
+Apr 10 13:32:53 <Araneidae>	Just install F32 on a laptop and need to connect to a hidden Wi-Fi network: can't see an option for this!
+Apr 10 13:34:08 <Araneidae>	The only option seems to be "Select a network" which doesn't include my network
+Apr 10 13:34:29 <Khaytsus>	WHy would it show a hidden network?  btw, hidden networks are ONLY annoying, they do NOTHING useful.
+Apr 10 13:34:37 <Araneidae>	That's as may be
+Apr 10 13:34:57 <Khaytsus>	The network SSID is visible about every 5 seconds if you're watching for traffic, so it's pretty utterly pointless and annoying and does nothing.
+Apr 10 13:35:01 <Araneidae>	You're not telling me the ability to select a hidden network has been removed because its "annoying"?
+Apr 10 13:35:17 <Khaytsus>	No, I'm saying having it hidden is pointlessly annoying for you.
+Apr 10 13:35:29 <Khaytsus>	I'm booting a machine with network mangler
+Apr 10 13:35:52 <Araneidae>	Again, that's as may be.  I'm connecting to a network that has been configured like this for over a decade
+Apr 10 13:35:58 <Khaytsus>	Ah welp, that won't work, no wifi on a vm.  Anyway, I'm pretty sure it's just "Add connection"
+Apr 10 13:36:11 <Khaytsus>	If it's your network, just unhide it.
+Apr 10 13:36:38 <Araneidae>	Why has this been downgraded?  This is just a retrograde step
+Apr 10 13:36:44 <Khaytsus>	Next dumb thing poeple do; mac filtering.  As if the MAC (ie:  wireless ethernet address) isn't also immediately visible.
+Apr 10 13:37:07 <Khaytsus>	No idea if it has been.  You're seeing a difference?
+Apr 10 13:37:28 <Araneidae>	Yes.  This is my first install of F32, my other machines work jsut fine thank you
+Apr 10 13:38:02 <Araneidae>	Presumably something is store somewhere in /etc/networks or the like, suppose I have to go looking now :(
+Apr 10 13:38:29 <Khaytsus>	Ah well, was going to look but no NM here except in VMs.  But 99% sure it's just "add connection"
+Apr 10 13:39:29 <Araneidae>	"Add Connection" does sound right, but I'm struggling to find it!
+Apr 10 13:40:11 <Araneidae>	Under settings I've got Wi-Fi which just shows "Visible Networks" (and an Aeroplane Mode button)
+Apr 10 13:40:29 <Araneidae>	Network, which covers Wired, VPN, Proxy
+Apr 10 13:40:41 <Khaytsus>	right click the NM applet, edit connections, hit the Plus?
+Apr 10 13:41:28 <Araneidae>	The settings box shows a list of entries on the left (which is where I'm seeing Wi-Fi), but it's not right-clickable
+Apr 10 13:41:35 <linuxmodder>	like Khaytsus  is saying 'hiding a network' only makes it safe against stupid attackers, anyone that knows how to look is gonna target you more just due to that fact alone
+Apr 10 13:42:20 <Khaytsus>	No right click/  Hmm..  looking, sec
+Apr 10 13:44:03 <Khaytsus>	Yeah right click NM's applet here shows the normal menus
+Apr 10 13:44:21 <Araneidae>	So how do you bring up the Applet?
+Apr 10 13:44:44 <Khaytsus>	Oh, well..  hmm..  I'm using XFCE, no idea how it shows up in Gnome I guess
+Apr 10 13:44:51 <Araneidae>	All I'm doing is selecting Settings from the Activities Search
+Apr 10 13:45:09 <Araneidae>	Oh, it's ****ing Gnome being patronising again, isn't it
+Apr 10 13:45:13 <Khaytsus>	but yeah look for Network Connections I think it's called to run?
+Apr 10 13:45:23 <Khaytsus>	that hsould bring up the NM app
+Apr 10 13:45:45 <Araneidae>	Ohhhh
+Apr 10 13:45:45 <Khaytsus>	I don't seem to have a Workstation VM installed at the moment
+Apr 10 13:46:06 <Araneidae>	It's hidden under a ... button on the top right of Settings!
+Apr 10 13:46:23 <Khaytsus>	Makes sense.
+Apr 10 13:46:32 <Araneidae>	Under [...] (vertical dots) is a menu ... with "Connect to Hidden Network..."
+Apr 10 13:46:32 <Khaytsus>	I'm not allowed to express my love for Gnome anymore, so.. yeah
+Apr 10 13:46:38 <Araneidae>	Ta
+Apr 10 13:46:46 <Araneidae>	"Love" for Gnome?
+Apr 10 13:46:58 <Khaytsus>	It involves torches and pitchforks
+Apr 10 13:47:10 <Araneidae>	I've put it on because I'm lazy (my main desktop is XFCE, my work workstation is fluxbox)
+Apr 10 13:47:44 <Araneidae>	Anyhow, thanks for the help.  Think I'm getting there...
+Apr 10 13:47:48 <Khaytsus>	Every time I test the Workstation spin I hate every second.
+Apr 10 13:48:00 <Khaytsus>	But glad you got it sorted, but yeah, hiding that under a few things seems pretty silly.
+Apr 10 13:48:07 <Araneidae>	What's the most robust Fedora Spin that isn't Gnome?
+Apr 10 13:48:18 <Khaytsus>	Gnome seems to optimze usability at the expense of usability.
+Apr 10 13:48:18 <Araneidae>	I'll watch for that little button elsewhere
+Apr 10 13:48:28 <Khaytsus>	I've used XFCE for years personally.
+Apr 10 13:52:40 <Khaytsus>	Used KDE for years until it died at 3.5.  I revisit every few years or so, poke at it, put it back in the oven to cook for another few years.
+Apr 10 13:53:47 <Araneidae>	Well, we use Gnome at work (I'm out on a limb with fluxbox), and each time there's a system upgrade (such a big damned deal) it seems to get a little harder to use :(
+Apr 10 13:54:28 <Khaytsus>	Eventually it'll just be a single button.
+Apr 10 13:54:36 <Khaytsus>	They remove features every release.
+Apr 10 13:55:09 <Araneidae>	:)
+Apr 10 14:14:14 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 10 14:14:14 2020
+
+**** BEGIN LOGGING AT Fri Apr 10 14:14:43 2020
+
+Apr 10 14:14:43 *	Now talking on #fedora
+Apr 10 14:14:43 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 10 14:14:43 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 10 14:14:43 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 10 14:15:29 <Khaytsus>	I just wish there was some way to do better scaling on things..  I have some old apps that do not have any way to scale and they're impossible to use on a 4k monitor
+Apr 10 14:30:39 <fedbot>	*** F31-20200408 updated lives available: https://tinyurl.com/Live-respins2  Built by the Fedora Respin Sig more info #fedora-respins ***
+Apr 10 15:04:30 <fedbot>	*** F31-20200408 updated lives available: https://tinyurl.com/Live-respins2  Built by the Fedora Respin Sig more info #fedora-respins ***
+Apr 10 15:16:46 <short-bike>	Anyone in here running wireguard on f31 ?
+Apr 10 15:17:46 <mfilipe[m]>	short-bike: o/
+Apr 10 15:17:58 <mfilipe[m]>	i'm running inside of my host (fedora package)
+Apr 10 15:18:06 <mfilipe[m]>	when i tried to use snap/flatpak, it didn't work as expected
+Apr 10 15:19:27 <short-bike>	mfilipe[m]: TY. Apart from that, any other issues you have run into ? I'm looking to run it on an f31 bare metal box.
+Apr 10 15:19:44 <mfilipe[m]>	no
+Apr 10 15:19:51 <mfilipe[m]>	i used to sniff a http package without problems
+Apr 10 15:19:56 <short-bike>	Cool. Thank you.
+Apr 10 15:23:32 <short-bike>	Lastly, is the copr repo needed for wireguard ?
+Apr 10 15:29:10 <Southern_Gentlem>	you can look to see if the copr package is newer than whats in the fedora repos
+Apr 10 15:33:11 <guiekguiek>	Shouldn't this prompt for username/password since dnf requires sudo privileges? Here is the pastebin https://pastebin.com/50m4aFKX
+Apr 10 15:36:03 <Khaytsus>	It uses packagekit, and you've likely already used it before
+Apr 10 15:36:46 <Khaytsus>	guiekguiek: Plus you're in the wheel group, yes?
+Apr 10 15:38:00 <short-bike>	Southern_Gentlem: Thanks - I'll check.
+Apr 10 15:38:36 <guiekguiek>	@Khaytsus yes I am in the wheel group
+Apr 10 15:38:51 <Khaytsus>	So yes, that's working as designed.
+Apr 10 15:38:52 <guiekguiek>	In sudoers I need to be prompted for password
+Apr 10 15:39:10 <guiekguiek>	Is my sudo privilege cached in PackageKit
+Apr 10 15:39:14 <Khaytsus>	No.
+Apr 10 15:39:17 <Khaytsus>	It's not using sudo.
+Apr 10 15:39:38 <guiekguiek>	Can you please explain how it works?
+Apr 10 15:40:19 <Khaytsus>	No, but you can research it.
+Apr 10 15:41:07 <Khaytsus>	If you want to personally remove what that is doing, just remove the packagekit not found package.
+Apr 10 15:41:33 <Khaytsus>	PackageKit-command-not-found
+Apr 10 15:44:33 <\n3p\>	Fedora 32 is working fine for me since more than a month. Thank you developers!
+Apr 10 15:44:46 <Khaytsus>	10 days, 23 hours, 15 minutes, 5 seconds until the Fedora 32 (4/21/2020) release.
+Apr 10 16:05:53 <FixPleaseTo>	might b I'm just slow, but isn't there supposed to be a command like "magick" in fedora? LOL
+Apr 10 16:06:09 <FixPleaseTo>	-for converting graphics files
+Apr 10 16:07:37 <Khaytsus>	https://google.com/search?q=image+magick+howto
+Apr 10 16:07:59 <short-bike>	imagemagic aka - imagemagick. But the core of those files are installed by default. for ex. convert (file-a) (file-b) by extension works.
+Apr 10 16:08:17 <dsmster>	anyone else on fc32 see crun package update fail with :  lsetfilecon: (/usr/bin/crun;5e908afe, system_u:object_r:container_runtime_exec_t:s0) Invalid argument
+Apr 10 16:10:22 <Khaytsus>	dsmster: Updating the crun package with dnf you mean, or?
+Apr 10 16:10:47 <Khaytsus>	I just updated a 32 here and saw no obvious issues, but wasn't looking closely
+Apr 10 16:18:57 <dsmster>	yeah, i noticed that Software app, just spun forever trying to list today's updates, so I ran dnf update, crun wanted to go from 0.13-1 to 0.13-2 and that selinux thing was the only anomoly I noticed so far
+Apr 10 16:19:24 <dsmster>	i will go look at the packageutil logs i guess next to see if it's having the same type of problem with crun package
+Apr 10 16:19:56 <dsmster>	or maybe this is a script running that is incompatible with some of my personal containers that are quite old IDK
+Apr 10 16:22:13 <Khaytsus>	Never used packagekit intentionally, so udnno
+Apr 10 16:22:58 <FixPleaseTo>	thanx Khaytsus.  keepin it usable
+Apr 10 16:32:16 <bhermon>	Hey guys, I have a repeat of an old issue. I cannot view video on pornhub... What do I need to do to remedy this onerous omission???
+Apr 10 16:33:25 <bhermon>	Please help, i am too old and deprived to do this m yself
+Apr 10 16:35:32 <FixPleaseTo>	I, uh, mangled my grub2
+Apr 10 16:36:02 <bhermon>	The message I get is this "There was an error loading or playing the video"
+Apr 10 16:36:49 <bhermon>	but some of the images have motion, so I'm thinking it's not totally a loss
+Apr 10 16:38:01 <bhermon>	if grub2 is mangled, how can I tell, and how can I fix it...
+Apr 10 16:38:50 <ledeni>	bhermon, what browser you use
+Apr 10 16:39:33 <bhermon>	chrome or firefox...
+Apr 10 16:40:21 <ledeni>	bhermon, did you install rpmfusion repos
+Apr 10 16:41:00 <bhermon>	I think so, how can I verify?
+Apr 10 16:41:06 <coz_>	bhermon,   https://rpmfusion.org/Configuration/
+Apr 10 16:41:36 <coz_>	bhermon, sudo dnf upgrade --refresh and see if it pulls rpm fusion repos
+Apr 10 16:42:32 <ledeni>	bhermon, yeah should be free and non-free repos
+Apr 10 16:44:53 <bhermon>	dnf upgrade --refresh says nothing to do,,,
+Apr 10 16:47:50 <ledeni>	bhermon, once you have repos 'sudo dnf install ffmpeg ffmpeg-libs compat-ffmpeg'
+Apr 10 16:49:06 <ledeni>	bhermon, 'dnf repolist'
+Apr 10 16:50:31 <bhermon>	[root@wchfedora ~]# dnf repolist
+Apr 10 16:50:31 <bhermon>	repo id                        repo name
+Apr 10 16:50:31 <bhermon>	fedora                         Fedora 31 - x86_64
+Apr 10 16:50:31 <bhermon>	fedora-modular                 Fedora Modular 31 - x86_64
+Apr 10 16:50:31 <bhermon>	rpmfusion-free                 RPM Fusion for Fedora 31 - Free
+Apr 10 16:50:31 *	fedbot sets quiet on *!*@2601:400:c280:3af0:*
+Apr 10 16:50:57 <ledeni>	bhermon, use fpaste
+Apr 10 16:51:04 *	fedbot removes quiet on *!*@2601:400:c280:3af0:*
+Apr 10 16:51:21 <bhermon>	fpaste [root@wchfedora ~]# dnf repolist
+Apr 10 16:51:21 <bhermon>	repo id                        repo name
+Apr 10 16:51:21 <bhermon>	fedora                         Fedora 31 - x86_64
+Apr 10 16:51:21 <bhermon>	fedora-modular                 Fedora Modular 31 - x86_64
+Apr 10 16:51:21 <bhermon>	rpmfusion-free                 RPM Fusion for Fedora 31 - Free
+Apr 10 16:51:21 *	fedbot sets quiet on *!*@2601:400:c280:3af0:*
+Apr 10 16:51:39 <ledeni>	bhermon, stop it
+Apr 10 16:51:54 *	fedbot removes quiet on *!*@2601:400:c280:3af0:*
+Apr 10 16:51:55 <bhermon>	ok
+Apr 10 16:52:03 <ledeni>	dnf repolist | fpaste
+Apr 10 16:52:52 <ledeni>	bhermon,you will go url paste it
+Apr 10 16:53:04 <bhermon>	https://paste.centos.org/view/d17a2073
+Apr 10 16:53:52 <\n3p\>	bhermon, You need rpmfusion-free-updates and rpmfusion-NONFREE + updates for some extra packages
+Apr 10 16:54:03 <ledeni>	bhermon,yes you have it
+Apr 10 16:54:48 <ledeni>	bhermon, run in term 'sudo dnf install ffmpeg ffmpeg-libs compat-ffmpeg'
+Apr 10 16:55:34 <ledeni>	bhermon, sorrythis  'sudo dnf install ffmpeg ffmpeg-libs compat-ffmpeg28'
+Apr 10 16:59:54 <bhermon>	Working on it, seems to take awhile
+Apr 10 17:00:30 <ledeni>	bhermon, after that you need h264 codecs read https://fedoraproject.org/wiki/OpenH264
+Apr 10 17:05:06 <kwizart>	ledeni, not once you have rpmfusion installed
+Apr 10 17:05:32 <kwizart>	I mean ffmpeg (and no need to use the compat-ffmpeg28 anymore for firefox)
+Apr 10 17:05:53 <kwizart>	chromium would requires to use the chromium-freeworld package
+Apr 10 17:06:23 <ledeni>	bhermon, once you install h264 codec close firefox  and reopen .should be fine after this you can watch videos
+Apr 10 17:06:44 <bhermon>	sorry, I was trying to pipe it to fpaste and it stalled at the is this ok? prompt
+Apr 10 17:08:00 <ledeni>	bhermon, what you want to pipe
+Apr 10 17:11:24 <JEEB>	so I am seeing an issue that after successfully running dnf system upgrade download for 31-to-32 (since I saw that the worst blockers seemed to get closed), when after the reboot the module attempts to do a verification of the RPMs it downloaded, it seems to always fail?
+Apr 10 17:11:39 <ledeni>	kwizart, sorry main experience i need compat-ffmpeg28 for run some videos and cost nothing to have it install
+Apr 10 17:11:43 <JEEB>	I do not see any issues utilizing dnf for normal package upgrades, and my I/O device seems to be OK
+Apr 10 17:12:12 <JEEB>	I quickly searched and I didn't see anything relevant in search results for 31 to 32 yet.
+Apr 10 17:14:20 <bhermon>	ok, it's working, many thanks.
+Apr 10 17:14:25 <kwizart>	ledeni, nothing use compat-ffmpeg28 but spotify (for few features) nowadays
+Apr 10 17:15:21 <JEEB>	ok, another attempt for this, let's see if I get any checksum failures... the fifth or so time in a row? and somehow always only with system upgrade
+Apr 10 17:16:14 <ledeni>	kwizart, try to run https://www.youtube.com/watch?v=EEIk7gwjgIM
+Apr 10 17:16:49 <ledeni>	kwizart, without compat-ffmeg28
+Apr 10 17:20:59 <JEEB>	:< http://up-cat.net/p/5bd6cf07
+Apr 10 17:21:31 <JEEB>	why on earth would this only happen with dnf system-upgrade download and not with normal package updates
+Apr 10 17:22:17 <Southern_Gentlem>	JEEB, what command are you using
+Apr 10 17:22:40 <JEEB>	dnf system-upgrade download --refresh --releasever=32
+Apr 10 17:22:54 <Southern_Gentlem>	sudo fpaste --sysinfo
+Apr 10 17:23:15 <short-bike>	ANd what repo's have you enabled - I was under the impression f32 was still not GA ?
+Apr 10 17:23:38 <Southern_Gentlem>	short-bike, thus the fpaste --sysinfo
+Apr 10 17:23:48 <short-bike>	Gotcha Southern_Gentlem
+Apr 10 17:23:54 <JEEB>	short-bike: yea I am upgrading to non-GA because it seems like freeze period is starting and the major blockers got closed with gnome session segfaulting etc
+Apr 10 17:24:04 <JEEB>	(specifically the wayland compositor apparently crashing until now)
+Apr 10 17:24:16 <Southern_Gentlem>	JEEB, sudo fpaste --sysinfo
+Apr 10 17:24:20 <JEEB>	yes, I was doing that
+Apr 10 17:24:30 <JEEB>	just validating the paste link opens ok here
+Apr 10 17:24:48 <JEEB>	https://paste.centos.org/view/af6c19e7
+Apr 10 17:24:50 <JEEB>	there you go
+Apr 10 17:26:15 <JEEB>	should be pretty vanilla fc31 except I got used to enabling -testing because sometimes security updates took otherwise longer to get in
+Apr 10 17:26:21 <Southern_Gentlem>	hmmm so why have you been playing in updates-testing
+Apr 10 17:26:50 <Southern_Gentlem>	run your command again
+Apr 10 17:27:05 <JEEB>	?
+Apr 10 17:27:15 <Southern_Gentlem>	this time paste all including your command to paste.centos.org please
+Apr 10 17:27:38 <Southern_Gentlem>	dnf system-upgrade download --refresh --releasever=32
+Apr 10 17:27:42 <JEEB>	I can just post the two dnf.logs since those should have everything. the download and then the next reboot
+Apr 10 17:27:49 <JEEB>	the download part succeeds as far as I can tell
+Apr 10 17:27:55 <JEEB>	let me just post them
+Apr 10 17:28:26 <JEEB>	and if you want me to downgrade everything to non-testing then if there's a quick command for that I can then do that
+Apr 10 17:28:42 <JEEB>	although a lot of updates in testing just ends up in stable just a few days later
+Apr 10 17:28:51 <Southern_Gentlem>	well then what is this then http://up-cat.net/p/5bd6cf07
+Apr 10 17:29:20 <JEEB>	that's a snippet from the post-reboot actual upgrade
+Apr 10 17:29:25 <JEEB>	let me just post the log files
+Apr 10 17:29:33 <JEEB>	I did think I noted that the download went seemingly OK
+Apr 10 17:29:47 <Southern_Gentlem>	lets try the download again please
+Apr 10 17:30:09 <Southern_Gentlem>	i am suspecting an out of date mirror
+Apr 10 17:30:12 <JEEB>	ok, I will clear my caches and run it again if you don't want my older dnf.log from my previous run :)
+Apr 10 17:30:26 <JEEB>	(although that was just a few minutes earlier)
+Apr 10 17:30:29 <Southern_Gentlem>	the --refresh should clear your cache
+Apr 10 17:30:41 <JEEB>	yes, I am always running that since I've had bad cases of updates not propagating
+Apr 10 17:31:00 <JEEB>	anyways, clearing downloaded packages and retrying
+Apr 10 17:31:17 <JEEB>	dnf system-upgrade clean and that one again
+Apr 10 17:32:29 <JEEB>	I'll post the full stdout and stderr as it finishes
+Apr 10 17:32:49 <Southern_Gentlem>	please include your command
+Apr 10 17:33:04 <JEEB>	dnf system-upgrade download --refresh --releasever=32 &> ~root/system-upgrade-download.log
+Apr 10 17:33:45 <JEEB>	I don't think it logs it in the log, unless I bump verbosity, maybe? so if you are not trusting me to run what I say I run then we might have a problem
+Apr 10 17:34:43 <JEEB>	I know that dnf recently got an upgrade with modules in -testing, so unless someone had an idea I'd probably try downgrading that to the previous one https://bodhi.fedoraproject.org/updates/FEDORA-2020-d51dbe83a9
+Apr 10 17:35:22 <short-bike>	Does --refresh clear out the downloaded meta-data - I though 'clean all' was the only arg that did that ?
+Apr 10 17:35:36 <JEEB>	it at least always downloads new data
+Apr 10 17:35:56 <JEEB>	you might need to clean all if you really want to get rid of all caches before that
+Apr 10 17:36:28 <Southern_Gentlem>	man dnf
+Apr 10 17:37:37 <JEEB>	Southern_Gentlem: also btw if your hostility towards me that I'm perceiving here is due to there a separate channel for upgrades to not-yet-GA releases then I will just take the hint and move there if you can hint at a more proper venue.
+Apr 10 17:38:09 <JEEB>	ok, the topic says F32 beta as well :P
+Apr 10 17:38:41 <JEEB>	ok, it finished. uploading the stdout and stderr
+Apr 10 17:38:45 <Southern_Gentlem>	JEEB,  i am not being hostile to you in anyway, i am sorry if you think i am
+Apr 10 17:39:13 <Southern_Gentlem>	the man dnf was for short-bike
+Apr 10 17:39:59 <JEEB>	ok, no problem then. my misreading then. I just read into the way my dnf log files etc weren't good enough, since they seem to be very similar to the stdout/stderr.
+Apr 10 17:40:17 <JEEB>	now let me just get that stdout+err into a bin
+Apr 10 17:40:40 <Southern_Gentlem>	i asked a question about updates-testing and you answered so i went on to something else
+Apr 10 17:41:56 <JEEB>	Southern_Gentlem: https://0x0.st/iSJE.log
+Apr 10 17:42:18 <JEEB>	that's `dnf system-upgrade download --refresh --releasever=32 &> ~root/system-upgrade-download.log`
+Apr 10 17:42:26 <JEEB>	which did succeed previously as well
+Apr 10 17:42:39 <JEEB>	the only failure came as I run the reboot into system upgrade
+Apr 10 17:42:52 <JEEB>	when it started checking the packages downloaded, apparently
+Apr 10 17:43:00 <JEEB>	for that you only have the dnf logs
+Apr 10 17:43:10 <Southern_Gentlem>	try that now to see if you still get that same error
+Apr 10 17:43:31 <JEEB>	roger that, although I'm not really hopeful :)
+Apr 10 17:43:46 <Southern_Gentlem>	**crossing fingers**
+Apr 10 17:44:41 <JEEB>	let's just say I did it the first time around 2AM today, and then one time with and one time without updates-testing enabled from 32 afterwards
+Apr 10 17:44:44 <JEEB>	:)
+Apr 10 17:44:47 <JEEB>	anyways, it started
+Apr 10 17:45:43 <JEEB>	the new upgrade view which I think got enabled with 31 is pretty nice, although I did like the actual numbers X/Y
+Apr 10 17:46:16 <JEEB>	ok, it rebooted at 0% so most likely another checksum error. I will post the dnf log from the system upgrade
+Apr 10 17:46:56 <JEEB>	I have a hunch it might be the in-testing update to dnf and modules so I will attempt to downgrade to current updates
+Apr 10 17:48:33 <JEEB>	anyways, back to normal desktop so posting hte log
+Apr 10 17:49:47 <JEEB>	https://0x0.st/iSJk.log
+Apr 10 17:50:08 <JEEB>	expected result, at this point
+Apr 10 17:51:19 <JEEB>	apparently parts of the log ended up in dnf.log.1, so posting that as well. it has the download as well
+Apr 10 17:51:31 <JEEB>	https://0x0.st/iSJn.1
+Apr 10 17:52:31 <JEEB>	2020-04-10T16:44:10Z DDEBUG Extra commands: ['system-upgrade', 'reboot'] is where I initiated the reboot
+Apr 10 17:52:43 <JEEB>	2020-04-10T16:45:06Z DDEBUG Extra commands: ['system-upgrade', 'upgrade']
+Apr 10 17:52:53 <JEEB>	is where it booted into the system upgrade env
+Apr 10 17:53:27 <JEEB>	also the dnf logs have the dnf version I'm currently running which is https://bodhi.fedoraproject.org/updates/FEDORA-2020-d51dbe83a9 as noted
+Apr 10 17:53:39 <JEEB>	I'll attempt to go back to stable update
+Apr 10 17:53:48 <kwizart>	ledeni, I'm looking into this, because I have both ffmpeg and compat installed, but I still cannot play the stream (h264/adts/TS), so there is maybe another dependency involved
+Apr 10 17:54:42 <Southern_Gentlem>	jeeb yes i see the issue but i cant tell if it was a mirror issue or a package issue
+Apr 10 17:55:29 <Southern_Gentlem>	cat /etc/yum.repos.d/fedora.repo |fpaste please
+Apr 10 17:56:02 <JEEB>	https://paste.centos.org/view/05dcaecf
+Apr 10 17:56:09 <JEEB>	should be pretty vanilla, I think?
+Apr 10 17:57:04 <JEEB>	I should also have teh cisco and the modular repos enabled
+Apr 10 17:57:17 <JEEB>	I can just paste a grep of enabled based on the files in yum.repos.d
+Apr 10 17:58:12 <mfilipe[m]>	hi folks! i'm running snap of skype but somehow it isn't communicating with pulseaudio. i have the same problem with slack. do you know how to enable pulseaudio in these apps in fedora?
+Apr 10 17:58:45 <Southern_Gentlem>	mfilipe[m],  contact the authors
+Apr 10 17:58:46 <JEEB>	https://paste.centos.org/view/e5f7e1ef
+Apr 10 17:58:48 <JEEB>	there you go
+Apr 10 17:59:00 <JEEB>	that's all the repos I have atm, and their enabled status
+Apr 10 17:59:16 <Southern_Gentlem>	jeeb are you using anything from the modular repos
+Apr 10 17:59:55 <JEEB>	that I think came up in the system upgrade, there were like four-five packages that for some reason got installed from modular
+Apr 10 18:00:03 <JEEB>	like gimp, awk, meson and jinja
+Apr 10 18:00:22 <JEEB>	I didn't specifically request them to get installed through there
+Apr 10 18:00:42 <JEEB>	but the system upgrade seemed to correctly remove those if you look at the logs
+Apr 10 18:00:48 <JEEB>	or well, decide to
+Apr 10 18:00:48 <Southern_Gentlem>	in the old days the repo files had a baseurl link to the master mirror which has been removed
+Apr 10 18:00:51 <mfilipe[m]>	Southern_Gentlem: i do not have the same problem when i'm using ubuntu. i believe this is a problems between snapd and fedora, not a problem in the applications.
+Apr 10 18:01:26 <Southern_Gentlem>	we dont use snap we use flatpak
+Apr 10 18:01:48 *	cyberpear finds the baseurl removal annoying
+Apr 10 18:02:01 <mfilipe[m]>	as far as i know fedora has a snapd package, so it uses snap as well
+Apr 10 18:02:09 <Southern_Gentlem>	jeeb so my idea was to point your repos at the master mirror
+Apr 10 18:02:24 <Southern_Gentlem>	mfilipe[m],  dont mean we will support it here
+Apr 10 18:02:44 <Southern_Gentlem>	if you think there is an error in the package please file a bugzilla
+Apr 10 18:02:48 <mfilipe[m]>	why:
+Apr 10 18:02:51 <mfilipe[m]>	 * why?
+Apr 10 18:03:02 <Southern_Gentlem>	not many of us use it
+Apr 10 18:03:07 <whatnow111>	hello. simple question. i was trying to open the app Transmission in the terminal by typing Transmission, but it didn't work. anyone know why?
+Apr 10 18:03:08 <Southern_Gentlem>	at all
+Apr 10 18:03:24 <mfilipe[m]>	i will try to find a way to debug this
+Apr 10 18:03:42 <JEEB>	Southern_Gentlem: so replace the baseurl with some specific mirror's baseurl?
+Apr 10 18:03:42 <Southern_Gentlem>	whatnow111,  rpm -qa |grep transmission  compare with dnf search transmission
+Apr 10 18:04:15 <whatnow111>	i have the app already.
+Apr 10 18:04:15 <Southern_Gentlem>	jeeb yep if we know that mirror is updated
+Apr 10 18:04:37 <JEEB>	but this anyways is really weird
+Apr 10 18:04:41 <Southern_Gentlem>	since we are seeing different packages with the same error to me its out of date mirrors
+Apr 10 18:04:50 <whatnow111>	southern, ok. i will try.
+Apr 10 18:04:57 <JEEB>	since it clearly downloads and is OK with the result?
+Apr 10 18:05:37 <JEEB>	anyways, let me first try downgrading the packages from https://bodhi.fedoraproject.org/updates/FEDORA-2020-d51dbe83a9 to stable updates
+Apr 10 18:05:49 <JEEB>	dnf plugins and libdnf/-repo etc
+Apr 10 18:05:56 <Southern_Gentlem>	JEEB,  besides that i will have to point you at the #fedora-qa to see if they have anyother ideas
+Apr 10 18:06:12 <JEEB>	yeh
+Apr 10 18:06:37 <JEEB>	it seems very weird and opaque, you'd think it would do the check after download as well, and if it does then that one passes
+Apr 10 18:07:44 <Southern_Gentlem>	whatnow111, so what is the result of rpm -qa |grep transmission
+Apr 10 18:07:55 <JEEB>	but fedora has had a pretty good track record for me until now :D https://paste.centos.org/view/6f1afa81
+Apr 10 18:07:59 <Southern_Gentlem>	whatnow111, so what is the result of rpm -qa |grep transmission |fpaste
+Apr 10 18:08:41 <Southern_Gentlem>	JEEB, yeah at this point its over my head so #fedora-qa
+Apr 10 18:08:53 <JEEB>	roger that
+Apr 10 18:09:37 <whatnow111>	southern, actually, i'm using manjaro now. i thought it should work with all distros.  i think most people in manjaro channel are taking a nap so i just came here.
+Apr 10 18:10:10 <Southern_Gentlem>	whatnow111, then why should i not ban you is the next question
+Apr 10 18:10:38 <whatnow111>	southern, i use fedora too.
+Apr 10 18:10:55 <Southern_Gentlem>	but you are not in fedora asking the question now are you
+Apr 10 18:11:03 <whatnow111>	i dual boot on this computer.
+Apr 10 18:11:07 <Southern_Gentlem>	so
+Apr 10 18:11:44 <Southern_Gentlem>	the rpm command is think should work on both distros
+Apr 10 18:11:58 <whatnow111>	ok. let me try.
+Apr 10 18:12:09 <Southern_Gentlem>	and you didnt ever try
+Apr 10 18:13:16 <whatnow111>	hmm. rpm doesn't work.
+Apr 10 18:13:46 <Southern_Gentlem>	what package manager does manjaro use
+Apr 10 18:13:56 <whatnow111>	pacman
+Apr 10 18:14:07 <Khaytsus>	You're asking about a problem in manjaro in #fedora ?
+Apr 10 18:14:15 <Southern_Gentlem>	yes he is
+Apr 10 18:14:23 *	Khaytsus blinks
+Apr 10 18:15:05 <Southern_Gentlem>	whatnow111, in your terminal if you type transmission and press tab what happens
+Apr 10 18:17:09 <Southern_Gentlem>	whatnow111, https://paste.centos.org/view/6eea00db
+Apr 10 18:23:19 <ledeni>	mfilipe[m], i just install skype with snap and is working ok here
+Apr 10 18:23:46 <mfilipe[m]>	ledeni: did you test your mic and webcam?
+Apr 10 18:24:09 <mfilipe[m]>	they aren't communicating with pulseaudio here
+Apr 10 18:24:10 <ledeni>	mfilipe[m], yes just did it
+Apr 10 18:24:24 <mfilipe[m]>	sounds like they are trying to communicate directly with alsa
+Apr 10 18:24:40 <Southern_Gentlem>	mfilipe[m], sudo fpaste --sysinfo
+Apr 10 18:24:51 <Southern_Gentlem>	ledeni,  you as well please
+Apr 10 18:26:12 <mfilipe[m]>	Southern_Gentlem: https://paste.centos.org/view/5d0637e8
+Apr 10 18:27:17 <mfilipe[m]>	ledeni: do you use a p2, usb or bluetooth headset?
+Apr 10 18:28:01 <ledeni>	Southern_Gentlem, https://paste.centos.org/view/8a459e60
+Apr 10 18:29:10 <ledeni>	mfilipe[m], no just mic from laptop and integreted cam
+Apr 10 18:30:08 <ledeni>	mfilipe[m], how you install snap
+Apr 10 18:30:24 <mfilipe[m]>	i checked the configs in flatpak and snap... flatpak gets the sound channels from pulseaudio properly but the snap package gets the audio cards from alsa
+Apr 10 18:30:54 <whatnow111>	southern, it worked. thanks.
+Apr 10 18:30:59 <mfilipe[m]>	ledeni: dnf install snapd && snap install skype
+Apr 10 18:31:40 <mfilipe[m]>	actually i installed the snap package through the snap store
+Apr 10 18:33:48 <ledeni>	mfilipe[m], did you make syslink 'sudo ln -s /var/lib/snapd/snap /snap'
+Apr 10 18:34:30 <mfilipe[m]>	yep: lrwxrwxrwx.   1 root root      19 out 15 17:41 snap -> /var/lib/snapd/snap
+Apr 10 18:37:31 <ledeni>	mfilipe[m], when you run 'alsamixer' what is card
+Apr 10 18:37:40 <mfilipe[m]>	ledeni: thank you very much for installing the packages to help me to troubleshooting this :)
+Apr 10 18:37:45 <mfilipe[m]>	i see in your pastebin :)
+Apr 10 18:38:20 <mfilipe[m]>	ledeni: it says PulseAudio
+Apr 10 18:39:50 <mfilipe[m]>	i really believe this is a problem between snapd and fedora, and not a problem in the applications
+Apr 10 18:40:32 <mfilipe[m]>	unfortunately i don't know how to dig more to report a bug to fedora yet :(
+Apr 10 18:40:41 <ledeni>	mfilipe[m], lol i just install skype and it is working
+Apr 10 18:41:02 <Southern_Gentlem>	no you installed snap from outside of the repo
+Apr 10 18:41:30 <mfilipe[m]>	Southern_Gentlem: really? oh shit, let me see
+Apr 10 18:41:41 <Southern_Gentlem>	ledeni, installed from inside and its working so go remove the snap you installed and install the one from the fedora repo
+Apr 10 18:42:05 <Southern_Gentlem>	<mfilipe[m]> actually i installed the snap package through the snap store
+Apr 10 18:43:22 <mfilipe[m]>	that's odd... how could i install snapd outside of the fedora repo? hahaha
+Apr 10 18:44:51 <mfilipe[m]>	https://paste.centos.org/view/9539e866
+Apr 10 18:44:55 <mfilipe[m]>	it is installed from the fedora repo
+Apr 10 18:45:56 <mfilipe[m]>	or maybe I didn't get the point of your question Southern_Gentlem
+Apr 10 18:46:32 <mfilipe[m]>	fedora had removed the snap plugin from gnome-software (to be honest, an ego decision in my opinion)
+Apr 10 18:47:10 <mfilipe[m]>	so i need the snap store to install the packages or install using the snap commandline
+Apr 10 18:50:37 <mfilipe[m]>	let me try install through the skype snap using the commandline
+Apr 10 18:56:53 <mfilipe[m]>	same problem
+Apr 10 18:58:33 <mfilipe[m]>	but i found out a new stuff here... skype works when i use the mic (sux) and the speaker of my laptop
+Apr 10 19:00:25 <mfilipe[m]>	if i move the input/output channel in pulseaudio, it didn't work... actually skype didn't change, it keeps using my sound card rather than the pulseaudio channels
+Apr 10 19:00:26 <mfilipe[m]>	lol
+Apr 10 19:00:43 <mfilipe[m]>	and the skype config shows the alsa cards and not the pulseaudio channels
+Apr 10 19:01:09 <mixfix411>	your fedora is a usb edition?
+Apr 10 19:01:32 <mfilipe[m]>	fedora 31 workstation running in ssd
+Apr 10 19:02:26 <mixfix411>	your lsblk has all those loop devices howd you get taht
+Apr 10 19:02:44 <mixfix411>	my normal fedora workstation only works with the traditional partition scheme
+Apr 10 19:03:28 <mfilipe[m]>	mixfix411: snapd creates those loop devices (squashfs) for each application that i install
+Apr 10 19:07:27 <mixfix411>	oh i see its a snap stuff
+Apr 10 19:07:40 <mixfix411>	that's pretty cool
+Apr 10 19:08:28 <ledeni>	mfilipe[m], do you have install 'pavucontrol'
+Apr 10 19:08:37 <Southern_Gentlem>	whatnow111, so did you get figued out
+Apr 10 19:08:59 <whatnow111>	southern, it worked.
+Apr 10 19:09:30 <Southern_Gentlem>	what was the issue
+Apr 10 19:09:40 <whatnow111>	but i doesn't seem to work with all programs.
+Apr 10 19:10:31 <whatnow111>	well, the key is transmission itself is incomplete. you need to type -gtk with it.
+Apr 10 19:10:59 <Southern_Gentlem>	yes
+Apr 10 19:19:27 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 10 19:19:27 2020
+
+**** BEGIN LOGGING AT Fri Apr 10 19:20:28 2020
+
+Apr 10 19:20:28 *	Now talking on #fedora
+Apr 10 19:20:28 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 10 19:20:28 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 10 19:20:29 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 10 19:20:41 <Southern_Gentlem>	well why do you think that doesnt work
+Apr 10 19:21:02 <Southern_Gentlem>	you have to type the name of the program no the type
+Apr 10 19:21:23 <Southern_Gentlem>	you have to type the name of the program no the type of program
+Apr 10 19:21:40 <Southern_Gentlem>	vi nano pluma etc
+Apr 10 19:21:53 <Southern_Gentlem>	you have to type the name of the program not the type of program
+Apr 10 19:22:54 <whatnow111>	i think it is the name of the program in manjaro. sorry to upset you. when i scrolled the mouse at the favorite bar on the left side of the screen, one of the apps there is called Text Editor.
+Apr 10 19:23:48 <whatnow111>	let me reboot to fedora.
+Apr 10 19:32:42 <whatnow111>	ok. officially using fedora.
+Apr 10 19:33:14 <specing>	what now?
+Apr 10 19:33:16 <whatnow111>	southern, text editor is the name of a program, no?
+Apr 10 19:34:01 <Southern_Gentlem>	no thats a type of program
+Apr 10 19:34:15 <Southern_Gentlem>	dnf search "text editor"
+Apr 10 19:34:52 <Southern_Gentlem>	whatnow111, what Desktop Environment are you using
+Apr 10 19:35:05 <whatnow111>	gnome
+Apr 10 19:36:13 <Southern_Gentlem>	the menus can say whatever it can be a type or the program name
+Apr 10 19:36:40 <whatnow111>	ah, it's gedit in disguise.
+Apr 10 19:36:54 <Southern_Gentlem>	bingo
+Apr 10 19:38:21 <whatnow111>	but if you click show applications, it's not named as such.
+Apr 10 19:39:16 <Khaytsus>	If you type "gedit" into gnome's search it doesn't come up?
+Apr 10 19:40:07 <whatnow111>	nope.
+Apr 10 19:40:08 <Khaytsus>	and had you done the smae with transmission, pretty sure it would have shown up in the menus....
+Apr 10 19:40:11 <Khaytsus>	#doubt
+Apr 10 19:40:14 *	Khaytsus installs Workstation
+Apr 10 19:40:33 <whatnow111>	i can send you screenshot
+Apr 10 19:40:40 <Khaytsus>	No thanks
+Apr 10 19:40:51 <Southern_Gentlem>	well the command is transmission-gtk but the menus show transmission
+Apr 10 19:41:29 <Southern_Gentlem>	whatnow111, always remember the true power of the OS is in the commandline
+Apr 10 19:42:38 <whatnow111>	southern, yes, it's very useful if you know how to harness it.
+Apr 10 19:43:11 <Southern_Gentlem>	whatnow111,  time in the seat you will learn
+Apr 10 19:44:25 <Khaytsus>	whatnow111: If you type gedit in gnome, it comes up.  Period.
+Apr 10 19:44:25 <whatnow111>	very cool. i've used it to reboot the computer and shut it down. i'm sure it can do much more.
+Apr 10 19:45:14 <whatnow111>	khay, in the show applications area?
+Apr 10 19:45:23 <Khaytsus>	...
+Apr 10 19:45:34 <Khaytsus>	You click whatever at the top, type gedit, it comes up.
+Apr 10 19:45:40 <Southern_Gentlem>	press f2
+Apr 10 19:46:13 <Khaytsus>	"Activities" is what the text is, apparently...  had to look
+Apr 10 19:46:31 <whatnow111>	ok. i searched gedit, but the app showing is text editor.
+Apr 10 19:46:38 <Southern_Gentlem>	you type gedit and text editor appears
+Apr 10 19:46:43 <Khaytsus>	good lord
+Apr 10 19:47:18 <Southern_Gentlem>	which we already know it is correct
+Apr 10 19:48:42 <Southern_Gentlem>	in the box you type "text" text editor and libreoffice-writer come up
+Apr 10 19:49:09 <Southern_Gentlem>	whatnow111, why doesnt vim come up
+Apr 10 19:49:46 <whatnow111>	it's part of the terminal?
+Apr 10 19:50:21 <Southern_Gentlem>	close its a tui program not a gui program
+Apr 10 19:50:55 <whatnow111>	ok. so tui programs are invisible from search.
+Apr 10 19:50:56 <Southern_Gentlem>	terminal user interface vs graphics user interface
+Apr 10 19:51:03 <Southern_Gentlem>	yep
+Apr 10 19:51:18 <Southern_Gentlem>	that application search yes
+Apr 10 19:51:27 <whatnow111>	southern, how about hexchat? it didn't work.
+Apr 10 19:51:38 <whatnow111>	from terminal.
+Apr 10 19:53:50 <Southern_Gentlem>	does for me
+Apr 10 19:54:05 <whatnow111>	did you have to quit hexchat first?
+Apr 10 19:54:10 <Southern_Gentlem>	yes
+Apr 10 19:54:35 <whatnow111>	ok. so you can't launch the app twice?
+Apr 10 19:54:50 <Southern_Gentlem>	some apps you can, some you cant
+Apr 10 19:56:12 <Southern_Gentlem>	and i advise to use hexchat && so it releases your terminal
+Apr 10 19:57:47 <Khaytsus>	Or just run it in the gui, since it's a gui app..........
+Apr 10 19:58:04 <whatnow111>	ah i see. that's what && is for? so that detaches the app from terminal once it's launched?
+Apr 10 19:58:22 <Southern_Gentlem>	google
+Apr 10 19:59:33 <Khaytsus>	Just & is sufficient btw..  && means if this command succeeds, run the next
+Apr 10 20:00:53 <whatnow111>	ok. thanks for the lesson today. i appreciate it. good bye for now.
+Apr 10 20:12:24 <mfilipe[m]>	basically fedora doesn't care about snapd: https://bugzilla.redhat.com/buglist.cgi?bug_status=NEW&bug_status=ASSIGNED&classification=Fedora&component=snapd&product=Fedora
+Apr 10 20:12:27 <mfilipe[m]>	lol
+Apr 10 20:12:54 <Khaytsus>	snap and flatpack are both utterly useless imo
+Apr 10 20:14:23 <mfilipe[m]>	for me they are a revolution for the software vendors which want to offer support to linux
+Apr 10 20:15:00 <Khaytsus>	Except they aren't in any way standalone..  they still depend on base libraries.  And if you don't have those libraries it won't work.
+Apr 10 20:15:07 <Khaytsus>	So pointless.
+Apr 10 20:16:04 <mfilipe[m]>	they are containers but for applications
+Apr 10 20:16:15 <mfilipe[m]>	i love the container concept
+Apr 10 20:16:38 <mfilipe[m]>	flatpak/snap are the docker for applications
+Apr 10 20:16:58 <specing>	mfilipe[m]: they are just another distro
+Apr 10 20:17:05 <specing>	you are putting a distro on top of your distro
+Apr 10 20:17:10 <specing>	because you like distros
+Apr 10 20:17:21 <specing>	and proprietary software vendors know that
+Apr 10 20:18:03 <mfilipe[m]>	what is the problem about that? when you isolate an application, you improve security, build and install
+Apr 10 20:18:21 <specing>	snap and flatpak aren't VMs
+Apr 10 20:18:58 <mfilipe[m]>	exactly
+Apr 10 20:19:51 <mfilipe[m]>	the unique problem that i see in the container concept is the storage
+Apr 10 20:19:59 <mfilipe[m]>	naturally they consome more
+Apr 10 20:20:02 <mfilipe[m]>	BUT
+Apr 10 20:20:20 <mfilipe[m]>	storage is the cheapest hardware resource these days
+Apr 10 20:20:44 <specing>	They aren't as secure as VMs
+Apr 10 20:21:39 <mfilipe[m]>	specing: actually it is the same imo
+Apr 10 20:21:52 <specing>	not even close
+Apr 10 20:22:02 <jesse1010>	if I use a virtual connection in KVM through a 10gbe connection, will there be performance penalties vs pci passthrough of a 10gb nic?
+Apr 10 20:22:07 <mfilipe[m]>	if you run a vm with privileged in the host, it won't be secure for your host
+Apr 10 20:22:10 <specing>	I don't trust containers with security, too much code is involved for that
+Apr 10 20:22:10 <jesse1010>	how much of one if so
+Apr 10 20:22:47 <mfilipe[m]>	the same for flatpak/snap... if the dev doesn't configure the container in an isolate mode, it won't be secure for the host
+Apr 10 20:23:19 <specing>	I'm telling you that it won't be secure even if you configure it in "isolate mode", whatever that is
+Apr 10 20:25:13 <mfilipe[m]>	isolate mode means that the services inside of the container can't communicate with the host, except through proxies
+Apr 10 20:27:32 <specing>	mfilipe[m]: and what would those proxies be?
+Apr 10 20:27:53 <specing>	It's shared kernel. They can't do anything without talking to the host
+Apr 10 20:28:44 <mfilipe[m]>	snap/flatpak, for example, you can communicate with wayland if your application uses the wayland proxy
+Apr 10 20:29:10 <mfilipe[m]>	but they can't communicate directly, except if they aren't running in an isolate mode
+Apr 10 20:29:54 <specing>	Great, so these proxies increase attack surface even more than using plain lxc with vnc?
+Apr 10 20:29:56 <specing>	What a great idea
+Apr 10 20:30:48 <mfilipe[m]>	i don't know what you mean by attack surface
+Apr 10 20:30:55 <mfilipe[m]>	in this context
+Apr 10 20:31:08 <specing>	As you said, storage is cheap these days and thus ther is nothing to be lost by going the VM route
+Apr 10 20:32:58 <mfilipe[m]>	probably not but it's much easier to run a distro using docker than a vm
+Apr 10 20:33:11 <mfilipe[m]>	$ docker run -it distro-name bash
+Apr 10 20:33:35 <mfilipe[m]>	$ configure vm && start vm && connect to vm
+Apr 10 20:34:19 <specing>	I rather put in some more work up-front than deal with the fallout of a security breach later on
+Apr 10 20:34:49 <specing>	Fedora has an automated installer, which I'm learning to use right now (kickstart files)
+Apr 10 20:35:15 <specing>	thus creating VMs should be as simple as creating containers, once the kickstart file is written
+Apr 10 20:35:42 <dowdle>	specing: There is also virt-builder.
+Apr 10 20:36:00 <plundra>	Cloud images \o/
+Apr 10 20:36:34 <plundra>	Haven't tried with Fedora yet, but with Ubuntu I booted, inited, rebooted within <20 seconds.
+Apr 10 20:36:35 <mfilipe[m]>	i don't know which kind of security you are trying to achieve but docker is already very well tested in the market  to have these "security breaches" that you are talking about
+Apr 10 20:36:48 <specing>	is it?
+Apr 10 20:37:07 <specing>	I'm yet to see bigger hosting companies offer LXC/Docker virtualisation and they actually have paid security experts on staff
+Apr 10 20:37:09 <mfilipe[m]>	is it not?
+Apr 10 20:38:08 <mfilipe[m]>	anyway, vm and docker are different concepts
+Apr 10 20:38:12 <mfilipe[m]>	you can use both, depends of the problem you have to solve
+Apr 10 20:40:58 <Pie-jacker875>	new firefox changes suck balls, how should I go about reverting? install old package?
+Apr 10 20:41:17 <Pie-jacker875>	find changes and recompile without them?
+Apr 10 20:42:18 <dowdle>	Pie-jacker875: You talking about in Firefox 75?
+Apr 10 20:42:23 <Pie-jacker875>	yeah
+Apr 10 20:42:36 <Pie-jacker875>	I don't want single click on address bar to highlight the whole thing
+Apr 10 20:42:59 <Pie-jacker875>	it's a pointless change in behavior as far as I'm concerned and it's annoying
+Apr 10 20:44:06 <mfilipe[m]>	Pie-jacker875: https://unix.stackexchange.com/questions/266888/can-i-force-dnf-to-install-an-old-version-of-a-package
+Apr 10 20:44:26 <mfilipe[m]>	use the reference there to firefox-74
+Apr 10 20:44:36 <specing>	Pie-jacker875: it's probably burried in about:config
+Apr 10 20:44:55 <Pie-jacker875>	specing: I've spent several minutes looking for it, as well as reading through the reddit thread of people complaining
+Apr 10 20:45:06 <Pie-jacker875>	seems like they've removed the option for it in about:config
+Apr 10 20:45:28 <specing>	if you want to really fix firefox, youhave to revert to before webextensions :)
+Apr 10 20:45:43 <mfilipe[m]>	Pie-jacker875: probably in #fx-desktop-community:mozilla.org they can help you to configure the new version to work the way you expect
+Apr 10 20:46:05 <Pie-jacker875>	is that a matrix channel?
+Apr 10 20:46:11 <mfilipe[m]>	yep
+Apr 10 20:46:15 <Pie-jacker875>	cool, heading there no
+Apr 10 20:46:16 <Pie-jacker875>	now
+Apr 10 21:22:16 <srbaker>	Heya folks. For some reason I can't join #fedora-cloud from polari, so I'll just ask here: is there a non-standard username in the AWS images for Fedora Server?
+Apr 10 21:22:25 <srbaker>	I'm getting permission denied when I try to ssh as root@ per AWS' instructions
+Apr 10 21:23:46 <mfilipe[m]>	did you try ec2-user?
+Apr 10 21:24:04 <mfilipe[m]>	probably it's better to ask this in ##aws
+Apr 10 21:25:06 <srbaker>	I've tried root, admin (which is what it is on debian images), ec2-user, and fedora because I ran out of ideas.
+Apr 10 21:25:41 <bugs_>	i think aws provides you with a key to use so you ssh -i key host
+Apr 10 21:25:53 <srbaker>	Yes, I am using that key.
+Apr 10 21:26:12 <mfilipe[m]>	but he doesn't know which user to use
+Apr 10 21:26:30 <bugs_>	ssh -i ec2-one.pem ec2-user@host
+Apr 10 21:26:57 <srbaker>	Yes. That does not work. That's why I'm here.
+Apr 10 21:31:53 <bugs_>	srbaker:  two more things to check that i can think of
+Apr 10 21:32:45 <bugs_>	chmod 600 keyfile - in case the permissions are dangerous
+Apr 10 21:32:56 <bugs_>	and second if you downloaded the key file with windows it may need dos2unix
+Apr 10 21:33:01 <srbaker>	Got it, thanks. It's fedora.
+Apr 10 21:33:07 <srbaker>	I typo'd when I tried fedora.
+Apr 10 21:33:09 <srbaker>	Thanks
+Apr 10 21:33:38 <Khaytsus>	I wish they'd just stick to ec2-user
+Apr 10 21:46:42 <whatnow111>	hello. can someone help me with video card issue? it's not a big one. the problem is after the computer wakes up, the screen looked washed up with purplish tint.
+Apr 10 22:00:38 <plarsen>	Khaytsus, I prefer cloud-user - not AWS specific ec2-user
+Apr 10 22:00:51 <plarsen>	But I would like consistency too
+Apr 10 22:27:57 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 10 22:27:57 2020
+
+**** BEGIN LOGGING AT Fri Apr 10 22:31:21 2020
+
+Apr 10 22:31:21 *	Now talking on #fedora
+Apr 10 22:31:21 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 10 22:31:21 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 10 22:31:22 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 11 00:04:27 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 11 00:04:27 2020
+
+**** BEGIN LOGGING AT Sat Apr 11 00:08:26 2020
+
+Apr 11 00:08:26 *	Now talking on #fedora
+Apr 11 00:08:26 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 11 00:08:26 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 11 00:08:27 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 11 00:08:28 <Egyptian>	hey there - is it safe to disable and/or uninstall dnsmasq on my laptop? i didnt install it
+Apr 11 00:10:08 <Sokel>	it's likely safe to remove.
+Apr 11 00:13:48 <Khaytsus>	It's default and used by default, but sure, do whatever you like to your own system.  Just don't ask us when dns resolution doens't work, it'll be on you ;)
+Apr 11 00:14:17 <Egyptian>	Khaytsus: its a dhcp and dns server .. however .. is some other software using it?
+Apr 11 00:14:35 <Khaytsus>	...  "it is used by default"
+Apr 11 00:15:27 <Egyptian>	default ? used by what ? trying to figure things out .. i wan to install a dns server and i saw the port being used
+Apr 11 00:16:05 <wwalker>	Egyptian: could be installed by a virtual machine/container application.  Why do you want to remove it?  Is it causing a problem?
+Apr 11 00:16:21 <Egyptian>	i want to replace it with nxfilter
+Apr 11 00:26:56 <wwalker>	Egyptian: systemctl status dnsmasq   is it running?  On my machines, it is installed but not running
+Apr 11 00:28:14 <Egyptian>	hmm.. research shows that i can have dnsmasq point to a different dns server - will give that a try .. thank you
+Apr 11 00:28:24 <Egyptian>	wwalker: yes its running
+Apr 11 00:28:54 <wwalker>	does it show enabled?
+Apr 11 00:29:02 <Egyptian>	and yes i have a huge list of dependencies like virt* and cockpit  and their dependencies
+Apr 11 00:29:08 <Egyptian>	yes its enabled
+Apr 11 00:30:39 <wwalker>	look in /etc/dnsmasq.d  if there are files there then see what installed them :  rpm -qf /etc/dnsmasq.d/foo.conf
+Apr 11 00:31:09 <wwalker>	oh, missed your dependencies post
+Apr 11 00:32:43 <wwalker>	Egyptian: are you using virtual machines or cockpit
+Apr 11 00:33:37 <cantstanya>	if you're using libvirt with the default bridge interface that will use dnsmasq.
+Apr 11 00:34:09 <cantstanya>	but it shouldn't overlap you using another dns cache/server if you plan accordingly.
+Apr 11 00:34:26 <daniel-wtd>	Egyptian: you can find out which installed packages is a dependency from another installed package via "rpm -q --whatrequires package_name". For dnsmasq, at least podman-plugins and afaik some libvirt is depending on dnsmasq.
+Apr 11 00:35:37 <cantstanya>	also, iirc, libvirt doesn't use dnsmasq as a systemd service, it executes the program and monitors the process on its own.
+Apr 11 00:36:30 <daniel-wtd>	same for podman afaik
+Apr 11 00:37:01 <cantstanya>	and it's bound to the private network gateway address, so it REALLY shouldn't interfere with anything unless you don't plan accordingly.
+Apr 11 00:37:16 <cantstanya>	in libvirt's case iirc the default is 192.168.122.1
+Apr 11 00:37:51 <cantstanya>	if you use something else expecting it to listen on all interfaces, well that was an error in planning.
+Apr 11 00:55:57 <Egyptian>	i am using both cockipt and libvirt as well as docker - this machine is like my home server where i throw everythign on it .. i guess its began to complain :rofl:
+Apr 11 00:58:06 <guiekguiek>	Has anyone had issues with conflicting packages for virtualbox when upgrading to fedora 32?
+Apr 11 01:00:40 <Sokel>	How and where did you install virtualbox from?
+Apr 11 01:02:15 <guiekguiek>	using virtualbox's repo from their website
+Apr 11 02:01:27 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 11 02:01:27 2020
+
+**** BEGIN LOGGING AT Sat Apr 11 08:53:21 2020
+
+Apr 11 08:53:21 *	Now talking on #fedora
+Apr 11 08:53:21 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 11 08:53:21 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 11 08:53:22 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 11 09:10:55 <ledeni>	indr, once you remove kernel did you update grub via 'grub2-mkconfig'
+Apr 11 09:12:46 <indr>	Oh right. Three options show up there
+Apr 11 09:13:22 <indr>	I thought when I dnf update my system that grub2-mkconfig command would be called and hence my grub config updated accordingly
+Apr 11 09:14:17 <ledeni>	indr, how many kernel show 'rpm -qa kernel'
+Apr 11 09:14:28 <indr>	Three
+Apr 11 09:15:40 <ledeni>	indr,ok witch system you have uefi of bios
+Apr 11 09:15:48 <indr>	uefi
+Apr 11 09:16:07 <indr>	I think (I'm sorry)
+Apr 11 09:16:40 <indr>	Btw thank you very much for helping me!
+Apr 11 09:18:34 <ledeni>	indr, uefi --> run 'grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg' bios --> run 'grub2-mkconfig -o /boot/grub2/grub.cfg'
+Apr 11 09:18:59 <indr>	Great. Thank you
+Apr 11 09:19:17 <indr>	What are /etc/grub/grub2.cfg and /etc/grub/grub2-efi.cfg files for?
+Apr 11 09:26:37 <ledeni>	indr, best check with 'google'
+Apr 11 09:42:26 <indr>	ledeni, allright, just sym links, thank you very much!
+Apr 11 09:43:11 <indr>	What scares me about these cfg files is that the newly generate files are significantly different from the old ones?
+Apr 11 09:52:02 <indr>	I'm not doing anything here, lol
+Apr 11 10:40:03 <sincorchetes>	Morning
+Apr 11 10:53:14 <drOdo>	hi
+Apr 11 10:53:30 <drOdo>	cannot boot fedora 31 after today update
+Apr 11 10:54:10 <drOdo>	"System BootOrder not found. Initializing defaults."
+Apr 11 10:55:04 <drOdo>	anyone can help pls?
+Apr 11 11:12:17 <drOdo>	exactly as this https://aws1.discourse-cdn.com/business4/uploads/askfedora/original/2X/f/f8f58d9127f510fd04186c6ee98e7e143f53c715.jpeg
+Apr 11 11:42:43 <drOdo>	i have managed to manually boot from \EFI\fedora\grubx64.efi
+Apr 11 11:43:30 <drOdo>	dnf history info on last upgrade shows some errors for package grub2
+Apr 11 12:08:57 <drOdo>	ok, posted the bug to bugzilla
+Apr 11 13:53:42 <miscing>	Hi, anyone have idea of a package that depends on a lot of the kf5 utilities? I've looked at what they all depend on all but dnf only answers each other, and I can't figure out why they're installed on my system given that I don't have plasma. I also checked the groups installed and don't see groups that would install them
+Apr 11 13:54:31 <miscing>	I ran 'dnf repoquery --whatdepends $package' on each of the kf5 packages
+Apr 11 14:03:18 *	weber.freenode.net gives channel operator status to ChanServ
+Apr 11 14:10:29 *	weber.freenode.net gives channel operator status to ChanServ
+Apr 11 14:11:59 <jgjorgji>	anyone have an idea why gnome-desktop3 is pulled in when i'm upgrading the kde spin f31-f32 ?
+Apr 11 14:16:50 <M_aD>	jgjorgji: #fedora-kde is the official spin support channel, maybe they can help you there
+Apr 11 14:21:12 <miscing>	quick question, what's the rpmfusion-*-source repositories for?
+Apr 11 14:23:53 <Khaytsus>	miscing: the source rpms, just like every other repo
+Apr 11 14:26:08 <miscing>	khaytsus: Why are the source repos disabled by default? Also pardon my ignorance but what's the difference between source rpm's and say the 'fedora' repo rpm's?
+Apr 11 14:31:56 <Southern_Gentlem>	miscing,  you build the rpm from the srpms you dont need them unless you are going to do a custom build of a package
+Apr 11 14:32:36 <Southern_Gentlem>	miscing,  do you really want the extra 500G of space taken up on your machine for nothing ?
+Apr 11 14:34:16 <miscing>	Southern_Gentlem: thanks, is there somewhere a description of repositories and what they're for? best I found was https://docs.fedoraproject.org/en-US/quick-docs/repositories/ and it's not very useful. For example i'm also wondering about the modular repo
+Apr 11 14:34:21 <Khaytsus>	miscing: fedora's source rpm repos are also disabled by default
+Apr 11 14:34:41 <Khaytsus>	https://docs.fedoraproject.org/en-US/modularity/
+Apr 11 14:35:14 <miscing>	Khaytsus thanks!
+Apr 11 14:35:57 <Southern_Gentlem>	miscing, a repopository of software
+Apr 11 14:36:24 <Southern_Gentlem>	i advise staying away from modulars for now
+Apr 11 14:36:58 <Southern_Gentlem>	i disable the modules and modules-updates repos on my machines
+Apr 11 14:37:00 <Khaytsus>	Well, modular lets you install different versions of software at once.  Not something most users need
+Apr 11 14:38:03 <miscing>	aight thanks that cleared it all up. I'll disable them, but good to know for future use
+Apr 11 14:42:51 <mpduty>	#chair
+Apr 11 15:06:54 <akdev>	question: why does DNF/YUM check for UID==0 ? I want to use it to build container images like `yum install --installroot=/home/me/images/mycontainer --releasever=/ install httpd` but it won't work as non-root
+Apr 11 15:07:37 <kb1000>	you can probably disable that, check its docs
+Apr 11 15:09:18 <akdev>	I've looked but found nothing
+Apr 11 15:09:54 <akdev>	the source code suggests it cannot be disabled: https://github.com/rpm-software-management/dnf/blob/master/dnf/cli/commands/install.py#L64
+Apr 11 15:10:28 <akdev>	I'm trying to build dnf to see if I can patch it out but the instructions in the README don't work for me either...
+Apr 11 15:12:02 <kb1000>	what was the exact error message it prints then again? I don't currently have my fedora machine running
+Apr 11 15:12:36 <akdev>	Error: This command has to be run with superuser privileges (under the root user on most systems).
+Apr 11 15:18:09 <kb1000>	you should request that feature then if you need it
+Apr 11 15:20:45 <akdev>	I'd rather implement it myself and send a PR, if I could figure out how to build DNF
+Apr 11 15:31:16 <jidar>	what would be the reason that my password prompt takes almost a minute to load after typing in my user?
+Apr 11 15:31:24 <jidar>	I checked nssswitch.conf, looks fine
+Apr 11 15:33:50 <kb1000>	akdev: what of the build doesn't work for you then?
+Apr 11 15:45:05 <akdev>	kb1000, installing dependencies
+Apr 11 15:45:37 <akdev>	the latest commit on the master branch requires a newer version of python3-libdnf than what is available in F31
+Apr 11 15:45:49 <akdev>	going back to the release that my system is using works
+Apr 11 15:46:23 <akdev>	I was going to try a rawhide container next but I have somehow broken podman
+Apr 11 15:47:10 <kb1000>	well...
+Apr 11 15:51:55 <akdev>	rootless podman is finicky... rawhide container works
+Apr 11 16:11:16 <Khaytsus>	akdev: rootless podman is finicky how?
+Apr 11 16:12:42 <kb1000>	hmm
+Apr 11 16:23:44 <Khaytsus>	Hmm, Plex seems to work in podman on F31 now, it didn't before although don't recall what the failure was
+Apr 11 16:24:09 <nocnoc>	0/ test-images are signed for secur boot?
+Apr 11 16:35:53 <akdev>	Khaytsus, it requires setting up the /etc/suduid and /etc/subgid correctly so I can have write access into my user files
+Apr 11 16:36:09 <akdev>	can't do podman-in-podman yet
+Apr 11 16:36:30 <Khaytsus>	akdev: Sure, but that happens automatically since like F29.  If your system was upgraded from there you would just have to edit the files yourself.
+Apr 11 16:36:36 <Khaytsus>	No idea about nesting podman.
+Apr 11 16:37:01 <akdev>	my system was a clean F31, I don't think it happened automatically
+Apr 11 16:37:49 <akdev>	I mean it would work by default but it would map my root user in the container to some UID in a high range
+Apr 11 16:38:37 <akdev>	so I couldn't just do `podman -v $PWD:$PWD -w $PWD fedora:latest` and have it work
+Apr 11 16:39:12 <Khaytsus>	k..   tbh I have no idea how the mapping works, but I know on new installs it will map all new users (and any added later) with like user:1000000:65536
+Apr 11 16:39:28 <Khaytsus>	Try the :Z flag for volumes?  Sure it wasn't just selinux?
+Apr 11 16:39:34 <Khaytsus>	I had to add :Z to all of my volumes
+Apr 11 16:41:13 <akdev>	I don't think it was SELinux, I was running in permissive mode and I did add an selinux fcontext rule to add the files and relabeled properly before enabling enforcing mode
+Apr 11 16:41:23 <akdev>	now I hit this:   Error processing tar file(exit status 1): there might not be enough IDs available in the namespace (requested 192:192 for /run/systemd/netif): lchown /run/systemd/netif: invalid argument
+Apr 11 16:42:27 <akdev>	no clue what that's about, I think I broke it when playing with /etc/subuid and /etc/subgid, I repaired the files but the error still happens
+Apr 11 16:42:30 *	akdev shrugs
+Apr 11 16:48:29 <akdev>	reboot fixed it
+Apr 11 18:06:52 <mr_johnson22[m]>	hi, does anyone know which flatpak apps (if any) use the webcam portal? as opposed to full /dev/ access?
+Apr 11 18:13:49 <kk4ewt>	mr_johnson22[m]; sorry i dont use flatpaks period
+Apr 11 18:25:33 <openface>	As per the planned schedule, the final production version of Fedora 32 is scheduled for release on April 21, 2020
+Apr 11 18:25:46 <openface>	i am with 31
+Apr 11 18:26:44 <openface>	maybe will be terrible idea to upgrade it from console or auto-update by graphical UI becouse will be fail like many things/versions to this time of meaning
+Apr 11 18:27:07 <openface>	so all data gone if you want to upgrade by one-to-one
+Apr 11 18:27:13 <openface>	:{}
+Apr 11 18:27:33 <openface>	:'((
+Apr 11 18:35:42 <mr_johnson22[m]>	is there a problem with f31/32 in particular that would make upgrading a bad idea? or is that just a general comment about distro updates :P
+Apr 11 18:43:08 <linuxmodder>	mr_johnson22[m], to my knowledge the all use /dev/XXX
+Apr 11 18:43:36 <linuxmodder>	is there a need for not using cheese   or similar as packaged in fedora repos
+Apr 11 18:44:28 <kk4ewt>	linuxmodder; only one reason for flatpak is skype
+Apr 11 18:44:59 <linuxmodder>	skype should burn a fiery death imo but okay I'll agree there
+Apr 11 18:45:22 <mr_johnson22[m]>	linuxmodder, i'm just curious is all. Writing a report on android security and i'd like to compare how android & flatpak handle dynamic camera access
+Apr 11 18:45:27 <kk4ewt>	openface;  yes you can upgrade now (recommended is the commandline method) and you will be on f32 when it releases (i think that is your question)
+Apr 11 18:46:58 <linuxmodder>	mr_johnson22[m], major differnces and I'd even argue not worth a peaches to oranges comparision mobile linux (android/ios) is a whole different animal
+Apr 11 18:47:44 <sdgathman>	Why is testing in a VM helpful for test day?  Wouldn't all VMs be the same, and covered by automated regression testing?
+Apr 11 18:48:02 <sdgathman>	Obviously, testing on a variety of weird hardware is needed.
+Apr 11 18:48:07 <mr_johnson22[m]>	linuxmodder, alright, thanks
+Apr 11 18:48:41 <linuxmodder>	not really sdgathman  some have compat issues and configurations
+Apr 11 18:48:54 <kk4ewt>	sdgathman; as in #fedora-qa
+Apr 11 18:53:45 <pefi>	[Fedora 31,] I have problem with jami (https://jami.net, it's not in fedora repos yet) showing some unexpected error on my laptop. I did a test in virtual machine - jami works fine. So I need to verify my main system. rpm -Va doesn't show anything interesting )ot I don't understand it). The error is related to Qt - is there a way of veryfying that Qt installation is OK or even better resetting all Qt setting to defult values?
+Apr 11 18:56:52 <kk4ewt>	pefi;  sorry i am not installing that to help you troubleshoot
+Apr 11 18:57:11 <kk4ewt>	first thing i would try is creating a new user and test in that
+Apr 11 18:57:51 <kk4ewt>	it will never be in the fedora repos becasue they have hard coded the codecs which are not allowed in fedora
+Apr 11 18:58:37 <Gestra_>	spelling out that "some unexpect error" would probably help in solving the problem
+Apr 11 18:58:54 <pefi>	kk4ewt, thanks :-) I tested new user - didn't fly. I did local build - no go, I checked the code - looks like Qt wants to show an error and complains about fonts.
+Apr 11 18:59:46 <kk4ewt>	#fedora-kde might can help
+Apr 11 18:59:49 <pefi>	Gestra_, thanks for interes :-) [SIGABRT] QFontDatabase: Must construct a QGuiApplication before accessing QFontDatabase.  full report here: https://git.jami.net/savoirfairelinux/ring-lrc/issues/428
+Apr 11 18:59:53 <linuxmodder>	pefi,  uses hardcoded codecs as kk4ewt  stated already better luck asking in that dev groups irc channel
+Apr 11 19:01:14 <fedbot>	*** F31-20200408 updated lives available: https://tinyurl.com/Live-respins2  Built by the Fedora Respin Sig more info #fedora-respins  ***
+Apr 11 19:01:20 <linuxmodder>	ah thought that sounded familiar that broke in the 28/29 cycle and the old maintainer (in copr iirc )  ran from it like the black plague
+Apr 11 19:01:25 <linuxmodder>	pefi, ^
+Apr 11 19:01:38 <linuxmodder>	might try the snapd or flatpak for ring
+Apr 11 19:02:27 <pefi>	linuxmodder, interesting idea... thanks! I'll be back!
+Apr 11 19:03:08 <linuxmodder>	be advised nothign of those are fully supported here but they are use at your own risk options
+Apr 11 19:03:43 <linuxmodder>	supported as in non fedora repos aspect ( ask the respective projects with issues/bugs)
+Apr 11 19:04:00 <pefi>	kk4ewt, do you have any info about those hard-coded codecs? I don't like that :-/
+Apr 11 19:04:21 <linuxmodder>	pefi,  you have the gitlab repo it's in the readme unless they moved it
+Apr 11 19:04:42 <pefi>	linuxmodder,  thanks!
+Apr 11 19:04:45 <linuxmodder>	but ring has been  hard-coded for some time
+Apr 11 19:06:20 <linuxmodder>	just my personal opinion if the OTR aspect is your thing try another client like pidgin or *tox
+Apr 11 19:07:05 <linuxmodder>	*tox at least uses stuff from the supported 3rd party rpmfusion
+Apr 11 19:08:19 <linuxmodder>	pefi, i.e. https://fedora.pkgs.org/31/rpmfusion-free-x86_64/qtox-1.16.3-2.20191018gita44cce6.fc31.x86_64.rpm.html
+Apr 11 19:08:38 <pefi>	linuxmodder, I guess conversations with my mother in law doesn't need anything special, but I'm advertising jami as good open source stuff. I need to re-think it.
+Apr 11 19:09:03 <linuxmodder>	qtox is also opensource and does not have hard coded codecs
+Apr 11 19:09:40 <linuxmodder>	pefi, https://github.com/qTox/qTox/blob/master/INSTALL.md#fedora-easy
+Apr 11 19:09:57 <pefi>	thanks!
+Apr 11 19:20:46 <fedbot>	*** F31-20200408 updated lives available: https://tinyurl.com/Live-respins2  Built by the Fedora Respin Sig more info #fedora-respins  ***
+Apr 11 19:22:44 <linuxmodder>	anyone pulling the above mentioned torrents / live-respins all seeders are at 10Mb/s or better feel free to open oyur connections ( this includes the leecher on spectrum pulling now for awhile)
+Apr 11 19:23:43 <linuxmodder>	if you have any questions or wanna join/support the RespinsSIG come find us in #fedora-respins
+Apr 11 19:26:27 <gambl0re>	how do i open libreoffice from the terminal? i've tried commands "libreoffice" and "loffice" but both returns "command not found"
+Apr 11 19:27:01 <kk4ewt>	gambl0re;  because you need the full filename
+Apr 11 19:27:19 <gambl0re>	full pathname to libreoffice?
+Apr 11 19:27:40 <kk4ewt>	what exactly are you wanting
+Apr 11 19:28:10 <dowdle>	gambl0re:
+Apr 11 19:28:12 <dowdle>	$ rpm -ql libreoffice-writer | grep bin
+Apr 11 19:28:14 <dowdle>	/usr/bin/oowriter
+Apr 11 19:28:32 <gambl0re>	i want to open a libreoffice file using the terminal
+Apr 11 19:28:39 <dowdle>	gambl0re: And then try: oo[tab][tab] to see what matches.
+Apr 11 19:28:41 <kk4ewt>	ooffice
+Apr 11 19:28:48 <linuxmodder>	gambl0re,  libreoffice /path/to/file
+Apr 11 19:29:35 <gambl0re>	dowdle: that rpm command returns nothing
+Apr 11 19:30:02 <linuxmodder>	gambl0re,  you have installed libreoffice yes? or is this gnome where it was preinstalled at install
+Apr 11 19:30:30 <linuxmodder>	gambl0re,  does which libreoffice return anything
+Apr 11 19:30:42 <gambl0re>	linuxmodder: it was already preinstalled with the distro
+Apr 11 19:30:56 <linuxmodder>	gambl0re,  fpaste --sysinfo please
+Apr 11 19:31:22 <gambl0re>	k one sec
+Apr 11 19:31:28 <dowdle>	gambl0re: You have libreoffice installed from packages or from flatpak?
+Apr 11 19:31:55 <kk4ewt>	gambl0re;  rpm -qa |grep libreoffice |fpaste please
+Apr 11 19:32:03 <dowdle>	gambl0re: If from packages, I'm guessing you typed it wrong.
+Apr 11 19:32:16 <kk4ewt>	then ooffice will work from the cli
+Apr 11 19:32:25 <gambl0re>	is fpaste supposed to be slow?
+Apr 11 19:32:32 <kk4ewt>	it can be yes
+Apr 11 19:32:39 <kk4ewt>	gambl0re;  uname -r please
+Apr 11 19:33:03 <gambl0re>	Gathering system info ...........................Uploading (30.2KiB)...
+Apr 11 19:33:08 <kk4ewt>	linuxmodder;  --sysinfo needs sudo
+Apr 11 19:33:13 <gambl0re>	it's been stuck on that for almost 1min now
+Apr 11 19:33:33 <kk4ewt>	what command where you running
+Apr 11 19:33:57 <linuxmodder>	kk4ewt,  yeah I forgot
+Apr 11 19:34:03 <gambl0re>	fpaste --sysinfo
+Apr 11 19:34:07 <kk4ewt>	control c
+Apr 11 19:34:13 <kk4ewt>	sudo fpaste --sysinfo
+Apr 11 19:34:40 <gambl0re>	Gathering system info ...........................Uploading (31.1KiB)...
+Apr 11 19:34:50 <gambl0re>	is there a quicker way?
+Apr 11 19:34:58 <gambl0re>	can i just take a screenshot?
+Apr 11 19:35:26 <pefi>	interesting, running jami with flatpak fixed the problem 8-) thanks all for the  help!
+Apr 11 19:35:57 <gambl0re>	kk4ewt: 5.5.13-200.fc31.x86_64
+Apr 11 19:36:44 <gambl0re>	anyway, ill just open through gui. not a big deal thanks
+Apr 11 19:37:23 <kk4ewt>	gambl0re;  open a terminal and type ooffice & what happens
+Apr 11 19:37:48 <gambl0re>	i tried ooffice, loffice, libreoffice and none of them worked. "command not found"
+Apr 11 19:38:08 <tnelis>	@gambl0re: you can also use xdg-open directly on your documents from the terminal; that's usually what you actually want to do. that'll open libreoffice if appropriate.
+Apr 11 19:38:25 <kk4ewt>	what DE are you using
+Apr 11 19:38:28 <gambl0re>	kde
+Apr 11 19:38:56 <pefi>	gamblOre, what do you see after "which ooffice"?
+Apr 11 19:39:16 <gambl0re>	oh wow. xdg-open worked.
+Apr 11 19:39:20 <gambl0re>	tnelis: thanks
+Apr 11 19:39:25 <kk4ewt>	linuxmodder;  boot the kde respin and see if if libreoffice is installed
+Apr 11 19:40:55 <gambl0re>	just looked at the man pages for xdg-open. i shouldve been using this command from the start..
+Apr 11 19:45:21 <dowdle>	xdg-open - opens a file or URL in the user's preferred application
+Apr 11 19:45:51 <dowdle>	gambl0re: but oowriter should work just fine.
+Apr 11 19:46:14 <dowdle>	gambl0re: For me xdg-open opens Textmaker (because that is what is set as my default word processor)
+Apr 11 19:48:48 <gambl0re>	dowdle: https://i.imgur.com/ST2jE2C.jpg
+Apr 11 19:49:57 <dowdle>	gambl0re: Maybe zsh doesn't have /usr/bin/ in it's path?
+Apr 11 19:50:08 <dowdle>	gambl0re: ls -lh /usr/bin/oo*
+Apr 11 19:51:06 <gambl0re>	ls: cannot access '/usr/bin/oo*': No such file or directory
+Apr 11 19:53:16 <dowdle>	gambl0re: Does "flatpak list" show libreoffice?
+Apr 11 19:53:23 <linuxmodder>	it does dowdle:  echo $PATH on my zsh /usr/local/bin:/usr/bin:/home/linuxmodder/bin:/usr/local/sbin:/usr/sbin:/var/lib/snapd/snap/bin
+Apr 11 19:54:04 <dowdle>	linuxmodder: Well, with snap in there, it's probably a snap package.
+Apr 11 19:54:59 <dowdle>	linuxmodder: Or sorry... that's YOUR system.
+Apr 11 19:55:15 <dowdle>	linuxmodder: And just because you have something in your path doesn't mean everyone else does. :P~
+Apr 11 19:55:58 <linuxmodder>	nonsense I never do anything custom :P
+Apr 11 19:56:28 <dowdle>	Ok, I think the mystery is solved.  The KDE Plasma spin DOES NOT have Libreoffice installed.  Period.  It ships with the Caligra office applications.
+Apr 11 19:57:46 <dowdle>	gambl0re: My guess is that xdg-open $documentfile is giving you Calligra Words.
+Apr 11 19:58:02 <linuxmodder>	what dowdle  said my system was just being slow
+Apr 11 19:58:35 <linuxmodder>	sudo dnf install libreoffice-writer OR libreoffice-core whichever floats thy boat best
+Apr 11 19:59:03 <linuxmodder>	core is the basics including the excel and ppt variants in libreoffice
+Apr 11 20:02:31 <gambl0re>	dowdle: it shows libreoffice on my computer
+Apr 11 20:04:04 <dowdle>	gambl0re: Show me a screenshot?  If it is there, you installed it as it is NOT part of the stock KDE Plasma spin... and since the binaries aren't /usr/bin/oo* it wasn't installed with regular rpm packages but either Flatpak or Snap... or something else.
+Apr 11 20:05:48 <gambl0re>	dowdle: https://i.imgur.com/dICxCvk.jpg
+Apr 11 20:05:52 <gambl0re>	convinced?
+Apr 11 20:06:01 <tnelis>	it's likely via flatpak, on my system it doesn't put it in PATH and the XDG app uses flatpak-run
+Apr 11 20:06:30 <dowdle>	tnelis: As previously said, xdg-opens whatever your default application is defined for the given document type.
+Apr 11 20:06:57 <dowdle>	gambl0re: Yes, and I already mentioned how it got there. :)
+Apr 11 20:07:34 <dowdle>	gambl0re: So, the question is, and I don't care if you answer or not... was it installed via flatpak or snap or some other method (like a .tar.gz|xz)?
+Apr 11 20:08:03 <gambl0re>	im pretty sure it was installed when i installed the distro
+Apr 11 20:08:13 <gambl0re>	i cant remember to be honest..
+Apr 11 20:08:18 <tnelis>	@gambl0re: type flatpak run org.libreoffice.LibreOffice to confirm it works via flatpak or not
+Apr 11 20:08:43 <gambl0re>	guys it's fine....xdg-open works perfectly.
+Apr 11 20:08:48 <gambl0re>	thanks for the help
+Apr 11 20:09:55 <dowdle>	gambl0re: If you installed from Fedora F31 GA KDE Plasma media or respin media... it doesn't included LibreOffice.  I just verified that by booting an .iso in a KVM VM.
+Apr 11 20:11:34 <gambl0re>	tnelis: it works with that command. so i mustve installed using flatpak.
+Apr 11 20:12:18 <gambl0re>	maybe libreoffice comes preinstalled with ubuntu...
+Apr 11 20:12:40 <whatnow111>	dowdle, do you use any other distro?
+Apr 11 20:13:03 <dowdle>	whatnow111: CentOS, RHEL, and various others in VMs usually just trying to keep up.
+Apr 11 20:13:30 <whatnow111>	i see. so basically derivatives of redhat?
+Apr 11 20:13:39 <dowdle>	gambl0re: LibreOffice does come preinstalled on the GNOME spin... and maybe a few other spins, but not the KDE Plasma one.
+Apr 11 20:14:01 <dowdle>	gambl0re: The reason for that is that KDE has their own office suite named Caligra so that's what they have pre-installed.
+Apr 11 20:14:28 <dowdle>	gambl0re: Some of the spins/DEs aimed and lower resource usage might have GNUmeric and Abiword.
+Apr 11 20:15:07 <gambl0re>	dowdle: so i have two text editors? libreoffice and caligra?
+Apr 11 20:15:31 <gambl0re>	when search for caligra, no results found...
+Apr 11 20:15:32 <dowdle>	gambl0re: Most likely.  They aren't "text editors" but yeah. :)
+Apr 11 20:15:44 <dowdle>	gambl0re: I might not be spelling it wrong... and maybe you deleted it.
+Apr 11 20:16:04 *	dowdle boots the KDE spin one-more-time;
+Apr 11 20:17:23 <dowdle>	gambl0re: Or perhaps you used the netinstall media and picked stuff alacart.
+Apr 11 20:18:07 <gambl0re>	i installed kde spin...
+Apr 11 20:18:17 <gambl0re>	https://i.imgur.com/6fZcxwO.png
+Apr 11 20:18:30 <gambl0re>	anyone know why the menu at the top is pixelated?
+Apr 11 20:18:56 <gambl0re>	the icons for example are pixelated
+Apr 11 20:19:58 <dowdle>	gambl0re: Calligra has two lls
+Apr 11 20:20:12 <dowdle>	gambl0re: Here's a screengrab from the Live KDE media I just booted - https://www.montanalinux.org/files/fedora-31-kde-live-office-category-20200411.png
+Apr 11 20:20:22 <gambl0re>	oh you're right. i do have calligra words installed
+Apr 11 20:24:21 <dowdle>	gambl0re: It is pixelated (and it only seems to be a few icons) that's how the flatpak shipped it.  Generally flatpaks include everything they need or rely on one or more dependency framework flatpaks.
+Apr 11 20:25:39 <dowdle>	gambl0re: My stock rpm-based libreoffice writer doesn't seem to have those few pixelated icons.
+Apr 11 20:26:10 <dowdle>	gambl0re: It may also be a property of the icons / theme you are using?!?
+Apr 11 20:26:47 *	dowdle gets ready to leave the lab dowdle was proctoring.  Later
+Apr 11 20:27:37 <tnelis>	(no pixelated issue with flatpak install on my system either)
+Apr 11 20:28:18 <tnelis>	gambl0re: look for HiDPI-related issues, that might be the keyword you're looking for
+Apr 11 20:28:56 <gambl0re>	it could be because i increased the font-scaling on my computer
+Apr 11 20:36:03 <CustosLimen>	ji
+Apr 11 20:36:06 <CustosLimen>	hi
+Apr 11 20:36:12 <CustosLimen>	I want a USB drive with persistence
+Apr 11 20:36:22 <CustosLimen>	but livecd-iso-to-usb does not work that well
+Apr 11 20:36:49 <CustosLimen>	If I just install fedora to the USB it should work, but I don't exactly want to boot a VM or something to do that
+Apr 11 20:37:07 <specing>	Why not?
+Apr 11 20:37:27 <specing>	booting a vm to do that is quite easy
+Apr 11 20:41:18 <CustosLimen>	takes more time than just running a script
+Apr 11 20:41:24 <CustosLimen>	and doing it over and over again is a bore
+Apr 11 20:41:40 <CustosLimen>	I guess I can just try recall how to do a chroot install
+Apr 11 20:43:51 <Mershl>	I'd like to use Gnome 3.36 but am usually careful with Beta release. When do you consider a new Fedora release as stable enough?
+Apr 11 20:54:12 <tnelis>	Mershl: the current schedule is at https://fedorapeople.org/groups/schedule/f-32/f-32-key-tasks.html
+Apr 11 21:15:03 <rdieter>	Mershl: depends on your definition of "stable enough".  One the conservative side, it's stable enough when it gets released (ie, all blocker bugs are resolved)
+Apr 11 21:23:49 <openface>	mr_johnson22[m]: this is not funny, you cant upgrade fedora without failure, or use windows..
+Apr 11 21:24:53 <whatnow111>	anyone used m.2 or pcie stick?
+Apr 11 21:25:15 <[R]>	whatnow111: what's that?
+Apr 11 21:25:32 <whatnow111>	storage device.
+Apr 11 21:25:34 <[R]>	so cool
+Apr 11 21:25:36 <[R]>	tell me more
+Apr 11 21:26:00 <whatnow111>	i read that it's much faster than ssd.
+Apr 11 21:26:05 <[R]>	NO WAY
+Apr 11 21:27:05 <whatnow111>	it looks like a ram stick. just curious if anyone is using it now.
+Apr 11 21:27:16 <[R]>	sounds pretty wicked
+Apr 11 21:28:53 <whatnow111>	much faster yet just slightly more expensive. so it's kinda enticing.
+Apr 11 21:30:04 <[R]>	very exciting
+Apr 11 21:58:04 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 11 21:58:04 2020
+
+**** BEGIN LOGGING AT Sat Apr 11 22:06:58 2020
+
+Apr 11 22:06:58 *	Now talking on #fedora
+Apr 11 22:06:58 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 11 22:06:58 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 11 22:06:58 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 11 22:11:34 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 11 22:11:34 2020
+
+**** BEGIN LOGGING AT Sat Apr 11 22:11:54 2020
+
+Apr 11 22:11:54 *	Now talking on #fedora
+Apr 11 22:11:54 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 11 22:11:54 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 11 22:11:54 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 11 22:17:08 <wwalker>	for anyone interested in my cursor size problems, I finally found that, in xfce4-mouse-settings, I had the "default" Theme selected, and size set to 48 pixels.  Apparently, although it allows you to set the size, the "default" theme cursor is always 16 pixels.
+Apr 11 22:18:56 <wwalker>	So, some apps, were using "default" while others were using other sursor settings (there are a myriad of places you can set the cursor).  firefox and chrome, were both using the xfce "default"
+Apr 11 22:19:01 <wwalker>	I selected the only other theme "Adwaita"
+Apr 11 22:19:17 *	Disconnected (Connection reset by peer)
+**** ENDING LOGGING AT Sat Apr 11 22:19:17 2020
+
+**** BEGIN LOGGING AT Sat Apr 11 22:19:38 2020
+
+Apr 11 22:19:38 *	Now talking on #fedora
+Apr 11 22:19:38 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 11 22:19:38 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 11 22:19:39 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 11 22:32:01 <dwdv>	Hi, everyone! Quick question about silverblue: Given the read-only disk mounting, do I have to reboot and thus re-enter my HDD passphrase after each and every package installation?
+Apr 11 22:33:18 <kk4ewt>	dwdv;  ask in #silverblue or #fedora-cloud
+Apr 11 22:33:32 <dwdv>	Oh, alright, thanks!
+Apr 11 22:35:43 <tnelis>	dwdv: on a hunch i looked up ways to go about it with kexec, found this <https://github.com/flowztul/keyexec> which could be a starting point
+Apr 11 22:37:52 <dwdv>	Will take a look, appreciated, thank you!
+Apr 11 23:31:01 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 11 23:31:01 2020
+
+**** BEGIN LOGGING AT Sat Apr 11 23:31:27 2020
+
+Apr 11 23:31:27 *	Now talking on #fedora
+Apr 11 23:31:27 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 11 23:31:27 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 11 23:31:28 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 11 23:51:31 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 11 23:51:31 2020
+
+**** BEGIN LOGGING AT Sat Apr 11 23:55:11 2020
+
+Apr 11 23:55:11 *	Now talking on #fedora
+Apr 11 23:55:11 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 11 23:55:11 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 11 23:55:12 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 11 23:57:49 <QuintusFabius>	Hello, just a test message
+Apr 11 23:58:11 <QuintusFabius>	If anyone can see this please resond. Thank you
+Apr 11 23:59:37 <ledeni>	QuintusFabius, we can see your message
+Apr 12 00:22:17 <smurfendrek123>	Hi, i had java 14 installed, and then ran sudo dnf install java-13-openjdk, and then my java 14 (which came from the java-latest-openjdk package) turned into java 13 (which also came from the latest package). Is this because the java-latest version got downgraded in the repos of f32? Is this possible since f32 is still in beta?
+Apr 12 00:24:48 <Khaytsus>	Perhaps it's a modular thing
+Apr 12 00:26:12 <Sokel>	alternatives
+Apr 12 00:27:04 <Khaytsus>	Yep, that's likely the way to flip between them
+Apr 12 00:28:57 <tnelis>	to expand on what Sokel pointed out in case that wasn't clear, double-check `alternatives --display java`
+Apr 12 00:41:54 <smurfendrek123>	@Sokel, yea i can switch with alternatives but 14 isn't available anymore
+Apr 12 00:42:13 <smurfendrek123>	@Sokel, only 8 and 13, and i assume 11 if i would install it
+Apr 12 01:08:28 <leden>	smurfendrek123, please where you see 14 check https://paste.centos.org/view/832075f0 'dnf search openjdk'
+Apr 12 01:28:18 <CustosLimen>	hi
+Apr 12 01:28:34 <CustosLimen>	I'm looking for something to manage pxe installs
+Apr 12 01:28:58 <CustosLimen>	I can do it with dnsmasq but it is a bit of a hassle
+Apr 12 01:34:46 <akdev>	what do you mean by manage?
+Apr 12 01:43:10 <Sokel>	CustosLimen: if you mean manage as in, controlling the PXE menu, mac reservations, kickstarts, repos, etc, look into cobbler.
+Apr 12 01:43:35 <CustosLimen>	I think I'm looking for something like MaaS or foreman
+Apr 12 01:44:21 <CustosLimen>	seems cobbler may be it also
+Apr 12 01:47:29 <akdev>	I am still confused about foreman vs katello vs cobbler
+Apr 12 02:53:50 <Sokel>	akdev: katello is a life cycle management plugin for foreman. you use katello to manage machines, pull content repos, create subscriptions, etc.
+Apr 12 02:54:03 <Sokel>	the repos are pulled in and managed via pulp.
+Apr 12 02:55:29 <Sokel>	foreman, as a whole with its plugins, allows you to provision, config, monitor servers.
+Apr 12 02:56:25 <Sokel>	All cobbler is for is automating network based installs.
+Apr 12 03:28:01 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 12 03:28:01 2020
+
+**** BEGIN LOGGING AT Sun Apr 12 07:36:39 2020
+
+Apr 12 07:36:39 *	Now talking on #fedora
+Apr 12 07:36:39 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 12 07:36:39 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 12 07:36:39 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 12 07:54:47 <hr[m]>	whatnow111: People will need a lot more details in order to help.
+Apr 12 07:59:01 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 12 07:59:01 2020
+
+**** BEGIN LOGGING AT Sun Apr 12 08:35:55 2020
+
+Apr 12 08:35:55 *	Now talking on #fedora
+Apr 12 08:35:55 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 12 08:35:55 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 12 08:35:56 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 12 09:51:53 <MICROburst>	Any walk-throughs for strongswan available? - filetree looks different and some file won't be found.
+Apr 12 12:33:30 <smurfendrek123>	@leden, i know it's not available anymore, but i'm quite sure i had it installed before trough the fedora repos
+Apr 12 14:59:03 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 12 14:59:03 2020
+
+**** BEGIN LOGGING AT Sun Apr 12 14:59:31 2020
+
+Apr 12 14:59:31 *	Now talking on #fedora
+Apr 12 14:59:31 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 12 14:59:31 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 12 14:59:31 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 12 15:30:57 <FixPleaseTo>	I don't feel good about grub2
+Apr 12 15:31:34 <Khaytsus>	Bummer.
+Apr 12 15:31:54 <FixPleaseTo>	this is one of the things about linux which I can't get past, I just can't - you read something today, and then tomorrow everything might change. and I mean little weird changes, that slip by your attention
+Apr 12 15:32:53 <FixPleaseTo>	right now I renamed my swap partition, and it's in grub.cfg but it does not appear at boot time. I needa manually edit the vmlinuz line (what the hell's a linuz, anyway?)
+Apr 12 15:34:32 <FixPleaseTo>	I was under the impression grub is a binary thingy which is driven by configuration commands in a plaintext file.  I ran grub2-mkconfig... what else is missing?
+Apr 12 15:37:47 <FixPleaseTo>	in my spare time I thought a thing like computing can really benefit from speculative design, which accounts for future revision/expansion.  I'm not saying you break your head to make something, just don't make something for today, bc today's got only one place it can go!
+Apr 12 15:39:27 <FixPleaseTo>	in the spirit of that, I'm going 2 spend my sunday re-learning grub from page 1 - I guess.  maybe I can beat it at its own icky game, or maybe I'll be booting with 'e' from this day on
+Apr 12 15:41:53 <FixPleaseTo>	but what I won't do, by god, the next time around, is homebrew my own partition scheme.  vanilla all day long baby, or if it's an option, starch flavor!
+Apr 12 15:43:16 <FixPleaseTo>	(this problem arose originally from my allocating a relatively small amount of disk space for my swap partition)
+Apr 12 17:00:03 <MICROburst>	Any walk-throughs for strongswan available? - filetree looks different and some file won't be found: https://paste.centos.org/view/ede053c6
+Apr 12 17:54:28 <minall>	Hello Fedora community!
+Apr 12 17:56:19 <minall>	Fedora has support for some of my wifi drivers, from which some other 'libre' distros don't have... This apparently are called blobs, and they aren't open source. But Fedora does have support for this, does Fedora contain open source drivers for my wifi driver or is just that these 'libre' distros don't have enough support?
+Apr 12 17:57:51 <rdieter>	minall: firmware is probably the difference
+Apr 12 17:58:09 <minall>	rdieter: I'm reading about it, trying to understand what these 'blobs' are
+Apr 12 17:58:40 <minall>	This of course affects experience since I need to use my wifi but, isn't fedora Open Source?
+Apr 12 17:58:43 <rdieter>	minall: https://fedoraproject.org/wiki/Licensing:Main#Binary_Firmware  hopefully that clarifies a bit.
+Apr 12 17:59:02 <minall>	rdieter: Thanks, I'll read it and come here if there's any questions
+Apr 12 17:59:04 <rdieter>	minall: opensource *software*, yes.  firmware policy is a bit more lenient
+Apr 12 18:02:35 <minall>	rdieter: I see!, Fedora allows these binaries under some circumstances depending on licencing, that's fine
+Apr 12 18:03:02 <minall>	But, are these binaries reversed engineered or checked?
+Apr 12 18:07:04 <minall>	Since Fedora is an Open Source community, I want to know that these binaries don't contain harmful code
+Apr 12 18:12:38 <FixPleaseTo>	have a good conclusion to your weekend, every1
+Apr 12 18:13:16 <specing>	Hello
+Apr 12 18:14:01 <specing>	Where is the documentation on the repo files in /etc/yum.repos.d?
+Apr 12 18:14:57 <specing>	Specifically, how to change the urls. I see metalink urls, but I'm not sure... is one supposed to use the metalink keyword or something else when refering to a static web server directory?
+Apr 12 18:20:03 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 12 18:20:03 2020
+
+**** BEGIN LOGGING AT Sun Apr 12 18:49:28 2020
+
+Apr 12 18:49:28 *	Now talking on #fedora
+Apr 12 18:49:28 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 12 18:49:28 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 12 18:49:29 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 12 19:01:46 <plarsen>	How is the "enterprise login" the live workstation image asks for on the first boot supposed to work?
+Apr 12 19:02:08 <plarsen>	I find it's rather "dumb" and fails in my case because the hostname right after installation isn't set and isn't FQDN
+Apr 12 19:02:27 <plarsen>	ipa-client-install right after setting the proper hostname works just fine
+Apr 12 19:04:17 <dowdle>	plarsen: I believe that just lets you join a Microsoft AD domain.
+Apr 12 19:04:54 <plarsen>	dowdle, ehhh no. Why in the WORLD would it try to do that? This is Linux?   It errors out that ipa-client-install failed - that's not AD
+Apr 12 19:05:03 <dowdle>	plarsen: I've not really used that so I'm not positive.  I wonder if the install docs say.  I would hope so.
+Apr 12 19:05:09 <plarsen>	Well it can be inddirectly if freeipa is setup to trust an AD - but that's pretty advanced
+Apr 12 19:05:39 <dowdle>	plarsen: I bet you that there are more Linux hosts joined to MS AD than IPA.
+Apr 12 19:05:45 <plarsen>	I'm just wondering why the hostname FQDN isn't part of the steps to join a newly installed fedora to IPA
+Apr 12 19:06:11 <plarsen>	Ok - you go survey it and when you come back we can talk about how relevant that is.
+Apr 12 19:06:12 <dowdle>	plarsen: You can set the hostname during the install.
+Apr 12 19:06:30 <plarsen>	dowdle, nope - well, not the FQDN - hostname yes
+Apr 12 19:06:43 <plarsen>	And it fails because FQDN isn't there (required)
+Apr 12 19:06:56 <dowdle>	plarsen: I don't see a difference between the hostname and an FQDN.
+Apr 12 19:10:27 <dowdle>	plarsen: Unfortunately the F31 Installation Guide shows F21 screenshots and doesn't mention the Enterprise Login thing at all. :(
+Apr 12 19:10:31 *	dowdle checks RHEL documentation
+Apr 12 19:15:44 <dowdle>	Not finding it mentioned there either.
+Apr 12 19:18:01 <minall>	The download of the Fedora 32 ISO isn't working?
+Apr 12 19:18:10 <minall>	Or is it me? https://getfedora.org/en/workstation/download/
+Apr 12 19:18:25 <minall>	I'm trying to download the beta, but no luck
+Apr 12 19:19:34 <minall>	I'm getting 404
+Apr 12 19:19:47 <minall>	The's no problem with Fedora 31
+Apr 12 19:20:55 <plarsen>	minall, try torrent.fedoraproject.org
+Apr 12 19:22:26 <dowdle>	minall: The beta .iso link works for me.
+Apr 12 19:23:14 <dowdle>	minall: Looks like the link gives a mirror that uses a mirrorlist so we most likely get different sites.
+Apr 12 19:23:32 <minall>	dowdle: Oh, depending on the location
+Apr 12 19:23:33 <dowdle>	minall: I can give you a direct URL if you want...
+Apr 12 19:23:43 <minall>	Don't worry dowdle, I'm using torrent now
+Apr 12 19:24:03 <plarsen>	dowdle, seems that the "enterprise login" isn't really used on the live image then.  Which leads me to think it should be removed as an option.
+Apr 12 19:24:13 <plarsen>	It's very easy to setup once the system is installed anyway ...
+Apr 12 19:24:46 <plarsen>	YEah - careful with mirrors - not every mirror is good at keeping their inventory consistent and up to date.
+Apr 12 19:28:44 <minall>	btw, is redhat free? I wanted to give it a try but It seems they only give me 30 days of try but, what happends after those 30 days?
+Apr 12 19:29:32 <[R]>	it self destructs
+Apr 12 19:30:07 <dowdle>	plarsen: Looks like they were complaining about the Enterprise Login stuff back in 2013 - https://bugzilla.redhat.com/show_bug.cgi?id=965888
+Apr 12 19:32:44 <minall>	Lol
+Apr 12 19:35:53 <mrhubrisje>	question, i was looking into transitioning from ubuntu to fedora and i've got fedora running in a VM. All is going fine but i was trying to customize my shell and wanted to install the extension user-theme. Problem is, it's already installed but gnome tweaks is not showing it ...
+Apr 12 19:36:17 <mrhubrisje>	the interwebs aren't very helpful so i'm trying here
+Apr 12 19:39:49 <mrhubrisje>	for clarity, it's Fedora Workstation with Gnome
+Apr 12 19:40:15 <plarsen>	hehe
+Apr 12 19:40:48 <plarsen>	minall, https://developers.redhat.com/topics/linux/
+Apr 12 19:51:38 <greatgatsby>	Is RedHat/fedora going all-in with c# ?  I'm glad it's an open-source language, and .net core being cross-platform, just a little worried about having the rug pulled out from underneath it.
+Apr 12 19:51:52 <Khaytsus>	greatgatsby: What makes you say anhting bout C#
+Apr 12 19:51:57 <plarsen>	greatgatsby, what does "all in" mean?
+Apr 12 19:52:01 <Khaytsus>	I don't know of any fedora tools offhnad that are C#
+Apr 12 19:53:20 <plarsen>	greatgatsby, it is Microsoft who made dotNet core open source - they're maintaining it upstream. Not really something Red Hat controls. But you probably won't find anyone who thinks open sourcing dotNet was a bad idea.
+Apr 12 19:54:55 <dowdle>	greatgatsby: My understanding is that Microsoft is phasing out the proprietary / Windows-only flavors of .Net in preference for the CORE version that is multiplatform.
+Apr 12 19:55:08 <plarsen>	dowdle, +1 correct
+Apr 12 19:55:28 <plarsen>	It's a different microsoft than 10 years ago, that's for sure.
+Apr 12 19:56:11 <Khaytsus>	Considering how much MS profits off Linux these days of course they support some things in it
+Apr 12 19:56:19 <dowdle>	greatgatsby: But yeah, Microsoft and Red Hat have quite a few collaborations... getting Windows to work well in KVM, getting Linux to work well in HyperV... Microsoft contributing to the Linux kernel, etc.  And Microsoft wants their development tools to work well on RHEL.
+Apr 12 19:57:01 <Khaytsus>	And mark my word, 3 years we'll see a Windows desktop with Linux kernel.  I called it 5 years 2 years ago, so...  sticking with that timeline
+Apr 12 19:57:27 <dowdle>	Windows these days is a hybrid with Linux... well, the Windows 10 2004 release has a Linux kernel included for Linux subsystem for Windows... and they are updating File Explorer so that it can read Linux filesystems.
+Apr 12 19:57:58 <dowdle>	Khaytsus: Not 3 years from now... but RSN when 2004 is released to GA.
+Apr 12 19:58:21 <dowdle>	Khaytsus: They don't use the Linux kernel for Windows... but for the Linux Subsystem for Windows.
+Apr 12 19:58:27 <Khaytsus>	#soon
+Apr 12 19:58:39 <dowdle>	Oh, I think I'm writing that backwards... the Windows Subsystem for Linux (WSL)
+Apr 12 19:58:51 <dowdle>	Yeah, WSL 2 ships with a Linux kernel.
+Apr 12 19:58:59 <Khaytsus>	Just wait.  3 years there will be a Windows desktop that uses the linux kernel
+Apr 12 19:59:06 <[R]>	Khaytsus: you're a linux kernel
+Apr 12 19:59:24 <dowdle>	Umm, and they have included OpenSSH client installed by default for several releases now, and OpenSSH server an be added easy in the "add Windows features" installer.
+Apr 12 19:59:33 <[R]>	Khaytsus: i wonder how far they are into porting their graphical system onto the kernel already
+Apr 12 20:05:59 <dowdle>	plarsen: Looks like the Enterprise Login feature is designed to work with IPA, LDAP, and AD.
+Apr 12 20:06:55 <greatgatsby>	Khaytsus, plarsen dowdle:  Just followed the RHEL link that was posted, and reminded my that I see so much C# promoting from Red Hat.  Was just curious if this is part of a longer term strategy.
+Apr 12 20:09:13 <plarsen>	greatgatsby, having C# on RHEL is a benefit to Red Hat - it breaks one of the last platform barriers. It's also why Microsoft is hard at work breaking the same barriers to Windows. Both sides want _all_ workloads to be compatible with their platform.
+Apr 12 20:09:53 <plarsen>	There's a ton of dotNet out there in "enterprise land" and there's a ton of "lamp" and other stacks available that doesn't run on Windows (yet) - so yes, you'll find a lot of happy faces on both sides here seeing potentials
+Apr 12 20:10:25 <greatgatsby>	plarsen, understood.  Please don't take my comments as anti C#.  I'm really just geniunely curious if there's a move away from Java and towards C#, where that type of language is appropriate.
+Apr 12 20:10:53 <greatgatsby>	plarsen, for sure, I think it's great actually.
+Apr 12 20:11:09 <plarsen>	Just know it's really driven by a huge change at Microsoft.  But don't be surprised that companies like Red Hat is all on board with the changes at Microsoft ....
+Apr 12 20:12:01 <Pie-jacker875>	should I expect working kde wayland when I choose to update to fedora 32?
+Apr 12 20:20:07 <dowdle>	greatgatsby: I doubt Red Hat is moving away from Java since a significant amount of their funds (I've heard, I have no real data) comes from the Java stuff they bought... I forget the name of it... and they maintain various Java versions after Oracle abandons them.
+Apr 12 20:20:39 <greatgatsby>	dowdle, I see.  Thanks.
+Apr 12 20:21:44 <dowdle>	greatgatsby: Perhaps my info is outdated... on this page (https://access.redhat.com/documentation/en-us/) they have Jboss as retired.
+Apr 12 20:28:22 <dowdle>	I think maybe they renamed the Java product line.
+Apr 12 20:29:44 <dowdle>	Oh, and lots of other JBoss things on that same page that aren't retired.
+Apr 12 20:30:27 <dowdle>	COBOL is where it is at for the moment. :)  Given that a lot of U.S. states have unemployment systems written in it.
+Apr 12 20:31:50 <MICROburst>	Any walk-throughs for strongswan available? - filetree looks different and some file won't be found: https://paste.centos.org/view/ede053c6
+Apr 12 20:45:32 <vbgunz>	hello all. I have an external disk luks encrypted. when I used to attach it to an older distro, it would unlock and follow my fstab to mount it automatically. I'm trying to do the same thing on Fedora 31. I have the right crypttab and key file (and entries in fstab) *but* plugging it in no longer automatically unlocks and mounts it. how can I troubleshoot this?
+Apr 12 20:51:22 <Pie-jacker875>	vbgunz: I seem to recall there being something other than fstab where it needs to be, but maybe I'm mistaken
+Apr 12 20:51:46 <Pie-jacker875>	perhaps I'm thinking of having it mount when you boot
+Apr 12 20:52:49 <vbgunz>	it's an external disk. I have the correct crypttab entries along with the correct key. permissions 0600 and 0400 respectively. the entries in fstab are correct but doing a mount -a doesn't unlock and mount anything
+Apr 12 20:53:12 <vbgunz>	I can do it manually but I liked just plugging  it in and it automatically unlocking and mounting
+Apr 12 21:03:06 <vbgunz>	hmm.. it seems I have systemd-cryptsetup service files generated for these entries but I can't "enable" them. I get failed to enable unit ... is transient or generated. *but* starting the service file and then calling mount -a works a lot quicker than what I was manually doing
+Apr 12 21:03:32 <vbgunz>	but how to make it even quicker (automatically do this after plugging in the external disk)?
+Apr 12 21:13:53 <vbgunz>	I'll just settle on running it through a script but do very much appreciate the automatic version (no script)
+Apr 12 23:32:57 <dtrainor>	Howdy.  I'm trying to figure out how to run a command after my system has been idle for X period of time.  There's a lot of really strange suggestions out there but it sounds like using dbus-monitor might be the best approach.  I'm not quite sure which data to interpret so that I can make this happen.  Anyone done this before?  Can you point me in the right direction?
+Apr 12 23:33:23 <dtrainor>	I have a rack of lab hardware, I'd like to power a lot of it down if I walk away from my workstation for a few hours, power it back up when I return etc.
+Apr 12 23:36:15 <dtrainor>	dbus and "Presence" seem to be the name of the game but I'm having trouble gluing these things together.
+Apr 12 23:42:32 <CustosLimen>	hi
+Apr 12 23:42:56 <CustosLimen>	is there some public smtp server that needs no auth that I can use for sending notifications
+Apr 12 23:42:59 <CustosLimen>	like from dnf automatic
+Apr 12 23:43:18 <vdamewood>	Probably not, that would quickly become a spam gateway.
+Apr 12 23:45:49 <CustosLimen>	😭
+Apr 12 23:50:53 <torbjorn>	CustosLimen: your isp might offer one
+Apr 12 23:51:08 <torbjorn>	(that is limited to their customer network)
+Apr 13 00:27:11 <CharlesIC>	hello, for some reason, the default video player in f31 doesnt open videos
+Apr 13 00:27:14 <CharlesIC>	at least .webms
+Apr 13 00:27:24 <CharlesIC>	so in cheese, if you click on it, it does nothing
+Apr 13 00:27:25 <CharlesIC>	a video
+Apr 13 00:27:40 <CharlesIC>	its totem
+Apr 13 00:29:22 <CharlesIC>	if i do it from command line, it works - totem foo.webm, but not by clicking on it in the GUI, it just has a clock that moves forever
+Apr 13 00:30:47 <CharlesIC>	yeah, it seems to crash
+Apr 13 00:52:22 <plarsen>	CustosLimen, I'm sure old fashioned spammers would be thrilled if such a thing existed
+Apr 13 02:32:44 <kk4ewt>	CharlesIC; sudo fpaste --sysinfo
+Apr 13 02:36:40 <CharlesIC>	kk4ewt, ok
+Apr 13 02:36:48 <CharlesIC>	it does it for cheese to a degree also. i have to start cheese in a special way
+Apr 13 02:36:52 <CharlesIC>	something with gnome apps for me
+Apr 13 02:37:56 <CharlesIC>	https://paste.centos.org/view/35acb24d
+Apr 13 02:49:33 *	Disconnected ()
+**** ENDING LOGGING AT Mon Apr 13 02:49:33 2020
+
+**** BEGIN LOGGING AT Thu Apr 16 16:36:15 2020
+
+Apr 16 16:36:15 *	Now talking on #fedora
+Apr 16 16:36:15 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 16 16:36:15 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 16 16:36:15 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"

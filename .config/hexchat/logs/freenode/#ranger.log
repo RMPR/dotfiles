@@ -1739,3 +1739,2118 @@ Mar 20 15:26:46 <__monty__>	Wow, just listened to Cage's Four Minutes, Thirty-th
 Mar 20 15:30:26 <zaeph>	That's… interesting.
 Mar 20 15:37:13 <__monty__>	Had no idea Pixar made things like this: https://www.youtube.com/watch?v=b5zMtCvWhG0
 Mar 20 15:37:15 <RoboBobob>	__monty__: Jan Hammer - Beyond The Mind's Eye (Complete Film)  [OFFICIAL] - YouTube
+**** BEGIN LOGGING AT Thu Apr  2 09:38:28 2020
+
+Apr 02 09:38:28 *	Now talking on #ranger
+Apr 02 09:38:28 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 02 09:38:28 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 02 10:16:42 <zaeph>	Hello there!  Can anyone reproduce a crash on launch with `set max_console_history_size none` in rc.conf?
+Apr 02 10:17:56 <zaeph>	Seems to be a problem with the parsing of the 'none'.  Here's the traceback: https://paste.xinu.at/CfpH/plain
+Apr 02 10:18:26 <zaeph>	And setting it to 'none' from inside ranger doesn't raise an error.
+Apr 02 10:22:36 <__monty__>	zaeph: Well, the error tells you that's not a valid value.
+Apr 02 10:22:59 <zaeph>	You're not a valid value!
+Apr 02 10:23:23 <zaeph>	From man: https://paste.xinu.at/gqrxIX/plain
+Apr 02 10:23:50 <zaeph>	Tried a quoted "none" as well, didn't work.
+Apr 02 10:26:14 <__monty__>	Well, the manual's lying.
+Apr 02 10:26:45 <__monty__>	Hmm, though the assert shouldn't trigger if you're running a packaged version of ranger
+Apr 02 10:26:59 <__monty__>	It'd still break, just not at that point.
+Apr 02 10:27:11 <__monty__>	Open an issue so we don't forget to fix this.
+Apr 02 10:27:15 <zaeph>	Tried with my fork as well, although I used my own rc.conf.
+Apr 02 10:27:27 <zaeph>	I'll do that tonight, got a busy afternoon.
+Apr 02 10:27:53 <__monty__>	👍
+Apr 02 12:38:17 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr  2 12:38:17 2020
+
+**** BEGIN LOGGING AT Thu Apr  2 12:38:42 2020
+
+Apr 02 12:38:42 *	Now talking on #ranger
+Apr 02 12:38:42 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 02 12:38:42 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 02 12:42:09 <vifon>	__monty__: Would you mind reverting the changes?
+Apr 02 12:55:05 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr  2 12:55:05 2020
+
+**** BEGIN LOGGING AT Thu Apr  2 12:55:31 2020
+
+Apr 02 12:55:31 *	Now talking on #ranger
+Apr 02 12:55:31 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 02 12:55:31 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 02 13:25:30 <__monty__>	Sure.
+Apr 02 13:26:14 <__monty__>	Donezo
+Apr 02 13:39:43 <vifon>	Thanks. :)
+Apr 02 13:44:03 <zaeph>	__monty__: There you go: https://github.com/ranger/ranger/issues/1895 .
+Apr 02 13:44:04 <RoboBobob>	zaeph: Crash when setting `max_console_history_size` to `none` in rc.conf · Issue #1895 · ranger/ranger · GitHub
+Apr 02 13:48:09 <zaeph>	Seems to be coming from ranger/container/history.py.
+Apr 02 15:42:44 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr  2 15:42:44 2020
+
+**** BEGIN LOGGING AT Thu Apr  2 15:43:12 2020
+
+Apr 02 15:43:12 *	Now talking on #ranger
+Apr 02 15:43:12 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 02 15:43:12 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 02 22:08:10 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr  2 22:08:10 2020
+
+**** BEGIN LOGGING AT Thu Apr  2 22:08:40 2020
+
+Apr 02 22:08:40 *	Now talking on #ranger
+Apr 02 22:08:40 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 02 22:08:40 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 02 22:25:01 <zaeph>	Signing off, b-bye!
+Apr 02 22:26:30 <__monty__>	nn, zaeph 
+Apr 02 22:52:12 <__monty__>	nn, peoples
+Apr 03 00:56:54 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr  3 00:56:54 2020
+
+**** BEGIN LOGGING AT Fri Apr  3 09:06:41 2020
+
+Apr 03 09:06:41 *	Now talking on #ranger
+Apr 03 09:06:41 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 03 09:06:41 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 03 12:34:50 <raphaelpierre>	help
+Apr 03 12:34:56 <zaeph>	No.
+Apr 03 12:35:05 <zaeph>	…But do go on.
+Apr 03 12:35:08 <raphaelpierre>	:) sorry bad window
+Apr 03 12:35:18 <raphaelpierre>	thanks
+Apr 03 12:35:21 <zaeph>	You got me all excited for nothing. :(
+Apr 03 12:35:34 <zaeph>	Back to torpor, then.
+Apr 03 13:48:45 <mahe>	hi rangers! can somebody who's familiar with the code please help me get started with a modification: where does ranger interpret single keypresses (as defined via 'map' commands) in the main view?
+Apr 03 13:49:58 <__monty__>	Maybe tell us what you want to achieve first. To avoid XY.
+Apr 03 13:51:27 <mahe>	I want to try masking those 'map' keybindings behind a different mode (that has to be toggled), so that I can implement a true type-ahead (aka search-as-you-type) default behavior for navigation. As the 'find' and 'scout' commands sadly don't cut it for me.
+Apr 03 13:52:06 <zaeph>	Have you tried our lord and saviour `map f chain move to=0;console scout -efit%space`?
+Apr 03 13:53:00 <zaeph>	And have you looked at the different options for scout?  There's plenty of room for customisation.
+Apr 03 13:54:41 <__monty__>	mahe: Have you tried :travel?
+Apr 03 13:55:31 <__monty__>	And yeah, scout is pretty flexible, make sure it doesn't satisfy your needs.
+Apr 03 13:57:01 <mahe>	I tried travel and some options for scout but my problem is: I want to select files/folders by typing per default. When I open ranger, when I enter a folder etc. I don't wanna leave this navigation mode until I explicitly leave this mode. Also I want arrow keys to still work while in type-ahead mode etc.
+Apr 03 13:57:31 <__monty__>	Ok, sounds like a cool mode.
+Apr 03 13:57:36 <mahe>	similar to how midnight commander works when you disable its command bar per default
+Apr 03 13:57:46 <zaeph>	So, you want a scout which, upon entering a new folder, fires up scout again as long as the mode is toggled?
+Apr 03 13:57:51 <zaeph>	I agree, that sounds pretty interesting.
+Apr 03 13:57:54 <__monty__>	I'd look at the other modes first. Rather than key parsing.
+Apr 03 13:57:54 <zaeph>	HERESY!
+Apr 03 13:58:08 <zaeph>	He mentioned our arch-enemy!
+Apr 03 13:58:11 <mahe>	a type-ahead mode that doesn't interfere with basic navigation and behavior basically
+Apr 03 13:59:31 <mahe>	anyway, where in the code would I look for the key press interpretation in the normal view?
+Apr 03 14:00:06 <mahe>	is it ui.py:handle_key() and ui.py:press() ?
+Apr 03 14:00:25 <mahe>	*gui/ui.py
+Apr 03 14:03:07 <zaeph>	mahe: It's beyond my expertise, and I can't look it up right now.  best of luck, though.
+Apr 03 14:05:19 <__monty__>	I don't know either. Those sound promising though.
+Apr 03 16:01:33 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr  3 16:01:33 2020
+
+**** BEGIN LOGGING AT Fri Apr  3 20:50:36 2020
+
+Apr 03 20:50:36 *	Now talking on #ranger
+Apr 03 20:50:36 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 03 20:50:36 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 03 20:52:35 <grobi>	hello, rangers
+Apr 03 20:52:46 <grobi>	!:)
+Apr 03 20:53:29 <zaeph>	Hi grobi!
+Apr 03 20:54:46 <grobi>	:) hi zaeph 
+Apr 03 20:55:43 <__monty__>	Symmetry free on gog: https://www.gog.com
+Apr 03 20:55:46 <RoboBobob>	__monty__: GOG.com
+Apr 03 20:57:14 <__monty__>	Hmm, gog glitched and after receiving the free game I got two "gifts" of the same game from *myself* >.<
+Apr 03 21:25:58 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr  3 21:25:58 2020
+
+**** BEGIN LOGGING AT Fri Apr  3 23:31:54 2020
+
+Apr 03 23:31:54 *	Now talking on #ranger
+Apr 03 23:31:54 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 03 23:31:54 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+**** BEGIN LOGGING AT Sat Apr  4 09:36:09 2020
+
+Apr 04 09:36:09 *	Now talking on #ranger
+Apr 04 09:36:09 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 04 09:36:09 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 04 12:01:49 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr  4 12:01:49 2020
+
+**** BEGIN LOGGING AT Sat Apr  4 12:06:58 2020
+
+Apr 04 12:06:58 *	Now talking on #ranger
+Apr 04 12:06:58 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 04 12:06:58 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 04 14:39:46 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr  4 14:39:46 2020
+
+**** BEGIN LOGGING AT Sat Apr  4 17:12:19 2020
+
+Apr 04 17:12:19 *	Now talking on #ranger
+Apr 04 17:12:19 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 04 17:12:19 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 04 18:06:13 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr  4 18:06:13 2020
+
+**** BEGIN LOGGING AT Sat Apr  4 18:06:42 2020
+
+Apr 04 18:06:42 *	Now talking on #ranger
+Apr 04 18:06:42 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 04 18:06:42 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 04 19:18:58 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr  4 19:18:58 2020
+
+**** BEGIN LOGGING AT Sat Apr  4 19:19:26 2020
+
+Apr 04 19:19:26 *	Now talking on #ranger
+Apr 04 19:19:26 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 04 19:19:26 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 04 22:00:30 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr  4 22:00:30 2020
+
+**** BEGIN LOGGING AT Sat Apr  4 22:01:15 2020
+
+Apr 04 22:01:15 *	Now talking on #ranger
+Apr 04 22:01:15 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 04 22:01:15 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 04 22:09:21 <__monty__>	Actually, young healthy people seem to be hit harder than some older folks. Healthy immune systems overreact and cause problems.
+Apr 04 22:12:49 <zaeph>	Yeah, we had a 16yo without comorbidities who didn't make it here.
+Apr 04 22:13:54 <zaeph>	Felt like an outlier until the next day where a 15yo developed pretty severe symptoms.  Might be anecdotal data, but it is upsetting.
+Apr 04 22:37:51 <__monty__>	nn, peeps
+Apr 04 22:38:12 <zaeph>	B-bye!
+Apr 04 23:42:15 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr  4 23:42:15 2020
+
+**** BEGIN LOGGING AT Sat Apr  4 23:42:42 2020
+
+Apr 04 23:42:42 *	Now talking on #ranger
+Apr 04 23:42:42 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 04 23:42:42 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 04 23:48:41 <GermainZ>	vifon: also Regions of Ruin:Sieges is free (DLC for the game you linked) <https://store.steampowered.com/app/843800/Regions_of_RuinSieges/>
+Apr 04 23:48:42 <RoboBobob>	GermainZ: Regions of Ruin:Sieges on Steam
+Apr 04 23:50:28 <GermainZ>	RoboBobob: thank you
+Apr 04 23:53:17 <vifon>	GermainZ: And Risk of Rain 2 is free to play for this weekend.
+Apr 04 23:53:30 <vifon>	Looks pretty good.  Literally RoR1 but in 3D.
+Apr 04 23:53:32 <GermainZ>	vifon: oooh I might try that out. Plenty of work tomorrow tho.
+Apr 04 23:53:35 <GermainZ>	I liked RoR1
+Apr 04 23:53:38 <zaeph>	Loved RoR1.  Damn, that OST.
+Apr 04 23:53:46 <GermainZ>	RoR2 runs on Linux?
+Apr 04 23:53:58 <zaeph>	RoR2's OST is pretty damn good too.
+Apr 04 23:54:05 <GermainZ>	just like your face
+Apr 04 23:54:05 <vifon>	Let me see…
+Apr 04 23:54:06 <vifon>	GermainZ: Nope.
+Apr 04 23:54:11 <GermainZ>	Damn
+Apr 04 23:54:34 <GermainZ>	https://www.protondb.com/app/632360 platinum on Proton tho
+Apr 04 23:55:04 <vifon>	Wanna coop?
+Apr 04 23:55:31 <GermainZ>	now?
+Apr 04 23:55:42 <vifon>	As one of the options, yes.
+Apr 04 23:55:47 <GermainZ>	Let's do it
+Apr 04 23:55:49 <GermainZ>	I'm installing it
+Apr 04 23:55:54 <vifon>	Hell yeah!
+Apr 04 23:56:29 <GermainZ>	I was planning to sleep but sleep can wait!
+Apr 04 23:56:52 <vifon>	zaeph: Do I remember correctly you don't have any gaming-grade hardware? :(
+Apr 04 23:57:02 <GermainZ>	RoR2 runs on potatoes tho
+Apr 04 23:57:24 <GermainZ>	No?
+Apr 04 23:57:30 <vifon>	No idea, TBH.
+Apr 04 23:57:37 <GermainZ>	Well let's hope so
+Apr 04 23:57:41 <vifon>	And potato hardware can mean many things.
+Apr 04 23:57:45 <GermainZ>	Cos I can't restart the session to use my eGPU right now
+Apr 04 23:57:53 <GermainZ>	So my potato GPU will have to do
+Apr 04 23:58:15 <vifon>	My usual laptop is pretty fine but it has only the Intel GPU and after all the security patches CPU isn't that performant either.
+Apr 04 23:58:21 <GermainZ>	I disabled those
+Apr 04 23:58:31 <vifon>	So at this point just don't game on it at all.
+Apr 04 23:58:59 <vifon>	Though 4 years ago I was gaming on it for a month.  Felt beefier back then.
+Apr 04 23:59:04 <zaeph>	vifon: Nah, I dont, but I'm saving up.  It's getting late anyway, and I'll be off once I've finished processing a batch of book I've downloaded.
+Apr 05 00:00:42 <vifon>	GermainZ: Do my invites reach you?
+Apr 05 00:01:05 <GermainZ>	vifon: yes hold on configuring graphics
+Apr 05 00:01:10 <vifon>	Ah, sure.
+Apr 05 00:02:33 <GermainZ>	11 FPS is the best I can do D:
+Apr 05 00:02:44 <vifon>	Damn.
+Apr 05 00:02:47 <GermainZ>	vifon: gimme 5 minutes
+Apr 05 00:02:51 <GermainZ>	let me save some stuff and connect the eGPU
+Apr 05 00:02:59 <vifon>	Fancy.
+Apr 05 00:08:43 <GermainZ>	vifon: alright
+Apr 05 00:09:19 <vifon>	How many FPS?
+Apr 05 00:09:57 <GermainZ>	vifon: plenty
+Apr 05 00:53:03 <GermainZ>	fun game
+Apr 05 00:53:08 <GermainZ>	I should get more used to the Steam Controller
+Apr 05 00:53:13 <vifon>	Pretty good, though I'd rather not buy it at this price point.
+Apr 05 00:53:20 <GermainZ>	yup
+Apr 05 00:53:24 <GermainZ>	I've got plenty of games for now :D
+Apr 05 00:53:24 <vifon>	SC is great when it works.
+Apr 05 00:53:40 <vifon>	Sekiro on SC is awesome.  I cannot play it without the paddles at this point.
+Apr 05 00:54:46 <vifon>	Huh.  I had Synergy running on my laptop the whole time.  Good to know it doesn't mess with the games as much as it used to.
+Apr 05 00:55:03 <GermainZ>	:D
+Apr 05 00:56:38 <vifon>	In a roundabout way, RoR2 reminded me I wanted to play Void Bastards more. :)
+Apr 05 00:57:19 <vifon>	VB is like a roguelite System Shock 2.  Of course not remotely as good as System Shock 2 but you get the idea.
+Apr 05 00:57:30 <GermainZ>	Not really
+Apr 05 00:57:35 <GermainZ>	I haven't played either :D
+Apr 05 00:58:09 <vifon>	Play SS2, it's timeless.
+Apr 05 00:58:34 <GermainZ>	I will at one point!
+Apr 05 00:58:37 <GermainZ>	But who knows when
+Apr 05 00:58:40 <GermainZ>	So many games to play
+Apr 05 00:58:43 <vifon>	True.
+**** ENDING LOGGING AT Sun Apr  5 01:01:58 2020
+
+**** BEGIN LOGGING AT Fri Apr 10 09:59:51 2020
+
+Apr 10 09:59:51 *	Now talking on #ranger
+Apr 10 09:59:51 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 10 09:59:51 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 10 11:58:32 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 10 11:58:32 2020
+
+**** BEGIN LOGGING AT Fri Apr 10 12:09:12 2020
+
+Apr 10 12:09:12 *	Now talking on #ranger
+Apr 10 12:09:12 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 10 12:09:12 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 10 12:36:13 <zaeph>	Where's __monty__ when one needs to brag. :(
+Apr 10 13:02:59 *	ChanServ gives channel operator status to vifon
+Apr 10 13:18:16 *	ChanServ gives channel operator status to vifon
+Apr 10 13:19:49 *	ChanServ gives channel operator status to vifon
+Apr 10 13:20:38 *	ChanServ gives channel operator status to vifon
+Apr 10 14:14:14 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 10 14:14:14 2020
+
+**** BEGIN LOGGING AT Fri Apr 10 14:14:43 2020
+
+Apr 10 14:14:43 *	Now talking on #ranger
+Apr 10 14:14:43 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 10 14:14:43 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 10 16:22:54 <RoboBobob>	13:36 <zaeph> Where's __monty__ when one needs to brag. :(
+Apr 10 16:23:14 <__monty__>	Conveniently elsewhere : >
+Apr 10 16:23:25 <zaeph>	How dare you.
+Apr 10 16:23:28 <zaeph>	I've missed you so much.
+Apr 10 16:24:01 <zaeph>	Look at my beautiful child: https://github.com/jethrokuan/org-roam/issues/423
+Apr 10 16:24:03 <RoboBobob>	zaeph: Accessing and creating org-roam notes via helm-bibtex  · Issue #423 · jethrokuan/org-roam · GitHub
+Apr 10 16:24:26 <zaeph>	Don't look into details: just appreciate the *breadth*.
+Apr 10 16:30:24 <__monty__>	It's not DOA?
+Apr 10 16:31:00 <zaeph>	What do you mean?
+Apr 10 16:32:05 <__monty__>	Dead on arrival.
+Apr 10 16:32:12 <__monty__>	Because of the more encompassing PR.
+Apr 10 16:32:22 <__monty__>	Just teasing ; )
+Apr 10 16:32:46 <zaeph>	Not necessarily.  The other PR's quite a bit larger, whereas mine is slender and airy. ~🎶
+Apr 10 17:42:53 <GermainZ>	hehehehehe
+Apr 10 18:51:24 <__monty__>	zaeph: #1914 should clarify my sentinel idea.
+Apr 10 18:51:43 <zaeph>	Bob ain't cooperating?
+Apr 10 18:52:11 <zaeph>	Also, I hope we'll get #1914 finished before Christmas. :o)
+Apr 10 18:53:57 <zaeph>	__monty__: It makes sense, and it's better than computing the length of whatever string is before.  I like it.
+Apr 10 18:57:05 <__monty__>	Bobob hasn't liked my issue number posts for a while now.
+Apr 10 19:06:50 <vifon>	Bobob doesn't have it implemented yet.
+Apr 10 19:06:56 <__monty__>	Oh.
+Apr 10 19:07:03 <__monty__>	Guess I was just imagining things.
+Apr 10 19:07:09 <__monty__>	I'd run Bob in parallel.
+Apr 10 19:07:17 <__monty__>	But that'd involve fixing python.
+Apr 10 19:07:21 <vifon>	Works for me.
+Apr 10 19:07:26 <__monty__>	Oh, I guess I could just run it with python2.
+Apr 10 19:07:33 <__monty__>	 /facepalm
+Apr 10 19:07:50 <__monty__>	Number of problems that are solved by not running python 3 : D
+Apr 10 19:19:27 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 10 19:19:27 2020
+
+**** BEGIN LOGGING AT Fri Apr 10 19:20:29 2020
+
+Apr 10 19:20:29 *	Now talking on #ranger
+Apr 10 19:20:29 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 10 19:20:29 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 10 19:31:59 <__monty__>	Yeah, no, f this.
+Apr 10 19:32:13 <__monty__>	Ended up having to patch cloudbot.
+Apr 10 19:32:25 <__monty__>	They're not even 3.7 ready let alone 3.8
+Apr 10 19:32:32 <__monty__>	This is what's wrong with arch.
+Apr 10 20:14:58 <vifon>	__monty__: pyenv
+Apr 10 20:32:41 <__monty__>	Yeah but : (
+Apr 10 20:36:59 <__monty__>	Dear god, such a terrible README.
+Apr 10 20:37:20 <__monty__>	And how can installing a python take this long.
+Apr 10 20:37:35 <__monty__>	Is it building it silently or something? smh
+Apr 10 20:46:29 <__monty__>	Hi, RoboBob 
+Apr 10 20:46:33 <__monty__>	#1914
+Apr 10 20:46:35 <RoboBob>	(__monty__) Issue #1914 (Opened by toonn on 2020-04-10): https://github.com/ranger/ranger/issues/1914 | Alternative to console -p that places the cursor at a sentinel character
+Apr 10 20:46:35 <RoboBobob>	RoboBob: Alternative to console -p that places the cursor at a sentinel character · Issue #1914 · ranger/ranger · GitHub
+Apr 10 20:46:39 <zaeph>	Oh no.
+Apr 10 20:46:53 <zaeph>	Now my evil mind is thinking how I can exploit that.
+Apr 10 20:46:55 <__monty__>	vifon: Could you add Bob to Bobob's ignores? : )
+Apr 10 20:47:05 <zaeph>	I can put them in resonance!
+Apr 10 20:47:12 <zaeph>	Let me just find a link with an issue number in the URL.
+Apr 10 20:47:35 <zaeph>	With some chance, neither of you will have thought of padding them with a space before, or anything along those lines.
+Apr 10 20:48:07 <zaeph>	Let's try that: https://github.com/ranger/ranger/issues/#1914
+Apr 10 20:48:08 <RoboBobob>	zaeph: Issues · ranger/ranger · GitHub
+Apr 10 20:48:08 <RoboBob>	(zaeph) Issue #1914 (Opened by toonn on 2020-04-10): https://github.com/ranger/ranger/issues/1914 | Alternative to console -p that places the cursor at a sentinel character
+Apr 10 20:48:10 <RoboBobob>	RoboBob: Alternative to console -p that places the cursor at a sentinel character · Issue #1914 · ranger/ranger · GitHub
+Apr 10 20:48:29 <zaeph>	Hm.
+Apr 10 20:49:13 <zaeph>	Don't mind the link, just wanted something with a pound in the title: https://gitlab.com/gitlab-org/gitlab-foss/-/issues/21712
+Apr 10 20:49:16 <RoboBobob>	zaeph: Issue number in browser title (#21712) · Issues · GitLab.org / GitLab FOSS · GitLab
+Apr 10 20:49:16 <__monty__>	Bob has some protections, zaeph.
+Apr 10 20:49:23 <zaeph>	Tss.
+Apr 10 20:49:29 <zaeph>	Prolly doesn't work because it's gitlab.
+Apr 10 20:49:54 <zaeph>	Well, I tried.
+Apr 10 20:51:16 <__monty__>	Yeah, ranger/ranger doesn't have 21k+ issues yet.
+Apr 10 22:19:08 <vifon>	__monty__: OK, I've disabled the preview plugin.
+Apr 10 22:19:24 <__monty__>	Just for Bob?
+Apr 10 22:19:28 <vifon>	No.
+Apr 10 22:19:34 <__monty__>	Oh.
+Apr 10 22:19:47 <vifon>	But I actually already have an exception for *that friend*.
+Apr 10 22:19:51 <vifon>	Do you remember?
+Apr 10 22:19:56 <vifon>	I'll add Bob too then.
+Apr 10 22:20:31 <__monty__>	I don't remember, no.
+Apr 10 22:20:43 <vifon>	Do you remember how I was patching my bot at FOSDEM?
+Apr 10 22:20:52 <vifon>	Because my friend was in a pentesting mood.
+Apr 10 22:20:57 <__monty__>	Yeah, ah.
+Apr 10 22:21:27 <__monty__>	So you made it secure but only from them? : D
+Apr 10 22:21:42 <vifon>	Nah.  I made it secure but he kept trying to find something more.
+Apr 10 22:21:57 <vifon>	He didn't but it was enough to increase the load of my server to the annoying levels.
+Apr 10 22:22:19 <vifon>	But he still admitted it's secure.  That's quite something in his case.
+Apr 10 22:23:07 <zaeph>	Also, which one of you's CaptainRanger or CaptRanger.
+Apr 10 22:23:25 <zaeph>	I'm suspecting shenanigans.
+Apr 10 22:23:37 <__monty__>	Not me : >
+Apr 10 22:23:48 <vifon>	Not me.
+Apr 10 22:24:05 <zaeph>	Well, it was one of yous.  DISGUSTING!
+Apr 10 22:24:23 <zaeph>	Pretty sure I'm missing a 'bloody' in that quote.
+Apr 10 22:25:11 <zaeph>	Nope, I was missing a 'fokin'. :o)
+Apr 10 22:27:57 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 10 22:27:57 2020
+
+**** BEGIN LOGGING AT Fri Apr 10 22:31:21 2020
+
+Apr 10 22:31:21 *	Now talking on #ranger
+Apr 10 22:31:21 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 10 22:31:21 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 10 22:41:56 <__monty__>	Cool.
+Apr 10 22:42:04 <__monty__>	Not that being a maintainer is all that glorious...
+Apr 10 22:42:29 <zaeph>	I'd get a cool tag next to my name in that repo!  Worth it.
+Apr 10 22:44:00 <dice>	hello, trying to change directory using a string that's being collected by a shell script
+Apr 10 22:44:17 <dice>	however bash cd does work with ranger
+Apr 10 22:44:24 <dice>	is there a workaround?
+Apr 10 22:44:42 <zaeph>	dice: `:cd` doesn't work?
+Apr 10 22:44:52 <dice>	opps** I meant :shell cd
+Apr 10 22:44:56 <dice>	doesn't work
+Apr 10 22:45:48 <zaeph>	Does the `cd` happen at the beginning of the script?
+Apr 10 22:45:57 <dice>	my code is `:shell i=$(cmus-remote -C status | grep file | sed "s/file //" | sed 's,[^/]*$,,');cd "$i"`
+Apr 10 22:46:36 <dice>	no it happens at the end after I've collected the dir I want to change to
+Apr 10 22:47:09 <zaeph>	I'm not sure if you can forward an instruction via `:shell` to change ranger's directory.
+Apr 10 22:47:29 <__monty__>	Nope, you can't.
+Apr 10 22:47:34 <dice>	well that would break my code
+Apr 10 22:47:37 <__monty__>	That cd would affect the subshell.
+Apr 10 22:47:48 <zaeph>	__monty__: Can we `:cd` into a computed value?
+Apr 10 22:47:52 <__monty__>	Which is cleaned up right after the cd finished.
+Apr 10 22:48:18 <__monty__>	Only with a custom command I think.
+Apr 10 22:48:30 <zaeph>	Uhm.  I'm finishing a PR on my end, I'll have a look after.
+Apr 10 22:48:36 <dice>	woooshhhh ... right over my head
+Apr 10 22:51:34 <__monty__>	Oh, actually. You can use `:eval self.fm.cd('some/dir')`
+Apr 10 22:51:49 <__monty__>	So either rewrite your script as python.
+Apr 10 22:52:03 <__monty__>	Or write some python that executes the shell script.
+Apr 10 22:57:18 <__monty__>	nn, peeps
+Apr 10 22:57:21 <zaeph>	B-bye!
+Apr 10 22:57:39 <dice>	ok bye that's a start
+Apr 10 22:58:03 <zaeph>	I'll be with you in 5', but I'm not very good with Python.
+Apr 10 22:58:15 <dice>	sounds good:)
+Apr 10 23:40:53 <zaeph>	dice: Whoops, sorry, I got carried away. -.-
+Apr 10 23:42:35 <dice>	no problem this one gonna take me awhile! i'm no so keen on python code either
+Apr 10 23:43:08 <zaeph>	It's a one-liner, so it shouldn't be too tough to figure out.  What have you got so far?
+Apr 10 23:46:03 <dice>	oh it's bad! something like import subprocess
+Apr 10 23:46:06 <dice>	output = subprocess.Popen([ 'cmus-remote', '-C', 'status', '|', 'grep', 'file', '|', 'sed', "s/file //", '|', 'sed', 's,[^/]*$,,' ],
+Apr 10 23:46:08 <dice>	        stdout=subprocess.PIPE,
+Apr 10 23:46:12 <dice>	        stderr=subprocess.STDOUT)
+Apr 10 23:46:35 <zaeph>	Oof, that Popen line doesn't look too good indeed.
+Apr 10 23:46:49 <zaeph>	vifon: Do you have any quick idea on how to help ^?
+Apr 10 23:47:19 <vifon>	Definitely replace it with subprocess.check_output()
+Apr 10 23:47:37 <vifon>	Wait wait wait.
+Apr 10 23:47:48 <vifon>	You cannot use pipes like this without a shell.
+Apr 10 23:48:09 <vifon>	If you insist, pass shell=True to check_output/Popen and put all your arguments into a single string.
+Apr 10 23:48:48 <vifon>	I would just call "cmus-remote -C status" without the shell and then process the rest of it in Python.
+Apr 10 23:49:13 <dice>	kind like output = subprocess.check_output(cmus-remote -C status | grep file | sed "s/file //" | sed 's,[^/]*$,,', shell=True)
+Apr 10 23:52:51 <dice>	the shear amount of redirection
+Apr 10 23:53:25 <dice>	@vifon: thx for the help:)
+Apr 10 23:55:09 <vifon>	Did it work?
+Apr 11 00:04:27 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 11 00:04:27 2020
+
+**** BEGIN LOGGING AT Sat Apr 11 00:08:27 2020
+
+Apr 11 00:08:27 *	Now talking on #ranger
+Apr 11 00:08:27 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 11 00:08:27 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 11 00:11:48 <dice>	haha not yet... well the part that you helped me with works
+Apr 11 00:12:15 <dice>	having trouble using communicate() to get the my string printed
+Apr 11 00:12:54 <dice>	it's an AttributeError: 'bytes' object has no object 'communicate'
+Apr 11 00:14:18 <dice>	my code is stdout, stderr = out.communicate()
+Apr 11 00:14:20 <dice>	print(stdout)
+Apr 11 00:14:40 <dice>	wait!
+Apr 11 00:17:09 <vifon>	dice: Use check_output, Popen is too low level for this.
+Apr 11 00:23:49 <dice>	ahha yes I hadn't updated the print() part of my script to match the output_check
+Apr 11 00:24:32 <dice>	the only problem I have now is that python print \b and \n around my string
+Apr 11 00:24:45 <dice>	I don't think ranger is gonna like that
+Apr 11 00:26:04 <zaeph>	(?) Ranger will remember that.
+Apr 11 00:29:51 <vifon>	I see you've played the Telltale Games games too. :)
+Apr 11 00:30:15 <zaeph>	Eh, I'm a man of culture.
+Apr 11 00:30:31 <vifon>	First of all, use universal_newlines=True
+Apr 11 00:30:39 <vifon>	This way you'll get a string and note bytes.
+Apr 11 00:30:49 <vifon>	*not
+Apr 11 00:30:49 <vifon>	dice: ↑
+Apr 11 00:30:58 <vifon>	Then, consider calling strip() on the result.
+Apr 11 00:31:36 <dice>	ah I see
+Apr 11 00:44:11 <dice>	so on the one hand I have a python script that gives me the path I want to go to... and on the other hand I have :eval self.fm.cd('some/dir')
+Apr 11 01:22:47 <dice>	map vs shell i=$(cmus-remote -C status | grep file | sed "s/file //" | sed 's,[^/]*$,,'); cd "$i"
+Apr 11 01:32:56 <dice>	ok this is what I have so far: :eval -q import subprocess; out = subprocess.output_check( "cmus-remote -C status | grep file | sed 's/file //' | sed 's,[^/]*$,,'", shell=True, universal_newlines=True ); self.fm.cd(out)
+Apr 11 01:33:53 <dice>	@vifon: clearly I'm missing something here
+Apr 11 01:34:47 <vifon>	dice: You'd be better off writing it as a command in commands.py
+Apr 11 01:34:55 <vifon>	Are you familiar with it?
+Apr 11 01:35:31 <vifon>	Basically copy one of the simple existing ones, rename it and replace the execute() method with your code.
+Apr 11 01:36:00 <dice>	mmmm seems straightforward 
+Apr 11 01:36:24 <dice>	I'll give it a shott
+Apr 11 02:01:27 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 11 02:01:27 2020
+
+**** BEGIN LOGGING AT Sat Apr 11 08:53:21 2020
+
+Apr 11 08:53:21 *	Now talking on #ranger
+Apr 11 08:53:21 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 11 08:53:21 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 11 11:09:32 <zaeph>	Submitted a quick PR to a Zotero addon.  My influence is spreading. 🕷️
+Apr 11 11:13:06 <zaeph>	Now I can be ever more insufferable with my citations!
+Apr 11 11:18:17 <vifon>	Damn, that's bad.
+Apr 11 11:25:13 <vifon>	rnmhdn: I hope you were able to recover this file?
+Apr 11 11:25:35 <zaeph>	Are we liable?
+Apr 11 11:25:40 <zaeph>	…Are we the baddies?
+Apr 11 11:26:04 <zaeph>	Welp, we've had a good run.  Let's get Microsoft to buy us out and call it a day.
+Apr 11 11:26:15 <vifon>	Or Facebook.
+Apr 11 11:26:30 <zaeph>	Could be a joint venture, 50/50.
+Apr 11 11:26:46 <zaeph>	Just to make it Extra Evil™.
+Apr 11 11:38:20 <__monty__>	Isn't that Google's slogan?
+Apr 11 11:38:36 <__monty__>	Don't add copyright infringement on top of the charges!
+Apr 11 11:38:45 <__monty__>	What happened though?
+Apr 11 11:39:06 <zaeph>	__monty__: https://paste.xinu.at/y8HNJ/plain
+Apr 11 11:39:08 <__monty__>	:bulkrename induced sadness?
+Apr 11 11:39:37 <__monty__>	Ah, the off-by-one rifle numbering bug, *again*.
+Apr 11 11:39:49 <__monty__>	That's like the end boss that won't die.
+Apr 11 11:40:04 <__monty__>	vifon: Didn't you fix this most recently?
+Apr 11 11:40:15 <zaeph>	Looks like someone forgot that arrays start at 0!
+Apr 11 11:40:28 <zaeph>	(I don't even know if that's the case in Python.)
+Apr 11 11:40:36 <__monty__>	Good thing we didn't add `rm -- $@` to rifle.
+Apr 11 11:40:37 <zaeph>	(And I *know* it's more complicated than that.)
+Apr 11 11:40:55 <__monty__>	The problem is the "ask" entry, zaeph.
+Apr 11 11:41:37 <vifon>	__monty__: I think so.  Maybe not fully.
+Apr 11 11:43:59 <__monty__>	I take it you'll do the responsible thing?
+Apr 11 11:44:06 <__monty__>	I.e., seppuku?
+Apr 11 11:44:48 <__monty__>	; p Could you look into it though?
+Apr 11 11:45:05 <__monty__>	Or have zaeph do it cause he's flaunting his contributions around anyway.
+Apr 11 11:45:20 <__monty__>	Like a true flossy.
+Apr 11 11:45:21 <vifon>	I didn't introduce the hiding.
+Apr 11 11:45:22 <vifon>	;
+Apr 11 11:45:24 <vifon>	;)
+Apr 11 11:45:39 <zaeph>	If maintainers were to seppuku upon every bug, our species would have gone instinct a long time ago.
+Apr 11 11:45:46 <vifon>	\o/
+Apr 11 11:45:53 <vifon>	Let's do it then.
+Apr 11 11:45:54 <zaeph>	OK, I'll help: I'll git blame.
+Apr 11 11:46:02 <zaeph>	'Cause blaming is much more fun than doing.
+Apr 11 11:46:14 <__monty__>	Hmm, I don't remember touching the ask stuff, uh oh.
+Apr 11 11:48:21 <vifon>	https://github.com/ranger/ranger/pull/1341
+Apr 11 11:48:23 <RoboBobob>	vifon: Do not include "ask" in open_with options (fixes #1047) by GermainZ · Pull Request #1341 · ranger/ranger · GitHub
+Apr 11 11:48:26 <vifon>	I blame GermainZ.
+Apr 11 11:48:28 <RoboBob>	(RoboBobob) Issue #1047 (Closed by toonn on 2019-05-20): https://github.com/ranger/ranger/issues/1047 | "ask" includes "ask" in its options
+Apr 11 11:48:28 <RoboBob>	PR #1341 (Closed by toonn on 2019-05-20) +5 -2, 2 files changed: https://github.com/ranger/ranger/pull/1341 | Do not include "ask" in open_with options (fixes #1047)
+Apr 11 11:48:34 <vifon>	For trying to help.
+Apr 11 11:48:50 <vifon>	Thanks, Bobs.
+Apr 11 11:48:55 <zaeph>	Man, you were faster.  I'd just found the def. :(
+Apr 11 11:49:14 *	__monty__ shakes his fist at GermainZ!
+Apr 11 11:49:38 <zaeph>	__monty__: You merged!
+Apr 11 11:49:43 *	zaeph shakes his fist at __monty__!
+Apr 11 11:49:55 <__monty__>	Of course I merged.
+Apr 11 11:50:02 <__monty__>	You think I do any amount of QC?! HAH!
+Apr 11 11:50:16 <zaeph>	Our maintainer, gentlemen!
+Apr 11 11:50:27 <zaeph>	(One of them*, I should say.)
+Apr 11 12:29:08 <__monty__>	vifon: You agree on #1910, right? We treat symlinks as their targets all over the place so imo it shouldn't just be an option but a default.
+Apr 11 12:29:10 <RoboBob>	(__monty__) Issue #1910 (Opened by brolyxxx on 2020-04-09): https://github.com/ranger/ranger/issues/1910 | Flat not working with symlinks
+Apr 11 12:30:22 <zaeph>	Plus, we could create recursion in the symlinks and make the whole thing go kaboom.
+Apr 11 12:31:10 <zaeph>	How to get your feature request processed in reasonable time: `great, thanks for considering the implementation, ranger is by far my favourite file manager out there`.
+Apr 11 12:31:24 <zaeph>	Eh, you know what they say: flattery is the mother of all virtues.
+Apr 11 12:31:38 <zaeph>	Or maybe I'm misremembering it.
+Apr 11 12:32:38 <__monty__>	If it weren't for this damn kid!
+Apr 11 12:32:43 *	__monty__ shakes a fist
+Apr 11 12:32:53 <__monty__>	Revealing my evil plans : /
+Apr 11 12:33:16 <zaeph>	Eheh.
+Apr 11 12:33:27 <__monty__>	zaeph: Don't be mistaken, I'm not working on this, it's going in the Queue of Unlimited Depth muahahaha!
+Apr 11 12:34:21 <zaeph>	Please let me know how you've liked the article that *you* have linked to me by 2023, OK?
+Apr 11 12:35:15 <zaeph>	It'd be a shame if you waited until I become too famous to bother answering. (✿ᵔ⌣ᵔ)
+Apr 11 13:02:33 <__monty__>	>.<
+Apr 11 13:02:58 <__monty__>	zaeph: Here's notes by someone else I shared it to and got excited: https://gist.github.com/msteen/d437c76f04ce5f2c1a52282d594d7d7a
+Apr 11 13:02:59 <RoboBobob>	__monty__: tagdown.md · GitHub
+Apr 11 13:03:06 <__monty__>	Not on the article or method per se.
+Apr 11 13:03:14 <__monty__>	But their take on it basically.
+Apr 11 13:03:47 <zaeph>	You mean the article on slip-box/zettelkästen?
+Apr 11 13:03:51 <__monty__>	ldlework claims to be working on something similar based on org-brain.
+Apr 11 13:03:55 <__monty__>	Yeah.
+Apr 11 13:04:10 <zaeph>	Man, why is the topic so en vogue right now?  Have I missed something?
+Apr 11 13:04:18 <__monty__>	I just have a book to finish before I get to that article >.<
+Apr 11 13:04:31 <__monty__>	Because I mentioned that article and neuron.
+Apr 11 13:04:40 <__monty__>	Don't you know I'm an *influencer*?!
+Apr 11 13:04:48 <zaeph>	I'm almost done with Ahrens, How to Take Smart Notes!
+Apr 11 13:05:05 <zaeph>	You clearly are, judging by the facts.
+Apr 11 13:05:12 <zaeph>	I'll have a read soon, finishing a PR.
+Apr 11 13:05:31 <zaeph>	…I'm gonna stop saying that, makes me sound pretentious.
+Apr 11 13:05:43 <zaeph>	…Which I am, but one ought to dissimulate it, right?
+Apr 11 13:10:06 <__monty__>	Nah, people being excited about foss contributions can excite others.
+Apr 11 13:18:04 <zaeph>	All right, done with the PR.  Time to read.
+Apr 11 13:18:12 <GermainZ>	I'm sorry vifon, I'm sorry __monty__ 
+Apr 11 13:18:14 *	GermainZ commits seppuku
+Apr 11 13:18:18 <zaeph>	RIP.
+Apr 11 13:19:23 <__monty__>	GermainZ: You're grounded. Go to your room, mister!
+Apr 11 13:19:43 *	__monty__ assumes an angry mom stance. Hands on hips, tapping foot and look of disapproval.
+Apr 11 13:20:06 <zaeph>	ಠ_ಠ
+Apr 11 13:20:09 <GermainZ>	can't go to my room if I'm dead!
+Apr 11 13:20:18 <zaeph>	#existentialism
+Apr 11 13:33:51 <zaeph>	__monty__: I've read about a third of the post you've linked.  Interesting idea about the fact that knowledge management system would need constant improvement in the syntax for representing new approaches to knowledge.
+Apr 11 13:34:27 <zaeph>	i.e., for the sake of argument, creating a tag for delimiting irony in a note.
+Apr 11 13:36:00 <zaeph>	But I'm not too sold on the idea.  A point that is made in Ahrens (2017) is that restrictions facilitates creativity, which is a little counterintuitive.  It's the usual argument that you have to think inside the box before thinking outside of it.
+Apr 11 13:37:29 <zaeph>	The author also makes the point that you should have a minimal set of 'tags' (to reuse the GH's post terminology) and stick to it.  Links between ideas/notes are essential in the slip-box system, and that's pretty much the only thing you need.
+Apr 11 13:37:50 <zaeph>	So although I like the idea, I prefer the direction in which org-roam, the slip-box implementation I'm following, is going.
+Apr 11 13:45:33 <__monty__>	I invited ldlework to come talk about it fyi.
+Apr 11 13:46:09 <zaeph>	We're doomed!
+Apr 11 13:47:12 <__monty__>	He might not join ; )
+Apr 11 14:33:17 <zaeph>	Yay, filed my first issue on GitLab!
+Apr 11 15:15:27 <zaeph>	Okay, Inkscape rent:
+Apr 11 15:15:55 <zaeph>	Why can I only define the center of gravity when skewing and rotating, and not when I'm scaling?  Also, why does setting the point of gravity in skewing mode activates it for scaling mode?
+Apr 11 15:16:03 <zaeph>	(I obviously meant rant*.)
+Apr 11 15:16:05 <zaeph>	/rant
+Apr 11 15:30:42 <zaeph>	Man, ranger's filters are great.  Haven't used them much before, but they're proving particularly useful today.
+Apr 11 15:34:31 <__monty__>	The filter stack?
+Apr 11 15:34:41 <zaeph>	Whatever's accessed via zf.
+Apr 11 15:34:45 <__monty__>	It's cool and you should use it rather than the legacy filters.
+Apr 11 15:34:48 <__monty__>	Ugh, gross!
+Apr 11 15:34:55 <zaeph>	You're gross!
+Apr 11 15:34:57 *	zaeph sulks.
+Apr 11 15:35:09 <Thermoriax>	Filter cooties!
+Apr 11 16:00:44 <zaeph>	Doesn't seem that ldlework accepted your invitation.
+Apr 11 16:00:50 <zaeph>	Friendship ended with ldlework?
+Apr 11 16:01:01 <zaeph>	(There might be an s, I don't remember.)
+Apr 11 16:08:31 <__monty__>	I think he was still traumatized by his experiences here : )
+Apr 11 16:30:34 <zaeph>	Why is it always so confusing to know whether to make a directory name singular or plural. -.-
+Apr 11 16:30:47 <zaeph>	Like, 'refs' fill all well and good, it's abbreviated after all.
+Apr 11 16:30:53 <zaeph>	But 'indexes'?  Plain ugly!
+Apr 11 16:31:06 <zaeph>	'inds'?  Not even in your dreams!
+Apr 11 16:31:13 <__monty__>	Probably because it's indices, not indexes, english major : P
+Apr 11 16:31:14 <zaeph>	'index'?  Then it's not consistent.
+Apr 11 16:31:27 <zaeph>	Oh I'm an idiot.
+Apr 11 16:31:38 <zaeph>	I just got schooled. (๑°⌓°๑)
+Apr 11 16:32:18 <__monty__>	zaeph: Book is also nice. book/Pride & Prejudice.epub
+Apr 11 16:32:32 <__monty__>	I do plurals though.
+Apr 11 16:32:57 <zaeph>	It's like with tags: should they be singular or plurals?  My folders are so inconsistent because of this.
+Apr 11 16:33:06 <__monty__>	I'm pretty sure both plurals of index are valid btw. Just to be clear : )
+Apr 11 16:33:27 <zaeph>	(They are, but they are preferences depending on the acception.  Checking the OED right now.)
+Apr 11 16:33:45 <__monty__>	Thing with index is it seems to imply the directory *is* the index, rather than containing some.
+Apr 11 16:34:17 <zaeph>	But is an index of indexes not an index itself?
+Apr 11 16:34:42 <__monty__>	Clearly it's turtles all the way down -_-
+Apr 11 16:34:55 <zaeph>	Yuuup.
+Apr 11 16:37:55 <zaeph>	All right, just returned to my notes, and I got it wrong.  You only have *one* index for your slip-box, so no need to make a folder out of it.
+Apr 11 16:38:01 <__monty__>	Hmm, lets take a page out of Linnaeus', Apid*ae*.
+Apr 11 16:38:39 <zaeph>	I thought that 'subject notes' which are supposed to give an overview of a topic are still considered to be notes, which makes sense.  They're just higher-level, withut necessarily talking of hierarchy.
+Apr 11 16:40:01 <zaeph>	That's such a nitpick, I'd never noticed Apidae/Apidea.
+Apr 11 16:40:46 <zaeph>	Oh wait, I thought that was a thing, but that was just me mistyping it on my first Google search.
+Apr 11 16:41:37 <zaeph>	And I got convinced by an article on researchgate.net which makes the mistake. -.-  https://www.researchgate.net/publication/28201482_Galleria_mellonella_Linnaeus_1758_lepidoptera_galleriinaepyralidae_parasito_de_Apis_mellifera_iberica_Linnaeus_Hymenoptera_Apidea
+Apr 11 16:41:59 <zaeph>	inb4 you tell me 'that's how you spell it in $lang!'
+Apr 11 16:48:07 <GermainZ>	zaeph: that's how you spell it in $lang
+Apr 11 16:48:19 <zaeph>	GermainZ: Thanks for clarifying.
+Apr 11 16:48:24 <GermainZ>	zaeph: you're welcome
+Apr 11 16:49:27 <zaeph>	A random thought: You know me, I'm bad at committing to anything.  I'll style-over-substance myself into oblivion before I achieve anything significant in my life.  But:
+Apr 11 16:50:10 <GermainZ>	zaeph: committing is easy, it's a single command
+Apr 11 16:50:23 <zaeph>	I like working on my org-mode/Emacs setup.  And I've gotten to the point where, even though I'm afraid of stuff breaking, I think I have the knowledge to repair it if it happens, and that the project I rely upon is abandoned.
+Apr 11 16:50:40 <GermainZ>	zaeph: \o/
+Apr 11 16:50:45 <zaeph>	It's a comforting feeling to know that you've accrued enough experience to ensure that something works.  I guess you get a similar feeling when you learn how to repair stuff IRL.
+Apr 11 16:50:45 <GermainZ>	zaeph: which project?
+Apr 11 16:51:24 <zaeph>	GermainZ: I was mostly thinking of org-roam, a package for writing notes and relating them to one another with backrefs.
+Apr 11 16:51:48 <GermainZ>	sounds nice
+Apr 11 16:52:08 <zaeph>	But I didn't want to commit into it at the beginning of the week because those projects tend to come and go as fall leaves, as the Japanese would say.
+Apr 11 16:53:00 <zaeph>	GermainZ: Here's an article which explains the method if you want to browse: https://writingcooperative.com/zettelkasten-how-one-german-scholar-was-so-freakishly-productive-997e4e0ca125
+Apr 11 16:53:02 <RoboBobob>	zaeph: Zettelkasten — How One German Scholar Was So Freakishly Productive
+Apr 11 16:53:05 <zaeph>	(Yes, __monty__, it's the same article.)
+Apr 11 16:54:18 <GermainZ>	thanks!
+Apr 11 16:54:29 <zaeph>	Any time!
+Apr 11 16:56:14 <GermainZ>	so essentially tagged notes with cross-referencing?
+Apr 11 16:56:29 <zaeph>	Yup.  That's the beauty of it, it's very simple.
+Apr 11 16:56:50 <GermainZ>	I imagine they'd like Wikipedia :D
+Apr 11 16:56:59 <zaeph>	org-roam implements that idea with a sql database, which makes it fairly optimised as well.
+Apr 11 16:57:32 <GermainZ>	I like how simple it is
+Apr 11 16:57:46 <GermainZ>	You can implement it with notepad and a manual index if all else fails
+Apr 11 16:57:49 <zaeph>	Wikipedia is taken as an example in a book I'm reading on a topic, but it's a little different.  The goal of the slip-box (that's the translation of Zettelkasten) if to help you think by writing concise notes.  It shouldn't be exhaustive as Wikipedia is.
+Apr 11 16:58:04 <GermainZ>	but of course proper support makes it much easier
+Apr 11 16:58:07 <zaeph>	Yeah, definitely.  And if it's plain-text, it's not like it was going to break beyond recognition.
+Apr 11 16:58:24 <zaeph>	You could still see where each file points too without needing the software.
+Apr 11 16:58:43 <GermainZ>	zaeph: yeah, ideas/short connections rather than full explanations
+Apr 11 16:59:22 <zaeph>	Feel free to browse the wiki if you want to get an idea of how org-roam implements it: https://org-roam.readthedocs.io/en/master/
+Apr 11 16:59:22 <RoboBobob>	zaeph: Org-roam
+Apr 11 16:59:38 <GermainZ>	RoboBobob: thank you
+Apr 11 16:59:44 <GermainZ>	you too, human zaeph 
+Apr 11 16:59:54 <zaeph>	I live to serve.
+Apr 11 19:20:28 <zaeph>	My i7 sticker on my laptop is coming off. :<
+Apr 11 19:20:44 <zaeph>	Time to change.
+Apr 11 20:46:35 <__monty__>	I hate those stickers.
+Apr 11 20:46:51 <zaeph>	I removed it.
+Apr 11 20:47:01 <zaeph>	Lasted a lot longer than the one on my previous laptop, I'm impressed.
+Apr 11 20:47:07 <zaeph>	Wait no.
+Apr 11 20:47:24 <zaeph>	Man, my old laptop is already 10yo. '_'
+Apr 11 20:47:58 <__monty__>	I love how easy developer tools make it to edit CSS live.
+Apr 11 20:48:16 <__monty__>	You can make such sweeping changes to improve readability.
+Apr 11 20:48:35 <zaeph>	I just spam C-+ until my fingers go numb.
+Apr 11 20:52:28 <__monty__>	https://imgur.com/a/NjYv1aC
+Apr 11 20:52:29 <RoboBobob>	__monty__: 5 lines of CSS - Album on Imgur
+Apr 11 20:54:10 <zaeph>	Don't forgot optimizeLegibility
+Apr 11 20:54:16 <zaeph>	Or whatever it's called.
+Apr 11 20:54:51 <zaeph>	Looks like it's already on, judging by the ligatures.
+Apr 11 20:55:28 <zaeph>	I don't understand why the guy bolded the 'I will now'.
+Apr 11 20:56:03 <zaeph>	Bah, go figure.  He's Swedish, they're weird.
+Apr 11 20:57:45 <__monty__>	If optimizeLegibility is a firefox option or an addon I don't have it active.
+Apr 11 20:58:16 <__monty__>	Btw, apparently darkreader's a pretty awesome extension.
+Apr 11 20:58:31 <__monty__>	Haven't been able to try it because the version for safari is paid.
+Apr 11 20:58:36 <zaeph>	Does it enforce dark-mode on most websites?
+Apr 11 20:59:10 <zaeph>	I'm gonna try it out.
+Apr 11 20:59:15 <__monty__>	Yeah but it tries to be smart about it.
+Apr 11 20:59:55 <zaeph>	What's it with FOSS taxing Apple users?  Same thing with Anki.
+Apr 11 21:00:31 <__monty__>	100$/year to be an apple dev.
+Apr 11 21:02:45 <zaeph>	The doc's great for darkreader.
+Apr 11 21:03:16 <zaeph>	Gotta figure out how to make the loading page dark, though.
+Apr 11 21:03:31 <__monty__>	Mozilla pages block addons
+Apr 11 21:03:38 <__monty__>	So you'll have to configure firefox.
+Apr 11 21:03:43 <__monty__>	I always make that black.
+Apr 11 21:03:47 <zaeph>	Yeah, I figured.  Probably something in about:config to d that.
+Apr 11 21:04:00 <__monty__>	I actually have some great styling in my userStyle.css.
+Apr 11 21:04:11 <__monty__>	To make the entire firefox UI dark and minimal.
+Apr 11 21:04:23 <__monty__>	Even the popup with the link suggestions and stuff.
+Apr 11 21:04:57 <zaeph>	Aight, let me try my hand at modifying mine.
+Apr 11 21:08:36 <zaeph>	It works!
+Apr 11 21:08:44 <zaeph>	Here's a link for those interested: https://gist.github.com/gmolveau/a802ded1320a7591a289fb7abd0d6c45
+Apr 11 21:08:45 <RoboBobob>	zaeph: Firefox dark background / theme for new tab and loading screen · GitHub
+Apr 11 21:09:01 <zaeph>	And darkreader works great, thank you for the recommendation!
+Apr 11 21:19:36 <zaeph>	I'm looking for the CSS option to disable those pesky links at the bottom left of firefox when you're hovering on a link or loading a page.
+Apr 11 21:19:40 <zaeph>	They keep flashing white, it's distracting.
+Apr 11 21:19:53 <zaeph>	First two propositions from Google didn't work.  Going down the list.
+Apr 11 21:20:06 <__monty__>	I think I styled that too.
+Apr 11 21:20:53 <__monty__>	Hmm, don't have access to the file rn.
+Apr 11 21:20:59 <__monty__>	I could dig it up tomorrow.
+Apr 11 21:21:14 <zaeph>	Don't worry, I've got something that seems to be working.  Just gotta tweak it.
+Apr 11 21:21:55 <__monty__>	Seems covid got to John Conway.
+Apr 11 21:22:53 <zaeph>	Sad.  Didn't know him, but I see that he's done a number of videos with Numberphile.
+Apr 11 21:24:10 <__monty__>	Most famously known for Life, a.k.a. the Conway's Game of Life.
+Apr 11 21:27:22 <zaeph>	Oh yeah, I remember you linking something about it here.
+Apr 11 21:27:35 <zaeph>	The gif made me think of it.
+Apr 11 21:27:41 <zaeph>	Or was it an avatar generator?
+Apr 11 21:28:42 <__monty__>	I may have linked you a gif of a GoL configuration based on my github gravatar.
+Apr 11 21:37:05 <zaeph>	That was probably it.
+Apr 11 21:37:28 <zaeph>	Damn, I've almost got it, but the HTML5 transition are not willing to cooperate, even with `transition: none!important`.
+Apr 11 21:38:23 <zaeph>	I'll try the scattershot with all the different browser supported settings.
+Apr 11 21:48:24 <zaeph>	Got it! ✌️
+Apr 11 21:48:58 <__monty__>	Good job!
+Apr 11 21:50:01 <zaeph>	Here's the code for those who are interested on Firefox: https://paste.xinu.at/DRhq/css
+Apr 11 21:50:04 <RoboBobob>	zaeph: snippet-XOo8amE44V.txt
+Apr 11 21:50:43 <zaeph>	All I need now is to customize the right click menu and I'll have eradicated all the whiteys.
+Apr 11 21:50:56 <zaeph>	Surely that'll make for a better environment. :>
+Apr 11 21:50:59 <__monty__>	I probably have that.
+Apr 11 21:51:11 <zaeph>	*What* don't you have?
+Apr 11 21:51:37 <__monty__>	All my stuff organized and backed up?
+Apr 11 21:51:45 <zaeph>	:o
+Apr 11 21:51:48 <zaeph>	You madman!
+Apr 11 21:51:54 <__monty__>	Also, physical stuff in general.
+Apr 11 21:52:23 <zaeph>	I'm a hoarder.  I managed to quarantine that trait on the virtual for the most part, but yeah.
+Apr 11 21:52:39 <GermainZ>	zaeph: I just use Shadowfox
+Apr 11 21:52:46 <GermainZ>	and Dark Reader
+Apr 11 21:53:11 <GermainZ>	Shadowfox handles all the browser-stuff (toolbars, about:blank, about:addons, etc), Dark Reader the web pages
+Apr 11 21:53:29 <zaeph>	I have a Dark Theme enabled, but it isn't Shadowfox.
+Apr 11 21:53:34 <GermainZ>	zaeph: it also makes those pesky link previews dark
+Apr 11 21:53:37 <zaeph>	I'll try it out, thanks!
+Apr 11 21:54:05 <GermainZ>	Yeah I saw, but that one's really simple and won't cover all things
+Apr 11 21:54:13 <GermainZ>	I've tried a bunch before settling on Shadowfox
+Apr 11 21:54:21 <GermainZ>	https://github.com/SrKomodo/shadowfox-updater
+Apr 11 21:54:22 <RoboBobob>	GermainZ: GitHub - SrKomodo/shadowfox-updater: An auto-updater for ShadowFox
+Apr 11 21:54:32 <GermainZ>	RoboBobob: thank you
+Apr 11 21:54:34 <zaeph>	I'm getting the AUR package.
+Apr 11 21:55:49 <GermainZ>	Yeah it's what I did too
+Apr 11 21:58:04 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 11 21:58:04 2020
+
+**** BEGIN LOGGING AT Sat Apr 11 22:06:58 2020
+
+Apr 11 22:06:58 *	Now talking on #ranger
+Apr 11 22:06:58 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 11 22:06:58 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 11 22:11:34 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 11 22:11:34 2020
+
+**** BEGIN LOGGING AT Sat Apr 11 22:11:54 2020
+
+Apr 11 22:11:54 *	Now talking on #ranger
+Apr 11 22:11:54 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 11 22:11:54 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 11 22:11:59 <zaeph>	I had deepin-dark installed, probably form an early tryst at the beginning of my Arch journey on that laptop.
+Apr 11 22:12:09 <GermainZ>	and arc-kde for Qt, I think
+Apr 11 22:12:51 <GermainZ>	yup
+Apr 11 22:13:20 <zaeph>	Bah, I can't be arsed to select mine.  I'll trust your judgement and use yours.
+Apr 11 22:13:36 <GermainZ>	:D
+Apr 11 22:19:17 *	Disconnected (Connection reset by peer)
+**** ENDING LOGGING AT Sat Apr 11 22:19:17 2020
+
+**** BEGIN LOGGING AT Sat Apr 11 22:19:39 2020
+
+Apr 11 22:19:39 *	Now talking on #ranger
+Apr 11 22:19:39 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 11 22:19:39 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 11 22:20:05 <zaeph>	How do you even set the Qt theme?  I'm browsing, but I haven't found anything so far.
+Apr 11 22:24:35 <zaeph>	Ah, wait, there was a dep I didn't see during the installation.
+Apr 11 22:36:02 <zaeph>	Welp, I've created a monster: https://paste.xinu.at/4uJh/
+Apr 11 22:39:13 <__monty__>	Ooo, that's not great.
+Apr 11 22:42:38 <zaeph>	I'm working on it
+Apr 11 22:43:02 <zaeph>	Inkscape does look quite nice, though: https://paste.xinu.at/ahhf/
+Apr 11 22:45:40 <__monty__>	Anyone here with an inactive dropbox account got a mail about it being "safe and active?"
+Apr 11 22:46:04 <zaeph>	I haven't.
+Apr 11 22:46:06 <__monty__>	This would be a very ironic email if it was caused by a compromised account...
+Apr 11 22:48:01 <zaeph>	All right, fuck it, I'm giving up on Goldendict's dark theme.
+Apr 11 22:48:08 <zaeph>	The code is so antiquated it's not even funny.
+Apr 11 22:48:22 <zaeph>	And it keeps segfault on large entries anyway. -.-
+Apr 11 22:48:53 <__monty__>	MacOS does have very nice dictionary integration. You get a popup for the word at cursor when pressing ctrl-cmd-d.
+Apr 11 22:49:45 <__monty__>	nn, peoples
+Apr 11 22:49:46 <zaeph>	Yeah, I think you've already told me of this a while ago.  I use a lot of dictionaries, though, and I doubt I'd be able to have them all accessible as conveniently as it is with Goldendict.
+Apr 11 22:49:49 <zaeph>	B-bye!
+Apr 11 22:50:22 <__monty__>	I'm not so sure about that. MacOS' Dictionary app is pretty good.
+Apr 11 22:50:36 <zaeph>	For shits and giggles, the list: https://paste.xinu.at/FQ1/
+Apr 11 22:50:43 <zaeph>	(Sorry for the faded colours, it's all fucked.
+Apr 11 22:50:47 <__monty__>	And also integrated with Spotlight.
+Apr 11 22:51:13 <__monty__>	Oh, I was expecting and actually long list.
+Apr 11 22:51:36 <zaeph>	Well, it's pretty decent already.
+Apr 11 22:51:38 <__monty__>	You just have a ton of dictionaries about the same things.
+Apr 11 22:51:42 <zaeph>	Enough to cause the bane of Goldendict. :p
+Apr 11 22:51:58 <zaeph>	Yeah, it's for intersecting the definitions.
+Apr 11 22:52:11 <zaeph>	Sometimes one of them is going to give that extra nuance that you're missing in others.
+Apr 11 22:52:12 <__monty__>	There's no dictionary client for emacs?
+Apr 11 22:52:25 <zaeph>	There is.
+Apr 11 22:53:05 <zaeph>	But I don't think I'd have the OED with nice formatting in it.
+Apr 11 22:54:26 <__monty__>	It doesn't read the stardict format?
+Apr 11 22:54:51 <zaeph>	Some of them are actually another format... .bgl or something like that.
+Apr 11 22:55:05 <__monty__>	Ok, topic for tomorrow maybe.
+Apr 11 22:55:09 <__monty__>	Now I'm gone.
+Apr 11 22:55:17 <zaeph>	Yup, sorry for keeping you up!
+Apr 11 22:55:40 <zaeph>	monty: 1s too late, sorry for keeping you up!
+Apr 11 22:56:13 <zaeph>	Oh man, Calibre with dark-theme is nice!
+Apr 11 22:56:41 <zaeph>	Glad I took the time to set it up.  I just couldn't be arsed when I got on Linux because I didn't understand global environment. :o)
+Apr 11 23:31:01 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 11 23:31:01 2020
+
+**** BEGIN LOGGING AT Sat Apr 11 23:31:28 2020
+
+Apr 11 23:31:28 *	Now talking on #ranger
+Apr 11 23:31:28 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 11 23:31:28 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 11 23:51:31 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 11 23:51:31 2020
+
+**** BEGIN LOGGING AT Sat Apr 11 23:55:12 2020
+
+Apr 11 23:55:12 *	Now talking on #ranger
+Apr 11 23:55:12 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 11 23:55:12 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 12 02:27:36 <Toxmi>	I want to adapt this commands (fd based search instead of find): https://git.hadret.com/hadret/dotfiles/blob/8f8e93acc103cf69dde0efa9841dc25c6181432d/ranger/.config/ranger/commands.py
+Apr 12 02:27:36 <RoboBobob>	Toxmi: ranger/.config/ranger/commands.py · 8f8e93acc103cf69dde0efa9841dc25c6181432d · hadret / dotfiles · GitLab
+Apr 12 02:27:59 <Toxmi>	However, I want it to perform fd search on the directory that I call not always on Home.
+Apr 12 02:28:20 <Toxmi>	How can I access the current directory variable? I'm newbie in python.
+Apr 12 02:47:36 <vifon>	Toxmi: It's all in the comment at the top of commands.py
+Apr 12 02:47:49 <vifon>	In this case: self.fm.thisdir
+Apr 12 03:28:01 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 12 03:28:01 2020
+
+**** BEGIN LOGGING AT Sun Apr 12 07:36:39 2020
+
+Apr 12 07:36:39 *	Now talking on #ranger
+Apr 12 07:36:39 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 12 07:36:39 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 12 07:45:04 <zaeph>	__monty__: Veni, vidi, vinci.  https://paste.xinu.at/HS5/
+Apr 12 07:59:01 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 12 07:59:01 2020
+
+**** BEGIN LOGGING AT Sun Apr 12 08:35:56 2020
+
+Apr 12 08:35:56 *	Now talking on #ranger
+Apr 12 08:35:56 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 12 08:35:56 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 12 08:40:40 <zaeph>	Oh, I didn't know `--simplify-by-decoration` for `git log`!  Definitely makes it easier to follow what's going on in a flow setup.
+Apr 12 08:41:00 <zaeph>	All those merges from master and features branches were getting confusing as hell.
+Apr 12 08:42:25 <zaeph>	From this: https://paste.xinu.at/6go0e/
+Apr 12 08:42:30 <zaeph>	To this: https://paste.xinu.at/3df7/
+Apr 12 09:38:18 <SammysHP>	urgh, I dreamed that vim has become commercial and we have to pay for every mode other than normal and insert. also movements other than hjkl were pay per use
+Apr 12 09:39:23 <zaeph>	What do you mean `a dream`?  That's how it actually is.
+Apr 12 09:39:28 <zaeph>	It sucks but we got used to it now.
+Apr 12 09:39:43 <SammysHP>	oh, maybe I have a cracked version
+Apr 12 09:39:48 <zaeph>	:O
+Apr 12 09:40:07 <zaeph>	It's not like 100$/year was expensive.
+Apr 12 09:40:16 <zaeph>	I think Emacs is 200$/year.
+Apr 12 09:40:25 <zaeph>	And that's just for the base packages.
+Apr 12 09:52:37 <rnmhdn>	SammysHP: that would be the worst thing in my life!
+Apr 12 10:30:47 <RoboBobob>	08:45 <zaeph> __monty__: Veni, vidi, vinci.  https://paste.xinu.at/HS5/
+Apr 12 10:31:52 <__monty__>	zaeph: Nice, the blue is still garish though.
+Apr 12 10:38:57 <zaeph>	It is, but I can modify in the CSS.
+Apr 12 10:39:09 <zaeph>	It's not local-dictionary config.
+Apr 12 10:39:23 <zaeph>	Ain't no darkreader for goldendict yet.
+Apr 12 10:40:11 <__monty__>	Glad to see mentioning a single firefox extension didn't completely derail you btw.
+Apr 12 10:40:12 <__monty__>	; p
+Apr 12 10:40:31 <zaeph>	Eh, I'm already back on tracks with the slip-box.
+Apr 12 10:40:37 <zaeph>	Gotta finish that book today.
+Apr 12 10:40:40 *	__monty__ nerdsniper extraordinaire!
+Apr 12 10:41:02 <__monty__>	Yes, you're back on track to my earlier derailment ; p
+Apr 12 10:41:53 <zaeph>	Am I being manipulated?
+Apr 12 10:42:09 <__monty__>	Not by me.
+Apr 12 10:42:16 <__monty__>	Can't speak about my irc alter egos though.
+Apr 12 10:42:25 <__monty__>	s/about/for
+Apr 12 10:43:03 <zaeph>	And vifon introduced me to an rg package for Emacs, and I've been playing with it too. :(
+Apr 12 10:43:08 <__monty__>	So now neither of the Bobs are doing substitution?
+Apr 12 10:43:12 <zaeph>	Such a scatterbrain.
+Apr 12 10:43:16 <__monty__>	Ripgrep?
+Apr 12 10:43:21 <zaeph>	Yup!
+Apr 12 10:43:35 <zaeph>	So far, I'd just been opening a shell in Emacs cwd, and running rg from there.
+Apr 12 10:43:45 <zaeph>	But with rg right into Emacs, I can do cool stuff like replacements!
+Apr 12 10:43:54 <__monty__>	What a chump!
+Apr 12 10:44:03 <__monty__>	: >
+Apr 12 10:44:41 <zaeph>	Also got my PR approved for the Zotero addon. \o/
+Apr 12 10:52:28 <__monty__>	Nice!
+Apr 12 10:53:59 <zaeph>	It's such a useless PR, too.
+Apr 12 10:54:31 <zaeph>	I bumped the number of custom key bindings for citing in alternative styles than your main one from 2 to 9.
+Apr 12 10:54:43 <zaeph>	And, wouldn't you believe it, I didn't even write a function to generate everything on a range.
+Apr 12 10:54:49 <zaeph>	I just copied the stuff 7 times. ¯\_(ツ)_/¯
+Apr 12 11:12:47 <GermainZ>	zaeph: I installed kvantum-theme-arc (which has the engine as a dep) then used kvantummanager to set the theme
+Apr 12 11:13:31 <zaeph>	GermainZ: That's what I ended up doing, but I'd forgotten to set the env for qt5ct. :)
+Apr 12 11:13:33 <GermainZ>	zaeph: I would not recommend trying to theme Writer&co's *content*
+Apr 12 11:13:49 <zaeph>	(Which it dutifully reminded me of, but which I shamlessly ignored before going hurr durr.)
+Apr 12 11:13:59 <GermainZ>	this is how my LO Writer looks like: https://0x0.st/iS5_.png
+Apr 12 11:14:12 <GermainZ>	The content itself is not themed because that would just break all kinds of stuff and not be worth it
+Apr 12 11:14:21 <GermainZ>	I wish something like Dark Reader existed, but not AFAIK
+Apr 12 11:14:33 <zaeph>	I avoid LO like the plague.
+Apr 12 11:14:38 <zaeph>	I've never managed to fix the scrolling.
+Apr 12 11:14:45 <GermainZ>	What do you use instead?
+Apr 12 11:15:00 <zaeph>	The time-waster special package: AUCTeX.
+Apr 12 11:15:09 <zaeph>	Even for trivial stuff.
+Apr 12 11:15:22 <GermainZ>	I usually don't like office programs (not LO specifically) but no specific complaints about the scrolling
+Apr 12 11:15:24 <zaeph>	I've written my own class which does pretty much everything I want.
+Apr 12 11:15:39 <zaeph>	It's not necessarily the scrolling inasmuch as it is the zooming.
+Apr 12 11:15:47 <zaeph>	I haven't found a way to control the step.
+Apr 12 11:16:08 <zaeph>	So it just hyperjumps at 1000% without me being able to control it.
+Apr 12 11:16:10 <GermainZ>	zaeph: sure, but that's for writing documents. What about when you receive one that's not in PDF format?
+Apr 12 11:16:34 <zaeph>	Oh yeah, forgot that usecase.  To be frank, even though I'm a teacher, I rarely deal with other's documents.
+Apr 12 11:16:40 <GermainZ>	short of exporting to PDF (which defeats the purpose when editing is required), there isn't much to do
+Apr 12 11:16:42 <GermainZ>	I see
+Apr 12 11:16:45 <zaeph>	Even my students right now are sending their texts in HTML via email.
+Apr 12 11:17:11 <GermainZ>	zaeph: my tip is to use ctrl+± instead of mouse zoom
+Apr 12 11:17:42 <zaeph>	I think it's not default.
+Apr 12 11:17:57 <zaeph>	Let me check the key bindings real quick.
+Apr 12 11:18:36 <GermainZ>	Oh you're right
+Apr 12 11:18:53 <zaeph>	What I usually do is just move the mouse to the slider at the bottom right.
+Apr 12 11:18:56 <GermainZ>	I misremember, I just use the bottom right zooming to avoid the issue
+Apr 12 11:18:57 <GermainZ>	Yeah
+Apr 12 11:19:09 <GermainZ>	Now that I've tried… I remember it sucks
+Apr 12 11:19:22 <GermainZ>	I'm sure there's a way to tweak the zooming factor but CBA
+Apr 12 11:21:07 <__monty__>	I just import into google docs if a pandoc conversion isn't an option.
+Apr 12 11:21:22 <zaeph>	Change the keybinding in 'Customize', doesn't work.
+Apr 12 11:21:59 <__monty__>	And can't you edit pdfs with the right software?
+Apr 12 11:22:02 <GermainZ>	__monty__: sometimes I do that, but I usually prefer an offline solution
+Apr 12 11:22:24 <zaeph>	__monty__: I do comments on pdfs via pdf-tools in Emacs.  It works with my supervisors, but my students can never figure out how it works.
+Apr 12 11:22:47 <GermainZ>	__monty__: editing PDFs sucks unless it's a form, basically. Sucks much more than the alternative. And if you're exporting from Word using LO… the PDF won't be perfect anyway (and it's quasi-impossible to fix) if it's a complex document
+Apr 12 11:22:49 <__monty__>	I understand. It's just such a rare occurence for me that I can't be bothered to keep updating LO's multi-GB behemoth.
+Apr 12 11:22:51 <GermainZ>	so not a good solution
+Apr 12 11:23:26 <GermainZ>	you'd need to do the editing in LO before exporting, and once you've done that, why bother with exporting?
+Apr 12 11:24:28 <zaeph>	Comments and highlights work well, I find.
+Apr 12 11:24:37 <GermainZ>	if that's all you need to do, sure
+Apr 12 11:24:41 <GermainZ>	I don't consider that editing
+Apr 12 11:24:43 <zaeph>	I think both are well supported in Firefox's PDF handler, too.
+Apr 12 11:24:57 <GermainZ>	that's reviewing
+Apr 12 11:25:00 <zaeph>	Yeah, you're right, but PDF is not really suited for actual editing anyway.
+Apr 12 11:25:38 <GermainZ>	Yup that was my point
+Apr 12 11:25:47 <zaeph>	Sowwy.
+Apr 12 11:25:53 <GermainZ>	:D
+Apr 12 11:26:17 <zaeph>	I was busy losing my eyes to LO writer.
+Apr 12 11:26:24 <GermainZ>	heh
+Apr 12 11:26:42 <GermainZ>	it has built-in dark themes for content
+Apr 12 11:26:51 <GermainZ>	but if someone colors things the wrong way it's gonna suck
+Apr 12 11:27:14 <zaeph>	Oh come on, setting to C-= to '200%' actually works.
+Apr 12 11:27:18 <zaeph>	So it's the 'Zoom in' that is borked.
+Apr 12 11:27:28 <zaeph>	Bo'shit.
+Apr 12 11:27:42 <GermainZ>	Yeah it's just way too sensitive 
+Apr 12 11:27:52 <zaeph>	Just like my ex.
+Apr 12 11:27:54 <GermainZ>	:D
+Apr 12 11:28:42 <zaeph>	I set M-1 -2 and -3 to 100% 150% 200%.
+Apr 12 11:28:54 <zaeph>	That covers 95% of the stuff I want to do anyway.
+Apr 12 11:29:08 <zaeph>	Make that 99%.
+Apr 12 11:29:14 <zaeph>	It's actually pretty great, thanks for making me look it up!
+Apr 12 11:29:28 <zaeph>	Won't have to pest the next time a colleague sends me a document to review.
+Apr 12 11:30:19 <GermainZ>	Woo!
+Apr 12 11:31:48 <zaeph>	Also: you've been dethroned.  https://einval.eu/pisg/ranger
+Apr 12 11:31:49 <RoboBobob>	zaeph: #ranger @ freenode stats by vifon
+Apr 12 11:32:28 <GermainZ>	in which category?
+Apr 12 11:32:37 <zaeph>	'Most active nicks'
+Apr 12 11:32:44 <zaeph>	Just zoomed past you. ¯\_(ツ)_/¯
+Apr 12 11:32:59 <GermainZ>	Oh I see
+Apr 12 11:33:12 <GermainZ>	I still hold the important titles tho
+Apr 12 11:33:30 *	GermainZ slaps hut
+Apr 12 11:33:32 <zaeph>	True.
+Apr 12 11:33:37 <zaeph>	I'm way too polite to get into those.
+Apr 12 11:33:46 <zaeph>	I'll prolly get into the prolixity category at some point.
+Apr 12 11:34:02 <zaeph>	.cookie hut
+Apr 12 11:34:03 *	RoboBob makes hut a delectable small Oatmeal Raisin cookie and serves it with a bowl of ice cream!
+Apr 12 11:34:56 <__monty__>	Gunning for *me*, zaeph?! How dare you!
+Apr 12 11:35:01 <__monty__>	 /kickban zaeph 
+Apr 12 11:35:06 <GermainZ>	__monty__: let's beat him into submission
+Apr 12 11:35:13 <__monty__>	.slap zaeph 
+Apr 12 11:35:13 *	RoboBob grabs a mau5head and flings it in zaeph's face.
+Apr 12 11:35:14 *	GermainZ beats zaeph with an old shoe
+Apr 12 11:35:28 <__monty__>	That'll teach him!
+Apr 12 11:35:33 <GermainZ>	haha!
+Apr 12 11:35:46 <zaeph>	#censorship
+Apr 12 11:35:51 <GermainZ>	Silence, fool!
+Apr 12 11:36:16 <zaeph>	I'd bring you to the Hague if we weren't in lockdown.
+Apr 12 11:36:39 <GermainZ>	The Hague wouldn't bother with you, dear
+Apr 12 11:36:45 <__monty__>	Now I need to use some fancy words to cement my position.
+Apr 12 11:36:47 <GermainZ>	Lockdown or no lockdown
+Apr 12 11:36:51 <__monty__>	zaeph: You are being ostracized!
+Apr 12 11:37:05 <zaeph>	__monty__: Please dont excommunicate me!
+Apr 12 11:37:18 <GermainZ>	zaeph: I will give you pneumonoultramicroscopicsilicovolcanoconiosis if you keep talking!
+Apr 12 11:37:21 <__monty__>	Hear ye, hear ye, zaeph's an ostrich!
+Apr 12 11:37:40 <zaeph>	You African swallow.
+Apr 12 11:37:57 <zaeph>	I'm also pretty sure your mother was a hamster and your father smelled of elderberries.
+Apr 12 11:38:01 <__monty__>	GermainZ: 😱 *gasp*
+Apr 12 11:38:16 <__monty__>	You're triggering my hipopotomonstrosesquipadaliophobia!
+Apr 12 11:38:38 <zaeph>	Is there a fear of long words. /google
+Apr 12 11:38:48 <zaeph>	Oh, that's what you used.
+Apr 12 11:38:49 <__monty__>	I speeeet on yuu!
+Apr 12 11:39:20 <zaeph>	Next you'll go fetcher la vache.
+Apr 12 11:39:28 <GermainZ>	:D
+Apr 12 11:39:31 <GermainZ>	your face is la vache
+Apr 12 11:41:38 <zaeph>	I'm vegan, so it's fine! (✿ᵔ⌣ᵔ)
+Apr 12 11:42:24 <__monty__>	Wow, don't think I don't know that's a "notice me senpai" kaomoji -_-
+Apr 12 11:42:47 <zaeph>	It most definitely is.
+Apr 12 11:43:15 <zaeph>	I've called it 'flower-boy' in my snippy (i.e. the program I use for snippets) 'cause it looks damn cute.
+Apr 12 11:43:56 <zaeph>	There, fixed the missing space: (✿ ᵔ⌣ᵔ).
+Apr 12 11:45:28 <zaeph>	To quote a fellow pisstaker, 'it's like one of my Japanese anime!'
+Apr 12 11:45:43 <__monty__>	Thanks, I only knew because I looked it up yesterday, need it for reasons.
+Apr 12 11:45:46 <zaeph>	('[...] animes [sic]', actually.)
+Apr 12 11:45:58 <__monty__>	Like this one actually: o(>< )o
+Apr 12 11:46:09 <zaeph>	Is it pesting?
+Apr 12 11:46:23 <zaeph>	I like sad-bear too: ʕ ´•̥̥̥ ᴥ•̥̥̥`ʔ
+Apr 12 11:46:30 <GermainZ>	it does bear resemblance to your face
+Apr 12 11:46:34 <zaeph>	Angry is lovely too: ʕ •`ᴥ´•ʔ
+Apr 12 11:46:39 <zaeph>	GermainZ: Get out.
+Apr 12 11:46:53 <__monty__>	Pesting?
+Apr 12 11:47:07 <zaeph>	Oh, whoops, doesn't exist in English.
+Apr 12 11:47:14 <zaeph>	Pestering*
+Apr 12 11:47:25 <zaeph>	Wait, no.
+Apr 12 11:47:30 <zaeph>	That's a transitive version of it.
+Apr 12 11:47:44 <GermainZ>	zaeph: :D
+Apr 12 11:47:57 <zaeph>	Let's just say 'is it not happy about its situation?
+Apr 12 11:48:02 <GermainZ>	zaeph: which language were you thinking about?
+Apr 12 11:48:06 <GermainZ>	zaeph: whining?
+Apr 12 11:48:12 <__monty__>	Yeah, frustration.
+Apr 12 11:48:13 <zaeph>	Nah, not quite.
+Apr 12 11:48:19 <GermainZ>	complaining?
+Apr 12 11:48:30 <GermainZ>	being frustrated as __monty__ said?
+Apr 12 11:48:32 <__monty__>	At least that's what I interpret it as. Shaking its little fists.
+Apr 12 11:48:35 <zaeph>	'pester' in French, and yeah, showing frustration.
+Apr 12 11:48:57 <GermainZ>	zaeph: but pester in French also implies speaking about it, so I'd say whining/complaining works
+Apr 12 11:49:12 <zaeph>	True!
+Apr 12 11:49:28 <zaeph>	Stop schooling me, Skyler, I'm the ones who teachs!
+Apr 12 11:49:40 *	GermainZ slaps zaeph around with __monty__'s earlobe
+Apr 12 11:49:43 <__monty__>	Oh, btw, zaeph, copy-pasting is totally expected mode of operationn for Go projects so ¯\\_(ツ)_/¯
+Apr 12 11:49:49 <zaeph>	(teaches*)
+Apr 12 11:50:04 <__monty__>	Aww, no escape necessary /sadface
+Apr 12 11:50:21 <zaeph>	Is that a jab I'm not getting?
+Apr 12 11:50:40 <__monty__>	Probably two or more : p
+Apr 12 11:51:11 <zaeph>	Is that a OR or a XOR?
+Apr 12 11:51:35 <zaeph>	🤔🤔🤔
+Apr 12 11:52:06 <GermainZ>	depends on how silly you are
+Apr 12 11:52:34 <__monty__>	En garde! -)--- >< <-zaeph
+Apr 12 11:53:13 <zaeph>	Now it's mine: o(>< )o
+Apr 12 11:53:43 <__monty__>	zaeph: The conditions don't overlap so there wouldn't be a logical difference between OR and XOR.
+Apr 12 11:54:10 <zaeph>	I know, I realised how I'd erred.  I hope you'll find the strength in you to forgive me.
+Apr 12 11:54:42 *	GermainZ stabs →—— __monty__
+Apr 12 11:54:48 <__monty__>	I'm weak, zaeph.
+Apr 12 11:55:02 <GermainZ>	It's super effective!
+Apr 12 11:55:05 <__monty__>	: O Stabbe in the back! †
+Apr 12 11:55:16 <zaeph>	Tu quoque, GermainZ!
+Apr 12 11:55:29 <GermainZ>	I wonder if I still have vifon's script
+Apr 12 11:55:43 <zaeph>	Very specific.
+Apr 12 11:55:51 <GermainZ>	Shut up, silly peasant!
+Apr 12 11:56:04 <GermainZ>	No I can't find it
+Apr 12 11:56:20 <__monty__>	.usa Show some patriotism!
+Apr 12 11:56:20 <RoboBob>	(__monty__) Show some patriotism!
+Apr 12 11:56:20 <zaeph>	Don't give me ideas about writing my own macros for weechat.
+Apr 12 11:56:43 <GermainZ>	aha
+Apr 12 11:56:45 <GermainZ>	I found it
+Apr 12 11:57:33 <GermainZ>	R A N G E R   S U X
+Apr 12 11:57:35 <GermainZ>	A A
+Apr 12 11:57:37 <GermainZ>	N   N
+Apr 12 11:57:39 <GermainZ>	G     G
+Apr 12 11:57:41 <GermainZ>	E       E
+Apr 12 11:57:42 <__monty__>	nah
+Apr 12 11:57:43 <GermainZ>	R         R
+Apr 12 11:57:44 <zaeph>	DENIED
+Apr 12 11:57:45 <GermainZ>	             
+Apr 12 11:57:47 <GermainZ>	S             S
+Apr 12 11:57:49 <GermainZ>	U               U
+Apr 12 11:57:52 <GermainZ>	X                 X
+Apr 12 11:57:54 <GermainZ>	:D
+Apr 12 11:58:04 <GermainZ>	silly IRC rate limits
+Apr 12 11:58:13 <GermainZ>	anyway I see my combo and that's all that matters
+Apr 12 11:58:26 <GermainZ>	https://0x0.st/iSRP.png
+Apr 12 11:58:52 <GermainZ>	H U T
+Apr 12 11:58:54 <GermainZ>	U U
+Apr 12 11:58:57 <GermainZ>	T   T
+Apr 12 11:58:58 <GermainZ>	S U X
+Apr 12 11:59:00 <GermainZ>	U U
+Apr 12 11:59:02 <GermainZ>	X   X
+Apr 12 11:59:04 <GermainZ>	huehuehue
+Apr 12 11:59:08 <GermainZ>	hut: <3
+Apr 12 11:59:09 <zaeph>	You troll.
+Apr 12 11:59:54 <vifon>	GermainZ: I see you remembered to quote. :)
+Apr 12 12:00:12 <vifon>	(it uses the shell-like argument splitting)
+Apr 12 12:00:38 <zaeph>	With all that brainpower of ours, we could have found a vaccine for the 'Rona.
+Apr 12 12:01:06 <zaeph>	But yet here we are.  Writing useless script on an antiquated communication platform.
+Apr 12 12:01:11 <zaeph>	(scripts*)
+Apr 12 12:01:21 <vifon>	zaeph: https://i.kym-cdn.com/photos/images/original/000/906/336/b09.png
+Apr 12 12:01:47 <zaeph>	vifon: You don't *want* to fix the 'Rona?
+Apr 12 12:01:50 <zaeph>	Rude.
+Apr 12 12:02:31 <vifon>	Why contain it? Let it spill over into the schools and churches, let the bodies pile up in the streets. In the end, they'll beg us to save them. 
+Apr 12 12:03:29 <zaeph>	Programmers aren't renowned for their outstanding immune systems.
+Apr 12 12:03:35 <GermainZ>	vifon: yes, but quoting helps combo breakers
+Apr 12 12:03:44 <vifon>	Just in case: https://www.youtube.com/watch?v=feY5KhdXsUQ
+Apr 12 12:03:45 <RoboBobob>	vifon: "Deus Ex" HD Intro (1080p) - YouTube
+Apr 12 12:03:47 <RoboBob>	(vifon) "Deus Ex" HD Intro (1080p) - length 6m 40s - 654 likes, 5 dislikes (99.2%) - 55,245 views - HampsterStyleLives on 2012.06.24
+Apr 12 12:03:56 <vifon>	Thank you, Bobs!
+Apr 12 12:04:20 <GermainZ>	Why are there two now?
+Apr 12 12:04:31 <RoboBob>	Np, vifon.
+Apr 12 12:04:32 <vifon>	Love. <3
+Apr 12 12:04:36 <zaeph>	One is state-sponsored.
+Apr 12 12:05:04 <RoboBobob>	vifon: Peace, bro.
+Apr 12 12:05:33 <GermainZ>	vifon: voice acting isn't great eh?
+Apr 12 12:05:35 <zaeph>	Can't we have a duel to the death?
+Apr 12 12:05:43 <vifon>	GermainZ: So is your face.
+Apr 12 12:05:47 <zaeph>	GermainZ: It's… Deus Ex voiceacting.  It's it's own genre.
+Apr 12 12:05:48 <GermainZ>	vifon: and the graphics have no aged well. That zooming-into-his-eye looks lame
+Apr 12 12:05:53 <zaeph>	(its*)
+Apr 12 12:06:00 <GermainZ>	vifon: I've never played Deus Ex, but it's on my list
+Apr 12 12:06:01 <vifon>	zaeph: This.
+Apr 12 12:06:04 <zaeph>	GermainZ: You look lame!
+Apr 12 12:06:10 <GermainZ>	vifon: gameplay's great, no?
+Apr 12 12:06:11 <vifon>	GermainZ: I played it a year ago.  It's still fresh.
+Apr 12 12:06:19 <vifon>	One of the best games I played.
+Apr 12 12:06:39 <vifon>	It was my first time finishing Deus Ex, no nostalgia involved.
+Apr 12 12:06:42 <GermainZ>	vifon: I mean I played the original Max Payne a few years ago, so I don't mind the antiquated graphics. It's nice to see the difference tho
+Apr 12 12:06:56 <zaeph>	I've just rewatched the entire Legacy of Kain last week.
+Apr 12 12:07:03 *	zaeph do the chef's kiss.
+Apr 12 12:07:04 <GermainZ>	zaeph: no one asked you, lame-face
+Apr 12 12:07:10 <zaeph>	Rude.
+Apr 12 12:07:13 <zaeph>	ʕ ´•̥̥̥ ᴥ•̥̥̥`ʔ
+Apr 12 12:07:35 <GermainZ>	vifon: how is the Deus Ex voice acting its own genre?
+Apr 12 12:07:43 <zaeph>	Because it's terri-good.
+Apr 12 12:08:15 <vifon>	The main character has so many roasts for people he encounters he could put you to shame, GermainZ.
+Apr 12 12:08:24 <zaeph>	Case in point: https://www.youtube.com/watch?v=kihGm4KfY7k
+Apr 12 12:08:24 <RoboBobob>	zaeph: Great Moments in Videogame Voice Acting: Deus Ex - YouTube
+Apr 12 12:08:25 <RoboBob>	(zaeph) Great Moments in Videogame Voice Acting: Deus Ex - length 1m 49s - 1,513 likes, 40 dislikes (97.4%) - 241,572 views - eegradotcom on 2007.11.28
+Apr 12 12:08:25 <GermainZ>	vifon: did you try https://store.steampowered.com/app/397550/Deus_Ex_Revision/ ?
+Apr 12 12:08:26 <RoboBobob>	GermainZ: Deus Ex: Revision on Steam
+Apr 12 12:08:27 <RoboBob>	(GermainZ) Deus Ex: Revision - You must have the Deus Ex GOTY installed in the same library/drive as... - Action, Adventure, RPG - released 13 Oct, 2015 - free
+Apr 12 12:08:34 <vifon>	Oh for fuck's sake.
+Apr 12 12:08:52 <zaeph>	Now that's a bobspam.
+Apr 12 12:09:23 <vifon>	GMDX is better for first playthrough.
+Apr 12 12:09:40 <vifon>	Revision changes too much.
+Apr 12 12:09:43 <vifon>	Even some levels.
+Apr 12 12:09:56 <GermainZ>	zaeph: heh
+Apr 12 12:10:09 <GermainZ>	It's like crowdfunded voice acting
+Apr 12 12:10:20 <GermainZ>	crowdsourced*
+Apr 12 12:10:20 <zaeph>	…but it's 1998.
+Apr 12 12:10:35 <zaeph>	Nevermind, 2000.
+Apr 12 12:10:38 <GermainZ>	vifon: GMDX?
+Apr 12 12:10:45 <vifon>	That's what I said, yes.
+Apr 12 12:10:47 <GermainZ>	zaeph: other games had better voice acting
+Apr 12 12:11:09 <GermainZ>	vifon: oh I see, it's literally called GMDX
+Apr 12 12:11:09 <vifon>	http://gmdxmod.com/
+Apr 12 12:11:12 <GermainZ>	Yes thank you
+Apr 12 12:11:13 <zaeph>	I'm a huge MGS fan, don't worry.
+Apr 12 12:11:32 <GermainZ>	What's the relationship with MGS? I've never played that either
+Apr 12 12:11:32 <zaeph>	I even know the scene in the toilets with Meryl in Japanese.
+Apr 12 12:11:40 <zaeph>	Good voice acting.
+Apr 12 12:11:47 <zaeph>	Although slightly over the top.
+Apr 12 12:11:47 <GermainZ>	vifon: so you played GMDX?
+Apr 12 12:11:55 <vifon>	Yes.
+Apr 12 12:11:58 <GermainZ>	zaeph: over the top can be nice, just like cheesy acting
+Apr 12 12:12:00 <zaeph>	You want good voice acting: https://www.youtube.com/watch?v=7LK8Xawk7Y4
+Apr 12 12:12:01 <RoboBob>	(zaeph) 【MMD】🎃 Corruption of the Pillars 🎃【Soul Reaver 2】 - length 6m 52s - 5,489 likes, 48 dislikes (99.1%) - 123,218 views - ureshiiiiii on 2019.10.31
+Apr 12 12:12:03 <GermainZ>	vifon: thanks
+Apr 12 12:12:15 <zaeph>	2002.
+Apr 12 12:12:22 <vifon>	GermainZ: It was a great game in 2019.  It should still be great in 2020.
+Apr 12 12:12:23 <zaeph>	Nevermind again, 2001.
+Apr 12 12:12:35 <GermainZ>	zaeph: that's pretty damn good
+Apr 12 12:12:43 <vifon>	Just force through the first mission.
+Apr 12 12:12:44 <zaeph>	That's Legacy of Kain for you.
+Apr 12 12:12:57 <GermainZ>	zaeph: great graphics too
+Apr 12 12:13:04 <zaeph>	Graphics aren't original.
+Apr 12 12:13:07 <vifon>	Legacy of Kain is like a theater.
+Apr 12 12:13:16 <GermainZ>	zaeph: oh
+Apr 12 12:13:17 <zaeph>	It *is* theatre.
+Apr 12 12:13:22 <zaeph>	But it's the same animations.
+Apr 12 12:13:22 <GermainZ>	I've been lied to
+Apr 12 12:13:27 <vifon>	It never should have been a game.
+Apr 12 12:13:29 <zaeph>	Just like Raziel, eyooo!
+Apr 12 12:13:41 <zaeph>	Here's the original: https://www.youtube.com/watch?v=t7SQ2Wu6PvI
+Apr 12 12:13:41 <RoboBob>	(zaeph) Soul Reaver 2 - Raziel finds the Pillars - length 6m 37s - 985 likes, 10 dislikes (99.0%) - 109,578 views - Joudas on 2006.08.21
+Apr 12 12:13:57 <GermainZ>	Isn't a movie coming out about Morbius?
+Apr 12 12:14:02 <GermainZ>	Is that the Legacy of Kain character?
+Apr 12 12:14:08 <vifon>	It is.
+Apr 12 12:14:10 <zaeph>	Moebius?
+Apr 12 12:14:14 <GermainZ>	Yes that
+Apr 12 12:14:19 <zaeph>	I wasn't aware.
+Apr 12 12:14:29 <__monty__>	Aw, it's not the comic artist? : (
+Apr 12 12:14:46 <GermainZ>	No it's Morbius
+Apr 12 12:14:54 <GermainZ>	https://en.wikipedia.org/wiki/Morbius_(film)
+Apr 12 12:14:59 <GermainZ>	And it's about the Marvel character
+Apr 12 12:15:09 <vifon>	https://legacyofkain.fandom.com/wiki/Moebius
+Apr 12 12:15:43 <GermainZ>	I got confused because they're both related to vampires
+Apr 12 12:15:51 <vifon>	zaeph: It would be such a great tragic theater play.
+Apr 12 12:16:16 <zaeph>	vifon: There's actually someone who wrote an article on that, but I think it was for a BA, so didn't hold much water.
+Apr 12 12:16:43 <zaeph>	Here it is: https://paste.xinu.at/juAV03/
+Apr 12 12:16:45 <GermainZ>	BA?
+Apr 12 12:16:51 <vifon>	The second Soul Reaver even has the "Dark Chronicle" menu option that reads literally like a play.
+Apr 12 12:16:52 <zaeph>	Bachelor of Art.
+Apr 12 12:17:03 <zaeph>	So, not a MA thesis or PhD.
+Apr 12 12:17:22 <zaeph>	I've made an EPUB of all the dialogues from nosgoth.net.
+Apr 12 12:17:23 <GermainZ>	I see
+Apr 12 12:17:48 <vifon>	I think I still have them somewhere.
+Apr 12 12:17:52 <__monty__>	zaeph: Oh, I thought it was worthless because of the "Arts" part.
+Apr 12 12:17:57 <zaeph>	It's here if you don't have them: https://paste.xinu.at/a56RZ/
+Apr 12 12:17:58 <__monty__>	: P
+Apr 12 12:18:04 <zaeph>	__monty__: You div.
+Apr 12 12:18:33 <vifon>	https://vifon.einval.eu/upload/2020-04-12-131840-a098dd.png
+Apr 12 12:18:36 <vifon>	That's mine.
+Apr 12 12:18:45 <zaeph>	It's pretty great: https://paste.xinu.at/6dd/
+Apr 12 12:19:31 <GermainZ>	just like your face
+Apr 12 12:19:32 <vifon>	zaeph: I love the metaphor of the coin flip recurring through the whole game.
+Apr 12 12:19:39 <zaeph>	vifon: <3 <3 <3
+Apr 12 12:19:52 <zaeph>	I've *finally* grokked the timelines of the game, too.
+Apr 12 12:20:06 <vifon>	zaeph: So this epub is your creation?
+Apr 12 12:20:14 <zaeph>	It is!
+Apr 12 12:20:15 <vifon>	You've placed these images and so on?
+Apr 12 12:20:18 <GermainZ>	ha, nerd!
+Apr 12 12:20:22 <GermainZ>	good job toh
+Apr 12 12:20:22 <vifon>	Nice!
+Apr 12 12:20:24 <GermainZ>	tho*
+Apr 12 12:20:26 <GermainZ>	it really looks nice
+Apr 12 12:20:27 <zaeph>	Nah, I just ripped everything from nosgoth.net.
+Apr 12 12:20:33 <zaeph>	But it did require some tweaking.
+Apr 12 12:20:43 <vifon>	Still nice.
+Apr 12 12:20:54 <zaeph>	All I did was write a crawler to get everything, and format it accordingly.
+Apr 12 12:21:05 <vifon>	I've found it recently in my main Git Annex repo.
+Apr 12 12:21:24 <zaeph>	It's a labour of love. ~🎶
+Apr 12 12:21:26 <vifon>	It was a nice surprise as I completely forgot about it.
+Apr 12 12:21:51 <zaeph>	Oh yeah, I actually made the TOC.  That was a pain to do.
+Apr 12 12:23:17 <zaeph>	Here's the website that helped me with the timeline: http://aradiel.co.uk/loktimeline.php
+Apr 12 12:52:20 <zaeph>	I was actually about to complain an email-patch having gone unnoticed on the org-mode mailing list, only to realise that it'd already been merged. -.-
+Apr 12 13:03:34 <__monty__>	Tsk tsk, no consideration for maintainers...
+Apr 12 13:04:21 <zaeph>	Spending time with you as but convinced me that your lives are devoid of anything besides quelling my every desire.
+Apr 12 14:26:35 <__monty__>	zaeph: Do you recommend HTTSN before or after the article I linked?
+Apr 12 14:26:53 <zaeph>	After.
+Apr 12 14:27:03 <__monty__>	Almost done with a book and them I'm taking a look at ldlework's la-karda.
+Apr 12 14:27:05 <zaeph>	The article is a nice primer; the book goes in depth.
+Apr 12 14:27:11 <__monty__>	Then I can start on the articles.
+Apr 12 14:44:33 <rnmhdn>	GermainZ: heeeeeey
+Apr 12 14:52:16 <lucs>	How do I sort case sensitively?
+Apr 12 14:52:46 <zaeph>	i.e. A after z?
+Apr 12 14:52:59 <__monty__>	zaeph: The other way around's more common afaik.
+Apr 12 14:53:08 <zaeph>	Oh yeah, sorry.
+Apr 12 14:53:28 <zaeph>	If it goes by ASCII integer, it'd make sense.
+Apr 12 14:53:46 <zaeph>	lucs: Have a look at `sort_case_insensitive` in the man.
+Apr 12 14:53:49 <zaeph>	ual*
+Apr 12 14:54:09 <__monty__>	You can toggle it with `zc` otherwise change it in rc.conf.
+Apr 12 14:54:23 <zaeph>	Hadn't noticed that the `zc` was the keybinding, nice. :D
+Apr 12 14:54:39 <zaeph>	Do we generate those tips, or are they hand-written?
+Apr 12 14:54:59 <lucs>	Yeah, I want "b A C" instead of "A b C".
+Apr 12 14:54:59 <__monty__>	¯\_(ツ)_/¯
+Apr 12 14:55:06 <zaeph>	Tss, I'll have a look
+Apr 12 14:55:07 <lucs>	I'll look that up, thanks.
+Apr 12 14:55:13 <zaeph>	With my new shiny rg!!
+Apr 12 14:55:14 <__monty__>	lucs: You'll get A C b.
+Apr 12 14:55:26 <zaeph>	…?
+Apr 12 14:55:26 <lucs>	Yes, right, sorry.
+Apr 12 14:55:29 <__monty__>	Anything else'll cost you extra : D
+Apr 12 14:55:30 <zaeph>	Not b A C?
+Apr 12 14:55:50 <zaeph>	Oh wait no
+Apr 12 14:55:52 <zaeph>	Sorry.
+Apr 12 14:56:03 <__monty__>	zaeph: Capitals are in the upper drawers so it doesn't make any sense to go for the lower drawers first!
+Apr 12 14:56:03 <zaeph>	Got confused by what I'd written before.
+Apr 12 14:56:15 <lucs>	__monty__: :-)
+Apr 12 14:59:03 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 12 14:59:03 2020
+
+**** BEGIN LOGGING AT Sun Apr 12 14:59:31 2020
+
+Apr 12 14:59:31 *	Now talking on #ranger
+Apr 12 14:59:31 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 12 14:59:31 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 12 15:00:06 <zaeph>	Does this ring a bell? http://tinyurl.com/ud66oc3
+Apr 12 15:00:09 <lucs>	Hmm... 'zc' here is bound to 'collapse-preview'.
+Apr 12 15:00:35 <zaeph>	Welp
+Apr 12 15:00:43 <zaeph>	I guess we've got our answer as to the dynamic generation. :p
+Apr 12 15:00:53 <__monty__>	Oh, it's zs.
+Apr 12 15:01:01 <zaeph>	Try zs
+Apr 12 15:01:03 <__monty__>	Guess you have your answer, zaeph : )
+Apr 12 15:01:03 <zaeph>	Damn you.
+Apr 12 15:01:12 <zaeph>	First!
+Apr 12 15:01:20 <__monty__>	We beat eachother to different parts : )
+Apr 12 15:01:27 <zaeph>	Best couple evaar.
+Apr 12 15:01:35 <lucs>	Yeah, just saw that thanks, but um, I want case sensitive (will keep looking).
+Apr 12 15:01:41 <zaeph>	nil it.
+Apr 12 15:01:53 <lucs>	Not sure what that means.
+Apr 12 15:02:00 <zaeph>	Fuck if I know.
+Apr 12 15:02:06 <lucs>	:)
+Apr 12 15:02:09 <zaeph>	It means to turn it off.
+Apr 12 15:02:12 <zaeph>	It's t by default.
+Apr 12 15:02:17 <zaeph>	So zs will do what you want.
+Apr 12 15:02:36 <zaeph>	…Why do we even have the negative as t in the first place?
+Apr 12 15:02:45 <lucs>	Ah, zs toggles the setting. Perfect.
+Apr 12 15:02:45 <zaeph>	Waste of 2 perfect good bytes.
+Apr 12 15:02:58 <zaeph>	(I assume bytes, we're in utf-8, right?)
+Apr 12 15:02:59 <__monty__>	Stop with the T&A obsession, zaeph.
+Apr 12 15:03:53 <zaeph>	I'm more of a Voice & Hands dude, but to each their own I suppose.
+Apr 12 15:08:11 <__monty__>	Not intelligent Nerf guns but still cool: http://www.matthewtancik.com/nerf
+Apr 12 15:12:13 <zaeph>	Pretty impressive.
+Apr 12 15:12:35 <zaeph>	My CPU is already border-line frying with waifu2x.
+Apr 12 15:13:21 <zaeph>	Doesn't that potentially have implications for 29FPS→60FPS translations, too?
+Apr 12 15:13:29 <zaeph>	Or maybe there's a static limitation on the scenes.
+Apr 12 15:15:38 <zaeph>	Props for Minas Tirith, too!
+Apr 12 15:16:24 <__monty__>	Not sure of implications.
+Apr 12 15:16:37 <__monty__>	Not even sure it'd make sense. This seems very much for static scenes.
+Apr 12 15:17:01 <__monty__>	Where you have a ton of pictures of one scene.
+Apr 12 15:17:07 <__monty__>	Rather than two frames you need to interpolate.
+Apr 12 15:17:19 <zaeph>	Yeah.  I guess I was thinking of how a camera can pan on a scene, and therefore gets data which could be used to reconstruct intermediary frames.
+Apr 12 15:17:33 <zaeph>	…But if you have a stationary camera, you can't do that.
+Apr 12 15:18:14 <__monty__>	Using video as input rather than pictures?
+Apr 12 15:18:18 <__monty__>	I thought about that too.
+Apr 12 15:18:28 <zaeph>	Yeah, video as input.
+Apr 12 15:18:40 <__monty__>	I suspect the image quality would just not be good enough for the detail they achieve.
+Apr 12 15:19:06 <zaeph>	Bah, we'll get there one day.
+Apr 12 15:19:10 <__monty__>	There's more info in a video of course. But I expect you'd need an algorithm designed for that.
+Apr 12 15:19:19 <zaeph>	And think about the blurriness.
+Apr 12 15:19:26 <zaeph>	Motion blur, I mean.
+Apr 12 15:19:32 <GermainZ>	rnmhdn: hey! :)
+Apr 12 15:19:37 <__monty__>	I think this is cooler though. Take a couple snaps of something and you get a complete 3D scan.
+Apr 12 15:19:54 <zaeph>	That'll make dickpics fare more interesting.
+Apr 12 15:20:07 <zaeph>	(far*, not sure what I was gunning for hre.)
+Apr 12 15:20:18 <GermainZ>	won't make a different for you, a dot's still a dot in 3D
+Apr 12 15:20:25 <zaeph>	Screw you!
+Apr 12 15:20:26 <__monty__>	>.<
+Apr 12 15:20:31 <GermainZ>	:D
+Apr 12 15:20:32 <zaeph>	o(>< )o
+Apr 12 15:20:42 <GermainZ>	s/ent/ence
+Apr 12 15:20:58 <zaeph>	…Is that on purpose?
+Apr 12 15:21:09 <zaeph>	You just wrote 'sentence'.
+Apr 12 15:21:34 <GermainZ>	nice.
+Apr 12 15:21:47 <GermainZ>	but not, it was unintentional
+Apr 12 15:21:51 <GermainZ>	I was just correcting a typo
+Apr 12 15:21:57 <zaeph>	I noticed.
+Apr 12 15:22:12 <zaeph>	Well excuse me for assuming you're a genius.
+Apr 12 15:22:19 <GermainZ>	Ha! Fool!
+Apr 12 15:22:30 <GermainZ>	F O O L
+Apr 12 15:22:32 <GermainZ>	O O
+Apr 12 15:22:34 <GermainZ>	O   O
+Apr 12 15:22:36 <GermainZ>	L     L
+Apr 12 15:22:39 <GermainZ>	I love this script
+Apr 12 15:22:42 <GermainZ>	Thanks, vifon 
+Apr 12 15:22:50 <zaeph>	It's gonna get old real fast.
+Apr 12 15:23:01 <zaeph>	inb4 you do it again.
+Apr 12 15:23:22 <GermainZ>	I shall enjoy it until then
+Apr 12 15:23:42 <GermainZ>	this is also fun
+Apr 12 15:24:10 <GermainZ>	Truly IRC is the best messaging experience
+Apr 12 15:24:34 <zaeph>	You can't even put colors in FB's Messenger.
+Apr 12 15:24:40 <zaeph>	Even though we could in MSN.
+Apr 12 15:24:46 <zaeph>	Where's my wizz?
+Apr 12 15:25:08 <zaeph>	https://www.youtube.com/watch?v=y1O9_Q-3jYM
+Apr 12 15:25:09 <RoboBob>	(zaeph) Msn wizz 1 hours - length 1h - 161 likes, 9 dislikes (94.7%) - 78,713 views - Loyde Rasen on 2016.03.10
+Apr 12 15:25:19 <zaeph>	Truly YouTube was invented for that.
+Apr 12 15:30:38 <__monty__>	That and russian climbing vids.
+Apr 12 15:31:32 <GermainZ>	And hardbass & co dances
+Apr 12 15:35:40 <zaeph>	All right.
+Apr 12 15:35:44 <zaeph>	I might have fucked up.
+Apr 12 15:36:13 <zaeph>	Changed a key binding in fcitx, the IME manager for inputting CJK characters, and it resetted my xkb setup.
+Apr 12 15:36:28 <zaeph>	...I don't have any terminal open that I can access.
+Apr 12 15:36:45 <zaeph>	And all the bindings I have for opening terms are borked.
+Apr 12 15:36:45 <__monty__>	TTY2?
+Apr 12 15:36:52 <zaeph>	That'd be too easy.
+Apr 12 15:36:58 <zaeph>	Gonna use term in Emacs.
+Apr 12 15:37:19 <zaeph>	Tss, no fun.
+Apr 12 15:37:36 <zaeph>	Where are the days when I could bork my system and have to look at wikis for hours on end to figure it out!
+Apr 12 15:37:43 <zaeph>	Where's the fun in that?!
+Apr 12 15:47:27 <vifon>	zaeph: What do you call the opposite of fun?
+Apr 12 15:47:30 <vifon>	defun
+Apr 12 15:47:50 <zaeph>	(๑°⌓°๑)
+Apr 12 16:33:56 <zaeph>	Time for an Arch update.
+Apr 12 16:34:00 <zaeph>	It was nice knowing all of you.
+Apr 12 16:34:21 <__monty__>	Hmm, lojban's kinda disappointing tbh.
+Apr 12 16:43:18 <zaeph>	Oh no: https://paste.xinu.at/F4Gi/
+Apr 12 16:43:29 <zaeph>	(Just kidding, I remembered there'd be an email about hplip.)
+Apr 12 16:43:39 <__monty__>	Oh, the joys of arch.
+Apr 12 16:43:52 <__monty__>	Are you still not using nix, zaep?
+Apr 12 16:44:06 <zaeph>	Will I be kidding anyone if I say that I don't have the time?
+Apr 12 16:44:25 <__monty__>	I'm not even talking about nixos.
+Apr 12 16:44:38 <zaeph>	Oh, sorry.  Nah, I haven't switched to Nix either.
+Apr 12 16:44:48 <__monty__>	Just install nix and start out imperatively installing packages.
+Apr 12 16:45:11 <__monty__>	And just fallback to pacman for anything you don't know how to get from nix.
+Apr 12 16:45:24 <zaeph>	Could be a good middle-term solution.  I'll look into it.
+Apr 12 16:45:50 <__monty__>	Seriously, just run this now "curl -L --proto '=https' --tlsv1.2 https://nixos.org/nix/install | sh
+Apr 12 16:45:53 <__monty__>	"
+Apr 12 16:46:14 <zaeph>	First gotta ensure that I don't bork myself out of a laptop.
+Apr 12 16:46:19 <zaeph>	See you on the other side.
+Apr 12 16:46:29 <__monty__>	Just started on the article btw.
+Apr 12 16:46:34 <zaeph>	Good!
+Apr 12 16:46:44 <zaeph>	I've read a couple of articles on the Zettelkasten website as well.
+Apr 12 16:46:50 <zaeph>	Not everything is good.
+Apr 12 16:46:56 <zaeph>	I'm talking about this: https://zettelkasten.de/posts/overview/
+Apr 12 16:46:58 <zaeph>	Rebooting now.
+Apr 12 16:47:15 <__monty__>	As in about the method or just the quality of the articles?
+Apr 12 16:47:20 <zaeph>	Quality
+Apr 12 16:48:38 <zaeph>	I'm alive!
+Apr 12 16:48:51 <__monty__>	Heh, I like the quote about the pencil: “That’s it? This little stick is what allows you to communicate through space and time with other human beings and remember things forever?”
+Apr 12 16:48:54 <zaeph>	Terminator links are still borked. -.-
+Apr 12 16:49:05 <zaeph>	Yeah, that was a nice one. :)
+Apr 12 16:49:13 <__monty__>	Ditch terminator and start living the good kitty life.
+Apr 12 16:49:38 <zaeph>	Kovid doesn't like Iosevka, so I don't like kitty.
+Apr 12 16:49:42 <zaeph>	You reap what you sow.
+Apr 12 16:49:57 <zaeph>	And yes, I will die on that hill.
+Apr 12 16:51:26 <__monty__>	What's wrong with disliking bad fonts?
+Apr 12 16:51:39 <__monty__>	: >
+Apr 12 16:51:46 <zaeph>	You imbecile.
+Apr 12 16:51:53 <__monty__>	Is it because iosevka lies about being monospace?
+Apr 12 16:51:58 <zaeph>	Yup.
+Apr 12 16:52:13 <__monty__>	Then why not petition the authors to fix that?
+Apr 12 16:52:24 <zaeph>	No Time™.
+Apr 12 16:52:30 <zaeph>	Let me look it up.
+Apr 12 16:52:37 <zaeph>	…Once I've figured why Anki doesn't start anymore.
+Apr 12 16:52:42 <__monty__>	Well DejaVu is a superior font anyways.
+Apr 12 16:53:35 <GermainZ>	why does iosevka lie?
+Apr 12 16:53:55 <zaeph>	Because it's like 90/100 instead of 100/100
+Apr 12 16:53:59 <zaeph>	I don't even remember.
+Apr 12 16:54:12 <GermainZ>	but why does it lie?
+Apr 12 16:54:32 <zaeph>	Because it's not a true monospace font, but it's used as one.
+Apr 12 16:54:51 <GermainZ>	why
+Apr 12 16:55:04 <zaeph>	If it's not obvious enough already, I don't know. :o)
+Apr 12 16:55:22 <GermainZ>	WHYYY
+Apr 12 16:56:01 *	GermainZ slaps zaeph around
+Apr 12 16:56:08 *	GermainZ chains zaeph upside down
+Apr 12 16:56:09 <zaeph>	Can you not.
+Apr 12 16:56:10 <GermainZ>	zaeph: why???
+Apr 12 16:56:41 <__monty__>	GermainZ: The reason is monospace fonts have to fit W and i into the exact same horizontal space.
+Apr 12 16:56:51 <__monty__>	Which is a recipe for ugliness.
+Apr 12 16:56:58 <__monty__>	At least in the eyes of most font designers.
+Apr 12 16:57:07 <GermainZ>	__monty__: no I get that, what I don't get is that font declaring itself as monospace when it's not
+Apr 12 16:57:16 <GermainZ>	The solution would be not to be monospace, and offer a slightly uglier monospace version
+Apr 12 16:57:29 <zaeph>	It does.
+Apr 12 16:57:32 <zaeph>	There's Iosevka term.
+Apr 12 16:57:36 <__monty__>	They don't consider this constraint a refreshing challenge but a curse.
+Apr 12 16:57:54 <GermainZ>	zaeph: but you don't use that one?
+Apr 12 16:57:59 <__monty__>	GermainZ: You'd be surprised how many "monospace" fonts aren't actually monospace.
+Apr 12 16:58:11 <zaeph>	Nah, I use… Wait.
+Apr 12 16:58:14 <zaeph>	I think I do.
+Apr 12 16:58:21 <zaeph>	All right, let's fire up kitty.
+Apr 12 16:58:25 *	zaeph barfs a little in his mouth.
+Apr 12 16:58:27 <__monty__>	Aha! So no more excuses : >
+Apr 12 16:58:38 <GermainZ>	mhm
+Apr 12 16:58:45 <GermainZ>	I just use Source Code Pro everywhere
+Apr 12 16:58:54 <GermainZ>	When you get used to $font it becomes pretty
+Apr 12 16:59:14 <vifon>	zaeph: I would never trust something called Iosevka after the Iosefka clinic fiasco.
+Apr 12 16:59:17 <GermainZ>	everywhere monospace, that is
+Apr 12 16:59:23 <vifon>	zaeph: Actually don't look that up.
+Apr 12 16:59:30 <zaeph>	I won't.
+Apr 12 16:59:34 <vifon>	Spoilers.  Sorry.
+Apr 12 16:59:42 <zaeph>	I don't actually use Iosevka, but a CJK version of it called Sarasa.
+Apr 12 16:59:42 <GermainZ>	vifon: tell me more
+Apr 12 16:59:49 <vifon>	GermainZ: More.
+Apr 12 16:59:59 <GermainZ>	vifon: tell me even more
+Apr 12 17:00:09 <vifon>	Even more, Germy.
+Apr 12 17:00:11 <GermainZ>	vifon: damn that's interesting
+Apr 12 17:00:19 <__monty__>	GermainZ: Less.
+Apr 12 17:00:26 <__monty__>	Cause less is more.
+Apr 12 17:00:29 <GermainZ>	__monty__: too late
+Apr 12 17:00:51 <GermainZ>	so zaeph plays Bloodborne?
+Apr 12 17:02:20 <zaeph>	I wish.
+Apr 12 17:03:06 <GermainZ>	zaeph: what's the issue?
+Apr 12 17:03:38 <zaeph>	I don't have a gaming PC for playing the other FromSoftware games.  Dark Souls killed my previous one like 4 years ago now.
+Apr 12 17:05:08 <zaeph>	All right.  I hate to admit it, but kitty works.
+Apr 12 17:05:11 <zaeph>	Let's try URLs.
+Apr 12 17:05:55 <zaeph>	Oh, my compose key doesn't seem to work.
+Apr 12 17:05:59 <__monty__>	zaeph: kitty_mod-e allows you to open urls with hints.
+Apr 12 17:06:15 <zaeph>	And what's that god awful alarm sound.
+Apr 12 17:06:19 <zaeph>	Bell, I mean.
+Apr 12 17:06:24 <__monty__>	zaeph: That's weird. I'm on macOS and my kludgey compose key works in kitty.
+Apr 12 17:06:54 <zaeph>	And my snippet inserter doesn't seem to work.  Something fucky this way comes.
+Apr 12 17:07:37 <zaeph>	Nevermind, it works.
+Apr 12 17:07:51 <GermainZ>	zaeph: I thought Bloodborne is a PS4 exclusive?
+Apr 12 17:07:54 <GermainZ>	Or is it on PC now as well?
+Apr 12 17:07:57 <__monty__>	Don't rush to disapproval, zaeph.
+Apr 12 17:07:59 <zaeph>	It is, but I want to play the previous ones.
+Apr 12 17:08:10 <GermainZ>	Ah
+Apr 12 17:08:18 <GermainZ>	__monty__: ctrl-shift-e for me
+Apr 12 17:08:26 <zaeph>	Nah, there's definitely something fucky going on with my xclip.
+Apr 12 17:08:45 <GermainZ>	and my compose key also works with kitty (I'm on Lunix, not mac)
+Apr 12 17:08:57 <zaeph>	Weird.
+Apr 12 17:09:06 <GermainZ>	… ← ← examples
+Apr 12 17:09:12 <zaeph>	Maybe there's something going with xcape, then.
+Apr 12 17:09:54 <GermainZ>	could be
+Apr 12 17:09:58 <GermainZ>	I just have `keycode 94 = dead_greek` in my xmodmap
+Apr 12 17:10:08 <GermainZ>	94 being the right alt key for me
+Apr 12 17:10:24 <zaeph>	My other dead keys work, so I think it's coming from xcape, yes.
+Apr 12 17:11:23 <vifon>	GermainZ: Actually Bloodborne is perfectly playable on PC with PS Now.
+Apr 12 17:11:27 <vifon>	That's how I played it.
+Apr 12 17:11:30 <zaeph>	Looks like there's an issue: https://github.com/kovidgoyal/kitty/issues/171
+Apr 12 17:11:34 <vifon>	On my free trial week, no less.
+Apr 12 17:11:37 <GermainZ>	vifon: what is that?
+Apr 12 17:11:40 <zaeph>	I don't recognise you guys: all the colours have changed. :(
+Apr 12 17:11:44 <vifon>	A streaming service.
+Apr 12 17:11:48 <GermainZ>	vifon: streaming service?
+Apr 12 17:11:50 <GermainZ>	Oh nice
+Apr 12 17:12:00 <vifon>	The lag is minimal. Perfectly manageable.
+Apr 12 17:12:04 <GermainZ>	Cool
+Apr 12 17:12:11 <GermainZ>	Yeah I tried a streaming service last year
+Apr 12 17:12:16 <GermainZ>	It was quite acceptable
+Apr 12 17:12:23 <vifon>	I only wasn't able to do the gestures as they utilize the touchpad on the PS4 pad.
+Apr 12 17:12:25 <GermainZ>	The only annoying thing I had was dark areas and artifacts
+Apr 12 17:12:30 <vifon>	So one secret was out of the question.
+Apr 12 17:12:55 <GermainZ>	how much does it cost?
+Apr 12 17:13:03 <__monty__>	zaeph: Thankfully kitty's colors are easily changed in the config.
+Apr 12 17:13:08 <vifon>	Like I said, I used the free trial.
+Apr 12 17:13:17 <GermainZ>	vifon: but you buy the game right?
+Apr 12 17:13:23 <vifon>	Nope.
+Apr 12 17:13:29 <vifon>	It's all inclusive.
+Apr 12 17:13:31 <GermainZ>	Ah
+Apr 12 17:13:34 <GermainZ>	That's kinda cool
+Apr 12 17:13:36 *	GermainZ looks up cost
+Apr 12 17:14:09 <GermainZ>	$10/month, not bad, not bad
+Apr 12 17:14:21 <__monty__>	zaeph: If you want mine which are low-contrasty but optimized for inter-visibility, let me know.
+Apr 12 17:14:22 <GermainZ>	I wonder if I should do this to play Fortnite/CoD with friends
+Apr 12 17:14:33 <GermainZ>	gruvbox ftw btw
+Apr 12 17:14:42 <zaeph>	__monty__: Sure, thank you.  I might have already stolen yours, actually.
+Apr 12 17:15:00 <GermainZ>	zaeph: you don't want mine? :(
+Apr 12 17:15:22 <zaeph>	I can try both.  Right now, I'm just trying to figure out how the config works.
+Apr 12 17:15:33 <GermainZ>	yay!
+Apr 12 17:15:34 <zaeph>	Like how to set up kitty_mod.  Not sure which syntax they use for keys.
+Apr 12 17:15:37 <GermainZ>	zaeph: https://0x0.st/iSF2.conf
+Apr 12 17:16:01 <zaeph>	I can't click that! >.<
+Apr 12 17:16:02 <GermainZ>	zaeph: you'd just `kitty_mod ctrl+shift` for example
+Apr 12 17:16:05 <zaeph>	I won't shiftclick like a peasant.
+Apr 12 17:16:11 <GermainZ>	zaeph: ctrl+shift+e
+Apr 12 17:16:14 <GermainZ>	by default
+Apr 12 17:16:15 <__monty__>	zaeph: http://ix.io/2hK2
+Apr 12 17:16:26 <zaeph>	wow
+Apr 12 17:16:30 <zaeph>	feels like I've turned on the Matrix.
+Apr 12 17:16:42 <GermainZ>	__monty__: why is 7/15 disabled?
+Apr 12 17:16:53 <GermainZ>	zaeph: pretty cool eh?
+Apr 12 17:17:01 <__monty__>	GermainZ: Just default.
+Apr 12 17:17:04 <GermainZ>	vifon: and it works well on Lunix?
+Apr 12 17:17:06 <zaeph>	Please tell me you can make it start counting from the bottom. (imagine i've inserted my flower-boy here)
+Apr 12 17:17:16 <GermainZ>	yes it starts counting from the bottom for me
+Apr 12 17:17:23 <vifon>	No idea.
+Apr 12 17:17:25 <GermainZ>	that's the default behavior tho
+Apr 12 17:17:27 <zaeph>	Oh you're right, I'm a moron.
+Apr 12 17:17:30 <vifon>	I used my other PC for that.
+Apr 12 17:17:47 <GermainZ>	vifon: Windows?
+Apr 12 17:17:51 <__monty__>	zaeph: I think I turned the hints into my home-row before.
+Apr 12 17:17:51 <GermainZ>	zaeph: it's ok <3 we're all morons
+Apr 12 17:18:00 <vifon>	Ja.
+Apr 12 17:18:16 <GermainZ>	Danke
+Apr 12 17:18:21 <zaeph>	All right, the only thing that bothers me a bit are the problems with xcape and xclip.  Gotta figure it out.
+Apr 12 17:18:29 <zaeph>	No thanks for derailing me *again*!
+Apr 12 17:18:34 <GermainZ>	You're fucking welcome!
+Apr 12 17:18:45 *	zaeph sulks.
+Apr 12 17:18:50 <__monty__>	zaeph: Default 0 means 10. But you can change that back to 0 being the first number.
+Apr 12 17:19:21 <__monty__>	I haven't experienced any problems with xclip.
+Apr 12 17:19:41 <GermainZ>	probably xcape considering it has issues about it not working in some programs like Firefox
+Apr 12 17:19:43 <zaeph>	Oh, I think I know.
+Apr 12 17:19:55 *	__monty__ adds another notch to his belt
+Apr 12 17:20:06 <zaeph>	xcape works in Firefox for me, though.
+Apr 12 17:20:10 *	GermainZ steals __monty__'s belt
+Apr 12 17:20:21 <GermainZ>	zaeph: might be env/config dependent
+Apr 12 17:20:33 <GermainZ>	but it not working in some programs seems weird
+Apr 12 17:20:54 <zaeph>	GermainZ: Do you also have those weird blue shadows around the address bar when you type URLs with the new Firefox?
+Apr 12 17:21:05 *	__monty__ 's pants fall down
+Apr 12 17:21:23 <GermainZ>	zaeph: screenshot?
+Apr 12 17:21:26 <zaeph>	I can't screenshot it 'cause it goes away when I lose focus.
+Apr 12 17:21:34 <zaeph>	I'll take a pic.
+Apr 12 17:21:58 <GermainZ>	zaeph: https://0x0.st/iSFV.png
+Apr 12 17:22:06 <GermainZ>	zaeph: this is how mine looks
+Apr 12 17:22:19 <zaeph>	Thought it was a problem with the compositor, which I do not use.
+Apr 12 17:22:26 <zaeph>	I think it's my i3 border acting up.
+Apr 12 17:22:37 <GermainZ>	it may be
+Apr 12 17:22:38 <zaeph>	Yeah it's dfinitely that, let me disable them.
+Apr 12 17:22:44 <GermainZ>	I use i3 but have borders disabled so I wouldn't notice
+Apr 12 17:22:44 <zaeph>	The joy of updating.
+Apr 12 17:23:07 <zaeph>	Nope, still appears.
+Apr 12 17:24:19 <zaeph>	Please don't check the metadata: https://paste.xinu.at/woOmr/
+Apr 12 17:24:54 <__monty__>	Oops, sorry. Already called in a drone strike.
+Apr 12 17:25:04 <zaeph>	God DAMN it.
+Apr 12 17:25:25 <__monty__>	¯\_(ツ)_/¯ What're you gonna do about it.
+Apr 12 17:25:32 <GermainZ>	zaeph: it's white for me if you zoom in
+Apr 12 17:26:29 <zaeph>	Strange.
+Apr 12 17:26:35 <GermainZ>	just like your face
+Apr 12 17:28:36 <zaeph>	Let me downgrade Firefox to make sure it's coming from that.
+Apr 12 17:29:41 <zaeph>	Welp, Firefox ain't starting no more.
+Apr 12 17:30:06 <GermainZ>	no more no more no more no more
+Apr 12 17:30:16 *	zaeph claps his hands.
+Apr 12 17:30:24 <GermainZ>	https://www.youtube.com/watch?v=Q8Tiz6INF7I
+Apr 12 17:30:24 <RoboBob>	(GermainZ) Hit the road Jack! - length 2m 20s - 1,212,316 likes, 19,438 dislikes (98.4%) - 201,536,614 views - Andres Trevino on 2006.06.03
+Apr 12 17:31:19 <zaeph>	GermainZ: You're on 75.0?
+Apr 12 17:32:02 <__monty__>	zaeph: See, if you had installed firefox using nix, you could've just rolled back.
+Apr 12 17:32:07 <__monty__>	: >
+Apr 12 17:32:26 <__monty__>	I hate to say "Told ya so," so I won't.
+Apr 12 17:32:28 <GermainZ>	zaeph: yes
+Apr 12 17:32:28 <zaeph>	Oh you're so old and so wise Mr __monty__!
+Apr 12 17:32:35 <zaeph>	Well fuck.
+Apr 12 17:32:39 <GermainZ>	__monty__: nixos?
+Apr 12 17:32:51 <__monty__>	GermainZ: Even just nix.
+Apr 12 17:33:00 <GermainZ>	__monty__: that mixes well with pacman?
+Apr 12 17:33:16 <__monty__>	Yes, in that it doesn't, at all. Thanks to its design : )
+Apr 12 17:33:29 <GermainZ>	Where does it install stuff? ~?
+Apr 12 17:33:35 <__monty__>	/nix/store
+Apr 12 17:34:02 <GermainZ>	so you only use it for packages you might rollback?
+Apr 12 17:34:09 <GermainZ>	I mean it makes sense to use it on NixOS
+Apr 12 17:34:19 <GermainZ>	But I don't fully understand using it with other package managers
+Apr 12 17:34:20 <__monty__>	No, you can use it for most things.
+Apr 12 17:34:30 <__monty__>	And have the option of rolling back at least.
+Apr 12 17:34:32 <zaeph>	Excertp from a reddit thread: `EDIT: Firefox 75 breaks the URL bar and makes it a bit ugly. Working on a fix`
+Apr 12 17:34:59 <vifon>	GermainZ: It's a bit like Bedrock Linux but with only two distros.
+Apr 12 17:35:02 <__monty__>	Note that rolling back individual programs isn't as simple as invoking a short command.
+Apr 12 17:35:05 <zaeph>	Maybe I need to update shadowfox.
+Apr 12 17:35:52 <zaeph>	Nope. :(
+Apr 12 17:36:31 <zaeph>	Anki won't start even with downgrading.
+Apr 12 17:36:49 <__monty__>	Clearly that's because your system is stateful : >
+Apr 12 17:37:05 <zaeph>	Yup, I angered the gods with that remark.
+Apr 12 17:37:12 <zaeph>	And now it's payback time.
+Apr 12 17:37:12 <__monty__>	Downgrading on arch is a crapshoot at the best of times.
+Apr 12 17:37:29 <zaeph>	I've still got Anki on my phone, so it's fine.
+Apr 12 17:37:47 <__monty__>	GermainZ: There's not that much you wouldn't be able to install using nix on arch. Just the system stuff.
+Apr 12 17:38:24 <__monty__>	The part nixos gets you is precisely that. Managing kernel and systemd stuff.
+Apr 12 17:39:05 <__monty__>	zaeph: The anki web interface is also useable in a pinch.
+Apr 12 17:39:18 <zaeph>	True.
+Apr 12 17:39:23 <__monty__>	Do you use it regularly? I've neglected it tbh.
+Apr 12 17:39:30 <zaeph>	Very.
+Apr 12 17:39:38 <zaeph>	I'd pull you the graphs right about now if I could open it.
+Apr 12 17:40:28 <__monty__>	Oh, actually, if you ran that install command from earlier you could just try `nix-env -f '<nixpkgs>' -iA anki`
+Apr 12 17:41:19 <zaeph>	__monty__: https://paste.xinu.at/SrS/
+Apr 12 17:41:35 <zaeph>	I stopped using it for a year or so.
+Apr 12 17:41:58 <zaeph>	But I've had Anki for much longer than that.  Kept resetting to have The Perfect CSStm.
+Apr 12 17:42:02 <zaeph>	Fuck that compose key. :<
+Apr 12 17:42:32 <__monty__>	Do you use it for language learning?
+Apr 12 17:42:34 <zaeph>	Where should I run your curl?
+Apr 12 17:42:40 <zaeph>	Almost exclusively for language learning, yes.
+Apr 12 17:42:45 <__monty__>	On any command line : )
+Apr 12 17:43:03 <zaeph>	Tell you what.
+Apr 12 17:43:07 <zaeph>	If Anki works, I'm transitioning.
+Apr 12 17:43:17 <__monty__>	No promises.
+Apr 12 17:43:27 <__monty__>	I've had trouble with anki before.
+Apr 12 17:43:33 <zaeph>	Same.
+Apr 12 17:43:33 <__monty__>	Using nix.
+Apr 12 17:43:38 <zaeph>	Not same.
+Apr 12 17:45:03 <zaeph>	All right, it's been run.
+Apr 12 17:45:10 <zaeph>	Now for the 2nd command.
+Apr 12 17:45:22 <__monty__>	🤞
+Apr 12 17:45:22 <GermainZ>	__monty__: it just seems weird to me to use multiple package managers for system-wide stuff
+Apr 12 17:45:34 <zaeph>	Should I replace the variable?
+Apr 12 17:45:35 <zaeph>	`nix-env -f '<nixpkgs>' -iA anki`
+Apr 12 17:45:37 <zaeph>	I mean nixpkgs.
+Apr 12 17:45:42 <GermainZ>	__monty__: I'm not saying it seeming weird to me makes total sense, but that's what I'm used to 
+Apr 12 17:45:45 <GermainZ>	I might give nix a try
+Apr 12 17:45:54 <zaeph>	Should I just create .nix in ~?
+Apr 12 17:45:58 <GermainZ>	__monty__: distate probably comes
+Apr 12 17:46:26 <GermainZ>	__monty__: my distate probably comes from other package managers (language specific ones) not playing very well with the system-wide package manager when you don't install as a user, I guess
+Apr 12 17:46:52 <zaeph>	Oh, nix-env doesn't seem to have been installed.
+Apr 12 17:46:57 <zaeph>	Prolly 'cause I run it in fish.
+Apr 12 17:47:09 <zaeph>	..Or maybe it's loading a script, I don't know.
+Apr 12 17:48:17 <__monty__>	zaeph: Ah, yeah, with fish it may not add the right paths. I assumed this had been fixed.
+Apr 12 17:48:54 <zaeph>	I'll try rerunning.
+Apr 12 17:49:00 <__monty__>	GermainZ: Yeah, nix's design explicitly sidesteps that problem.
+Apr 12 17:49:16 <__monty__>	And I didn't suggest using it for system level things. Anki isn't system level.
+Apr 12 17:49:29 <__monty__>	You probably *can* but I'm not knowledgeable enough.
+Apr 12 17:49:45 <__monty__>	zaeph: Hold up I'll figure out what commands you're missing.
+Apr 12 17:50:01 <zaeph>	It's running.
+Apr 12 17:50:04 <zaeph>	Did it in bash.
+Apr 12 17:50:11 <zaeph>	Downloading anki now.
+Apr 12 17:50:50 <vifon>	zaeph: https://www.reddit.com/r/emacs/comments/fzuv4f/my_prettified_orgcapture/
+Apr 12 17:50:50 <RoboBob>	(vifon) My prettified org-capture : emacs - 7 comments, 63 points - tecosaur, 5h ago
+Apr 12 17:51:19 <GermainZ>	__monty__: system-wide, not system-level
+Apr 12 17:51:31 <zaeph>	vifon: Neat!  Doesn't do much on the functionality, but I like it!
+Apr 12 17:51:36 <zaeph>	I prefer my org-agenda icons.
+Apr 12 17:52:15 <zaeph>	cf. https://paste.xinu.at/pwbZy/
+Apr 12 17:53:03 <__monty__>	zaeph: Did you do a single-user or multi-user install?
+Apr 12 17:53:12 <zaeph>	__monty__: Yes.
+Apr 12 17:53:22 <zaeph>	i.e. I don't know.
+Apr 12 17:53:25 <zaeph>	I didn't sudo it.
+Apr 12 17:53:56 <zaeph>	All right, anki is installed, which'd it, it's in .nix.
+Apr 12 17:53:58 <__monty__>	Yeah but you get to make a choice.
+Apr 12 17:54:00 <zaeph>	But it doesn't start either.
+Apr 12 17:54:10 <zaeph>	Did I?  It just went ahead and installed.
+Apr 12 17:54:21 <__monty__>	And `which anki` points to the one installed by nix?
+Apr 12 17:54:27 <zaeph>	Yup.
+Apr 12 17:54:35 <zaeph>	That's what I meant by `which`'d.
+Apr 12 17:54:36 <__monty__>	Too bad.
+Apr 12 17:55:36 <zaeph>	Here's stdout for the install: https://paste.xinu.at/8TeAkC/plain
+Apr 12 17:55:51 <zaeph>	So it looks like you gave me the link for single user install.
+Apr 12 17:56:52 <zaeph>	vifon: Looking at the code, that looks like a *lot* of stuff for what s/he's achieved
+Apr 12 17:57:06 <zaeph>	It's almost as bloated as *my* agenda config.
+Apr 12 17:57:09 <__monty__>	zaeph: I think this'll give you the best bang for the buck experience: https://github.com/lilyball/nix-env.fish
+Apr 12 17:58:03 <vifon>	Yeah.
+Apr 12 17:58:18 <zaeph>	All right, I think qt isn't found in my nix-profile.
+Apr 12 17:58:18 <vifon>	I hoped it's more like putting an UTF emoji in the template name.
+Apr 12 17:58:52 <zaeph>	Can I do `nix-env -f '<nixpkgs>' -iA qt5`?
+Apr 12 17:59:01 <GermainZ>	you can do whatever your heart desires
+Apr 12 17:59:07 <zaeph>	Thanks GermainZ!
+Apr 12 17:59:17 *	zaeph has left the channel.
+Apr 12 17:59:20 <GermainZ>	You're welcome, dear
+Apr 12 17:59:23 <GermainZ>	❤
+Apr 12 17:59:37 <zaeph>	Stop taunting me with your Compose boshit.
+Apr 12 17:59:43 <__monty__>	zaeph: No that makes no sense.
+Apr 12 17:59:43 <zaeph>	I'll fire up Terminator just for you.
+Apr 12 17:59:45 <GermainZ>	☺
+Apr 12 17:59:50 <__monty__>	If anki requires qt5 it got installed.
+Apr 12 17:59:50 <zaeph>	You make no sense!
+Apr 12 17:59:52 <GermainZ>	zaeph: kitty also has neat emoji input, BTW
+Apr 12 17:59:59 <GermainZ>	😈
+Apr 12 18:00:07 <GermainZ>	ctrl-shift-u
+Apr 12 18:00:11 <__monty__>	If anki can't find it that's because your environment variables aren't setup correctly.
+Apr 12 18:00:16 <zaeph>	__monty__: Get my stdout you fool: https://paste.xinu.at/wEf3/plain
+Apr 12 18:00:23 <__monty__>	zaeph: And that fish plugin I linked would fix that.
+Apr 12 18:00:31 <GermainZ>	it's for all unicode, but I use the favorites list for emoji 😎
+Apr 12 18:00:40 <zaeph>	Aight, let me pull.
+Apr 12 18:01:24 <zaeph>	I don't use a fish package manager.
+Apr 12 18:01:29 <zaeph>	Just put it in functions?
+Apr 12 18:01:57 <__monty__>	(If you don't use a fish plugin manager you can just copy the script into your own ~/.config/fish/conf.d folder as well
+Apr 12 18:02:06 <zaeph>	Good.
+Apr 12 18:02:07 <__monty__>	I assume a symlink into the repo'd work fine as well.
+Apr 12 18:02:14 <zaeph>	Got it, will do that.
+Apr 12 18:03:18 <zaeph>	All right, moment of truth.
+Apr 12 18:03:23 <zaeph>	Nope.
+Apr 12 18:03:34 <zaeph>	Qt poops itself.
+Apr 12 18:03:42 <__monty__>	zaeph: So far this article's been a lot of "Zettelkasten's amazing." And very little "This is what a Zettelkasten is."
+Apr 12 18:03:53 <__monty__>	Do you have nix-env on the PATH now?
+Apr 12 18:03:57 <zaeph>	Yeah, it's light on the technical details.
+Apr 12 18:04:18 <zaeph>	I think, since Anki now points to .niv-profile when I `which`.
+Apr 12 18:04:20 <__monty__>	Does anki need openGL?
+Apr 12 18:04:28 <zaeph>	I don't think so.
+Apr 12 18:04:48 <__monty__>	Does nix-env --version work?
+Apr 12 18:05:00 <zaeph>	Lol, niv-env isn't installed.
+Apr 12 18:05:12 <zaeph>	Let me try in kitty, maybe terminator's single-session is fucky.
+Apr 12 18:05:23 <zaeph>	Nope, not installed.
+Apr 12 18:05:32 <__monty__>	You just need to start a new fish instance.
+Apr 12 18:05:38 <zaeph>	That's what I initially did.
+Apr 12 18:05:41 <__monty__>	If that doesn't work the plugin's probably not installed correctly.
+Apr 12 18:05:54 <__monty__>	You didn't symlink to the entire repo, did you?
+Apr 12 18:06:02 <zaeph>	I don't have nix-env on the path.
+Apr 12 18:06:07 <zaeph>	No, just the confs.
+Apr 12 18:06:33 <zaeph>	conf.d, I mean.
+Apr 12 18:07:03 <__monty__>	So you have a `~/.config/fish/conf.d/conf.d` pointing to the directory in the repo?
+Apr 12 18:07:13 <__monty__>	The link should probably point to the script.
+Apr 12 18:07:16 <zaeph>	Minus the repetition, yes.
+Apr 12 18:07:47 <zaeph>	I'll just copy paste the file to be sure.
+Apr 12 18:08:09 <zaeph>	Wait, no.
+Apr 12 18:08:12 <zaeph>	It *is* loaded.
+Apr 12 18:08:20 <zaeph>	It's just that I mistook the error for 'command not found'.
+Apr 12 18:08:27 <__monty__>	>.<
+Apr 12 18:08:29 <zaeph>	nix-env --help works now.
+Apr 12 18:08:35 <zaeph>	I'll try again with the symlink.
+Apr 12 18:09:07 <zaeph>	Yup, it works.
+Apr 12 18:09:17 <zaeph>	All right, what now chief.
+Apr 12 18:09:30 <__monty__>	Try running anki again.
+Apr 12 18:09:36 <zaeph>	Nope.
+Apr 12 18:09:48 <zaeph>	SIGABRT.
+Apr 12 18:09:56 <zaeph>	qt: Could not initialize GLX
+Apr 12 18:11:22 <__monty__>	Ok, so I'm pretty sure this *is* an openGL problem. You'll have to use https://github.com/guibou/nixGL
+Apr 12 18:11:41 <zaeph>	Can I install it with nix?
+Apr 12 18:11:51 <zaeph>	Or just clone the repo?
+Apr 12 18:12:16 <zaeph>	And yeah, Anki seems to be using opengl.
+Apr 12 18:12:19 <zaeph>	Whoopsie, sowwy.
+Apr 12 18:12:32 <__monty__>	I think you'll have to clone the repo.
+Apr 12 18:12:40 <zaeph>	On it.
+Apr 12 18:12:55 <__monty__>	Follow the readme it has instructions to build and install with nix-env.
+Apr 12 18:13:36 <__monty__>	This is one of the problems with nix on non-nixos. But it's because GL is horrible, I promise!
+Apr 12 18:13:58 <zaeph>	The lesser of two wevils with Arch, I suppose.
+Apr 12 18:14:13 <__monty__>	Makes anki a good candidate to just keep installing with pacman when it works again.
+Apr 12 18:14:33 <GermainZ>	anki the flashcards thing?
+Apr 12 18:14:36 <zaeph>	Yes.
+Apr 12 18:14:54 <zaeph>	But it's really not essential.
+Apr 12 18:15:01 <zaeph>	I'm barely adding any cards those days.
+Apr 12 18:15:31 <zaeph>	If it works, I'll still give you your point, __monty__ .
+Apr 12 18:16:17 <zaeph>	Nope.
+Apr 12 18:16:20 <zaeph>	Doesn't work.
+Apr 12 18:16:40 <zaeph>	And yes, I did run `nixGLNvidia anki`.
+Apr 12 18:16:59 <__monty__>	And you're on an nvidia laptop without intel graphics?
+Apr 12 18:17:02 <GermainZ>	did you try turning it off and on again?
+Apr 12 18:17:13 <zaeph>	I'm on intel graphics, no GPU.
+Apr 12 18:17:20 <__monty__>	Then why nvidia?
+Apr 12 18:17:25 <zaeph>	GermainZ: I'll tur you on and off if you don't stop your shenanigans right now.
+Apr 12 18:17:35 *	GermainZ shenanigans zaeph's face
+Apr 12 18:17:39 <zaeph>	Because it mentions it in the wiki?
+Apr 12 18:17:43 <zaeph>	oh wait.
+Apr 12 18:17:48 <GermainZ>	ha ha
+Apr 12 18:17:49 <__monty__>	https://github.com/guibou/nixGL#for-mesa-intel-amd-nouveau-
+Apr 12 18:17:49 <zaeph>	I just read the quick start.
+Apr 12 18:17:50 <GermainZ>	dum dum!
+Apr 12 18:17:56 <__monty__>	Jeez
+Apr 12 18:18:03 <GermainZ>	what a noob
+Apr 12 18:18:03 <zaeph>	Well excuse me princess!
+Apr 12 18:18:07 <zaeph>	Now I've borked my system.
+Apr 12 18:18:12 <__monty__>	I can't guarantee it works but I've had good luck with nixGL.
+Apr 12 18:18:13 <zaeph>	How do I even unmake.
+Apr 12 18:18:14 <GermainZ>	go back to Windows sucka
+Apr 12 18:18:33 <__monty__>	zaeph: nix-env -e name-of-thing, to uninstall.
+Apr 12 18:20:03 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 12 18:20:03 2020
+
+**** BEGIN LOGGING AT Sun Apr 12 18:49:29 2020
+
+Apr 12 18:49:29 *	Now talking on #ranger
+Apr 12 18:49:29 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 12 18:49:29 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 12 18:49:40 <GermainZ>	__monty__: mine has good contrast tho
+Apr 12 18:49:45 <zaeph>	I think I have a custom made script for the colours.
+Apr 12 18:49:54 <__monty__>	That's hard contrast in gruvbox?
+Apr 12 18:50:05 <GermainZ>	__monty__: either medium or hard, want me to check?
+Apr 12 18:50:06 <__monty__>	I don't like the brown background for one.
+Apr 12 18:50:16 <zaeph>	Racist.
+Apr 12 18:50:21 <GermainZ>	__monty__: it's not brown
+Apr 12 18:50:28 <zaeph>	GermainZ: Apologist!
+Apr 12 18:50:32 <__monty__>	It's not black, so it's brown.
+Apr 12 18:50:33 <GermainZ>	lmao
+Apr 12 18:50:46 <GermainZ>	__monty__: you must have a really poorly calibrated screen
+Apr 12 18:50:49 <zaeph>	__monty__: Oh yeah, you whiteys only see the world in white and black anyway.
+Apr 12 18:51:09 <__monty__>	Don't think so, iMacs usually have pretty good color calibration.
+Apr 12 18:51:18 <zaeph>	It's not brown, __monty__ .
+Apr 12 18:51:21 <zaeph>	#141414
+Apr 12 18:51:42 <__monty__>	How is that not brown?
+Apr 12 18:51:46 <zaeph>	Before I get accused: https://paste.xinu.at/RMZ/
+Apr 12 18:51:51 <__monty__>	It's closer to chocolate than it is to black.
+Apr 12 18:52:07 <GermainZ>	it's #1d2021 actually
+Apr 12 18:52:08 <RoboBob>	(GermainZ) Issue #1 (Closed by Unknown on 2010-02-04): https://github.com/ranger/ranger/issues/1 | Test
+Apr 12 18:52:09 <__monty__>	I think you guys should have your eyes checked.
+Apr 12 18:52:12 <GermainZ>	and it's hard gruvbox, __monty__ 
+Apr 12 18:52:26 <zaeph>	I think I know why it doesn't look brown to me.
+Apr 12 18:52:30 <zaeph>	I also use #141414 for my Emacs bg.
+Apr 12 18:52:40 <zaeph>	And I *knew* it was grey.
+Apr 12 18:52:43 <GermainZ>	141414 isn't my config tho
+Apr 12 18:52:45 <GermainZ>	that's monty's 
+Apr 12 18:52:49 <zaeph>	Is it?
+Apr 12 18:53:00 <GermainZ>	the screenshot you pasted looks nothing like mine so yes
+Apr 12 18:53:12 <GermainZ>	did __monty__ just criticize his own colorscheme as being brown?
+Apr 12 18:53:12 <zaeph>	That's not yours? https://paste.xinu.at/5rs/
+Apr 12 18:53:14 <__monty__>	1414 doesn't occur in my config.
+Apr 12 18:53:19 <GermainZ>	zaeph: no
+Apr 12 18:53:34 <zaeph>	Who linked this? http://ix.io/2hK2
+Apr 12 18:53:40 <zaeph>	I'll gitblame the fuck out of yous.
+Apr 12 18:53:42 <GermainZ>	this is mine: https://0x0.st/iSCj.png
+Apr 12 18:53:48 <GermainZ>	zaeph: __monty__ linked that
+Apr 12 18:53:50 <__monty__>	I do use a color different from black for text, black on black is obviously not readable.
+Apr 12 18:53:53 <zaeph>	__monty__: It's yours.
+Apr 12 18:53:58 <zaeph>	So I do prefer *your* config!
+Apr 12 18:54:01 <GermainZ>	lame
+Apr 12 18:54:11 <__monty__>	Yep, and it doesn't have 141414 anywhere!
+Apr 12 18:54:13 <GermainZ>	you two have no taste
+Apr 12 18:54:13 <zaeph>	You'll get your rose next time, GermainZ .
+Apr 12 18:54:27 <zaeph>	Ah, I think I know.
+Apr 12 18:54:36 <zaeph>	I put everything at the bottom of kitty.conf.
+Apr 12 18:54:41 <zaeph>	Prolly some remnants of mine.
+Apr 12 18:55:10 <zaeph>	So, let me try again with GermainZ's, then.
+Apr 12 18:55:23 <zaeph>	Is it this one? https://paste.xinu.at/ONGCPn/
+Apr 12 18:55:34 <zaeph>	Ah wait, you linked it, sorry.
+Apr 12 18:55:40 <GermainZ>	Yes
+Apr 12 18:55:50 <GermainZ>	What are those weird dots at the bottom?
+Apr 12 18:56:00 <zaeph>	tmux dying.
+Apr 12 18:56:05 <GermainZ>	D:
+Apr 12 18:56:12 *	GermainZ resurrects zaeph's tmux
+Apr 12 18:56:14 <zaeph>	I think it's because my server-laptop can't do larger displays.
+Apr 12 18:56:22 <zaeph>	https://www.colorhexa.com/1d2021
+Apr 12 18:56:30 <__monty__>	It's having tmux open in a terminal with a smaller dispay.
+Apr 12 18:56:40 <zaeph>	But it ain't opened anywhere else.
+Apr 12 18:57:05 <__monty__>	Then it's probably remembering a size from somewhere.
+Apr 12 18:57:37 <GermainZ>	"
+Apr 12 18:57:39 <GermainZ>	● #1d2021 color description : Very dark (mostly black) blue.
+Apr 12 18:57:41 <RoboBob>	(GermainZ) Issue #1 (Closed by Unknown on 2010-02-04): https://github.com/ranger/ranger/issues/1 | Test
+Apr 12 18:57:51 <GermainZ>	"it is composed of 12.1% cyan, 3% magenta, 0% yellow and 87.1% black"
+Apr 12 18:57:54 <GermainZ>	__monty__: see?
+Apr 12 18:57:54 <__monty__>	Try `ctrl-b :set-window -g aggressive-resize on`.
+Apr 12 18:57:56 <GermainZ>	RoboBob: you're dumb
+Apr 12 18:57:57 <zaeph>	Prolly makes brown, honestly.
+Apr 12 18:58:18 <zaeph>	I don't even remember my lead key for tmux.
+Apr 12 18:58:19 <GermainZ>	zaeph: maybe if you don't know what brown is
+Apr 12 18:58:33 <GermainZ>	zaeph: considering brown has a lot of red and yellow
+Apr 12 18:58:41 <GermainZ>	and probably no cyan
+Apr 12 18:58:43 <__monty__>	All I know is black doesn't have any magenta! : p
+Apr 12 18:58:43 <zaeph>	Also had a lot of blue to muddle up the water.
+Apr 12 18:58:53 <GermainZ>	https://www.colorhexa.com/a52a2a this is brown
+Apr 12 18:59:04 <zaeph>	Especially in darker shaders.
+Apr 12 18:59:14 <zaeph>	This is dark red.
+Apr 12 18:59:21 <zaeph>	Do you even calibrate, bro?
+Apr 12 18:59:29 <GermainZ>	zaeph: type "brown"
+Apr 12 18:59:42 <zaeph>	Fine.
+Apr 12 18:59:44 <GermainZ>	zaeph: you're talking about a different shade of brown
+Apr 12 19:00:12 <GermainZ>	even that isn't close to dark blue tho
+Apr 12 19:00:16 <GermainZ>	unless your monitor has issues
+Apr 12 19:00:33 <zaeph>	All right, I need to eat now.
+Apr 12 19:00:36 <zaeph>	Been at it since 12.
+Apr 12 19:00:39 <GermainZ>	zaeph: watcha gonna eat
+Apr 12 19:00:53 <zaeph>	What do you taste like?
+Apr 12 19:01:07 <GermainZ>	zaeph: Germain
+Apr 12 19:01:23 <__monty__>	Dammit, zaeph, you didn't warn me this article was gonna spawn a slew of tabs!
+Apr 12 19:01:34 <zaeph>	I think mpv is borked.
+Apr 12 19:01:48 *	zaeph sighs.
+Apr 12 19:01:53 <zaeph>	I can't watch the news.
+Apr 12 19:02:00 <zaeph>	I can't even know if the world is gonna end tonight.
+Apr 12 19:02:09 <__monty__>	zaeph: Install it with nix! : >
+Apr 12 19:02:39 <zaeph>	Underway.
+Apr 12 19:02:39 <GermainZ>	zaeph: if the world ends, you can roll it back with nix
+Apr 12 19:02:55 <__monty__>	Exactly!
+Apr 12 19:05:20 <zaeph>	Fucking hell.
+Apr 12 19:05:23 <zaeph>	It's working.
+Apr 12 19:05:27 <__monty__>	: >
+Apr 12 19:05:36 <zaeph>	...
+Apr 12 19:05:40 <zaeph>	Should I switch next week?
+Apr 12 19:05:41 <__monty__>	Turn to the darkside, young padawan.
+Apr 12 19:06:05 <__monty__>	I'd recommend getting a feel for it first. UX is... uhm, pretty bad.
+Apr 12 19:06:19 <__monty__>	Hence me spoonfeeding it to you.
+Apr 12 19:06:58 <zaeph>	I have one more week of holiday, and not much time to spare.
+Apr 12 19:07:02 <__monty__>	Once you realize you're still doing imperative package management rather than declarative package management I'll introduce home-manager. Until then I'm gonna let you live with relative bliss though : )
+Apr 12 19:07:20 <zaeph>	How do I update the packages?
+Apr 12 19:07:32 <__monty__>	Sigh
+Apr 12 19:07:38 <__monty__>	So you don't want bliss, huh?
+Apr 12 19:07:40 <GermainZ>	oof
+Apr 12 19:07:43 <zaeph>	:p
+Apr 12 19:07:59 <zaeph>	I do want bliss, but I just want to be able to update my nix packages.
+Apr 12 19:08:05 <__monty__>	This is the first inkling you'll get of the UI being, lacking.
+Apr 12 19:08:05 <zaeph>	I'll play around with the idea until I have the time to switch.
+Apr 12 19:08:25 <__monty__>	nix-channel --update, updates your channels which are kinda like pacman's package repos.
+Apr 12 19:09:09 <__monty__>	nix-env -u will upgrade all the installed packages.
+Apr 12 19:09:30 <__monty__>	To update selectively you can just use the install command again after updating your channels.
+Apr 12 19:09:50 <zaeph>	Sweet, thanks.
+Apr 12 19:09:56 <zaeph>	I'm taking notes, by the way.
+Apr 12 19:10:07 <zaeph>	So I can git-blame you in case of breakage.
+Apr 12 19:10:11 <__monty__>	Note than nix-env -u is a noop unless your channel has changed.
+Apr 12 19:11:45 <zaeph>	I'm supposed to be done with my MA thesis in 3 weeks.  I'll still be giving classes, but it might be a good time to prepare the switch.
+Apr 12 19:12:00 <zaeph>	I don't think I'll be able to get into a PhD this year anyway.  Too much hassle at unis.
+Apr 12 19:12:12 <zaeph>	Got a bunch of friends who got cancelled.
+Apr 12 19:12:57 <GermainZ>	because of the pandemic?
+Apr 12 19:13:03 <zaeph>	Yeah.
+Apr 12 19:13:15 <zaeph>	Its effects on institutions, I mean.
+Apr 12 19:13:24 <zaeph>	Like, students are probably not going to back to school before September here.
+Apr 12 19:14:05 <GermainZ>	Where's that?
+Apr 12 19:14:11 <__monty__>	Yeah, been kinda hard to keep my niece motivated to do *any* school stuff.
+Apr 12 19:14:19 <zaeph>	France.
+Apr 12 19:20:52 <zaeph>	I am a little bit worried about mpv and anki breaking.
+Apr 12 19:21:03 <zaeph>	Not sure what the common denominator is, if there is any.
+Apr 12 19:21:33 <__monty__>	The common denominator is arch lol.
+Apr 12 19:21:35 <__monty__>	∠( ᐛ 」∠)＿
+Apr 12 19:21:51 <zaeph>	Eyoo.
+Apr 12 19:21:56 <zaeph>	All right, cooking now.
+Apr 12 19:22:10 <__monty__>	Just being smug but this is what arch's flavor of "living on the edge" always resulted in for me : /
+Apr 12 19:23:00 <__monty__>	With nix I just don't experience such problems anywhere near as frequently. And when I do the easiest solution is always a single rollback command.
+Apr 12 19:23:23 <__monty__>	And this applies even for kernel changes!
+Apr 12 19:25:11 <__monty__>	Finishing up the article, zaeph.
+Apr 12 19:25:23 <__monty__>	Let me know when you're free to discuss a couple things?
+Apr 12 19:26:09 <zaeph>	Sure.  Probably gonna be off for 45-min.
+Apr 12 19:54:56 <__monty__>	https://www.smbc-comics.com/comic/life-2
+Apr 12 20:05:44 <zaeph>	__monty__: I shall grant you three questions.
+Apr 12 20:13:11 <GermainZ>	zaeph: what is your favorite color?
+Apr 12 20:13:23 <zaeph>	I'm so glad you got that one, it was so subtle.
+Apr 12 20:13:36 <zaeph>	I hesitated to add 'Three is the number of question I shall grant'.
+Apr 12 20:13:42 <zaeph>	Different section of the film, but still relevant.
+Apr 12 20:14:25 <GermainZ>	zaeph: what are we talking about?
+Apr 12 20:14:42 <zaeph>	An article I linked to you as well.
+Apr 12 20:14:55 <zaeph>	Whilst I'm fixing xcape on the side.
+Apr 12 20:15:04 <GermainZ>	zaeph: I don't see the relevance to colors
+Apr 12 20:15:07 <zaeph>	xmodmap works for setting it up, which is good: …
+Apr 12 20:15:20 <zaeph>	Wait.
+Apr 12 20:15:25 <zaeph>	You weren't quoting The Holy Grail?
+Apr 12 20:16:26 <zaeph>	I was referencing this for 'three': https://youtu.be/ashgP4YMdJw?t=82
+Apr 12 20:16:27 <RoboBob>	(zaeph) Monty Python - Holy Handgrenade - length 2m 25s - 7,052 likes, 90 dislikes (98.7%) - 483,212 views - Weidmoo on 2012.05.12
+Apr 12 20:16:47 <GermainZ>	zaeph: oooh
+Apr 12 20:16:58 <GermainZ>	zaeph: purely by luck. I am an accidental genius apparently
+Apr 12 20:17:10 <zaeph>	And here's what I thought you were referencing: https://www.youtube.com/watch?v=0D7hFHfLEyk
+Apr 12 20:17:11 <RoboBob>	(zaeph) Monty Python - Bridge of Death - length 3m 19s - 6,451 likes, 76 dislikes (98.8%) - 451,139 views - Weidmoo on 2012.05.12
+Apr 12 20:17:22 <GermainZ>	Yes I remember that scene now
+Apr 12 20:17:31 <GermainZ>	:D
+Apr 12 20:18:59 <zaeph>	Oof. https://github.com/kovidgoyal/kitty/issues/1381
+Apr 12 20:19:09 <zaeph>	(It's about xcape.)
+Apr 12 20:19:15 <zaeph>	Just scroll to Kovid's comment.
+Apr 12 20:19:29 <GermainZ>	:(
+Apr 12 20:26:24 <__monty__>	Answer me these questions three!
+Apr 12 20:26:57 <__monty__>	How far does an unladen swallow fly when carrying a coconut?
+Apr 12 20:27:08 <zaeph>	European or African?
+Apr 12 20:28:01 <__monty__>	Why do you need xcape?
+Apr 12 20:28:29 <zaeph>	I use CapsLock as Hyper, and when I don't use it for a chord, I use it for Compose.
+Apr 12 20:29:00 <zaeph>	But I think I'm onto kitty's problem.
+Apr 12 20:29:22 <zaeph>	I've remapped Compose to Shift-Menu at a low level.  Not sure what the reasoning was.
+Apr 12 20:29:25 <zaeph>	I'll edit my xkb file.
+Apr 12 20:30:06 <__monty__>	Ok, so the article suggests there's three sorts of notes. I think you talked about this. Notes are like nodes of a graph, connection notes are like annotations to edges of this graph and outlines are like a filtered view on the graph?
+Apr 12 20:30:49 <zaeph>	I have an excerpt from the book that will clarify, give me asec.
+Apr 12 20:32:05 <zaeph>	https://paste.xinu.at/XEfaon/plain
+Apr 12 20:32:21 <zaeph>	It's on the types of links
+Apr 12 20:35:33 <zaeph>	I think your assumptions are correct about the types of notes, although I'd put a caveat on the last type.  The bulk of your notes are going to be atomic notes which refer to concepts.
+Apr 12 20:36:28 <zaeph>	Then, you have writing-driven notes which aim to articulate your other notes into a cohesive subject.  Have a possible outline for a topic you'd like to write?  It'd go in a note like this.  A revision to that outline?  Just create a new note and call it v2.
+Apr 12 20:36:51 <zaeph>	As for your last type, the book makes it clear that you shouldn't have more than one of those note.  It's the index I was talking about.
+Apr 12 20:37:44 <zaeph>	A quote on the need for a simple index: https://paste.xinu.at/KnKEr/plain
+Apr 12 20:41:18 <__monty__>	Hmm, I think you're wrong.
+Apr 12 20:41:42 <zaeph>	Am I? ಠ_ಠ
+Apr 12 20:41:45 <__monty__>	You haven't touched on the second type I described. Your writing-driven notes are just the outlines I speak of.
+Apr 12 20:42:58 <zaeph>	Your second type seems to be about saying why two atomics notes can be related, correct?
+Apr 12 20:44:32 <__monty__>	Yeah, it's clarifying a link.
+Apr 12 20:44:55 <zaeph>	It's because I consider those to be part of the same type as the outline driven notes.
+Apr 12 20:45:00 <__monty__>	But the manuscript preparation notes that collect a list of identifiers are what I call outlines.
+Apr 12 20:45:05 <zaeph>	In other words, it's either atomic or connective.
+Apr 12 20:45:26 <zaeph>	Connective can just be two atomic notes, or it can be writing-driven
+Apr 12 20:45:35 <zaeph>	That's how I understood it anyway.
+Apr 12 20:46:08 <__monty__>	I don't see why you'd merge these. If you take my graph metaphor it becomes clearer how it can make sense to treat them differently.
+Apr 12 20:46:54 <__monty__>	Regular notes can also link to things so there's no real physical difference between any of these notes necessarily.
+Apr 12 20:47:00 <zaeph>	In my usage, I've been describing how atomic-note-a relates to atomic-note-b in a pagraph on atomic-note-a.
+Apr 12 20:47:18 <zaeph>	Yeah, I think that's the crux of the problem: we shouldn't be really thinking about types.
+Apr 12 20:47:31 <zaeph>	As long as you're keeping your notes simple and connected, that's kind of the only thing you need.
+Apr 12 20:47:38 <__monty__>	No, I think it makes sense to think of the types.
+Apr 12 20:48:02 <__monty__>	Your atomic-note-a is no longer atomic because of that paragraph.
+Apr 12 20:48:14 <zaeph>	oh no.
+Apr 12 20:48:15 <__monty__>	If it works better for you this way that's fine though.
+Apr 12 20:48:17 <zaeph>	calibre-viewer is kaput too.
+Apr 12 20:48:41 <__monty__>	Install zathura, best ebook reader anyway.
+Apr 12 20:48:57 <zaeph>	SHould I try nix-env -a calibre?
+Apr 12 20:49:06 <zaeph>	-i, sorry.
+Apr 12 20:49:12 <__monty__>	You could use nix to do so : >
+Apr 12 20:49:21 <zaeph>	Jesus, take the wheel!
+Apr 12 20:49:25 <zaeph>	I know you're busy this weekend but still.
+Apr 12 20:49:32 <__monty__>	Do you need to read a document or do you need calibre?
+Apr 12 20:49:43 <zaeph>	Calibre works, but I wanted to refer back to my back.
+Apr 12 20:49:47 <zaeph>	book*.
+Apr 12 20:50:43 <zaeph>	Sec, I'm trying to fix xcape at the same time.
+Apr 12 20:53:15 <zaeph>	Interesting.  ebook-viewer didn't work vanilla, but with `nixGLIntel` it did.
+Apr 12 20:53:23 <zaeph>	So opengl is borked on Arch?
+Apr 12 20:53:27 <__monty__>	nixenv -f '<nixpkgs>' -iA zathura
+Apr 12 20:53:33 <__monty__>	Could be.
+Apr 12 20:53:51 <__monty__>	Kinda weird that a nix fix works for a non-nix package though : )
+Apr 12 20:54:37 <zaeph>	Nah, it was on the nix version.
+Apr 12 20:54:37 <__monty__>	Oh.
+Apr 12 20:54:37 <__monty__>	I highly recommend zathura though.
+Apr 12 20:55:18 <zaeph>	I use Emacs's pdf-tools for PDF, and I've customised the CSS in calibre's ebook-viewer.  What would I get from zathura?
+Apr 12 20:55:24 <zaeph>	For ebooks, that is.
+Apr 12 20:55:34 <zaeph>	Sticking with Emacs for PDF because of the notes I need to take on them.
+Apr 12 20:56:11 <__monty__>	zathura does pdf, djvu, cbz/cbr and postscript.
+Apr 12 20:56:26 <__monty__>	And it supports mupdf for pdf so the pdfs are super nice.
+Apr 12 20:56:37 <zaeph>	I'm fine with Emacs, then, but thanks.
+Apr 12 20:56:40 <__monty__>	Probably doesn't support note-taking well though.
+Apr 12 20:56:54 <__monty__>	Then what do you use ebook-viewer for?
+Apr 12 20:57:00 <zaeph>	Man, I don't know anything about all those graphic driver packages.
+Apr 12 20:57:19 <zaeph>	Just for opening epubs.  Emacs has nov.el, but it doesn't support many html tags.
+Apr 12 20:57:25 <zaeph>	Like, not even emph.
+Apr 12 20:58:03 <__monty__>	mupdf does epub, so zathura does epub.
+Apr 12 20:58:14 <zaeph>	Oh.  Then I could give it a shot.
+Apr 12 20:58:34 <zaeph>	I've downgraded mesa, but not sure if I should restart.
+Apr 12 20:58:34 <__monty__>	Archwiki on mupdf: It supports PDF, XPS, EPUB, XHTML, CBZ, and various image formats such as PNG, JPEG, GIF, and TIFF.
+Apr 12 20:58:37 <zaeph>	*sigh*  This is annoying.
+Apr 12 20:59:46 <__monty__>	s/an/arch
+Apr 12 21:00:54 <zaeph>	So it is mesa.
+Apr 12 21:01:06 <zaeph>	I can start Anki and ebook-viewer now.
+Apr 12 21:02:06 <zaeph>	Welp, next time I'll know.
+Apr 12 21:02:13 <__monty__>	zaeph: Ok, now for my real not fluff question.
+Apr 12 21:02:26 <zaeph>	Did I answer your question, though? :/
+Apr 12 21:02:34 <zaeph>	I feel like I've been handwaving it a bit.
+Apr 12 21:02:38 <__monty__>	The article talks a lot about the value being in the links more than the notes.
+Apr 12 21:02:58 <__monty__>	But it says when adding a note to just link it to at least one relevant note.
+Apr 12 21:03:31 <__monty__>	I assume this means you're supposed to add links manually and add them over time when you happen to think of them?
+Apr 12 21:03:55 <zaeph>	Yes.
+Apr 12 21:04:15 <zaeph>	Roam, the soon-to-be-proprietary software can suggest you entries based on recurring words.
+Apr 12 21:04:26 <zaeph>	But in effect, you're the one who has to think of the link.
+Apr 12 21:04:43 <zaeph>	The article indicates to have at least one link so that the note is not an orphan.
+Apr 12 21:05:09 <zaeph>	Also, why does `nix-env -f <nixpkgs> -eA calibre mpv anki` not work! (╯°□°）╯︵ ┻━┻
+Apr 12 21:05:33 <zaeph>	Ah, quotes.
+Apr 12 21:05:56 <zaeph>	And the A.  Thought it was for multiple inputs.
+Apr 12 21:06:11 <zaeph>	Right, let's try zathura now.
+Apr 12 21:06:48 <__monty__>	No, you need to use `-e` without `-A`.
+Apr 12 21:06:59 <__monty__>	And you can't always use the name you used to install.
+Apr 12 21:07:14 <__monty__>	You need to use the name rather than the "attribute name".
+Apr 12 21:07:26 <__monty__>	You can find the names with `nix-env -q`.
+Apr 12 21:07:46 <zaeph>	Got it, thanks.
+Apr 12 21:15:40 <GermainZ>	you're welcome
+Apr 12 21:16:22 <__monty__>	zaeph: You should be able to pass multiple names to nix-env -e btw. And -e doesn't need the -f '<nixpkgs>'.
+Apr 12 21:19:03 <zaeph>	I could, but I had -f too.
+Apr 12 21:22:00 <__monty__>	It doesn't hurt. Just doesn't help either.
+Apr 12 21:27:58 <zaeph>	Sounds like my ex again!
+Apr 12 21:29:27 <zaeph>	Keyboard issue makes me want to shoot myself.
+Apr 12 21:31:15 <__monty__>	I'm not quite clear on why you need xcape still.
+Apr 12 21:31:28 <__monty__>	Is it just the space-cadet-ish double-purpose?
+Apr 12 21:31:32 <zaeph>	If you can tell me which key to use for my Compose key, I'll listen.
+Apr 12 21:31:37 <zaeph>	It is.
+Apr 12 21:31:49 <zaeph>	And I don't think I can sacrifice a key just for Compose.
+Apr 12 21:31:55 <__monty__>	I use the menu key to right of space.
+Apr 12 21:32:04 <zaeph>	See, I don't have it on my laptop.
+Apr 12 21:32:11 <zaeph>	That's Alt_R for me.
+Apr 12 21:32:40 <__monty__>	Does caps need to be hyper? And does the other hyper also need to be hyper?
+Apr 12 21:32:55 <zaeph>	Win key is Super, Capslock is Hyper.
+Apr 12 21:33:04 <zaeph>	CapsLock as Hyper, I find it very useful.
+Apr 12 21:33:53 <zaeph>	Left side of the keyboard shifted with Hyper handles system stuff (lock, busy-mode, lid-sleep-inhibit, etc.), right side if app specific.
+Apr 12 21:36:54 <__monty__>	Could you google an image of your keyboard?
+Apr 12 21:37:49 <zaeph>	https://techaeris.com/wp-content/uploads/2017/07/Lenovo-ThinkPad-X1-Carbon-5th-gen-2-Techaeris.jpg
+Apr 12 21:38:38 <__monty__>	prtsc looks like your menu key.
+Apr 12 21:40:44 <zaeph>	Oh yeah, I remember thinking I should modify it.
+Apr 12 21:41:06 <zaeph>	I think it's because I wanted to turn it into another alt.
+Apr 12 21:41:16 <zaeph>	But no, it makes sense.  I already use Alt_R for dead keys.
+Apr 12 21:41:17 <__monty__>	Three alts?
+Apr 12 21:41:42 <zaeph>	Nah, Alt_R is for AltGr.  I use it for French diacritics.
+Apr 12 21:41:55 <zaeph>	I tried doing them with Compose, but it really slowed me down.
+Apr 12 21:42:01 <zaeph>	And it was infuriating when it misfired.
+Apr 12 21:45:17 <__monty__>	Fair, I guess. Though couldn't you map the exact dead-key combinations to compose? For example if you use ralt+u to type ù, you could have compose-u mean the same thing.
+Apr 12 21:46:24 <zaeph>	You could, but that'd prevent combinations with two letters.
+Apr 12 21:46:41 <zaeph>	So, then, before you know it, you have to type compose u u.
+Apr 12 21:48:42 <__monty__>	True.
+Apr 12 21:51:32 <zaeph>	All right, from kitty: …
+Apr 12 21:51:34 <zaeph>	Yay!
+Apr 12 21:51:47 <zaeph>	I still don't like change.
+Apr 12 21:52:33 <zaeph>	And now, I'm thinking; 'What if I get a computer without that extra key next time?'
+Apr 12 21:52:33 <zaeph>	Useless question.
+Apr 12 21:54:49 <__monty__>	Feel free not to use kitty. It's a great terminal though.
+Apr 12 21:55:45 <zaeph>	It feels more extensible.  Terminator feels like a relic of the past, but it does the job.
+Apr 12 21:58:13 <zaeph>	The weird thing is that kitty only does that for Multi_key.
+Apr 12 21:58:16 <zaeph>	Menu works fine.
+Apr 12 22:05:40 <zaeph>	Do I really want to lose my sanity on this… Mh...
+Apr 12 22:09:56 <zaeph>	Welp, it's in C.  Not gonna get really far with that.
+Apr 12 22:19:24 <zaeph>	Fuck this. ♪┌|°з°|┘♪
+Apr 12 22:22:18 <__monty__>	zaeph: Side note, wayland's coming and xcape probably won't work there anyway.
+Apr 12 22:22:23 <__monty__>	It's probably a hack on a hack.
+Apr 12 22:22:38 <zaeph>	It is.
+Apr 12 22:22:46 <zaeph>	*sigh* It's a losing battle.
+Apr 12 22:22:53 <__monty__>	I know that doesn't fix your problem but maybe it's not actually a reasonable solution in the first place.
+Apr 12 22:23:01 <zaeph>	I think you're right.
+Apr 12 22:23:33 <zaeph>	And the misfires are unbearable too.  It's like a bad relationship: I just can't let go.
+Apr 12 22:26:02 <__monty__>	Seems like a habit.
+Apr 12 22:26:05 <zaeph>	Like, I even use it for mapping Ctrl_R to M-x in Emacs, and even that only works 95% of the time.
+Apr 12 22:26:32 <zaeph>	All right, I'll remove it.
+Apr 12 22:26:42 <zaeph>	I don't think I even use Ctrl_R on its own.
+Apr 12 22:32:27 <zaeph>	There, remapped Ctrl_R.  I'll probably be mad for a week, but it'll be for the best.
+Apr 12 22:37:11 <__monty__>	👍
+Apr 12 22:37:28 <__monty__>	Though my rctrl isn't exactly comfortable to type.
+Apr 12 22:37:38 <zaeph>	Neither is mine, but I'm used to it for Emacs.
+Apr 12 22:37:54 <zaeph>	And since it' too tough to chord, using it for a single action is all right.
+Apr 12 22:38:03 <zaeph>	I use it for <menu> elsewhere.
+Apr 12 22:38:36 <zaeph>	Oh nice, kitty also has `hold shift and click link to open`.
+Apr 12 22:38:42 <zaeph>	It's with `open_url_modifiers shift`
+Apr 12 22:39:24 <zaeph>	I think I could get used to kitty.
+Apr 12 22:40:32 <zaeph>	Could I took a gander at your config?  I'm browsing the wiki for some syntactical elements, like how to cycle variables, but it's a bit complicated to find.
+Apr 12 22:40:46 <zaeph>	Or is it on GH?
+Apr 12 22:41:00 <__monty__>	It could be.
+Apr 12 22:41:00 <zaeph>	It is!
+Apr 12 22:41:07 <zaeph>	https://github.com/toonn/dotfiles/blob/master/kitty/kitty.conf
+Apr 12 22:41:09 <__monty__>	Mine is very barebones though.
+Apr 12 22:41:25 <zaeph>	I'm trying to find how to cycle the bell.
+Apr 12 22:41:27 <__monty__>	Basically just the kitty_mod+o binding. And some changes to the hash pattern.
+Apr 12 22:41:29 <zaeph>	'Cause it's useful on weechat sometimes.
+Apr 12 22:44:56 <zaeph>	Uhm, not sure if you can actually cycle a value.  Don't see any way to handle conditionals.
+Apr 12 22:55:48 <__monty__>	Maybe writing a kitten would be the kitty way to add this functionality?
+Apr 12 22:56:02 <zaeph>	Probably.  I'm a little tired and not very efficient tonight.
+Apr 12 22:56:13 <zaeph>	Just going to aim feature parity with Termanitor and call it a night.
+Apr 12 22:56:22 <zaeph>	Terminator*
+Apr 12 23:02:25 <zaeph>	https://github.com/kovidgoyal/kitty/issues/1255#issuecomment-546704451
+Apr 12 23:02:33 <zaeph>	If I could facepalm any harder, I would.
+Apr 12 23:02:56 <zaeph>	Whoops, sorry, copied the wrong comment: https://github.com/kovidgoyal/kitty/issues/1255#issuecomment-449062502
+Apr 12 23:03:57 <zaeph>	I'll see if their fix works with CapsLock.
+Apr 12 23:04:39 <zaeph>	Okay, it works.
+Apr 12 23:04:43 <zaeph>	Thank god for that.
+Apr 12 23:07:08 <zaeph>	Nope, doesn't work as a modifier.
+Apr 12 23:12:51 <zaeph>	…Guess I'll just adjust that too.  I'll stop the spam now, this is getting ridiculous.
+Apr 12 23:33:35 <__monty__>	nn, peeps
+Apr 12 23:33:43 <zaeph>	Bye!
+Apr 13 02:49:33 *	Disconnected ()
+**** ENDING LOGGING AT Mon Apr 13 02:49:33 2020
+
+**** BEGIN LOGGING AT Thu Apr 16 16:36:15 2020
+
+Apr 16 16:36:15 *	Now talking on #ranger
+Apr 16 16:36:15 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 16 16:36:15 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)

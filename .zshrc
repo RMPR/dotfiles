@@ -213,6 +213,7 @@ alias u="umount"
 alias code="codium"
 alias docker="podman"
 alias vimrc="$EDITOR ~/.vimrc"
+alias df="df -h"
 
 source ~/.profile
 source /home/rufus/.config/broot/launcher/bash/br

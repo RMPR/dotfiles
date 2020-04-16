@@ -730,3 +730,321 @@ Mar 20 14:40:52 *	Disconnected ()
 Mar 20 14:41:20 *	Now talking on #fedora-meeting-1
 Mar 20 14:41:20 *	Topic for #fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
 Mar 20 14:41:20 *	Topic for #fedora-meeting-1 set by zodbot!supybot@fedora/bot/zodbot (Thu Mar 19 17:14:23 2020)
+**** BEGIN LOGGING AT Thu Apr  2 09:38:28 2020
+
+Apr 02 09:38:28 *	Now talking on #fedora-meeting-1
+Apr 02 09:38:28 *	Topic for #fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+Apr 02 09:38:28 *	Topic for #fedora-meeting-1 set by zodbot!supybot@fedora/bot/zodbot (Wed Apr  1 18:57:57 2020)
+Apr 02 12:38:17 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr  2 12:38:17 2020
+
+**** BEGIN LOGGING AT Thu Apr  2 12:38:42 2020
+
+Apr 02 12:38:42 *	Now talking on #fedora-meeting-1
+Apr 02 12:38:42 *	Topic for #fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+Apr 02 12:38:42 *	Topic for #fedora-meeting-1 set by zodbot!supybot@fedora/bot/zodbot (Wed Apr  1 18:57:57 2020)
+Apr 02 12:55:05 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr  2 12:55:05 2020
+
+**** BEGIN LOGGING AT Thu Apr  2 12:55:30 2020
+
+Apr 02 12:55:30 *	Now talking on #fedora-meeting-1
+Apr 02 12:55:30 *	Topic for #fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+Apr 02 12:55:30 *	Topic for #fedora-meeting-1 set by zodbot!supybot@fedora/bot/zodbot (Wed Apr  1 18:57:57 2020)
+Apr 02 15:42:44 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr  2 15:42:44 2020
+
+**** BEGIN LOGGING AT Thu Apr  2 15:43:12 2020
+
+Apr 02 15:43:12 *	Now talking on #fedora-meeting-1
+Apr 02 15:43:12 *	Topic for #fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+Apr 02 15:43:12 *	Topic for #fedora-meeting-1 set by zodbot!supybot@fedora/bot/zodbot (Thu Apr  2 15:02:36 2020)
+Apr 02 16:00:12 <cverna>	#startmeeting Infrastructure (2020-04-02)
+Apr 02 16:00:12 <cverna>	#meetingname infrastructure
+Apr 02 16:00:12 <zodbot>	Meeting started Thu Apr  2 15:00:12 2020 UTC.
+Apr 02 16:00:12 <zodbot>	This meeting is logged and archived in a public location.
+Apr 02 16:00:12 <zodbot>	The chair is cverna. Information about MeetBot at http://wiki.debian.org/MeetBot.
+Apr 02 16:00:12 <zodbot>	Useful Commands: #action #agreed #halp #info #idea #link #topic.
+Apr 02 16:00:12 *	zodbot has changed the topic to:  (Meeting topic: Infrastructure (2020-04-02))
+Apr 02 16:00:13 <zodbot>	The meeting name has been set to 'infrastructure_(2020-04-02)'
+Apr 02 16:00:13 <zodbot>	The meeting name has been set to 'infrastructure'
+Apr 02 16:00:18 <nirik>	morning.
+Apr 02 16:00:24 <cverna>	#chair nirik pingou smooge cverna mizdebsk mkonecny abompard
+Apr 02 16:00:25 <cverna>	#info Agenda is at: https://board.net/p/fedora-infra
+Apr 02 16:00:25 <zodbot>	Current chairs: abompard cverna mizdebsk mkonecny nirik pingou smooge
+Apr 02 16:00:31 <cverna>	#info About our team: https://docs.fedoraproject.org/en-US/cpe/
+Apr 02 16:00:32 <cverna>	#topic aloha
+Apr 02 16:00:32 *	zodbot has changed the topic to: aloha (Meeting topic: Infrastructure (2020-04-02))
+Apr 02 16:00:44 <cverna>	Hello again :)
+Apr 02 16:01:08 <mkonecny>	.hello zlopez
+Apr 02 16:01:10 <zodbot>	mkonecny: zlopez 'Michal Konečný' <michal.konecny@packetseekers.eu>
+Apr 02 16:02:35 <cverna>	#topic New folks introductions
+Apr 02 16:02:35 <cverna>	#info This is a place where people who are interested in Fedora Infrastructure can introduce themselves
+Apr 02 16:02:35 <cverna>	#info Getting Started Guide: https://fedoraproject.org/wiki/Infrastructure/GettingStarted
+Apr 02 16:02:35 *	zodbot has changed the topic to: New folks introductions (Meeting topic: Infrastructure (2020-04-02))
+Apr 02 16:02:58 <cverna>	Anyone new that would like to say hello ?
+Apr 02 16:03:46 <pingou>	ó/
+Apr 02 16:05:01 <cverna>	#topic Next chair
+Apr 02 16:05:01 <cverna>	#info magic eight ball says:
+Apr 02 16:05:01 *	zodbot has changed the topic to: Next chair (Meeting topic: Infrastructure (2020-04-02))
+Apr 02 16:05:10 <cverna>	#info 2020-04-09 - ????
+Apr 02 16:05:24 <cverna>	anyone willing to chair next meeting ?
+Apr 02 16:05:34 <mkonecny>	cverna: I will do it
+Apr 02 16:05:52 <cverna>	thanks mkonecny
+Apr 02 16:06:25 <cverna>	#topic announcements and information
+Apr 02 16:06:25 <cverna>	#info CPE Sustaining team has standups on Tuesday and Thursday at 1400 UTC in #fedora-admin - please join
+Apr 02 16:06:25 *	zodbot has changed the topic to: announcements and information (Meeting topic: Infrastructure (2020-04-02))
+Apr 02 16:06:38 <cverna>	#info Fedora Infrastructure will be moving in 2020-06 from its Phoenix Az datacenter to one near Herndon Va. A lot of planning will be involved on this. Please watch out for announcements on changes.
+Apr 02 16:06:38 <cverna>	#info Fedora Communishift will be moving to new datacentre in April. Current downtime is expected to be from 2020-04-10 -> 2020-05-01. Please watch out for announcements on changes.
+Apr 02 16:06:38 <cverna>	#info Taskotron will EOL in 2020-05
+Apr 02 16:06:58 <cverna>	anything else ?
+Apr 02 16:07:22 *	nirik can't think of anything this week
+Apr 02 16:07:48 <pingou>	is June still the target for the move?
+Apr 02 16:08:10 <cverna>	as far as I know yes
+Apr 02 16:08:19 <nirik>	yeah, it's still on track... but you never know...
+Apr 02 16:08:30 <pingou>	ok
+Apr 02 16:08:32 <pingou>	:)
+Apr 02 16:08:45 <nirik>	if we can't ship things, we will have to move inside phx2. ;(
+Apr 02 16:08:52 <nirik>	and then do the real move next year.
+Apr 02 16:09:12 <nirik>	but I hope it doesn't come to that
+Apr 02 16:09:21 <cverna>	Let's hope this does not happen
+Apr 02 16:09:54 <cverna>	#topic Oncall
+Apr 02 16:09:54 <cverna>	#info https://fedoraproject.org/wiki/Infrastructure/Oncall
+Apr 02 16:09:54 *	zodbot has changed the topic to: Oncall (Meeting topic: Infrastructure (2020-04-02))
+Apr 02 16:10:06 <cverna>	#info ???? is oncall 2020-04-02 -> 2020-04-09
+Apr 02 16:10:17 <cverna>	anyone willing to take this week ?
+Apr 02 16:10:26 <cverna>	siddharthvipul1: did you want to try being oncall ?
+Apr 02 16:10:38 <nirik>	It's fun! :)
+Apr 02 16:10:39 *	cverna puts vipul on the spot :P
+Apr 02 16:11:23 <misc>	fedoraInfraTox(["epel7"]) { }
+Apr 02 16:11:26 <misc>	argh
+Apr 02 16:11:49 <cverna>	thanks misc for volontueering being oncall :D
+Apr 02 16:11:56 <nirik>	ha
+Apr 02 16:12:14 <cverna>	I ll double check with vipul, but we talked earlier this week about it
+Apr 02 16:12:27 <nirik>	ok. If nothing else I can take it again...
+Apr 02 16:12:45 <cverna>	so I am happy to stay oncall for now and check it with vipul
+Apr 02 16:12:53 <nirik>	ok, that works too
+Apr 02 16:12:53 <siddharthvipul>	I am innn
+Apr 02 16:13:05 <siddharthvipul>	to disturb cverna often :P
+Apr 02 16:13:21 <cverna>	:)
+Apr 02 16:13:46 <cverna>	siddharthvipul:  can try to the following alias  .oncalltakeeu
+Apr 02 16:14:06 <siddharthvipul>	be back in a minute. sorry
+Apr 02 16:14:31 <cverna>	no worries we can sort that out after the meeting
+Apr 02 16:14:46 <siddharthvipul>	.oncalltakeeu
+Apr 02 16:14:46 <zodbot>	siddharthvipul: Error: You don't have the alias.add capability. If you think that you should have this capability, be sure that you are identified before trying again. The 'whoami' command can tell you if you're identified.
+Apr 02 16:15:07 <cverna>	#info Summary of last week: (from current oncall )
+Apr 02 16:15:21 <siddharthvipul>	I don't have alias.add capability, I will continue this after the meeting, carry on
+Apr 02 16:15:35 <siddharthvipul>	oh right.. I guess this is also at the wrong place
+Apr 02 16:15:49 <cverna>	I don't think I add anything this week or at least I was not around
+Apr 02 16:16:10 <cverna>	so it has been pretty quiet
+Apr 02 16:16:46 <cverna>	#topic backlog discussion [cverna]
+Apr 02 16:16:46 *	zodbot has changed the topic to: backlog discussion [cverna] (Meeting topic: Infrastructure (2020-04-02))
+Apr 02 16:17:16 <cverna>	this is happening on the list --> https://lists.fedoraproject.org/archives/list/infrastructure@lists.fedoraproject.org/thread/DTNZ7QYAYRXHDDSU54OCIAVHDP3YVWOK/
+Apr 02 16:17:33 <cverna>	feel free to share your opinions or ask questions :)
+Apr 02 16:17:33 <nirik>	we have been rocking lately... almost down under 100. ;)
+Apr 02 16:17:48 <cverna>	anything in particular we want to talk about ?
+Apr 02 16:17:52 <cverna>	yeah :)
+Apr 02 16:18:38 <nirik>	the daily stuff has been really helpfull. ;) as has the discuss backlog on list.
+Apr 02 16:18:46 <pingou>	cverna++
+Apr 02 16:19:49 <mkonecny>	The weekly refinement of tickets is really nice thing
+Apr 02 16:19:53 <cverna>	yeah I like the weekly discuss on the list because it forces us to look back at some old tickets
+Apr 02 16:20:15 <cverna>	and sometimes we can just close them :)
+Apr 02 16:20:55 <cverna>	I don't think there is anything else for today so I guess it is time for
+Apr 02 16:21:01 <cverna>	#topic Open Floor
+Apr 02 16:21:04 *	zodbot has changed the topic to: Open Floor (Meeting topic: Infrastructure (2020-04-02))
+Apr 02 16:21:08 <mkonecny>	Like this week, when I get to it, one of the tickets was already fixed :-D
+Apr 02 16:21:36 <cverna>	yeah :D nirik++
+Apr 02 16:21:53 <cverna>	Anything for the Open Floor ?
+Apr 02 16:22:11 <nirik>	not much today.
+Apr 02 16:23:11 <cverna>	for me with the DST thing it will be a bit more challenging for me to attend every week at this time. Even more so with the lockdown all the familly is stuck at home
+Apr 02 16:23:28 <cverna>	but let's see how that goes
+Apr 02 16:23:40 <nirik>	curse you DST! :(
+Apr 02 16:24:16 <mkonecny>	The lockdown isn't great :-(
+Apr 02 16:24:27 <cverna>	yeah :)
+Apr 02 16:24:37 *	tflink prepares a pitchfork and torch for the march against DST
+Apr 02 16:24:41 <mkonecny>	And the DST is just gift from hell :-D
+Apr 02 16:25:04 <nirik>	I sure hope we drop it soon, but it never seems to happen.
+Apr 02 16:25:23 <smooge>	DST or the quarentine?
+Apr 02 16:25:24 <cverna>	haha mkonecny I like that one
+Apr 02 16:25:42 <pingou>	tflink: we're in April :)
+Apr 02 16:25:44 <nirik>	smooge: DST
+Apr 02 16:25:47 <smooge>	thanks for running
+Apr 02 16:25:49 *	cverna hopes the quarentine will be a yearly thing like DST
+Apr 02 16:26:11 <pingou>	you do or you don't? :)
+Apr 02 16:26:14 <cverna>	oh no I don't hope it will be :P
+Apr 02 16:26:23 <tflink>	pingou: :-P
+Apr 02 16:26:28 <cverna>	haha
+Apr 02 16:26:42 <cverna>	thanks all
+Apr 02 16:26:49 <pingou>	thanks cverna
+Apr 02 16:26:53 <cverna>	#endmeeting
+Apr 02 16:26:53 *	zodbot has changed the topic to: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+Apr 02 16:26:53 <zodbot>	Meeting ended Thu Apr  2 15:26:52 2020 UTC. Information about MeetBot at http://wiki.debian.org/MeetBot .
+Apr 02 16:26:53 <zodbot>	Minutes: https://meetbot.fedoraproject.org/fedora-meeting-1/2020-04-02/infrastructure.2020-04-02-15.00.html
+Apr 02 16:26:53 <zodbot>	Minutes (text): https://meetbot.fedoraproject.org/fedora-meeting-1/2020-04-02/infrastructure.2020-04-02-15.00.txt
+Apr 02 16:26:53 <zodbot>	Log: https://meetbot.fedoraproject.org/fedora-meeting-1/2020-04-02/infrastructure.2020-04-02-15.00.log.html
+Apr 02 16:28:23 <mkonecny>	thanks cverna :-D
+Apr 02 16:28:28 <nirik>	thanks cverna
+Apr 02 17:00:32 <geppetto>	#startmeeting fpc
+Apr 02 17:00:32 <geppetto>	#meetingname fpc
+Apr 02 17:00:32 <geppetto>	#topic Roll Call
+Apr 02 17:00:32 <zodbot>	Meeting started Thu Apr  2 16:00:32 2020 UTC.
+Apr 02 17:00:32 <zodbot>	This meeting is logged and archived in a public location.
+Apr 02 17:00:32 <zodbot>	The chair is geppetto. Information about MeetBot at http://wiki.debian.org/MeetBot.
+Apr 02 17:00:32 <zodbot>	Useful Commands: #action #agreed #halp #info #idea #link #topic.
+Apr 02 17:00:32 *	zodbot has changed the topic to:  (Meeting topic: fpc)
+Apr 02 17:00:33 <zodbot>	The meeting name has been set to 'fpc'
+Apr 02 17:00:33 <zodbot>	The meeting name has been set to 'fpc'
+Apr 02 17:00:34 *	zodbot has changed the topic to: Roll Call (Meeting topic: fpc)
+Apr 02 17:01:19 <mhroncok>	.hello churchyard
+Apr 02 17:01:20 <zodbot>	mhroncok: Something blew up, please try again
+Apr 02 17:01:29 <mhroncok>	well, hey there I guess
+Apr 02 17:01:33 <geppetto>	#chair mhroncok
+Apr 02 17:01:33 <zodbot>	Current chairs: geppetto mhroncok
+Apr 02 17:01:47 <geppetto>	yeh
+Apr 02 17:02:09 <geppetto>	lots of things have blown up zodbot, so don't worry too much about it
+Apr 02 17:02:57 <decathorpe>	I'm here
+Apr 02 17:03:04 <geppetto>	#chair decathorpe
+Apr 02 17:03:04 <zodbot>	Current chairs: decathorpe geppetto mhroncok
+Apr 02 17:03:35 <decathorpe>	mhroncok: "Something blew up, please try again" good motto for this week
+Apr 02 17:04:11 <mhroncok>	:D
+Apr 02 17:06:38 <geppetto>	Ok, no new tickets etc. again … everything is still on fire … so …
+Apr 02 17:06:43 <geppetto>	#topic Open Floor
+Apr 02 17:06:43 *	zodbot has changed the topic to: Open Floor (Meeting topic: fpc)
+Apr 02 17:06:53 <geppetto>	Anything anyone wants to discuss?
+Apr 02 17:07:09 <decathorpe>	I'll try to do some ticket triage next week, if I can find my motivation again
+Apr 02 17:07:15 *	geppetto nods
+Apr 02 17:07:27 <decathorpe>	the backlog really is getting bad, vondruch is right
+Apr 02 17:08:06 <geppetto>	I guess we have a couple of new tickets actually, just not tagged with meeting … bootstrap
+Apr 02 17:08:18 <geppetto>	exception for mono, seems trivial
+Apr 02 17:09:08 <geppetto>	Pull request for haskell guidlines also should be simple
+Apr 02 17:09:25 *	decathorpe nods
+Apr 02 17:10:12 <geppetto>	mhroncok: You want to +1 the bootstrap in the ticket? … still won't have 5 but maybe soon.
+Apr 02 17:10:15 *	limburgher is here but a total space cadet
+Apr 02 17:10:28 <limburgher>	goldangit
+Apr 02 17:11:25 <limburgher>	Voted on mono bootstrap in ticket.
+Apr 02 17:11:59 <mhroncok>	geppetto: I thought I have
+Apr 02 17:13:58 <geppetto>	mhroncok: sorry, I thought it was just decathorpe
+Apr 02 17:14:13 <geppetto>	Anyway … that's +4
+Apr 02 17:14:17 <geppetto>	#chair limburgher
+Apr 02 17:14:17 <zodbot>	Current chairs: decathorpe geppetto limburgher mhroncok
+Apr 02 17:14:56 <geppetto>	Ok, unless there's anything else I'll close.
+Apr 02 17:15:43 <limburgher>	Not I said the duck.
+Apr 02 17:15:58 <mhroncok>	geppetto++
+Apr 02 17:18:18 <geppetto>	Ok, ping you next week
+Apr 02 17:18:22 <geppetto>	#endmeeting
+Apr 02 17:18:22 *	zodbot has changed the topic to: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+Apr 02 17:18:22 <zodbot>	Meeting ended Thu Apr  2 16:18:21 2020 UTC. Information about MeetBot at http://wiki.debian.org/MeetBot .
+Apr 02 17:18:22 <zodbot>	Minutes: https://meetbot.fedoraproject.org/fedora-meeting-1/2020-04-02/fpc.2020-04-02-16.00.html
+Apr 02 17:18:22 <zodbot>	Minutes (text): https://meetbot.fedoraproject.org/fedora-meeting-1/2020-04-02/fpc.2020-04-02-16.00.txt
+Apr 02 17:18:22 <zodbot>	Log: https://meetbot.fedoraproject.org/fedora-meeting-1/2020-04-02/fpc.2020-04-02-16.00.log.html
+Apr 02 17:18:29 <decathorpe>	thanks geppetto!
+Apr 02 22:08:10 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr  2 22:08:10 2020
+
+**** BEGIN LOGGING AT Thu Apr  2 22:08:38 2020
+
+Apr 02 22:08:38 *	Now talking on #fedora-meeting-1
+Apr 02 22:08:39 *	Topic for #fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+Apr 02 22:08:39 *	Topic for #fedora-meeting-1 set by zodbot!supybot@fedora/bot/zodbot (Thu Apr  2 17:18:21 2020)
+Apr 03 00:56:54 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr  3 00:56:54 2020
+
+**** BEGIN LOGGING AT Fri Apr  3 09:06:40 2020
+
+Apr 03 09:06:40 *	Now talking on #fedora-meeting-1
+Apr 03 09:06:40 *	Topic for #fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+Apr 03 09:06:40 *	Topic for #fedora-meeting-1 set by zodbot!supybot@fedora/bot/zodbot (Thu Apr  2 17:18:21 2020)
+Apr 03 16:01:33 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr  3 16:01:33 2020
+
+**** BEGIN LOGGING AT Fri Apr  3 20:50:36 2020
+
+Apr 03 20:50:36 *	Now talking on #fedora-meeting-1
+Apr 03 20:50:36 *	Topic for #fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+Apr 03 20:50:36 *	Topic for #fedora-meeting-1 set by zodbot!supybot@fedora/bot/zodbot (Thu Apr  2 17:18:21 2020)
+Apr 03 21:25:58 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr  3 21:25:58 2020
+
+**** BEGIN LOGGING AT Fri Apr  3 23:31:54 2020
+
+Apr 03 23:31:54 *	Now talking on #fedora-meeting-1
+Apr 03 23:31:54 *	Topic for #fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+Apr 03 23:31:54 *	Topic for #fedora-meeting-1 set by zodbot!supybot@fedora/bot/zodbot (Thu Apr  2 17:18:21 2020)
+**** BEGIN LOGGING AT Sat Apr  4 09:36:09 2020
+
+Apr 04 09:36:09 *	Now talking on #fedora-meeting-1
+Apr 04 09:36:09 *	Topic for #fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+Apr 04 09:36:09 *	Topic for #fedora-meeting-1 set by zodbot!supybot@fedora/bot/zodbot (Thu Apr  2 17:18:21 2020)
+Apr 04 12:01:49 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr  4 12:01:49 2020
+
+**** BEGIN LOGGING AT Sat Apr  4 12:06:58 2020
+
+Apr 04 12:06:58 *	Now talking on #fedora-meeting-1
+Apr 04 12:06:58 *	Topic for #fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+Apr 04 12:06:58 *	Topic for #fedora-meeting-1 set by zodbot!supybot@fedora/bot/zodbot (Thu Apr  2 17:18:21 2020)
+Apr 04 14:39:46 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr  4 14:39:46 2020
+
+**** BEGIN LOGGING AT Sat Apr  4 17:12:18 2020
+
+Apr 04 17:12:18 *	Now talking on #fedora-meeting-1
+Apr 04 17:12:18 *	Topic for #fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+Apr 04 17:12:18 *	Topic for #fedora-meeting-1 set by zodbot!supybot@fedora/bot/zodbot (Thu Apr  2 17:18:21 2020)
+Apr 04 18:06:13 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr  4 18:06:13 2020
+
+**** BEGIN LOGGING AT Sat Apr  4 18:06:42 2020
+
+Apr 04 18:06:42 *	Now talking on #fedora-meeting-1
+Apr 04 18:06:42 *	Topic for #fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+Apr 04 18:06:42 *	Topic for #fedora-meeting-1 set by zodbot!supybot@fedora/bot/zodbot (Thu Apr  2 17:18:21 2020)
+Apr 04 19:18:58 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr  4 19:18:58 2020
+
+**** BEGIN LOGGING AT Sat Apr  4 19:19:26 2020
+
+Apr 04 19:19:26 *	Now talking on #fedora-meeting-1
+Apr 04 19:19:26 *	Topic for #fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+Apr 04 19:19:26 *	Topic for #fedora-meeting-1 set by zodbot!supybot@fedora/bot/zodbot (Thu Apr  2 17:18:21 2020)
+Apr 04 22:00:30 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr  4 22:00:30 2020
+
+**** BEGIN LOGGING AT Sat Apr  4 22:01:14 2020
+
+Apr 04 22:01:14 *	Now talking on #fedora-meeting-1
+Apr 04 22:01:14 *	Topic for #fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+Apr 04 22:01:14 *	Topic for #fedora-meeting-1 set by zodbot!supybot@fedora/bot/zodbot (Thu Apr  2 17:18:21 2020)
+Apr 04 23:42:15 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr  4 23:42:15 2020
+
+**** BEGIN LOGGING AT Sat Apr  4 23:42:41 2020
+
+Apr 04 23:42:41 *	Now talking on #fedora-meeting-1
+Apr 04 23:42:41 *	Topic for #fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+Apr 04 23:42:41 *	Topic for #fedora-meeting-1 set by zodbot!supybot@fedora/bot/zodbot (Thu Apr  2 17:18:21 2020)
+**** ENDING LOGGING AT Sun Apr  5 01:01:58 2020
+
+**** BEGIN LOGGING AT Fri Apr 10 09:59:51 2020
+
+Apr 10 09:59:51 *	Now talking on #fedora-meeting-1
+Apr 10 09:59:51 *	Topic for #fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+Apr 10 09:59:51 *	Topic for #fedora-meeting-1 set by zodbot!supybot@fedora/bot/zodbot (Thu Apr  9 18:10:04 2020)
+Apr 10 11:58:32 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 10 11:58:32 2020
+
+**** BEGIN LOGGING AT Fri Apr 10 12:09:11 2020
+
+Apr 10 12:09:11 *	Now talking on #fedora-meeting-1
+Apr 10 12:09:11 *	Topic for #fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+Apr 10 12:09:11 *	Topic for #fedora-meeting-1 set by zodbot!supybot@fedora/bot/zodbot (Thu Apr  9 18:10:04 2020)
+Apr 10 14:14:14 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 10 14:14:14 2020
+
+**** BEGIN LOGGING AT Fri Apr 10 14:14:43 2020
+
+Apr 10 14:14:43 *	Now talking on #fedora-meeting-1
+Apr 10 14:14:43 *	Topic for #fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+Apr 10 14:14:43 *	Topic for #fedora-meeting-1 set by zodbot!supybot@fedora/bot/zodbot (Thu Apr  9 18:10:04 2020)
+**** ENDING LOGGING AT Fri Apr 10 15:17:55 2020
+

@@ -588,3 +588,252 @@ T 1584711652 20*	Disconnected (20)
 T 1584711680 19*	Now talking on 22#fedora-meeting-1
 T 1584711680 22*	Topic for 22#fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
 T 1584711680 22*	Topic for 22#fedora-meeting-1 set by 26zodbot!supybot@fedora/bot/zodbot (24Thu Mar 19 17:14:23 2020)
+T 1585816708 19*	Now talking on 22#fedora-meeting-1
+T 1585816708 22*	Topic for 22#fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+T 1585816708 22*	Topic for 22#fedora-meeting-1 set by 26zodbot!supybot@fedora/bot/zodbot (24Wed Apr  1 18:57:57 2020)
+T 1585827497 20*	Disconnected (20)
+T 1585827522 19*	Now talking on 22#fedora-meeting-1
+T 1585827522 22*	Topic for 22#fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+T 1585827522 22*	Topic for 22#fedora-meeting-1 set by 26zodbot!supybot@fedora/bot/zodbot (24Wed Apr  1 18:57:57 2020)
+T 1585828505 20*	Disconnected (20)
+T 1585828530 19*	Now talking on 22#fedora-meeting-1
+T 1585828530 22*	Topic for 22#fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+T 1585828530 22*	Topic for 22#fedora-meeting-1 set by 26zodbot!supybot@fedora/bot/zodbot (24Wed Apr  1 18:57:57 2020)
+T 1585838564 20*	Disconnected (20)
+T 1585838592 19*	Now talking on 22#fedora-meeting-1
+T 1585838592 22*	Topic for 22#fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+T 1585838592 22*	Topic for 22#fedora-meeting-1 set by 26zodbot!supybot@fedora/bot/zodbot (24Thu Apr  2 15:02:36 2020)
+T 1585839612 18<19cverna18>	#startmeeting Infrastructure (2020-04-02)
+T 1585839612 18<19cverna18>	#meetingname infrastructure
+T 1585839612 18<20zodbot18>	Meeting started Thu Apr  2 15:00:12 2020 UTC.
+T 1585839612 18<20zodbot18>	This meeting is logged and archived in a public location.
+T 1585839612 18<20zodbot18>	The chair is cverna. Information about MeetBot at http://wiki.debian.org/MeetBot.
+T 1585839612 18<20zodbot18>	Useful Commands: #action #agreed #halp #info #idea #link #topic.
+T 1585839612 22*	26zodbot has changed the topic to:  (Meeting topic: Infrastructure (2020-04-02))
+T 1585839613 18<20zodbot18>	The meeting name has been set to 'infrastructure_(2020-04-02)'
+T 1585839613 18<20zodbot18>	The meeting name has been set to 'infrastructure'
+T 1585839618 18<20nirik18>	morning.
+T 1585839624 18<19cverna18>	#chair nirik pingou smooge cverna mizdebsk mkonecny abompard
+T 1585839625 18<19cverna18>	#info Agenda is at: https://board.net/p/fedora-infra
+T 1585839625 18<20zodbot18>	Current chairs: abompard cverna mizdebsk mkonecny nirik pingou smooge
+T 1585839631 18<19cverna18>	#info About our team: https://docs.fedoraproject.org/en-US/cpe/
+T 1585839632 18<19cverna18>	#topic aloha
+T 1585839632 22*	26zodbot has changed the topic to: aloha (Meeting topic: Infrastructure (2020-04-02))
+T 1585839644 18<19cverna18>	Hello again :)
+T 1585839668 18<25mkonecny18>	.hello zlopez
+T 1585839670 18<20zodbot18>	mkonecny: zlopez 'Michal Konečný' <michal.konecny@packetseekers.eu>
+T 1585839755 18<19cverna18>	#topic New folks introductions
+T 1585839755 18<19cverna18>	#info This is a place where people who are interested in Fedora Infrastructure can introduce themselves
+T 1585839755 18<19cverna18>	#info Getting Started Guide: https://fedoraproject.org/wiki/Infrastructure/GettingStarted
+T 1585839755 22*	26zodbot has changed the topic to: New folks introductions (Meeting topic: Infrastructure (2020-04-02))
+T 1585839778 18<19cverna18>	Anyone new that would like to say hello ?
+T 1585839826 18<20pingou18>	ó/
+T 1585839901 18<19cverna18>	#topic Next chair
+T 1585839901 18<19cverna18>	#info magic eight ball says:
+T 1585839901 22*	26zodbot has changed the topic to: Next chair (Meeting topic: Infrastructure (2020-04-02))
+T 1585839910 18<19cverna18>	#info 2020-04-09 - ????
+T 1585839924 18<19cverna18>	anyone willing to chair next meeting ?
+T 1585839934 18<25mkonecny18>	cverna: I will do it
+T 1585839952 18<19cverna18>	thanks mkonecny
+T 1585839985 18<19cverna18>	#topic announcements and information
+T 1585839985 18<19cverna18>	#info CPE Sustaining team has standups on Tuesday and Thursday at 1400 UTC in #fedora-admin - please join
+T 1585839985 22*	26zodbot has changed the topic to: announcements and information (Meeting topic: Infrastructure (2020-04-02))
+T 1585839998 18<19cverna18>	#info Fedora Infrastructure will be moving in 2020-06 from its Phoenix Az datacenter to one near Herndon Va. A lot of planning will be involved on this. Please watch out for announcements on changes.
+T 1585839998 18<19cverna18>	#info Fedora Communishift will be moving to new datacentre in April. Current downtime is expected to be from 2020-04-10 -> 2020-05-01. Please watch out for announcements on changes.
+T 1585839998 18<19cverna18>	#info Taskotron will EOL in 2020-05
+T 1585840018 18<19cverna18>	anything else ?
+T 1585840042 18*	20nirik can't think of anything this week
+T 1585840068 18<20pingou18>	is June still the target for the move?
+T 1585840090 18<19cverna18>	as far as I know yes
+T 1585840099 18<20nirik18>	yeah, it's still on track... but you never know...
+T 1585840110 18<20pingou18>	ok
+T 1585840112 18<20pingou18>	:)
+T 1585840125 18<20nirik18>	if we can't ship things, we will have to move inside phx2. ;(
+T 1585840132 18<20nirik18>	and then do the real move next year.
+T 1585840152 18<20nirik18>	but I hope it doesn't come to that
+T 1585840161 18<19cverna18>	Let's hope this does not happen
+T 1585840194 18<19cverna18>	#topic Oncall
+T 1585840194 18<19cverna18>	#info https://fedoraproject.org/wiki/Infrastructure/Oncall
+T 1585840194 22*	26zodbot has changed the topic to: Oncall (Meeting topic: Infrastructure (2020-04-02))
+T 1585840206 18<19cverna18>	#info ???? is oncall 2020-04-02 -> 2020-04-09
+T 1585840217 18<19cverna18>	anyone willing to take this week ?
+T 1585840226 18<19cverna18>	siddharthvipul1: did you want to try being oncall ?
+T 1585840238 18<20nirik18>	It's fun! :)
+T 1585840239 18*	19cverna puts vipul on the spot :P
+T 1585840283 18<26misc18>	fedoraInfraTox(["epel7"]) { }
+T 1585840286 18<26misc18>	argh
+T 1585840309 18<19cverna18>	thanks misc for volontueering being oncall :D
+T 1585840316 18<20nirik18>	ha
+T 1585840334 18<19cverna18>	I ll double check with vipul, but we talked earlier this week about it
+T 1585840347 18<20nirik18>	ok. If nothing else I can take it again...
+T 1585840365 18<19cverna18>	so I am happy to stay oncall for now and check it with vipul
+T 1585840373 18<20nirik18>	ok, that works too
+T 1585840373 18<24siddharthvipul18>	I am innn
+T 1585840385 18<24siddharthvipul18>	to disturb cverna often :P
+T 1585840401 18<19cverna18>	:)
+T 1585840426 18<19cverna18>	siddharthvipul:  can try to the following alias  .oncalltakeeu
+T 1585840446 18<24siddharthvipul18>	be back in a minute. sorry
+T 1585840471 18<19cverna18>	no worries we can sort that out after the meeting
+T 1585840486 18<24siddharthvipul18>	.oncalltakeeu
+T 1585840486 18<20zodbot18>	siddharthvipul: Error: You don't have the alias.add capability. If you think that you should have this capability, be sure that you are identified before trying again. The 'whoami' command can tell you if you're identified.
+T 1585840507 18<19cverna18>	#info Summary of last week: (from current oncall )
+T 1585840521 18<24siddharthvipul18>	I don't have alias.add capability, I will continue this after the meeting, carry on
+T 1585840535 18<24siddharthvipul18>	oh right.. I guess this is also at the wrong place
+T 1585840549 18<19cverna18>	I don't think I add anything this week or at least I was not around
+T 1585840570 18<19cverna18>	so it has been pretty quiet
+T 1585840606 18<19cverna18>	#topic backlog discussion [cverna]
+T 1585840606 22*	26zodbot has changed the topic to: backlog discussion [cverna] (Meeting topic: Infrastructure (2020-04-02))
+T 1585840636 18<19cverna18>	this is happening on the list --> https://lists.fedoraproject.org/archives/list/infrastructure@lists.fedoraproject.org/thread/DTNZ7QYAYRXHDDSU54OCIAVHDP3YVWOK/
+T 1585840653 18<19cverna18>	feel free to share your opinions or ask questions :)
+T 1585840653 18<20nirik18>	we have been rocking lately... almost down under 100. ;)
+T 1585840668 18<19cverna18>	anything in particular we want to talk about ?
+T 1585840672 18<19cverna18>	yeah :)
+T 1585840718 18<20nirik18>	the daily stuff has been really helpfull. ;) as has the discuss backlog on list.
+T 1585840726 18<20pingou18>	cverna++
+T 1585840789 18<25mkonecny18>	The weekly refinement of tickets is really nice thing
+T 1585840793 18<19cverna18>	yeah I like the weekly discuss on the list because it forces us to look back at some old tickets
+T 1585840815 18<19cverna18>	and sometimes we can just close them :)
+T 1585840855 18<19cverna18>	I don't think there is anything else for today so I guess it is time for
+T 1585840861 18<19cverna18>	#topic Open Floor
+T 1585840864 22*	26zodbot has changed the topic to: Open Floor (Meeting topic: Infrastructure (2020-04-02))
+T 1585840868 18<25mkonecny18>	Like this week, when I get to it, one of the tickets was already fixed :-D
+T 1585840896 18<19cverna18>	yeah :D nirik++
+T 1585840913 18<19cverna18>	Anything for the Open Floor ?
+T 1585840931 18<20nirik18>	not much today.
+T 1585840991 18<19cverna18>	for me with the DST thing it will be a bit more challenging for me to attend every week at this time. Even more so with the lockdown all the familly is stuck at home
+T 1585841008 18<19cverna18>	but let's see how that goes
+T 1585841020 18<20nirik18>	curse you DST! :(
+T 1585841056 18<25mkonecny18>	The lockdown isn't great :-(
+T 1585841067 18<19cverna18>	yeah :)
+T 1585841077 18*	19tflink prepares a pitchfork and torch for the march against DST
+T 1585841081 18<25mkonecny18>	And the DST is just gift from hell :-D
+T 1585841104 18<20nirik18>	I sure hope we drop it soon, but it never seems to happen.
+T 1585841123 18<22smooge18>	DST or the quarentine?
+T 1585841124 18<19cverna18>	haha mkonecny I like that one
+T 1585841142 18<20pingou18>	tflink: we're in April :)
+T 1585841144 18<20nirik18>	smooge: DST
+T 1585841147 18<22smooge18>	thanks for running
+T 1585841149 18*	19cverna hopes the quarentine will be a yearly thing like DST
+T 1585841171 18<20pingou18>	you do or you don't? :)
+T 1585841174 18<19cverna18>	oh no I don't hope it will be :P
+T 1585841183 18<19tflink18>	pingou: :-P
+T 1585841188 18<19cverna18>	haha
+T 1585841202 18<19cverna18>	thanks all
+T 1585841209 18<20pingou18>	thanks cverna
+T 1585841213 18<19cverna18>	#endmeeting
+T 1585841213 22*	26zodbot has changed the topic to: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+T 1585841213 18<20zodbot18>	Meeting ended Thu Apr  2 15:26:52 2020 UTC. Information about MeetBot at http://wiki.debian.org/MeetBot .
+T 1585841213 18<20zodbot18>	Minutes: https://meetbot.fedoraproject.org/fedora-meeting-1/2020-04-02/infrastructure.2020-04-02-15.00.html
+T 1585841213 18<20zodbot18>	Minutes (text): https://meetbot.fedoraproject.org/fedora-meeting-1/2020-04-02/infrastructure.2020-04-02-15.00.txt
+T 1585841213 18<20zodbot18>	Log: https://meetbot.fedoraproject.org/fedora-meeting-1/2020-04-02/infrastructure.2020-04-02-15.00.log.html
+T 1585841303 18<25mkonecny18>	thanks cverna :-D
+T 1585841308 18<20nirik18>	thanks cverna
+T 1585843232 18<29geppetto18>	#startmeeting fpc
+T 1585843232 18<29geppetto18>	#meetingname fpc
+T 1585843232 18<29geppetto18>	#topic Roll Call
+T 1585843232 18<20zodbot18>	Meeting started Thu Apr  2 16:00:32 2020 UTC.
+T 1585843232 18<20zodbot18>	This meeting is logged and archived in a public location.
+T 1585843232 18<20zodbot18>	The chair is geppetto. Information about MeetBot at http://wiki.debian.org/MeetBot.
+T 1585843232 18<20zodbot18>	Useful Commands: #action #agreed #halp #info #idea #link #topic.
+T 1585843232 22*	26zodbot has changed the topic to:  (Meeting topic: fpc)
+T 1585843233 18<20zodbot18>	The meeting name has been set to 'fpc'
+T 1585843233 18<20zodbot18>	The meeting name has been set to 'fpc'
+T 1585843234 22*	26zodbot has changed the topic to: Roll Call (Meeting topic: fpc)
+T 1585843279 18<20mhroncok18>	.hello churchyard
+T 1585843280 18<20zodbot18>	mhroncok: Something blew up, please try again
+T 1585843289 18<20mhroncok18>	well, hey there I guess
+T 1585843293 18<29geppetto18>	#chair mhroncok
+T 1585843293 18<20zodbot18>	Current chairs: geppetto mhroncok
+T 1585843307 18<29geppetto18>	yeh
+T 1585843329 18<29geppetto18>	lots of things have blown up zodbot, so don't worry too much about it
+T 1585843377 18<22decathorpe18>	I'm here
+T 1585843384 18<29geppetto18>	#chair decathorpe
+T 1585843384 18<20zodbot18>	Current chairs: decathorpe geppetto mhroncok
+T 1585843415 18<22decathorpe18>	mhroncok: "Something blew up, please try again" good motto for this week
+T 1585843451 18<20mhroncok18>	:D
+T 1585843598 18<29geppetto18>	Ok, no new tickets etc. again … everything is still on fire … so …
+T 1585843603 18<29geppetto18>	#topic Open Floor
+T 1585843603 22*	26zodbot has changed the topic to: Open Floor (Meeting topic: fpc)
+T 1585843613 18<29geppetto18>	Anything anyone wants to discuss?
+T 1585843629 18<22decathorpe18>	I'll try to do some ticket triage next week, if I can find my motivation again
+T 1585843635 18*	29geppetto nods
+T 1585843647 18<22decathorpe18>	the backlog really is getting bad, vondruch is right
+T 1585843686 18<29geppetto18>	I guess we have a couple of new tickets actually, just not tagged with meeting … bootstrap
+T 1585843698 18<29geppetto18>	exception for mono, seems trivial
+T 1585843748 18<29geppetto18>	Pull request for haskell guidlines also should be simple
+T 1585843765 18*	22decathorpe nods
+T 1585843812 18<29geppetto18>	mhroncok: You want to +1 the bootstrap in the ticket? … still won't have 5 but maybe soon.
+T 1585843815 18*	22limburgher is here but a total space cadet
+T 1585843828 18<22limburgher18>	goldangit
+T 1585843885 18<22limburgher18>	Voted on mono bootstrap in ticket.
+T 1585843919 18<20mhroncok18>	geppetto: I thought I have
+T 1585844038 18<29geppetto18>	mhroncok: sorry, I thought it was just decathorpe
+T 1585844053 18<29geppetto18>	Anyway … that's +4
+T 1585844057 18<29geppetto18>	#chair limburgher
+T 1585844057 18<20zodbot18>	Current chairs: decathorpe geppetto limburgher mhroncok
+T 1585844096 18<29geppetto18>	Ok, unless there's anything else I'll close.
+T 1585844143 18<22limburgher18>	Not I said the duck.
+T 1585844158 18<20mhroncok18>	geppetto++
+T 1585844298 18<29geppetto18>	Ok, ping you next week
+T 1585844302 18<29geppetto18>	#endmeeting
+T 1585844302 22*	26zodbot has changed the topic to: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+T 1585844302 18<20zodbot18>	Meeting ended Thu Apr  2 16:18:21 2020 UTC. Information about MeetBot at http://wiki.debian.org/MeetBot .
+T 1585844302 18<20zodbot18>	Minutes: https://meetbot.fedoraproject.org/fedora-meeting-1/2020-04-02/fpc.2020-04-02-16.00.html
+T 1585844302 18<20zodbot18>	Minutes (text): https://meetbot.fedoraproject.org/fedora-meeting-1/2020-04-02/fpc.2020-04-02-16.00.txt
+T 1585844302 18<20zodbot18>	Log: https://meetbot.fedoraproject.org/fedora-meeting-1/2020-04-02/fpc.2020-04-02-16.00.log.html
+T 1585844309 18<22decathorpe18>	thanks geppetto!
+T 1585861690 20*	Disconnected (20)
+T 1585861718 19*	Now talking on 22#fedora-meeting-1
+T 1585861719 22*	Topic for 22#fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+T 1585861719 22*	Topic for 22#fedora-meeting-1 set by 26zodbot!supybot@fedora/bot/zodbot (24Thu Apr  2 17:18:21 2020)
+T 1585871814 20*	Disconnected (20)
+T 1585901200 19*	Now talking on 22#fedora-meeting-1
+T 1585901200 22*	Topic for 22#fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+T 1585901200 22*	Topic for 22#fedora-meeting-1 set by 26zodbot!supybot@fedora/bot/zodbot (24Thu Apr  2 17:18:21 2020)
+T 1585926093 20*	Disconnected (20)
+T 1585943436 19*	Now talking on 22#fedora-meeting-1
+T 1585943436 22*	Topic for 22#fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+T 1585943436 22*	Topic for 22#fedora-meeting-1 set by 26zodbot!supybot@fedora/bot/zodbot (24Thu Apr  2 17:18:21 2020)
+T 1585945558 20*	Disconnected (20)
+T 1585953114 19*	Now talking on 22#fedora-meeting-1
+T 1585953114 22*	Topic for 22#fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+T 1585953114 22*	Topic for 22#fedora-meeting-1 set by 26zodbot!supybot@fedora/bot/zodbot (24Thu Apr  2 17:18:21 2020)
+T 1585989369 19*	Now talking on 22#fedora-meeting-1
+T 1585989369 22*	Topic for 22#fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+T 1585989369 22*	Topic for 22#fedora-meeting-1 set by 26zodbot!supybot@fedora/bot/zodbot (24Thu Apr  2 17:18:21 2020)
+T 1585998109 20*	Disconnected (20)
+T 1585998418 19*	Now talking on 22#fedora-meeting-1
+T 1585998418 22*	Topic for 22#fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+T 1585998418 22*	Topic for 22#fedora-meeting-1 set by 26zodbot!supybot@fedora/bot/zodbot (24Thu Apr  2 17:18:21 2020)
+T 1586007586 20*	Disconnected (20)
+T 1586016710 20*	Disconnected (20Connection timed out)
+T 1586016738 19*	Now talking on 22#fedora-meeting-1
+T 1586016738 22*	Topic for 22#fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+T 1586016738 22*	Topic for 22#fedora-meeting-1 set by 26zodbot!supybot@fedora/bot/zodbot (24Thu Apr  2 17:18:21 2020)
+T 1586019973 20*	Disconnected (20)
+T 1586020002 19*	Now talking on 22#fedora-meeting-1
+T 1586020002 22*	Topic for 22#fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+T 1586020002 22*	Topic for 22#fedora-meeting-1 set by 26zodbot!supybot@fedora/bot/zodbot (24Thu Apr  2 17:18:21 2020)
+T 1586024338 20*	Disconnected (20)
+T 1586024366 19*	Now talking on 22#fedora-meeting-1
+T 1586024366 22*	Topic for 22#fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+T 1586024366 22*	Topic for 22#fedora-meeting-1 set by 26zodbot!supybot@fedora/bot/zodbot (24Thu Apr  2 17:18:21 2020)
+T 1586034030 20*	Disconnected (20)
+T 1586034074 19*	Now talking on 22#fedora-meeting-1
+T 1586034074 22*	Topic for 22#fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+T 1586034074 22*	Topic for 22#fedora-meeting-1 set by 26zodbot!supybot@fedora/bot/zodbot (24Thu Apr  2 17:18:21 2020)
+T 1586040135 20*	Disconnected (20)
+T 1586040161 19*	Now talking on 22#fedora-meeting-1
+T 1586040161 22*	Topic for 22#fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+T 1586040161 22*	Topic for 22#fedora-meeting-1 set by 26zodbot!supybot@fedora/bot/zodbot (24Thu Apr  2 17:18:21 2020)
+T 1586509191 19*	Now talking on 22#fedora-meeting-1
+T 1586509191 22*	Topic for 22#fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+T 1586509191 22*	Topic for 22#fedora-meeting-1 set by 26zodbot!supybot@fedora/bot/zodbot (24Thu Apr  9 18:10:04 2020)
+T 1586516312 20*	Disconnected (20)
+T 1586516951 19*	Now talking on 22#fedora-meeting-1
+T 1586516951 22*	Topic for 22#fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+T 1586516951 22*	Topic for 22#fedora-meeting-1 set by 26zodbot!supybot@fedora/bot/zodbot (24Thu Apr  9 18:10:04 2020)
+T 1586524454 20*	Disconnected (20)
+T 1586524483 19*	Now talking on 22#fedora-meeting-1
+T 1586524483 22*	Topic for 22#fedora-meeting-1 is: Fedora Meeting channel 1 | Meetings are often logged | See https://apps.fedoraproject.org/calendar/location/fedora-meeting-1%40irc.freenode.net/ for meeting schedule | For support please go to #fedora
+T 1586524483 22*	Topic for 22#fedora-meeting-1 set by 26zodbot!supybot@fedora/bot/zodbot (24Thu Apr  9 18:10:04 2020)

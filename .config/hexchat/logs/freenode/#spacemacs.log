@@ -1596,3 +1596,460 @@ Mar 20 15:23:09 <FromGitter>	<gcentauri> @paxsali - yeah looks like nothing "off
 Mar 20 15:30:25 <FromGitter>	<paxsali> How does one tell yasnippet not to create a newline when you're trying to expand something in the middle of the sentence? E.g. you type ```Hello keytrigger World!". Suppose ```keytrigger``` is a key that can be expanded into ```${1:my} ${2:very} ${3:beautiful}```. When you go to the end of ```keytrigger``` and press ```C-p``` for expand, it actually breaks everything into two lines: Lineno 1: ```Hello my very 
 Mar 20 15:30:26 <FromGitter>	... beautiful``` and Lineno 2: ```World!```.
 Mar 20 15:31:33 <FromGitter>	<paxsali> Obviously my snippet itself doesn't have multiple lines.
+**** BEGIN LOGGING AT Thu Apr  2 09:38:28 2020
+
+Apr 02 09:38:28 *	Now talking on #spacemacs
+Apr 02 09:38:28 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 02 09:38:28 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 02 09:41:32 <dokma>	FromGitter: nope
+Apr 02 09:41:33 <FromGitter>	dokma, I'm a bot, *bleep, bloop*. I relay messages between here and https://gitter.im/syl20bnr/spacemacs
+Apr 02 09:42:05 <dokma>	yyoncho: nope
+Apr 02 09:42:38 <FromGitter>	<yyoncho> what do you use? helm/ivy?
+Apr 02 09:50:20 <dokma>	yyoncho: helm
+Apr 02 09:50:53 <dokma>	yyoncho: I pressed C-k while being at the end of the pattern
+Apr 02 09:51:16 <dokma>	yyoncho: but C-a C-k does not work either
+Apr 02 09:51:52 <dokma>	yyoncho: for now I use 0 SPC /
+Apr 02 09:52:12 <dokma>	yyoncho: because I usually do not have anything on the first column of code.
+Apr 02 09:53:06 <dokma>	yyoncho: SPC / runs the command spacemacs/helm-project-smart-do-search
+Apr 02 09:54:42 <FromGitter>	<yyoncho> did you try to install silversearcher?
+Apr 02 09:59:06 <FromGitter>	<anddam> wow this IRC bridge is awkward
+Apr 02 10:00:46 <FromGitter>	<anddam> I am in a folder myroot/ that has a .git subfolder, there is myroot/mysrc/ that is an hg repo therefore has myroot/mysrc/.hg
+Apr 02 10:01:22 <FromGitter>	<lanigb> Hi, following the advice of jr0cket , I installed emacs-snapshot. Each time I launch it I got the message  "Update your dotfile (SPC f e D) and packages after every update". I am ok with that apart from the fact that I have no idea of what should go into this update. How can I get rid of this message ? TIA.
+Apr 02 10:02:13 <FromGitter>	<anddam> if I open projectile it selects as root myroot/, but when I use spacemacs/search-project-auto the tool used (ag) skips mysrc/
+Apr 02 10:02:41 <FromGitter>	<anddam> I figure this is due to some ignore rules but what could it be considering ag's configuration *does not* skip mysrc when used from CLI?
+Apr 02 10:04:05 <FromGitter>	<anddam> and, separate question, even if I browse the project tree and change the root using `R`, then when I hit `SPC 0` or close and reopen the projectile window, then the displayed root is myroot/ again, how do I change root and have that set in stone?
+Apr 02 10:08:39 <FromGitter>	<jr0cket> @lanigb if yo do not have any customisation in your original .Spacemacs file, then simply move or delete it.
+Apr 02 10:09:26 <FromGitter>	<jr0cket> Otherwise just accept all the changes from the spacemacs.templte file unless you know there is something you want to keep
+Apr 02 10:10:37 <FromGitter>	<jr0cket> Once your .spacemacs file has all the configuration options from the template then the message will stop.
+Apr 02 10:16:19 <FromGitter>	<jr0cket> <dokma> I stopped using `SPC /` and use `SPC s p` for helm-swoop search.  I find this much easier to use (and close).
+Apr 02 10:22:22 <FromGitter>	<jr0cket> @kaaninho I believe the mini buffer is eldoc, rather than auto-complete (I could be wrong).  I am not sure I understand the issue.
+Apr 02 10:39:58 <FromGitter>	<lanigb> @jr0cket
+Apr 02 10:41:02 <FromGitter>	<lanigb> @jr0cket >Otherwise just accept all the changes from the spacemacs.template file  ⏎ Sorry for the dumb question but what is the procees to accept changes ?
+Apr 02 10:44:36 <dokma>	jr0cket: I can't clear the prefilled patern in SPC s p either
+Apr 02 10:45:46 <dokma>	jr0cket, yyoncho: just stumbled upon a key combination that clears the prefilled patern: C-a C-Del
+Apr 02 10:46:15 <dokma>	jr0cket, yyoncho: WHOA... just improved it... C-Backspace clears it from the end
+Apr 02 10:46:39 <dokma>	jr0cket, yyoncho: where do these unnatural bindings come from?
+Apr 02 10:54:33 <FromGitter>	<jr0cket> `C-` and `M-` keybinding are classic Emacs. For example `C-y` pastes the current keyring into prompts (e.g helm).  `C-h` navigates to a parent directory in helm (e.g find-file, buffer-list)
+Apr 02 11:00:44 <FromGitter>	<jr0cket> @lanigb  `?` in the diff window shows the commands.  Use `n` to jump to to each diff, `b` to copy it's change into the a buffer (spacemacs.template is usually the b buffer).  You can also just make your own edits.  Make sure you have all the configuration sections (ideally any updated docs too).  You cannot course use different values
+Apr 02 11:11:49 <dokma>	jr0cket: is there any way to list all the keybindings available in helm?
+Apr 02 11:17:16 <agnem>	Hi, does anyone have any idea why lsp-lens'es are added to  my buffer when I save with `:w`?
+Apr 02 11:31:15 <FromGitter>	<jr0cket> <dokma> helm keybindings are in the docs https://develop.spacemacs.org/layers/+completion/helm/README.html#key-bindings
+Apr 02 11:33:50 <FromGitter>	<chama-chomo> <dokma> you know this `SPC ?`
+Apr 02 11:42:33 <FromGitter>	<jr0cket> @chama-chomo `SPC ?` seems useful for listing everything in the current major mode, is that correct? ⏎ I use `SPC h d f` to describe functions and `SPC h k` to describe keys.  On occasion I have also added the command-log layer and run that whist working, as a useful way to see what commands are being used.
+Apr 02 11:46:09 <FromGitter>	<chama-chomo> yes, but you might find it useful if you don't know it
+Apr 02 11:49:36 <FromGitter>	<jr0cket> Is there a way to show just the helm keybindings?  It seems you cannot call `SPC ?` when you have helm pop-up open and just list those keys.  Does `SPC ?` include the helm keybindings as well (it seems to be a long list), so useful to browse or if you know roughly what you are looking for.  Thanks.
+Apr 02 11:52:01 <FromGitter>	<lanigb> @jr0cket Thanks.
+Apr 02 11:53:03 <FromGitter>	<jr0cket> My pleasure, you question has helped me improve the documentation (which I have just updated with the same details)
+Apr 02 11:53:23 <FromGitter>	<chama-chomo> i have one question too, I'm using automatic parens closing, so if i type something like this `def restore_archive(|)` the cursor stays inside the brackets, is there any option to set up that after hitting `TAB` it would place the cursor after the brackets instead of indenting the code?
+Apr 02 11:55:30 <FromGitter>	<chama-chomo> without escaping insert mode ofc
+Apr 02 11:57:15 <FromGitter>	<jr0cket> @chama-chomo not quite the same, but you can use `)` to jump to after the brackets.  This is controlled by the `dotspacemacs-smart-closing-parenthesis` option in .spacemacs, which you will need to set to `t` for true.
+Apr 02 11:58:18 <FromGitter>	<chama-chomo> yes, i know it, but i find it quite complicated to press
+Apr 02 11:59:52 <FromGitter>	<chama-chomo> what i do now is `ESC SHIFT a`
+Apr 02 12:00:50 <FromGitter>	<jr0cket> it seems to be bound to `spacemacs/smart-closing-parenthesis` so you could create your own binding, but be careful you don't over-ride anything important :)
+Apr 02 12:01:09 <FromGitter>	<chama-chomo> ok thx
+Apr 02 12:01:46 <FromGitter>	<jr0cket> Snippets are very useful, I use them for things like `def` `defn` in Clojure and tab through the different sections
+Apr 02 12:02:37 <FromGitter>	<jr0cket> I include snippets in the auto-completion popups to make them really easy to use https://practicalli.github.io/spacemacs/snippets/
+Apr 02 12:06:04 <FromGitter>	<chama-chomo> i have this option enabled too, but now snippets appear
+Apr 02 12:38:17 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr  2 12:38:17 2020
+
+**** BEGIN LOGGING AT Thu Apr  2 12:38:42 2020
+
+Apr 02 12:38:42 *	Now talking on #spacemacs
+Apr 02 12:38:42 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 02 12:38:42 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 02 12:41:42 <FromGitter>	<chama-chomo> thx
+Apr 02 12:45:14 <FromGitter>	<chama-chomo> i got the same
+Apr 02 12:45:46 <FromGitter>	<chama-chomo> this worries me though: `File mode specification error: (error [yas] invalid element t in ‘yas-snippet-dirs’)`
+Apr 02 12:55:05 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr  2 12:55:05 2020
+
+**** BEGIN LOGGING AT Thu Apr  2 12:55:31 2020
+
+Apr 02 12:55:31 *	Now talking on #spacemacs
+Apr 02 12:55:31 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 02 12:55:31 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 02 13:08:08 <FromGitter>	<chama-chomo> i don't have my own, i remember this error i had one year ago
+Apr 02 13:08:35 <FromGitter>	<chama-chomo> i do nothing with the snippets in my config, i even cleaned it up like 2 days ago
+Apr 02 13:09:27 <FromGitter>	<chama-chomo> i removed my old .emacs.d too and generated a new one, maybe a bug
+Apr 02 15:42:44 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr  2 15:42:44 2020
+
+**** BEGIN LOGGING AT Thu Apr  2 15:43:12 2020
+
+Apr 02 15:43:12 *	Now talking on #spacemacs
+Apr 02 15:43:12 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 02 15:43:12 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 02 16:12:45 <FromGitter>	<plazia_gitlab> @sr105-tm Thanks I'll give that a try.
+Apr 02 16:22:46 <FromGitter>	<stgold_gitlab> Hi guys! I desperately need some help :( ⏎ The flyspell spell-checker is weirdly broken on two of my systems. It can spell check the whole buffer without problem (SPC S b) but it fails when correcting a misspelled word (SPC S c) with "failed to define function flyspell-correct-previous-word-generic". Using spacemacs 0.200.13 with either emacs 25.2.2 or emacs 26.3.  ⏎ Any pointers are much appreciated!
+Apr 02 16:28:21 <FromGitter>	<plazia_gitlab> @sr105-tm Thanks that worked brilliantly.
+Apr 02 16:37:19 <FromGitter>	<maxvi> Hello! Does anybody use Rust Layer? I experience an error when try to apply "fixing advice", like in vscode, I mean when you type "println!(err)" it advice to fix it "Add `"{}",`" and I can just apply it (in vscode) but when I try to apply it in Rust I get error "Error running timer: (error "The connected server(s) does not support method textDocument/hover"
+Apr 02 16:37:34 <FromGitter>	<maxvi> I use "lsp" backend for the rust layer
+Apr 02 16:38:34 <FromGitter>	<stgold_gitlab> So i stumbled upon this issue: https://github.com/syl20bnr/spacemacs/pull/11706 ⏎ Seems there was some change to flyspell.
+Apr 02 16:44:10 <FromGitter>	<yyoncho> @maxvi are you on the latest lsp-mode?
+Apr 02 16:48:38 <FromGitter>	<maxvi> @yyoncho yeah, just updated spacemacs to last commit (develop) and all packages ⏎ rls capabilities looks like ⏎  ⏎ ```code paste, see link``` [https://gitter.im/syl20bnr/spacemacs?at=5e860956c60b1855f5f20364]
+Apr 02 16:52:57 <FromGitter>	<yyoncho> @maxvi can you do M-x toggle-debug-on-error and post the callstack?
+Apr 02 16:53:44 <opticnerve>	I'm using spacemacs. I've dot file in /home/user/.spacemacs. I'm trying to change the appearance of the modeline (powerline).
+Apr 02 16:53:54 <opticnerve>	I'm modifying this line: dotspacemacs-mode-line-theme '(spacemacs :separator slant :separator-scale 1.5)
+Apr 02 16:54:04 <opticnerve>	Problem: after saving .spacemacs the change does not apply to spacemacs
+Apr 02 16:55:18 <FromGitter>	<yyoncho> @maxvi you might be hitting - https://github.com/emacs-lsp/lsp-mode/pull/1548
+Apr 02 16:55:23 <FromGitter>	<maxvi> @yyoncho the callstach https://pastebin.com/NNqRMCsx
+Apr 02 16:56:19 <FromGitter>	<yyoncho> @maxvi this is different error
+Apr 02 16:56:57 <FromGitter>	<sr105-tm> @opticnerve `SPC f e R` to reload the configuration
+Apr 02 16:59:34 <opticnerve>	sr105-tm: it doesn't work
+Apr 02 17:00:08 <FromGitter>	<maxvi> @yyoncho , do you use rust layer? if yes, does it work properly on your side?
+Apr 02 17:00:38 <FromGitter>	<yyoncho> @maxvi I do not use rust, I am the lsp-mode maintainer
+Apr 02 17:00:46 <FromGitter>	<yyoncho> @maxvi I will try to reproduce it on my side
+Apr 02 17:00:59 <FromGitter>	<yyoncho> Can you send me a file + instructions to reproduce it?
+Apr 02 17:01:06 <FromGitter>	<yyoncho> something hello world like
+Apr 02 17:05:26 <FromGitter>	<yyoncho> @maxvi I tested the quick fix for fixing mistyped println and it worked fine.
+Apr 02 17:06:37 <FromGitter>	<yyoncho> @maxvi found your issue: add this to your config:
+Apr 02 17:06:48 <FromGitter>	<yyoncho> ```   dotspacemacs-excluded-packages '(cquery)```
+Apr 02 17:07:00 <FromGitter>	<yyoncho> And then restart emacs
+Apr 02 17:13:25 <FromGitter>	<sr105-tm> @opticnerve Then try restarting emacs `SPC q r`
+Apr 02 17:13:56 <FromGitter>	<sr105-tm> Have you checked the *Messages* buffer or looked at the *Warnings* buffer if it exists?
+Apr 02 17:15:52 <FromGitter>	<sr105-tm> I just switched temporarily to the doom mode-line and it worked. Try changing more than the separator. Also, I had set my emacs to use utf8 separators which apparently overrides the separator parameter in .spacemacs.
+Apr 02 17:26:17 <FromGitter>	<yyoncho> @maxvi I fixed it directly in spacemacs - https://github.com/syl20bnr/spacemacs/pull/13446
+Apr 02 17:30:35 <FromGitter>	<maxvi> @yyoncho confirm,the fix works!
+Apr 02 17:51:11 <FromGitter>	<hrdchz> I feel foolish I can't find this on my my own. Is there a way to disable `web-modes` tab-completion? I bind caps-lock to ESC and hitting tab accidentally is making me crazy
+Apr 02 18:03:37 <FromGitter>	<yyoncho> @hrdchz `M-m h d k TAB` it will list in which keymap is bound and then `(define-key map (kbd "TAB") nil)`
+Apr 02 18:10:51 <FromGitter>	<hrdchz> ahhh great yes `h d k TAB` was no help ty
+Apr 02 22:08:10 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr  2 22:08:10 2020
+
+**** BEGIN LOGGING AT Thu Apr  2 22:08:40 2020
+
+Apr 02 22:08:40 *	Now talking on #spacemacs
+Apr 02 22:08:40 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 02 22:08:40 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 03 00:56:54 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr  3 00:56:54 2020
+
+**** BEGIN LOGGING AT Fri Apr  3 09:06:41 2020
+
+Apr 03 09:06:41 *	Now talking on #spacemacs
+Apr 03 09:06:41 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 03 09:06:41 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 03 11:16:59 <FromGitter>	<jr0cket> @haquezameer  Spacemacs will only create a .spacemacs file if it does not find either a `.spacemacs.d/init.el` file or a `.spacemacs` file.  Once one of these exists, it is never over-ridden
+Apr 03 11:18:10 <FromGitter>	<jr0cket> Any changes to the Spacemacs configuration can be manually added using ediff.  Here is the process I used to update Spacemacs `develop` https://practicalli.github.io/spacemacs/install-spacemacs/update.html
+Apr 03 11:25:13 <FromGitter>	<jr0cket> I have my `.spacemacs.d/init.el` in a GitHub repository and use it to install Spacemacs on any computer.  Here is my process to install https://practicalli.github.io/spacemacs/install-spacemacs/
+Apr 03 12:56:44 <FromGitter>	<samhedin> Is there a way to accept auto complete suggestion to any keybind? something along the lines of `(global-set-key (kbd "...") '<accept completion>)`. I can only find options to enable/disable return and tab.
+Apr 03 12:59:06 <FromGitter>	<yyoncho> use define-key and company-active-map
+Apr 03 12:59:49 <FromGitter>	<samhedin> How do you know everything? Mr emacs wizard
+Apr 03 12:59:59 <FromGitter>	<samhedin> Thank you! <3
+Apr 03 13:58:26 <FromGitter>	<yyoncho> @samhedin that you for the support!
+Apr 03 14:10:16 <FromGitter>	<samhedin> For what it's worth, you just made me sign up for patreon.
+Apr 03 14:16:58 <FromGitter>	<kaaninho> Hello all, hello @jr0cket  (you answered yesterday) ⏎ So the issue is: In a Clojure buffer, I can auto-complete (via TAB) functions and definitions of the current namespace. But auto-complete with functions/defs of other namespaces does not work. The other namespaces are evaluated in current REPL and `required` with additional `:as` keyword in current ns. When I fully type out a functions name, I can evaluate 
+Apr 03 14:16:58 <FromGitter>	... it (or apply it to args) and jump, via `cider-find-var`, to its definition.
+Apr 03 14:24:58 <FromGitter>	<gcentauri> @wminshew_twitter I have not been able to reproduce it. I guess I would probably need your layer list. You can also try posting a spacemacs issue or even on the enh ruby mode repo
+Apr 03 16:01:33 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr  3 16:01:33 2020
+
+**** BEGIN LOGGING AT Fri Apr  3 20:50:36 2020
+
+Apr 03 20:50:36 *	Now talking on #spacemacs
+Apr 03 20:50:36 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 03 20:50:36 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 03 21:25:58 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr  3 21:25:58 2020
+
+**** BEGIN LOGGING AT Fri Apr  3 23:31:54 2020
+
+Apr 03 23:31:54 *	Now talking on #spacemacs
+Apr 03 23:31:54 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 03 23:31:54 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+**** BEGIN LOGGING AT Sat Apr  4 09:36:09 2020
+
+Apr 04 09:36:09 *	Now talking on #spacemacs
+Apr 04 09:36:09 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 04 09:36:09 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 04 09:46:46 <FromGitter>	<lovebug356> Hi, is auto-complete broken in develop? I experience problems that I do not see the tooltip popup anymore
+Apr 04 12:01:49 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr  4 12:01:49 2020
+
+**** BEGIN LOGGING AT Sat Apr  4 12:06:58 2020
+
+Apr 04 12:06:58 *	Now talking on #spacemacs
+Apr 04 12:06:58 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 04 12:06:58 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 04 14:25:58 <FromGitter>	<trmwzm> complete newby here: python-mode -- how to *run* buffer, that is, a function/keybind equivalent to switching to ipython and emitting "run file attached to buffer, after saving it" , eval buffer is *not* what I am looking for :) ..
+Apr 04 14:39:46 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr  4 14:39:46 2020
+
+**** BEGIN LOGGING AT Sat Apr  4 17:12:19 2020
+
+Apr 04 17:12:19 *	Now talking on #spacemacs
+Apr 04 17:12:19 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 04 17:12:19 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 04 17:19:17 <FromGitter>	<thanhvg> My `company-backends` was: ⏎ `(company-lsp (company-dabbrev-code company-gtags company-keywords) company-files company-dabbrev)` ⏎  ⏎ Now new change in lsp layer clears it all: it is just (company-capf) once lsp has loaded [https://gitter.im/syl20bnr/spacemacs?at=5e88b3866626ab6178a730e9]
+Apr 04 17:19:42 <FromGitter>	<thanhvg> does company-capf cover all the cases?
+Apr 04 18:06:13 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr  4 18:06:13 2020
+
+**** BEGIN LOGGING AT Sat Apr  4 18:06:42 2020
+
+Apr 04 18:06:42 *	Now talking on #spacemacs
+Apr 04 18:06:42 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 04 18:06:42 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 04 18:45:05 <FromGitter>	<karcio> Hi I am new to spacemacsm just synced with mobileorg, is there any doc I can read about how to have opened two files in one terminal window? Then switch to each other?
+Apr 04 18:51:46 <FromGitter>	<magthe> If I understand you correctly you want to have a look at the key combos starting with `Spc w`.
+Apr 04 18:53:35 <FromGitter>	<karcio> trying do `SPC` and w when I have opened file but nothing happen
+Apr 04 18:53:54 <FromGitter>	<karcio> understand that `SPC` is `spacebar` right?
+Apr 04 18:57:28 <FromGitter>	<karcio> OK, i got it. In my case I need to use:  `ESC` then `m` then `w` then `/`
+Apr 04 19:18:58 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr  4 19:18:58 2020
+
+**** BEGIN LOGGING AT Sat Apr  4 19:19:26 2020
+
+Apr 04 19:19:26 *	Now talking on #spacemacs
+Apr 04 19:19:26 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 04 19:19:26 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 04 22:00:30 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr  4 22:00:30 2020
+
+**** BEGIN LOGGING AT Sat Apr  4 22:01:15 2020
+
+Apr 04 22:01:15 *	Now talking on #spacemacs
+Apr 04 22:01:15 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 04 22:01:15 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 04 23:42:15 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr  4 23:42:15 2020
+
+**** BEGIN LOGGING AT Sat Apr  4 23:42:42 2020
+
+Apr 04 23:42:42 *	Now talking on #spacemacs
+Apr 04 23:42:42 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 04 23:42:42 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+**** ENDING LOGGING AT Sun Apr  5 01:01:58 2020
+
+**** BEGIN LOGGING AT Fri Apr 10 09:59:51 2020
+
+Apr 10 09:59:51 *	Now talking on #spacemacs
+Apr 10 09:59:51 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 10 09:59:51 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 10 10:32:08 <FromGitter>	<jr0cket> @robbyoconnor I was explaining how hard it is to remove the keybindings.  Something is very wrong with your setup.  Delete it it and start again.
+Apr 10 11:19:54 <FromGitter>	<matrixbot> `tuxayo` Saluton, hola, bonjour, hi :) ⏎ Can somone with a keyboard having a dead key (like ^ ¨ ˘) can try to use it and confirm whether it work or not?
+Apr 10 11:20:29 <FromGitter>	<matrixbot> `tuxayo` For example on a french azeryt keyboard, I can't do "ê" in Spacemacs. I get <dead-circumflex> is undefined
+Apr 10 11:58:32 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 10 11:58:32 2020
+
+**** BEGIN LOGGING AT Fri Apr 10 12:09:12 2020
+
+Apr 10 12:09:12 *	Now talking on #spacemacs
+Apr 10 12:09:12 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 10 12:09:12 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 10 12:59:27 <FromGitter>	<ORYLY> So I've got a niche Windows 10 (?) bug and I'm not sure where I should try to contribute a fix. ⏎  ⏎ 1) Use an MSYS2 CLI.  ⏎ 2) Go to a `~/subdirectory` of the home directory. ⏎ 3) Launch MSYS2 emacs from the CLI. ... [https://gitter.im/syl20bnr/spacemacs?at=5e905fa85d148a0460f935a3]
+Apr 10 13:45:21 <FromGitter>	<ORYLY> Well this is awkward. Running the following with `emacs --batch --script` prints a success exit code. So MSYS2 Emacs really can handle `~/tilde/paths`. ⏎  ⏎ ```code paste, see link``` [https://gitter.im/syl20bnr/spacemacs?at=5e906a6af87c5956a24cb6eb]
+Apr 10 14:14:14 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 10 14:14:14 2020
+
+**** BEGIN LOGGING AT Fri Apr 10 14:14:43 2020
+
+Apr 10 14:14:43 *	Now talking on #spacemacs
+Apr 10 14:14:43 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 10 14:14:43 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 10 14:56:08 <FromGitter>	<duianto> @robbyoconnor  ⏎  ⏎ > I'm not sure then -- is there something I'm doing that's wiping it out? ⏎  ⏎ I posted a comment in the issue: ... [https://gitter.im/syl20bnr/spacemacs?at=5e907b015d148a0460f97b79]
+Apr 10 16:16:09 <FromGitter>	<esjee> Any suggestions on how to deal with this error message? ⏎  ⏎ projectile-rails--setup-auto-insert: Symbol's value as variable is void: auto-insert-alist
+Apr 10 16:19:47 <FromGitter>	<esjee> seems like an open issue https://github.com/asok/projectile-rails/issues/144
+Apr 10 19:19:27 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 10 19:19:27 2020
+
+**** BEGIN LOGGING AT Fri Apr 10 19:20:29 2020
+
+Apr 10 19:20:29 *	Now talking on #spacemacs
+Apr 10 19:20:29 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 10 19:20:29 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 10 19:21:23 <FromGitter>	<manuel-arguelles> auto completion works very unreliable as well
+Apr 10 19:24:53 <FromGitter>	<manuel-arguelles> is jsts-ls the best language server for this?
+Apr 10 19:30:39 <FromGitter>	<manuel-arguelles> there's also ts-ls but not sure which one is better
+Apr 10 22:22:21 <FromGitter>	<robbyoconnor> > @robbyoconnor I was explaining how hard it is to remove the keybindings.  Something is very wrong with your setup.  Delete it it and start again. ⏎  ⏎ @jr0cket @duianto -- mind if I PM either of ya?
+Apr 10 22:27:57 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 10 22:27:57 2020
+
+**** BEGIN LOGGING AT Fri Apr 10 22:31:21 2020
+
+Apr 10 22:31:21 *	Now talking on #spacemacs
+Apr 10 22:31:21 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 10 22:31:21 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 10 22:57:35 <FromGitter>	<justin-roche> @Paco I use ng2-mode and it works fine, relies on Tide server for all its functions
+Apr 10 22:58:32 <FromGitter>	<manuel-arguelles> thanks @justin-roche i'd give it a try
+Apr 10 22:58:49 <FromGitter>	<justin-roche> does anyone how I can open all the buffers in helm search? I want to do multi-swoop-on all files, but the files have to be open before swoop searches them.
+Apr 10 22:59:47 <FromGitter>	<justin-roche> so I'm thinking I'll do a search with ag and then open all the matches, then swoop on them
+Apr 11 00:04:27 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 11 00:04:27 2020
+
+**** BEGIN LOGGING AT Sat Apr 11 00:08:27 2020
+
+Apr 11 00:08:27 *	Now talking on #spacemacs
+Apr 11 00:08:27 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 11 00:08:27 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 11 02:01:27 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 11 02:01:27 2020
+
+**** BEGIN LOGGING AT Sat Apr 11 08:53:21 2020
+
+Apr 11 08:53:21 *	Now talking on #spacemacs
+Apr 11 08:53:21 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 11 08:53:21 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 11 09:35:06 <FromGitter>	<duianto> @robbyoconnor Sure
+Apr 11 12:23:24 <FromGitter>	<jr0cket> @robbyoconnor all the troubleshooting advice I have is at https://practicalli.github.io/spacemacs/install-spacemacs/troubleshooting.html
+Apr 11 17:59:08 <FromGitter>	<hariseldon78> hi guys, I would like to remap the 'undo all cursors' of multiple-cursors to "esc esc"
+Apr 11 17:59:24 <FromGitter>	<hariseldon78> i tried this in my user-config:   (define-key evil-normal-state-map (kbd "ESC ESC") 'evil-mc-undo-all-cursors)
+Apr 11 17:59:52 <FromGitter>	<hariseldon78> but it's not working. any idea?
+Apr 11 18:16:56 <FromGitter>	<duianto> @hariseldon78 This might be what your looking for: ⏎ https://emacs.stackexchange.com/questions/33977/binding-esc-esc-to-have-esc-esc-esc-functionality
+Apr 11 18:17:29 <FromGitter>	<duianto> And this page has explanations of how the esc prefix works: ⏎ https://emacs.stackexchange.com/questions/14755/how-to-remove-bindings-to-the-esc-prefix-key
+Apr 11 18:52:52 <FromGitter>	<hariseldon78> @duianto thanks. i need to study the matter a bit more, but it seems that the esc key is complicated to bind because it is 'special' in many ways. anyway, i found out that the 'undo all cursors' is already mapped also to M-ESC, which is enough for me, at least better than the 'grq'
+Apr 11 21:58:04 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 11 21:58:04 2020
+
+**** BEGIN LOGGING AT Sat Apr 11 22:06:58 2020
+
+Apr 11 22:06:58 *	Now talking on #spacemacs
+Apr 11 22:06:58 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 11 22:06:58 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 11 22:11:34 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 11 22:11:34 2020
+
+**** BEGIN LOGGING AT Sat Apr 11 22:11:54 2020
+
+Apr 11 22:11:54 *	Now talking on #spacemacs
+Apr 11 22:11:54 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 11 22:11:54 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 11 22:16:52 <FromGitter>	<posobin> Hi all! I have just installed spacemacs yesterday and am setting it up. How do I enable smartparens on by default in clojure files? I have added the clojure layer and spacemacs-evil for evil-cleverparens to the layers.
+Apr 11 22:19:17 *	Disconnected (Connection reset by peer)
+**** ENDING LOGGING AT Sat Apr 11 22:19:17 2020
+
+**** BEGIN LOGGING AT Sat Apr 11 22:19:39 2020
+
+Apr 11 22:19:39 *	Now talking on #spacemacs
+Apr 11 22:19:39 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 11 22:19:39 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 11 22:21:09 <FromGitter>	<posobin> Also, how do I remove the delay for C-w? Say I want to move to the buffer on the right, I press C-w l, but if I press l too fast, it occasionally says "C-w C-l" is undefined, but I am not holding C when pressing l, I haven't had such problems in vim.
+Apr 11 22:41:58 <betaprior>	Hi all. anyone kind enough to explain what to do when a layer fails to install apparently because a dependency was not found on MELPA?
+Apr 11 23:31:01 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 11 23:31:01 2020
+
+**** BEGIN LOGGING AT Sat Apr 11 23:31:28 2020
+
+Apr 11 23:31:28 *	Now talking on #spacemacs
+Apr 11 23:31:28 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 11 23:31:28 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 11 23:35:12 <FromGitter>	<hariseldon78> @posobin regarding the major mode you can just close (spc b d) and reopen the buffer, so it will be reopened with its automatic mode
+Apr 11 23:46:43 <FromGitter>	<posobin> But then I lose my changes in the buffer?
+Apr 11 23:47:05 <FromGitter>	<hariseldon78> no save it before
+Apr 11 23:48:33 <FromGitter>	<hariseldon78> the ediff mode  should allow to save it when you quit the merge process
+Apr 11 23:49:24 <FromGitter>	<posobin> Yeah, I understand I can save and reopen it anew, but it feels like a hack.
+Apr 11 23:51:31 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 11 23:51:31 2020
+
+**** BEGIN LOGGING AT Sat Apr 11 23:55:12 2020
+
+Apr 11 23:55:12 *	Now talking on #spacemacs
+Apr 11 23:55:12 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 11 23:55:12 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 12 00:24:17 <FromGitter>	<jr0cket> @posobin this is how I set up every for Clojure layer, including settings smartparens to strict mode https://practicalli.github.io/spacemacs/install-spacemacs/enhance-clojure-experience.html
+Apr 12 00:26:35 <FromGitter>	<jr0cket> When you quit the ediff buffer, then it should automatically take you back to the buffer you started at and be in its major mode.  There can only be one major mode, but lots of minor ones.
+Apr 12 00:39:28 <FromGitter>	<jr0cket> You should never need to set the major mode for a file, unless the file extension is not recognised (which is quite rare).
+Apr 12 02:23:50 <FromGitter>	<kabocha-porter> hi, I have a problem with key binding. I have checked the option as meta key in terminal preference. Now the meta key works in terminal. But it does not work in spacemacs. I've added this line to my init file (which I accessed through    C-x C-f ~/.emacs.d/init.el [press enter]): (setq ns-option-modifier      'meta) But still not working. Any help?
+Apr 12 02:51:01 <FromGitter>	<posobin> @jr0cket Yeah, but I opened diff mode instead of ediff mode on accident.
+Apr 12 02:52:03 <FromGitter>	<posobin> Yes, I have tried setting smartparens to strict and that didn't help.
+Apr 12 02:52:26 <FromGitter>	<posobin> Turns out I had to change spacemacs-base to spacemacs.
+Apr 12 03:28:01 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 12 03:28:01 2020
+
+**** BEGIN LOGGING AT Sun Apr 12 07:36:39 2020
+
+Apr 12 07:36:39 *	Now talking on #spacemacs
+Apr 12 07:36:39 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 12 07:36:39 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 12 07:59:01 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 12 07:59:01 2020
+
+**** BEGIN LOGGING AT Sun Apr 12 08:35:56 2020
+
+Apr 12 08:35:56 *	Now talking on #spacemacs
+Apr 12 08:35:56 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 12 08:35:56 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 12 08:40:41 <penguu>	how do i make the treemacs buffer get assigned the number 1 
+Apr 12 08:40:42 <penguu>	https://i.imgur.com/f6MpL5j.png
+Apr 12 08:41:03 <penguu>	like in the documentation
+Apr 12 08:41:04 <penguu>	https://github.com/Alexander-Miller/treemacs/blob/master/screenshots/workspace-edit.gif
+Apr 12 08:42:23 <penguu>	is it possible to remove ALT+0, and have the first buffer be ALT+1 ?
+Apr 12 08:42:32 <penguu>	meta key= alt 
+Apr 12 09:56:20 <penguu>	can somebody say where i am supposed to set this code
+Apr 12 09:56:21 <penguu>	https://github.com/deb0ch/emacs-winum#keybindings
+Apr 12 09:56:26 <penguu>	is it inside of .emacs ?
+Apr 12 09:56:48 <penguu>	i want to rebind this ¨      (define-key map (kbd "M-0") 'winum-select-window-0-or-10)
+Apr 12 09:56:48 <penguu>	¨ to be key 1 instead
+Apr 12 10:06:43 <FromGitter>	<jr0cket> @posobin I never use the explicit format function, instead I configure CIDER to aggressively format as I'm typing.
+Apr 12 10:09:54 <FromGitter>	<jr0cket> I have settings in my dotspacemacs/user-config that sets aggressive indenting
+Apr 12 10:12:33 <FromGitter>	<jr0cket> https://practicalli.github.io/spacemacs/improving-code/formatting/
+Apr 12 10:38:07 <penguu>	can somebody help me
+Apr 12 10:38:09 <penguu>	https://github.com/deb0ch/emacs-winum/issues/26
+Apr 12 14:51:55 <FromGitter>	<bratan05> Hi there! I'm trying to install spacemacs develop branch on a freshly built emacs 28. The problem is I get mutliple "Package *** is unavailable. Is the package name misspelled?" error. However, when I turn on my company's VPN the error mysteriously goes away. Do you guys know what the hell is going on with that?
+Apr 12 14:59:03 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 12 14:59:03 2020
+
+**** BEGIN LOGGING AT Sun Apr 12 14:59:31 2020
+
+Apr 12 14:59:31 *	Now talking on #spacemacs
+Apr 12 14:59:31 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 12 14:59:31 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 12 16:29:54 <FromGitter>	<kindaro> How can I enable a certain minor mode in every buffer by default?
+Apr 12 16:30:35 <FromGitter>	<kindaro> I read this: https://stackoverflow.com/questions/16048231/ — but I do not understand it.
+Apr 12 16:30:56 <FromGitter>	<kindaro> Essentially it says that I must define a global minor mode instead.
+Apr 12 16:49:01 <penguu>	what does this mean
+Apr 12 16:49:07 <penguu>	(setq map (make-sparse-keymap))
+Apr 12 16:49:07 <penguu>	         ⇒ (keymap)
+Apr 12 16:49:36 <penguu>	 is make-sparse-keymap a function
+Apr 12 16:49:43 <penguu>	and what is this?  
+Apr 12 16:49:47 <penguu>	the arrow
+Apr 12 18:20:03 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 12 18:20:03 2020
+
+**** BEGIN LOGGING AT Sun Apr 12 18:49:29 2020
+
+Apr 12 18:49:29 *	Now talking on #spacemacs
+Apr 12 18:49:29 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 12 18:49:29 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 12 20:41:47 <FromGitter>	<mivade> I'm trying to get Spacemacs installed so I can try it out but I'm running into messages like "Package undo-tree is unavailable." This seems related to #12535, but the solution there doesn't work for me. This makes things entirely unusable because nothing seems to get past this. Any ideas?
+Apr 12 20:52:58 <FromGitter>	<APIInterfacing> I'm trying to use https://github.com/tchajed/spacemacs-coq for my Coq layer but man oh man... the text replacement or auto-completion is killing me with how bad and annoying it is
+Apr 12 20:53:23 <FromGitter>	<APIInterfacing> Does anyone have any know how to fix this? I don't know if it's company-coq or what, but I can't deal with this anymore
+Apr 12 20:54:37 <FromGitter>	<APIInterfacing> For example, if I type `a.` it will change that to `auto.`
+Apr 12 20:54:46 <FromGitter>	<APIInterfacing> Or if I write `v.` it will change that to `Variable #: #..`
+Apr 12 21:07:44 <FromGitter>	<jr0cket> @mivade the undo-tree package is part of the spacemacs distribution configuration, so surprised its failing.  Did you add `undo-tree` as an additional package in `.spacemacs` or is it just failing during initial download of all Spacemacs packages?  If you have change your .spacemacs file, can you share what you changed. ⏎ Otherwise, delete or move the undo-tree package from `~/.emacs/elpa/` if it downloaded. ⏎ 
+Apr 12 21:07:44 <FromGitter>	... Are you using Emacs 26.3, the latest stable version?
+Apr 12 21:09:34 <FromGitter>	<jr0cket> If you are not using Spacemacs `develop` branch, you could also try that (may be a bug only fixed in `develop`) - https://practicalli.github.io/spacemacs/install-spacemacs/switch-to-develop.html
+Apr 12 21:28:38 <FromGitter>	<moneysake> How can I my todo list appear on the spacemacs home buffer?
+Apr 12 21:32:29 <FromGitter>	<mivade> @jr0cket that's what was getting installed by default (I haven't touched `.spacemacs` other than what was listed in the bug report. It's not Emacs 26.3 yet but I'm trying an upgrade so hopefully that will resolve things.
+Apr 12 21:32:52 <FromGitter>	<moneysake> 1 sec posting more info about my problem
+Apr 12 21:34:44 <FromGitter>	<moneysake> ```code paste, see link``` [https://gitter.im/syl20bnr/spacemacs?at=5e937b70fea5216d6974edfe]
+Apr 12 21:34:53 <FromGitter>	<moneysake> I have this in my .spacemacs file, but the todos don't show up
+Apr 12 21:34:55 <FromGitter>	<moneysake> recents and projects do
+Apr 12 21:49:11 <FromGitter>	<mivade> Cool, apparently an upgrade to 26.3 was all I needed. I'll edit my post on #12535 to give others that hint
+Apr 12 22:25:22 <FromGitter>	<briangorman> So I am a spacemacs noob, I want to use a language server for reasonml (I do not want to use current reasonml layer, because it doesnt seem to work for a project I am working on)... Basically I need to run this small snipped https://github.com/jaredly/reason-language-server#emacs, and somehow be able to use it when I go into lsp-mode in a reason file. What the recommended way to quickly try to get this 
+Apr 12 22:25:22 <FromGitter>	... working? I tried sticking this code in dotspacemacs/user-config, and I tried making a new layer that depended on lsp mode and called (require 'lsp) at the top of config.el, but both attempts ended with failure "Symbol's function definition is void: lsp-register-client"... Anyone have any idea what I am doing wrong/what might b ... [https://gitter.im/syl20bnr/spacemacs?at=5e93874d5d148a046000727a]
+Apr 12 22:26:03 <FromGitter>	<briangorman> I am new to emacs, this is my first attempt at trying to script things. My intuition says that after running the snippet I should have a new major mode  -- is that correct?
+Apr 13 00:16:15 <FromGitter>	<robbyoconnor> > @robbyoconnor all the troubleshooting advice I have is at https://practicalli.github.io/spacemacs/install-spacemacs/troubleshooting.html ⏎  ⏎ Amazing @jr0cket
+Apr 13 01:06:23 <FromGitter>	<cmatzenbach> has anyone noticed that the start times for lsp on emacs 26.3 and the latest version of spacemacs dev branch are abysmal, or am i missing some config issue?
+Apr 13 01:23:04 <FromGitter>	<PaddyPatPat> Is it possible for an agenda search to automatically open the first few results in a set of windows?
+Apr 13 01:24:29 <FromGitter>	<PaddyPatPat> … or any other method of searching for that matter?
+Apr 13 02:23:45 <FromGitter>	<Jks15063> does anyone use org-journal?  I followed the instructions here https://develop.spacemacs.org/layers/+emacs/org/README.html#org-journal-support with no luck
+Apr 13 02:24:10 <FromGitter>	<Jks15063> so I tried putting the option in my `  (with-eval-after-load 'org` block
+Apr 13 02:24:50 <FromGitter>	<Jks15063> ```  (with-eval-after-load 'org ⏎     (setq org-enable-org-journal-support t))``` [https://gitter.im/syl20bnr/spacemacs?at=5e93bf6e16f84f046173a055]
+Apr 13 02:25:02 <FromGitter>	<Jks15063> also with no luck
+Apr 13 02:25:18 <FromGitter>	<PaddyPatPat> @Jks15063 I use it via :varialbes in my org line in dot spacemacs-configuration-layers
+Apr 13 02:25:48 <FromGitter>	<PaddyPatPat> So instead of just uncommenting the org line … I have...
+Apr 13 02:26:21 <FromGitter>	<Jks15063> ya I placed  ⏎  ⏎ ```code paste, see link``` [https://gitter.im/syl20bnr/spacemacs?at=5e93bfc9c52b6a38abe035f2]
+Apr 13 02:26:28 <FromGitter>	<Jks15063> in my config layers
+Apr 13 02:27:12 <FromGitter>	<Jks15063> after restart I try `SPC SPC` and search for `journal` and get 0 results
+Apr 13 02:37:07 <FromGitter>	<robbyoconnor> @duianto @jr0cket I can't for the life of me see where I override the keybinding for treemacs lol https://github.com/robbyoconnor/.spacemacs.d/blob/master/init.el
+Apr 13 02:38:18 <FromGitter>	<robbyoconnor> and yes I know my user-config is a disaster
+Apr 13 02:49:33 *	Disconnected ()
+**** ENDING LOGGING AT Mon Apr 13 02:49:33 2020
+
+**** BEGIN LOGGING AT Thu Apr 16 16:36:15 2020
+
+Apr 16 16:36:15 *	Now talking on #spacemacs
+Apr 16 16:36:15 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 16 16:36:15 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)

@@ -645,3 +645,1358 @@ T 1584711652 20*	Disconnected (20)
 T 1584711680 19*	Now talking on 22#alacritty
 T 1584711680 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.1 - https://github.com/alacritty/alacritty/releases/tag/v0.4.1
 T 1584711680 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Feb 16 20:20:48 2020)
+T 1585816708 19*	Now talking on 22#alacritty
+T 1585816708 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1585816708 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1585827497 20*	Disconnected (20)
+T 1585827522 19*	Now talking on 22#alacritty
+T 1585827522 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1585827522 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1585828505 20*	Disconnected (20)
+T 1585828531 19*	Now talking on 22#alacritty
+T 1585828531 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1585828531 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1585838564 20*	Disconnected (20)
+T 1585838592 19*	Now talking on 22#alacritty
+T 1585838592 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1585838592 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1585839269 18<29larsks18>	I've installed the "Fira Mono" font family on my system, and it's visible in other applications (e.g. as "Fira Mono Regular"), but trying to set font.normal.family to "Fira Mono" or "Fira Mono Regular" isn't working. Other fonts seem to work fine. Any thoughts on what I'm missing?
+T 1585839302 18<29kchibisov18>	Could you should your config file?
+T 1585839317 18<29kchibisov18>	show*
+T 1585839418 18<29larsks18>	Sure, just a second.
+T 1585839436 18<29kchibisov18>	Also, on what platform are you?
+T 1585839512 18<29larsks18>	I'm on Fedora 31.  Config file is here: https://termbin.com/10ji
+T 1585839537 18<29larsks18>	Normal font is currently set to "terminus" in that config.
+T 1585839555 18<29kchibisov18>	Could you run `fc-list | grep -i fira`?
+T 1585839641 18<29larsks18>	Sure, that gets: https://termbin.com/253s
+T 1585839681 18<29kchibisov18>	Well it should be just `Fira Mono` in a config.
+T 1585839707 18<29kchibisov18>	also, make sure to restart terminal if your font was added after terminal startup.
+T 1585839713 18<29larsks18>	Yeah, that was my thought, too :)
+T 1585839720 18<29larsks18>	I'll try restarting the terminal...
+T 1585839774 18<29larsks18>	That was it. I didn't think that would be necessary. Thanks!
+T 1585839792 18<29kchibisov18>	I mean it's only necessary in case the font was added after startup.
+T 1585839833 18<29kchibisov18>	Like fontconfig just continues to report that it's not presented, etc.
+T 1585839846 18<29kchibisov18>	But maybe we can do something about it.
+T 1585861690 20*	Disconnected (20)
+T 1585861719 19*	Now talking on 22#alacritty
+T 1585861719 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1585861719 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1585868086 18<20lovesegfault18>	Hey everyone, thanks so much for all the work in the Alacritty 0.4.2 release
+T 1585868094 18<20lovesegfault18>	Working flawlessly on NixOS
+T 1585868103 18<20lovesegfault18>	Color emoji looks great
+T 1585868123 18<20lovesegfault18>	🦀
+T 1585868150 18<29kchibisov18>	nothing was changed in this regard from v0.4.1 to v0.4.2 though.
+T 1585868172 18<29kchibisov18>	but thx.
+T 1585868202 18<20lovesegfault18>	kchibisov: Well, they started working for me :D
+T 1585868239 18<24UndeadLeech18>	kchibisov: Your font fallback was part of 0.4.2, right?
+T 1585868239 18<20lovesegfault18>	And my cursor also no longer has potato res
+T 1585871814 20*	Disconnected (20)
+T 1585901200 19*	Now talking on 22#alacritty
+T 1585901200 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1585901200 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1585901922 18<29kchibisov18>	noxid: this option is
+T 1585901943 18<29kchibisov18>	noxid: this option is missunderstood by the users, we won't bring it back.
+T 1585901982 18<27noxid18>	thanks for the reply
+T 1585902122 18<29kchibisov18>	note, no terminal emulator allows this setting at all.
+T 1585902201 18<19storm\18>	kchibisov: would it be possible to do a hour walkthrough of the code at somepoint to get me up to speed?
+T 1585902210 18<19storm\18>	if thats something you would be comftable doing
+T 1585902244 18<29kchibisov18>	I mean it depens on an issue you're trying to solve storm\ .
+T 1585902276 18<19storm\18>	first issue ill solve is the locale we talked about for osx yesterday
+T 1585902284 18<19storm\18>	but i would like to have some words attatched to the code base maybe
+T 1585902303 18<19storm\18>	mostly because im new to rust, but deep knowledge in objc
+T 1585902312 18<29kchibisov18>	well, for locale, you should be aware only about this single file.
+T 1585902328 18<19storm\18>	yeah i know for THAT issue :)
+T 1585902329 18<29kchibisov18>	and likely the code that is calling it.
+T 1585902339 18<19storm\18>	but its more a breif overview of the project.
+T 1585902346 18<19storm\18>	i plan to fix more than JUST that hehe.
+T 1585902371 18<29kchibisov18>	I mean you can ask what you want to fix and we'll give more specific replies.
+T 1585902390 18<19storm\18>	hehe okay, i think you are missing the point :)
+T 1585902396 18<19storm\18>	its cool
+T 1585902405 18<29kchibisov18>	I mean you can just read from main.rs
+T 1585902425 18<19storm\18>	and thats missing the point again :)
+T 1585902430 18<29kchibisov18>	and if your bug is in specific component of it, you can go there and read it.
+T 1585902474 18<29kchibisov18>	Like our structure is pretty simple and you can use file names to understand how everything structured.
+T 1585902510 18<19storm\18>	yeah ive been through it.
+T 1585902530 18<29kchibisov18>	But in general, font is in font crate, alacritty is gui + rendering, alacritty_terminal is just terminal + PTY.
+T 1585902613 18<19storm\18>	ill just ask about the coding releated questions and decisions then, no worries.
+T 1585903923 18<29kchibisov18>	I mean it's hard to answer of an abstract questions.
+T 1585903958 18<29kchibisov18>	Like if you want to implement feature X, I can likely give more information about it.
+T 1585905997 18<20sidh18>	Greetings
+T 1585906061 18<19storm\18>	Hey
+T 1585909560 18<19Hamilton18>	Is there sth wrong with Alacritty right-click->copy or the problem is my setuo?
+T 1585909976 18<25kchibisov_18>	Right click does nothing
+T 1585910025 18<25kchibisov_18>	It doesn’t reset selection anymore, etc.
+T 1585910027 18<19Hamilton18>	kchibisov_, oh select copies. Still sometime it doesn't work it seems...not sure
+T 1585910054 18<25kchibisov_18>	I mean copy is select and LMB release
+T 1585920452 18<22nixpulvis18>	Hey, catching up on PRs/issues today, had a surprise April 1st deadline lol.
+T 1585920624 18<20sidh18>	I would need your advices : I installed alacritty on Hgh sierra osx and I installed alacritty-colorscheme, I downloded themes and when I run alacritty-colorscheme -C whereis/themes-dir -T, I got "Bad configuration file"
+T 1585920684 18<20sidh18>	configuration file is retrived from alacritty git repo
+T 1585920696 18<20sidh18>	is there a way to have log or debug
+T 1585920749 18<22nixpulvis18>	I've honestly never heard of the tool `alacritty-colorscheme`.
+T 1585920801 18<22nixpulvis18>	sidh: logging is done with -v, -vv, and -vvv. But config errors should report in the red error bar.
+T 1585920820 18<22ifreund18>	me neither but i found a github repo https://github.com/toggle-corp/alacritty-colorscheme
+T 1585920824 18<20sidh18>	https://github.com/toggle-corp/alacritty-colorscheme
+T 1585920919 18<22nixpulvis18>	What's the config error?
+T 1585920947 18<20sidh18>	ok so it is not alacritty itself , it is pure related to this third party tool
+T 1585920958 18<22nixpulvis18>	I would assume so.
+T 1585920976 18<20sidh18>	alacritty-colorscheme -C ~/.config/alacritty/.eendroroy-alacritty-theme/themes/ -t solarized_light.yaml solarized_dark.yaml
+T 1585920994 18<20sidh18>	Bad configuration file.
+T 1585921002 18<20sidh18>	that's all
+T 1585921009 18<22ifreund18>	i'm really struggling to figure out why this is useful, how often do you change colorschemes?
+T 1585921095 18<20sidh18>	ifreund: in fact I have 3 27" screens , and I vanted to try several coloscheme to avoid the headache due to those glossy screens
+T 1585921144 18<20sidh18>	tipically balck background are not bearable
+T 1585921148 18<20sidh18>	black
+T 1585921210 18<22ifreund18>	ok, but you can just edit the alacritty config right? (i'd recommend solarized dark by the way, super easy on the eyes)
+T 1585921439 18<22nixpulvis18>	I personally find copying and pasting and commenting my config to work pretty well for testing purposes.
+T 1585921478 18<22nixpulvis18>	The main thing I've conosidered a tool for is switching between a light and dark theme, however that tool wouldn't need to be that complex... just a simple symlink update.
+T 1585921570 18*	22nixpulvis still needs to find the time to make a color scheme based off #161616.
+T 1585921590 18<22ifreund18>	yeah, it's a problem that's solved by a basic shell script, that python tool is like the definition of bloat
+T 1585921622 18<22nixpulvis18>	most are
+T 1585922164 18<22caveman18>	u guys need to add image viewing inside alacritty.
+T 1585922178 18<29kchibisov18>	caveman: go ahead and add it.
+T 1585922201 18<22caveman18>	got better things to do.
+T 1585922209 18<29kchibisov18>	if you're just pinging us with 'you need to do X' it's not productive and just wasting our time.
+T 1585922220 18<29kchibisov18>	and your time.
+T 1585922238 18<22caveman18>	no.  i'm just giving u ideas.  u can ignore them.  i'm happy with st.  i am just being kind to share thoughts.
+T 1585922254 18<22caveman18>	or re-inforcing ideas u had.
+T 1585922263 18<22ifreund18>	no you're being a jerk
+T 1585922269 18<29kchibisov18>	ifreund++
+T 1585922280 18<22caveman18>	how so?
+T 1585922289 18<24UndeadLeech18>	Also image rendering is mostly pointless in a terminal emulator.
+T 1585922289 18<22caveman18>	now getting feedback means being a jerk?
+T 1585922303 18<24UndeadLeech18>	You're not giving constructive feedback.
+T 1585922306 18<29kchibisov18>	just read issue on github about image thing.
+T 1585922313 18<22caveman18>	ifreund: the only jerk here is u right now.  calling someone 'jerk' for sharing on topic thoughts.
+T 1585922375 18<22caveman18>	UndeadLeech: it's really useful and increases productivity.  specially that u r in the gpu accelerated business, pics is one of the main wins.
+T 1585922388 18<24UndeadLeech18>	It's really not.
+T 1585922408 18<22caveman18>	how to u browse images in ur directories?  open them by feh?  feh *?
+T 1585922421 18<29kchibisov18>	this is how it should done?
+T 1585922436 18<24UndeadLeech18>	I indeed do not use a program meant to render text to browser my images. Shocking, I know.
+T 1585922461 18<29kchibisov18>	UndeadLeech: how are you even alive with such habbits?
+T 1585922480 18<29kchibisov18>	oh, yeah, you're undead.
+T 1585922501 18<24UndeadLeech18>	;)
+T 1585922515 18<29kchibisov18>	anyway, browsing images in terminal seems a bit off tbh, however if there're will be a standard protocol to do so, we're fine with adding it.
+T 1585922521 18<29kchibisov18>	for now there's only sixel.
+T 1585922529 18<22caveman18>	for all the megs of rams u consume, u better render images.
+T 1585922544 18<22caveman18>	u can't act like alacritty is some conservative terminal of the 80s, where it only renders text.
+T 1585922557 18<22caveman18>	heck, even st terminal can render pics in it, and it is much more efficient than alacritty.
+T 1585922567 18<24UndeadLeech18>	We can do whatever we want?
+T 1585922575 18<24UndeadLeech18>	Seriously, stop being so toxic.
+T 1585922575 18<29kchibisov18>	^
+T 1585922585 18<22nixpulvis18>	^
+T 1585922595 18<29kchibisov18>	if you don't like something just create your own terminal, I don't see a problem.
+T 1585922599 18<22caveman18>	absolutely.  u can do watever u want.  including being a total dick to ppl who come here to kindly give u some thoughts.
+T 1585922607 18<22nixpulvis18>	I'm not opposed to images in the terminal FWIW.
+T 1585922609 22*	26UndeadLeech sets ban on 18*!*@cave.mn
+T 1585922627 18<24UndeadLeech18>	Fucking hell, is it really so hard to be a decent person...
+T 1585922650 18<24UndeadLeech18>	You'd think after getting banned from Kitty's github already, people would learn.
+T 1585922653 18<22nixpulvis18>	like, search for the issue at least a little bit too...
+T 1585922698 22*	26UndeadLeech has kicked 18caveman from 22#alacritty (24caveman)
+T 1585922731 18<20sidh18>	ok I will uninstall it and put directly the color block
+T 1585922775 18<22ifreund18>	sidh: if you want a nice collection of colorschemes to try out, check out this repo https://github.com/aaron-williamson/base16-alacritty
+T 1585922799 18<28Yaniel18>	nixpulvis: tbh if someone asked for it with that attitude I'd oppose it purely out of spite
+T 1585922838 18<29kchibisov18>	Yaniel: this is not the first time, they're just annoying.
+T 1585922899 18<22nixpulvis18>	Yaniel: I wouldn't blame you... Though it's best to not take it out on the feature :P
+T 1585922920 18<22nixpulvis18>	Yea, caveman has been doing this a bunch. Now he's DMing me....
+T 1585922926 18<28Yaniel18>	classic
+T 1585922931 18<28Yaniel18>	get banned, DM the mods
+T 1585922961 18<28Yaniel18>	at least he's not stooping down to ban evasion
+T 1585922976 18<28Yaniel18>	unlike someone on the opengl channel
+T 1585922996 18<22nixpulvis18>	Apperently we're all "suicidal jerks".
+T 1585922996 18<20sidh18>	ifreund: yes I cone those repo too
+T 1585923015 18<29kchibisov18>	noice nixpulvis
+T 1585923025 18<20sidh18>	I clone
+T 1585926093 20*	Disconnected (20)
+T 1585943436 19*	Now talking on 22#alacritty
+T 1585943436 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1585943436 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1585943479 18<22nixpulvis18>	I mean, you could probably get unlucky and have the drive fucked.
+T 1585943499 18<22nixpulvis18>	anything with sensitive internal state.... but I'd hope they could recover themselves.
+T 1585943508 18<29kchibisov18>	Also, if you're using ext4 or some normal file system you're likely safe from powerloss.
+T 1585943531 18<22nixpulvis18>	well, "safe". No direct corruption.
+T 1585943532 18<20ShinyRice18>	yeah I use basic bitch ext4
+T 1585943559 18<20ShinyRice18>	is f2fs worth using?
+T 1585943568 18<29kchibisov18>	ext4 is fine for powerloss.
+T 1585943576 18<29kchibisov18>	like it can handle it just fine.
+T 1585943589 18<29kchibisov18>	unless you've disabled journaling.
+T 1585943612 18<22nixpulvis18>	yea, you just lose a little more data.
+T 1585943613 18<29kchibisov18>	and some other stuff that 'improves performance'.
+T 1585943693 18<22nixpulvis18>	god damn it, I don't want to buy new shit... but now's the time to upgrade to AMD.
+T 1585943712 18<22nixpulvis18>	and knowing my luck my nvidia card isn't going to play nice.
+T 1585943796 18<29kchibisov18>	just hope that it's not dead.
+T 1585943810 18<22nixpulvis18>	it's not. I'm pretty sure
+T 1585943828 18<22nixpulvis18>	EVGA makes their shit tight!
+T 1585945558 20*	Disconnected (20)
+T 1585953114 19*	Now talking on 22#alacritty
+T 1585953114 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1585953114 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1585953988 18<22nixpulvis18>	yea sadly. even the indicator light doesn't show up on the mobo anymore.
+T 1585954009 18<22nixpulvis18>	The PSU passes "self test", and the GPU clearly gets power during that time (side LEDs come on).
+T 1585954418 18<24UndeadLeech18>	You've tried clearing CMOS, right?
+T 1585954620 18<24UndeadLeech18>	I've had really strange issues with motherboards that were seemingly not doing anything until I tried resetting them.
+T 1585989369 19*	Now talking on 22#alacritty
+T 1585989369 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1585989369 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1585992553 18<19Hamilton18>	It happened again, `select->copy to clipboard` does not always work.
+T 1585998109 20*	Disconnected (20)
+T 1585998418 19*	Now talking on 22#alacritty
+T 1585998418 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1585998418 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1586005914 18<24andi_18>	-00O\
+T 1586005917 18<24andi_18>	']'
+T 1586005929 18<29kchibisov18>	Hm?
+T 1586005943 18<24andi_18>	']=0']][\\[]['[//
+T 1586007586 20*	Disconnected (20)
+T 1586016710 20*	Disconnected (20Connection timed out)
+T 1586016738 19*	Now talking on 22#alacritty
+T 1586016738 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1586016738 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1586019973 20*	Disconnected (20)
+T 1586020002 19*	Now talking on 22#alacritty
+T 1586020002 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1586020002 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1586020485 18<20cole-h18>	UndeadLeech: Since we don't want a description of the escape sequences on that wiki, would it be a good idea to add a link to XTerm or whatever that page was that describes them all?
+T 1586020746 18<24UndeadLeech18>	https://github.com/alacritty/alacritty/wiki/ANSI-References
+T 1586020769 18<20cole-h18>	Oh right
+T 1586020771 18<20cole-h18>	:D
+T 1586021586 18<19DusXMT18>	I wonder, how are the dim colors typically used? / how can I test them?
+T 1586021744 18<29kchibisov18>	echo -e "\e[31;2mhello"
+T 1586021751 18<29kchibisov18>	should be dim red
+T 1586022754 18<19DusXMT18>	Indeed, thanks :)
+T 1586024338 20*	Disconnected (20)
+T 1586024366 19*	Now talking on 22#alacritty
+T 1586024366 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1586024366 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1586034030 20*	Disconnected (20)
+T 1586034075 19*	Now talking on 22#alacritty
+T 1586034075 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1586034075 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1586034127 18<29kchibisov18>	what background opacity setting do you have in alacritty?
+T 1586034240 18<28saber118>	kchibisov: 0.95
+T 1586034261 18<29kchibisov18>	could you try 0.0, idk.
+T 1586034265 18<29kchibisov18>	it should work.
+T 1586034688 18<29kchibisov18>	I'd also recommend to try without empty compton config.
+T 1586034834 18<28saber118>	kchibisov: it's working now, turned my background image was too dark, so I didn't notice it was transparent, silly me..thanks for the help
+T 1586035200 18<20wma18>	any idea about why scrolling a TUI with mouse causes flicker but scrolling with keyboard doesn't?
+T 1586035207 18<20wma18>	things like manpages, weechat
+T 1586035221 18<29kchibisov18>	depends on your intense and how the app is handling it.
+T 1586035238 18<29kchibisov18>	but basically the problem is in how applications are writing content.
+T 1586035290 18<29kchibisov18>	if it updates content with multiple writes you can see a flicker sometimes.
+T 1586035298 18<29kchibisov18>	since we can render it in the middle of update.
+T 1586035344 18<29kchibisov18>	We don't know app's content update status, so we're just drawing all the time without any delay.
+T 1586035353 18<20wma18>	I'll test lowering the mouse scroll step to 1
+T 1586035451 18<29kchibisov18>	note, one way to solve this thing is to delay rendering.
+T 1586035459 18<29kchibisov18>	which is not an option.
+T 1586035477 18<29kchibisov18>	this thing is done by a lot of terminal emulators IIRC, which is just wrong.
+T 1586035642 18<20wma18>	yes, I think this flickering didn't happen with kitty
+T 1586035695 18<29kchibisov18>	yeah, even xterm has like 22ms of delay IIRC.
+T 1586035736 18<29kchibisov18>	The one solution that makes sense is syncronized updates.
+T 1586035764 18<29kchibisov18>	However it requires application support.
+T 1586035770 18<29kchibisov18>	and a terminal.
+T 1586035777 18<29kchibisov18>	but this thing is something reliable.
+T 1586038276 18*	29kchibisov was thinking that alacritty was freezing on focus change, but he was accidentally using 1.25 thickness for cursor from some old experiment, so HollowBlock cursor was just block cursor.
+T 1586038287 18<29kchibisov18>	it took me like 30 minutes to realize that.
+T 1586038482 18<24UndeadLeech18>	lol
+T 1586038546 18<29kchibisov18>	I really wonder how long it takes us to roundtrip to winit.
+T 1586038557 18<24UndeadLeech18>	Roundtrip for what?
+T 1586040135 20*	Disconnected (20)
+T 1586040161 19*	Now talking on 22#alacritty
+T 1586040161 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1586040161 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1586040341 18<29kchibisov18>	Oh, god, winit can't work in pair with frame callbacks properly.
+T 1586040353 18<24UndeadLeech18>	Hm?
+T 1586040357 18<29kchibisov18>	it blows up.
+T 1586040365 18<24UndeadLeech18>	You mean with them in Alacritty?
+T 1586040371 18<29kchibisov18>	yeah.
+T 1586040377 18<29kchibisov18>	it just sends shit ton of stupid events.
+T 1586040392 18<29kchibisov18>	like their redraw requested logic just explodes
+T 1586040422 18<29kchibisov18>	it's a constant spam of events, etc.
+T 1586040533 18<29kchibisov18>	but it works so good with frame callbacks tbh.
+T 1586040560 18<29kchibisov18>	like resize glitches are solved with them.
+T 1586040577 18<29kchibisov18>	but yeah, I should investigate why winit blows up when I'm using them.
+T 1586040599 18<29kchibisov18>	I feel like the problem is that I dispatch_queue each time in run_return;
+T 1586040607 18<29kchibisov18>	and it triggers redraw_requested for me.
+T 1586040817 18<29kchibisov18>	So I guess I should make it in winit.
+T 1586040829 18<29kchibisov18>	like this even spam isn't good.
+T 1586040984 18<29kchibisov18>	yeah, I'll publish PR, just for some folks to try it, but I'll should add it into winit.
+T 1586041043 18<29kchibisov18>	since it fixes glitches + updates.
+T 1586041051 18<29kchibisov18>	I mean offscreen updates.
+T 1586041172 18<24UndeadLeech18>	Resize glitches shouldn't matter anymore. I've decided I'm just going to remove the ability to resize from X/Wayland/Windows/macOS.
+T 1586041179 18<24UndeadLeech18>	That would make things a lot easier.
+T 1586041183 18<29kchibisov18>	true.
+T 1586041633 18<29kchibisov18>	though we
+T 1586041646 18<29kchibisov18>	though, we'll have special flag to redraw on wayland anyway.
+T 1586041678 18<29kchibisov18>	Like you're setting dirty in it right now, which is kind of true, but on Wayland, you can't draw without it.
+T 1586041717 18<29kchibisov18>	so you'll have one bool flag anyway.
+T 1586042794 18<29kchibisov18>	btw, I can't repo any glitches due to partical write on my branch.
+T 1586042803 18<29kchibisov18>	or they are really hard.
+T 1586042926 18<29kchibisov18>	Well, actually only on resize it's possible right now.
+T 1586042948 18<29kchibisov18>	Like when I fullscreen vim I see this kind of flicker.
+T 1586043601 18<24UndeadLeech18>	Okay, I think I'll move the cursors on the grid, then pass a callback to reflow, remove rotation of selection from grid by moving selection to term and hopefully that'll be semi clean.
+T 1586043622 18<29kchibisov18>	Reflow callbacks oO
+T 1586043646 18<24UndeadLeech18>	Just something simple, like passing a closure to reflow which is called when a line is added/removed.
+T 1586043667 18<24UndeadLeech18>	Instead of passing points. So that we can keep all the logic in that closure instead of having to iterate over the points in reflow.
+T 1586043688 18<24UndeadLeech18>	I might make it a trait and store selection/vi cursor on a struct implementing it.
+T 1586043741 18<24UndeadLeech18>	It's mostly to prevent havig to add a for loop to reflow for every time any of the points is modified, hopefully keeping it a bit cleaner.
+T 1586043785 18<24UndeadLeech18>	And storing the points on grid means we don't need to search the points for the smallest line to determine rotation.
+T 1586043926 18<29kchibisov18>	I really wonder how atomics should be done in a most performant way.
+T 1586043931 18<29kchibisov18>	like I feel like mutex was better for me.
+T 1586043979 18<24UndeadLeech18>	What do you mean?
+T 1586043994 18<29kchibisov18>	I mean I feel like I'm messing up order from time to time.
+T 1586043994 18<24UndeadLeech18>	Atomics should be pretty fast, you just using store/load with relaxed ordering?
+T 1586044010 18<24UndeadLeech18>	Which ordering do you use?
+T 1586044109 18<29kchibisov18>	Acquire for load and Release for store.
+T 1586044117 18<29kchibisov18>	I feel like I should use Relaxed for store.
+T 1586044123 18<24UndeadLeech18>	Have you tried relaxed for everything, just for testing?
+T 1586044132 18<29kchibisov18>	load can't use relaxed
+T 1586044154 18<29kchibisov18>	Oh, I'm wrong.
+T 1586044159 18<29kchibisov18>	It could use Relaxed.
+T 1586044165 18<29kchibisov18>	I've read it in a wrong way.
+T 1586044213 18<29kchibisov18>	let me try relaxed.
+T 1586044376 18<24UndeadLeech18>	I mean SeqCst is probably the least error prone I'd assume.
+T 1586044399 18<29kchibisov18>	I thought about that, but I only read.
+T 1586044407 18<29kchibisov18>	And stores should be before.
+T 1586044426 18<29kchibisov18>	I mean I store pretty rare, and the other time I just read it.
+T 1586044500 18<24UndeadLeech18>	SeqCst is the slowest, so probably shouldn't be used unless you really need it.
+T 1586044541 18<29kchibisov18>	I feel like I'm fine with relaxed tbh.
+T 1586044557 18<24UndeadLeech18>	That's usually how I feel too.
+T 1586044600 18<24UndeadLeech18>	Especially because wrapping my head around that gets me confused literally every single time I use it.
+T 1586044613 18<24UndeadLeech18>	So I mostly just end up trial and erroring my way through.
+T 1586044829 18<29kchibisov18>	However I'm not really sure that it was a right thing to use Relaxed.
+T 1586044839 18<29kchibisov18>	just logically I need Release + Acquire
+T 1586044918 FiSHLiM plugin unloaded
+T 1586509191 19*	Now talking on 22#alacritty
+T 1586509191 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1586509191 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1586516312 20*	Disconnected (20)
+T 1586516951 19*	Now talking on 22#alacritty
+T 1586516951 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1586516951 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1586524454 20*	Disconnected (20)
+T 1586524483 19*	Now talking on 22#alacritty
+T 1586524483 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1586524483 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1586525948 18<24UndeadLeech18>	hahuang65: Font fallback is done using your system font configuration.
+T 1586530588 18<28ubitux18>	http://b.pkh.me/s/2020-04-10-165604_598x421_scrot.png i wonder if it's possible to have a color palette respecting the semantic where everything is always readable
+T 1586530707 18<28ubitux18>	typically: magenta/red, yellow/green
+T 1586530730 18<28ubitux18>	sometimes black on blue
+T 1586542767 20*	Disconnected (20)
+T 1586542801 20*	Disconnected (20Remote host closed socket)
+T 1586542828 19*	Now talking on 22#alacritty
+T 1586542828 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1586542828 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1586554077 20*	Disconnected (20)
+T 1586554281 19*	Now talking on 22#alacritty
+T 1586554281 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1586554281 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1586559867 20*	Disconnected (20)
+T 1586560032 20*	Disconnected (20Remote host closed socket)
+T 1586560078 20*	Disconnected (20Remote host closed socket)
+T 1586560106 19*	Now talking on 22#alacritty
+T 1586560106 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1586560106 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1586566887 20*	Disconnected (20)
+T 1586591601 19*	Now talking on 22#alacritty
+T 1586591601 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1586591601 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1586594332 18<19Hamilton18>	How to spawn an alacritty window with a start command and make it stick? alacritty -r "ls" disappers after running the command
+T 1586594430 18<19Hamilton18>	I'm not looking for a keybinding inside alacritty but a switch for alacritty cli app to run a new instance, execute a command and stay there
+T 1586594547 18<29kchibisov18>	Hamilton: --hold.
+T 1586594554 18<29kchibisov18>	type --help for help.
+T 1586594665 18<19Hamilton18>	kchibisov, okay it holds but I can't interact with it any further
+T 1586594682 18<29kchibisov18>	yes, because you've told it do so.
+T 1586594700 18<19Hamilton18>	I'm using a wm. I want a certain key to 1- launch alacritty 2- execute a start command 3- let me do other things with it
+T 1586594729 18<29kchibisov18>	just run your shell and make it run things?
+T 1586594768 18<29kchibisov18>	other things means shell, not just command.
+T 1586594787 18<29kchibisov18>	Hold is only useful, if you're running app and want to keep output.
+T 1586594818 18<19Hamilton18>	exec "alacritty" && "ls"?
+T 1586594905 18<29kchibisov18>	alacritty -e sh -c "ls; exec sh"
+T 1586594977 18<19Hamilton18>	Thanks https://unix.stackexchange.com/a/82783/306382
+T 1586595523 18<19Hamilton18>	kchibisov, https://pastebin.com/sXa7Kxg9
+T 1586595539 18<19Hamilton18>	xfce4-terminal works (with an error) but alacritty doesn't spawn
+T 1586595575 18<29kchibisov18>	Do you see "" things in my example?
+T 1586595595 18<29kchibisov18>	I mean to quote the entire thing.
+T 1586595605 18<29kchibisov18>	like you shouldn't use it, since it's one argument.
+T 1586595613 18<19Hamilton18>	alacritty -e "bash -c 'ls;exec $SHELL'"
+T 1586595623 18<29kchibisov18>	should be alacritty -e bash -c 'ls;exec $SHELL'
+T 1586595645 18<19Hamilton18>	so -e is not like exec ""
+T 1586595650 18<29kchibisov18>	yes.
+T 1586595657 18<29kchibisov18>	we're not launching it in shell by default.
+T 1586595671 18<29kchibisov18>	like it's a command with arguments.
+T 1586595719 18<19Hamilton18>	*sigh* now it works but no scroll up :)
+T 1586595756 18<19Hamilton18>	It's okay. Doesn't matter. Thanks
+T 1586595776 18<29kchibisov18>	what do you mean by `scroll up`?
+T 1586595991 18<19Hamilton18>	kchibisov, if ls is long, it just shows the final 4 lines or sho
+T 1586596022 18<29kchibisov18>	works for me?
+T 1586596031 18<29kchibisov18>	I can scroll, etc.
+T 1586596092 18<29kchibisov18>	So your prompt should be in the bottom of the screen if your output is too long.
+T 1586596235 18<29kchibisov18>	Well if you can repro everytime I can debug this thing.
+T 1586596394 18<29kchibisov18>	Just set history value in config to some value like 300 and do `alacritty --ref-test -e sh -c "ls -lah; ls -lah; exec sh"`
+T 1586596414 18<29kchibisov18>	it should create 4 files, and I need only alacritty.recording from them.
+T 1586597284 18<19Hamilton18>	kchibisov, I did a 4 ls -lah it works. It was printing everything. I thought I was doing a ls -a instead
+T 1586597318 18<19Hamilton18>	and ls -a scrolls properly also
+T 1586597849 18<19Hamilton18>	kchibisov, What distro/DE/wm do you yourself use?"
+T 1586597864 18<29kchibisov18>	gentoo + sway
+T 1586597870 18<19Hamilton18>	oof
+T 1586597892 18<19Hamilton18>	kchibisov, On a laptop?
+T 1586597952 18<29kchibisov18>	yeah, and on a desktop.
+T 1586626012 18<24UndeadLeech18>	kchibisov: Oh, looks like GitHub stored my previous review...
+T 1586626040 18<24UndeadLeech18>	That's a bit strange.
+T 1586626282 18<24UndeadLeech18>	Not sure if that's a bug or a feature.
+T 1586635058 18<29kchibisov18>	I wonder if we can have one thread around to do various kind of strange things to not block alacritty.
+T 1586635065 18<29kchibisov18>	and a channel to send requests to it.
+T 1586635093 18<29kchibisov18>	e.g. launching commands, etc.
+T 1586635117 18<29kchibisov18>	clipboard interop.
+T 1586635123 18<24UndeadLeech18>	Seems easier to just spawn them and get rid of them.
+T 1586635132 18<24UndeadLeech18>	Since 99% of the time there won't be one.
+T 1586635143 18<29kchibisov18>	yeah, but what if you spawm a ton of them.
+T 1586635156 18<29kchibisov18>	like imagine triggers proposal + bell spam.
+T 1586635220 18<29kchibisov18>	Though, I haven't measured if it's slow or not tbh.
+T 1586636067 18<24UndeadLeech18>	Even then it wouldn't be a big deal.
+T 1586636077 18<24UndeadLeech18>	That's not 'a ton' when it comes to threads.
+T 1586638684 20*	Disconnected (20)
+T 1586639218 19*	Now talking on 22#alacritty
+T 1586639218 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1586639218 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1586639494 20*	Disconnected (20)
+T 1586639514 19*	Now talking on 22#alacritty
+T 1586639514 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1586639514 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1586639957 20*	Disconnected (20Connection reset by peer)
+T 1586639978 19*	Now talking on 22#alacritty
+T 1586639978 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1586639978 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1586644261 20*	Disconnected (20)
+T 1586644287 19*	Now talking on 22#alacritty
+T 1586644287 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1586644287 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1586645365 18<29kchibisov18>	Ok, I'm tired of that shit, time to install macOS.
+T 1586645491 20*	Disconnected (20)
+T 1586645577 20*	Disconnected (20Remote host closed socket)
+T 1586645629 20*	Disconnected (20Remote host closed socket)
+T 1586645681 20*	Disconnected (20Remote host closed socket)
+T 1586645711 19*	Now talking on 22#alacritty
+T 1586645711 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1586645711 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1586646141 18<22ifreund18>	maybe that says something about the average mac user
+T 1586646166 18<29kchibisov18>	The problem that it prevents me from fixing other shit.
+T 1586646206 18<29kchibisov18>	Like if I want to create new API + test that things will work on macOS with it, it just won't be done by someone else.
+T 1586646272 18<29kchibisov18>	Just hope that qemu boots up
+T 1586646670 18<24UndeadLeech18>	kchibisov: Which issue specifically?
+T 1586646679 18<29kchibisov18>	just pick random font issue.
+T 1586646696 18<29kchibisov18>	and pick random macOS winit issue.
+T 1586646724 18<24UndeadLeech18>	I mean the same could be said about Windows.
+T 1586646745 18<29kchibisov18>	On Windows we have davidhewitt.
+T 1586646761 18<29kchibisov18>	and everything is mostly done on Windows font's side.
+T 1586646784 18<29kchibisov18>	and winit even has Windows maintainers from time to time and more folks around.
+T 1586646800 18<24UndeadLeech18>	It has more macOS maintainers at the moment tbh.
+T 1586646807 18<24UndeadLeech18>	At least from my last experiences.
+T 1586646814 18<29kchibisov18>	macOS has 0 maintainers.
+T 1586646833 18<24UndeadLeech18>	Who maintains Windows?
+T 1586646838 18<29kchibisov18>	osspial.
+T 1586646877 18<24UndeadLeech18>	Is he contributing again?
+T 1586646900 18<29kchibisov18>	I'm not sure tbh, but Windows backend is way more stable than macOS tbh.
+T 1586646903 18<29kchibisov18>	in winit.
+T 1586646928 18<24UndeadLeech18>	I'm relatively familiar with both and I'm not sure I agree with it from a code perspective.
+T 1586646959 18<29kchibisov18>	Windows is at least testable without issues.
+T 1586647003 18<29kchibisov18>	idk, let me try to setup qemu.
+T 1586647250 18<24UndeadLeech18>	You mean macOS?
+T 1586647260 18<29kchibisov18>	yeah, macOS in qemu.
+T 1586647591 18<22Hexi18>	greetings, I am trying to set a keybind for increasing font size as the defaults do not map to anything usable on my keyboard. In the config I have added 'key: Caret' in the appropriate place but it does not work. That key generates the ^ symbol when pressed but in xev it reports as 'asciicircum' rather than 'carat'
+T 1586647621 18<22Hexi18>	But if I set it to 'asciicircum' I get a red error message immediately with a list of keys and that one not being in the list.
+T 1586647776 18<24UndeadLeech18>	Hexi: Use `alacritty --print-events` to get the key names used by Alacritty.
+T 1586647796 18<24UndeadLeech18>	You'll have to look at the `WindowEvent`s in the output.
+T 1586647808 18<22Hexi18>	oh, great tip, I will give that a try, thanks!
+T 1586647984 18<22Hexi18>	much sadness, that key returns virtual_keycode: None
+T 1586648006 18<29kchibisov18>	you can bind by scancode.
+T 1586648027 18<22Hexi18>	oh I see it has scancode 13, I will try
+T 1586648049 18<22Hexi18>	yes that works! thank you so much
+T 1586651435 18<29kchibisov18>	UndeadLeech: it works.
+T 1586651625 18<24UndeadLeech18>	Alacritty in macOS VM you mean?
+T 1586651635 18<29kchibisov18>	yes.
+T 1586651642 18<24UndeadLeech18>	Question is for how long.
+T 1586651654 18<24UndeadLeech18>	But yeah, that's what I did for macOS testing before I got hardware.
+T 1586651670 18<24UndeadLeech18>	Until it broke.
+T 1586651682 18<29kchibisov18>	If you won't touch this scam, I hope it won't break.
+T 1586652585 18<24UndeadLeech18>	That's what I thought.
+T 1586652590 18<29kchibisov18>	:- )
+T 1586653628 18<29kchibisov18>	macOS in qemu seems to work faster than native macOS.
+T 1586653685 18<29kchibisov18>	but anyway, let me try to debug those font issues.
+T 1586653728 18<29kchibisov18>	also, UndeadLeech have you ever checked whether color you set in alacritty actually matches the color you'll get from color picker later.
+T 1586653951 18<24UndeadLeech18>	Yes?
+T 1586653970 18<29kchibisov18>	So I'll just ignore wierd color mismatch for now.
+T 1586654010 18<29kchibisov18>	Also, have you checked that default color for background in terminal.app matches the color in a config.
+T 1586654015 18<24UndeadLeech18>	Are you testing with text or background?
+T 1586654022 18<29kchibisov18>	background
+T 1586654035 18<24UndeadLeech18>	Why would I check Terminal.app background?
+T 1586654054 18<29kchibisov18>	Just to check that its color value for background differs from the color specified.
+T 1586654058 18<24UndeadLeech18>	I've never used Terminal.app.
+T 1586654078 18<24UndeadLeech18>	It does, depending on color configuration.
+T 1586654088 18<29kchibisov18>	IIRC they use some weird color speculation
+T 1586654125 18<24UndeadLeech18>	I mean in theory that exists on other platforms too.
+T 1586654529 18<29kchibisov18>	It seems like live font size reload is broken on macOS, right?
+T 1586654545 18<29kchibisov18>	Oh, nvm.
+T 1586654566 18<29kchibisov18>	I forget our semantic, that if you ever changed it, it won't work.
+T 1586654596 18<24UndeadLeech18>	What do you mean?
+T 1586654598 18<24UndeadLeech18>	Oh, the font size.
+T 1586654598 18<29kchibisov18>	yeah.
+T 1586654598 18<24UndeadLeech18>	It will work when you reset it.
+T 1586654625 18<29kchibisov18>	I don't see unicode issue on `cat /dev/urandom` tbh
+T 1586654641 18<29kchibisov18>	like it's not freezing, at least.
+T 1586654652 18<29kchibisov18>	testing urw is pretty hard, since it's a vm without real gpu.
+T 1586655084 18<24UndeadLeech18>	I don't think any performance tests will be useful.
+T 1586655104 18<29kchibisov18>	I can always compare to asrw perf.
+T 1586655120 18<29kchibisov18>	like numbers doesn't matter, but diff in render time could matter.
+T 1586655168 18<24UndeadLeech18>	They do matter though if you're bottlenecked by a path that is never a bottleneck on a normal machine.
+T 1586655247 18<29kchibisov18>	I mean they correlate with my linux machine tbh.
+T 1586655313 18<29kchibisov18>	Like ~12-16x difference in render time on asrw/urw
+T 1586655333 18<29kchibisov18>	I mean asrw is 12-16x faster on average in render times than urw on both machines.
+T 1586655390 18<29kchibisov18>	the problem is that on macOS it's 12ms and 100ms, but on linux it's something like 130usec and 2.3ms
+T 1586655526 18<24UndeadLeech18>	130usec and 2.3ms are both lower than FPS though, while 100ms is not and even 12ms is getting close.
+T 1586655550 18<29kchibisov18>	I mean it's a vm inside on qemu without GPU
+T 1586655555 18<24UndeadLeech18>	So you're suddenly bottlenecked by rendering, while normal machines shouldn't be.
+T 1586655573 18<29kchibisov18>	The thing I care about is render time.
+T 1586655581 18<29kchibisov18>	I don't care about the time to run benchmark.
+T 1586655591 18<29kchibisov18>	so I look only on render times here.
+T 1586655591 18<24UndeadLeech18>	I mean fair enough, I'm not saying there is absolutely no point.
+T 1586655626 18<29kchibisov18>	Also, macOS seems to do similar things in a font crate.
+T 1586655645 18<29kchibisov18>	e.g. iterate over fallback fonts, etc.
+T 1586655653 18<24UndeadLeech18>	I mean it's fonts, there's not that much that can be done differently.
+T 1586655670 18<29kchibisov18>	I only care about fonts.
+T 1586655680 18<29kchibisov18>	I mean that I want to fix only fonts on macOS.
+T 1586655983 18<29kchibisov18>	storm\: are you around?
+T 1586657168 18<29kchibisov18>	Anyway, I need someone with macOS + kitty to test one thing for me.
+T 1586657380 18<24UndeadLeech18>	What do you need tested, I might be able to look into it tomorrow?
+T 1586657384 18<24UndeadLeech18>	Assuming you mean native macOS?
+T 1586657404 18<29kchibisov18>	Oh, actually I can test kitty myself.
+T 1586657421 18<29kchibisov18>	I forgot that I actually have macOS.
+T 1586657433 18<24UndeadLeech18>	lol
+T 1586657435 18<29kchibisov18>	the problem that it looks like shit on my system, so debugging font quality is hard.
+T 1586657442 18<24UndeadLeech18>	What do you want to look into?
+T 1586657453 18<29kchibisov18>	thin_strokes thing
+T 1586657484 18<29kchibisov18>	AFAICKS kitty is using CGContextSetLineWidth to impl it.
+T 1586657520 18<29kchibisov18>	iterm has a shit ton of strange heuristic based logic to handle fonts.
+T 1586657798 18<29kchibisov18>	Oh, I can't test it.
+T 1586657808 18<29kchibisov18>	it requires OpenGL 4.0+ I guess.
+T 1586657823 18<24UndeadLeech18>	Great.
+T 1586657826 18<29kchibisov18>	Like it crashes with GL error on start.
+T 1586657836 18<29kchibisov18>	and they blame us for OpenGL 3.3
+T 1586657887 18<29kchibisov18>	ok, let me try to understand iterm code a bit more, and I'll post the thing I want to test.
+T 1586658481 20*	Disconnected (20)
+T 1586673399 19*	Now talking on 22#alacritty
+T 1586673399 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1586673399 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1586674741 20*	Disconnected (20)
+T 1586676955 19*	Now talking on 22#alacritty
+T 1586676955 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1586676955 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1586678266 18<20lovesegfault18>	kchibisov: You around?
+T 1586678274 18<29kchibisov18>	yeah.
+T 1586678335 18<20lovesegfault18>	I can't open any windows with winit 0.22 on Wayland, do none of the examples do anything?
+T 1586678348 18<20lovesegfault18>	They run, don't crash or anything, but no window comes up
+T 1586678356 18<29kchibisov18>	you should draw.
+T 1586678381 18<29kchibisov18>	so you should test glutin examples, and not winit examples, since winit isn't drawing.
+T 1586678395 18<20lovesegfault18>	So, I was trying to test this https://github.com/parasyte/pixels/pull/60
+T 1586678414 18<20lovesegfault18>	it explodes on wayland, with Xwayland it works
+T 1586678430 18<20lovesegfault18>	c.f. https://gist.github.com/0e38722940d17caeb4a9fd84cd6ec394
+T 1586678450 18<20lovesegfault18>	I _think_ it's a bug in smithay?
+T 1586678500 18<29kchibisov18>	idk, let me run your thing.
+T 1586678556 18<29kchibisov18>	let me make some coffee. I'll be right back to you in like 15 mins.
+T 1586678562 18<20lovesegfault18>	I'm trying the wgpu examples rn
+T 1586678565 18<20lovesegfault18>	let's see
+T 1586678612 18<20Levanx18>	I think you're hitting https://github.com/rust-windowing/winit/issues/793
+T 1586678730 18<20lovesegfault18>	yep
+T 1586678840 18<20lovesegfault18>	Levanx: Ah, yes, indeed
+T 1586678850 18<20lovesegfault18>	Goddamn
+T 1586678869 18<20lovesegfault18>	kchibisov: how does Alacritty not hit this?
+T 1586678900 18<20lovesegfault18>	https://github.com/alacritty/alacritty/issues/2714
+T 1586678901 18<20lovesegfault18>	oh
+T 1586678909 18<20lovesegfault18>	But how does it work otherwise?
+T 1586678917 18<20Levanx18>	(btw, fixing this is more a matter of deciding what winit should do than a technical problem)
+T 1586678960 18<20lovesegfault18>	Yeah, I see that
+T 1586679225 18<29kchibisov18>	yeah, the only way to hit that is Fullscreen startup mode.
+T 1586679229 18<29kchibisov18>	in alacritty.
+T 1586679247 18<29kchibisov18>	but you can launch normal things just fine.
+T 1586679301 18<29kchibisov18>	I feel like the only way to solve more
+T 1586679323 18<29kchibisov18>	more major issues like that is to port to a new SCTK and then fix them.
+T 1586679422 18<29kchibisov18>	I feel like it's time to start porting winit to a newer SCTK.
+T 1586679487 18<29kchibisov18>	Though, I should fix some minor issues first, but they won't be merged unless Levanx will press the button.
+T 1586679525 18<20Levanx18>	You mean the winit maintainership is basically dead now ? :/
+T 1586679535 18<29kchibisov18>	kind of.
+T 1586679543 18<29kchibisov18>	so you can press the button, and I can send patches to winit.
+T 1586679557 18<29kchibisov18>	Or we can fork winit and maintain it in alacritty.
+T 1586679562 18<20lovesegfault18>	kchibisov: How do you open a window not-fullscreen?
+T 1586679573 18*	20lovesegfault wonders why pixels is opening fullscreen
+T 1586679580 18<20Levanx18>	welp
+T 1586679597 18<20Levanx18>	I guess I can. But ping me for review then, I disabled general notifications for winit.
+T 1586679601 18<29kchibisov18>	Like I'm fine with maintaining Wayland in winit, since alacritty requires it.
+T 1586679630 18<29kchibisov18>	Like I don't see any reason to not use winit, but gentz was away for 2 months.
+T 1586679650 18<29kchibisov18>	and osspial for a similar amount of time.
+T 1586679678 18<29kchibisov18>	And other folks won't merge my shit, since it's not their platform.
+T 1586679701 18<20lovesegfault18>	That's sad :/
+T 1586679718 18<29kchibisov18>	But as I said, we can fork it in alacritty.
+T 1586679729 18<29kchibisov18>	that's not a problem and was discussed already.
+T 1586679752 18<20Levanx18>	lovesegfault: Winit is, as a whole, a pretty unrewarding thing to maintain tbh
+T 1586679768 18<29kchibisov18>	like winit is just a wrapper, while we have smithay project it'll be fine.
+T 1586679896 18<29kchibisov18>	lovesegfault: you shouldn't set any mods when launching.
+T 1586679970 18*	20lovesegfault looks
+T 1586680038 18<29kchibisov18>	Levanx: if you don't want to spend your time reviewing random winit stuff let me know, we'll likely fork it right away then. But I don't see anyone besides me who can maintain Wayland in winit.
+T 1586680061 18<20lovesegfault18>	kchibisov: I don't think I'm setting anything? https://github.com/lovesegfault/pixels/blob/update-deps/examples/conway/main.rs#L18-L19
+T 1586680087 18<20lovesegfault18>	kchibisov: Have you consider asking for a commit bit instead?
+T 1586680108 18<29kchibisov18>	No, but there's no one I can ask for it.
+T 1586680127 18<29kchibisov18>	unless everyone in winit has equal ownership.
+T 1586680136 18<20lovesegfault18>	OH
+T 1586680139 18<20lovesegfault18>	I see the issue
+T 1586680153 18<29kchibisov18>	like osspial should be the boss, I guess, but I don't see them.
+T 1586680154 18<29kchibisov18>	and gentz.
+T 1586680202 18<20Levanx18>	kchibisov: If it's just reviewing & merging a few technical PRs, that's fine.
+T 1586680236 18<20Levanx18>	I just don't want to be dragged into yet another long debate about API design abstracting over multiple platforms ._.
+T 1586680355 18<20Levanx18>	I already restarted the momentum when francesca left, leading to the shared maintainership we had until now. I don't really want to do that a second time tbqh :/
+T 1586680461 18<29kchibisov18>	lovesegfault: let me debug your thing.
+T 1586680593 18<29kchibisov18>	Oh, I've got the issue.
+T 1586680625 18<29kchibisov18>	yeah, they are calling to monitor too early.
+T 1586680643 18<29kchibisov18>	I absolutely hate what they are doing so.
+T 1586680761 18<20lovesegfault18>	kchibisov: Yeah, did you find they part where they draw the hidden window to figure out a good size?
+T 1586680820 18<29kchibisov18>	yeah, they are doing shit.
+T 1586680837 18<29kchibisov18>	like this code is just bad and won't work..
+T 1586680852 18<29kchibisov18>	first of all `set_inner_size` doesn't guarantee you anything.
+T 1586680876 18<29kchibisov18>	set_outer_position is not a thing on some systems.
+T 1586680928 18<29kchibisov18>	Also, on HiDPI system, initial scale factor is always 1.
+T 1586680936 18<29kchibisov18>	so you'll resize anyways.
+T 1586681003 18<20lovesegfault18>	oh jesus the mouse handling is all fucked
+T 1586681014 18<29kchibisov18>	I'll propose to just use scale factor instead of monitor dimensions magic, since THERE'S NO GUARANTEE THAT THEY ARE CORRECT.
+T 1586681023 18<20lovesegfault18>	if you run and try and do line a drag (i.e. draw a line)
+T 1586681064 18<29kchibisov18>	like just use scale factor and don't be smart.
+T 1586681080 18*	20lovesegfault nods
+T 1586681120 18<29kchibisov18>	like I'm tired of some winit ideas like DPR factor 777 on X11.
+T 1586681139 18<29kchibisov18>	because they're due to monitor dimensions.
+T 1586681139 18<20lovesegfault18>	What's DPR?
+T 1586681149 18<29kchibisov18>	I mean scale factor.
+T 1586681156 18<29kchibisov18>	it's a Device Pixel Ratio.
+T 1586681173 18<20lovesegfault18>	Ah
+T 1586681178 18<20lovesegfault18>	Why 777 O.o
+T 1586681195 18<29kchibisov18>	it was 719 to be more precise.
+T 1586681237 18<29kchibisov18>	16mmx9mm 5kx1440p display or something like that.
+T 1586681467 18<20lovesegfault18>	kchibisov: I gotta go to sleep, if you have time to help fix that example code it'd be greatly appreciated; I'm trying to get that little lib back in shape, it's really handy
+T 1586681473 18<20lovesegfault18>	thanks for all the help, gnight
+T 1586681567 18<29kchibisov18>	note, I'm not justifing winit crash here and I don't have much time to work on `one more project`.
+T 1586683895 18<20basic18>	waah, when i use ncurses in alacritty (compiled yesterday) it moves 2 spots, not 2
+T 1586683925 18<29kchibisov18>	Could you explain your issue a bit more?
+T 1586683942 18<29kchibisov18>	Oh, I guess you should remove old bindings to arrow keys.
+T 1586683990 18<20basic18>	well, i tried to recompile my kernel, and if i use the arrow keys it moves2 instead of 1
+T 1586684003 18<29kchibisov18>	remove default bindings.
+T 1586684016 18<20basic18>	uhm, une second
+T 1586684025 18<29kchibisov18>	Just leave the thing you've defined yourself.
+T 1586684060 18<20basic18>	  - { key: Up,       mods: Shift,   chars: "\x1b[1;2A"                       } these?
+T 1586684069 18<20basic18>	https://github.com/bananarne/dotfiles/blob/bb57071c4ae763ed6de43c55123be5536112d895/.config/alacritty/alacritty.yml#L476
+T 1586684075 18<29kchibisov18>	yeah those things.
+T 1586684088 18<20basic18>	you want me to remove all bindings?
+T 1586684092 18<29kchibisov18>	You can safely delete the entire section.
+T 1586684094 18<20basic18>	like line 445 to 546
+T 1586684103 18<20basic18>	okay, thanks
+T 1586684105 18<29kchibisov18>	yeah, you can do that from 424
+T 1586684161 18<20basic18>	yeah works again, thanks
+T 1586684168 18<20basic18>	does this mean, i mapped 2 things to the arrowkey?
+T 1586684175 18<20basic18>	(2 times the same thing)
+T 1586684186 18<29kchibisov18>	yeah, we changed default bindings, so you've mapped twice.
+T 1586684190 18<20basic18>	ah, cool
+T 1586684227 18<29kchibisov18>	Like we removed bindings like a year ago, but now we actually changed all default ones, since we added one more mode, which affected all bindings.
+T 1586684243 18<20basic18>	which mode?
+T 1586684248 18<29kchibisov18>	Vi mode.
+T 1586684257 18<20basic18>	UHH what does tha tmean?? that sounds interesting af
+T 1586684267 18<20basic18>	can i copy paste in alacritty? without tmux n shit?
+T 1586684270 18<29kchibisov18>	yeah.
+T 1586684276 18<20basic18>	WOAH alacritty IS the best
+T 1586684278 18<20basic18>	how how how
+T 1586684279 18<29kchibisov18>	Ctrl + Shift + space.
+T 1586684289 18<29kchibisov18>	and other default vi bindings should kind of work.
+T 1586684305 18<20basic18>	man
+T 1586684306 18<20basic18>	that is fukin
+T 1586684310 18<29kchibisov18>	https://github.com/alacritty/alacritty/blob/ab2db49af5467ec972e297259dd8c23022783347/alacritty.yml#L561
+T 1586684310 18<20basic18>	awesome
+T 1586684317 18<20basic18>	this is exactly what i suggested in here, half a year ago
+T 1586684324 18<20basic18>	man that is cool
+T 1586684325 18<20basic18>	i am so happy
+T 1586684341 18<20basic18>	thank you for implementing this
+T 1586684350 18<20basic18>	whoever did
+T 1586684362 18<29kchibisov18>	note, it's still missing some useful things, but they should be added at some point.
+T 1586684376 18<20basic18>	as long as i can copy/paste without touching the mouse
+T 1586684378 18<20basic18>	i don't mind
+T 1586684424 18<20basic18>	as long as i can copy/paste without touching the mouse
+T 1586684425 18<20basic18>	hihihihi
+T 1586684452 18<20basic18>	what would be useful, addditionally to this?
+T 1586684463 18<29kchibisov18>	search + indicator for vi mode.
+T 1586684581 18<20Levanx18>	BTW, Yesterday I realized alacritty now had block selection. No idea since when it is the case, but that's very cool! Thanks ❤︎
+T 1586684597 18<29kchibisov18>	was added like a year ago also.
+T 1586684607 18<20basic18>	search + indicator for
+T 1586684607 18<20basic18>	, Yesterday I realized
+T 1586684610 18<20basic18>	hohoho
+T 1586684616 18<20basic18>	sorry, im way to happy about this
+T 1586684637 18<20basic18>	i should follow the repository & learn to rust
+T 1586684662 18<29kchibisov18>	You can just follow releases, I guess, since we publish very verbose changelog, so you won't miss new features.
+T 1586684697 18<20basic18>	you should have a "read the changelog" notification :p
+T 1586684703 18<20basic18>	with super fancy shaders
+T 1586684734 18<29kchibisov18>	I don't see a need for such things, just read release notes.
+T 1586684832 18*	20Levanx just obtains new alacritty without noticing via system updates :-°
+T 1586684963 18<29kchibisov18>	Oh, god, winit doesn't have dollar VirtualKeyCode.
+T 1586684980 18<20basic18>	Levanx: same here
+T 1586684981 18<29kchibisov18>	As well as some other fancy stuff.
+T 1586685013 18<20Levanx18>	Actually, I forgot following only releases was a thing. Goona do that.
+T 1586685040 18<20basic18>	can i change the ctrl+shift+space thing to something different?
+T 1586685045 18<29kchibisov18>	I do the same for some projects on github, since I manually download them.
+T 1586685060 18<29kchibisov18>	basic: yeah, read new default config.
+T 1586685066 18<20basic18>	uhhhhhhhhh
+T 1586685074 18<29kchibisov18>	I mean it's just new bindings.
+T 1586685090 18<29kchibisov18>	it's called ToggleViMode.
+T 1586685578 18<29kchibisov18>	the most interesting thing that winit has Yen keycode, but not dollar.
+T 1586685813 18<19storm\18>	kchibisov: mac releated again, i just had time to look at code etc, and about to choose a issue to dig into
+T 1586685828 18<19storm\18>	would you say https://github.com/alacritty/alacritty/issues/2800 is the most important osx for now which is a good first one?
+T 1586685838 18<29kchibisov18>	Oh, this is hard.
+T 1586685853 18<29kchibisov18>	locale is the easiest one.
+T 1586685860 18<29kchibisov18>	and the most important.
+T 1586685883 18<29kchibisov18>	You can test it by launching Alacritty.app, typing locale and see that locale is a bit wrong.
+T 1586685893 18<29kchibisov18>	compared to iterm2 and Terminal.app.
+T 1586685922 18<29kchibisov18>	I've figured out the issue with thin strokes, and it's not really our fault, but we can likely have a setting similar to iterm.
+T 1586685942 18<19storm\18>	difference for me is that kitty and terminal app writes: `LC_ALL=` and alacritty writes: LC_ALL="en_US.UTF-8"
+T 1586685947 18<19storm\18>	rest of them is wqual.
+T 1586685949 18<19storm\18>	equal*
+T 1586685962 18<19storm\18>	oh you did? nice
+T 1586685963 18<29kchibisov18>	we don't touch LC_ALL at all.
+T 1586685976 18<19storm\18>	okay, so let me maybe look at why that is being set.
+T 1586685988 18<29kchibisov18>	let me launch macOS, one sec.
+T 1586686105 18<29kchibisov18>	https://paste.rs/bvB.png
+T 1586686111 18<29kchibisov18>	like this is the issue.
+T 1586686136 18<29kchibisov18>	You can see iterm/terminal.app and alacritty.
+T 1586686145 18<19storm\18>	hmm
+T 1586686146 18<29kchibisov18>	you can notice that locale differs in LC_CTYPE
+T 1586686171 18<29kchibisov18>	note, UTF-8 locale is shit, but whatever macOS decides.
+T 1586686186 18<29kchibisov18>	you're likely setting locale in shell.
+T 1586686201 18<19storm\18>	lemme check
+T 1586686203 18<29kchibisov18>	since we don't touch LC_ALL at all.
+T 1586686217 18<29kchibisov18>	just grep the thing for LC_ALL and how stes it.
+T 1586686283 18<20basic18>	thnaks all!
+T 1586686344 18<19storm\18>	yeah ok i see the problem kchibisov
+T 1586686388 18<29kchibisov18>	so we have locale.rs file in alacritty_terminal which is purely msg_send(objective-C shit) which is trying to guess locale.
+T 1586686409 18<29kchibisov18>	So we should do what native terminal and iterm2 are doing and end up with this UTF-8 locale.
+T 1586686421 18<29kchibisov18>	which isn't a thing, but whatever.
+T 1586686426 18<19storm\18>	wait hmm wtf is this.
+T 1586686427 18<19storm\18>	hang on
+T 1586686543 18<19storm\18>	https://imgur.com/a/cjx2beG
+T 1586686585 18<19storm\18>	kitty and alacritty shows equals locales for me. both is not equal to terminal.app
+T 1586686594 18<19storm\18>	terminal.app in the middle
+T 1586686604 18<19storm\18>	alacritty to the right
+T 1586686624 18<29kchibisov18>	yeah, terminal.app is likely correct to some point.
+T 1586686666 18<29kchibisov18>	This is a key to display some unicode glyphs, since without it it'll blow up.
+T 1586686683 18<29kchibisov18>	I mean apps won't render unicode chars, e.g. tmux
+T 1586686724 18<29kchibisov18>	So my main question why iterm and terminal.app are using the same locales.
+T 1586686726 18<19storm\18>	yeah, i had `export LANG="en_US.UTF-8"` in my zshrc which then solves the issues on all my terminal emulators
+T 1586686739 18<19storm\18>	ill get iterm2, sec
+T 1586686739 18<29kchibisov18>	yeah, you shouldn't do that, since it's wrong.
+T 1586686759 18<29kchibisov18>	If you want to do that properly, it should be set in alacritty.yml for example.
+T 1586686836 18<19storm\18>	okay so the issue is the following:
+T 1586686845 18<19storm\18>	LC_CTYPE is not getting set properly to the correct value
+T 1586686855 18<29kchibisov18>	I see that yeah.
+T 1586686856 18<19storm\18>	iterm and terminal SOMEHOW gets "UTF-8"
+T 1586686869 18<29kchibisov18>	so someone should figure out that SOMEHOW.
+T 1586686873 18<19storm\18>	ill do that.
+T 1586686895 18<29kchibisov18>	I'd just recommend to look at iterm code here.
+T 1586686918 18<29kchibisov18>	and correct our locale.rs to match it.
+T 1586686990 18<19storm\18>	yeah
+T 1586687326 18<19storm\18>	noobie rust question #1, kchibisov: if i do some logging in the code – where would this be outputted when building it? how do you guys normally do this?
+T 1586687345 18<29kchibisov18>	println!("PRINT");
+T 1586687356 18<29kchibisov18>	will be output to stdout.
+T 1586687392 18<29kchibisov18>	println!("{:?}", value); will print debug formatting for the value.
+T 1586687403 18<29kchibisov18>	println!("{}", value); normal formatting.
+T 1586687443 18<29kchibisov18>	so you basically do `cargo run` and see your output, if you log with `println!()`.
+T 1586687503 18<19storm\18>	goodie
+T 1586687517 18<19storm\18>	i feel bad for fixing alacritty in vim, in kitty.
+T 1586687519 18<19storm\18>	:|
+T 1586687547 18<29kchibisov18>	note, I can't test kitty at all, since it doesn't run on my macOS setup.
+T 1586687560 18<19storm\18>	its fine
+T 1586687572 18<19storm\18>	how do you emulate osx?
+T 1586687805 18<29kchibisov18>	qemu.
+T 1586687844 18<22ifreund18>	qemu is magic
+T 1586687866 18<29kchibisov18>	I mean folks already solved that task for me, I just follow instrs and run it.
+T 1586688040 18<19storm\18>	alrite, i think ive found the bug
+T 1586688069 18<19storm\18>	will try to fix it, obviously take me a some more time until im comfortable in rust but whatever.
+T 1586688269 18<19storm\18>	aaaaand kid woke up, will fix tonight.
+T 1586691929 18<19storm\18>	kchibisov: do we want a encoding variable or something in the yml config or do we just hardcore to utf-8 encoding?
+T 1586691967 18<29kchibisov18>	We shouldn't hardcode anything, I want to know how it works.
+T 1586691995 18<19storm\18>	Both terminal and iterm2 sets theirs based on what you chose in their options
+T 1586692000 18<29kchibisov18>	you can set env variables in config right now though.
+T 1586692031 18<29kchibisov18>	So, you can make iterm to use just C?
+T 1586692045 18<29kchibisov18>	I mean LC_CTYPE to report C.
+T 1586692046 18<19storm\18>	No because they force you to select one
+T 1586692055 18<19storm\18>	We set to null
+T 1586692065 18<29kchibisov18>	Oh, could you link their code?
+T 1586692075 18<29kchibisov18>	or where this setting is?
+T 1586692105 18<19storm\18>	yes hang on
+T 1586692137 18<19storm\18>	iterm2 -> pref -> terminal -> char encoding
+T 1586692164 18<19storm\18>	that list they pull from objc api to populate the encoding options
+T 1586692171 18<19storm\18>	and defaults to utf8 if you dont choose anything else
+T 1586692187 18<29kchibisov18>	can we do something like that?
+T 1586692196 18<19storm\18>	https://github.com/alacritty/alacritty/blob/master/alacritty_terminal/src/locale.rs#L63
+T 1586692214 18<19storm\18>	yeah i guess we can
+T 1586692243 18<29kchibisov18>	How do they handle LANG?
+T 1586692247 18<29kchibisov18>	just leave it unset?
+T 1586692250 18<19storm\18>	yes
+T 1586692273 18<29kchibisov18>	So in theory we can check whether env variable is there and just set it.
+T 1586692281 18<29kchibisov18>	if it wasn't already set.
+T 1586692335 18<19storm\18>	from what i can see the code we have right now works fine, except the LC_CTYPE for char encoding. this we cant se on a specific case
+T 1586692369 18<29kchibisov18>	I mean that you can set it to C.UTF-8 if LC_CTYPE was unset during run.
+T 1586692372 18<29kchibisov18>	during startup.
+T 1586692375 18<19storm\18>	so yes, i am wondering if we should default to UTF-8, and this can then be overwritten through the yml.
+T 1586692389 18<29kchibisov18>	that's exactly what I'm saying.
+T 1586692397 18<29kchibisov18>	you can set LC_CTYPE in yaml already.
+T 1586692403 18<29kchibisov18>	it's not a problem.
+T 1586692406 18<19storm\18>	oki
+T 1586692415 18<29kchibisov18>	just add it to `env:` section.
+T 1586692430 18<19storm\18>	ok ill have to play with the little one now, but will make a PR tonight
+T 1586692433 18<29kchibisov18>	Could you link the iterm code to me.
+T 1586692436 18<19storm\18>	yes hang on
+T 1586692614 18<19storm\18>	hm theres another place i cant find right now but theres some of it here: https://github.com/gnachman/iTerm2/blob/34318c13b9031b33008852a2991dfa614c9655ae/sources/ProfilesTerminalPreferencesViewController.m#L238
+T 1586692738 18<29kchibisov18>	I feel like all the code is in sources/PTYSession.m
+T 1586692758 18<29kchibisov18>	I mean in iterm2, so you can just grep for LC_CTYPE.
+T 1586692780 18<19storm\18>	Yeah will continue tonight when kid sleeps again
+T 1586692793 18<19storm\18>	Shouldn’t be that complicated
+T 1586699943 20*	Disconnected (20)
+T 1586699971 19*	Now talking on 22#alacritty
+T 1586699971 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1586699971 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1586711756 18<19storm\18>	kchibisov: how do i get the env variables in the code?
+T 1586712003 20*	Disconnected (20)
+T 1586713763 22*	26RMPR sets mode 24+Z on 22RMPR
+T 1586713763 22*	26RMPR sets mode 24+i on 22RMPR
+T 1586713768 19*	Now talking on 22#alacritty
+T 1586713768 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1586713768 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1586714376 18<19storm\18>	I pm'ed you kchibisov to discuss locale issue im working on. Let me know when you have time to talk.
+T 1586715007 18<29kchibisov18>	lovesegfault: are you around?
+T 1586715040 18<20lovesegfault18>	kchibisov: Yeah, what's up?
+T 1586715073 18<29kchibisov18>	Could you test one example for me?
+T 1586715079 18<20lovesegfault18>	Sure thing
+T 1586715281 18<29kchibisov18>	run `cargo run --example kbd_input` from https://github.com/smithay/client-toolkit and press the same keys you're pressing in winit.
+T 1586715512 18<29kchibisov18>	You can aslo post results from xev, wev, instead of this example though.
+T 1586715688 18*	20lovesegfault tries wev first
+T 1586715754 18<20lovesegfault18>	kchibisov: Here's wev https://gist.github.com/44cf575e432f8d92d9ac06e8f565d151
+T 1586715761 18<20lovesegfault18>	doing smithay now
+T 1586715909 18<20lovesegfault18>	https://gist.github.com/91a3da4f654d9ef197622c7c1f6515d7
+T 1586715911 18<20lovesegfault18>	heh
+T 1586715983 18<29kchibisov18>	Levanx: beep
+T 1586715998 18<20lovesegfault18>	If I add libxkbcommon to my env it works
+T 1586716007 18*	20lovesegfault tries glutin now
+T 1586716043 18<20lovesegfault18>	Yep, and now it works :)
+T 1586716046 18*	20lovesegfault tries crow
+T 1586716089 18<29kchibisov18>	Could you try to `git checkout v0.6.x` in repo I've linked to you and rerun kbd_input?
+T 1586716100 18<20Levanx18>	Yeah, you cannot really interpret Wayland keyboard input without libxkbcommon
+T 1586716150 18<29kchibisov18>	I wonder why it crashed though.
+T 1586716196 18<29kchibisov18>	lovesegfault: are you on NixOS?
+T 1586716216 18<20lovesegfault18>	kchibisov: yep
+T 1586716224 18<20lovesegfault18>	Trying v0.6.x
+T 1586716228 18<20lovesegfault18>	I'm in a nix-shell
+T 1586716242 18<29kchibisov18>	Could you modify rpath to include libxbkcommon?
+T 1586716244 18<20Levanx18>	Oh, the kbd_input example crashed because if mapping the keyboard with xkbcommon fails, it doesn't assign any closure to the wl_keyboard
+T 1586716246 18<20Levanx18>	woops
+T 1586716267 18<20lovesegfault18>	kchibisov: I modified LD_LIBRARY_PATH to have libxkbcommon and it worked :^)
+T 1586716286 18<29kchibisov18>	yeah, because it's using dlopen, so you need to patchelf.
+T 1586716295 18<20lovesegfault18>	With that both master and 0.6.x work, without neither work
+T 1586716299 18<20lovesegfault18>	kchibisov: Ah, I see
+T 1586716392 18<29kchibisov18>	Could you check that winit works with this thing applied?
+T 1586716404 18<29kchibisov18>	I mean with modified rpath
+T 1586716441 18<20lovesegfault18>	Yes it does :)
+T 1586716447 18<20lovesegfault18>	Thanks a lot kchibisov
+T 1586716454 18<29kchibisov18>	So it's a nixos thing.
+T 1586716497 18<20lovesegfault18>	Yep; but I'll add that it'd be nice if there was an option to statically link stuff and avoid this
+T 1586716688 18<29kchibisov18>	So I guess your issue should be closed now.
+T 1586717390 18<29kchibisov18>	nixpulvis what do you mean?
+T 1586717443 18<29kchibisov18>	UndeadLeech: if winit folks won't appear in a week, we're forking it and glutin.
+T 1586717499 18<29kchibisov18>	yourfate Could you elaborate on no colors in tmux anymore and what terminfo you've installed?
+T 1586717538 18<29kchibisov18>	IIRC you should just have ncurses installed or whatever gives you terminfos on FreeBSD.
+T 1586717713 18<22nixpulvis18>	kchibisov: I'm trying to reset all the syntax colors in Vim and it's litterally a nightmare.
+T 1586717717 18<24UndeadLeech18>	kchibisov: Might be worth opening an issue offering support?
+T 1586717722 18<22nixpulvis18>	I recall you talking about doing something like this.
+T 1586717738 18<24UndeadLeech18>	Maybe we can just take over when nobody else is around.
+T 1586717786 18<27yourfate18>	kchibisov: I have ncurses installed, but afaik on freebsd termcap is used
+T 1586717788 18<27yourfate18>	not terminfo
+T 1586717839 18<27yourfate18>	I have not installed alacritty on the bsd machine
+T 1586717861 18<27yourfate18>	I manually installed the terminfo as described on the alacritty gitlab page
+T 1586717880 18<27yourfate18>	which didn't work, I created a termcap from it and put that in ~/.termcap
+T 1586717894 18<27yourfate18>	which seems to work when I SSH to the machine, but once I start tmux on it I lose color
+T 1586717908 18<27yourfate18>	if I first set TERM to xterm-256color everything is well
+T 1586718190 18<22nixpulvis18>	kchibisov: I might have gotten somewhere with ~/.vim/after/syntax/syncolor.vim.
+T 1586718859 18<29kchibisov18>	yourfate: does infocmp -x alacritty is working on your remote machine?
+T 1586718875 18<29kchibisov18>	Also, FreeBSD is shipping our terminfo somewhere IIRC.
+T 1586718892 18<29kchibisov18>	nixpulvis: I have my custom theme, but it's not named, so it's not published.
+T 1586718896 18<27yourfate18>	yes, that outputs stuff, but it ends prematurely I think
+T 1586718898 18<29kchibisov18>	but it works in vim.
+T 1586718922 18<27yourfate18>	#       Reconstructed via infocmp from file: /usr/local/share/misc/terminfo.db
+T 1586718924 18<27yourfate18>	is the header
+T 1586718932 18<27yourfate18>	I put that in the terminfo.db using tic I think
+T 1586718953 18<29kchibisov18>	could you infocmp -d alacritty xterm-256color?
+T 1586718984 18<27yourfate18>	output: https://bsd.to/QG03
+T 1586719021 18<29kchibisov18>	it seems fine.
+T 1586719036 18<29kchibisov18>	so again what's your color issues? like I don't see them in `ls`?
+T 1586719070 18<27yourfate18>	I don't see any colours, my shell prompt, ls, neofetch
+T 1586719073 18<27yourfate18>	etc
+T 1586719075 18<27yourfate18>	everything white text
+T 1586719078 18<27yourfate18>	in tmux
+T 1586719094 18<29kchibisov18>	what is echo $TERM inside of tmux?
+T 1586719117 18<27yourfate18>	I tried different things, alacritty, tmux-256color, screen-256color
+T 1586719124 18<27yourfate18>	via tmux.conf
+T 1586719135 18<27yourfate18>	to no avail
+T 1586719141 18<29kchibisov18>	is `echo -e "\e[31mRED` is red?
+T 1586719201 18<27yourfate18>	sec, my irc client garbled that
+T 1586719259 18<27yourfate18>	no, just says RED in white
+T 1586719289 18<29kchibisov18>	Oh, so tmux is completely broken.
+T 1586719299 18<27yourfate18>	something is very weird there
+T 1586719314 18<27yourfate18>	before I had the alacritty in .termcmp it would tell me it can't find the terminfo database
+T 1586719318 18<27yourfate18>	when I tried to attach
+T 1586719322 18<27yourfate18>	when term as alacritty
+T 1586719330 18<27yourfate18>	but it worked with xterm-256color
+T 1586719349 18<27yourfate18>	eh .termcap
+T 1586719357 18<29kchibisov18>	have you tried that `set -g default-terminal tmux-256color` in tmux, right?
+T 1586719372 18<27yourfate18>	yes
+T 1586719383 18<27yourfate18>	I also tied that in addition to `set-option -ga terminal-overrides ",xterm-256color:Tc"`
+T 1586719390 18<27yourfate18>	which I found somewhere
+T 1586719394 18<27yourfate18>	no changes
+T 1586719409 18<29kchibisov18>	it should be set-option -ga terminal-overrides ",alacritty:Tc"
+T 1586719409 18<27yourfate18>	also tried with no config at all
+T 1586719440 18<29kchibisov18>	but it's for truecolors, so..
+T 1586719445 18<27yourfate18>	nope
+T 1586719496 18<29kchibisov18>	and i'll assume `env TERM=xterm-256color tmux` works?
+T 1586719521 18<27yourfate18>	yup
+T 1586719548 18<29kchibisov18>	what tmux version are you using?
+T 1586719559 18<27yourfate18>	3.0a
+T 1586719575 18<27yourfate18>	i'm on freebsd 12.1
+T 1586719578 18<27yourfate18>	installed like 2 days ago
+T 1586719584 18<27yourfate18>	well, the machine is, I'm on arch
+T 1586719613 18<29kchibisov18>	it's just random bsd issue, I guess.
+T 1586719626 18<27yourfate18>	thanks for trying though!
+T 1586719635 18<27yourfate18>	I guess I'll alias tmux :P
+T 1586719636 18<29kchibisov18>	let me check tmux sources, since linux works fine.
+T 1586719671 18<29kchibisov18>	tmux speaks about ncurses a lot, do you have it?
+T 1586719700 18<27yourfate18>	I first had tmux, which worked, but needed to install the ncruses package to get tic
+T 1586719712 18<27yourfate18>	I think there are 2 different ncurses on bsd?
+T 1586719723 18<29kchibisov18>	Hm?
+T 1586719731 18<27yourfate18>	I think tmux needs ncurses
+T 1586719735 18<29kchibisov18>	BSD doesn't have ncurses at all by default.
+T 1586719745 18<27yourfate18>	yes, but installing tmux should have installed it maybe?
+T 1586719750 18<27yourfate18>	sed
+T 1586719753 18<27yourfate18>	sec
+T 1586719886 18<27yourfate18>	ok, idk, but I installed ncurses after tmux I think
+T 1586719895 18<27yourfate18>	mainly because I wanted tic
+T 1586719904 18<27yourfate18>	to install the alacritty terminfo :P
+T 1586720469 18<29kchibisov18>	Could you run `tmux -v` and post some logs?
+T 1586720496 18<27yourfate18>	where does that log?
+T 1586720550 18<29kchibisov18>	it should create 2 files in a dir where you've started it.
+T 1586720558 18<29kchibisov18>	I need server log.
+T 1586720627 18<27yourfate18>	sec
+T 1586720726 18<27yourfate18>	http://sprunge.us/nYGIMw
+T 1586721055 18<29kchibisov18>	could you post similar output when TERM=xterm-256color?
+T 1586721180 18<27yourfate18>	http://sprunge.us/UG786F
+T 1586721226 18<27yourfate18>	I still had set -g default-terminal "tmux-256color" in there
+T 1586721229 18<27yourfate18>	in tmux.conf
+T 1586721460 18<29kchibisov18>	could you recompile our terminfo?
+T 1586721505 18<27yourfate18>	as in, with tic?
+T 1586721527 18<27yourfate18>	done
+T 1586721527 18<29kchibisov18>	yeah, and in a way it's mentioned on our INSTALLATION.
+T 1586721538 18<29kchibisov18>	yeah and logout + reconnect
+T 1586721573 18<27yourfate18>	still the old situation
+T 1586721597 18<29kchibisov18>	both terminfos, even xterm one seems broken.
+T 1586721625 18<29kchibisov18>	I mean tmux reports that a lot of features are not presented/defined even in xterm terminfo.
+T 1586721648 18<29kchibisov18>	but yeah, it says that `colors` missing in alacritty terminfo.
+T 1586721660 18<29kchibisov18>	on linux it reports everything correctly
+T 1586721676 18<27yourfate18>	maybe because I have the .termcap file?
+T 1586721679 18<27yourfate18>	in home
+T 1586721689 18<29kchibisov18>	could you remove it?
+T 1586721691 18<27yourfate18>	but if I remove that tmux says it can't find the terminfo db
+T 1586721692 18<27yourfate18>	sure, sec
+T 1586721721 18<27yourfate18>	if I remove that I get `open terminal failed: can't find terminfo database`
+T 1586721726 18<27yourfate18>	when trying to start tmux
+T 1586721838 18<29kchibisov18>	Hm, I guess you're correct, also, I guess you should translate our terminfo to termcap.
+T 1586721872 18<29kchibisov18>	Could you try to pass `-C` to tic?
+T 1586721954 18<27yourfate18>	btw, if that .termcap is missing the shell is somewhat broken even before tmux, keybinds don't work, can't delete chars etc
+T 1586721957 18<27yourfate18>	sec
+T 1586722108 18<27yourfate18>	the output of the command from INSTALLATION, but with C added yelds: https://bsd.to/ymLG
+T 1586722114 18<27yourfate18>	I tried that as .termcap before
+T 1586722129 18<27yourfate18>	but it's missing the alacritty+common it references afaik
+T 1586722160 18<27yourfate18>	I don't really know much about terminfo/cap though, I talked to people in freeBSD though
+T 1586722367 18<27yourfate18>	# that is
+T 1586722470 18<29kchibisov18>	Could you delete our terminfo and reinstall ncurses?
+T 1586722479 18<29kchibisov18>	ncurses should have our terminfo.
+T 1586722686 18<27yourfate18>	sec
+T 1586722693 18<27yourfate18>	the terminfo.db you mean
+T 1586722707 18<27yourfate18>	it uses the hashed db isntead of the individual files
+T 1586722708 18<27yourfate18>	it seems
+T 1586722756 18<29kchibisov18>	yeah, but it should install it, I guess.
+T 1586723080 18<27yourfate18>	hmm
+T 1586723086 18<27yourfate18>	now there is no terminfo.db
+T 1586723103 18<27yourfate18>	in /usr/share/misc/
+T 1586723203 18<27yourfate18>	ah, /usr/local/share/misc has it
+T 1586723385 18<27yourfate18>	ye, ncurses seems to come with a terminfo
+T 1586723403 18<29kchibisov18>	does it work though?
+T 1586723408 18<27yourfate18>	I made sure the db was gone when I uninstalled it.
+T 1586723429 18<27yourfate18>	nah, can't delete characters, and tmux can't find the database
+T 1586723446 18<27yourfate18>	infocmp does tell me it has something
+T 1586723457 18<29kchibisov18>	nah, I have no idea how FreeBSD works here.
+T 1586723464 18<27yourfate18>	thanks for trying though!
+T 1586723467 18<27yourfate18>	:D
+T 1586723483 18<27yourfate18>	maybe it'll get fixed in the future, for now I'll just use xterm terminfo on that machine
+T 1586723495 18<27yourfate18>	great terminal though, like it so far!
+T 1586723538 18<27yourfate18>	if you for some reason have more thoughts on this ping me, i'll idle here :P
+T 1586723636 18<29kchibisov18>	yeah, someone from bsd should explain how it works, I guess.
+T 1586726896 18<29kchibisov18>	yourfate: do you see `colors#256` in infocmp -x?
+T 1586726984 18<27yourfate18>	well, colors#0x100
+T 1586726988 18<27yourfate18>	which should be the same
+T 1586727002 18<29kchibisov18>	in both xterm and alacritty
+T 1586727005 18<27yourfate18>	I do have color before i start tmux
+T 1586727010 18<27yourfate18>	sec
+T 1586727044 18<27yourfate18>	ye, xterm-256color also has colors#0x100
+T 1586727103 18<29kchibisov18>	is .termcap some your local file?
+T 1586727123 18<29kchibisov18>	or dir
+T 1586727224 18<27yourfate18>	I currently have no .termcap in home
+T 1586727235 18<27yourfate18>	i moved it to old.termcap for the test
+T 1586727239 18<27yourfate18>	and still haven't moved it back
+T 1586727247 18<29kchibisov18>	also, do you tmux kill-server ?
+T 1586727265 18<29kchibisov18>	like it's not like some old tmux running.
+T 1586727270 18<27yourfate18>	ye, I had a look in ps to see if tmux was off
+T 1586727296 18<27yourfate18>	kill-server says no server running
+T 1586727305 18<29kchibisov18>	Could you try TERM=alacritty tmux new and then tmux info|grep colors
+T 1586727319 18<29kchibisov18>	with empty tmux config, please.
+T 1586727328 18<29kchibisov18>	and the same for xterm-256color
+T 1586727417 18<27yourfate18>	xterm:    9: colors: (number) 256
+T 1586727449 18<27yourfate18>	ah, can't start tmux with alacitty term, as I removed my .termcap
+T 1586727462 18<27yourfate18>	so it just says zsh: can't find terminal definition for alacritty
+T 1586727464 18<27yourfate18>	open terminal failed: can't find terminfo database
+T 1586727476 18<29kchibisov18>	Wait, could you explain where xterm-256color is on FreeBSD?
+T 1586727552 18<29kchibisov18>	on linux it's in /usr/share/terminfo/x/xterm-256color
+T 1586727565 18<27yourfate18>	there are 3 places I think, there is /usr/share/misc/termcap, /usr/share/misc/termcap.db and /usr/local/share/misc/terminfo.db
+T 1586727578 18<27yourfate18>	thermcap is also a file
+T 1586727593 18<27yourfate18>	there are no folders for terminfo or termcap from what I can see
+T 1586727650 18<29kchibisov18>	Oh, so you should have xterm inside of this thing and when you install alacritty you have to make a custom termcap db
+T 1586727663 18<29kchibisov18>	right?
+T 1586727690 18<27yourfate18>	I think alacritty's terminfo is in the /usr/loca/share/misc/terminfo.db
+T 1586727695 18<27yourfate18>	and I can convert that to termcap format
+T 1586727698 18<27yourfate18>	and put that in my homedir
+T 1586727703 18<27yourfate18>	then I can start tmux
+T 1586727715 18<27yourfate18>	but have no color in tmux
+T 1586727727 18<27yourfate18>	I think what might be happening is that the system uses the terminfo.db
+T 1586727729 18<27yourfate18>	as it has color
+T 1586727733 18<27yourfate18>	but tmux somehow doesn't?
+T 1586727740 18<29kchibisov18>	do you have strace?
+T 1586727787 18<27yourfate18>	I shall get it, sec
+T 1586727859 18<29kchibisov18>	Could you try tic with  -c -r in addition?
+T 1586727882 18<27yourfate18>	apparently, there is no strace on freebsd, there is truss()
+T 1586727903 18<29kchibisov18>	Also, if you remove our terminfo entirely from the system does BSD has it?
+T 1586727914 18<29kchibisov18>	like by default tmux is the only problem right?
+T 1586727946 18<27yourfate18>	no, there is some problem with keys too, like when I to del it instead inserts a space, and arrow keys have problems too
+T 1586727950 18<27yourfate18>	that might be shell related though idk
+T 1586727970 18<27yourfate18>	that is if I'm using TERM=alacritty
+T 1586727982 18<29kchibisov18>	so BSD doesn't have it at all then.
+T 1586727986 18<27yourfate18>	it has
+T 1586727991 18<27yourfate18>	if I remove every manual terminfo
+T 1586727998 18<27yourfate18>	and connect with TERM=alacritty
+T 1586728002 18<29kchibisov18>	And why it doesn't work?
+T 1586728003 18<27yourfate18>	I have colors, but broken keys, but
+T 1586728018 18<29kchibisov18>	broken keys is a result of missing terminfo most of the time.
+T 1586728024 18<27yourfate18>	infocmp outputs stuff
+T 1586728028 18<27yourfate18>	related to alacritty
+T 1586728035 18<27yourfate18>	and says it has it from the terminfo.db
+T 1586728039 18<27yourfate18>	which comes with ncurses
+T 1586728071 18<29kchibisov18>	this is so strange.
+T 1586728094 18<29kchibisov18>	I'd recommend to understand how to compile it with termcap.
+T 1586728123 18<29kchibisov18>	Also, run this command with sudo.
+T 1586728129 18<29kchibisov18>	I mean `tic`.
+T 1586728131 18<29kchibisov18>	without*
+T 1586728144 18<27yourfate18>	sorry?
+T 1586728196 18<29kchibisov18>	tic -xe -c -r -K alacritty,alacritty-direct extra/alacritty.info
+T 1586728216 18<27yourfate18>	it did something
+T 1586728219 18<27yourfate18>	:P
+T 1586728221 18<27yourfate18>	no output though
+T 1586728231 18<29kchibisov18>	it should install terminfo for user
+T 1586728238 18<29kchibisov18>	does tmux works?
+T 1586728277 18<27yourfate18>	wtf, sec, now alacritty won't start on my linux
+T 1586728280 18<27yourfate18>	wtf
+T 1586728299 18<27yourfate18>	oh, I did a system update on linux in the meantime, maybe I need a reboot
+T 1586728315 18<29kchibisov18>	what it outputs yourfate ?
+T 1586728321 18<29kchibisov18>	I mean on linux.
+T 1586728321 18<27yourfate18>	        Error creating GL context; Received multiple errors. Errors: `[OsError("eglInitialize failed"), OsError("GL context creation failed")]`
+T 1586728328 18<29kchibisov18>	driver update?
+T 1586728331 18<27yourfate18>	probably
+T 1586728333 18<27yourfate18>	lots of updates
+T 1586728334 18<27yourfate18>	sec, reboot
+T 1586728675 18<27yourfate18>	no, doesn't work. keys still broken, tmux can't find the database
+T 1586728784 18<29kchibisov18>	does keys broken outside of tmux as well?
+T 1586728872 18<27yourfate18>	well, yes, can't get into tmux as it won't start without a terminfo, keys broken outside of it
+T 1586728892 18<29kchibisov18>	does keys broken with other terminfo?
+T 1586728903 18<27yourfate18>	no, xterm-256color it's ifne
+T 1586728912 18<27yourfate18>	and tmux works
+T 1586728917 18<29kchibisov18>	let me run my BSD.
+T 1586728922 18<27yourfate18>	:D
+T 1586728933 18<27yourfate18>	myabe it's different if alacritty is installed on the BSD
+T 1586728939 18<27yourfate18>	but I bet that needs x11
+T 1586728948 18<29kchibisov18>	it's some BSD bs tbh, since our terminfo is just copy pasta of xterm.
+T 1586728948 18<27yourfate18>	which is not on that machine and I don't plan to have that there
+T 1586728962 18<29kchibisov18>	we require only libxcb to built
+T 1586728968 18<27yourfate18>	ye, i bet it's some Bs with them still using termcap usually
+T 1586728980 18<29kchibisov18>	let me start my bsd sec
+T 1586729013 18<27yourfate18>	right, I can isntall the alcaritty package, without any dependencies
+T 1586729038 18<27yourfate18>	that didn't fix anything :P
+T 1586729056 18<29kchibisov18>	ofc it won't fix anything.
+T 1586729068 18<27yourfate18>	idk I thought maybe the port packages a termcap or something
+T 1586729158 18<29kchibisov18>	god, bsd.
+T 1586729217 18<27yourfate18>	not a fan?
+T 1586729251 18<27yourfate18>	I'm new to it, but I thought it might make for a better server os than arch
+T 1586729263 18<27yourfate18>	not that I really had problems with arch on a server
+T 1586729276 18<27yourfate18>	just watned to give that a try b/c why not :P
+T 1586729295 18<29kchibisov18>	let me understand why my ssh is broken on it.
+T 1586729350 18<27yourfate18>	client or server?
+T 1586729363 18<29kchibisov18>	I have no idea which one.
+T 1586730260 18<29kchibisov18>	Ok, let me see.
+T 1586730279 18<29kchibisov18>	seems like identical problem, but I can delete with backspace at least
+T 1586730381 18<27yourfate18>	at least it's not something I messed up somehow. would have felt bald wasting all that time with some dumb mistake :P
+T 1586730387 18<27yourfate18>	*bad
+T 1586730400 18<29kchibisov18>	I mean xterm-256color is broken as well.
+T 1586730417 18<29kchibisov18>	like you can lauch somthing but a lot of features of it are just disabled
+T 1586730437 18<27yourfate18>	maybe because termcap is limited to I think 1023 bytes or something?
+T 1586730482 18<29kchibisov18>	How to install packages on this thing?
+T 1586730489 18<27yourfate18>	pkg install bla
+T 1586730523 18<27yourfate18>	or go to /usr/ports and compile them
+T 1586731220 18<27yourfate18>	headed to bed, I'll check back tomorrow to see if there were any new insights :P have fun
+T 1586732405 18<29kchibisov18>	it seems like I've figured out
+T 1586732535 18<20basic18>	now that i removed my default bindings, i can't copy paste anymore
+T 1586732540 18<20basic18>	is that to be expected?
+T 1586732550 18<29kchibisov18>	you should be able to copy paste just fine.
+T 1586732564 18<29kchibisov18>	All copy paste bindings are builtin.
+T 1586732566 18<20basic18>	with ctrl+shift+v right?
+T 1586732573 18<29kchibisov18>	yes
+T 1586732574 18<20basic18>	hm
+T 1586732577 18<20basic18>	*test*
+T 1586732588 18<20basic18>	kchibi
+T 1586732588 18<20basic18>	basic>
+T 1586732590 18<20basic18>	sorry
+T 1586732593 18<20basic18>	hm, weird
+T 1586732605 18<29kchibisov18>	Also, if you can have custom key bindings just fine.
+T 1586732609 18<29kchibisov18>	s/if/
+T 1586732618 18<20basic18>	yeah looks like vim isn't able to save to clipboard
+T 1586732637 18<29kchibisov18>	Are you using "+" buffer?
+T 1586732656 18<29kchibisov18>	unnamedplus, etc.
+T 1586732686 18<20basic18>	yes, i guess it's because gvim isn't installeed
+T 1586732702 18<29kchibisov18>	no, vim clipboard doesn't use escape sequence to set clipboard.
+T 1586732715 18<29kchibisov18>	So vim is using xclip like software to write to a clipboard.
+T 1586732718 18<29kchibisov18>	or tmux.
+T 1586732749 18<20basic18>	yeah, i had this problem already it's weird
+T 1586732763 18<20basic18>	i compiled it with xsupport, that alone doesn't fix it
+T 1586732767 18<20basic18>	i need gvim
+T 1586732768 18<29kchibisov18>	Like it's not alacritty problem, it's vim that should implement OSC 52
+T 1586732774 18<29kchibisov18>	no, you don't need X support
+T 1586732784 18<20basic18>	well, it fixes it :/
+T 1586732795 18<29kchibisov18>	Oh, maybe it has some weird code to do that.
+T 1586732800 18<20basic18>	yeah but not a alacritty problem
+T 1586736415 18<29kchibisov18>	UndeadLeech: are you around?
+T 1586736503 18<29kchibisov18>	How custom layouts like dvorak works with key bindings on various systems.
+T 1586736535 18<29kchibisov18>	Do you usually have QWERTY bindings or custom dvorak bindings by default.
+T 1586736594 18<29kchibisov18>	and how it works on let's say macOS.
+T 1586737622 18<24UndeadLeech18>	Now I am.
+T 1586737635 18<24UndeadLeech18>	I just use dvorak with default bindings everywhere.
+T 1586737650 18<24UndeadLeech18>	But I use i3 which doesn't really have "default bindings" and a custom WM in macOS too.
+T 1586737662 18<24UndeadLeech18>	But for stuff like vim I use default, which I would strongly recommend.
+T 1586737662 18<29kchibisov18>	Are they based on QWERTY or dvorak.
+T 1586737671 18<24UndeadLeech18>	I tried remapping, but it just doesn't work well.
+T 1586737681 18<24UndeadLeech18>	They're mostly based on vi, so QWERTY.
+T 1586737692 18<24UndeadLeech18>	But vi bindings work pretty well with dvorak once you get used to them tbh.
+T 1586737706 18<29kchibisov18>	I'm qurious on how winit should handle such things.
+T 1586737710 18<29kchibisov18>	and what it should provide
+T 1586737722 18<29kchibisov18>	I'm not interested in dvorak :- )
+T 1586737738 18<24UndeadLeech18>	I mean my keyboard reports as us layout. :P
+T 1586737757 18<24UndeadLeech18>	Though on macOS it reports as dvorak, since I often use the trash built-in one there.
+T 1586737774 18<24UndeadLeech18>	Since I have only one and that one doesn't have usb-c.
+T 1586737816 18<24UndeadLeech18>	I mean dvorak is fairly uncomplicated, since all base keys are the same as on qwerty I think.
+T 1586737828 18<24UndeadLeech18>	Problematic is something like german qwertz for example, where you have actually different keys.
+T 1586737873 18<24UndeadLeech18>	Like it has a +/* key, instead of a =/+ one. So you'll get a different base key.
+T 1586737880 18<29kchibisov18>	My concern is that if we go full keysyms which is very good for dvorak support, I wonder what should we do about Russian layout, etc.
+T 1586737893 18<24UndeadLeech18>	Dvorak really shouldn't be a problem tbh.
+T 1586737901 18<29kchibisov18>	yeah, it's not a problem.
+T 1586737907 18<29kchibisov18>	Russian layout is a problem.
+T 1586737917 18<24UndeadLeech18>	Like for dvorak all keys are identical, they're just in different locations.
+T 1586737923 18<24UndeadLeech18>	The keymap takes care of that.
+T 1586737931 18<24UndeadLeech18>	But russian/german/french/whatever, that's problematic.
+T 1586737966 18<24UndeadLeech18>	I think I said this on the winit tracker before, but I believe the base key should always be reported regardless of shift state.
+T 1586737975 18<29kchibisov18>	yeah, my question is whether concept like reporting keys based on scancodes in addition to virtual key codes is nice.
+T 1586737991 18<24UndeadLeech18>	Then in Alacritty for bindings like IncreaseFontSize, we should bind to `ReceivedChar('+')`, not a key.
+T 1586738014 18<24UndeadLeech18>	Scancodes are already reported, right? Or what do you mean?
+T 1586738081 18<29kchibisov18>	I mean that you'll have { scancode: 38, raw_code: Some(Code::F), virtual_key_code: Some(VCode::RussianA)"}
+T 1586738089 18<29kchibisov18>	so you can bind either by vcode or by raw_code.
+T 1586738120 18<29kchibisov18>	and in case of vcode you can have per layout bindings, but bindings by raw_code could be good for games, etc.
+T 1586738149 18<24UndeadLeech18>	Where does that raw_code come from?
+T 1586738158 18<29kchibisov18>	it's based off scancode.
+T 1586738164 18<24UndeadLeech18>	The us binding of that scancode?
+T 1586738167 18<29kchibisov18>	yes.
+T 1586738183 18<24UndeadLeech18>	How does that work, is that based on key location?
+T 1586738196 18<29kchibisov18>	it's not dvorak, etc aware.
+T 1586738200 18<29kchibisov18>	it's just direct mapping.
+T 1586738234 18<24UndeadLeech18>	I don't think that's ever a good idea tbh.
+T 1586738235 18<29kchibisov18>	Like you can have QWERTY bindings regardless of using dvorak/Russian bindings.
+T 1586738247 18<29kchibisov18>	I use such thing in sway, without it it's hard to use for me.
+T 1586738259 18<24UndeadLeech18>	Because that's exactly what you don't want to do. You don't want to map to a key location, but to a key value.
+T 1586738276 18<29kchibisov18>	I mean that you have an option.
+T 1586738297 18<29kchibisov18>	you either use location based or value based bindings.
+T 1586738305 18<24UndeadLeech18>	I don't see a scenario where we'd ever want that tbh.
+T 1586738307 18<29kchibisov18>	and Vcode is value based, but raw code location based.
+T 1586738309 18<24UndeadLeech18>	Like in our default bindings.
+T 1586738322 18<24UndeadLeech18>	Like it makes no sense to the user.
+T 1586738333 18<29kchibisov18>	In our default bindings we don't need them, but in general we need them.
+T 1586738347 18<24UndeadLeech18>	I don't even have a staggered keyboard layout for example, it makes absolutely zero sense on my keyboard where each scancode is located.
+T 1586738353 18<24UndeadLeech18>	I don't think we do.
+T 1586738360 18<24UndeadLeech18>	What benefit does this provide over just scancodes?
+T 1586738371 18<29kchibisov18>	cross platform way?
+T 1586738382 18<24UndeadLeech18>	Scancodes work on all platforms?
+T 1586738389 18<29kchibisov18>	yes.
+T 1586738405 18<24UndeadLeech18>	So what's the problem?
+T 1586738415 18<29kchibisov18>	User should match numbers instead of good enum values.
+T 1586738439 18<29kchibisov18>	and each platform has different numbers.
+T 1586738441 18<29kchibisov18>	IIRC.
+T 1586738442 18<24UndeadLeech18>	The enum values make absolutely no sense though for someone who isn't using qwerty.
+T 1586738450 18<24UndeadLeech18>	How the hell would I know where my qwerty keys are?
+T 1586738496 18<29kchibisov18>	The problem is that you're assuming US + QWERTY, when I'm talking about this thing.
+T 1586738518 18<29kchibisov18>	However my problem is Russian + QWERTY.
+T 1586738533 18<24UndeadLeech18>	I don't see what you mean.
+T 1586738552 18<29kchibisov18>	If I change my layout to Russian, I can't paste into alacritty.
+T 1586738566 18<29kchibisov18>	like I just can't do that.
+T 1586738575 18<24UndeadLeech18>	Because the `V` key doesn't exist?
+T 1586738580 18<29kchibisov18>	yes
+T 1586738585 18<24UndeadLeech18>	Then bind to scancode?
+T 1586738602 18<29kchibisov18>	But then I change to macOS and got the same problem
+T 1586738605 18<29kchibisov18>	with different scancode.
+T 1586738619 18<29kchibisov18>	so it's just a good way to abstract scancode bindings.
+T 1586738632 18<24UndeadLeech18>	I don't think it is at all.
+T 1586738644 18<24UndeadLeech18>	It just binds to an arbitrary intermediate state that is completely confusing.
+T 1586738657 18<29kchibisov18>	it binds to scancode.
+T 1586738667 18<29kchibisov18>	but it just has some name, which makes sense.
+T 1586738671 18<24UndeadLeech18>	No, you bind scancode to qwerty.
+T 1586738674 18<29kchibisov18>	instead of 0xfffff
+T 1586738695 18<29kchibisov18>	yes, but I want to bind to location.
+T 1586738702 18<29kchibisov18>	since there's not dvorak(russian) IIRC.
+T 1586738706 18<29kchibisov18>	s/not/no
+T 1586738721 18<29kchibisov18>	You want to bind to location anyway.
+T 1586738724 18<24UndeadLeech18>	I don't think that's a good idea at all tbh.
+T 1586738732 18<29kchibisov18>	scancode binding is a binding to location.
+T 1586738743 18<24UndeadLeech18>	Having to lookup the qwerty value of your key to map it just sounds stupid.
+T 1586738761 18<29kchibisov18>	it's not value, winit will just send you Raw(A).
+T 1586738772 18<24UndeadLeech18>	It's just another thing to confuse people that now have a million different ways to bind the same thing, with no clear indication of which thing is the correct thing.
+T 1586738804 18<29kchibisov18>	I'm just saying that bindings doens't work well, and in expected way for multilayout.
+T 1586738806 18<24UndeadLeech18>	And if you have keyboards like mine, you can't even map by location at all, it'll just give you back complete garbage.
+T 1586738822 18<29kchibisov18>	scancode is shitty solution, since it's just an arbitrary number which I should just guess.
+T 1586738835 18<24UndeadLeech18>	Because my us F is at dvorak F location, not at US F.
+T 1586738849 18<24UndeadLeech18>	So then I switch my keyboard and nothing works, just how you switch your layout and nothing works.
+T 1586738851 18<24UndeadLeech18>	Same shit.
+T 1586738853 18<29kchibisov18>	if you have hardware dvorak it'll remap.
+T 1586738863 18<29kchibisov18>	I have a keyboard with hardware dvorak.
+T 1586738876 18<29kchibisov18>	I don't set dvorak layout at all for it.
+T 1586738883 18<24UndeadLeech18>	Yeah exactly.
+T 1586738885 18<29kchibisov18>	it just works with qwerty.
+T 1586738891 18<24UndeadLeech18>	Which will run into the same problem as you have when switching layouts.
+T 1586738895 18<29kchibisov18>	because it chagnes scancodes.
+T 1586738906 18<24UndeadLeech18>	Because suddenly your key is at a different location with a software dvorak keyboard.
+T 1586738907 18<29kchibisov18>	so your scancodes will be chaged as well, and you'll have correct bidnings.
+T 1586738937 18<24UndeadLeech18>	I just don't see how this simplifies anything.
+T 1586738946 18<24UndeadLeech18>	It just adds another thing, bloating everything up.
+T 1586738958 18<29kchibisov18>	but scancode binding has the same flow.
+T 1586738974 18<24UndeadLeech18>	So why the hell do we need another thing, if scancode already does it?
+T 1586738979 18<29kchibisov18>	but you should guess what this shit is instead of just binding to a location.
+T 1586738995 18<29kchibisov18>	and on other platform you'll have different shit.
+T 1586739002 18<24UndeadLeech18>	You assume that I would know the qwerty location.
+T 1586739025 18<24UndeadLeech18>	Qwerty names are just as arbitrary as scancodes, with the nice benefit of being extremely confusing.
+T 1586739025 18<29kchibisov18>	I assume that you'd know location on your keyboard hardware layout.
+T 1586739038 18<24UndeadLeech18>	Which most people that do not actually use qwerty won't know.
+T 1586739050 18<29kchibisov18>	if you're using qwerty keyboard with software dvorak you don't have any problems.
+T 1586739062 18<29kchibisov18>	because this keyboard is qwerty, and you can just look at it.
+T 1586739073 18<24UndeadLeech18>	If I use qwertz or hardware dvorak I will.
+T 1586739075 18<29kchibisov18>	and if you hardware dvorak, you've binded to hardware dvorak.
+T 1586739110 18<29kchibisov18>	So in hardware dvorak, you'll have a completely different location.
+T 1586739121 18<29kchibisov18>	because your scancode is in completely different location.
+T 1586739128 18<24UndeadLeech18>	Also what if there is no qwerty key? Need to use scancodes anyways.
+T 1586739157 18<29kchibisov18>	I'm saying that binding by scancode doesn't work well for the end users.
+T 1586739180 18<29kchibisov18>	keysym is fine, but if you want binding that works regardless of layout it won't work.
+T 1586739182 18<24UndeadLeech18>	Why not?
+T 1586739233 18<29kchibisov18>	Because end users don't know how to obtain scancodes, but it can obtain location of char on his keyboard.
+T 1586739239 18<24UndeadLeech18>	How?
+T 1586739250 18<29kchibisov18>	Just look at the keyboard?
+T 1586739258 18<24UndeadLeech18>	Only because you use a qwerty keyboard.
+T 1586739261 18<29kchibisov18>	on a keycap.
+T 1586739265 18<24UndeadLeech18>	That won't help a large chunk of users that don't.
+T 1586739282 18<29kchibisov18>	if you use software dvorak you have qwerty keyboard.
+T 1586739286 18<24UndeadLeech18>	No.
+T 1586739289 18<24UndeadLeech18>	That's not true.
+T 1586739297 18<29kchibisov18>	unless you swapped all the key caps.
+T 1586739304 18<29kchibisov18>	which is like 0.01% users.
+T 1586739308 18<24UndeadLeech18>	Except for my hardware dvorak keyboard, I do not own a single qwerty keyboard.
+T 1586739328 18<29kchibisov18>	your hardware dvorak keyboard will work fine, since it's not based on QWERTY
+T 1586739359 18<29kchibisov18>	So Raw keys will match your keysyms on your keyboard.
+T 1586739360 18<24UndeadLeech18>	My hardware dvorak will work fine, because it's qwerty and they're identical.
+T 1586739363 18<24UndeadLeech18>	But none of my others will.
+T 1586739394 18<24UndeadLeech18>	On MacOS I have a qwertz keyboard with software dvorak for example.
+T 1586739397 18<29kchibisov18>	I'm saying that only software layouts could behave differently.
+T 1586739399 18<24UndeadLeech18>	Now you're adding qwerty to that.
+T 1586739411 18<24UndeadLeech18>	So you're asking me to check the qwerty location on my qwertz keyboard which uses dvorak.
+T 1586739412 18<29kchibisov18>	How macOS default bindings are working on macOS?
+T 1586739413 18<24UndeadLeech18>	That's stupid.
+T 1586739422 18<29kchibisov18>	no, it'll be based on qwertz
+T 1586739428 18<29kchibisov18>	not on qwerty.
+T 1586739441 18<29kchibisov18>	it's based on hardware layout, not on QWERTY.
+T 1586739448 18<24UndeadLeech18>	You said you always want to bind to qwerty though, not qwertz, right?
+T 1586739455 18<24UndeadLeech18>	Gotcha.
+T 1586739459 18<29kchibisov18>	I said that I want to name scancodes.
+T 1586739470 18<24UndeadLeech18>	Then it won't work between any of my keyboards, nice.
+T 1586739484 18<29kchibisov18>	no, because scancodes are floating.
+T 1586739494 18<24UndeadLeech18>	Because macOS qwertz is different than normal qwertz which is different than my qwerty hardware dvorak.
+T 1586739518 18<29kchibisov18>	So do you have Command + C working on macOS?
+T 1586739526 18<24UndeadLeech18>	Yeah of course, works just fine.
+T 1586739529 18<24UndeadLeech18>	Why wouldn't it?
+T 1586739535 18<29kchibisov18>	and where this `C` is?
+T 1586739547 18<29kchibisov18>	on your dvorak layout or on qwertz
+T 1586739602 18<29kchibisov18>	and if you switch layout to e.g. French will it have the same physical position?
+T 1586739647 18<29kchibisov18>	I just want to understand how this thing is supposed to work.
+T 1586739660 18<29kchibisov18>	And how some systems are handling such thing.
+T 1586739781 18<29kchibisov18>	But literally every app can do such thing just fine without requiring me to define scancode bindnigs.
+T 1586739820 18<29kchibisov18>	I mean paste from Russian layout.
+T 1586739984 18<24UndeadLeech18>	I'm not familiar with how layouts work that are entirely different.
+T 1586740043 18<29kchibisov18>	So I wonder how this problem should be solved, I feel like the majority is using Scancode like things for bindings.
+T 1586740451 18*	29kchibisov tried to test dvorak and spend 5 minutes to just reload sway.
+T 1586740556 18<29kchibisov18>	It's interesting actually.
+T 1586740586 18<29kchibisov18>	GTK is using dvorak layout for bindings in Russian layout.
+T 1586740596 18<29kchibisov18>	and it's software dvorak.
+T 1586740650 18<29kchibisov18>	so if you have 3 layouts, us,us(dvorak),ru it'll use QWERTY,Dvorak,Dvorak.
+T 1586740653 18<29kchibisov18>	for bindnigs.
+T 1586740680 18<24UndeadLeech18>	I found a bug.
+T 1586740688 18<29kchibisov18>	where?
+T 1586740703 18<24UndeadLeech18>	Our rotation doesn't work correctly. Escape `CSI Ps T`.
+T 1586740789 18<29kchibisov18>	and sway uses Dvorak bindings as well in QWERTY layout if I do --bind-to-code.
+T 1586740817 18<29kchibisov18>	this is just pure madness.
+T 1586741316 18<24UndeadLeech18>	https://github.com/alacritty/alacritty/issues/3582
+T 1586741321 18<24UndeadLeech18>	I can't believe I've never noticed that.
+T 1586741325 18<24UndeadLeech18>	This is pretty borked.
+T 1586741853 18<24UndeadLeech18>	Also I think my reflow implementation might be functionally finished.
+T 1586741861 18<24UndeadLeech18>	I'll have to do a ton of testing though.
+T 1586741870 18<24UndeadLeech18>	And there's two dozen TODOs left.
+T 1586742084 18<29kchibisov18>	If I understand the thing correctly, you bind to a physical location based on keymap.
+T 1586742195 18<24UndeadLeech18>	How would that work though, do they check if the key exists on your keymap and then choose fallback if it doesn't?
+T 1586742199 18<24UndeadLeech18>	Like if ctrl+c just works with software dvorak and russian.
+T 1586742219 18<24UndeadLeech18>	Because on software dvorak it obviously should be at dvorak `c` location.
+T 1586742220 18<29kchibisov18>	So you iterate all configured keymaps and collect their keysyms and bind to code in the end, if you requested to bind by code.
+T 1586742253 18<29kchibisov18>	And on russian keyboard it's not a place for software dvorak.
+T 1586742337 18<29kchibisov18>	I mean it's not on QWERTY place when you use --bind-to-code, but on software dvorak C position, as well as other bindings.
+T 1586742396 18<24UndeadLeech18>	You said that other applications just handle it without having to configure anything though, right?
+T 1586742403 18<29kchibisov18>	right.
+T 1586742409 18<29kchibisov18>	I want the same in alacritty.
+T 1586742420 18<24UndeadLeech18>	That would require a more complicated solution then though.
+T 1586742439 18<29kchibisov18>	yeah, and such thing is costly.
+T 1586742446 18<24UndeadLeech18>	Since software dvorak on a qwerty keyboard shouldn't have it at the qwerty location. But software russian on qwerty keyboard should?
+T 1586742457 18<24UndeadLeech18>	Seems like a mess to me. Just force everyone to use qwerty.
+T 1586742481 18<29kchibisov18>	I mean software russian has it on dvorak location.
+T 1586742573 20*	Disconnected (20)
+T 1586742601 Python interface unloaded
+T 1586742601 FiSHLiM plugin unloaded
+T 1587051375 19*	Now talking on 22#alacritty
+T 1587051375 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587051375 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)

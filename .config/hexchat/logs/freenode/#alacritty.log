@@ -851,3 +851,1471 @@ Mar 20 14:40:52 *	Disconnected ()
 Mar 20 14:41:20 *	Now talking on #alacritty
 Mar 20 14:41:20 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.1 - https://github.com/alacritty/alacritty/releases/tag/v0.4.1
 Mar 20 14:41:20 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Feb 16 20:20:48 2020)
+**** BEGIN LOGGING AT Thu Apr  2 09:38:28 2020
+
+Apr 02 09:38:28 *	Now talking on #alacritty
+Apr 02 09:38:28 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 02 09:38:28 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 02 12:38:17 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr  2 12:38:17 2020
+
+**** BEGIN LOGGING AT Thu Apr  2 12:38:42 2020
+
+Apr 02 12:38:42 *	Now talking on #alacritty
+Apr 02 12:38:42 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 02 12:38:42 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 02 12:55:05 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr  2 12:55:05 2020
+
+**** BEGIN LOGGING AT Thu Apr  2 12:55:31 2020
+
+Apr 02 12:55:31 *	Now talking on #alacritty
+Apr 02 12:55:31 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 02 12:55:31 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 02 15:42:44 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr  2 15:42:44 2020
+
+**** BEGIN LOGGING AT Thu Apr  2 15:43:12 2020
+
+Apr 02 15:43:12 *	Now talking on #alacritty
+Apr 02 15:43:12 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 02 15:43:12 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 02 15:54:29 <larsks>	I've installed the "Fira Mono" font family on my system, and it's visible in other applications (e.g. as "Fira Mono Regular"), but trying to set font.normal.family to "Fira Mono" or "Fira Mono Regular" isn't working. Other fonts seem to work fine. Any thoughts on what I'm missing?
+Apr 02 15:55:02 <kchibisov>	Could you should your config file?
+Apr 02 15:55:17 <kchibisov>	show*
+Apr 02 15:56:58 <larsks>	Sure, just a second.
+Apr 02 15:57:16 <kchibisov>	Also, on what platform are you?
+Apr 02 15:58:32 <larsks>	I'm on Fedora 31.  Config file is here: https://termbin.com/10ji
+Apr 02 15:58:57 <larsks>	Normal font is currently set to "terminus" in that config.
+Apr 02 15:59:15 <kchibisov>	Could you run `fc-list | grep -i fira`?
+Apr 02 16:00:41 <larsks>	Sure, that gets: https://termbin.com/253s
+Apr 02 16:01:21 <kchibisov>	Well it should be just `Fira Mono` in a config.
+Apr 02 16:01:47 <kchibisov>	also, make sure to restart terminal if your font was added after terminal startup.
+Apr 02 16:01:53 <larsks>	Yeah, that was my thought, too :)
+Apr 02 16:02:00 <larsks>	I'll try restarting the terminal...
+Apr 02 16:02:54 <larsks>	That was it. I didn't think that would be necessary. Thanks!
+Apr 02 16:03:12 <kchibisov>	I mean it's only necessary in case the font was added after startup.
+Apr 02 16:03:53 <kchibisov>	Like fontconfig just continues to report that it's not presented, etc.
+Apr 02 16:04:06 <kchibisov>	But maybe we can do something about it.
+Apr 02 22:08:10 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr  2 22:08:10 2020
+
+**** BEGIN LOGGING AT Thu Apr  2 22:08:39 2020
+
+Apr 02 22:08:39 *	Now talking on #alacritty
+Apr 02 22:08:39 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 02 22:08:39 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 02 23:54:46 <lovesegfault>	Hey everyone, thanks so much for all the work in the Alacritty 0.4.2 release
+Apr 02 23:54:54 <lovesegfault>	Working flawlessly on NixOS
+Apr 02 23:55:03 <lovesegfault>	Color emoji looks great
+Apr 02 23:55:23 <lovesegfault>	🦀
+Apr 02 23:55:50 <kchibisov>	nothing was changed in this regard from v0.4.1 to v0.4.2 though.
+Apr 02 23:56:12 <kchibisov>	but thx.
+Apr 02 23:56:42 <lovesegfault>	kchibisov: Well, they started working for me :D
+Apr 02 23:57:19 <UndeadLeech>	kchibisov: Your font fallback was part of 0.4.2, right?
+Apr 02 23:57:19 <lovesegfault>	And my cursor also no longer has potato res
+Apr 03 00:56:54 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr  3 00:56:54 2020
+
+**** BEGIN LOGGING AT Fri Apr  3 09:06:40 2020
+
+Apr 03 09:06:40 *	Now talking on #alacritty
+Apr 03 09:06:40 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 03 09:06:40 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 03 09:18:42 <kchibisov>	noxid: this option is
+Apr 03 09:19:03 <kchibisov>	noxid: this option is missunderstood by the users, we won't bring it back.
+Apr 03 09:19:42 <noxid>	thanks for the reply
+Apr 03 09:22:02 <kchibisov>	note, no terminal emulator allows this setting at all.
+Apr 03 09:23:21 <storm\>	kchibisov: would it be possible to do a hour walkthrough of the code at somepoint to get me up to speed?
+Apr 03 09:23:30 <storm\>	if thats something you would be comftable doing
+Apr 03 09:24:04 <kchibisov>	I mean it depens on an issue you're trying to solve storm\ .
+Apr 03 09:24:36 <storm\>	first issue ill solve is the locale we talked about for osx yesterday
+Apr 03 09:24:44 <storm\>	but i would like to have some words attatched to the code base maybe
+Apr 03 09:25:03 <storm\>	mostly because im new to rust, but deep knowledge in objc
+Apr 03 09:25:12 <kchibisov>	well, for locale, you should be aware only about this single file.
+Apr 03 09:25:28 <storm\>	yeah i know for THAT issue :)
+Apr 03 09:25:29 <kchibisov>	and likely the code that is calling it.
+Apr 03 09:25:39 <storm\>	but its more a breif overview of the project.
+Apr 03 09:25:46 <storm\>	i plan to fix more than JUST that hehe.
+Apr 03 09:26:11 <kchibisov>	I mean you can ask what you want to fix and we'll give more specific replies.
+Apr 03 09:26:30 <storm\>	hehe okay, i think you are missing the point :)
+Apr 03 09:26:36 <storm\>	its cool
+Apr 03 09:26:45 <kchibisov>	I mean you can just read from main.rs
+Apr 03 09:27:05 <storm\>	and thats missing the point again :)
+Apr 03 09:27:10 <kchibisov>	and if your bug is in specific component of it, you can go there and read it.
+Apr 03 09:27:54 <kchibisov>	Like our structure is pretty simple and you can use file names to understand how everything structured.
+Apr 03 09:28:30 <storm\>	yeah ive been through it.
+Apr 03 09:28:50 <kchibisov>	But in general, font is in font crate, alacritty is gui + rendering, alacritty_terminal is just terminal + PTY.
+Apr 03 09:30:13 <storm\>	ill just ask about the coding releated questions and decisions then, no worries.
+Apr 03 09:52:03 <kchibisov>	I mean it's hard to answer of an abstract questions.
+Apr 03 09:52:38 <kchibisov>	Like if you want to implement feature X, I can likely give more information about it.
+Apr 03 10:26:37 <sidh>	Greetings
+Apr 03 10:27:41 <storm\>	Hey
+Apr 03 11:26:00 <Hamilton>	Is there sth wrong with Alacritty right-click->copy or the problem is my setuo?
+Apr 03 11:32:56 <kchibisov_>	Right click does nothing
+Apr 03 11:33:45 <kchibisov_>	It doesn’t reset selection anymore, etc.
+Apr 03 11:33:47 <Hamilton>	kchibisov_, oh select copies. Still sometime it doesn't work it seems...not sure
+Apr 03 11:34:14 <kchibisov_>	I mean copy is select and LMB release
+Apr 03 14:27:32 <nixpulvis>	Hey, catching up on PRs/issues today, had a surprise April 1st deadline lol.
+Apr 03 14:30:24 <sidh>	I would need your advices : I installed alacritty on Hgh sierra osx and I installed alacritty-colorscheme, I downloded themes and when I run alacritty-colorscheme -C whereis/themes-dir -T, I got "Bad configuration file"
+Apr 03 14:31:24 <sidh>	configuration file is retrived from alacritty git repo
+Apr 03 14:31:36 <sidh>	is there a way to have log or debug
+Apr 03 14:32:29 <nixpulvis>	I've honestly never heard of the tool `alacritty-colorscheme`.
+Apr 03 14:33:21 <nixpulvis>	sidh: logging is done with -v, -vv, and -vvv. But config errors should report in the red error bar.
+Apr 03 14:33:40 <ifreund>	me neither but i found a github repo https://github.com/toggle-corp/alacritty-colorscheme
+Apr 03 14:33:44 <sidh>	https://github.com/toggle-corp/alacritty-colorscheme
+Apr 03 14:35:19 <nixpulvis>	What's the config error?
+Apr 03 14:35:47 <sidh>	ok so it is not alacritty itself , it is pure related to this third party tool
+Apr 03 14:35:58 <nixpulvis>	I would assume so.
+Apr 03 14:36:16 <sidh>	alacritty-colorscheme -C ~/.config/alacritty/.eendroroy-alacritty-theme/themes/ -t solarized_light.yaml solarized_dark.yaml
+Apr 03 14:36:34 <sidh>	Bad configuration file.
+Apr 03 14:36:42 <sidh>	that's all
+Apr 03 14:36:49 <ifreund>	i'm really struggling to figure out why this is useful, how often do you change colorschemes?
+Apr 03 14:38:15 <sidh>	ifreund: in fact I have 3 27" screens , and I vanted to try several coloscheme to avoid the headache due to those glossy screens
+Apr 03 14:39:04 <sidh>	tipically balck background are not bearable
+Apr 03 14:39:08 <sidh>	black
+Apr 03 14:40:10 <ifreund>	ok, but you can just edit the alacritty config right? (i'd recommend solarized dark by the way, super easy on the eyes)
+Apr 03 14:43:59 <nixpulvis>	I personally find copying and pasting and commenting my config to work pretty well for testing purposes.
+Apr 03 14:44:38 <nixpulvis>	The main thing I've conosidered a tool for is switching between a light and dark theme, however that tool wouldn't need to be that complex... just a simple symlink update.
+Apr 03 14:46:10 *	nixpulvis still needs to find the time to make a color scheme based off #161616.
+Apr 03 14:46:30 <ifreund>	yeah, it's a problem that's solved by a basic shell script, that python tool is like the definition of bloat
+Apr 03 14:47:02 <nixpulvis>	most are
+Apr 03 14:56:04 <caveman>	u guys need to add image viewing inside alacritty.
+Apr 03 14:56:18 <kchibisov>	caveman: go ahead and add it.
+Apr 03 14:56:41 <caveman>	got better things to do.
+Apr 03 14:56:49 <kchibisov>	if you're just pinging us with 'you need to do X' it's not productive and just wasting our time.
+Apr 03 14:57:00 <kchibisov>	and your time.
+Apr 03 14:57:18 <caveman>	no.  i'm just giving u ideas.  u can ignore them.  i'm happy with st.  i am just being kind to share thoughts.
+Apr 03 14:57:34 <caveman>	or re-inforcing ideas u had.
+Apr 03 14:57:43 <ifreund>	no you're being a jerk
+Apr 03 14:57:49 <kchibisov>	ifreund++
+Apr 03 14:58:00 <caveman>	how so?
+Apr 03 14:58:09 <UndeadLeech>	Also image rendering is mostly pointless in a terminal emulator.
+Apr 03 14:58:09 <caveman>	now getting feedback means being a jerk?
+Apr 03 14:58:23 <UndeadLeech>	You're not giving constructive feedback.
+Apr 03 14:58:26 <kchibisov>	just read issue on github about image thing.
+Apr 03 14:58:33 <caveman>	ifreund: the only jerk here is u right now.  calling someone 'jerk' for sharing on topic thoughts.
+Apr 03 14:59:35 <caveman>	UndeadLeech: it's really useful and increases productivity.  specially that u r in the gpu accelerated business, pics is one of the main wins.
+Apr 03 14:59:48 <UndeadLeech>	It's really not.
+Apr 03 15:00:08 <caveman>	how to u browse images in ur directories?  open them by feh?  feh *?
+Apr 03 15:00:21 <kchibisov>	this is how it should done?
+Apr 03 15:00:36 <UndeadLeech>	I indeed do not use a program meant to render text to browser my images. Shocking, I know.
+Apr 03 15:01:01 <kchibisov>	UndeadLeech: how are you even alive with such habbits?
+Apr 03 15:01:20 <kchibisov>	oh, yeah, you're undead.
+Apr 03 15:01:41 <UndeadLeech>	;)
+Apr 03 15:01:55 <kchibisov>	anyway, browsing images in terminal seems a bit off tbh, however if there're will be a standard protocol to do so, we're fine with adding it.
+Apr 03 15:02:01 <kchibisov>	for now there's only sixel.
+Apr 03 15:02:09 <caveman>	for all the megs of rams u consume, u better render images.
+Apr 03 15:02:24 <caveman>	u can't act like alacritty is some conservative terminal of the 80s, where it only renders text.
+Apr 03 15:02:37 <caveman>	heck, even st terminal can render pics in it, and it is much more efficient than alacritty.
+Apr 03 15:02:47 <UndeadLeech>	We can do whatever we want?
+Apr 03 15:02:55 <UndeadLeech>	Seriously, stop being so toxic.
+Apr 03 15:02:55 <kchibisov>	^
+Apr 03 15:03:05 <nixpulvis>	^
+Apr 03 15:03:15 <kchibisov>	if you don't like something just create your own terminal, I don't see a problem.
+Apr 03 15:03:19 <caveman>	absolutely.  u can do watever u want.  including being a total dick to ppl who come here to kindly give u some thoughts.
+Apr 03 15:03:27 <nixpulvis>	I'm not opposed to images in the terminal FWIW.
+Apr 03 15:03:29 *	UndeadLeech sets ban on *!*@cave.mn
+Apr 03 15:03:47 <UndeadLeech>	Fucking hell, is it really so hard to be a decent person...
+Apr 03 15:04:10 <UndeadLeech>	You'd think after getting banned from Kitty's github already, people would learn.
+Apr 03 15:04:13 <nixpulvis>	like, search for the issue at least a little bit too...
+Apr 03 15:04:58 *	UndeadLeech has kicked caveman from #alacritty (caveman)
+Apr 03 15:05:31 <sidh>	ok I will uninstall it and put directly the color block
+Apr 03 15:06:15 <ifreund>	sidh: if you want a nice collection of colorschemes to try out, check out this repo https://github.com/aaron-williamson/base16-alacritty
+Apr 03 15:06:39 <Yaniel>	nixpulvis: tbh if someone asked for it with that attitude I'd oppose it purely out of spite
+Apr 03 15:07:18 <kchibisov>	Yaniel: this is not the first time, they're just annoying.
+Apr 03 15:08:19 <nixpulvis>	Yaniel: I wouldn't blame you... Though it's best to not take it out on the feature :P
+Apr 03 15:08:40 <nixpulvis>	Yea, caveman has been doing this a bunch. Now he's DMing me....
+Apr 03 15:08:46 <Yaniel>	classic
+Apr 03 15:08:51 <Yaniel>	get banned, DM the mods
+Apr 03 15:09:21 <Yaniel>	at least he's not stooping down to ban evasion
+Apr 03 15:09:36 <Yaniel>	unlike someone on the opengl channel
+Apr 03 15:09:56 <nixpulvis>	Apperently we're all "suicidal jerks".
+Apr 03 15:09:56 <sidh>	ifreund: yes I cone those repo too
+Apr 03 15:10:15 <kchibisov>	noice nixpulvis
+Apr 03 15:10:25 <sidh>	I clone
+Apr 03 16:01:33 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr  3 16:01:33 2020
+
+**** BEGIN LOGGING AT Fri Apr  3 20:50:36 2020
+
+Apr 03 20:50:36 *	Now talking on #alacritty
+Apr 03 20:50:36 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 03 20:50:36 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 03 20:51:19 <nixpulvis>	I mean, you could probably get unlucky and have the drive fucked.
+Apr 03 20:51:39 <nixpulvis>	anything with sensitive internal state.... but I'd hope they could recover themselves.
+Apr 03 20:51:48 <kchibisov>	Also, if you're using ext4 or some normal file system you're likely safe from powerloss.
+Apr 03 20:52:11 <nixpulvis>	well, "safe". No direct corruption.
+Apr 03 20:52:12 <ShinyRice>	yeah I use basic bitch ext4
+Apr 03 20:52:39 <ShinyRice>	is f2fs worth using?
+Apr 03 20:52:48 <kchibisov>	ext4 is fine for powerloss.
+Apr 03 20:52:56 <kchibisov>	like it can handle it just fine.
+Apr 03 20:53:09 <kchibisov>	unless you've disabled journaling.
+Apr 03 20:53:32 <nixpulvis>	yea, you just lose a little more data.
+Apr 03 20:53:33 <kchibisov>	and some other stuff that 'improves performance'.
+Apr 03 20:54:53 <nixpulvis>	god damn it, I don't want to buy new shit... but now's the time to upgrade to AMD.
+Apr 03 20:55:12 <nixpulvis>	and knowing my luck my nvidia card isn't going to play nice.
+Apr 03 20:56:36 <kchibisov>	just hope that it's not dead.
+Apr 03 20:56:50 <nixpulvis>	it's not. I'm pretty sure
+Apr 03 20:57:08 <nixpulvis>	EVGA makes their shit tight!
+Apr 03 21:25:58 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr  3 21:25:58 2020
+
+**** BEGIN LOGGING AT Fri Apr  3 23:31:54 2020
+
+Apr 03 23:31:54 *	Now talking on #alacritty
+Apr 03 23:31:54 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 03 23:31:54 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 03 23:46:28 <nixpulvis>	yea sadly. even the indicator light doesn't show up on the mobo anymore.
+Apr 03 23:46:49 <nixpulvis>	The PSU passes "self test", and the GPU clearly gets power during that time (side LEDs come on).
+Apr 03 23:53:38 <UndeadLeech>	You've tried clearing CMOS, right?
+Apr 03 23:57:00 <UndeadLeech>	I've had really strange issues with motherboards that were seemingly not doing anything until I tried resetting them.
+**** BEGIN LOGGING AT Sat Apr  4 09:36:09 2020
+
+Apr 04 09:36:09 *	Now talking on #alacritty
+Apr 04 09:36:09 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 04 09:36:09 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 04 10:29:13 <Hamilton>	It happened again, `select->copy to clipboard` does not always work.
+Apr 04 12:01:49 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr  4 12:01:49 2020
+
+**** BEGIN LOGGING AT Sat Apr  4 12:06:58 2020
+
+Apr 04 12:06:58 *	Now talking on #alacritty
+Apr 04 12:06:58 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 04 12:06:58 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 04 14:11:54 <andi_>	-00O\
+Apr 04 14:11:57 <andi_>	']'
+Apr 04 14:12:09 <kchibisov>	Hm?
+Apr 04 14:12:23 <andi_>	']=0']][\\[]['[//
+Apr 04 14:39:46 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr  4 14:39:46 2020
+
+**** BEGIN LOGGING AT Sat Apr  4 17:12:18 2020
+
+Apr 04 17:12:18 *	Now talking on #alacritty
+Apr 04 17:12:18 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 04 17:12:18 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 04 18:06:13 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr  4 18:06:13 2020
+
+**** BEGIN LOGGING AT Sat Apr  4 18:06:42 2020
+
+Apr 04 18:06:42 *	Now talking on #alacritty
+Apr 04 18:06:42 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 04 18:06:42 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 04 18:14:45 <cole-h>	UndeadLeech: Since we don't want a description of the escape sequences on that wiki, would it be a good idea to add a link to XTerm or whatever that page was that describes them all?
+Apr 04 18:19:06 <UndeadLeech>	https://github.com/alacritty/alacritty/wiki/ANSI-References
+Apr 04 18:19:29 <cole-h>	Oh right
+Apr 04 18:19:31 <cole-h>	:D
+Apr 04 18:33:06 <DusXMT>	I wonder, how are the dim colors typically used? / how can I test them?
+Apr 04 18:35:44 <kchibisov>	echo -e "\e[31;2mhello"
+Apr 04 18:35:51 <kchibisov>	should be dim red
+Apr 04 18:52:34 <DusXMT>	Indeed, thanks :)
+Apr 04 19:18:58 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr  4 19:18:58 2020
+
+**** BEGIN LOGGING AT Sat Apr  4 19:19:26 2020
+
+Apr 04 19:19:26 *	Now talking on #alacritty
+Apr 04 19:19:26 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 04 19:19:26 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 04 22:00:30 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr  4 22:00:30 2020
+
+**** BEGIN LOGGING AT Sat Apr  4 22:01:15 2020
+
+Apr 04 22:01:15 *	Now talking on #alacritty
+Apr 04 22:01:15 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 04 22:01:15 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 04 22:02:07 <kchibisov>	what background opacity setting do you have in alacritty?
+Apr 04 22:04:00 <saber1>	kchibisov: 0.95
+Apr 04 22:04:21 <kchibisov>	could you try 0.0, idk.
+Apr 04 22:04:25 <kchibisov>	it should work.
+Apr 04 22:11:28 <kchibisov>	I'd also recommend to try without empty compton config.
+Apr 04 22:13:54 <saber1>	kchibisov: it's working now, turned my background image was too dark, so I didn't notice it was transparent, silly me..thanks for the help
+Apr 04 22:20:00 <wma>	any idea about why scrolling a TUI with mouse causes flicker but scrolling with keyboard doesn't?
+Apr 04 22:20:07 <wma>	things like manpages, weechat
+Apr 04 22:20:21 <kchibisov>	depends on your intense and how the app is handling it.
+Apr 04 22:20:38 <kchibisov>	but basically the problem is in how applications are writing content.
+Apr 04 22:21:30 <kchibisov>	if it updates content with multiple writes you can see a flicker sometimes.
+Apr 04 22:21:38 <kchibisov>	since we can render it in the middle of update.
+Apr 04 22:22:24 <kchibisov>	We don't know app's content update status, so we're just drawing all the time without any delay.
+Apr 04 22:22:33 <wma>	I'll test lowering the mouse scroll step to 1
+Apr 04 22:24:11 <kchibisov>	note, one way to solve this thing is to delay rendering.
+Apr 04 22:24:19 <kchibisov>	which is not an option.
+Apr 04 22:24:37 <kchibisov>	this thing is done by a lot of terminal emulators IIRC, which is just wrong.
+Apr 04 22:27:22 <wma>	yes, I think this flickering didn't happen with kitty
+Apr 04 22:28:15 <kchibisov>	yeah, even xterm has like 22ms of delay IIRC.
+Apr 04 22:28:56 <kchibisov>	The one solution that makes sense is syncronized updates.
+Apr 04 22:29:24 <kchibisov>	However it requires application support.
+Apr 04 22:29:30 <kchibisov>	and a terminal.
+Apr 04 22:29:37 <kchibisov>	but this thing is something reliable.
+Apr 04 23:11:16 *	kchibisov was thinking that alacritty was freezing on focus change, but he was accidentally using 1.25 thickness for cursor from some old experiment, so HollowBlock cursor was just block cursor.
+Apr 04 23:11:27 <kchibisov>	it took me like 30 minutes to realize that.
+Apr 04 23:14:42 <UndeadLeech>	lol
+Apr 04 23:15:46 <kchibisov>	I really wonder how long it takes us to roundtrip to winit.
+Apr 04 23:15:57 <UndeadLeech>	Roundtrip for what?
+Apr 04 23:42:15 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr  4 23:42:15 2020
+
+**** BEGIN LOGGING AT Sat Apr  4 23:42:41 2020
+
+Apr 04 23:42:41 *	Now talking on #alacritty
+Apr 04 23:42:41 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 04 23:42:41 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 04 23:45:41 <kchibisov>	Oh, god, winit can't work in pair with frame callbacks properly.
+Apr 04 23:45:53 <UndeadLeech>	Hm?
+Apr 04 23:45:57 <kchibisov>	it blows up.
+Apr 04 23:46:05 <UndeadLeech>	You mean with them in Alacritty?
+Apr 04 23:46:11 <kchibisov>	yeah.
+Apr 04 23:46:17 <kchibisov>	it just sends shit ton of stupid events.
+Apr 04 23:46:32 <kchibisov>	like their redraw requested logic just explodes
+Apr 04 23:47:02 <kchibisov>	it's a constant spam of events, etc.
+Apr 04 23:48:53 <kchibisov>	but it works so good with frame callbacks tbh.
+Apr 04 23:49:20 <kchibisov>	like resize glitches are solved with them.
+Apr 04 23:49:37 <kchibisov>	but yeah, I should investigate why winit blows up when I'm using them.
+Apr 04 23:49:59 <kchibisov>	I feel like the problem is that I dispatch_queue each time in run_return;
+Apr 04 23:50:07 <kchibisov>	and it triggers redraw_requested for me.
+Apr 04 23:53:37 <kchibisov>	So I guess I should make it in winit.
+Apr 04 23:53:49 <kchibisov>	like this even spam isn't good.
+Apr 04 23:56:24 <kchibisov>	yeah, I'll publish PR, just for some folks to try it, but I'll should add it into winit.
+Apr 04 23:57:23 <kchibisov>	since it fixes glitches + updates.
+Apr 04 23:57:31 <kchibisov>	I mean offscreen updates.
+Apr 04 23:59:32 <UndeadLeech>	Resize glitches shouldn't matter anymore. I've decided I'm just going to remove the ability to resize from X/Wayland/Windows/macOS.
+Apr 04 23:59:39 <UndeadLeech>	That would make things a lot easier.
+Apr 04 23:59:43 <kchibisov>	true.
+Apr 05 00:07:13 <kchibisov>	though we
+Apr 05 00:07:26 <kchibisov>	though, we'll have special flag to redraw on wayland anyway.
+Apr 05 00:07:58 <kchibisov>	Like you're setting dirty in it right now, which is kind of true, but on Wayland, you can't draw without it.
+Apr 05 00:08:37 <kchibisov>	so you'll have one bool flag anyway.
+Apr 05 00:26:34 <kchibisov>	btw, I can't repo any glitches due to partical write on my branch.
+Apr 05 00:26:43 <kchibisov>	or they are really hard.
+Apr 05 00:28:46 <kchibisov>	Well, actually only on resize it's possible right now.
+Apr 05 00:29:08 <kchibisov>	Like when I fullscreen vim I see this kind of flicker.
+Apr 05 00:40:01 <UndeadLeech>	Okay, I think I'll move the cursors on the grid, then pass a callback to reflow, remove rotation of selection from grid by moving selection to term and hopefully that'll be semi clean.
+Apr 05 00:40:22 <kchibisov>	Reflow callbacks oO
+Apr 05 00:40:46 <UndeadLeech>	Just something simple, like passing a closure to reflow which is called when a line is added/removed.
+Apr 05 00:41:07 <UndeadLeech>	Instead of passing points. So that we can keep all the logic in that closure instead of having to iterate over the points in reflow.
+Apr 05 00:41:28 <UndeadLeech>	I might make it a trait and store selection/vi cursor on a struct implementing it.
+Apr 05 00:42:21 <UndeadLeech>	It's mostly to prevent havig to add a for loop to reflow for every time any of the points is modified, hopefully keeping it a bit cleaner.
+Apr 05 00:43:05 <UndeadLeech>	And storing the points on grid means we don't need to search the points for the smallest line to determine rotation.
+Apr 05 00:45:26 <kchibisov>	I really wonder how atomics should be done in a most performant way.
+Apr 05 00:45:31 <kchibisov>	like I feel like mutex was better for me.
+Apr 05 00:46:19 <UndeadLeech>	What do you mean?
+Apr 05 00:46:34 <kchibisov>	I mean I feel like I'm messing up order from time to time.
+Apr 05 00:46:34 <UndeadLeech>	Atomics should be pretty fast, you just using store/load with relaxed ordering?
+Apr 05 00:46:50 <UndeadLeech>	Which ordering do you use?
+Apr 05 00:48:29 <kchibisov>	Acquire for load and Release for store.
+Apr 05 00:48:37 <kchibisov>	I feel like I should use Relaxed for store.
+Apr 05 00:48:43 <UndeadLeech>	Have you tried relaxed for everything, just for testing?
+Apr 05 00:48:52 <kchibisov>	load can't use relaxed
+Apr 05 00:49:14 <kchibisov>	Oh, I'm wrong.
+Apr 05 00:49:19 <kchibisov>	It could use Relaxed.
+Apr 05 00:49:25 <kchibisov>	I've read it in a wrong way.
+Apr 05 00:50:13 <kchibisov>	let me try relaxed.
+Apr 05 00:52:56 <UndeadLeech>	I mean SeqCst is probably the least error prone I'd assume.
+Apr 05 00:53:19 <kchibisov>	I thought about that, but I only read.
+Apr 05 00:53:27 <kchibisov>	And stores should be before.
+Apr 05 00:53:46 <kchibisov>	I mean I store pretty rare, and the other time I just read it.
+Apr 05 00:55:00 <UndeadLeech>	SeqCst is the slowest, so probably shouldn't be used unless you really need it.
+Apr 05 00:55:41 <kchibisov>	I feel like I'm fine with relaxed tbh.
+Apr 05 00:55:57 <UndeadLeech>	That's usually how I feel too.
+Apr 05 00:56:40 <UndeadLeech>	Especially because wrapping my head around that gets me confused literally every single time I use it.
+Apr 05 00:56:53 <UndeadLeech>	So I mostly just end up trial and erroring my way through.
+Apr 05 01:00:29 <kchibisov>	However I'm not really sure that it was a right thing to use Relaxed.
+Apr 05 01:00:39 <kchibisov>	just logically I need Release + Acquire
+Apr 05 01:01:58 FiSHLiM plugin unloaded
+**** ENDING LOGGING AT Sun Apr  5 01:01:58 2020
+
+**** BEGIN LOGGING AT Fri Apr 10 09:59:51 2020
+
+Apr 10 09:59:51 *	Now talking on #alacritty
+Apr 10 09:59:51 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 10 09:59:51 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 10 11:58:32 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 10 11:58:32 2020
+
+**** BEGIN LOGGING AT Fri Apr 10 12:09:11 2020
+
+Apr 10 12:09:11 *	Now talking on #alacritty
+Apr 10 12:09:11 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 10 12:09:11 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 10 14:14:14 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 10 14:14:14 2020
+
+**** BEGIN LOGGING AT Fri Apr 10 14:14:43 2020
+
+Apr 10 14:14:43 *	Now talking on #alacritty
+Apr 10 14:14:43 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 10 14:14:43 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 10 14:39:08 <UndeadLeech>	hahuang65: Font fallback is done using your system font configuration.
+Apr 10 15:56:28 <ubitux>	http://b.pkh.me/s/2020-04-10-165604_598x421_scrot.png i wonder if it's possible to have a color palette respecting the semantic where everything is always readable
+Apr 10 15:58:27 <ubitux>	typically: magenta/red, yellow/green
+Apr 10 15:58:50 <ubitux>	sometimes black on blue
+Apr 10 19:19:27 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 10 19:19:27 2020
+
+**** BEGIN LOGGING AT Fri Apr 10 19:20:28 2020
+
+Apr 10 19:20:28 *	Now talking on #alacritty
+Apr 10 19:20:28 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 10 19:20:28 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 10 22:27:57 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 10 22:27:57 2020
+
+**** BEGIN LOGGING AT Fri Apr 10 22:31:21 2020
+
+Apr 10 22:31:21 *	Now talking on #alacritty
+Apr 10 22:31:21 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 10 22:31:21 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 11 00:04:27 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 11 00:04:27 2020
+
+**** BEGIN LOGGING AT Sat Apr 11 00:08:26 2020
+
+Apr 11 00:08:26 *	Now talking on #alacritty
+Apr 11 00:08:26 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 11 00:08:26 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 11 02:01:27 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 11 02:01:27 2020
+
+**** BEGIN LOGGING AT Sat Apr 11 08:53:21 2020
+
+Apr 11 08:53:21 *	Now talking on #alacritty
+Apr 11 08:53:21 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 11 08:53:21 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 11 09:38:52 <Hamilton>	How to spawn an alacritty window with a start command and make it stick? alacritty -r "ls" disappers after running the command
+Apr 11 09:40:30 <Hamilton>	I'm not looking for a keybinding inside alacritty but a switch for alacritty cli app to run a new instance, execute a command and stay there
+Apr 11 09:42:27 <kchibisov>	Hamilton: --hold.
+Apr 11 09:42:34 <kchibisov>	type --help for help.
+Apr 11 09:44:25 <Hamilton>	kchibisov, okay it holds but I can't interact with it any further
+Apr 11 09:44:42 <kchibisov>	yes, because you've told it do so.
+Apr 11 09:45:00 <Hamilton>	I'm using a wm. I want a certain key to 1- launch alacritty 2- execute a start command 3- let me do other things with it
+Apr 11 09:45:29 <kchibisov>	just run your shell and make it run things?
+Apr 11 09:46:08 <kchibisov>	other things means shell, not just command.
+Apr 11 09:46:27 <kchibisov>	Hold is only useful, if you're running app and want to keep output.
+Apr 11 09:46:58 <Hamilton>	exec "alacritty" && "ls"?
+Apr 11 09:48:25 <kchibisov>	alacritty -e sh -c "ls; exec sh"
+Apr 11 09:49:37 <Hamilton>	Thanks https://unix.stackexchange.com/a/82783/306382
+Apr 11 09:58:43 <Hamilton>	kchibisov, https://pastebin.com/sXa7Kxg9
+Apr 11 09:58:59 <Hamilton>	xfce4-terminal works (with an error) but alacritty doesn't spawn
+Apr 11 09:59:35 <kchibisov>	Do you see "" things in my example?
+Apr 11 09:59:55 <kchibisov>	I mean to quote the entire thing.
+Apr 11 10:00:05 <kchibisov>	like you shouldn't use it, since it's one argument.
+Apr 11 10:00:13 <Hamilton>	alacritty -e "bash -c 'ls;exec $SHELL'"
+Apr 11 10:00:23 <kchibisov>	should be alacritty -e bash -c 'ls;exec $SHELL'
+Apr 11 10:00:45 <Hamilton>	so -e is not like exec ""
+Apr 11 10:00:50 <kchibisov>	yes.
+Apr 11 10:00:57 <kchibisov>	we're not launching it in shell by default.
+Apr 11 10:01:11 <kchibisov>	like it's a command with arguments.
+Apr 11 10:01:59 <Hamilton>	*sigh* now it works but no scroll up :)
+Apr 11 10:02:36 <Hamilton>	It's okay. Doesn't matter. Thanks
+Apr 11 10:02:56 <kchibisov>	what do you mean by `scroll up`?
+Apr 11 10:06:31 <Hamilton>	kchibisov, if ls is long, it just shows the final 4 lines or sho
+Apr 11 10:07:02 <kchibisov>	works for me?
+Apr 11 10:07:11 <kchibisov>	I can scroll, etc.
+Apr 11 10:08:12 <kchibisov>	So your prompt should be in the bottom of the screen if your output is too long.
+Apr 11 10:10:35 <kchibisov>	Well if you can repro everytime I can debug this thing.
+Apr 11 10:13:14 <kchibisov>	Just set history value in config to some value like 300 and do `alacritty --ref-test -e sh -c "ls -lah; ls -lah; exec sh"`
+Apr 11 10:13:34 <kchibisov>	it should create 4 files, and I need only alacritty.recording from them.
+Apr 11 10:28:04 <Hamilton>	kchibisov, I did a 4 ls -lah it works. It was printing everything. I thought I was doing a ls -a instead
+Apr 11 10:28:38 <Hamilton>	and ls -a scrolls properly also
+Apr 11 10:37:29 <Hamilton>	kchibisov, What distro/DE/wm do you yourself use?"
+Apr 11 10:37:44 <kchibisov>	gentoo + sway
+Apr 11 10:37:50 <Hamilton>	oof
+Apr 11 10:38:12 <Hamilton>	kchibisov, On a laptop?
+Apr 11 10:39:12 <kchibisov>	yeah, and on a desktop.
+Apr 11 18:26:52 <UndeadLeech>	kchibisov: Oh, looks like GitHub stored my previous review...
+Apr 11 18:27:20 <UndeadLeech>	That's a bit strange.
+Apr 11 18:31:22 <UndeadLeech>	Not sure if that's a bug or a feature.
+Apr 11 20:57:38 <kchibisov>	I wonder if we can have one thread around to do various kind of strange things to not block alacritty.
+Apr 11 20:57:45 <kchibisov>	and a channel to send requests to it.
+Apr 11 20:58:13 <kchibisov>	e.g. launching commands, etc.
+Apr 11 20:58:37 <kchibisov>	clipboard interop.
+Apr 11 20:58:43 <UndeadLeech>	Seems easier to just spawn them and get rid of them.
+Apr 11 20:58:52 <UndeadLeech>	Since 99% of the time there won't be one.
+Apr 11 20:59:03 <kchibisov>	yeah, but what if you spawm a ton of them.
+Apr 11 20:59:16 <kchibisov>	like imagine triggers proposal + bell spam.
+Apr 11 21:00:20 <kchibisov>	Though, I haven't measured if it's slow or not tbh.
+Apr 11 21:14:27 <UndeadLeech>	Even then it wouldn't be a big deal.
+Apr 11 21:14:37 <UndeadLeech>	That's not 'a ton' when it comes to threads.
+Apr 11 21:58:04 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 11 21:58:04 2020
+
+**** BEGIN LOGGING AT Sat Apr 11 22:06:58 2020
+
+Apr 11 22:06:58 *	Now talking on #alacritty
+Apr 11 22:06:58 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 11 22:06:58 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 11 22:11:34 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 11 22:11:34 2020
+
+**** BEGIN LOGGING AT Sat Apr 11 22:11:54 2020
+
+Apr 11 22:11:54 *	Now talking on #alacritty
+Apr 11 22:11:54 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 11 22:11:54 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 11 22:19:17 *	Disconnected (Connection reset by peer)
+**** ENDING LOGGING AT Sat Apr 11 22:19:17 2020
+
+**** BEGIN LOGGING AT Sat Apr 11 22:19:38 2020
+
+Apr 11 22:19:38 *	Now talking on #alacritty
+Apr 11 22:19:38 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 11 22:19:38 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 11 23:31:01 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 11 23:31:01 2020
+
+**** BEGIN LOGGING AT Sat Apr 11 23:31:27 2020
+
+Apr 11 23:31:27 *	Now talking on #alacritty
+Apr 11 23:31:27 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 11 23:31:27 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 11 23:49:25 <kchibisov>	Ok, I'm tired of that shit, time to install macOS.
+Apr 11 23:51:31 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 11 23:51:31 2020
+
+**** BEGIN LOGGING AT Sat Apr 11 23:55:11 2020
+
+Apr 11 23:55:11 *	Now talking on #alacritty
+Apr 11 23:55:11 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 11 23:55:11 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 12 00:02:21 <ifreund>	maybe that says something about the average mac user
+Apr 12 00:02:46 <kchibisov>	The problem that it prevents me from fixing other shit.
+Apr 12 00:03:26 <kchibisov>	Like if I want to create new API + test that things will work on macOS with it, it just won't be done by someone else.
+Apr 12 00:04:32 <kchibisov>	Just hope that qemu boots up
+Apr 12 00:11:10 <UndeadLeech>	kchibisov: Which issue specifically?
+Apr 12 00:11:19 <kchibisov>	just pick random font issue.
+Apr 12 00:11:36 <kchibisov>	and pick random macOS winit issue.
+Apr 12 00:12:04 <UndeadLeech>	I mean the same could be said about Windows.
+Apr 12 00:12:25 <kchibisov>	On Windows we have davidhewitt.
+Apr 12 00:12:41 <kchibisov>	and everything is mostly done on Windows font's side.
+Apr 12 00:13:04 <kchibisov>	and winit even has Windows maintainers from time to time and more folks around.
+Apr 12 00:13:20 <UndeadLeech>	It has more macOS maintainers at the moment tbh.
+Apr 12 00:13:27 <UndeadLeech>	At least from my last experiences.
+Apr 12 00:13:34 <kchibisov>	macOS has 0 maintainers.
+Apr 12 00:13:53 <UndeadLeech>	Who maintains Windows?
+Apr 12 00:13:58 <kchibisov>	osspial.
+Apr 12 00:14:37 <UndeadLeech>	Is he contributing again?
+Apr 12 00:15:00 <kchibisov>	I'm not sure tbh, but Windows backend is way more stable than macOS tbh.
+Apr 12 00:15:03 <kchibisov>	in winit.
+Apr 12 00:15:28 <UndeadLeech>	I'm relatively familiar with both and I'm not sure I agree with it from a code perspective.
+Apr 12 00:15:59 <kchibisov>	Windows is at least testable without issues.
+Apr 12 00:16:43 <kchibisov>	idk, let me try to setup qemu.
+Apr 12 00:20:50 <UndeadLeech>	You mean macOS?
+Apr 12 00:21:00 <kchibisov>	yeah, macOS in qemu.
+Apr 12 00:26:31 <Hexi>	greetings, I am trying to set a keybind for increasing font size as the defaults do not map to anything usable on my keyboard. In the config I have added 'key: Caret' in the appropriate place but it does not work. That key generates the ^ symbol when pressed but in xev it reports as 'asciicircum' rather than 'carat'
+Apr 12 00:27:01 <Hexi>	But if I set it to 'asciicircum' I get a red error message immediately with a list of keys and that one not being in the list.
+Apr 12 00:29:36 <UndeadLeech>	Hexi: Use `alacritty --print-events` to get the key names used by Alacritty.
+Apr 12 00:29:56 <UndeadLeech>	You'll have to look at the `WindowEvent`s in the output.
+Apr 12 00:30:08 <Hexi>	oh, great tip, I will give that a try, thanks!
+Apr 12 00:33:04 <Hexi>	much sadness, that key returns virtual_keycode: None
+Apr 12 00:33:26 <kchibisov>	you can bind by scancode.
+Apr 12 00:33:47 <Hexi>	oh I see it has scancode 13, I will try
+Apr 12 00:34:09 <Hexi>	yes that works! thank you so much
+Apr 12 01:30:35 <kchibisov>	UndeadLeech: it works.
+Apr 12 01:33:45 <UndeadLeech>	Alacritty in macOS VM you mean?
+Apr 12 01:33:55 <kchibisov>	yes.
+Apr 12 01:34:02 <UndeadLeech>	Question is for how long.
+Apr 12 01:34:14 <UndeadLeech>	But yeah, that's what I did for macOS testing before I got hardware.
+Apr 12 01:34:30 <UndeadLeech>	Until it broke.
+Apr 12 01:34:42 <kchibisov>	If you won't touch this scam, I hope it won't break.
+Apr 12 01:49:45 <UndeadLeech>	That's what I thought.
+Apr 12 01:49:50 <kchibisov>	:- )
+Apr 12 02:07:08 <kchibisov>	macOS in qemu seems to work faster than native macOS.
+Apr 12 02:08:05 <kchibisov>	but anyway, let me try to debug those font issues.
+Apr 12 02:08:48 <kchibisov>	also, UndeadLeech have you ever checked whether color you set in alacritty actually matches the color you'll get from color picker later.
+Apr 12 02:12:31 <UndeadLeech>	Yes?
+Apr 12 02:12:50 <kchibisov>	So I'll just ignore wierd color mismatch for now.
+Apr 12 02:13:30 <kchibisov>	Also, have you checked that default color for background in terminal.app matches the color in a config.
+Apr 12 02:13:35 <UndeadLeech>	Are you testing with text or background?
+Apr 12 02:13:42 <kchibisov>	background
+Apr 12 02:13:55 <UndeadLeech>	Why would I check Terminal.app background?
+Apr 12 02:14:14 <kchibisov>	Just to check that its color value for background differs from the color specified.
+Apr 12 02:14:18 <UndeadLeech>	I've never used Terminal.app.
+Apr 12 02:14:38 <UndeadLeech>	It does, depending on color configuration.
+Apr 12 02:14:48 <kchibisov>	IIRC they use some weird color speculation
+Apr 12 02:15:25 <UndeadLeech>	I mean in theory that exists on other platforms too.
+Apr 12 02:22:09 <kchibisov>	It seems like live font size reload is broken on macOS, right?
+Apr 12 02:22:25 <kchibisov>	Oh, nvm.
+Apr 12 02:22:46 <kchibisov>	I forget our semantic, that if you ever changed it, it won't work.
+Apr 12 02:23:16 <UndeadLeech>	What do you mean?
+Apr 12 02:23:18 <UndeadLeech>	Oh, the font size.
+Apr 12 02:23:18 <kchibisov>	yeah.
+Apr 12 02:23:18 <UndeadLeech>	It will work when you reset it.
+Apr 12 02:23:45 <kchibisov>	I don't see unicode issue on `cat /dev/urandom` tbh
+Apr 12 02:24:01 <kchibisov>	like it's not freezing, at least.
+Apr 12 02:24:12 <kchibisov>	testing urw is pretty hard, since it's a vm without real gpu.
+Apr 12 02:31:24 <UndeadLeech>	I don't think any performance tests will be useful.
+Apr 12 02:31:44 <kchibisov>	I can always compare to asrw perf.
+Apr 12 02:32:00 <kchibisov>	like numbers doesn't matter, but diff in render time could matter.
+Apr 12 02:32:48 <UndeadLeech>	They do matter though if you're bottlenecked by a path that is never a bottleneck on a normal machine.
+Apr 12 02:34:07 <kchibisov>	I mean they correlate with my linux machine tbh.
+Apr 12 02:35:13 <kchibisov>	Like ~12-16x difference in render time on asrw/urw
+Apr 12 02:35:33 <kchibisov>	I mean asrw is 12-16x faster on average in render times than urw on both machines.
+Apr 12 02:36:30 <kchibisov>	the problem is that on macOS it's 12ms and 100ms, but on linux it's something like 130usec and 2.3ms
+Apr 12 02:38:46 <UndeadLeech>	130usec and 2.3ms are both lower than FPS though, while 100ms is not and even 12ms is getting close.
+Apr 12 02:39:10 <kchibisov>	I mean it's a vm inside on qemu without GPU
+Apr 12 02:39:15 <UndeadLeech>	So you're suddenly bottlenecked by rendering, while normal machines shouldn't be.
+Apr 12 02:39:33 <kchibisov>	The thing I care about is render time.
+Apr 12 02:39:41 <kchibisov>	I don't care about the time to run benchmark.
+Apr 12 02:39:51 <kchibisov>	so I look only on render times here.
+Apr 12 02:39:51 <UndeadLeech>	I mean fair enough, I'm not saying there is absolutely no point.
+Apr 12 02:40:26 <kchibisov>	Also, macOS seems to do similar things in a font crate.
+Apr 12 02:40:45 <kchibisov>	e.g. iterate over fallback fonts, etc.
+Apr 12 02:40:53 <UndeadLeech>	I mean it's fonts, there's not that much that can be done differently.
+Apr 12 02:41:10 <kchibisov>	I only care about fonts.
+Apr 12 02:41:20 <kchibisov>	I mean that I want to fix only fonts on macOS.
+Apr 12 02:46:23 <kchibisov>	storm\: are you around?
+Apr 12 03:06:08 <kchibisov>	Anyway, I need someone with macOS + kitty to test one thing for me.
+Apr 12 03:09:40 <UndeadLeech>	What do you need tested, I might be able to look into it tomorrow?
+Apr 12 03:09:44 <UndeadLeech>	Assuming you mean native macOS?
+Apr 12 03:10:04 <kchibisov>	Oh, actually I can test kitty myself.
+Apr 12 03:10:21 <kchibisov>	I forgot that I actually have macOS.
+Apr 12 03:10:33 <UndeadLeech>	lol
+Apr 12 03:10:35 <kchibisov>	the problem that it looks like shit on my system, so debugging font quality is hard.
+Apr 12 03:10:42 <UndeadLeech>	What do you want to look into?
+Apr 12 03:10:53 <kchibisov>	thin_strokes thing
+Apr 12 03:11:24 <kchibisov>	AFAICKS kitty is using CGContextSetLineWidth to impl it.
+Apr 12 03:12:00 <kchibisov>	iterm has a shit ton of strange heuristic based logic to handle fonts.
+Apr 12 03:16:38 <kchibisov>	Oh, I can't test it.
+Apr 12 03:16:48 <kchibisov>	it requires OpenGL 4.0+ I guess.
+Apr 12 03:17:03 <UndeadLeech>	Great.
+Apr 12 03:17:06 <kchibisov>	Like it crashes with GL error on start.
+Apr 12 03:17:16 <kchibisov>	and they blame us for OpenGL 3.3
+Apr 12 03:18:07 <kchibisov>	ok, let me try to understand iterm code a bit more, and I'll post the thing I want to test.
+Apr 12 03:28:01 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 12 03:28:01 2020
+
+**** BEGIN LOGGING AT Sun Apr 12 07:36:39 2020
+
+Apr 12 07:36:39 *	Now talking on #alacritty
+Apr 12 07:36:39 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 12 07:36:39 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 12 07:59:01 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 12 07:59:01 2020
+
+**** BEGIN LOGGING AT Sun Apr 12 08:35:55 2020
+
+Apr 12 08:35:55 *	Now talking on #alacritty
+Apr 12 08:35:55 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 12 08:35:55 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 12 08:57:46 <lovesegfault>	kchibisov: You around?
+Apr 12 08:57:54 <kchibisov>	yeah.
+Apr 12 08:58:55 <lovesegfault>	I can't open any windows with winit 0.22 on Wayland, do none of the examples do anything?
+Apr 12 08:59:08 <lovesegfault>	They run, don't crash or anything, but no window comes up
+Apr 12 08:59:16 <kchibisov>	you should draw.
+Apr 12 08:59:41 <kchibisov>	so you should test glutin examples, and not winit examples, since winit isn't drawing.
+Apr 12 08:59:55 <lovesegfault>	So, I was trying to test this https://github.com/parasyte/pixels/pull/60
+Apr 12 09:00:14 <lovesegfault>	it explodes on wayland, with Xwayland it works
+Apr 12 09:00:30 <lovesegfault>	c.f. https://gist.github.com/0e38722940d17caeb4a9fd84cd6ec394
+Apr 12 09:00:50 <lovesegfault>	I _think_ it's a bug in smithay?
+Apr 12 09:01:40 <kchibisov>	idk, let me run your thing.
+Apr 12 09:02:36 <kchibisov>	let me make some coffee. I'll be right back to you in like 15 mins.
+Apr 12 09:02:42 <lovesegfault>	I'm trying the wgpu examples rn
+Apr 12 09:02:45 <lovesegfault>	let's see
+Apr 12 09:03:32 <Levanx>	I think you're hitting https://github.com/rust-windowing/winit/issues/793
+Apr 12 09:05:30 <lovesegfault>	yep
+Apr 12 09:07:20 <lovesegfault>	Levanx: Ah, yes, indeed
+Apr 12 09:07:30 <lovesegfault>	Goddamn
+Apr 12 09:07:49 <lovesegfault>	kchibisov: how does Alacritty not hit this?
+Apr 12 09:08:20 <lovesegfault>	https://github.com/alacritty/alacritty/issues/2714
+Apr 12 09:08:21 <lovesegfault>	oh
+Apr 12 09:08:29 <lovesegfault>	But how does it work otherwise?
+Apr 12 09:08:37 <Levanx>	(btw, fixing this is more a matter of deciding what winit should do than a technical problem)
+Apr 12 09:09:20 <lovesegfault>	Yeah, I see that
+Apr 12 09:13:45 <kchibisov>	yeah, the only way to hit that is Fullscreen startup mode.
+Apr 12 09:13:49 <kchibisov>	in alacritty.
+Apr 12 09:14:07 <kchibisov>	but you can launch normal things just fine.
+Apr 12 09:15:01 <kchibisov>	I feel like the only way to solve more
+Apr 12 09:15:23 <kchibisov>	more major issues like that is to port to a new SCTK and then fix them.
+Apr 12 09:17:02 <kchibisov>	I feel like it's time to start porting winit to a newer SCTK.
+Apr 12 09:18:07 <kchibisov>	Though, I should fix some minor issues first, but they won't be merged unless Levanx will press the button.
+Apr 12 09:18:45 <Levanx>	You mean the winit maintainership is basically dead now ? :/
+Apr 12 09:18:55 <kchibisov>	kind of.
+Apr 12 09:19:03 <kchibisov>	so you can press the button, and I can send patches to winit.
+Apr 12 09:19:17 <kchibisov>	Or we can fork winit and maintain it in alacritty.
+Apr 12 09:19:22 <lovesegfault>	kchibisov: How do you open a window not-fullscreen?
+Apr 12 09:19:33 *	lovesegfault wonders why pixels is opening fullscreen
+Apr 12 09:19:40 <Levanx>	welp
+Apr 12 09:19:57 <Levanx>	I guess I can. But ping me for review then, I disabled general notifications for winit.
+Apr 12 09:20:01 <kchibisov>	Like I'm fine with maintaining Wayland in winit, since alacritty requires it.
+Apr 12 09:20:30 <kchibisov>	Like I don't see any reason to not use winit, but gentz was away for 2 months.
+Apr 12 09:20:50 <kchibisov>	and osspial for a similar amount of time.
+Apr 12 09:21:18 <kchibisov>	And other folks won't merge my shit, since it's not their platform.
+Apr 12 09:21:41 <lovesegfault>	That's sad :/
+Apr 12 09:21:58 <kchibisov>	But as I said, we can fork it in alacritty.
+Apr 12 09:22:09 <kchibisov>	that's not a problem and was discussed already.
+Apr 12 09:22:32 <Levanx>	lovesegfault: Winit is, as a whole, a pretty unrewarding thing to maintain tbh
+Apr 12 09:22:48 <kchibisov>	like winit is just a wrapper, while we have smithay project it'll be fine.
+Apr 12 09:24:56 <kchibisov>	lovesegfault: you shouldn't set any mods when launching.
+Apr 12 09:26:10 *	lovesegfault looks
+Apr 12 09:27:18 <kchibisov>	Levanx: if you don't want to spend your time reviewing random winit stuff let me know, we'll likely fork it right away then. But I don't see anyone besides me who can maintain Wayland in winit.
+Apr 12 09:27:41 <lovesegfault>	kchibisov: I don't think I'm setting anything? https://github.com/lovesegfault/pixels/blob/update-deps/examples/conway/main.rs#L18-L19
+Apr 12 09:28:07 <lovesegfault>	kchibisov: Have you consider asking for a commit bit instead?
+Apr 12 09:28:28 <kchibisov>	No, but there's no one I can ask for it.
+Apr 12 09:28:47 <kchibisov>	unless everyone in winit has equal ownership.
+Apr 12 09:28:56 <lovesegfault>	OH
+Apr 12 09:28:59 <lovesegfault>	I see the issue
+Apr 12 09:29:13 <kchibisov>	like osspial should be the boss, I guess, but I don't see them.
+Apr 12 09:29:14 <kchibisov>	and gentz.
+Apr 12 09:30:02 <Levanx>	kchibisov: If it's just reviewing & merging a few technical PRs, that's fine.
+Apr 12 09:30:36 <Levanx>	I just don't want to be dragged into yet another long debate about API design abstracting over multiple platforms ._.
+Apr 12 09:32:35 <Levanx>	I already restarted the momentum when francesca left, leading to the shared maintainership we had until now. I don't really want to do that a second time tbqh :/
+Apr 12 09:34:21 <kchibisov>	lovesegfault: let me debug your thing.
+Apr 12 09:36:33 <kchibisov>	Oh, I've got the issue.
+Apr 12 09:37:05 <kchibisov>	yeah, they are calling to monitor too early.
+Apr 12 09:37:23 <kchibisov>	I absolutely hate what they are doing so.
+Apr 12 09:39:21 <lovesegfault>	kchibisov: Yeah, did you find they part where they draw the hidden window to figure out a good size?
+Apr 12 09:40:20 <kchibisov>	yeah, they are doing shit.
+Apr 12 09:40:37 <kchibisov>	like this code is just bad and won't work..
+Apr 12 09:40:52 <kchibisov>	first of all `set_inner_size` doesn't guarantee you anything.
+Apr 12 09:41:16 <kchibisov>	set_outer_position is not a thing on some systems.
+Apr 12 09:42:08 <kchibisov>	Also, on HiDPI system, initial scale factor is always 1.
+Apr 12 09:42:16 <kchibisov>	so you'll resize anyways.
+Apr 12 09:43:23 <lovesegfault>	oh jesus the mouse handling is all fucked
+Apr 12 09:43:34 <kchibisov>	I'll propose to just use scale factor instead of monitor dimensions magic, since THERE'S NO GUARANTEE THAT THEY ARE CORRECT.
+Apr 12 09:43:43 <lovesegfault>	if you run and try and do line a drag (i.e. draw a line)
+Apr 12 09:44:24 <kchibisov>	like just use scale factor and don't be smart.
+Apr 12 09:44:40 *	lovesegfault nods
+Apr 12 09:45:20 <kchibisov>	like I'm tired of some winit ideas like DPR factor 777 on X11.
+Apr 12 09:45:39 <kchibisov>	because they're due to monitor dimensions.
+Apr 12 09:45:39 <lovesegfault>	What's DPR?
+Apr 12 09:45:49 <kchibisov>	I mean scale factor.
+Apr 12 09:45:56 <kchibisov>	it's a Device Pixel Ratio.
+Apr 12 09:46:13 <lovesegfault>	Ah
+Apr 12 09:46:18 <lovesegfault>	Why 777 O.o
+Apr 12 09:46:35 <kchibisov>	it was 719 to be more precise.
+Apr 12 09:47:17 <kchibisov>	16mmx9mm 5kx1440p display or something like that.
+Apr 12 09:51:07 <lovesegfault>	kchibisov: I gotta go to sleep, if you have time to help fix that example code it'd be greatly appreciated; I'm trying to get that little lib back in shape, it's really handy
+Apr 12 09:51:13 <lovesegfault>	thanks for all the help, gnight
+Apr 12 09:52:47 <kchibisov>	note, I'm not justifing winit crash here and I don't have much time to work on `one more project`.
+Apr 12 10:31:35 <basic>	waah, when i use ncurses in alacritty (compiled yesterday) it moves 2 spots, not 2
+Apr 12 10:32:05 <kchibisov>	Could you explain your issue a bit more?
+Apr 12 10:32:22 <kchibisov>	Oh, I guess you should remove old bindings to arrow keys.
+Apr 12 10:33:10 <basic>	well, i tried to recompile my kernel, and if i use the arrow keys it moves2 instead of 1
+Apr 12 10:33:23 <kchibisov>	remove default bindings.
+Apr 12 10:33:36 <basic>	uhm, une second
+Apr 12 10:33:45 <kchibisov>	Just leave the thing you've defined yourself.
+Apr 12 10:34:20 <basic>	  - { key: Up,       mods: Shift,   chars: "\x1b[1;2A"                       } these?
+Apr 12 10:34:29 <basic>	https://github.com/bananarne/dotfiles/blob/bb57071c4ae763ed6de43c55123be5536112d895/.config/alacritty/alacritty.yml#L476
+Apr 12 10:34:35 <kchibisov>	yeah those things.
+Apr 12 10:34:48 <basic>	you want me to remove all bindings?
+Apr 12 10:34:52 <kchibisov>	You can safely delete the entire section.
+Apr 12 10:34:54 <basic>	like line 445 to 546
+Apr 12 10:35:03 <basic>	okay, thanks
+Apr 12 10:35:05 <kchibisov>	yeah, you can do that from 424
+Apr 12 10:36:01 <basic>	yeah works again, thanks
+Apr 12 10:36:08 <basic>	does this mean, i mapped 2 things to the arrowkey?
+Apr 12 10:36:15 <basic>	(2 times the same thing)
+Apr 12 10:36:26 <kchibisov>	yeah, we changed default bindings, so you've mapped twice.
+Apr 12 10:36:30 <basic>	ah, cool
+Apr 12 10:37:07 <kchibisov>	Like we removed bindings like a year ago, but now we actually changed all default ones, since we added one more mode, which affected all bindings.
+Apr 12 10:37:23 <basic>	which mode?
+Apr 12 10:37:28 <kchibisov>	Vi mode.
+Apr 12 10:37:37 <basic>	UHH what does tha tmean?? that sounds interesting af
+Apr 12 10:37:47 <basic>	can i copy paste in alacritty? without tmux n shit?
+Apr 12 10:37:50 <kchibisov>	yeah.
+Apr 12 10:37:56 <basic>	WOAH alacritty IS the best
+Apr 12 10:37:58 <basic>	how how how
+Apr 12 10:37:59 <kchibisov>	Ctrl + Shift + space.
+Apr 12 10:38:09 <kchibisov>	and other default vi bindings should kind of work.
+Apr 12 10:38:25 <basic>	man
+Apr 12 10:38:26 <basic>	that is fukin
+Apr 12 10:38:30 <kchibisov>	https://github.com/alacritty/alacritty/blob/ab2db49af5467ec972e297259dd8c23022783347/alacritty.yml#L561
+Apr 12 10:38:30 <basic>	awesome
+Apr 12 10:38:37 <basic>	this is exactly what i suggested in here, half a year ago
+Apr 12 10:38:44 <basic>	man that is cool
+Apr 12 10:38:45 <basic>	i am so happy
+Apr 12 10:39:01 <basic>	thank you for implementing this
+Apr 12 10:39:10 <basic>	whoever did
+Apr 12 10:39:22 <kchibisov>	note, it's still missing some useful things, but they should be added at some point.
+Apr 12 10:39:36 <basic>	as long as i can copy/paste without touching the mouse
+Apr 12 10:39:38 <basic>	i don't mind
+Apr 12 10:40:24 <basic>	as long as i can copy/paste without touching the mouse
+Apr 12 10:40:25 <basic>	hihihihi
+Apr 12 10:40:52 <basic>	what would be useful, addditionally to this?
+Apr 12 10:41:03 <kchibisov>	search + indicator for vi mode.
+Apr 12 10:43:01 <Levanx>	BTW, Yesterday I realized alacritty now had block selection. No idea since when it is the case, but that's very cool! Thanks ❤︎
+Apr 12 10:43:17 <kchibisov>	was added like a year ago also.
+Apr 12 10:43:27 <basic>	search + indicator for
+Apr 12 10:43:27 <basic>	, Yesterday I realized
+Apr 12 10:43:30 <basic>	hohoho
+Apr 12 10:43:36 <basic>	sorry, im way to happy about this
+Apr 12 10:43:57 <basic>	i should follow the repository & learn to rust
+Apr 12 10:44:22 <kchibisov>	You can just follow releases, I guess, since we publish very verbose changelog, so you won't miss new features.
+Apr 12 10:44:57 <basic>	you should have a "read the changelog" notification :p
+Apr 12 10:45:03 <basic>	with super fancy shaders
+Apr 12 10:45:34 <kchibisov>	I don't see a need for such things, just read release notes.
+Apr 12 10:47:12 *	Levanx just obtains new alacritty without noticing via system updates :-°
+Apr 12 10:49:23 <kchibisov>	Oh, god, winit doesn't have dollar VirtualKeyCode.
+Apr 12 10:49:40 <basic>	Levanx: same here
+Apr 12 10:49:41 <kchibisov>	As well as some other fancy stuff.
+Apr 12 10:50:13 <Levanx>	Actually, I forgot following only releases was a thing. Goona do that.
+Apr 12 10:50:40 <basic>	can i change the ctrl+shift+space thing to something different?
+Apr 12 10:50:45 <kchibisov>	I do the same for some projects on github, since I manually download them.
+Apr 12 10:51:00 <kchibisov>	basic: yeah, read new default config.
+Apr 12 10:51:06 <basic>	uhhhhhhhhh
+Apr 12 10:51:14 <kchibisov>	I mean it's just new bindings.
+Apr 12 10:51:30 <kchibisov>	it's called ToggleViMode.
+Apr 12 10:59:38 <kchibisov>	the most interesting thing that winit has Yen keycode, but not dollar.
+Apr 12 11:03:33 <storm\>	kchibisov: mac releated again, i just had time to look at code etc, and about to choose a issue to dig into
+Apr 12 11:03:48 <storm\>	would you say https://github.com/alacritty/alacritty/issues/2800 is the most important osx for now which is a good first one?
+Apr 12 11:03:58 <kchibisov>	Oh, this is hard.
+Apr 12 11:04:13 <kchibisov>	locale is the easiest one.
+Apr 12 11:04:20 <kchibisov>	and the most important.
+Apr 12 11:04:43 <kchibisov>	You can test it by launching Alacritty.app, typing locale and see that locale is a bit wrong.
+Apr 12 11:04:53 <kchibisov>	compared to iterm2 and Terminal.app.
+Apr 12 11:05:22 <kchibisov>	I've figured out the issue with thin strokes, and it's not really our fault, but we can likely have a setting similar to iterm.
+Apr 12 11:05:42 <storm\>	difference for me is that kitty and terminal app writes: `LC_ALL=` and alacritty writes: LC_ALL="en_US.UTF-8"
+Apr 12 11:05:47 <storm\>	rest of them is wqual.
+Apr 12 11:05:49 <storm\>	equal*
+Apr 12 11:06:02 <storm\>	oh you did? nice
+Apr 12 11:06:03 <kchibisov>	we don't touch LC_ALL at all.
+Apr 12 11:06:16 <storm\>	okay, so let me maybe look at why that is being set.
+Apr 12 11:06:28 <kchibisov>	let me launch macOS, one sec.
+Apr 12 11:08:25 <kchibisov>	https://paste.rs/bvB.png
+Apr 12 11:08:31 <kchibisov>	like this is the issue.
+Apr 12 11:08:56 <kchibisov>	You can see iterm/terminal.app and alacritty.
+Apr 12 11:09:05 <storm\>	hmm
+Apr 12 11:09:06 <kchibisov>	you can notice that locale differs in LC_CTYPE
+Apr 12 11:09:31 <kchibisov>	note, UTF-8 locale is shit, but whatever macOS decides.
+Apr 12 11:09:46 <kchibisov>	you're likely setting locale in shell.
+Apr 12 11:10:01 <storm\>	lemme check
+Apr 12 11:10:03 <kchibisov>	since we don't touch LC_ALL at all.
+Apr 12 11:10:17 <kchibisov>	just grep the thing for LC_ALL and how stes it.
+Apr 12 11:11:23 <basic>	thnaks all!
+Apr 12 11:12:24 <storm\>	yeah ok i see the problem kchibisov
+Apr 12 11:13:08 <kchibisov>	so we have locale.rs file in alacritty_terminal which is purely msg_send(objective-C shit) which is trying to guess locale.
+Apr 12 11:13:29 <kchibisov>	So we should do what native terminal and iterm2 are doing and end up with this UTF-8 locale.
+Apr 12 11:13:41 <kchibisov>	which isn't a thing, but whatever.
+Apr 12 11:13:46 <storm\>	wait hmm wtf is this.
+Apr 12 11:13:47 <storm\>	hang on
+Apr 12 11:15:43 <storm\>	https://imgur.com/a/cjx2beG
+Apr 12 11:16:25 <storm\>	kitty and alacritty shows equals locales for me. both is not equal to terminal.app
+Apr 12 11:16:34 <storm\>	terminal.app in the middle
+Apr 12 11:16:44 <storm\>	alacritty to the right
+Apr 12 11:17:04 <kchibisov>	yeah, terminal.app is likely correct to some point.
+Apr 12 11:17:46 <kchibisov>	This is a key to display some unicode glyphs, since without it it'll blow up.
+Apr 12 11:18:03 <kchibisov>	I mean apps won't render unicode chars, e.g. tmux
+Apr 12 11:18:44 <kchibisov>	So my main question why iterm and terminal.app are using the same locales.
+Apr 12 11:18:46 <storm\>	yeah, i had `export LANG="en_US.UTF-8"` in my zshrc which then solves the issues on all my terminal emulators
+Apr 12 11:18:59 <storm\>	ill get iterm2, sec
+Apr 12 11:18:59 <kchibisov>	yeah, you shouldn't do that, since it's wrong.
+Apr 12 11:19:19 <kchibisov>	If you want to do that properly, it should be set in alacritty.yml for example.
+Apr 12 11:20:36 <storm\>	okay so the issue is the following:
+Apr 12 11:20:45 <storm\>	LC_CTYPE is not getting set properly to the correct value
+Apr 12 11:20:55 <kchibisov>	I see that yeah.
+Apr 12 11:20:56 <storm\>	iterm and terminal SOMEHOW gets "UTF-8"
+Apr 12 11:21:09 <kchibisov>	so someone should figure out that SOMEHOW.
+Apr 12 11:21:13 <storm\>	ill do that.
+Apr 12 11:21:35 <kchibisov>	I'd just recommend to look at iterm code here.
+Apr 12 11:21:58 <kchibisov>	and correct our locale.rs to match it.
+Apr 12 11:23:10 <storm\>	yeah
+Apr 12 11:28:46 <storm\>	noobie rust question #1, kchibisov: if i do some logging in the code – where would this be outputted when building it? how do you guys normally do this?
+Apr 12 11:29:05 <kchibisov>	println!("PRINT");
+Apr 12 11:29:16 <kchibisov>	will be output to stdout.
+Apr 12 11:29:52 <kchibisov>	println!("{:?}", value); will print debug formatting for the value.
+Apr 12 11:30:03 <kchibisov>	println!("{}", value); normal formatting.
+Apr 12 11:30:43 <kchibisov>	so you basically do `cargo run` and see your output, if you log with `println!()`.
+Apr 12 11:31:43 <storm\>	goodie
+Apr 12 11:31:57 <storm\>	i feel bad for fixing alacritty in vim, in kitty.
+Apr 12 11:31:59 <storm\>	:|
+Apr 12 11:32:27 <kchibisov>	note, I can't test kitty at all, since it doesn't run on my macOS setup.
+Apr 12 11:32:40 <storm\>	its fine
+Apr 12 11:32:52 <storm\>	how do you emulate osx?
+Apr 12 11:36:45 <kchibisov>	qemu.
+Apr 12 11:37:24 <ifreund>	qemu is magic
+Apr 12 11:37:46 <kchibisov>	I mean folks already solved that task for me, I just follow instrs and run it.
+Apr 12 11:40:40 <storm\>	alrite, i think ive found the bug
+Apr 12 11:41:09 <storm\>	will try to fix it, obviously take me a some more time until im comfortable in rust but whatever.
+Apr 12 11:44:29 <storm\>	aaaaand kid woke up, will fix tonight.
+Apr 12 12:45:29 <storm\>	kchibisov: do we want a encoding variable or something in the yml config or do we just hardcore to utf-8 encoding?
+Apr 12 12:46:07 <kchibisov>	We shouldn't hardcode anything, I want to know how it works.
+Apr 12 12:46:35 <storm\>	Both terminal and iterm2 sets theirs based on what you chose in their options
+Apr 12 12:46:40 <kchibisov>	you can set env variables in config right now though.
+Apr 12 12:47:11 <kchibisov>	So, you can make iterm to use just C?
+Apr 12 12:47:25 <kchibisov>	I mean LC_CTYPE to report C.
+Apr 12 12:47:26 <storm\>	No because they force you to select one
+Apr 12 12:47:35 <storm\>	We set to null
+Apr 12 12:47:45 <kchibisov>	Oh, could you link their code?
+Apr 12 12:47:55 <kchibisov>	or where this setting is?
+Apr 12 12:48:25 <storm\>	yes hang on
+Apr 12 12:48:57 <storm\>	iterm2 -> pref -> terminal -> char encoding
+Apr 12 12:49:24 <storm\>	that list they pull from objc api to populate the encoding options
+Apr 12 12:49:31 <storm\>	and defaults to utf8 if you dont choose anything else
+Apr 12 12:49:47 <kchibisov>	can we do something like that?
+Apr 12 12:49:56 <storm\>	https://github.com/alacritty/alacritty/blob/master/alacritty_terminal/src/locale.rs#L63
+Apr 12 12:50:14 <storm\>	yeah i guess we can
+Apr 12 12:50:43 <kchibisov>	How do they handle LANG?
+Apr 12 12:50:47 <kchibisov>	just leave it unset?
+Apr 12 12:50:50 <storm\>	yes
+Apr 12 12:51:13 <kchibisov>	So in theory we can check whether env variable is there and just set it.
+Apr 12 12:51:21 <kchibisov>	if it wasn't already set.
+Apr 12 12:52:15 <storm\>	from what i can see the code we have right now works fine, except the LC_CTYPE for char encoding. this we cant se on a specific case
+Apr 12 12:52:49 <kchibisov>	I mean that you can set it to C.UTF-8 if LC_CTYPE was unset during run.
+Apr 12 12:52:52 <kchibisov>	during startup.
+Apr 12 12:52:55 <storm\>	so yes, i am wondering if we should default to UTF-8, and this can then be overwritten through the yml.
+Apr 12 12:53:09 <kchibisov>	that's exactly what I'm saying.
+Apr 12 12:53:17 <kchibisov>	you can set LC_CTYPE in yaml already.
+Apr 12 12:53:23 <kchibisov>	it's not a problem.
+Apr 12 12:53:26 <storm\>	oki
+Apr 12 12:53:35 <kchibisov>	just add it to `env:` section.
+Apr 12 12:53:50 <storm\>	ok ill have to play with the little one now, but will make a PR tonight
+Apr 12 12:53:53 <kchibisov>	Could you link the iterm code to me.
+Apr 12 12:53:56 <storm\>	yes hang on
+Apr 12 12:56:54 <storm\>	hm theres another place i cant find right now but theres some of it here: https://github.com/gnachman/iTerm2/blob/34318c13b9031b33008852a2991dfa614c9655ae/sources/ProfilesTerminalPreferencesViewController.m#L238
+Apr 12 12:58:58 <kchibisov>	I feel like all the code is in sources/PTYSession.m
+Apr 12 12:59:18 <kchibisov>	I mean in iterm2, so you can just grep for LC_CTYPE.
+Apr 12 12:59:40 <storm\>	Yeah will continue tonight when kid sleeps again
+Apr 12 12:59:53 <storm\>	Shouldn’t be that complicated
+Apr 12 14:59:03 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 12 14:59:03 2020
+
+**** BEGIN LOGGING AT Sun Apr 12 14:59:31 2020
+
+Apr 12 14:59:31 *	Now talking on #alacritty
+Apr 12 14:59:31 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 12 14:59:31 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 12 18:15:56 <storm\>	kchibisov: how do i get the env variables in the code?
+Apr 12 18:20:03 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 12 18:20:03 2020
+
+**** BEGIN LOGGING AT Sun Apr 12 18:49:28 2020
+
+Apr 12 18:49:28 *	Now talking on #alacritty
+Apr 12 18:49:28 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 12 18:49:28 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 12 18:59:36 <storm\>	I pm'ed you kchibisov to discuss locale issue im working on. Let me know when you have time to talk.
+Apr 12 19:10:07 <kchibisov>	lovesegfault: are you around?
+Apr 12 19:10:40 <lovesegfault>	kchibisov: Yeah, what's up?
+Apr 12 19:11:13 <kchibisov>	Could you test one example for me?
+Apr 12 19:11:19 <lovesegfault>	Sure thing
+Apr 12 19:14:41 <kchibisov>	run `cargo run --example kbd_input` from https://github.com/smithay/client-toolkit and press the same keys you're pressing in winit.
+Apr 12 19:18:32 <kchibisov>	You can aslo post results from xev, wev, instead of this example though.
+Apr 12 19:21:28 *	lovesegfault tries wev first
+Apr 12 19:22:34 <lovesegfault>	kchibisov: Here's wev https://gist.github.com/44cf575e432f8d92d9ac06e8f565d151
+Apr 12 19:22:41 <lovesegfault>	doing smithay now
+Apr 12 19:25:09 <lovesegfault>	https://gist.github.com/91a3da4f654d9ef197622c7c1f6515d7
+Apr 12 19:25:11 <lovesegfault>	heh
+Apr 12 19:26:23 <kchibisov>	Levanx: beep
+Apr 12 19:26:38 <lovesegfault>	If I add libxkbcommon to my env it works
+Apr 12 19:26:47 *	lovesegfault tries glutin now
+Apr 12 19:27:23 <lovesegfault>	Yep, and now it works :)
+Apr 12 19:27:26 *	lovesegfault tries crow
+Apr 12 19:28:09 <kchibisov>	Could you try to `git checkout v0.6.x` in repo I've linked to you and rerun kbd_input?
+Apr 12 19:28:20 <Levanx>	Yeah, you cannot really interpret Wayland keyboard input without libxkbcommon
+Apr 12 19:29:10 <kchibisov>	I wonder why it crashed though.
+Apr 12 19:29:56 <kchibisov>	lovesegfault: are you on NixOS?
+Apr 12 19:30:16 <lovesegfault>	kchibisov: yep
+Apr 12 19:30:24 <lovesegfault>	Trying v0.6.x
+Apr 12 19:30:28 <lovesegfault>	I'm in a nix-shell
+Apr 12 19:30:42 <kchibisov>	Could you modify rpath to include libxbkcommon?
+Apr 12 19:30:44 <Levanx>	Oh, the kbd_input example crashed because if mapping the keyboard with xkbcommon fails, it doesn't assign any closure to the wl_keyboard
+Apr 12 19:30:46 <Levanx>	woops
+Apr 12 19:31:07 <lovesegfault>	kchibisov: I modified LD_LIBRARY_PATH to have libxkbcommon and it worked :^)
+Apr 12 19:31:26 <kchibisov>	yeah, because it's using dlopen, so you need to patchelf.
+Apr 12 19:31:35 <lovesegfault>	With that both master and 0.6.x work, without neither work
+Apr 12 19:31:39 <lovesegfault>	kchibisov: Ah, I see
+Apr 12 19:33:12 <kchibisov>	Could you check that winit works with this thing applied?
+Apr 12 19:33:24 <kchibisov>	I mean with modified rpath
+Apr 12 19:34:01 <lovesegfault>	Yes it does :)
+Apr 12 19:34:07 <lovesegfault>	Thanks a lot kchibisov
+Apr 12 19:34:14 <kchibisov>	So it's a nixos thing.
+Apr 12 19:34:57 <lovesegfault>	Yep; but I'll add that it'd be nice if there was an option to statically link stuff and avoid this
+Apr 12 19:38:08 <kchibisov>	So I guess your issue should be closed now.
+Apr 12 19:49:50 <kchibisov>	nixpulvis what do you mean?
+Apr 12 19:50:43 <kchibisov>	UndeadLeech: if winit folks won't appear in a week, we're forking it and glutin.
+Apr 12 19:51:39 <kchibisov>	yourfate Could you elaborate on no colors in tmux anymore and what terminfo you've installed?
+Apr 12 19:52:18 <kchibisov>	IIRC you should just have ncurses installed or whatever gives you terminfos on FreeBSD.
+Apr 12 19:55:13 <nixpulvis>	kchibisov: I'm trying to reset all the syntax colors in Vim and it's litterally a nightmare.
+Apr 12 19:55:17 <UndeadLeech>	kchibisov: Might be worth opening an issue offering support?
+Apr 12 19:55:22 <nixpulvis>	I recall you talking about doing something like this.
+Apr 12 19:55:38 <UndeadLeech>	Maybe we can just take over when nobody else is around.
+Apr 12 19:56:26 <yourfate>	kchibisov: I have ncurses installed, but afaik on freebsd termcap is used
+Apr 12 19:56:28 <yourfate>	not terminfo
+Apr 12 19:57:19 <yourfate>	I have not installed alacritty on the bsd machine
+Apr 12 19:57:41 <yourfate>	I manually installed the terminfo as described on the alacritty gitlab page
+Apr 12 19:58:00 <yourfate>	which didn't work, I created a termcap from it and put that in ~/.termcap
+Apr 12 19:58:14 <yourfate>	which seems to work when I SSH to the machine, but once I start tmux on it I lose color
+Apr 12 19:58:28 <yourfate>	if I first set TERM to xterm-256color everything is well
+Apr 12 20:03:10 <nixpulvis>	kchibisov: I might have gotten somewhere with ~/.vim/after/syntax/syncolor.vim.
+Apr 12 20:14:19 <kchibisov>	yourfate: does infocmp -x alacritty is working on your remote machine?
+Apr 12 20:14:35 <kchibisov>	Also, FreeBSD is shipping our terminfo somewhere IIRC.
+Apr 12 20:14:52 <kchibisov>	nixpulvis: I have my custom theme, but it's not named, so it's not published.
+Apr 12 20:14:56 <yourfate>	yes, that outputs stuff, but it ends prematurely I think
+Apr 12 20:14:58 <kchibisov>	but it works in vim.
+Apr 12 20:15:22 <yourfate>	#       Reconstructed via infocmp from file: /usr/local/share/misc/terminfo.db
+Apr 12 20:15:24 <yourfate>	is the header
+Apr 12 20:15:32 <yourfate>	I put that in the terminfo.db using tic I think
+Apr 12 20:15:53 <kchibisov>	could you infocmp -d alacritty xterm-256color?
+Apr 12 20:16:24 <yourfate>	output: https://bsd.to/QG03
+Apr 12 20:17:01 <kchibisov>	it seems fine.
+Apr 12 20:17:16 <kchibisov>	so again what's your color issues? like I don't see them in `ls`?
+Apr 12 20:17:50 <yourfate>	I don't see any colours, my shell prompt, ls, neofetch
+Apr 12 20:17:53 <yourfate>	etc
+Apr 12 20:17:55 <yourfate>	everything white text
+Apr 12 20:17:58 <yourfate>	in tmux
+Apr 12 20:18:14 <kchibisov>	what is echo $TERM inside of tmux?
+Apr 12 20:18:37 <yourfate>	I tried different things, alacritty, tmux-256color, screen-256color
+Apr 12 20:18:44 <yourfate>	via tmux.conf
+Apr 12 20:18:55 <yourfate>	to no avail
+Apr 12 20:19:01 <kchibisov>	is `echo -e "\e[31mRED` is red?
+Apr 12 20:20:01 <yourfate>	sec, my irc client garbled that
+Apr 12 20:20:59 <yourfate>	no, just says RED in white
+Apr 12 20:21:29 <kchibisov>	Oh, so tmux is completely broken.
+Apr 12 20:21:39 <yourfate>	something is very weird there
+Apr 12 20:21:54 <yourfate>	before I had the alacritty in .termcmp it would tell me it can't find the terminfo database
+Apr 12 20:21:58 <yourfate>	when I tried to attach
+Apr 12 20:22:02 <yourfate>	when term as alacritty
+Apr 12 20:22:10 <yourfate>	but it worked with xterm-256color
+Apr 12 20:22:29 <yourfate>	eh .termcap
+Apr 12 20:22:37 <kchibisov>	have you tried that `set -g default-terminal tmux-256color` in tmux, right?
+Apr 12 20:22:52 <yourfate>	yes
+Apr 12 20:23:03 <yourfate>	I also tied that in addition to `set-option -ga terminal-overrides ",xterm-256color:Tc"`
+Apr 12 20:23:10 <yourfate>	which I found somewhere
+Apr 12 20:23:14 <yourfate>	no changes
+Apr 12 20:23:29 <kchibisov>	it should be set-option -ga terminal-overrides ",alacritty:Tc"
+Apr 12 20:23:29 <yourfate>	also tried with no config at all
+Apr 12 20:24:00 <kchibisov>	but it's for truecolors, so..
+Apr 12 20:24:05 <yourfate>	nope
+Apr 12 20:24:56 <kchibisov>	and i'll assume `env TERM=xterm-256color tmux` works?
+Apr 12 20:25:21 <yourfate>	yup
+Apr 12 20:25:48 <kchibisov>	what tmux version are you using?
+Apr 12 20:25:59 <yourfate>	3.0a
+Apr 12 20:26:15 <yourfate>	i'm on freebsd 12.1
+Apr 12 20:26:18 <yourfate>	installed like 2 days ago
+Apr 12 20:26:24 <yourfate>	well, the machine is, I'm on arch
+Apr 12 20:26:53 <kchibisov>	it's just random bsd issue, I guess.
+Apr 12 20:27:06 <yourfate>	thanks for trying though!
+Apr 12 20:27:15 <yourfate>	I guess I'll alias tmux :P
+Apr 12 20:27:16 <kchibisov>	let me check tmux sources, since linux works fine.
+Apr 12 20:27:51 <kchibisov>	tmux speaks about ncurses a lot, do you have it?
+Apr 12 20:28:20 <yourfate>	I first had tmux, which worked, but needed to install the ncruses package to get tic
+Apr 12 20:28:32 <yourfate>	I think there are 2 different ncurses on bsd?
+Apr 12 20:28:43 <kchibisov>	Hm?
+Apr 12 20:28:51 <yourfate>	I think tmux needs ncurses
+Apr 12 20:28:55 <kchibisov>	BSD doesn't have ncurses at all by default.
+Apr 12 20:29:05 <yourfate>	yes, but installing tmux should have installed it maybe?
+Apr 12 20:29:10 <yourfate>	sed
+Apr 12 20:29:13 <yourfate>	sec
+Apr 12 20:31:26 <yourfate>	ok, idk, but I installed ncurses after tmux I think
+Apr 12 20:31:35 <yourfate>	mainly because I wanted tic
+Apr 12 20:31:44 <yourfate>	to install the alacritty terminfo :P
+Apr 12 20:41:09 <kchibisov>	Could you run `tmux -v` and post some logs?
+Apr 12 20:41:36 <yourfate>	where does that log?
+Apr 12 20:42:30 <kchibisov>	it should create 2 files in a dir where you've started it.
+Apr 12 20:42:38 <kchibisov>	I need server log.
+Apr 12 20:43:47 <yourfate>	sec
+Apr 12 20:45:26 <yourfate>	http://sprunge.us/nYGIMw
+Apr 12 20:50:55 <kchibisov>	could you post similar output when TERM=xterm-256color?
+Apr 12 20:53:00 <yourfate>	http://sprunge.us/UG786F
+Apr 12 20:53:46 <yourfate>	I still had set -g default-terminal "tmux-256color" in there
+Apr 12 20:53:49 <yourfate>	in tmux.conf
+Apr 12 20:57:40 <kchibisov>	could you recompile our terminfo?
+Apr 12 20:58:25 <yourfate>	as in, with tic?
+Apr 12 20:58:47 <yourfate>	done
+Apr 12 20:58:47 <kchibisov>	yeah, and in a way it's mentioned on our INSTALLATION.
+Apr 12 20:58:58 <kchibisov>	yeah and logout + reconnect
+Apr 12 20:59:33 <yourfate>	still the old situation
+Apr 12 20:59:57 <kchibisov>	both terminfos, even xterm one seems broken.
+Apr 12 21:00:25 <kchibisov>	I mean tmux reports that a lot of features are not presented/defined even in xterm terminfo.
+Apr 12 21:00:48 <kchibisov>	but yeah, it says that `colors` missing in alacritty terminfo.
+Apr 12 21:01:00 <kchibisov>	on linux it reports everything correctly
+Apr 12 21:01:16 <yourfate>	maybe because I have the .termcap file?
+Apr 12 21:01:19 <yourfate>	in home
+Apr 12 21:01:29 <kchibisov>	could you remove it?
+Apr 12 21:01:31 <yourfate>	but if I remove that tmux says it can't find the terminfo db
+Apr 12 21:01:32 <yourfate>	sure, sec
+Apr 12 21:02:01 <yourfate>	if I remove that I get `open terminal failed: can't find terminfo database`
+Apr 12 21:02:06 <yourfate>	when trying to start tmux
+Apr 12 21:03:58 <kchibisov>	Hm, I guess you're correct, also, I guess you should translate our terminfo to termcap.
+Apr 12 21:04:32 <kchibisov>	Could you try to pass `-C` to tic?
+Apr 12 21:05:54 <yourfate>	btw, if that .termcap is missing the shell is somewhat broken even before tmux, keybinds don't work, can't delete chars etc
+Apr 12 21:05:57 <yourfate>	sec
+Apr 12 21:08:28 <yourfate>	the output of the command from INSTALLATION, but with C added yelds: https://bsd.to/ymLG
+Apr 12 21:08:34 <yourfate>	I tried that as .termcap before
+Apr 12 21:08:49 <yourfate>	but it's missing the alacritty+common it references afaik
+Apr 12 21:09:20 <yourfate>	I don't really know much about terminfo/cap though, I talked to people in freeBSD though
+Apr 12 21:12:47 <yourfate>	# that is
+Apr 12 21:14:30 <kchibisov>	Could you delete our terminfo and reinstall ncurses?
+Apr 12 21:14:39 <kchibisov>	ncurses should have our terminfo.
+Apr 12 21:18:06 <yourfate>	sec
+Apr 12 21:18:13 <yourfate>	the terminfo.db you mean
+Apr 12 21:18:27 <yourfate>	it uses the hashed db isntead of the individual files
+Apr 12 21:18:28 <yourfate>	it seems
+Apr 12 21:19:16 <kchibisov>	yeah, but it should install it, I guess.
+Apr 12 21:24:40 <yourfate>	hmm
+Apr 12 21:24:46 <yourfate>	now there is no terminfo.db
+Apr 12 21:25:03 <yourfate>	in /usr/share/misc/
+Apr 12 21:26:43 <yourfate>	ah, /usr/local/share/misc has it
+Apr 12 21:29:45 <yourfate>	ye, ncurses seems to come with a terminfo
+Apr 12 21:30:03 <kchibisov>	does it work though?
+Apr 12 21:30:08 <yourfate>	I made sure the db was gone when I uninstalled it.
+Apr 12 21:30:29 <yourfate>	nah, can't delete characters, and tmux can't find the database
+Apr 12 21:30:46 <yourfate>	infocmp does tell me it has something
+Apr 12 21:30:57 <kchibisov>	nah, I have no idea how FreeBSD works here.
+Apr 12 21:31:04 <yourfate>	thanks for trying though!
+Apr 12 21:31:07 <yourfate>	:D
+Apr 12 21:31:23 <yourfate>	maybe it'll get fixed in the future, for now I'll just use xterm terminfo on that machine
+Apr 12 21:31:35 <yourfate>	great terminal though, like it so far!
+Apr 12 21:32:18 <yourfate>	if you for some reason have more thoughts on this ping me, i'll idle here :P
+Apr 12 21:33:56 <kchibisov>	yeah, someone from bsd should explain how it works, I guess.
+Apr 12 22:28:16 <kchibisov>	yourfate: do you see `colors#256` in infocmp -x?
+Apr 12 22:29:44 <yourfate>	well, colors#0x100
+Apr 12 22:29:48 <yourfate>	which should be the same
+Apr 12 22:30:02 <kchibisov>	in both xterm and alacritty
+Apr 12 22:30:05 <yourfate>	I do have color before i start tmux
+Apr 12 22:30:10 <yourfate>	sec
+Apr 12 22:30:44 <yourfate>	ye, xterm-256color also has colors#0x100
+Apr 12 22:31:43 <kchibisov>	is .termcap some your local file?
+Apr 12 22:32:03 <kchibisov>	or dir
+Apr 12 22:33:44 <yourfate>	I currently have no .termcap in home
+Apr 12 22:33:55 <yourfate>	i moved it to old.termcap for the test
+Apr 12 22:33:59 <yourfate>	and still haven't moved it back
+Apr 12 22:34:07 <kchibisov>	also, do you tmux kill-server ?
+Apr 12 22:34:25 <kchibisov>	like it's not like some old tmux running.
+Apr 12 22:34:30 <yourfate>	ye, I had a look in ps to see if tmux was off
+Apr 12 22:34:56 <yourfate>	kill-server says no server running
+Apr 12 22:35:05 <kchibisov>	Could you try TERM=alacritty tmux new and then tmux info|grep colors
+Apr 12 22:35:19 <kchibisov>	with empty tmux config, please.
+Apr 12 22:35:28 <kchibisov>	and the same for xterm-256color
+Apr 12 22:36:57 <yourfate>	xterm:    9: colors: (number) 256
+Apr 12 22:37:29 <yourfate>	ah, can't start tmux with alacitty term, as I removed my .termcap
+Apr 12 22:37:42 <yourfate>	so it just says zsh: can't find terminal definition for alacritty
+Apr 12 22:37:44 <yourfate>	open terminal failed: can't find terminfo database
+Apr 12 22:37:56 <kchibisov>	Wait, could you explain where xterm-256color is on FreeBSD?
+Apr 12 22:39:12 <kchibisov>	on linux it's in /usr/share/terminfo/x/xterm-256color
+Apr 12 22:39:25 <yourfate>	there are 3 places I think, there is /usr/share/misc/termcap, /usr/share/misc/termcap.db and /usr/local/share/misc/terminfo.db
+Apr 12 22:39:38 <yourfate>	thermcap is also a file
+Apr 12 22:39:53 <yourfate>	there are no folders for terminfo or termcap from what I can see
+Apr 12 22:40:50 <kchibisov>	Oh, so you should have xterm inside of this thing and when you install alacritty you have to make a custom termcap db
+Apr 12 22:41:03 <kchibisov>	right?
+Apr 12 22:41:30 <yourfate>	I think alacritty's terminfo is in the /usr/loca/share/misc/terminfo.db
+Apr 12 22:41:35 <yourfate>	and I can convert that to termcap format
+Apr 12 22:41:38 <yourfate>	and put that in my homedir
+Apr 12 22:41:43 <yourfate>	then I can start tmux
+Apr 12 22:41:55 <yourfate>	but have no color in tmux
+Apr 12 22:42:07 <yourfate>	I think what might be happening is that the system uses the terminfo.db
+Apr 12 22:42:09 <yourfate>	as it has color
+Apr 12 22:42:13 <yourfate>	but tmux somehow doesn't?
+Apr 12 22:42:20 <kchibisov>	do you have strace?
+Apr 12 22:43:07 <yourfate>	I shall get it, sec
+Apr 12 22:44:19 <kchibisov>	Could you try tic with  -c -r in addition?
+Apr 12 22:44:42 <yourfate>	apparently, there is no strace on freebsd, there is truss()
+Apr 12 22:45:03 <kchibisov>	Also, if you remove our terminfo entirely from the system does BSD has it?
+Apr 12 22:45:14 <kchibisov>	like by default tmux is the only problem right?
+Apr 12 22:45:46 <yourfate>	no, there is some problem with keys too, like when I to del it instead inserts a space, and arrow keys have problems too
+Apr 12 22:45:50 <yourfate>	that might be shell related though idk
+Apr 12 22:46:10 <yourfate>	that is if I'm using TERM=alacritty
+Apr 12 22:46:22 <kchibisov>	so BSD doesn't have it at all then.
+Apr 12 22:46:26 <yourfate>	it has
+Apr 12 22:46:31 <yourfate>	if I remove every manual terminfo
+Apr 12 22:46:38 <yourfate>	and connect with TERM=alacritty
+Apr 12 22:46:42 <kchibisov>	And why it doesn't work?
+Apr 12 22:46:43 <yourfate>	I have colors, but broken keys, but
+Apr 12 22:46:58 <kchibisov>	broken keys is a result of missing terminfo most of the time.
+Apr 12 22:47:04 <yourfate>	infocmp outputs stuff
+Apr 12 22:47:08 <yourfate>	related to alacritty
+Apr 12 22:47:15 <yourfate>	and says it has it from the terminfo.db
+Apr 12 22:47:19 <yourfate>	which comes with ncurses
+Apr 12 22:47:51 <kchibisov>	this is so strange.
+Apr 12 22:48:14 <kchibisov>	I'd recommend to understand how to compile it with termcap.
+Apr 12 22:48:43 <kchibisov>	Also, run this command with sudo.
+Apr 12 22:48:49 <kchibisov>	I mean `tic`.
+Apr 12 22:48:51 <kchibisov>	without*
+Apr 12 22:49:04 <yourfate>	sorry?
+Apr 12 22:49:56 <kchibisov>	tic -xe -c -r -K alacritty,alacritty-direct extra/alacritty.info
+Apr 12 22:50:16 <yourfate>	it did something
+Apr 12 22:50:19 <yourfate>	:P
+Apr 12 22:50:21 <yourfate>	no output though
+Apr 12 22:50:31 <kchibisov>	it should install terminfo for user
+Apr 12 22:50:38 <kchibisov>	does tmux works?
+Apr 12 22:51:17 <yourfate>	wtf, sec, now alacritty won't start on my linux
+Apr 12 22:51:20 <yourfate>	wtf
+Apr 12 22:51:39 <yourfate>	oh, I did a system update on linux in the meantime, maybe I need a reboot
+Apr 12 22:51:55 <kchibisov>	what it outputs yourfate ?
+Apr 12 22:52:01 <kchibisov>	I mean on linux.
+Apr 12 22:52:01 <yourfate>	        Error creating GL context; Received multiple errors. Errors: `[OsError("eglInitialize failed"), OsError("GL context creation failed")]`
+Apr 12 22:52:08 <kchibisov>	driver update?
+Apr 12 22:52:11 <yourfate>	probably
+Apr 12 22:52:13 <yourfate>	lots of updates
+Apr 12 22:52:14 <yourfate>	sec, reboot
+Apr 12 22:57:55 <yourfate>	no, doesn't work. keys still broken, tmux can't find the database
+Apr 12 22:59:44 <kchibisov>	does keys broken outside of tmux as well?
+Apr 12 23:01:12 <yourfate>	well, yes, can't get into tmux as it won't start without a terminfo, keys broken outside of it
+Apr 12 23:01:32 <kchibisov>	does keys broken with other terminfo?
+Apr 12 23:01:43 <yourfate>	no, xterm-256color it's ifne
+Apr 12 23:01:52 <yourfate>	and tmux works
+Apr 12 23:01:57 <kchibisov>	let me run my BSD.
+Apr 12 23:02:02 <yourfate>	:D
+Apr 12 23:02:13 <yourfate>	myabe it's different if alacritty is installed on the BSD
+Apr 12 23:02:19 <yourfate>	but I bet that needs x11
+Apr 12 23:02:28 <kchibisov>	it's some BSD bs tbh, since our terminfo is just copy pasta of xterm.
+Apr 12 23:02:28 <yourfate>	which is not on that machine and I don't plan to have that there
+Apr 12 23:02:42 <kchibisov>	we require only libxcb to built
+Apr 12 23:02:48 <yourfate>	ye, i bet it's some Bs with them still using termcap usually
+Apr 12 23:03:00 <kchibisov>	let me start my bsd sec
+Apr 12 23:03:33 <yourfate>	right, I can isntall the alcaritty package, without any dependencies
+Apr 12 23:03:58 <yourfate>	that didn't fix anything :P
+Apr 12 23:04:16 <kchibisov>	ofc it won't fix anything.
+Apr 12 23:04:28 <yourfate>	idk I thought maybe the port packages a termcap or something
+Apr 12 23:05:58 <kchibisov>	god, bsd.
+Apr 12 23:06:57 <yourfate>	not a fan?
+Apr 12 23:07:31 <yourfate>	I'm new to it, but I thought it might make for a better server os than arch
+Apr 12 23:07:43 <yourfate>	not that I really had problems with arch on a server
+Apr 12 23:07:56 <yourfate>	just watned to give that a try b/c why not :P
+Apr 12 23:08:15 <kchibisov>	let me understand why my ssh is broken on it.
+Apr 12 23:09:10 <yourfate>	client or server?
+Apr 12 23:09:23 <kchibisov>	I have no idea which one.
+Apr 12 23:24:20 <kchibisov>	Ok, let me see.
+Apr 12 23:24:39 <kchibisov>	seems like identical problem, but I can delete with backspace at least
+Apr 12 23:26:21 <yourfate>	at least it's not something I messed up somehow. would have felt bald wasting all that time with some dumb mistake :P
+Apr 12 23:26:27 <yourfate>	*bad
+Apr 12 23:26:40 <kchibisov>	I mean xterm-256color is broken as well.
+Apr 12 23:26:57 <kchibisov>	like you can lauch somthing but a lot of features of it are just disabled
+Apr 12 23:27:17 <yourfate>	maybe because termcap is limited to I think 1023 bytes or something?
+Apr 12 23:28:02 <kchibisov>	How to install packages on this thing?
+Apr 12 23:28:09 <yourfate>	pkg install bla
+Apr 12 23:28:43 <yourfate>	or go to /usr/ports and compile them
+Apr 12 23:40:20 <yourfate>	headed to bed, I'll check back tomorrow to see if there were any new insights :P have fun
+Apr 13 00:00:05 <kchibisov>	it seems like I've figured out
+Apr 13 00:02:15 <basic>	now that i removed my default bindings, i can't copy paste anymore
+Apr 13 00:02:20 <basic>	is that to be expected?
+Apr 13 00:02:30 <kchibisov>	you should be able to copy paste just fine.
+Apr 13 00:02:44 <kchibisov>	All copy paste bindings are builtin.
+Apr 13 00:02:46 <basic>	with ctrl+shift+v right?
+Apr 13 00:02:53 <kchibisov>	yes
+Apr 13 00:02:54 <basic>	hm
+Apr 13 00:02:57 <basic>	*test*
+Apr 13 00:03:08 <basic>	kchibi
+Apr 13 00:03:08 <basic>	basic>
+Apr 13 00:03:10 <basic>	sorry
+Apr 13 00:03:13 <basic>	hm, weird
+Apr 13 00:03:25 <kchibisov>	Also, if you can have custom key bindings just fine.
+Apr 13 00:03:29 <kchibisov>	s/if/
+Apr 13 00:03:38 <basic>	yeah looks like vim isn't able to save to clipboard
+Apr 13 00:03:57 <kchibisov>	Are you using "+" buffer?
+Apr 13 00:04:16 <kchibisov>	unnamedplus, etc.
+Apr 13 00:04:46 <basic>	yes, i guess it's because gvim isn't installeed
+Apr 13 00:05:02 <kchibisov>	no, vim clipboard doesn't use escape sequence to set clipboard.
+Apr 13 00:05:15 <kchibisov>	So vim is using xclip like software to write to a clipboard.
+Apr 13 00:05:18 <kchibisov>	or tmux.
+Apr 13 00:05:49 <basic>	yeah, i had this problem already it's weird
+Apr 13 00:06:03 <basic>	i compiled it with xsupport, that alone doesn't fix it
+Apr 13 00:06:07 <basic>	i need gvim
+Apr 13 00:06:08 <kchibisov>	Like it's not alacritty problem, it's vim that should implement OSC 52
+Apr 13 00:06:14 <kchibisov>	no, you don't need X support
+Apr 13 00:06:24 <basic>	well, it fixes it :/
+Apr 13 00:06:35 <kchibisov>	Oh, maybe it has some weird code to do that.
+Apr 13 00:06:40 <basic>	yeah but not a alacritty problem
+Apr 13 01:06:55 <kchibisov>	UndeadLeech: are you around?
+Apr 13 01:08:23 <kchibisov>	How custom layouts like dvorak works with key bindings on various systems.
+Apr 13 01:08:55 <kchibisov>	Do you usually have QWERTY bindings or custom dvorak bindings by default.
+Apr 13 01:09:54 <kchibisov>	and how it works on let's say macOS.
+Apr 13 01:27:02 <UndeadLeech>	Now I am.
+Apr 13 01:27:15 <UndeadLeech>	I just use dvorak with default bindings everywhere.
+Apr 13 01:27:30 <UndeadLeech>	But I use i3 which doesn't really have "default bindings" and a custom WM in macOS too.
+Apr 13 01:27:42 <UndeadLeech>	But for stuff like vim I use default, which I would strongly recommend.
+Apr 13 01:27:42 <kchibisov>	Are they based on QWERTY or dvorak.
+Apr 13 01:27:51 <UndeadLeech>	I tried remapping, but it just doesn't work well.
+Apr 13 01:28:01 <UndeadLeech>	They're mostly based on vi, so QWERTY.
+Apr 13 01:28:12 <UndeadLeech>	But vi bindings work pretty well with dvorak once you get used to them tbh.
+Apr 13 01:28:26 <kchibisov>	I'm qurious on how winit should handle such things.
+Apr 13 01:28:30 <kchibisov>	and what it should provide
+Apr 13 01:28:42 <kchibisov>	I'm not interested in dvorak :- )
+Apr 13 01:28:58 <UndeadLeech>	I mean my keyboard reports as us layout. :P
+Apr 13 01:29:17 <UndeadLeech>	Though on macOS it reports as dvorak, since I often use the trash built-in one there.
+Apr 13 01:29:34 <UndeadLeech>	Since I have only one and that one doesn't have usb-c.
+Apr 13 01:30:16 <UndeadLeech>	I mean dvorak is fairly uncomplicated, since all base keys are the same as on qwerty I think.
+Apr 13 01:30:28 <UndeadLeech>	Problematic is something like german qwertz for example, where you have actually different keys.
+Apr 13 01:31:13 <UndeadLeech>	Like it has a +/* key, instead of a =/+ one. So you'll get a different base key.
+Apr 13 01:31:20 <kchibisov>	My concern is that if we go full keysyms which is very good for dvorak support, I wonder what should we do about Russian layout, etc.
+Apr 13 01:31:33 <UndeadLeech>	Dvorak really shouldn't be a problem tbh.
+Apr 13 01:31:41 <kchibisov>	yeah, it's not a problem.
+Apr 13 01:31:47 <kchibisov>	Russian layout is a problem.
+Apr 13 01:31:57 <UndeadLeech>	Like for dvorak all keys are identical, they're just in different locations.
+Apr 13 01:32:03 <UndeadLeech>	The keymap takes care of that.
+Apr 13 01:32:11 <UndeadLeech>	But russian/german/french/whatever, that's problematic.
+Apr 13 01:32:46 <UndeadLeech>	I think I said this on the winit tracker before, but I believe the base key should always be reported regardless of shift state.
+Apr 13 01:32:55 <kchibisov>	yeah, my question is whether concept like reporting keys based on scancodes in addition to virtual key codes is nice.
+Apr 13 01:33:11 <UndeadLeech>	Then in Alacritty for bindings like IncreaseFontSize, we should bind to `ReceivedChar('+')`, not a key.
+Apr 13 01:33:34 <UndeadLeech>	Scancodes are already reported, right? Or what do you mean?
+Apr 13 01:34:41 <kchibisov>	I mean that you'll have { scancode: 38, raw_code: Some(Code::F), virtual_key_code: Some(VCode::RussianA)"}
+Apr 13 01:34:49 <kchibisov>	so you can bind either by vcode or by raw_code.
+Apr 13 01:35:20 <kchibisov>	and in case of vcode you can have per layout bindings, but bindings by raw_code could be good for games, etc.
+Apr 13 01:35:49 <UndeadLeech>	Where does that raw_code come from?
+Apr 13 01:35:58 <kchibisov>	it's based off scancode.
+Apr 13 01:36:04 <UndeadLeech>	The us binding of that scancode?
+Apr 13 01:36:07 <kchibisov>	yes.
+Apr 13 01:36:23 <UndeadLeech>	How does that work, is that based on key location?
+Apr 13 01:36:36 <kchibisov>	it's not dvorak, etc aware.
+Apr 13 01:36:40 <kchibisov>	it's just direct mapping.
+Apr 13 01:37:14 <UndeadLeech>	I don't think that's ever a good idea tbh.
+Apr 13 01:37:15 <kchibisov>	Like you can have QWERTY bindings regardless of using dvorak/Russian bindings.
+Apr 13 01:37:27 <kchibisov>	I use such thing in sway, without it it's hard to use for me.
+Apr 13 01:37:39 <UndeadLeech>	Because that's exactly what you don't want to do. You don't want to map to a key location, but to a key value.
+Apr 13 01:37:56 <kchibisov>	I mean that you have an option.
+Apr 13 01:38:17 <kchibisov>	you either use location based or value based bindings.
+Apr 13 01:38:25 <UndeadLeech>	I don't see a scenario where we'd ever want that tbh.
+Apr 13 01:38:27 <kchibisov>	and Vcode is value based, but raw code location based.
+Apr 13 01:38:29 <UndeadLeech>	Like in our default bindings.
+Apr 13 01:38:42 <UndeadLeech>	Like it makes no sense to the user.
+Apr 13 01:38:53 <kchibisov>	In our default bindings we don't need them, but in general we need them.
+Apr 13 01:39:07 <UndeadLeech>	I don't even have a staggered keyboard layout for example, it makes absolutely zero sense on my keyboard where each scancode is located.
+Apr 13 01:39:13 <UndeadLeech>	I don't think we do.
+Apr 13 01:39:20 <UndeadLeech>	What benefit does this provide over just scancodes?
+Apr 13 01:39:31 <kchibisov>	cross platform way?
+Apr 13 01:39:42 <UndeadLeech>	Scancodes work on all platforms?
+Apr 13 01:39:49 <kchibisov>	yes.
+Apr 13 01:40:05 <UndeadLeech>	So what's the problem?
+Apr 13 01:40:15 <kchibisov>	User should match numbers instead of good enum values.
+Apr 13 01:40:39 <kchibisov>	and each platform has different numbers.
+Apr 13 01:40:41 <kchibisov>	IIRC.
+Apr 13 01:40:42 <UndeadLeech>	The enum values make absolutely no sense though for someone who isn't using qwerty.
+Apr 13 01:40:50 <UndeadLeech>	How the hell would I know where my qwerty keys are?
+Apr 13 01:41:36 <kchibisov>	The problem is that you're assuming US + QWERTY, when I'm talking about this thing.
+Apr 13 01:41:58 <kchibisov>	However my problem is Russian + QWERTY.
+Apr 13 01:42:13 <UndeadLeech>	I don't see what you mean.
+Apr 13 01:42:32 <kchibisov>	If I change my layout to Russian, I can't paste into alacritty.
+Apr 13 01:42:46 <kchibisov>	like I just can't do that.
+Apr 13 01:42:55 <UndeadLeech>	Because the `V` key doesn't exist?
+Apr 13 01:43:00 <kchibisov>	yes
+Apr 13 01:43:05 <UndeadLeech>	Then bind to scancode?
+Apr 13 01:43:22 <kchibisov>	But then I change to macOS and got the same problem
+Apr 13 01:43:25 <kchibisov>	with different scancode.
+Apr 13 01:43:39 <kchibisov>	so it's just a good way to abstract scancode bindings.
+Apr 13 01:43:52 <UndeadLeech>	I don't think it is at all.
+Apr 13 01:44:04 <UndeadLeech>	It just binds to an arbitrary intermediate state that is completely confusing.
+Apr 13 01:44:17 <kchibisov>	it binds to scancode.
+Apr 13 01:44:27 <kchibisov>	but it just has some name, which makes sense.
+Apr 13 01:44:31 <UndeadLeech>	No, you bind scancode to qwerty.
+Apr 13 01:44:34 <kchibisov>	instead of 0xfffff
+Apr 13 01:44:55 <kchibisov>	yes, but I want to bind to location.
+Apr 13 01:45:02 <kchibisov>	since there's not dvorak(russian) IIRC.
+Apr 13 01:45:06 <kchibisov>	s/not/no
+Apr 13 01:45:21 <kchibisov>	You want to bind to location anyway.
+Apr 13 01:45:24 <UndeadLeech>	I don't think that's a good idea at all tbh.
+Apr 13 01:45:32 <kchibisov>	scancode binding is a binding to location.
+Apr 13 01:45:43 <UndeadLeech>	Having to lookup the qwerty value of your key to map it just sounds stupid.
+Apr 13 01:46:01 <kchibisov>	it's not value, winit will just send you Raw(A).
+Apr 13 01:46:12 <UndeadLeech>	It's just another thing to confuse people that now have a million different ways to bind the same thing, with no clear indication of which thing is the correct thing.
+Apr 13 01:46:44 <kchibisov>	I'm just saying that bindings doens't work well, and in expected way for multilayout.
+Apr 13 01:46:46 <UndeadLeech>	And if you have keyboards like mine, you can't even map by location at all, it'll just give you back complete garbage.
+Apr 13 01:47:02 <kchibisov>	scancode is shitty solution, since it's just an arbitrary number which I should just guess.
+Apr 13 01:47:15 <UndeadLeech>	Because my us F is at dvorak F location, not at US F.
+Apr 13 01:47:29 <UndeadLeech>	So then I switch my keyboard and nothing works, just how you switch your layout and nothing works.
+Apr 13 01:47:31 <UndeadLeech>	Same shit.
+Apr 13 01:47:33 <kchibisov>	if you have hardware dvorak it'll remap.
+Apr 13 01:47:43 <kchibisov>	I have a keyboard with hardware dvorak.
+Apr 13 01:47:56 <kchibisov>	I don't set dvorak layout at all for it.
+Apr 13 01:48:03 <UndeadLeech>	Yeah exactly.
+Apr 13 01:48:05 <kchibisov>	it just works with qwerty.
+Apr 13 01:48:11 <UndeadLeech>	Which will run into the same problem as you have when switching layouts.
+Apr 13 01:48:15 <kchibisov>	because it chagnes scancodes.
+Apr 13 01:48:26 <UndeadLeech>	Because suddenly your key is at a different location with a software dvorak keyboard.
+Apr 13 01:48:27 <kchibisov>	so your scancodes will be chaged as well, and you'll have correct bidnings.
+Apr 13 01:48:57 <UndeadLeech>	I just don't see how this simplifies anything.
+Apr 13 01:49:06 <UndeadLeech>	It just adds another thing, bloating everything up.
+Apr 13 01:49:18 <kchibisov>	but scancode binding has the same flow.
+Apr 13 01:49:34 <UndeadLeech>	So why the hell do we need another thing, if scancode already does it?
+Apr 13 01:49:39 <kchibisov>	but you should guess what this shit is instead of just binding to a location.
+Apr 13 01:49:55 <kchibisov>	and on other platform you'll have different shit.
+Apr 13 01:50:02 <UndeadLeech>	You assume that I would know the qwerty location.
+Apr 13 01:50:25 <UndeadLeech>	Qwerty names are just as arbitrary as scancodes, with the nice benefit of being extremely confusing.
+Apr 13 01:50:25 <kchibisov>	I assume that you'd know location on your keyboard hardware layout.
+Apr 13 01:50:38 <UndeadLeech>	Which most people that do not actually use qwerty won't know.
+Apr 13 01:50:50 <kchibisov>	if you're using qwerty keyboard with software dvorak you don't have any problems.
+Apr 13 01:51:02 <kchibisov>	because this keyboard is qwerty, and you can just look at it.
+Apr 13 01:51:13 <UndeadLeech>	If I use qwertz or hardware dvorak I will.
+Apr 13 01:51:15 <kchibisov>	and if you hardware dvorak, you've binded to hardware dvorak.
+Apr 13 01:51:50 <kchibisov>	So in hardware dvorak, you'll have a completely different location.
+Apr 13 01:52:01 <kchibisov>	because your scancode is in completely different location.
+Apr 13 01:52:08 <UndeadLeech>	Also what if there is no qwerty key? Need to use scancodes anyways.
+Apr 13 01:52:37 <kchibisov>	I'm saying that binding by scancode doesn't work well for the end users.
+Apr 13 01:53:00 <kchibisov>	keysym is fine, but if you want binding that works regardless of layout it won't work.
+Apr 13 01:53:02 <UndeadLeech>	Why not?
+Apr 13 01:53:53 <kchibisov>	Because end users don't know how to obtain scancodes, but it can obtain location of char on his keyboard.
+Apr 13 01:53:59 <UndeadLeech>	How?
+Apr 13 01:54:10 <kchibisov>	Just look at the keyboard?
+Apr 13 01:54:18 <UndeadLeech>	Only because you use a qwerty keyboard.
+Apr 13 01:54:21 <kchibisov>	on a keycap.
+Apr 13 01:54:25 <UndeadLeech>	That won't help a large chunk of users that don't.
+Apr 13 01:54:42 <kchibisov>	if you use software dvorak you have qwerty keyboard.
+Apr 13 01:54:46 <UndeadLeech>	No.
+Apr 13 01:54:49 <UndeadLeech>	That's not true.
+Apr 13 01:54:57 <kchibisov>	unless you swapped all the key caps.
+Apr 13 01:55:04 <kchibisov>	which is like 0.01% users.
+Apr 13 01:55:08 <UndeadLeech>	Except for my hardware dvorak keyboard, I do not own a single qwerty keyboard.
+Apr 13 01:55:28 <kchibisov>	your hardware dvorak keyboard will work fine, since it's not based on QWERTY
+Apr 13 01:55:59 <kchibisov>	So Raw keys will match your keysyms on your keyboard.
+Apr 13 01:56:00 <UndeadLeech>	My hardware dvorak will work fine, because it's qwerty and they're identical.
+Apr 13 01:56:03 <UndeadLeech>	But none of my others will.
+Apr 13 01:56:34 <UndeadLeech>	On MacOS I have a qwertz keyboard with software dvorak for example.
+Apr 13 01:56:37 <kchibisov>	I'm saying that only software layouts could behave differently.
+Apr 13 01:56:39 <UndeadLeech>	Now you're adding qwerty to that.
+Apr 13 01:56:51 <UndeadLeech>	So you're asking me to check the qwerty location on my qwertz keyboard which uses dvorak.
+Apr 13 01:56:52 <kchibisov>	How macOS default bindings are working on macOS?
+Apr 13 01:56:53 <UndeadLeech>	That's stupid.
+Apr 13 01:57:02 <kchibisov>	no, it'll be based on qwertz
+Apr 13 01:57:08 <kchibisov>	not on qwerty.
+Apr 13 01:57:21 <kchibisov>	it's based on hardware layout, not on QWERTY.
+Apr 13 01:57:28 <UndeadLeech>	You said you always want to bind to qwerty though, not qwertz, right?
+Apr 13 01:57:35 <UndeadLeech>	Gotcha.
+Apr 13 01:57:39 <kchibisov>	I said that I want to name scancodes.
+Apr 13 01:57:50 <UndeadLeech>	Then it won't work between any of my keyboards, nice.
+Apr 13 01:58:04 <kchibisov>	no, because scancodes are floating.
+Apr 13 01:58:14 <UndeadLeech>	Because macOS qwertz is different than normal qwertz which is different than my qwerty hardware dvorak.
+Apr 13 01:58:38 <kchibisov>	So do you have Command + C working on macOS?
+Apr 13 01:58:46 <UndeadLeech>	Yeah of course, works just fine.
+Apr 13 01:58:49 <UndeadLeech>	Why wouldn't it?
+Apr 13 01:58:55 <kchibisov>	and where this `C` is?
+Apr 13 01:59:07 <kchibisov>	on your dvorak layout or on qwertz
+Apr 13 02:00:02 <kchibisov>	and if you switch layout to e.g. French will it have the same physical position?
+Apr 13 02:00:47 <kchibisov>	I just want to understand how this thing is supposed to work.
+Apr 13 02:01:00 <kchibisov>	And how some systems are handling such thing.
+Apr 13 02:03:01 <kchibisov>	But literally every app can do such thing just fine without requiring me to define scancode bindnigs.
+Apr 13 02:03:40 <kchibisov>	I mean paste from Russian layout.
+Apr 13 02:06:24 <UndeadLeech>	I'm not familiar with how layouts work that are entirely different.
+Apr 13 02:07:23 <kchibisov>	So I wonder how this problem should be solved, I feel like the majority is using Scancode like things for bindings.
+Apr 13 02:14:11 *	kchibisov tried to test dvorak and spend 5 minutes to just reload sway.
+Apr 13 02:15:56 <kchibisov>	It's interesting actually.
+Apr 13 02:16:26 <kchibisov>	GTK is using dvorak layout for bindings in Russian layout.
+Apr 13 02:16:36 <kchibisov>	and it's software dvorak.
+Apr 13 02:17:30 <kchibisov>	so if you have 3 layouts, us,us(dvorak),ru it'll use QWERTY,Dvorak,Dvorak.
+Apr 13 02:17:33 <kchibisov>	for bindnigs.
+Apr 13 02:18:00 <UndeadLeech>	I found a bug.
+Apr 13 02:18:08 <kchibisov>	where?
+Apr 13 02:18:23 <UndeadLeech>	Our rotation doesn't work correctly. Escape `CSI Ps T`.
+Apr 13 02:19:49 <kchibisov>	and sway uses Dvorak bindings as well in QWERTY layout if I do --bind-to-code.
+Apr 13 02:20:17 <kchibisov>	this is just pure madness.
+Apr 13 02:28:36 <UndeadLeech>	https://github.com/alacritty/alacritty/issues/3582
+Apr 13 02:28:41 <UndeadLeech>	I can't believe I've never noticed that.
+Apr 13 02:28:45 <UndeadLeech>	This is pretty borked.
+Apr 13 02:37:33 <UndeadLeech>	Also I think my reflow implementation might be functionally finished.
+Apr 13 02:37:41 <UndeadLeech>	I'll have to do a ton of testing though.
+Apr 13 02:37:50 <UndeadLeech>	And there's two dozen TODOs left.
+Apr 13 02:41:24 <kchibisov>	If I understand the thing correctly, you bind to a physical location based on keymap.
+Apr 13 02:43:15 <UndeadLeech>	How would that work though, do they check if the key exists on your keymap and then choose fallback if it doesn't?
+Apr 13 02:43:19 <UndeadLeech>	Like if ctrl+c just works with software dvorak and russian.
+Apr 13 02:43:39 <UndeadLeech>	Because on software dvorak it obviously should be at dvorak `c` location.
+Apr 13 02:43:40 <kchibisov>	So you iterate all configured keymaps and collect their keysyms and bind to code in the end, if you requested to bind by code.
+Apr 13 02:44:13 <kchibisov>	And on russian keyboard it's not a place for software dvorak.
+Apr 13 02:45:37 <kchibisov>	I mean it's not on QWERTY place when you use --bind-to-code, but on software dvorak C position, as well as other bindings.
+Apr 13 02:46:36 <UndeadLeech>	You said that other applications just handle it without having to configure anything though, right?
+Apr 13 02:46:43 <kchibisov>	right.
+Apr 13 02:46:49 <kchibisov>	I want the same in alacritty.
+Apr 13 02:47:00 <UndeadLeech>	That would require a more complicated solution then though.
+Apr 13 02:47:19 <kchibisov>	yeah, and such thing is costly.
+Apr 13 02:47:26 <UndeadLeech>	Since software dvorak on a qwerty keyboard shouldn't have it at the qwerty location. But software russian on qwerty keyboard should?
+Apr 13 02:47:37 <UndeadLeech>	Seems like a mess to me. Just force everyone to use qwerty.
+Apr 13 02:48:01 <kchibisov>	I mean software russian has it on dvorak location.
+Apr 13 02:49:33 *	Disconnected ()
+**** ENDING LOGGING AT Mon Apr 13 02:49:33 2020
+
+**** BEGIN LOGGING AT Thu Apr 16 16:36:15 2020
+
+Apr 16 16:36:15 *	Now talking on #alacritty
+Apr 16 16:36:15 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 16 16:36:15 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
