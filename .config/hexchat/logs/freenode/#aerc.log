@@ -1442,3 +1442,377 @@ Apr 13 02:49:33 *	Disconnected ()
 Apr 16 16:36:15 *	Now talking on #aerc
 Apr 16 16:36:15 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
 Apr 16 16:36:15 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 16 18:28:44 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 16 18:28:44 2020
+
+**** BEGIN LOGGING AT Thu Apr 16 18:29:13 2020
+
+Apr 16 18:29:13 *	Now talking on #aerc
+Apr 16 18:29:13 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Apr 16 18:29:13 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 16 22:58:49 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 16 22:58:49 2020
+
+**** BEGIN LOGGING AT Thu Apr 16 22:59:17 2020
+
+Apr 16 22:59:17 *	Now talking on #aerc
+Apr 16 22:59:17 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Apr 16 22:59:17 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 17 00:09:19 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 17 00:09:19 2020
+
+**** BEGIN LOGGING AT Fri Apr 17 09:56:58 2020
+
+Apr 17 09:56:58 *	Now talking on #aerc
+Apr 17 09:56:58 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Apr 17 09:56:58 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 17 19:59:52 <Xogium>	hi guys… I just had this while replying to some email I received
+Apr 17 19:59:55 <Xogium>	> Content-Type: text/plain; charset="utf-8"
+Apr 17 19:59:56 <Xogium>	> Content-Transfer-Encoding: base64
+Apr 17 20:00:05 <Xogium>	that's… Actually, a thing ?
+Apr 17 20:00:34 <Xogium>	why would I… Quote their message in base64 ?
+Apr 17 20:04:14 <emersion>	sounds like a bug
+Apr 17 20:06:01 <Xogium>	ugh, probably
+Apr 17 20:06:14 <Xogium>	I'll try to see if I can reproduce
+Apr 17 20:07:11 <pepper_chico>	it happened for me as well, but I simply forgot about it cuz I'm not replying emails lately
+Apr 17 20:07:21 <Xogium>	nop, I got only one email that does this
+Apr 17 20:07:51 <Xogium>	this is crazy weird
+Apr 17 20:10:44 <Xogium>	how do I save an email to disk to examine it ? I keep forgetting
+Apr 17 20:17:02 <Xogium>	what I'm a bit surprised about is why would it feel the need to actually quote the content encoding and etc in the reply ?
+Apr 17 20:25:26 <bookworm>	broken mail?
+Apr 17 20:25:54 <Xogium>	no idea
+Apr 17 20:26:06 <Xogium>	I want to save it to disk to examine it but I forget how lol
+Apr 17 20:26:36 <bookworm>	you can pipe it with `:pipe -m sh -c "cat >somefile"` or something like it
+Apr 17 20:26:47 <bookworm>	tee works as well (the command)
+Apr 17 20:27:11 <Xogium>	neat
+Apr 17 20:29:47 <Xogium>	ah, yeah… Ms exchange. Go figure
+Apr 17 20:29:55 <bookworm>	-.-
+Apr 17 20:30:19 *	bookworm pushes the responsibility of fixing it to the reporter
+Apr 17 20:31:06 <Xogium>	it is really encoded in base64 WTF
+Apr 17 20:31:27 <Xogium>	I have no bloody idea how less even displays it fine
+Apr 17 20:31:29 <bookworm>	ah yeah that's valid
+Apr 17 20:31:37 <bookworm>	aerc decodes it
+Apr 17 20:31:44 <Xogium>	lovely
+Apr 17 20:31:57 <Xogium>	so huh… How the hell do I quote such a message ?
+Apr 17 20:32:00 <bookworm>	but it should fo that during quoting as well
+Apr 17 20:32:04 <Xogium>	oh
+Apr 17 20:32:05 <bookworm>	do*
+Apr 17 20:32:15 <bookworm>	is the mail private?
+Apr 17 20:32:36 <Xogium>	yeah, unfortunately :/
+Apr 17 20:32:52 <bookworm>	mhm, then fix it and send a patch please ;P
+Apr 17 20:32:56 <Xogium>	but huh, what's the point of encoding mails in base64 anyway, if everyone can decode it ?
+Apr 17 20:33:08 <Xogium>	I can't code in go :/
+Apr 17 20:33:39 <bookworm>	same point as quoted-printable... servers in-between can only handle ascii because English is the only language on Earth
+Apr 17 20:34:08 <bookworm>	historical baggage as always
+Apr 17 20:34:14 <bookworm>	welcome to email
+Apr 17 20:35:05 <Xogium>	charming
+Apr 17 20:36:33 <pepper_chico>	well, I lived fine on mutt by setting everything to utf-8
+Apr 17 20:36:34 <Xogium>	so er, I'd fix it, but I have no idea of what aerc's code is doing because I can't even read it clearly :S
+Apr 17 20:36:45 <bookworm>	how private is private? As in no one or as in not the whole internet?
+Apr 17 20:37:08 <Xogium>	rather the later
+Apr 18 08:27:55 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 18 08:27:55 2020
+
+**** BEGIN LOGGING AT Sat Apr 18 08:58:56 2020
+
+Apr 18 08:58:56 *	Now talking on #aerc
+Apr 18 08:58:56 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Apr 18 08:58:56 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 18 12:36:09 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 18 12:36:09 2020
+
+**** BEGIN LOGGING AT Sat Apr 18 18:12:37 2020
+
+Apr 18 18:12:37 *	Now talking on #aerc
+Apr 18 18:12:37 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Apr 18 18:12:37 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 18 19:16:07 <enriooooooo>	how to uninstall aerc
+Apr 18 19:25:02 <bookworm>	depends on how you installed it in the first place
+Apr 18 20:46:20 <enriooooooo>	followed the steps given in aerc installation
+Apr 18 20:46:32 <enriooooooo>	in there Readme file
+Apr 18 20:48:43 <bsrd>	Check Makefile
+Apr 18 22:55:56 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 18 22:55:56 2020
+
+**** BEGIN LOGGING AT Sat Apr 18 23:00:30 2020
+
+Apr 18 23:00:30 *	Now talking on #aerc
+Apr 18 23:00:30 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Apr 18 23:00:30 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 19 01:45:31 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 01:45:31 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 01:49:03 2020
+
+Apr 19 01:49:03 *	Now talking on #aerc
+Apr 19 01:49:04 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Apr 19 01:49:04 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 19 08:52:16 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 08:52:16 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 08:52:41 2020
+
+Apr 19 08:52:41 *	Now talking on #aerc
+Apr 19 08:52:41 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Apr 19 08:52:41 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 19 09:16:34 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 09:16:34 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 09:17:01 2020
+
+Apr 19 09:17:01 *	Now talking on #aerc
+Apr 19 09:17:01 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Apr 19 09:17:01 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 19 10:17:13 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 10:17:13 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 10:24:02 2020
+
+Apr 19 10:24:02 *	Now talking on #aerc
+Apr 19 10:24:02 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Apr 19 10:24:02 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 19 11:01:01 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 11:01:01 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 11:01:38 2020
+
+Apr 19 11:01:38 *	Now talking on #aerc
+Apr 19 11:01:40 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Apr 19 11:01:40 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 19 12:45:30 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 12:45:30 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 12:45:49 2020
+
+Apr 19 12:45:49 *	Now talking on #aerc
+Apr 19 12:45:49 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Apr 19 12:45:49 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 19 20:47:00 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 20:47:00 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 20:50:15 2020
+
+Apr 19 20:50:15 *	Now talking on #aerc
+Apr 19 20:50:15 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Apr 19 20:50:15 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 19 21:10:30 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 21:10:30 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 21:25:32 2020
+
+Apr 19 21:25:32 *	Now talking on #aerc
+Apr 19 21:25:32 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Apr 19 21:25:32 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 19 23:05:30 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 23:05:30 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 23:07:42 2020
+
+Apr 19 23:07:42 *	Now talking on #aerc
+Apr 19 23:07:42 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Apr 19 23:07:42 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 20 01:08:30 *	Disconnected ()
+**** ENDING LOGGING AT Mon Apr 20 01:08:30 2020
+
+**** BEGIN LOGGING AT Mon Apr 20 01:12:23 2020
+
+Apr 20 01:12:23 *	Now talking on #aerc
+Apr 20 01:12:23 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Apr 20 01:12:23 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 20 08:33:21 *	Disconnected ()
+**** ENDING LOGGING AT Mon Apr 20 08:33:21 2020
+
+**** BEGIN LOGGING AT Mon Apr 20 08:33:42 2020
+
+Apr 20 08:33:42 *	Now talking on #aerc
+Apr 20 08:33:43 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Apr 20 08:33:43 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 20 08:43:12 <Mattemagikern>	Will do! :) 
+Apr 20 09:06:25 <icyphox>	bookworm: Recall the OpenBSD build issues I was having? I managed to get a fix in upstream. 
+Apr 20 09:07:50 <bookworm>	oh really?
+Apr 20 09:07:59 <bookworm>	nice!
+Apr 20 09:08:00 <icyphox>	https://github.com/ProtonMail/crypto/commit/71bec3603bf3a9bb42e31198bc4ab49985570971
+Apr 20 09:08:19 <icyphox>	Yes. What's left to be done is upgrading to this newer commit, I guess.
+Apr 20 09:09:10 <icyphox>	I'm not too familiar with go, but I believe you'll have to update the 'replace' in the go.mod, right?
+Apr 20 09:10:35 <icyphox>	Also, I must mention: I'm not sure if this is even /the/ fix. The ProtonMail/crypto maintainer claims so.
+Apr 20 09:12:20 <bookworm>	well, using internal is... not clean in the first place
+Apr 20 09:23:33 <bookworm>	icyphox: re updating... we didn't exactly keep the fork up to date and the diffstat to your fix is rather large
+Apr 20 09:24:16 <bookworm>	can you send the update to the ML? But in this case I'll let Drew approve it, security stuff is a tad too hot for me ;)
+Apr 20 09:25:09 <bookworm>	theoretically you can just run go update $package; go mod tidy and that should do the trick (do build with the notmuch flag on though when you do that)
+Apr 20 09:26:51 <bookworm>	ehm, go get $pkg
+Apr 20 09:32:10 <kskarthik>	Aerc has email thread support ?
+Apr 20 09:34:00 <bookworm>	no, not yet
+Apr 20 20:59:44 *	Disconnected ()
+**** ENDING LOGGING AT Mon Apr 20 20:59:44 2020
+
+**** BEGIN LOGGING AT Mon Apr 20 21:00:28 2020
+
+Apr 20 21:00:28 *	Now talking on #aerc
+Apr 20 21:00:28 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Apr 20 21:00:28 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 20 21:01:14 *	Disconnected ()
+**** ENDING LOGGING AT Mon Apr 20 21:01:14 2020
+
+**** BEGIN LOGGING AT Mon Apr 20 21:02:11 2020
+
+Apr 20 21:02:11 *	Now talking on #aerc
+Apr 20 21:02:12 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Apr 20 21:02:12 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 20 21:49:27 <heywoodlh>	Is it normal for a lot of HTML emails to not render in aerc, even when piping to `w3m`? My default MIME type order is `alternatives=text/plain,text/html` 
+Apr 20 21:50:27 <heywoodlh>	For those emails that offer a plaintext version this works great for me. But for the ones that don't, I have had to open a web client to look at those emails to decipher them.
+Apr 20 22:05:58 <pepper_chico>	you should check whether you're actually changing to the html part for the w3m view, otherwise you may be simply viewed the default text part of a multipart message, which often gets to be completely gibberish sent as text version of the html part by the sender.
+Apr 20 22:07:08 <pepper_chico>	if you're doing that, then there isn't much to do beyond that than simply open it with browser
+Apr 20 22:20:41 <heywoodlh>	pepper_chico if I understand right, I should switch to the HTML MIME type before piping to w3m?
+Apr 20 22:20:54 <heywoodlh>	If so, I just tried that and I have the same result.
+Apr 20 22:42:14 *	Disconnected ()
+**** ENDING LOGGING AT Mon Apr 20 22:42:14 2020
+
+**** BEGIN LOGGING AT Mon Apr 20 23:54:55 2020
+
+Apr 20 23:54:55 *	Now talking on #aerc
+Apr 20 23:54:55 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Apr 20 23:54:55 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 21 01:11:02 <bookworm>	twohot: same as any other filter, you specify it in the filter section. If what you are really asking is whether aerc has a default filter for it, the answer is no
+Apr 21 08:17:03 *	Disconnected ()
+**** ENDING LOGGING AT Tue Apr 21 08:17:03 2020
+
+**** BEGIN LOGGING AT Tue Apr 21 08:17:28 2020
+
+Apr 21 08:17:28 *	Now talking on #aerc
+Apr 21 08:17:28 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Apr 21 08:17:28 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 21 10:15:25 <twohot>	Good Morning! 
+Apr 21 10:15:42 <bookworm>	Hi, can we help?
+Apr 21 10:15:55 <twohot>	Yeah bookworm ... sure
+Apr 21 10:16:17 <twohot>	I was wondering if I missed a response yesterday.  I ran out of power
+Apr 21 10:16:48 <bookworm>	>twohot: same as any other filter, you specify it in the filter section. If what you are really asking is whether aerc has a default filter for it, the answer is no
+Apr 21 10:17:49 <twohot>	thanks
+Apr 21 10:18:36 <bookworm>	Not sure why people even attach a full blown message to a mail... embed the content for gods sakes
+Apr 21 10:18:55 <twohot>	bookworm: I know nothing about 'message/rfc822' mime-types
+Apr 21 10:19:07 <bookworm>	almost no one needs all the headers and encoding garbage an email entails
+Apr 21 10:19:51 <twohot>	it was forwarded ... the result was 'message/rfc822'
+Apr 21 10:20:39 <bookworm>	there are various ways you can forward an email
+Apr 21 10:24:58 <twohot>	bookworm: I was hoping you'd say more ... about the various ways to forward an email.  I forwarded it using Evolution, then later checked my email with aerc.  I couldn't read my own forwarded message from aerc.
+Apr 21 10:27:40 <twohot>	s/from\ aerc/in\ aerc
+Apr 21 10:29:07 <bookworm>	well, you can do what outlook etc do... add a "Fwd: " or whatever prefix, then write whatever is in the body of the forwarded email to the body of the current email, after some indicator
+Apr 21 10:29:25 <bookworm>	option 2: attach it as a file to the message (what your client did)
+Apr 21 10:30:25 <bookworm>	option 3: bounce the message, meaning don't change any header and simply redirect, setting a different envelope-from / envelop-to. This will break spf and probably put you in spam, depending on where the mail was originally sent from
+Apr 21 10:30:52 <bookworm>	but that all depends on the domain that send the original mail, plus the configuration of the receiving system
+Apr 21 10:31:14 <twohot>	wow
+Apr 21 10:34:53 <twohot>	I guess I's just have to figure out a scripted way to get a readable fowarding
+Apr 21 11:14:30 *	Disconnected ()
+**** ENDING LOGGING AT Tue Apr 21 11:14:30 2020
+
+**** BEGIN LOGGING AT Tue Apr 21 11:14:51 2020
+
+Apr 21 11:14:51 *	Now talking on #aerc
+Apr 21 11:14:51 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Apr 21 11:14:51 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 21 13:44:00 *	Disconnected ()
+**** ENDING LOGGING AT Tue Apr 21 13:44:00 2020
+
+**** BEGIN LOGGING AT Tue Apr 21 13:50:46 2020
+
+Apr 21 13:50:46 *	Now talking on #aerc
+Apr 21 13:50:46 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Apr 21 13:50:46 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 21 13:57:30 *	Disconnected ()
+**** ENDING LOGGING AT Tue Apr 21 13:57:30 2020
+
+**** BEGIN LOGGING AT Tue Apr 21 15:11:34 2020
+
+Apr 21 15:11:34 *	Now talking on #aerc
+Apr 21 15:11:34 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Apr 21 15:11:34 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 21 15:13:30 *	Disconnected ()
+**** ENDING LOGGING AT Tue Apr 21 15:13:30 2020
+
+**** BEGIN LOGGING AT Tue Apr 21 17:31:25 2020
+
+Apr 21 17:31:25 *	Now talking on #aerc
+Apr 21 17:31:25 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Apr 21 17:31:25 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 21 18:14:05 *	Disconnected ()
+**** ENDING LOGGING AT Tue Apr 21 18:14:05 2020
+
+**** BEGIN LOGGING AT Tue Apr 21 18:14:37 2020
+
+Apr 21 18:14:37 *	Now talking on #aerc
+Apr 21 18:14:37 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Apr 21 18:14:37 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 21 20:35:57 *	Disconnected ()
+**** ENDING LOGGING AT Tue Apr 21 20:35:57 2020
+
+**** BEGIN LOGGING AT Tue Apr 21 20:37:14 2020
+
+Apr 21 20:37:14 *	Now talking on #aerc
+Apr 21 20:37:14 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Apr 21 20:37:14 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 21 22:17:56 <enriooooooo>	hi bookworm 
+Apr 21 22:18:23 <bookworm>	just ask the channel please
+Apr 21 22:21:59 <enriooooooo>	hi to channel
+Apr 21 22:25:46 <bookworm>	just ask what you actually want...
+Apr 21 22:39:00 <pepper_chico>	hi enriooooooo 
+Apr 21 22:40:16 <enriooooooo>	came to say hi
+Apr 21 22:44:18 <bookworm>	take it to ##chat, this is an on-topic channel enriooooooo 
+Apr 21 22:45:30 <enriooooooo>	okay
+Apr 21 23:25:07 <nicky_caa>	hii
+Apr 21 23:26:20 <nicky_caa>	I am trying to setup aerc to be able to view html (setup is done: w3m and dante)
+Apr 21 23:26:39 <nicky_caa>	Here what I am getting when I am trying to open a mail containing html
+Apr 21 23:26:41 <nicky_caa>	display_link_number=true: bad option
+Apr 21 23:26:41 <nicky_caa>	w3m version w3m/0.5.2, options lang=en,m17n,image,color,ansi-color,mouse,gpm,menu,cookie,ssl,ssl-verify,external-uri-loader,w3mmailer,nntp,gopher,ipv6,alarm,mark
+Apr 21 23:26:41 <nicky_caa>	usage: w3m [options] [URL or filename]
+Apr 21 23:26:41 <nicky_caa>	options:
+Apr 21 23:27:00 <nicky_caa>	Any idea ?
+Apr 21 23:37:45 <gjabell>	sounds like a w3m version issue
+Apr 21 23:38:10 <gjabell>	if you check the filter (default: /usr/local/share/aerc/filters/html), display_link_number=true is passed as an option to w3m
+Apr 21 23:46:40 <nicky_caa>	it was the issue. Thanks
+Apr 22 09:17:30 *	Disconnected ()
+**** ENDING LOGGING AT Wed Apr 22 09:17:30 2020
+
+**** BEGIN LOGGING AT Wed Apr 22 09:20:41 2020
+
+Apr 22 09:20:41 *	Now talking on #aerc
+Apr 22 09:20:41 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Apr 22 09:20:41 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 22 09:22:00 *	Disconnected ()
+**** ENDING LOGGING AT Wed Apr 22 09:22:00 2020
+
+**** BEGIN LOGGING AT Wed Apr 22 09:26:09 2020
+
+Apr 22 09:26:09 *	Now talking on #aerc
+Apr 22 09:26:09 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Apr 22 09:26:09 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 22 09:36:00 *	Disconnected ()
+**** ENDING LOGGING AT Wed Apr 22 09:36:00 2020
+
+**** BEGIN LOGGING AT Wed Apr 22 09:54:05 2020
+
+Apr 22 09:54:05 *	Now talking on #aerc
+Apr 22 09:54:05 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Apr 22 09:54:05 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 22 11:13:37 *	Disconnected ()
+**** ENDING LOGGING AT Wed Apr 22 11:13:37 2020
+
+**** BEGIN LOGGING AT Wed Apr 22 11:13:56 2020
+
+Apr 22 11:13:56 *	Now talking on #aerc
+Apr 22 11:13:56 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Apr 22 11:13:56 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 22 12:17:07 *	Disconnected ()
+**** ENDING LOGGING AT Wed Apr 22 12:17:07 2020
+
+**** BEGIN LOGGING AT Wed Apr 22 12:17:46 2020
+
+Apr 22 12:17:46 *	Now talking on #aerc
+Apr 22 12:17:46 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Apr 22 12:17:46 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Apr 22 19:59:50 <heywoodlh>	Is there a way to use HTML in your signature file?
+Apr 22 20:07:39 *	bookworm pulls out the pitchfork and gathers the others
+Apr 22 20:11:22 <heywoodlh>	Hahaha it's not that important I was just curious 
+Apr 22 20:11:26 <heywoodlh>	Mainly for links 
+Apr 22 20:11:36 <heywoodlh>	Long links look terrible in email signature
+Apr 22 20:12:56 <bookworm>	email signatures look terrible in mails you mean
+Apr 22 20:13:17 <bookworm>	but no, aerc only does plain text (by design), minus attachments that is
+Apr 22 20:14:01 <bookworm>	Drew has rather strict opinions regarding plain text mails
+Apr 22 20:15:08 <bookworm>	you could try and set the content type header manually, if you are lucky the current implementation will update it in place, but I didn't test that

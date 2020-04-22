@@ -2053,3 +2053,430 @@ Apr 13 02:49:33 *	Disconnected ()
 Apr 16 16:36:15 *	Now talking on #spacemacs
 Apr 16 16:36:15 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
 Apr 16 16:36:15 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 16 16:41:23 <FromGitter>	<bellini.pedro_gitlab> Hello.  ⏎ What's the emacs version recommended to use with the latest spacemacs  on develop ?
+Apr 16 16:56:57 <FromGitter>	<Jks15063> I switched from dev back to master and recompiled everything and several changes didn't revert?
+Apr 16 16:57:07 <FromGitter>	<Jks15063> how do I undo this
+Apr 16 16:57:19 <FromGitter>	<Jks15063> magit has so many bugs
+Apr 16 17:00:11 <FromGitter>	<Jks15063> just popping an item off the stash says "both" and pops up empty windows
+Apr 16 17:00:14 <FromGitter>	<Jks15063> both what lmao
+Apr 16 17:22:33 <FromGitter>	<Jks15063> can you tell spacemacs to load a specific version of a package
+Apr 16 17:42:23 <FromGitter>	<hariseldon78> @jr0cket even removing the default width it gives the same error
+Apr 16 18:28:44 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 16 18:28:44 2020
+
+**** BEGIN LOGGING AT Thu Apr 16 18:29:13 2020
+
+Apr 16 18:29:13 *	Now talking on #spacemacs
+Apr 16 18:29:13 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 16 18:29:13 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 16 22:58:49 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 16 22:58:49 2020
+
+**** BEGIN LOGGING AT Thu Apr 16 22:59:17 2020
+
+Apr 16 22:59:17 *	Now talking on #spacemacs
+Apr 16 22:59:17 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 16 22:59:17 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 16 23:08:21 <FromGitter>	<bellini.pedro_gitlab> @jr0cket  Thanks very much for the info! Cool, that's the one I already have installed.
+Apr 16 23:18:03 <FromGitter>	<s25roy> @jr0cket I have helm installed and active, found a way to access the snippets through entering SPC SPC 'yas/insert-snippet' which brings up a populated list to choose from. Just can't seem to use  'SPC i s'. Thanks for help!
+Apr 17 00:09:19 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 17 00:09:19 2020
+
+**** BEGIN LOGGING AT Fri Apr 17 09:56:58 2020
+
+Apr 17 09:56:58 *	Now talking on #spacemacs
+Apr 17 09:56:58 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 17 09:56:58 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 17 15:48:46 <FromGitter>	<pth91> Hi there quick question. I do not know whether this is against org-mode philosophy but is there any chance to clock in two different tasks across different .org files? I am in the dev branch of spacemacs.
+Apr 17 16:35:55 <FromGitter>	<alchtech> Hey guys, how do you create a simple and plain list in .org modeß
+Apr 17 16:42:26 <FromGitter>	<matrixbot> `qurqar` John Stevenson (Gitter):  thanks for the reply. how do I set whitespace clean up in my file?
+Apr 17 17:42:45 <FromGitter>	<igoralmeida> @alchtech it worked for me: go to the (empty) scratch buffer, start org-mode, create the first item and then press 'o' to see a new line starting with '- '
+Apr 17 18:22:52 <FromGitter>	<Jks15063> how do you load a specific version of a package
+Apr 17 18:22:58 <FromGitter>	<Jks15063> I want an older version of magit
+Apr 17 18:29:05 <FromGitter>	<Jks15063> and org mode too probably lol
+Apr 17 18:47:36 <FromGitter>	<igoralmeida> @Jks15063 maybe look for it in `package-list-packages`
+Apr 17 19:23:24 <FromGitter>	<biocyberman> @smile13241324  Just found out that `knitr` functionality in `ESS` layer are removed in `develop` branch. Do you know if there is a plan to put it back?
+Apr 17 21:29:02 <FromGitter>	<aaronchall> Maybe I'm doing it wrong - but when I do `SPC` `f` `f` and start typing in a path, and then Alt-Tab to another program and then click Emacs to finish typing the path, I can't resume typing and I can't click back into where I was typing to finish typing... basically I sometimes have to kill emacs to be able to do it. If I alt-tab cleanly back, seems to be ok, though. thoughts?
+Apr 17 21:38:33 <FromGitter>	<jr0cket> @aaronchall when you have helm open, like with `SPC f f` it does seem to break if you click with your mouse.  I found that if you press `SPC` a few times, usually twice, it clears up again.   ⏎ The work-around is to not click and use Alt-TAB or Shift-Alt-TAB.  Probably worth raising an issue about this, `SPC h I`.
+Apr 17 21:42:07 <FromGitter>	<ennoausberlin> Hello. Can someone confirm if the chicken scheme documentation lookup works in scheme layer (geiser)?
+Apr 17 21:43:37 <FromGitter>	<jr0cket> @matrixbot `dotspacemacs-whitespace-cleanup 'all` will clean all whitespace every time you save the file.  You can find this in your `.spacemacs` file, although its probably set to nil by default.   ⏎ `SPC f e d` to open your .spacemacs file and `SPC s s whitespace` to find the existing config.  Then just change from nil to `'all`.  Dont forget the `'` for values that are not `nil` or `t`
+Apr 17 21:48:58 <FromGitter>	<aaronchall> @jr0cket thanks, I'll consider raising an issue...
+Apr 17 22:01:28 <FromGitter>	<chbaker0> hey, not sure if this is a good place to ask this question, but: I'm writing C++, and I want to take the results of lsp-find-references and do a query-replace on all of them
+Apr 17 22:02:04 <FromGitter>	<chbaker0> is there a way to do this?
+Apr 17 22:40:37 <FromGitter>	<chbaker0> ok, looks like there's xref-query-replace-in-results that you can run in an xref results buffer...but this doesn't seem compatible with helm?
+Apr 18 02:16:14 <FromGitter>	<mastokley_gitlab> I've written a custom elisp function to load random themes. How can I "expose" that function to myself for regular use, eg via helm?
+Apr 18 02:17:16 <FromGitter>	<mastokley_gitlab> `(interactive)`?
+Apr 18 02:17:38 <FromGitter>	<mastokley_gitlab> aha! that seems to do it.
+Apr 18 05:42:14 <FromGitter>	<theckman> Is anyone here familiar with `lsp-mode` and the Go layer? Just did a big upgrade after a long while on the develop branch, and support for the LSP server I had been using was removed. So I installed all the commands in the README, and expected to see the same things I did before and now I see nothing. I was used to hovering over a function name with my cursor, and having its header show up at the bottom.
+Apr 18 05:44:37 <FromGitter>	<theckman> I'm trying to figure out what I'm missing, because it's probably simple, but I'm not sure. The one upside is I do see it monitoring the process of the language server.
+Apr 18 08:27:55 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 18 08:27:55 2020
+
+**** BEGIN LOGGING AT Sat Apr 18 08:58:56 2020
+
+Apr 18 08:58:56 *	Now talking on #spacemacs
+Apr 18 08:58:56 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 18 08:58:56 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 18 12:36:09 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 18 12:36:09 2020
+
+**** BEGIN LOGGING AT Sat Apr 18 18:12:37 2020
+
+Apr 18 18:12:37 *	Now talking on #spacemacs
+Apr 18 18:12:37 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 18 18:12:37 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 18 18:23:53 <FromGitter>	<jr0cket> @fleimgruber  `SPC h P` is the profiler menu
+Apr 18 18:47:56 <FromGitter>	<fleimgruber> @jr0cket thanks for the shove
+Apr 18 20:36:20 <FromGitter>	<plicatibu_twitter> Hi. I'm a brand new spacemacs user and enjoying it a lot but I'm struggling with some problems. Any help will be very much appreciated. ⏎  ⏎ 1 - Both Windows and Debian 10 ⏎  ⏎ 1) 1 - I see this message: *PNG warning: Interlace handling should be turned on when using png_read_image*.  How do I fix it? ... [https://gitter.im/syl20bnr/spacemacs?at=5e9b56c8c38aa05a1a8355e9]
+Apr 18 22:00:48 <FromGitter>	<patata3000> 1) 1 have you tried updating libpng ? @plicatibu_twitter
+Apr 18 22:02:21 <FromGitter>	<patata3000> 1) 2 for lsp there is a mslsp that version that you should use on windows check python layer doc
+Apr 18 22:28:39 <FromGitter>	<patata3000> mspyls sorry
+Apr 18 22:29:39 <FromGitter>	<patata3000> 1) 1 have you tried to launch emacs in insecure mode?
+Apr 18 22:30:05 <FromGitter>	<patata3000> I've no idea if what I'm saying can help you. But maybe...
+Apr 18 22:55:56 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 18 22:55:56 2020
+
+**** BEGIN LOGGING AT Sat Apr 18 23:00:30 2020
+
+Apr 18 23:00:30 *	Now talking on #spacemacs
+Apr 18 23:00:30 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 18 23:00:30 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 18 23:06:18 <FromGitter>	<plicatibu_twitter> @patata3000  Thank you for replying.
+Apr 18 23:08:10 <FromGitter>	<plicatibu_twitter> I'll update libpng.  I thought it was missing some kind of configuration.
+Apr 18 23:09:23 <FromGitter>	<plicatibu_twitter> For what I understood from documentation I should declare lsp and then pick mspyls.
+Apr 18 23:10:00 <FromGitter>	<plicatibu_twitter> I'll compile it and see if that fixes my problem.
+Apr 18 23:10:08 <FromGitter>	<plicatibu_twitter> Regards.
+Apr 18 23:17:36 <FromGitter>	<jr0cket> @fleimgruber this issue may be relevant to your org-mode slow start up, especially if you are using windows https://github.com/syl20bnr/spacemacs/issues/13467
+Apr 18 23:23:21 <FromGitter>	<jr0cket> @plicatibu_twitter background to the libpng issue is here https://sourceforge.net/p/libpng/bugs/165/ ⏎ The warning in the emacs message buffer seems to be just the way libpng is called.  I have this issue  even when using the latest libpng library and havent managed to prevent it.  It hasnt stopped me using png images.
+Apr 18 23:47:12 <FromGitter>	<jr0cket> @plicatibu_twitter  add `quasi-monochrome` to the `dotspacemacs-themes` list in `.spacemacs`, save, `SPC f s` and refresh the .spacemacs configuration, `SPC f e R`, or restart Emacs, `SPC q r`.   ⏎ Either will download the theme package.   The first theme name in the list is the default. The theme is also selectable via `SPC T s` ⏎  ⏎ ```code paste, see link``` ⏎  ... 
+Apr 18 23:47:12 <FromGitter>	... [https://gitter.im/syl20bnr/spacemacs?at=5e9b8384a9ca18620649b7b9]
+Apr 18 23:47:39 <FromGitter>	<jr0cket> You can do this with most themes, even if they are not in the megapack
+Apr 19 00:55:04 <FromGitter>	<rudolfkral> Hi, I have just migrated from my old develop setup to the newest commit. I had to migrate my init, but there is one thing I can't get to work properly. I am using EXWM, that depends on how Emacs starts up. I noticed that almost everything is lazily loaded now. Suddenly I had to add (require 'dbus) to `user-init`, or it couldn't find `dbus-call-method` at start. When I load helm, I see that it is also lazily 
+Apr 19 00:55:04 <FromGitter>	... loaded, I have to press my leader key first. Also, EXWM-dependent frame hooks seem to work only when I click on the minibuffer, somehow triggering the right hook. ⏎  ⏎ Has there been a big recent change in loading and using packages that I have missed? My Spacemacs didn't behave that way before.
+Apr 19 01:45:31 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 01:45:31 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 01:49:04 2020
+
+Apr 19 01:49:04 *	Now talking on #spacemacs
+Apr 19 01:49:04 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 19 01:49:04 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 19 08:52:16 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 08:52:16 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 08:52:41 2020
+
+Apr 19 08:52:41 *	Now talking on #spacemacs
+Apr 19 08:52:41 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 19 08:52:41 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 19 09:16:34 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 09:16:34 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 09:17:01 2020
+
+Apr 19 09:17:01 *	Now talking on #spacemacs
+Apr 19 09:17:01 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 19 09:17:01 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 19 10:17:13 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 10:17:13 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 10:24:02 2020
+
+Apr 19 10:24:02 *	Now talking on #spacemacs
+Apr 19 10:24:02 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 19 10:24:02 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 19 11:01:01 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 11:01:01 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 11:01:40 2020
+
+Apr 19 11:01:40 *	Now talking on #spacemacs
+Apr 19 11:01:40 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 19 11:01:40 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 19 12:45:30 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 12:45:30 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 12:45:49 2020
+
+Apr 19 12:45:49 *	Now talking on #spacemacs
+Apr 19 12:45:49 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 19 12:45:49 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 19 18:02:51 <FromGitter>	<herop> Rookie question: Will a mildly nerdy Emacs beginner with only little knowledge in Emacs (and even less in vi(m) be able to cope with what org-mode can do in spacemacs?
+Apr 19 18:04:26 <FromGitter>	<yyoncho> yes
+Apr 19 18:04:32 <FromGitter>	<herop> I'm a huuuge fan of Markdown and jumped in this weekend with Emacs -> Spacemacs to replace RoamReasearch. What is your assessment? Will it cost me weeks or just one or 2 weekends to make that happen?
+Apr 19 18:06:54 <FromGitter>	<herop> Currently on the wonderful: Learn Emacs Org Mode: Spacemacs Intro Tutorial (https://www.youtube.com/watch?v=PVsSOmUB7ic&list=TLPQMTkwNDIwMjAcbGTvDHmBUQ&index=4) and I understand 10%. :-) He is fast like hell.
+Apr 19 18:08:42 <FromGitter>	<herop> @yyoncho : I figured that you have replied and wated to thank you. 👍🙏
+Apr 19 18:08:52 <FromGitter>	<yyoncho> It depends on what you want to achieve - learn the basics and then learn something new every day
+Apr 19 18:09:57 <FromGitter>	<herop> Exactly. Say if a'm able to write some notes (maybe even using markdown) and then learn some more every day would be fantastic.
+Apr 19 18:12:54 <FromGitter>	<herop> I'm a ruthless learner though. Sitting the entire day now and at least was able to install Emacs 26.09 on Win10, the org-mode and markdown-mode, only to learn that all that comes with spacemacs. Well done, J. 🤭🙄
+Apr 19 18:33:50 <FromGitter>	<aurabindo_gitlab> Hi, with Magit, is there an easy way to apply a series of external patches (available as files) through dired or treemacs?
+Apr 19 19:05:52 <drw77_>	when I have a code snippet in a Markdown file (using the Markdown major mode) the font of that code is not what I want.  The rest of the document is the default font, which is fine.  How can I edit the ```<codesection``` font in Markdown buffers?
+Apr 19 19:25:06 <FromGitter>	<jr0cket> @herop I learned Vim style editing by using Spacemacs, I wrote a section on vim basics here that you may find useful https://practicalli.github.io/spacemacs/spacemacs-basics/vim-basics.html
+Apr 19 19:33:29 <FromGitter>	<herop> @jr0cket Definitely going to check that out. Just worked a day in Roam to create cheat sheets on Emacs commands and now learned Spacemacs is deep into vim instead. Well done btw. Like the style a lot.
+Apr 19 19:51:42 <FromGitter>	<jr0cket> Thank you
+Apr 19 20:47:00 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 20:47:00 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 20:50:16 2020
+
+Apr 19 20:50:16 *	Now talking on #spacemacs
+Apr 19 20:50:16 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 19 20:50:16 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 19 21:10:30 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 21:10:30 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 21:25:32 2020
+
+Apr 19 21:25:32 *	Now talking on #spacemacs
+Apr 19 21:25:32 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 19 21:25:32 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 19 21:34:49 <FromGitter>	<igoralmeida> @aurabindo_gitlab can't you use magit's `w w` and mark them?
+Apr 19 21:36:14 <FromGitter>	<igoralmeida> @yyoncho can you help me understand a problem with lsp and c++? i'm trying to set `ccls-args` but when restarting workspace lsp will switch to `clangd` without telling me why
+Apr 19 21:38:31 <FromGitter>	<igoralmeida> @SreenivasVRao an easy way would be to create your own function that disables visual line mode before calling avy-goto-line
+Apr 19 22:01:34 <FromGitter>	<aurabindo_gitlab> @igoralmeida  I'm only able to select one patch at a time when using `w w` in the minibuffer. Is there a way to select multiple entries there ?
+Apr 19 22:01:41 <FromGitter>	<aurabindo_gitlab> wild card did not work
+Apr 19 22:07:00 <FromGitter>	<igoralmeida> i know you can mark with c-spc
+Apr 19 22:07:51 <FromGitter>	<igoralmeida> maybe you can mark them in dired and then call the `w w` function directly
+Apr 19 22:07:51 <FromGitter>	<igoralmeida> `magit-apply-patches`?
+Apr 19 22:11:34 <FromGitter>	<hariseldon78> hey guys, anyone can help me with this:  https://emacs.stackexchange.com/questions/57899/spacemacs-unmapping-treemacs-page-up-and-page-down ?
+Apr 19 22:16:52 <FromGitter>	<aurabindo_gitlab> Marking seems to work with C-SPC in the minibuffer but magit is only showing only the last selection into the am process.
+Apr 19 22:19:47 <FromGitter>	<plicatibu_twitter> @jr0cket  It worked like a charm. Thank you.
+Apr 19 22:25:14 <FromGitter>	<aurabindo_gitlab> @igoralmeida  looks like magit doesnt support patching files that lie in some location outside the git directory. https://emacs.stackexchange.com/questions/50236/how-to-specify-multiple-patch-files-to-be-applied-by-magit
+Apr 19 22:38:08 <FromGitter>	<thanhvg> have anyone tried `gccemacs`? it's very fast but evil objects are broken for me.  For example `vio` ,   viw` ect won't select the whole object
+Apr 19 23:05:30 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 23:05:30 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 23:07:42 2020
+
+Apr 19 23:07:42 *	Now talking on #spacemacs
+Apr 19 23:07:42 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 19 23:07:42 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 20 01:08:30 *	Disconnected ()
+**** ENDING LOGGING AT Mon Apr 20 01:08:30 2020
+
+**** BEGIN LOGGING AT Mon Apr 20 01:12:23 2020
+
+Apr 20 01:12:23 *	Now talking on #spacemacs
+Apr 20 01:12:23 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 20 01:12:23 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 20 08:33:21 *	Disconnected ()
+**** ENDING LOGGING AT Mon Apr 20 08:33:21 2020
+
+**** BEGIN LOGGING AT Mon Apr 20 08:33:43 2020
+
+Apr 20 08:33:43 *	Now talking on #spacemacs
+Apr 20 08:33:43 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 20 08:33:43 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 20 10:34:36 <FromGitter>	<cviebig> Hi, can you please point me to the code which configures the color of the project segment on the mode line? I'm on deeper-blue theme and it's yellow which is what I would like to change
+Apr 20 10:34:51 <FromGitter>	<magthe> When I switch into org-mode persp (`SPC l o o`) one specific org file is opened. Unfortunately it's not the org file I'd like to have opened :/ Can I control that in some way?
+Apr 20 11:15:12 <FromGitter>	<magthe> Or, even better, load a persp layout file on emacs start.
+Apr 20 12:40:11 <FromGitter>	<jr0cket> @magthe `SPC l o o` is a custom layout that comes with Spacemacs and displays your org-agenda files. I'd suggest creating your own custom layout https://github.com/syl20bnr/spacemacs/blob/develop/doc/DOCUMENTATION.org#custom-layouts
+Apr 20 12:40:50 <FromGitter>	<jr0cket> Alternatively, search the Spacemacs source code for the definition and see how it works.
+Apr 20 12:43:25 <FromGitter>	<jr0cket> I am unclear about what is meant by "load a persp layout file on emacs start".   ⏎ Spacemacs will load your previous layouts if you set `dotspacemacs-auto-resume-layouts t` in the `.spacemacs` file
+Apr 20 12:53:06 <FromGitter>	<jr0cket> @cviebig `SPC h d F` will list all the faces used in the current theme.  Try typing in `mode-line` or `persp` to narrow that list of faces and see which one matches the color you want to change.
+Apr 20 12:54:28 <FromGitter>	<jr0cket> There may be a better way that that, but that is what I would try.  For faces in the text of a buffer, you can use `SPC h d c` and it will show the face used for that character as part of the description
+Apr 20 14:28:16 <FromGitter>	<cviebig> @jr0cket I have checked the deeper-blue theme definition and https://github.com/syl20bnr/spacemacs/blob/c7a103a772d808101d7635ec10f292ab9202d9ee/core/libs/spacemacs-theme/spacemacs-common.el#L78 already. Still there is none, that fits neither from it's description, nor from the color. Do you know where the spacemacs modeline related code is located? I was not able to find it yesterday :-(
+Apr 20 14:32:46 <FromGitter>	<cviebig> @jr0cket Thank you for recommending `SPC h d F`. That's a great helper. Unfortunately I did not find a matching color
+Apr 20 14:45:00 <FromGitter>	<bschwarzer> Hi, is it possible to show auto-completion with tab when no chars have been typed?
+Apr 20 14:56:21 <FromGitter>	<jr0cket> @cviebig sorry, themes are a bit of a mystery to me at the moment.  I spend an hour hacking some colors for the doom-solarized-light theme and either changed something different or changed more colors than expected :) ⏎ I changed a color at a time and reloaded the theme using `SPC T s`, first switching to another them and then switching back to the changed theme.  I managed to get a few changes that I am happy 
+Apr 20 14:56:22 <FromGitter>	... with, but need to move on to more productive things...
+Apr 20 15:10:34 <FromGitter>	<cviebig> @jr0cket Sure, thank you though :-) Have a good day!
+Apr 20 20:59:44 *	Disconnected ()
+**** ENDING LOGGING AT Mon Apr 20 20:59:44 2020
+
+**** BEGIN LOGGING AT Mon Apr 20 21:00:28 2020
+
+Apr 20 21:00:28 *	Now talking on #spacemacs
+Apr 20 21:00:28 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 20 21:00:28 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 20 21:01:14 *	Disconnected ()
+**** ENDING LOGGING AT Mon Apr 20 21:01:14 2020
+
+**** BEGIN LOGGING AT Mon Apr 20 21:02:12 2020
+
+Apr 20 21:02:12 *	Now talking on #spacemacs
+Apr 20 21:02:12 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 20 21:02:12 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 20 22:42:14 *	Disconnected ()
+**** ENDING LOGGING AT Mon Apr 20 22:42:14 2020
+
+**** BEGIN LOGGING AT Mon Apr 20 23:54:55 2020
+
+Apr 20 23:54:55 *	Now talking on #spacemacs
+Apr 20 23:54:55 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 20 23:54:55 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 21 00:07:37 <FromGitter>	<kennethken73> Anyone been able to resolve the issue: < < org-babel-execute-buffer: Symbol’s function definition is void: org-outline-overlay-data >> ? I understand the newest version of orgmode as undefined the variable in favor of another. Is babel under spacemacs able to cope? I've updated my install via develop and reinstalled my elpa directory.  Thanks in advance
+Apr 21 01:11:21 <FromGitter>	<kennethken73> Answer: https://emacs.stackexchange.com/questions/38177/keeping-org-mode-outline-after-reverting-buffer/38212#38212  Pasting in the code from Fehrenbacher into .spacemacs in the with-eval-after-load 'org section did the trick.
+Apr 21 02:14:50 <FromGitter>	<Daipeng3_twitter> the haskell layout seems not work
+Apr 21 02:15:29 <FromGitter>	<Daipeng3_twitter> the lsp has successful startef，but no completion appear at all
+Apr 21 08:17:03 *	Disconnected ()
+**** ENDING LOGGING AT Tue Apr 21 08:17:03 2020
+
+**** BEGIN LOGGING AT Tue Apr 21 08:17:28 2020
+
+Apr 21 08:17:28 *	Now talking on #spacemacs
+Apr 21 08:17:28 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 21 08:17:28 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 21 10:21:23 <FromGitter>	<biocyberman> What do I need to do before I can use something like `ESS` layer does: `(spacemacs/declare-prefix-for-mode 'ess-r-mode "mg" "goto")`. I tried on my own layer: `(spacemacs/declare-prefix-for-mode 'ess-r-mode "mp" "poly")`  and got error:  `Symbol's function definition is void: which-key-add-major-mode-key-based-replacements`
+Apr 21 10:22:41 <FromGitter>	<biocyberman> Something need to be done to load `spacemacs/declare-prefix-for-mode` and its dependent functions to my layer?
+Apr 21 10:35:14 <FromGitter>	<biocyberman> Found a way to make it work, but don't know if this is the correct way: `spacemacs/declare-prefix-for-mode` under `:init` section of `(defun mylayer/init-apackage () (use-package apackage :init))`
+Apr 21 11:14:30 *	Disconnected ()
+**** ENDING LOGGING AT Tue Apr 21 11:14:30 2020
+
+**** BEGIN LOGGING AT Tue Apr 21 11:14:51 2020
+
+Apr 21 11:14:51 *	Now talking on #spacemacs
+Apr 21 11:14:51 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 21 11:14:51 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 21 11:28:13 <sonjah>	hi do i need to turn syntax highlighting on manually or why does it not do that?
+Apr 21 11:59:13 <sonjah>	nm problem was between chair and monitor
+Apr 21 12:17:27 <FromGitter>	<jluttine> hmm.. why does (browse-url-xdg-open "https://github.com") in emacs use a different browser than xdg-open "https://github.com" in the terminal??
+Apr 21 12:20:23 <FromGitter>	<jluttine> ah, this is probably nixos issue. emacs has been wrapped so that XDG_DATA_DIRS is different inside emacs than in my desktop environment otherwise
+Apr 21 12:20:45 <FromGitter>	<jluttine> so my default browser definition isn't found by emacs environment
+Apr 21 12:58:19 <FromGitter>	<Cassiel-girl> How to move one chapter from file1.org to file2.org? There are some link path "file://xx.jpg" in the file1.org and file2.org.
+Apr 21 13:00:30 <FromGitter>	<jluttine> nope, it wasn't nixos issue. with vanilla emacs, XDG_DATA_DIRS is correct inside emacs GUI. with spacemacs GUI, it's not. so most likely some spacemacs issue i guess
+Apr 21 13:02:51 <FromGitter>	<Alexander-Miller> @Cassiel-girl org-refile can do that, though I don't think it is smart enough to fix file paths, you'll probably have to do that manually
+Apr 21 13:05:50 <FromGitter>	<jluttine> oh, what, spacemacs loads environment variables from .spacemacs.env.. why does it do that? why can't it just use the environment variables that it has in the environment? can i disable this somehow? and why do they get loaded in GUI but not in CLI?
+Apr 21 13:07:27 <FromGitter>	<jluttine> it has stored in that file even environment variables that aren't persistent from one session to another, that makes no sense to me
+Apr 21 13:23:03 <FromGitter>	<jluttine> ok, that all the relevant information and help in the header, so never mind :)
+Apr 21 13:23:24 <FromGitter>	<jluttine> s/that/that file had/
+Apr 21 13:23:53 <FromGitter>	<jluttine> but still i don't understand why then spacemacs CLI was unaffected..
+Apr 21 13:44:00 *	Disconnected ()
+**** ENDING LOGGING AT Tue Apr 21 13:44:00 2020
+
+**** BEGIN LOGGING AT Tue Apr 21 13:50:46 2020
+
+Apr 21 13:50:46 *	Now talking on #spacemacs
+Apr 21 13:50:46 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 21 13:50:46 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 21 13:57:30 *	Disconnected ()
+**** ENDING LOGGING AT Tue Apr 21 13:57:30 2020
+
+**** BEGIN LOGGING AT Tue Apr 21 15:11:34 2020
+
+Apr 21 15:11:34 *	Now talking on #spacemacs
+Apr 21 15:11:34 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 21 15:11:34 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 21 15:13:30 *	Disconnected ()
+**** ENDING LOGGING AT Tue Apr 21 15:13:30 2020
+
+**** BEGIN LOGGING AT Tue Apr 21 17:31:25 2020
+
+Apr 21 17:31:25 *	Now talking on #spacemacs
+Apr 21 17:31:25 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 21 17:31:25 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 21 18:14:05 *	Disconnected ()
+**** ENDING LOGGING AT Tue Apr 21 18:14:05 2020
+
+**** BEGIN LOGGING AT Tue Apr 21 18:14:37 2020
+
+Apr 21 18:14:37 *	Now talking on #spacemacs
+Apr 21 18:14:37 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 21 18:14:37 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 21 18:20:00 <FromGitter>	<jmromer> Are the naming conventions for spacemacs variables and funtions detailed anywhere? I'm pretty sure I've seen the list but can't seem to find it anywhere now
+Apr 21 18:22:01 <FromGitter>	<jmromer> perhaps the file named conventions in all caps https://github.com/syl20bnr/spacemacs/blob/develop/doc/CONVENTIONS.org#spacemacs-core-and-layer
+Apr 21 20:35:57 *	Disconnected ()
+**** ENDING LOGGING AT Tue Apr 21 20:35:57 2020
+
+**** BEGIN LOGGING AT Tue Apr 21 20:37:14 2020
+
+Apr 21 20:37:14 *	Now talking on #spacemacs
+Apr 21 20:37:14 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 21 20:37:14 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 21 23:04:30 <FromGitter>	<robbyoconnor> @duianto @jr0cket seems that treemacs keybindings work again
+Apr 21 23:04:35 <FromGitter>	<robbyoconnor> LOL
+Apr 21 23:15:58 <FromGitter>	<SreenivasVRao> https://www.reddit.com/r/emacs/comments/g5owt0/spacemacs_shell_mode_wonky_formatting_for_output/ ⏎  ⏎ requesting some tips on these, if anyone can help? :)
+Apr 22 09:17:30 *	Disconnected ()
+**** ENDING LOGGING AT Wed Apr 22 09:17:30 2020
+
+**** BEGIN LOGGING AT Wed Apr 22 09:20:42 2020
+
+Apr 22 09:20:42 *	Now talking on #spacemacs
+Apr 22 09:20:42 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 22 09:20:42 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 22 09:22:00 *	Disconnected ()
+**** ENDING LOGGING AT Wed Apr 22 09:22:00 2020
+
+**** BEGIN LOGGING AT Wed Apr 22 09:26:09 2020
+
+Apr 22 09:26:09 *	Now talking on #spacemacs
+Apr 22 09:26:09 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 22 09:26:09 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 22 09:36:00 *	Disconnected ()
+**** ENDING LOGGING AT Wed Apr 22 09:36:00 2020
+
+**** BEGIN LOGGING AT Wed Apr 22 09:54:05 2020
+
+Apr 22 09:54:05 *	Now talking on #spacemacs
+Apr 22 09:54:05 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 22 09:54:05 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 22 10:15:50 <FromGitter>	<pubple>  (https://files.gitter.im/syl20bnr/spacemacs/npWm/image.png)
+Apr 22 10:16:28 <FromGitter>	<pubple>  (https://files.gitter.im/syl20bnr/spacemacs/IhwY/image.png)
+Apr 22 10:17:21 <FromGitter>	<pubple> @jr0cket & @yyoncho thank you for your support. I changed the config with this `dotspacemacs-persistent-server t` then I open emacs, then I use `emacsclient -t` but I got another issue which is the theme color. `How to get back the beautiful theme color as in emacs`?
+Apr 22 10:18:32 <FromGitter>	<pubple>  (https://files.gitter.im/syl20bnr/spacemacs/MJNa/image.png)
+Apr 22 10:18:33 <FromGitter>	<jr0cket> @pubple  You are running Emacs in a terminal, so that terminal will limit the colors you can use.
+Apr 22 11:13:37 *	Disconnected ()
+**** ENDING LOGGING AT Wed Apr 22 11:13:37 2020
+
+**** BEGIN LOGGING AT Wed Apr 22 11:13:56 2020
+
+Apr 22 11:13:56 *	Now talking on #spacemacs
+Apr 22 11:13:56 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 22 11:13:56 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 22 11:15:10 <FromGitter>	<jr0cket> @MenkeTechnologies ah, so if you set `(setq helm-follow-mode-persistent t)` in the `dotspacemacs/user-config`, then helm remembers which commands you used follow-mode with, so you only have to select it once.  Nice.  Thank you.
+Apr 22 12:17:07 *	Disconnected ()
+**** ENDING LOGGING AT Wed Apr 22 12:17:07 2020
+
+**** BEGIN LOGGING AT Wed Apr 22 12:17:46 2020
+
+Apr 22 12:17:46 *	Now talking on #spacemacs
+Apr 22 12:17:46 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 22 12:17:46 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 22 13:37:15 <FromGitter>	<SreenivasVRao> @fleimgruber (setq create-lockfiles nil) should do it: ⏎ https://stackoverflow.com/questions/8246483/emacs-how-to-disable-files-creation
+Apr 22 14:22:11 <FromGitter>	<cuppajoeman> I want to become more reliant on the built-in help system. I usually like to hopen up the layer documentation first when I need to learn about something, does anyone have any suggestions or workflows they use to get help on stuff like this?
+Apr 22 14:31:40 <FromGitter>	<fleimgruber> @SreenivasVRao thanks, I found it moments later, see https://gitter.im/syl20bnr/spacemacs?at=5e9fde2a71a34b0149000c28.
+Apr 22 15:33:54 <FromGitter>	<jagipson_twitter> ooph. I'm at wit's end trying to get started with spacemacs particularly orgmode. I expected that when I pressed C-z it would restore the emacs keybinding for org mode... is this incorrect?
+Apr 22 15:38:47 <oxalis>	I'm having trouble with org mode (I just started using spacemacs). I press C-z to enter the emacs key bindings, but the org mode bindings don't seem to be working.... I expected from emacs mode I could use C-c a  to show the agenda menu buffer but that's not working 
+Apr 22 15:39:31 <oxalis>	oops.  Didn't realize it was the same chat
+Apr 22 15:43:44 <FromGitter>	<apj68> @jagipson_twitter , what are you trying to do? I basically use the key bindings described in chapter 3 (https://www.spacemacs.org/layers/+emacs/org/README.html#key-bindings) of the ORG doc.  Did you see that?
+Apr 22 15:44:21 <oxalis>	I just verified that my org layer was commented out in .spacemacs... I remember uncommenting it so not sure what happened
+Apr 22 15:44:44 <oxalis>	I'm connecting that system to the net to see If it launches now
+Apr 22 15:45:00 <oxalis>	It's installing packages...
+Apr 22 15:47:22 <oxalis>	that was it! (facepalm)
+Apr 22 15:47:52 <oxalis>	somehow my configuration reverted to factory - probably my fault because I was juggling configs
+Apr 22 15:58:31 <FromGitter>	<jr0cket> @cuppajoeman I mainly use `SPC h d f` to describe functions.  If I want to know more, I use `RET` on the file name the function is defined in and it displays the code in a buffer. ⏎ I should use the built in layer docs more (got too used to looking at develop.spacemacs.org layer list).  Once the layer README is open, then I would use `TAB TAB` to open all the sections and `SPC s s` to search for something 
+Apr 22 15:58:31 <FromGitter>	... specific.  Or just use `]` and `[` to navigate the headings.
+Apr 22 16:03:43 <FromGitter>	<pubple> @jr0cket @MenkeTechnologies @yyoncho  thank you very much for your help. Maybe I messed something in the configuration file. Therefore I reinstalled emacs-plus, and then spacemacs with standard option. From there I ran ‘emacs -nw’ as a emacs server,  then ‘emacsclient -t’ for any new terminal session. It works well and fast, no need to change theme or anything. I just put here for anyone who may prefer 
+Apr 22 16:03:43 <FromGitter>	... speed, and just want to do things in terminal.
+Apr 22 16:13:33 <FromGitter>	<igoralmeida> @jr0cket it's also useful to press TAB after M-x to see the help for the current function before running it, but i'd love to be able to close the help window as well
+Apr 22 16:32:35 <FromGitter>	<pubple> Can anyone share a guidance of setting spacemacs as an IDE for modern Javascript development(support jsx, react, vue, es6+ syntax)? I did use these below layers but it still doesn’t work as what I expected. These layers are ‘javascript, react’. I did these things: ‘npm install -g’ other tools as guided in each layer doc, like ‘tern’, and setup ‘.tern-project’ for my js app as well, and checking 
+Apr 22 16:32:35 <FromGitter>	... that tern server was working but while editing ‘js’ or ‘jsx’ with spacemacs, it still doesn’t support autocomplete, hinting for function’s parameters, object’s properties, auto prettify after save,...Let’s say while I’m typing “cons” it should show a menu list which includes “console,...” for me to navigate and choose.
+Apr 22 16:34:01 <FromGitter>	<pubple> If I choose ‘console’ the type ‘.’ it should brings a menu of all console methods like log, info, profile,...
+Apr 22 16:36:04 <FromGitter>	<pubple> Sorry for any inconvenience of what I typed without any highlighting because I’m writing on my mobile
+Apr 22 16:36:32 <FromGitter>	<pubple> Thank you for your help
+Apr 22 16:53:26 <FromGitter>	<jr0cket> @igoralmeida ah, `TAB` after `SPC SPC` is handy, although helm seems to keep hold of the active window, so you cant select the *Help* buffer and using `q` to quit.  Yes, more than a bit annoying.  The *Help* buffer does go away when you select or cancel and it is updated if you `TAB` on another entry, so I can get used to this.  Thanks
+Apr 22 16:58:55 <FromGitter>	<jr0cket> @pubple my only advice is to check `autocomplete` layer has been added to your layer list in .spacemacs and restart Emacs.
+Apr 22 17:21:05 <FromGitter>	<Moonkir_twitter> spacemcas is stuck on Contacting host
+Apr 22 17:21:14 <FromGitter>	<Moonkir_twitter> what can I do ?
+Apr 22 17:23:12 <FromGitter>	<jr0cket> @Moonkir_twitter not much info there, I assume you've tried pressing `C-g` (control g) until your fingers hurt :)  Also try `ESC` and `fd`.
+Apr 22 17:23:31 <FromGitter>	<jr0cket> What were you doing (or trying to do).
+Apr 22 17:25:06 <FromGitter>	<Moonkir_twitter> Adding the layer pdf-tools
+Apr 22 18:02:24 <oxalis>	okay -  I got everything working with the slight caveat that somehow capital C is bound as a prefix to something in insert mode and emacs mode. I can't seem to figure out what, because ^H k C  just says it's bound to change line (as would be expected for "normal" mode)
+Apr 22 18:03:14 <oxalis>	I think capital C is mapped to Ctrl, somehow
+Apr 22 18:04:40 <oxalis>	when I type shift-c  the minibuffer shows:    - -> +prefix 
+Apr 22 18:04:54 <oxalis>	and C-  [C=h paging/help]
+Apr 22 18:10:07 <oxalis>	okay - I fixed it by evicting Eyebrowse
+Apr 22 18:38:32 <FromGitter>	<BrandonShega> Hi all, it seems that spacemacs doesn't have access to my environment or shell correctly, it can't find js-ts langserver and also can't install it because it doesn't have access to npm, how can I fix this?
+Apr 22 18:40:25 <FromGitter>	<yyoncho> @BrandonShega install it manually
+Apr 22 18:40:41 <FromGitter>	<BrandonShega> I have, I use it with vim and vscode just fine
+Apr 22 18:40:42 <FromGitter>	<yyoncho> lsp-mode readme has the corresponding commands
+Apr 22 18:41:36 <FromGitter>	<yyoncho> Then they are not on the path used by emacs. Check if (executable-find "tsserver") and (executable-find "typescript-language-server")  return the correct paths
+Apr 22 18:42:32 <FromGitter>	<BrandonShega> Ya, that was my concern, and what I wanted to fix if I can
+Apr 22 18:44:22 <FromGitter>	<yyoncho> SPC f e e and fix your path
+Apr 22 18:44:57 <FromGitter>	<BrandonShega> both of those commands return `nil`
+Apr 22 18:46:07 <FromGitter>	<BrandonShega> oh interesting, it seems that spacemacs only has my node 10.9.0 in the path
+Apr 22 18:46:18 <FromGitter>	<BrandonShega> but my current version set with nvm is 12.0.0, that's probably why
+Apr 22 19:31:35 <FromGitter>	<anlsh> How can I customize the keybindings for things like `SPC f f`?
+Apr 22 19:33:36 <FromGitter>	<igoralmeida> @anlsh `spacemacs/set-leader-keys`, and you drop the SPC
+Apr 22 19:36:27 <FromGitter>	<anlsh> Thank you!
+Apr 22 20:19:18 <FromGitter>	<SreenivasVRao> https://www.reddit.com/r/emacs/comments/g5owt0/spacemacs_shell_mode_wonky_formatting_for_output/ ⏎  ⏎ @igoralmeida sorry to bother you on this. :) changing tab width didn't fix it. Looks it's a problem even with a clean install on spacemacs/develop...

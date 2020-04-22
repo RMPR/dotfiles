@@ -1183,3 +1183,269 @@ T 1586742573 20*	Disconnected (20)
 T 1587051375 19*	Now talking on 22#aerc
 T 1587051375 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
 T 1587051375 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587058124 20*	Disconnected (20)
+T 1587058153 19*	Now talking on 22#aerc
+T 1587058153 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587058153 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587074329 20*	Disconnected (20)
+T 1587074357 19*	Now talking on 22#aerc
+T 1587074357 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587074357 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587078559 20*	Disconnected (20)
+T 1587113818 19*	Now talking on 22#aerc
+T 1587113818 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587113818 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587149992 18<24Xogium18>	hi guys… I just had this while replying to some email I received
+T 1587149995 18<24Xogium18>	> Content-Type: text/plain; charset="utf-8"
+T 1587149996 18<24Xogium18>	> Content-Transfer-Encoding: base64
+T 1587150005 18<24Xogium18>	that's… Actually, a thing ?
+T 1587150034 18<24Xogium18>	why would I… Quote their message in base64 ?
+T 1587150254 18<22emersion18>	sounds like a bug
+T 1587150361 18<24Xogium18>	ugh, probably
+T 1587150374 18<24Xogium18>	I'll try to see if I can reproduce
+T 1587150431 18<26pepper_chico18>	it happened for me as well, but I simply forgot about it cuz I'm not replying emails lately
+T 1587150441 18<24Xogium18>	nop, I got only one email that does this
+T 1587150471 18<24Xogium18>	this is crazy weird
+T 1587150644 18<24Xogium18>	how do I save an email to disk to examine it ? I keep forgetting
+T 1587151022 18<24Xogium18>	what I'm a bit surprised about is why would it feel the need to actually quote the content encoding and etc in the reply ?
+T 1587151526 18<28bookworm18>	broken mail?
+T 1587151554 18<24Xogium18>	no idea
+T 1587151566 18<24Xogium18>	I want to save it to disk to examine it but I forget how lol
+T 1587151596 18<28bookworm18>	you can pipe it with `:pipe -m sh -c "cat >somefile"` or something like it
+T 1587151607 18<28bookworm18>	tee works as well (the command)
+T 1587151631 18<24Xogium18>	neat
+T 1587151787 18<24Xogium18>	ah, yeah… Ms exchange. Go figure
+T 1587151795 18<28bookworm18>	-.-
+T 1587151819 18*	28bookworm pushes the responsibility of fixing it to the reporter
+T 1587151866 18<24Xogium18>	it is really encoded in base64 WTF
+T 1587151887 18<24Xogium18>	I have no bloody idea how less even displays it fine
+T 1587151889 18<28bookworm18>	ah yeah that's valid
+T 1587151897 18<28bookworm18>	aerc decodes it
+T 1587151904 18<24Xogium18>	lovely
+T 1587151917 18<24Xogium18>	so huh… How the hell do I quote such a message ?
+T 1587151920 18<28bookworm18>	but it should fo that during quoting as well
+T 1587151924 18<24Xogium18>	oh
+T 1587151925 18<28bookworm18>	do*
+T 1587151935 18<28bookworm18>	is the mail private?
+T 1587151956 18<24Xogium18>	yeah, unfortunately :/
+T 1587151972 18<28bookworm18>	mhm, then fix it and send a patch please ;P
+T 1587151976 18<24Xogium18>	but huh, what's the point of encoding mails in base64 anyway, if everyone can decode it ?
+T 1587151988 18<24Xogium18>	I can't code in go :/
+T 1587152019 18<28bookworm18>	same point as quoted-printable... servers in-between can only handle ascii because English is the only language on Earth
+T 1587152048 18<28bookworm18>	historical baggage as always
+T 1587152054 18<28bookworm18>	welcome to email
+T 1587152105 18<24Xogium18>	charming
+T 1587152193 18<26pepper_chico18>	well, I lived fine on mutt by setting everything to utf-8
+T 1587152194 18<24Xogium18>	so er, I'd fix it, but I have no idea of what aerc's code is doing because I can't even read it clearly :S
+T 1587152205 18<28bookworm18>	how private is private? As in no one or as in not the whole internet?
+T 1587152228 18<24Xogium18>	rather the later
+T 1587194875 20*	Disconnected (20)
+T 1587196736 19*	Now talking on 22#aerc
+T 1587196736 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587196736 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587209769 20*	Disconnected (20)
+T 1587229957 19*	Now talking on 22#aerc
+T 1587229957 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587229957 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587233767 18<20enriooooooo18>	how to uninstall aerc
+T 1587234302 18<28bookworm18>	depends on how you installed it in the first place
+T 1587239180 18<20enriooooooo18>	followed the steps given in aerc installation
+T 1587239192 18<20enriooooooo18>	in there Readme file
+T 1587239323 18<25bsrd18>	Check Makefile
+T 1587246956 20*	Disconnected (20)
+T 1587247071 20*	Disconnected (20Remote host closed socket)
+T 1587247129 20*	Disconnected (20Remote host closed socket)
+T 1587247186 20*	Disconnected (20Remote host closed socket)
+T 1587247230 19*	Now talking on 22#aerc
+T 1587247230 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587247230 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587257131 20*	Disconnected (20)
+T 1587257181 20*	Disconnected (20Remote host closed socket)
+T 1587257249 20*	Disconnected (20Remote host closed socket)
+T 1587257317 20*	Disconnected (20Remote host closed socket)
+T 1587257343 19*	Now talking on 22#aerc
+T 1587257344 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587257344 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587282736 20*	Disconnected (20)
+T 1587282761 19*	Now talking on 22#aerc
+T 1587282761 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587282761 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587284194 20*	Disconnected (20)
+T 1587284221 19*	Now talking on 22#aerc
+T 1587284221 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587284221 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587287833 20*	Disconnected (20)
+T 1587288242 19*	Now talking on 22#aerc
+T 1587288242 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587288242 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587290461 20*	Disconnected (20)
+T 1587290498 19*	Now talking on 22#aerc
+T 1587290500 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587290500 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587296730 20*	Disconnected (20)
+T 1587296749 19*	Now talking on 22#aerc
+T 1587296749 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587296749 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587325620 20*	Disconnected (20)
+T 1587325815 19*	Now talking on 22#aerc
+T 1587325815 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587325815 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587327030 20*	Disconnected (20)
+T 1587327932 19*	Now talking on 22#aerc
+T 1587327932 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587327932 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587333930 20*	Disconnected (20)
+T 1587333983 20*	Disconnected (20Remote host closed socket)
+T 1587334041 20*	Disconnected (20Remote host closed socket)
+T 1587334062 19*	Now talking on 22#aerc
+T 1587334062 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587334062 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587341310 20*	Disconnected (20)
+T 1587341353 20*	Disconnected (20Remote host closed socket)
+T 1587341413 20*	Disconnected (20Remote host closed socket)
+T 1587341473 20*	Disconnected (20Remote host closed socket)
+T 1587341523 20*	Disconnected (20Remote host closed socket)
+T 1587341543 19*	Now talking on 22#aerc
+T 1587341543 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587341543 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587368001 20*	Disconnected (20)
+T 1587368022 19*	Now talking on 22#aerc
+T 1587368023 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587368023 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587368592 18<24Mattemagikern18>	Will do! :) 
+T 1587369985 18<28icyphox18>	bookworm: Recall the OpenBSD build issues I was having? I managed to get a fix in upstream. 
+T 1587370070 18<28bookworm18>	oh really?
+T 1587370079 18<28bookworm18>	nice!
+T 1587370080 18<28icyphox18>	https://github.com/ProtonMail/crypto/commit/71bec3603bf3a9bb42e31198bc4ab49985570971
+T 1587370099 18<28icyphox18>	Yes. What's left to be done is upgrading to this newer commit, I guess.
+T 1587370150 18<28icyphox18>	I'm not too familiar with go, but I believe you'll have to update the 'replace' in the go.mod, right?
+T 1587370235 18<28icyphox18>	Also, I must mention: I'm not sure if this is even /the/ fix. The ProtonMail/crypto maintainer claims so.
+T 1587370340 18<28bookworm18>	well, using internal is... not clean in the first place
+T 1587371013 18<28bookworm18>	icyphox: re updating... we didn't exactly keep the fork up to date and the diffstat to your fix is rather large
+T 1587371056 18<28bookworm18>	can you send the update to the ML? But in this case I'll let Drew approve it, security stuff is a tad too hot for me ;)
+T 1587371109 18<28bookworm18>	theoretically you can just run go update $package; go mod tidy and that should do the trick (do build with the notmuch flag on though when you do that)
+T 1587371211 18<28bookworm18>	ehm, go get $pkg
+T 1587371530 18<19kskarthik18>	Aerc has email thread support ?
+T 1587371640 18<28bookworm18>	no, not yet
+T 1587412784 20*	Disconnected (20)
+T 1587412828 19*	Now talking on 22#aerc
+T 1587412828 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587412828 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587412874 20*	Disconnected (20)
+T 1587412906 20*	Disconnected (20Remote host closed socket)
+T 1587412931 19*	Now talking on 22#aerc
+T 1587412932 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587412932 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587415767 18<28heywoodlh18>	Is it normal for a lot of HTML emails to not render in aerc, even when piping to `w3m`? My default MIME type order is `alternatives=text/plain,text/html` 
+T 1587415827 18<28heywoodlh18>	For those emails that offer a plaintext version this works great for me. But for the ones that don't, I have had to open a web client to look at those emails to decipher them.
+T 1587416758 18<26pepper_chico18>	you should check whether you're actually changing to the html part for the w3m view, otherwise you may be simply viewed the default text part of a multipart message, which often gets to be completely gibberish sent as text version of the html part by the sender.
+T 1587416828 18<26pepper_chico18>	if you're doing that, then there isn't much to do beyond that than simply open it with browser
+T 1587417641 18<28heywoodlh18>	pepper_chico if I understand right, I should switch to the HTML MIME type before piping to w3m?
+T 1587417654 18<28heywoodlh18>	If so, I just tried that and I have the same result.
+T 1587418934 20*	Disconnected (20)
+T 1587423295 19*	Now talking on 22#aerc
+T 1587423295 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587423295 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587427862 18<28bookworm18>	twohot: same as any other filter, you specify it in the filter section. If what you are really asking is whether aerc has a default filter for it, the answer is no
+T 1587453423 20*	Disconnected (20)
+T 1587453448 19*	Now talking on 22#aerc
+T 1587453448 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587453448 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587460525 18<22twohot18>	Good Morning! 
+T 1587460542 18<28bookworm18>	Hi, can we help?
+T 1587460555 18<22twohot18>	Yeah bookworm ... sure
+T 1587460577 18<22twohot18>	I was wondering if I missed a response yesterday.  I ran out of power
+T 1587460608 18<28bookworm18>	>twohot: same as any other filter, you specify it in the filter section. If what you are really asking is whether aerc has a default filter for it, the answer is no
+T 1587460669 18<22twohot18>	thanks
+T 1587460716 18<28bookworm18>	Not sure why people even attach a full blown message to a mail... embed the content for gods sakes
+T 1587460735 18<22twohot18>	bookworm: I know nothing about 'message/rfc822' mime-types
+T 1587460747 18<28bookworm18>	almost no one needs all the headers and encoding garbage an email entails
+T 1587460791 18<22twohot18>	it was forwarded ... the result was 'message/rfc822'
+T 1587460839 18<28bookworm18>	there are various ways you can forward an email
+T 1587461098 18<22twohot18>	bookworm: I was hoping you'd say more ... about the various ways to forward an email.  I forwarded it using Evolution, then later checked my email with aerc.  I couldn't read my own forwarded message from aerc.
+T 1587461260 18<22twohot18>	s/from\ aerc/in\ aerc
+T 1587461347 18<28bookworm18>	well, you can do what outlook etc do... add a "Fwd: " or whatever prefix, then write whatever is in the body of the forwarded email to the body of the current email, after some indicator
+T 1587461365 18<28bookworm18>	option 2: attach it as a file to the message (what your client did)
+T 1587461425 18<28bookworm18>	option 3: bounce the message, meaning don't change any header and simply redirect, setting a different envelope-from / envelop-to. This will break spf and probably put you in spam, depending on where the mail was originally sent from
+T 1587461452 18<28bookworm18>	but that all depends on the domain that send the original mail, plus the configuration of the receiving system
+T 1587461474 18<22twohot18>	wow
+T 1587461693 18<22twohot18>	I guess I's just have to figure out a scripted way to get a readable fowarding
+T 1587464070 20*	Disconnected (20)
+T 1587464091 19*	Now talking on 22#aerc
+T 1587464091 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587464091 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587473040 20*	Disconnected (20)
+T 1587473446 19*	Now talking on 22#aerc
+T 1587473446 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587473446 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587473850 20*	Disconnected (20)
+T 1587478294 19*	Now talking on 22#aerc
+T 1587478294 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587478294 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587478410 20*	Disconnected (20)
+T 1587478523 20*	Disconnected (20Remote host closed socket)
+T 1587486655 20*	Disconnected (20Connection timed out)
+T 1587486685 19*	Now talking on 22#aerc
+T 1587486685 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587486685 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587489245 20*	Disconnected (20)
+T 1587489277 19*	Now talking on 22#aerc
+T 1587489277 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587489277 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587497757 20*	Disconnected (20)
+T 1587497834 19*	Now talking on 22#aerc
+T 1587497834 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587497834 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587503876 18<20enriooooooo18>	hi bookworm 
+T 1587503903 18<28bookworm18>	just ask the channel please
+T 1587504119 18<20enriooooooo18>	hi to channel
+T 1587504346 18<28bookworm18>	just ask what you actually want...
+T 1587505140 18<26pepper_chico18>	hi enriooooooo 
+T 1587505216 18<20enriooooooo18>	came to say hi
+T 1587505458 18<28bookworm18>	take it to ##chat, this is an on-topic channel enriooooooo 
+T 1587505530 18<20enriooooooo18>	okay
+T 1587507907 18<24nicky_caa18>	hii
+T 1587507980 18<24nicky_caa18>	I am trying to setup aerc to be able to view html (setup is done: w3m and dante)
+T 1587507999 18<24nicky_caa18>	Here what I am getting when I am trying to open a mail containing html
+T 1587508001 18<24nicky_caa18>	display_link_number=true: bad option
+T 1587508001 18<24nicky_caa18>	w3m version w3m/0.5.2, options lang=en,m17n,image,color,ansi-color,mouse,gpm,menu,cookie,ssl,ssl-verify,external-uri-loader,w3mmailer,nntp,gopher,ipv6,alarm,mark
+T 1587508001 18<24nicky_caa18>	usage: w3m [options] [URL or filename]
+T 1587508001 18<24nicky_caa18>	options:
+T 1587508020 18<24nicky_caa18>	Any idea ?
+T 1587508665 18<20gjabell18>	sounds like a w3m version issue
+T 1587508690 18<20gjabell18>	if you check the filter (default: /usr/local/share/aerc/filters/html), display_link_number=true is passed as an option to w3m
+T 1587509200 18<24nicky_caa18>	it was the issue. Thanks
+T 1587543450 20*	Disconnected (20)
+T 1587543641 19*	Now talking on 22#aerc
+T 1587543641 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587543641 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587543720 20*	Disconnected (20)
+T 1587543829 20*	Disconnected (20Remote host closed socket)
+T 1587543901 20*	Disconnected (20Remote host closed socket)
+T 1587543943 20*	Disconnected (20Remote host closed socket)
+T 1587543969 19*	Now talking on 22#aerc
+T 1587543969 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587543969 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587544560 20*	Disconnected (20)
+T 1587544606 20*	Disconnected (20Remote host closed socket)
+T 1587545618 20*	Disconnected (20Network is unreachable)
+T 1587545645 19*	Now talking on 22#aerc
+T 1587545645 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587545645 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587550417 20*	Disconnected (20)
+T 1587550436 19*	Now talking on 22#aerc
+T 1587550436 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587550436 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587554227 20*	Disconnected (20)
+T 1587554266 19*	Now talking on 22#aerc
+T 1587554266 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587554266 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587581990 18<28heywoodlh18>	Is there a way to use HTML in your signature file?
+T 1587582459 18*	28bookworm pulls out the pitchfork and gathers the others
+T 1587582682 18<28heywoodlh18>	Hahaha it's not that important I was just curious 
+T 1587582686 18<28heywoodlh18>	Mainly for links 
+T 1587582696 18<28heywoodlh18>	Long links look terrible in email signature
+T 1587582776 18<28bookworm18>	email signatures look terrible in mails you mean
+T 1587582797 18<28bookworm18>	but no, aerc only does plain text (by design), minus attachments that is
+T 1587582841 18<28bookworm18>	Drew has rather strict opinions regarding plain text mails
+T 1587582908 18<28bookworm18>	you could try and set the content type header manually, if you are lucky the current implementation will update it in place, but I didn't test that

@@ -1761,3 +1761,322 @@ T 1586742573 20*	Disconnected (20)
 T 1587051375 19*	Now talking on 22#spacemacs
 T 1587051375 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
 T 1587051375 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587051683 18<20FromGitter18>	<bellini.pedro_gitlab> Hello.  ⏎ What's the emacs version recommended to use with the latest spacemacs  on develop ?
+T 1587052617 18<20FromGitter18>	<Jks15063> I switched from dev back to master and recompiled everything and several changes didn't revert?
+T 1587052627 18<20FromGitter18>	<Jks15063> how do I undo this
+T 1587052639 18<20FromGitter18>	<Jks15063> magit has so many bugs
+T 1587052811 18<20FromGitter18>	<Jks15063> just popping an item off the stash says "both" and pops up empty windows
+T 1587052814 18<20FromGitter18>	<Jks15063> both what lmao
+T 1587054153 18<20FromGitter18>	<Jks15063> can you tell spacemacs to load a specific version of a package
+T 1587055343 18<20FromGitter18>	<hariseldon78> @jr0cket even removing the default width it gives the same error
+T 1587058124 20*	Disconnected (20)
+T 1587058153 19*	Now talking on 22#spacemacs
+T 1587058153 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1587058153 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587074329 20*	Disconnected (20)
+T 1587074357 19*	Now talking on 22#spacemacs
+T 1587074357 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1587074357 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587074901 18<20FromGitter18>	<bellini.pedro_gitlab> @jr0cket  Thanks very much for the info! Cool, that's the one I already have installed.
+T 1587075483 18<20FromGitter18>	<s25roy> @jr0cket I have helm installed and active, found a way to access the snippets through entering SPC SPC 'yas/insert-snippet' which brings up a populated list to choose from. Just can't seem to use  'SPC i s'. Thanks for help!
+T 1587078559 20*	Disconnected (20)
+T 1587113818 19*	Now talking on 22#spacemacs
+T 1587113818 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1587113818 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587134926 18<20FromGitter18>	<pth91> Hi there quick question. I do not know whether this is against org-mode philosophy but is there any chance to clock in two different tasks across different .org files? I am in the dev branch of spacemacs.
+T 1587137755 18<20FromGitter18>	<alchtech> Hey guys, how do you create a simple and plain list in .org modeß
+T 1587138146 18<20FromGitter18>	<matrixbot> `qurqar` John Stevenson (Gitter):  thanks for the reply. how do I set whitespace clean up in my file?
+T 1587141765 18<20FromGitter18>	<igoralmeida> @alchtech it worked for me: go to the (empty) scratch buffer, start org-mode, create the first item and then press 'o' to see a new line starting with '- '
+T 1587144172 18<20FromGitter18>	<Jks15063> how do you load a specific version of a package
+T 1587144178 18<20FromGitter18>	<Jks15063> I want an older version of magit
+T 1587144545 18<20FromGitter18>	<Jks15063> and org mode too probably lol
+T 1587145656 18<20FromGitter18>	<igoralmeida> @Jks15063 maybe look for it in `package-list-packages`
+T 1587147804 18<20FromGitter18>	<biocyberman> @smile13241324  Just found out that `knitr` functionality in `ESS` layer are removed in `develop` branch. Do you know if there is a plan to put it back?
+T 1587155342 18<20FromGitter18>	<aaronchall> Maybe I'm doing it wrong - but when I do `SPC` `f` `f` and start typing in a path, and then Alt-Tab to another program and then click Emacs to finish typing the path, I can't resume typing and I can't click back into where I was typing to finish typing... basically I sometimes have to kill emacs to be able to do it. If I alt-tab cleanly back, seems to be ok, though. thoughts?
+T 1587155913 18<20FromGitter18>	<jr0cket> @aaronchall when you have helm open, like with `SPC f f` it does seem to break if you click with your mouse.  I found that if you press `SPC` a few times, usually twice, it clears up again.   ⏎ The work-around is to not click and use Alt-TAB or Shift-Alt-TAB.  Probably worth raising an issue about this, `SPC h I`.
+T 1587156127 18<20FromGitter18>	<ennoausberlin> Hello. Can someone confirm if the chicken scheme documentation lookup works in scheme layer (geiser)?
+T 1587156217 18<20FromGitter18>	<jr0cket> @matrixbot `dotspacemacs-whitespace-cleanup 'all` will clean all whitespace every time you save the file.  You can find this in your `.spacemacs` file, although its probably set to nil by default.   ⏎ `SPC f e d` to open your .spacemacs file and `SPC s s whitespace` to find the existing config.  Then just change from nil to `'all`.  Dont forget the `'` for values that are not `nil` or `t`
+T 1587156538 18<20FromGitter18>	<aaronchall> @jr0cket thanks, I'll consider raising an issue...
+T 1587157288 18<20FromGitter18>	<chbaker0> hey, not sure if this is a good place to ask this question, but: I'm writing C++, and I want to take the results of lsp-find-references and do a query-replace on all of them
+T 1587157324 18<20FromGitter18>	<chbaker0> is there a way to do this?
+T 1587159637 18<20FromGitter18>	<chbaker0> ok, looks like there's xref-query-replace-in-results that you can run in an xref results buffer...but this doesn't seem compatible with helm?
+T 1587172574 18<20FromGitter18>	<mastokley_gitlab> I've written a custom elisp function to load random themes. How can I "expose" that function to myself for regular use, eg via helm?
+T 1587172636 18<20FromGitter18>	<mastokley_gitlab> `(interactive)`?
+T 1587172658 18<20FromGitter18>	<mastokley_gitlab> aha! that seems to do it.
+T 1587184934 18<20FromGitter18>	<theckman> Is anyone here familiar with `lsp-mode` and the Go layer? Just did a big upgrade after a long while on the develop branch, and support for the LSP server I had been using was removed. So I installed all the commands in the README, and expected to see the same things I did before and now I see nothing. I was used to hovering over a function name with my cursor, and having its header show up at the bottom.
+T 1587185077 18<20FromGitter18>	<theckman> I'm trying to figure out what I'm missing, because it's probably simple, but I'm not sure. The one upside is I do see it monitoring the process of the language server.
+T 1587194875 20*	Disconnected (20)
+T 1587196736 19*	Now talking on 22#spacemacs
+T 1587196736 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1587196736 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587209769 20*	Disconnected (20)
+T 1587229957 19*	Now talking on 22#spacemacs
+T 1587229957 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1587229957 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587230633 18<20FromGitter18>	<jr0cket> @fleimgruber  `SPC h P` is the profiler menu
+T 1587232076 18<20FromGitter18>	<fleimgruber> @jr0cket thanks for the shove
+T 1587238580 18<20FromGitter18>	<plicatibu_twitter> Hi. I'm a brand new spacemacs user and enjoying it a lot but I'm struggling with some problems. Any help will be very much appreciated. ⏎  ⏎ 1 - Both Windows and Debian 10 ⏎  ⏎ 1) 1 - I see this message: *PNG warning: Interlace handling should be turned on when using png_read_image*.  How do I fix it? ... [https://gitter.im/syl20bnr/spacemacs?at=5e9b56c8c38aa05a1a8355e9]
+T 1587243648 18<20FromGitter18>	<patata3000> 1) 1 have you tried updating libpng ? @plicatibu_twitter
+T 1587243741 18<20FromGitter18>	<patata3000> 1) 2 for lsp there is a mslsp that version that you should use on windows check python layer doc
+T 1587245319 18<20FromGitter18>	<patata3000> mspyls sorry
+T 1587245379 18<20FromGitter18>	<patata3000> 1) 1 have you tried to launch emacs in insecure mode?
+T 1587245405 18<20FromGitter18>	<patata3000> I've no idea if what I'm saying can help you. But maybe...
+T 1587246956 20*	Disconnected (20)
+T 1587247071 20*	Disconnected (20Remote host closed socket)
+T 1587247129 20*	Disconnected (20Remote host closed socket)
+T 1587247186 20*	Disconnected (20Remote host closed socket)
+T 1587247230 19*	Now talking on 22#spacemacs
+T 1587247230 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1587247230 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587247578 18<20FromGitter18>	<plicatibu_twitter> @patata3000  Thank you for replying.
+T 1587247690 18<20FromGitter18>	<plicatibu_twitter> I'll update libpng.  I thought it was missing some kind of configuration.
+T 1587247763 18<20FromGitter18>	<plicatibu_twitter> For what I understood from documentation I should declare lsp and then pick mspyls.
+T 1587247800 18<20FromGitter18>	<plicatibu_twitter> I'll compile it and see if that fixes my problem.
+T 1587247808 18<20FromGitter18>	<plicatibu_twitter> Regards.
+T 1587248256 18<20FromGitter18>	<jr0cket> @fleimgruber this issue may be relevant to your org-mode slow start up, especially if you are using windows https://github.com/syl20bnr/spacemacs/issues/13467
+T 1587248601 18<20FromGitter18>	<jr0cket> @plicatibu_twitter background to the libpng issue is here https://sourceforge.net/p/libpng/bugs/165/ ⏎ The warning in the emacs message buffer seems to be just the way libpng is called.  I have this issue  even when using the latest libpng library and havent managed to prevent it.  It hasnt stopped me using png images.
+T 1587250032 18<20FromGitter18>	<jr0cket> @plicatibu_twitter  add `quasi-monochrome` to the `dotspacemacs-themes` list in `.spacemacs`, save, `SPC f s` and refresh the .spacemacs configuration, `SPC f e R`, or restart Emacs, `SPC q r`.   ⏎ Either will download the theme package.   The first theme name in the list is the default. The theme is also selectable via `SPC T s` ⏎  ⏎ ```code paste, see link``` ⏎  ... 
+T 1587250032 18<20FromGitter18>	... [https://gitter.im/syl20bnr/spacemacs?at=5e9b8384a9ca18620649b7b9]
+T 1587250059 18<20FromGitter18>	<jr0cket> You can do this with most themes, even if they are not in the megapack
+T 1587254104 18<20FromGitter18>	<rudolfkral> Hi, I have just migrated from my old develop setup to the newest commit. I had to migrate my init, but there is one thing I can't get to work properly. I am using EXWM, that depends on how Emacs starts up. I noticed that almost everything is lazily loaded now. Suddenly I had to add (require 'dbus) to `user-init`, or it couldn't find `dbus-call-method` at start. When I load helm, I see that it is also lazily 
+T 1587254104 18<20FromGitter18>	... loaded, I have to press my leader key first. Also, EXWM-dependent frame hooks seem to work only when I click on the minibuffer, somehow triggering the right hook. ⏎  ⏎ Has there been a big recent change in loading and using packages that I have missed? My Spacemacs didn't behave that way before.
+T 1587257131 20*	Disconnected (20)
+T 1587257181 20*	Disconnected (20Remote host closed socket)
+T 1587257249 20*	Disconnected (20Remote host closed socket)
+T 1587257317 20*	Disconnected (20Remote host closed socket)
+T 1587257344 19*	Now talking on 22#spacemacs
+T 1587257344 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1587257344 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587282736 20*	Disconnected (20)
+T 1587282761 19*	Now talking on 22#spacemacs
+T 1587282761 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1587282761 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587284194 20*	Disconnected (20)
+T 1587284221 19*	Now talking on 22#spacemacs
+T 1587284221 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1587284221 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587287833 20*	Disconnected (20)
+T 1587288242 19*	Now talking on 22#spacemacs
+T 1587288242 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1587288242 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587290461 20*	Disconnected (20)
+T 1587290500 19*	Now talking on 22#spacemacs
+T 1587290500 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1587290500 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587296730 20*	Disconnected (20)
+T 1587296749 19*	Now talking on 22#spacemacs
+T 1587296749 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1587296749 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587315771 18<20FromGitter18>	<herop> Rookie question: Will a mildly nerdy Emacs beginner with only little knowledge in Emacs (and even less in vi(m) be able to cope with what org-mode can do in spacemacs?
+T 1587315866 18<20FromGitter18>	<yyoncho> yes
+T 1587315872 18<20FromGitter18>	<herop> I'm a huuuge fan of Markdown and jumped in this weekend with Emacs -> Spacemacs to replace RoamReasearch. What is your assessment? Will it cost me weeks or just one or 2 weekends to make that happen?
+T 1587316014 18<20FromGitter18>	<herop> Currently on the wonderful: Learn Emacs Org Mode: Spacemacs Intro Tutorial (https://www.youtube.com/watch?v=PVsSOmUB7ic&list=TLPQMTkwNDIwMjAcbGTvDHmBUQ&index=4) and I understand 10%. :-) He is fast like hell.
+T 1587316122 18<20FromGitter18>	<herop> @yyoncho : I figured that you have replied and wated to thank you. 👍🙏
+T 1587316132 18<20FromGitter18>	<yyoncho> It depends on what you want to achieve - learn the basics and then learn something new every day
+T 1587316197 18<20FromGitter18>	<herop> Exactly. Say if a'm able to write some notes (maybe even using markdown) and then learn some more every day would be fantastic.
+T 1587316374 18<20FromGitter18>	<herop> I'm a ruthless learner though. Sitting the entire day now and at least was able to install Emacs 26.09 on Win10, the org-mode and markdown-mode, only to learn that all that comes with spacemacs. Well done, J. 🤭🙄
+T 1587317630 18<20FromGitter18>	<aurabindo_gitlab> Hi, with Magit, is there an easy way to apply a series of external patches (available as files) through dired or treemacs?
+T 1587319552 18<28drw77_18>	when I have a code snippet in a Markdown file (using the Markdown major mode) the font of that code is not what I want.  The rest of the document is the default font, which is fine.  How can I edit the ```<codesection``` font in Markdown buffers?
+T 1587320706 18<20FromGitter18>	<jr0cket> @herop I learned Vim style editing by using Spacemacs, I wrote a section on vim basics here that you may find useful https://practicalli.github.io/spacemacs/spacemacs-basics/vim-basics.html
+T 1587321209 18<20FromGitter18>	<herop> @jr0cket Definitely going to check that out. Just worked a day in Roam to create cheat sheets on Emacs commands and now learned Spacemacs is deep into vim instead. Well done btw. Like the style a lot.
+T 1587322302 18<20FromGitter18>	<jr0cket> Thank you
+T 1587325620 20*	Disconnected (20)
+T 1587325816 19*	Now talking on 22#spacemacs
+T 1587325816 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1587325816 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587327030 20*	Disconnected (20)
+T 1587327932 19*	Now talking on 22#spacemacs
+T 1587327932 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1587327932 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587328489 18<20FromGitter18>	<igoralmeida> @aurabindo_gitlab can't you use magit's `w w` and mark them?
+T 1587328574 18<20FromGitter18>	<igoralmeida> @yyoncho can you help me understand a problem with lsp and c++? i'm trying to set `ccls-args` but when restarting workspace lsp will switch to `clangd` without telling me why
+T 1587328711 18<20FromGitter18>	<igoralmeida> @SreenivasVRao an easy way would be to create your own function that disables visual line mode before calling avy-goto-line
+T 1587330094 18<20FromGitter18>	<aurabindo_gitlab> @igoralmeida  I'm only able to select one patch at a time when using `w w` in the minibuffer. Is there a way to select multiple entries there ?
+T 1587330101 18<20FromGitter18>	<aurabindo_gitlab> wild card did not work
+T 1587330420 18<20FromGitter18>	<igoralmeida> i know you can mark with c-spc
+T 1587330471 18<20FromGitter18>	<igoralmeida> maybe you can mark them in dired and then call the `w w` function directly
+T 1587330471 18<20FromGitter18>	<igoralmeida> `magit-apply-patches`?
+T 1587330694 18<20FromGitter18>	<hariseldon78> hey guys, anyone can help me with this:  https://emacs.stackexchange.com/questions/57899/spacemacs-unmapping-treemacs-page-up-and-page-down ?
+T 1587331012 18<20FromGitter18>	<aurabindo_gitlab> Marking seems to work with C-SPC in the minibuffer but magit is only showing only the last selection into the am process.
+T 1587331187 18<20FromGitter18>	<plicatibu_twitter> @jr0cket  It worked like a charm. Thank you.
+T 1587331514 18<20FromGitter18>	<aurabindo_gitlab> @igoralmeida  looks like magit doesnt support patching files that lie in some location outside the git directory. https://emacs.stackexchange.com/questions/50236/how-to-specify-multiple-patch-files-to-be-applied-by-magit
+T 1587332288 18<20FromGitter18>	<thanhvg> have anyone tried `gccemacs`? it's very fast but evil objects are broken for me.  For example `vio` ,   viw` ect won't select the whole object
+T 1587333930 20*	Disconnected (20)
+T 1587333983 20*	Disconnected (20Remote host closed socket)
+T 1587334041 20*	Disconnected (20Remote host closed socket)
+T 1587334062 19*	Now talking on 22#spacemacs
+T 1587334062 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1587334062 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587341310 20*	Disconnected (20)
+T 1587341353 20*	Disconnected (20Remote host closed socket)
+T 1587341413 20*	Disconnected (20Remote host closed socket)
+T 1587341473 20*	Disconnected (20Remote host closed socket)
+T 1587341523 20*	Disconnected (20Remote host closed socket)
+T 1587341543 19*	Now talking on 22#spacemacs
+T 1587341543 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1587341543 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587368001 20*	Disconnected (20)
+T 1587368023 19*	Now talking on 22#spacemacs
+T 1587368023 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1587368023 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587375276 18<20FromGitter18>	<cviebig> Hi, can you please point me to the code which configures the color of the project segment on the mode line? I'm on deeper-blue theme and it's yellow which is what I would like to change
+T 1587375291 18<20FromGitter18>	<magthe> When I switch into org-mode persp (`SPC l o o`) one specific org file is opened. Unfortunately it's not the org file I'd like to have opened :/ Can I control that in some way?
+T 1587377712 18<20FromGitter18>	<magthe> Or, even better, load a persp layout file on emacs start.
+T 1587382811 18<20FromGitter18>	<jr0cket> @magthe `SPC l o o` is a custom layout that comes with Spacemacs and displays your org-agenda files. I'd suggest creating your own custom layout https://github.com/syl20bnr/spacemacs/blob/develop/doc/DOCUMENTATION.org#custom-layouts
+T 1587382850 18<20FromGitter18>	<jr0cket> Alternatively, search the Spacemacs source code for the definition and see how it works.
+T 1587383005 18<20FromGitter18>	<jr0cket> I am unclear about what is meant by "load a persp layout file on emacs start".   ⏎ Spacemacs will load your previous layouts if you set `dotspacemacs-auto-resume-layouts t` in the `.spacemacs` file
+T 1587383586 18<20FromGitter18>	<jr0cket> @cviebig `SPC h d F` will list all the faces used in the current theme.  Try typing in `mode-line` or `persp` to narrow that list of faces and see which one matches the color you want to change.
+T 1587383668 18<20FromGitter18>	<jr0cket> There may be a better way that that, but that is what I would try.  For faces in the text of a buffer, you can use `SPC h d c` and it will show the face used for that character as part of the description
+T 1587389296 18<20FromGitter18>	<cviebig> @jr0cket I have checked the deeper-blue theme definition and https://github.com/syl20bnr/spacemacs/blob/c7a103a772d808101d7635ec10f292ab9202d9ee/core/libs/spacemacs-theme/spacemacs-common.el#L78 already. Still there is none, that fits neither from it's description, nor from the color. Do you know where the spacemacs modeline related code is located? I was not able to find it yesterday :-(
+T 1587389566 18<20FromGitter18>	<cviebig> @jr0cket Thank you for recommending `SPC h d F`. That's a great helper. Unfortunately I did not find a matching color
+T 1587390300 18<20FromGitter18>	<bschwarzer> Hi, is it possible to show auto-completion with tab when no chars have been typed?
+T 1587390981 18<20FromGitter18>	<jr0cket> @cviebig sorry, themes are a bit of a mystery to me at the moment.  I spend an hour hacking some colors for the doom-solarized-light theme and either changed something different or changed more colors than expected :) ⏎ I changed a color at a time and reloaded the theme using `SPC T s`, first switching to another them and then switching back to the changed theme.  I managed to get a few changes that I am happy 
+T 1587390982 18<20FromGitter18>	... with, but need to move on to more productive things...
+T 1587391834 18<20FromGitter18>	<cviebig> @jr0cket Sure, thank you though :-) Have a good day!
+T 1587412784 20*	Disconnected (20)
+T 1587412828 19*	Now talking on 22#spacemacs
+T 1587412828 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1587412828 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587412874 20*	Disconnected (20)
+T 1587412906 20*	Disconnected (20Remote host closed socket)
+T 1587412932 19*	Now talking on 22#spacemacs
+T 1587412932 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1587412932 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587418934 20*	Disconnected (20)
+T 1587423295 19*	Now talking on 22#spacemacs
+T 1587423295 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1587423295 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587424057 18<20FromGitter18>	<kennethken73> Anyone been able to resolve the issue: < < org-babel-execute-buffer: Symbol’s function definition is void: org-outline-overlay-data >> ? I understand the newest version of orgmode as undefined the variable in favor of another. Is babel under spacemacs able to cope? I've updated my install via develop and reinstalled my elpa directory.  Thanks in advance
+T 1587427881 18<20FromGitter18>	<kennethken73> Answer: https://emacs.stackexchange.com/questions/38177/keeping-org-mode-outline-after-reverting-buffer/38212#38212  Pasting in the code from Fehrenbacher into .spacemacs in the with-eval-after-load 'org section did the trick.
+T 1587431690 18<20FromGitter18>	<Daipeng3_twitter> the haskell layout seems not work
+T 1587431729 18<20FromGitter18>	<Daipeng3_twitter> the lsp has successful startef，but no completion appear at all
+T 1587453423 20*	Disconnected (20)
+T 1587453448 19*	Now talking on 22#spacemacs
+T 1587453448 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1587453448 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587460883 18<20FromGitter18>	<biocyberman> What do I need to do before I can use something like `ESS` layer does: `(spacemacs/declare-prefix-for-mode 'ess-r-mode "mg" "goto")`. I tried on my own layer: `(spacemacs/declare-prefix-for-mode 'ess-r-mode "mp" "poly")`  and got error:  `Symbol's function definition is void: which-key-add-major-mode-key-based-replacements`
+T 1587460961 18<20FromGitter18>	<biocyberman> Something need to be done to load `spacemacs/declare-prefix-for-mode` and its dependent functions to my layer?
+T 1587461714 18<20FromGitter18>	<biocyberman> Found a way to make it work, but don't know if this is the correct way: `spacemacs/declare-prefix-for-mode` under `:init` section of `(defun mylayer/init-apackage () (use-package apackage :init))`
+T 1587464070 20*	Disconnected (20)
+T 1587464091 19*	Now talking on 22#spacemacs
+T 1587464091 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1587464091 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587464893 18<25sonjah18>	hi do i need to turn syntax highlighting on manually or why does it not do that?
+T 1587466753 18<25sonjah18>	nm problem was between chair and monitor
+T 1587467847 18<20FromGitter18>	<jluttine> hmm.. why does (browse-url-xdg-open "https://github.com") in emacs use a different browser than xdg-open "https://github.com" in the terminal??
+T 1587468023 18<20FromGitter18>	<jluttine> ah, this is probably nixos issue. emacs has been wrapped so that XDG_DATA_DIRS is different inside emacs than in my desktop environment otherwise
+T 1587468045 18<20FromGitter18>	<jluttine> so my default browser definition isn't found by emacs environment
+T 1587470299 18<20FromGitter18>	<Cassiel-girl> How to move one chapter from file1.org to file2.org? There are some link path "file://xx.jpg" in the file1.org and file2.org.
+T 1587470430 18<20FromGitter18>	<jluttine> nope, it wasn't nixos issue. with vanilla emacs, XDG_DATA_DIRS is correct inside emacs GUI. with spacemacs GUI, it's not. so most likely some spacemacs issue i guess
+T 1587470571 18<20FromGitter18>	<Alexander-Miller> @Cassiel-girl org-refile can do that, though I don't think it is smart enough to fix file paths, you'll probably have to do that manually
+T 1587470750 18<20FromGitter18>	<jluttine> oh, what, spacemacs loads environment variables from .spacemacs.env.. why does it do that? why can't it just use the environment variables that it has in the environment? can i disable this somehow? and why do they get loaded in GUI but not in CLI?
+T 1587470847 18<20FromGitter18>	<jluttine> it has stored in that file even environment variables that aren't persistent from one session to another, that makes no sense to me
+T 1587471783 18<20FromGitter18>	<jluttine> ok, that all the relevant information and help in the header, so never mind :)
+T 1587471804 18<20FromGitter18>	<jluttine> s/that/that file had/
+T 1587471833 18<20FromGitter18>	<jluttine> but still i don't understand why then spacemacs CLI was unaffected..
+T 1587473040 20*	Disconnected (20)
+T 1587473446 19*	Now talking on 22#spacemacs
+T 1587473446 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1587473446 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587473850 20*	Disconnected (20)
+T 1587478294 19*	Now talking on 22#spacemacs
+T 1587478294 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1587478294 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587478410 20*	Disconnected (20)
+T 1587478523 20*	Disconnected (20Remote host closed socket)
+T 1587486655 20*	Disconnected (20Connection timed out)
+T 1587486685 19*	Now talking on 22#spacemacs
+T 1587486685 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1587486685 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587489245 20*	Disconnected (20)
+T 1587489277 19*	Now talking on 22#spacemacs
+T 1587489277 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1587489277 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587489600 18<20FromGitter18>	<jmromer> Are the naming conventions for spacemacs variables and funtions detailed anywhere? I'm pretty sure I've seen the list but can't seem to find it anywhere now
+T 1587489721 18<20FromGitter18>	<jmromer> perhaps the file named conventions in all caps https://github.com/syl20bnr/spacemacs/blob/develop/doc/CONVENTIONS.org#spacemacs-core-and-layer
+T 1587497757 20*	Disconnected (20)
+T 1587497834 19*	Now talking on 22#spacemacs
+T 1587497834 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1587497834 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587506670 18<20FromGitter18>	<robbyoconnor> @duianto @jr0cket seems that treemacs keybindings work again
+T 1587506675 18<20FromGitter18>	<robbyoconnor> LOL
+T 1587507358 18<20FromGitter18>	<SreenivasVRao> https://www.reddit.com/r/emacs/comments/g5owt0/spacemacs_shell_mode_wonky_formatting_for_output/ ⏎  ⏎ requesting some tips on these, if anyone can help? :)
+T 1587543450 20*	Disconnected (20)
+T 1587543642 19*	Now talking on 22#spacemacs
+T 1587543642 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1587543642 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587543720 20*	Disconnected (20)
+T 1587543829 20*	Disconnected (20Remote host closed socket)
+T 1587543901 20*	Disconnected (20Remote host closed socket)
+T 1587543943 20*	Disconnected (20Remote host closed socket)
+T 1587543969 19*	Now talking on 22#spacemacs
+T 1587543969 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1587543969 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587544560 20*	Disconnected (20)
+T 1587544606 20*	Disconnected (20Remote host closed socket)
+T 1587545618 20*	Disconnected (20Network is unreachable)
+T 1587545645 19*	Now talking on 22#spacemacs
+T 1587545645 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1587545645 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587546950 18<20FromGitter18>	<pubple>  (https://files.gitter.im/syl20bnr/spacemacs/npWm/image.png)
+T 1587546988 18<20FromGitter18>	<pubple>  (https://files.gitter.im/syl20bnr/spacemacs/IhwY/image.png)
+T 1587547041 18<20FromGitter18>	<pubple> @jr0cket & @yyoncho thank you for your support. I changed the config with this `dotspacemacs-persistent-server t` then I open emacs, then I use `emacsclient -t` but I got another issue which is the theme color. `How to get back the beautiful theme color as in emacs`?
+T 1587547112 18<20FromGitter18>	<pubple>  (https://files.gitter.im/syl20bnr/spacemacs/MJNa/image.png)
+T 1587547113 18<20FromGitter18>	<jr0cket> @pubple  You are running Emacs in a terminal, so that terminal will limit the colors you can use.
+T 1587550417 20*	Disconnected (20)
+T 1587550436 19*	Now talking on 22#spacemacs
+T 1587550436 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1587550436 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587550510 18<20FromGitter18>	<jr0cket> @MenkeTechnologies ah, so if you set `(setq helm-follow-mode-persistent t)` in the `dotspacemacs/user-config`, then helm remembers which commands you used follow-mode with, so you only have to select it once.  Nice.  Thank you.
+T 1587554227 20*	Disconnected (20)
+T 1587554266 19*	Now talking on 22#spacemacs
+T 1587554266 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1587554266 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1587559035 18<20FromGitter18>	<SreenivasVRao> @fleimgruber (setq create-lockfiles nil) should do it: ⏎ https://stackoverflow.com/questions/8246483/emacs-how-to-disable-files-creation
+T 1587561731 18<20FromGitter18>	<cuppajoeman> I want to become more reliant on the built-in help system. I usually like to hopen up the layer documentation first when I need to learn about something, does anyone have any suggestions or workflows they use to get help on stuff like this?
+T 1587562300 18<20FromGitter18>	<fleimgruber> @SreenivasVRao thanks, I found it moments later, see https://gitter.im/syl20bnr/spacemacs?at=5e9fde2a71a34b0149000c28.
+T 1587566034 18<20FromGitter18>	<jagipson_twitter> ooph. I'm at wit's end trying to get started with spacemacs particularly orgmode. I expected that when I pressed C-z it would restore the emacs keybinding for org mode... is this incorrect?
+T 1587566327 18<29oxalis18>	I'm having trouble with org mode (I just started using spacemacs). I press C-z to enter the emacs key bindings, but the org mode bindings don't seem to be working.... I expected from emacs mode I could use C-c a  to show the agenda menu buffer but that's not working 
+T 1587566371 18<29oxalis18>	oops.  Didn't realize it was the same chat
+T 1587566624 18<20FromGitter18>	<apj68> @jagipson_twitter , what are you trying to do? I basically use the key bindings described in chapter 3 (https://www.spacemacs.org/layers/+emacs/org/README.html#key-bindings) of the ORG doc.  Did you see that?
+T 1587566661 18<29oxalis18>	I just verified that my org layer was commented out in .spacemacs... I remember uncommenting it so not sure what happened
+T 1587566684 18<29oxalis18>	I'm connecting that system to the net to see If it launches now
+T 1587566700 18<29oxalis18>	It's installing packages...
+T 1587566842 18<29oxalis18>	that was it! (facepalm)
+T 1587566872 18<29oxalis18>	somehow my configuration reverted to factory - probably my fault because I was juggling configs
+T 1587567511 18<20FromGitter18>	<jr0cket> @cuppajoeman I mainly use `SPC h d f` to describe functions.  If I want to know more, I use `RET` on the file name the function is defined in and it displays the code in a buffer. ⏎ I should use the built in layer docs more (got too used to looking at develop.spacemacs.org layer list).  Once the layer README is open, then I would use `TAB TAB` to open all the sections and `SPC s s` to search for something 
+T 1587567511 18<20FromGitter18>	... specific.  Or just use `]` and `[` to navigate the headings.
+T 1587567823 18<20FromGitter18>	<pubple> @jr0cket @MenkeTechnologies @yyoncho  thank you very much for your help. Maybe I messed something in the configuration file. Therefore I reinstalled emacs-plus, and then spacemacs with standard option. From there I ran ‘emacs -nw’ as a emacs server,  then ‘emacsclient -t’ for any new terminal session. It works well and fast, no need to change theme or anything. I just put here for anyone who may prefer 
+T 1587567823 18<20FromGitter18>	... speed, and just want to do things in terminal.
+T 1587568413 18<20FromGitter18>	<igoralmeida> @jr0cket it's also useful to press TAB after M-x to see the help for the current function before running it, but i'd love to be able to close the help window as well
+T 1587569555 18<20FromGitter18>	<pubple> Can anyone share a guidance of setting spacemacs as an IDE for modern Javascript development(support jsx, react, vue, es6+ syntax)? I did use these below layers but it still doesn’t work as what I expected. These layers are ‘javascript, react’. I did these things: ‘npm install -g’ other tools as guided in each layer doc, like ‘tern’, and setup ‘.tern-project’ for my js app as well, and checking 
+T 1587569555 18<20FromGitter18>	... that tern server was working but while editing ‘js’ or ‘jsx’ with spacemacs, it still doesn’t support autocomplete, hinting for function’s parameters, object’s properties, auto prettify after save,...Let’s say while I’m typing “cons” it should show a menu list which includes “console,...” for me to navigate and choose.
+T 1587569641 18<20FromGitter18>	<pubple> If I choose ‘console’ the type ‘.’ it should brings a menu of all console methods like log, info, profile,...
+T 1587569764 18<20FromGitter18>	<pubple> Sorry for any inconvenience of what I typed without any highlighting because I’m writing on my mobile
+T 1587569792 18<20FromGitter18>	<pubple> Thank you for your help
+T 1587570806 18<20FromGitter18>	<jr0cket> @igoralmeida ah, `TAB` after `SPC SPC` is handy, although helm seems to keep hold of the active window, so you cant select the *Help* buffer and using `q` to quit.  Yes, more than a bit annoying.  The *Help* buffer does go away when you select or cancel and it is updated if you `TAB` on another entry, so I can get used to this.  Thanks
+T 1587571135 18<20FromGitter18>	<jr0cket> @pubple my only advice is to check `autocomplete` layer has been added to your layer list in .spacemacs and restart Emacs.
+T 1587572465 18<20FromGitter18>	<Moonkir_twitter> spacemcas is stuck on Contacting host
+T 1587572474 18<20FromGitter18>	<Moonkir_twitter> what can I do ?
+T 1587572592 18<20FromGitter18>	<jr0cket> @Moonkir_twitter not much info there, I assume you've tried pressing `C-g` (control g) until your fingers hurt :)  Also try `ESC` and `fd`.
+T 1587572611 18<20FromGitter18>	<jr0cket> What were you doing (or trying to do).
+T 1587572706 18<20FromGitter18>	<Moonkir_twitter> Adding the layer pdf-tools
+T 1587574944 18<29oxalis18>	okay -  I got everything working with the slight caveat that somehow capital C is bound as a prefix to something in insert mode and emacs mode. I can't seem to figure out what, because ^H k C  just says it's bound to change line (as would be expected for "normal" mode)
+T 1587574994 18<29oxalis18>	I think capital C is mapped to Ctrl, somehow
+T 1587575080 18<29oxalis18>	when I type shift-c  the minibuffer shows:    - -> +prefix 
+T 1587575094 18<29oxalis18>	and C-  [C=h paging/help]
+T 1587575407 18<29oxalis18>	okay - I fixed it by evicting Eyebrowse
+T 1587577112 18<20FromGitter18>	<BrandonShega> Hi all, it seems that spacemacs doesn't have access to my environment or shell correctly, it can't find js-ts langserver and also can't install it because it doesn't have access to npm, how can I fix this?
+T 1587577225 18<20FromGitter18>	<yyoncho> @BrandonShega install it manually
+T 1587577241 18<20FromGitter18>	<BrandonShega> I have, I use it with vim and vscode just fine
+T 1587577242 18<20FromGitter18>	<yyoncho> lsp-mode readme has the corresponding commands
+T 1587577296 18<20FromGitter18>	<yyoncho> Then they are not on the path used by emacs. Check if (executable-find "tsserver") and (executable-find "typescript-language-server")  return the correct paths
+T 1587577352 18<20FromGitter18>	<BrandonShega> Ya, that was my concern, and what I wanted to fix if I can
+T 1587577462 18<20FromGitter18>	<yyoncho> SPC f e e and fix your path
+T 1587577497 18<20FromGitter18>	<BrandonShega> both of those commands return `nil`
+T 1587577567 18<20FromGitter18>	<BrandonShega> oh interesting, it seems that spacemacs only has my node 10.9.0 in the path
+T 1587577578 18<20FromGitter18>	<BrandonShega> but my current version set with nvm is 12.0.0, that's probably why
+T 1587580295 18<20FromGitter18>	<anlsh> How can I customize the keybindings for things like `SPC f f`?
+T 1587580416 18<20FromGitter18>	<igoralmeida> @anlsh `spacemacs/set-leader-keys`, and you drop the SPC
+T 1587580587 18<20FromGitter18>	<anlsh> Thank you!
+T 1587583158 18<20FromGitter18>	<SreenivasVRao> https://www.reddit.com/r/emacs/comments/g5owt0/spacemacs_shell_mode_wonky_formatting_for_output/ ⏎  ⏎ @igoralmeida sorry to bother you on this. :) changing tab width didn't fix it. Looks it's a problem even with a clean install on spacemacs/develop...

@@ -2319,3 +2319,1203 @@ Apr 13 02:49:33 *	Disconnected ()
 Apr 16 16:36:15 *	Now talking on #alacritty
 Apr 16 16:36:15 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
 Apr 16 16:36:15 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 16 18:28:44 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 16 18:28:44 2020
+
+**** BEGIN LOGGING AT Thu Apr 16 18:29:13 2020
+
+Apr 16 18:29:13 *	Now talking on #alacritty
+Apr 16 18:29:13 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 16 18:29:13 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 16 22:58:49 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 16 22:58:49 2020
+
+**** BEGIN LOGGING AT Thu Apr 16 22:59:16 2020
+
+Apr 16 22:59:16 *	Now talking on #alacritty
+Apr 16 22:59:16 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 16 22:59:16 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 17 00:09:19 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 17 00:09:19 2020
+
+**** BEGIN LOGGING AT Fri Apr 17 09:56:58 2020
+
+Apr 17 09:56:58 *	Now talking on #alacritty
+Apr 17 09:56:58 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 17 09:56:58 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 17 16:48:20 <basic>	as soon as i have opacity activated in alacritty
+Apr 17 16:48:27 <basic>	i observe some sort of "border" inside windows
+Apr 17 16:48:37 <kchibisov>	Could you screenshot it?>
+Apr 17 16:48:44 <basic>	it's really faint, i might not be able to screenshot it
+Apr 17 16:48:51 <basic>	im sure i wouldn't see it on another monitor
+Apr 17 16:48:58 <basic>	(because this one is expensive af)
+Apr 17 16:49:01 <basic>	i try to screenshot
+Apr 17 16:49:33 <basic>	https://paste.pics/71f76ca131c03e52c2fa1435f10fd5ae
+Apr 17 16:49:41 <basic>	it's very visible
+Apr 17 16:50:00 <basic>	(top and left edge)
+Apr 17 16:50:24 <basic>	the floating shell window shows that it's not something that "shrines through"
+Apr 17 16:50:29 <basic>	while that would be a weird shape either way
+Apr 17 16:50:53 <basic>	it could be compton, tho
+Apr 17 16:50:55 <kchibisov>	I see it, indeed.
+Apr 17 16:51:06 <kchibisov>	I can't repro ofc.
+Apr 17 16:51:15 <basic>	compton running?
+Apr 17 16:51:20 <kchibisov>	I don't have X11.
+Apr 17 16:51:23 <basic>	hm
+Apr 17 16:51:45 <kchibisov>	Could it be shadows from compton?
+Apr 17 16:51:56 <basic>	oh interesting
+Apr 17 16:52:35 <basic>	yeah it's shadows
+Apr 17 16:52:38 <basic>	:) thanks
+Apr 17 16:53:06 <basic>	but why is everythings brighterr now
+Apr 17 16:53:08 <basic>	wwhen startet
+Apr 17 16:53:08 <basic>	hm
+Apr 17 16:54:01 <basic>	well the answer is also shadow >.<
+Apr 17 17:20:13 <kchibisov>	UndeadLeech: amazing selection reflow, it discovered Wayland clipboard bug.
+Apr 17 18:36:43 <nimbius>	anyone using noto fonts? im getting weird spacing issues.
+Apr 17 18:37:10 <kchibisov>	make sure to type it coloreclty in config and ensure that it's a monospace font.
+Apr 17 18:38:20 <nimbius>	same issue if i switch to mono
+Apr 17 18:40:47 <nimbius>	hm
+Apr 17 18:40:53 <nimbius>	nevermind, retyped and now it works?
+Apr 17 18:42:17 <nimbius>	do all fonts have to be monospace?
+Apr 17 18:45:35 <cole-h>	If you want them to look nice in a terminal
+Apr 17 18:46:58 <nimbius>	hm
+Apr 17 18:47:08 <nimbius>	im guessing alacritty is somehow different than gnome-terminal?
+Apr 17 18:48:59 <kchibisov>	ofc, it's a different terminal.
+Apr 17 18:49:15 <kchibisov>	but I don't know any terminal supporting proportional fonts.
+Apr 17 18:49:33 <kchibisov>	Like we can draw them, sure, but they won't look good.
+Apr 17 18:49:45 <kchibisov>	So you need monospace fonts.
+Apr 17 18:49:56 <kchibisov>	e.g. DejaVu Sans Mono, Roboto Mono,
+Apr 17 18:51:54 <nimbius>	interesting.
+Apr 17 18:52:48 <nimbius>	maybe Noto isnt the best monospace font then.
+Apr 17 18:53:16 <kchibisov>	there's Noto Mono
+Apr 17 18:53:41 <kchibisov>	just try `fc-list | grep -i "noto.*mono"`
+Apr 17 18:53:45 <nimbius>	correct...
+Apr 17 18:53:51 <kchibisov>	you'll likely find out something.
+Apr 17 18:54:16 <kchibisov>	note, if you see suffix CJK, that's not what you want.
+Apr 17 18:54:37 <nimbius>	i guess noto is a step up from inconsolata
+Apr 17 18:55:55 <nimbius>	rendering weird utf characters however is something different i guess.
+Apr 17 19:12:58 <nimbius>	iosevka is a nice font
+Apr 17 19:17:53 <nimbius>	thanks kchibisov  :)
+Apr 17 20:32:58 <candy>	Hi
+Apr 17 20:33:06 <kchibisov>	Hi.
+Apr 17 20:33:07 <UndeadLeech>	kchibisov: Huh, really? What bug is it?
+Apr 17 20:33:12 <candy>	how can i make new tab in alacritty?
+Apr 17 20:33:19 <UndeadLeech>	You can't.
+Apr 17 20:33:31 <candy>	ru sure?
+Apr 17 20:33:37 <kchibisov>	UndeadLeech: there's some strange limit for 64KB, etc.
+Apr 17 20:33:49 <kchibisov>	will be fixed at some point, but it was funny.
+Apr 17 20:34:19 <UndeadLeech>	candy: I'm relatively certain that I haven't accidentally implemented this, yes.
+Apr 17 20:34:27 <kchibisov>	Also, I feel like selection expansion on paste shouldn't be a thing.
+Apr 17 20:34:42 <UndeadLeech>	Selection expansion on paste?
+Apr 17 20:34:50 <candy>	i thinking about moving from lxterminal to alacritty, what you think about?
+Apr 17 20:34:53 <kchibisov>	just try `cat`, paste something, select it, and continue to paste with mouse.
+Apr 17 20:35:08 <kchibisov>	selection will be growing.
+Apr 17 20:35:51 <UndeadLeech>	Oh yeah of course, selection expansion has always been a thing done on rendering, not on select.
+Apr 17 20:36:03 <UndeadLeech>	Though it always has been questioned.
+Apr 17 20:37:03 <kchibisov>	I wonder why it happens now.
+Apr 17 20:37:41 <UndeadLeech>	It always was a problem with stuff like weechat, where we didn't have properly working rotation.
+Apr 17 20:37:46 <candy>	can i change the colors of hostname etc?
+Apr 17 20:37:57 <kchibisov>	it's done in your shell.
+Apr 17 20:38:02 <UndeadLeech>	That's a shell, not a terminal thing candy. So yes you can.
+Apr 17 20:38:03 <kchibisov>	we have nothing to do with that.
+Apr 17 20:38:10 <candy>	that's a terminal thing
+Apr 17 20:38:14 <kchibisov>	no.
+Apr 17 20:38:33 <candy>	yes, it's different than all my other terminals
+Apr 17 20:38:44 <kchibisov>	echo -e "\e[31mHOME\e[0m" is red
+Apr 17 20:38:48 <kchibisov>	that's how coloring is done.
+Apr 17 20:39:14 <candy>	yea i know
+Apr 17 20:39:23 <candy>	but something just different in it
+Apr 17 20:39:30 <kchibisov>	you can have system configuration to color hostname.
+Apr 17 20:39:38 <kchibisov>	based on e.g. terminfo name.
+Apr 17 20:39:51 <candy>	LOL , i try to explain
+Apr 17 20:40:08 <kchibisov>	I try to answer how it is.
+Apr 17 20:40:18 <candy>	i know what you talking about, i talking about different thing
+Apr 17 20:40:38 <candy>	the gui is weird
+Apr 17 20:40:42 <kchibisov>	ok, what thing are you talking about?
+Apr 17 20:40:56 <kchibisov>	what gui?
+Apr 17 20:41:24 <kchibisov>	I'm not sure that we have any, besides the terminal content.
+Apr 17 20:41:53 <kchibisov>	if you can screenshot that gui, it could help.
+Apr 17 20:42:04 <candy>	https://ibb.co/0M8q3s1
+Apr 17 20:42:08 <candy>	see that picture
+Apr 17 20:42:21 <kchibisov>	yeah, it's your shell.
+Apr 17 20:42:31 <kchibisov>	green and blue.
+Apr 17 20:42:48 <kchibisov>	you can change colors in config if you don't like them.
+Apr 17 20:43:36 <kchibisov>	But you should ask, `my green color is weird`, since we have no clue what color your hostname is using.
+Apr 17 20:43:39 <candy>	now look at the original colors
+Apr 17 20:43:41 <candy>	https://ibb.co/D7dfQTb
+Apr 17 20:43:48 <kchibisov>	they are not origianl
+Apr 17 20:44:05 <kchibisov>	that's just your other terminal defined them.
+Apr 17 20:44:11 <candy>	ok
+Apr 17 20:44:12 <kchibisov>	we have our own colors.
+Apr 17 20:44:17 <UndeadLeech>	If you don't like the colors, just change them?
+Apr 17 20:44:18 <kchibisov>	some temrinal Y has their own.
+Apr 17 20:44:20 <candy>	maybe i wrong
+Apr 17 20:44:27 <candy>	that's a shell thing?
+Apr 17 20:44:35 <kchibisov>	Shell askes for green.
+Apr 17 20:44:37 <UndeadLeech>	The colors are identical.
+Apr 17 20:44:41 <kchibisov>	asks*
+Apr 17 20:44:44 <UndeadLeech>	They're just rendered differently.
+Apr 17 20:44:57 <kchibisov>	we render green with value defined in our config.
+Apr 17 20:45:12 <candy>	ok
+Apr 17 20:45:20 <candy>	how can i change that?
+Apr 17 20:45:28 <UndeadLeech>	The configuration file.
+Apr 17 20:45:35 <kchibisov>	edit `alacritty.yml`
+Apr 17 20:45:37 <candy>	it's in home?
+Apr 17 20:45:44 <kchibisov>	you can place it in home.
+Apr 17 20:45:44 <UndeadLeech>	You create it.
+Apr 17 20:45:52 <UndeadLeech>	It's all documented on GitHub.
+Apr 17 20:46:12 <kchibisov>	or was shipped with your distro package somewhere
+Apr 17 20:46:22 <candy>	actually i think you need to improve the docs
+Apr 17 20:46:30 <kchibisov>	how so?
+Apr 17 20:47:03 <candy>	with pictures
+Apr 17 20:47:08 <candy>	more visual
+Apr 17 20:47:22 <kchibisov>	our docs are just .yml file.
+Apr 17 20:47:29 <kchibisov>	what pictures do you want in .yml file?
+Apr 17 20:47:29 <candy>	yea i saw
+Apr 17 20:47:31 <UndeadLeech>	It's a terminal emulator...
+Apr 17 20:47:37 <kchibisov>	^
+Apr 17 20:47:37 <candy>	i know
+Apr 17 20:48:03 <kchibisov>	I've never seen pictures of a terminal emulator tbh, they are all the same visually.
+Apr 17 20:48:12 <kchibisov>	I mean multiple on front page.
+Apr 17 20:48:28 <candy>	or maybe change the default shell color
+Apr 17 20:48:42 <kchibisov>	What shell color?
+Apr 17 20:48:53 <kchibisov>	Do you mean default color values?
+Apr 17 20:48:57 <candy>	yes
+Apr 17 20:48:59 <kchibisov>	That's subjective
+Apr 17 20:49:01 <candy>	the hostname color etc
+Apr 17 20:49:42 <kchibisov>	maybe you don't like them, someone else likes them, etc.
+Apr 17 20:50:06 <candy>	i have to say i like it because of the performance
+Apr 17 20:50:06 <kchibisov>	I mean colors.
+Apr 17 20:50:14 <kchibisov>	if you don't like colors, just change them.
+Apr 17 20:51:20 <candy>	you told me i need to place yml config file and i can choose the location. i am not sure how to set the location
+Apr 17 20:51:20 <kchibisov>	We even has a wiki to copypaste colorschemes.
+Apr 17 20:51:20 <kchibisov>	https://github.com/alacritty/alacritty#configuration
+Apr 17 20:51:20 <candy>	i am using the binary file of this
+Apr 17 20:51:20 <candy>	not package
+Apr 17 20:51:41 <UndeadLeech>	The location for the configuration file is documented right in the readme.
+Apr 17 20:51:48 <UndeadLeech>	It's also in the manpage.
+Apr 17 20:52:34 <candy>	can i fetch only the man page?
+Apr 17 20:52:49 <UndeadLeech>	I suppose you could.
+Apr 17 20:53:03 <kchibisov>	I mean you've installed our binary somehow.
+Apr 17 20:53:08 <candy>	yea
+Apr 17 20:53:14 <candy>	i didn't installed
+Apr 17 20:53:15 <kchibisov>	so if you have repo, then you have manpage in it.
+Apr 17 20:53:21 <candy>	just run it
+Apr 17 20:53:53 <candy>	sorry for my noob questions
+Apr 17 20:54:14 <kchibisov>	our manpage doens't differ that match from alacritty --help
+Apr 17 20:54:32 <UndeadLeech>	No problem, though reading through the documentation is likely going to be easier for you than having to wait for responses.
+Apr 17 20:54:53 <UndeadLeech>	kchibisov: The difference matters here though, since `--help` does not document the config locations.
+Apr 17 20:54:54 <UndeadLeech>	But the manpage does.
+Apr 17 20:54:58 <kchibisov>	Specify alternative configuration file [default: $XDG_CONFIG_HOME/alacritty/alacritty.yml]
+Apr 17 20:55:01 <kchibisov>	it has one of them at least.
+Apr 17 20:55:32 <UndeadLeech>	Fair enough.
+Apr 17 20:56:57 <candy>	what you think about adding tabs option?
+Apr 17 20:57:21 <kchibisov>	We think that your window manager should do that.
+Apr 17 20:57:59 <kchibisov>	But you have plenty of options like tmux/tabbed/i3 to have tabs.
+Apr 17 20:58:50 <candy>	only few people using i3 wm
+Apr 17 20:59:08 <candy>	and in the other we can make new tab, lets say in lxde
+Apr 17 20:59:14 <candy>	can
+Apr 17 20:59:16 <candy>	can't
+Apr 17 20:59:17 <kchibisov>	I feel like a giant chunk of our users are using i3/sway
+Apr 17 20:59:26 <kchibisov>	even macOS has a concept of tabs on a wm level.
+Apr 17 20:59:39 <kchibisov>	and for the rest, there's `tabbed`.
+Apr 17 20:59:56 <UndeadLeech>	If you can't make tabs in your window manager, but you want multiple tabs in your window manager, you're using the wrong window manager.
+Apr 17 21:00:23 <steinex>	:D
+Apr 17 21:00:24 <ifreund>	^^^
+Apr 17 21:00:27 <candy>	maybe you right :)
+Apr 17 21:00:40 <kchibisov>	Just use tabbed from suckless, and embed alacritty into it.
+Apr 17 21:00:47 <candy>	but i3 it too minimal
+Apr 17 21:00:50 <UndeadLeech>	Though there are alternatives, like kchibisov has mentioned.
+Apr 17 21:00:54 <ifreund>	no i3 is bloated
+Apr 17 21:01:08 <ifreund>	(it's all relative)
+Apr 17 21:01:10 <UndeadLeech>	Even has resize with mouse.
+Apr 17 21:01:24 <candy>	what do you suggest?
+Apr 17 21:01:35 <kchibisov>	idk, try `tabbed`.
+Apr 17 21:01:35 <UndeadLeech>	It depends on your needs.
+Apr 17 21:01:46 <UndeadLeech>	I run i3, but I never use tabs.
+Apr 17 21:01:58 <UndeadLeech>	Someone else might run tmux, because they need it anyways.
+Apr 17 21:02:00 <kchibisov>	I run sway and use tabs quite often.
+Apr 17 21:02:49 <candy>	i'm using tmux
+Apr 17 21:02:58 <kchibisov>	it has tabs as well.
+Apr 17 21:03:09 <candy>	but you know, it has his Disadvantages
+Apr 17 21:03:22 <UndeadLeech>	Yeah if you're running tmux anyways, just use tmux for tabs.
+Apr 17 21:03:57 <kchibisov>	I don't see any problems with tmux at all, it's nice.
+Apr 17 21:04:11 <kchibisov>	it aslo has a lot of flagship features, etc.
+Apr 17 21:04:24 <UndeadLeech>	I mean it is slow.
+Apr 17 21:04:28 <kchibisov>	not really.
+Apr 17 21:04:33 <candy>	i didn't knew tmux can create tabs
+Apr 17 21:04:39 <kchibisov>	like it's still faster than most terminal emulators.
+Apr 17 21:04:41 <candy>	i mean background tabs
+Apr 17 21:04:47 <UndeadLeech>	Yeah, but compared to raw Alacritty it's slow.
+Apr 17 21:04:57 <kchibisov>	yeah, but it's faster than 99% of terminals.
+Apr 17 21:05:11 <UndeadLeech>	Unfortunately I don't run 99% of terminals. :P
+Apr 17 21:05:15 <kchibisov>	and then you have alacirtty, which is faster than tmux.
+Apr 17 21:05:25 <kchibisov>	by like 2x.
+Apr 17 21:05:51 <UndeadLeech>	I really wonder how an Alacritty based multiplexer would perform wrt overhead.
+Apr 17 21:05:52 <ifreund>	i don't run tmux either, it does the same job as my window manager
+Apr 17 21:05:58 <UndeadLeech>	One of these days I'm going to give it a try.
+Apr 17 21:06:18 <ifreund>	like a client/sever session model? or what?
+Apr 17 21:06:34 <UndeadLeech>	Nah, just a tmux/screen clone based on Alacritty.
+Apr 17 21:06:35 <candy>	what is good wm other than i3?
+Apr 17 21:06:47 <kchibisov>	it's up to your needs.
+Apr 17 21:06:49 <ifreund>	dwm, awesomewm, xmonad sway
+Apr 17 21:06:56 <kchibisov>	dwm lul.
+Apr 17 21:07:09 <ifreund>	dude i liked dwm
+Apr 17 21:07:19 <UndeadLeech>	lol
+Apr 17 21:07:31 <ifreund>	but i don't like x, so i'm making my own dwm-alike for wayland
+Apr 17 21:07:44 <kchibisov>	I hate a lot of things about i3 window management.
+Apr 17 21:07:51 <ifreund>	same
+Apr 17 21:07:57 <kchibisov>	but whatever.
+Apr 17 21:07:58 <UndeadLeech>	dwm is the largest stockholm syndrome experiment to date.
+Apr 17 21:08:11 <candy>	i3 is so lite
+Apr 17 21:08:12 <candy>	that's cool
+Apr 17 21:08:18 <candy>	what's about dwm?
+Apr 17 21:08:23 <kchibisov>	it's even lighter.
+Apr 17 21:08:29 <candy>	wow
+Apr 17 21:08:29 <kchibisov>	like 1k lines of code.
+Apr 17 21:08:33 <ifreund>	2k
+Apr 17 21:08:34 <UndeadLeech>	Yeah, it just doesn't do anything.
+Apr 17 21:08:38 <kchibisov>	no tabs, nothing IIRC.
+Apr 17 21:08:46 <kchibisov>	can tile though.
+Apr 17 21:08:55 <ifreund>	tags and dynamic tiling isn't nothing
+Apr 17 21:08:59 <ifreund>	i3 doesn't have tags
+Apr 17 21:09:05 <candy>	in which lang it was written?
+Apr 17 21:09:07 <ifreund>	c
+Apr 17 21:09:11 <candy>	nice
+Apr 17 21:09:15 <ifreund>	you configure it by editing the source code
+Apr 17 21:09:21 <candy>	lol
+Apr 17 21:09:27 <ifreund>	https://dwm.suckless.org/
+Apr 17 21:09:28 <kchibisov>	I guess you can write it in whatever language you want under a few evenings.
+Apr 17 21:09:43 <UndeadLeech>	I mean that's mostly because i3 doesn't want to have tags.
+Apr 17 21:09:50 <ifreund>	yeah xmonad is basically dwm in haskell in even less sloc
+Apr 17 21:09:55 <candy>	i am not so well in c
+Apr 17 21:10:10 <UndeadLeech>	Though I do feel like there's a market for other tiling WMs. Just not dwm.
+Apr 17 21:10:14 <candy>	i know how to program in it but i regular to python etc
+Apr 17 21:10:23 <candy>	so i don't know how to handle the memory
+Apr 17 21:10:35 <kchibisov>	i3 navigation between containers and multi monitor support is weird.
+Apr 17 21:10:50 <kchibisov>	And resize is even weirder.
+Apr 17 21:10:55 <ifreund>	yeah, i want separate roots for each monitor
+Apr 17 21:11:02 <kchibisov>	like 2 widnows - ok, 6 windows - hell no.
+Apr 17 21:11:17 <kchibisov>	glad sway has mouse for such things, since it's way easier than keyboard.
+Apr 17 21:11:18 <UndeadLeech>	Oh yeah, I have that setup in i3.
+Apr 17 21:11:21 <UndeadLeech>	The defaults just suck.
+Apr 17 21:11:38 <UndeadLeech>	Like I have 5 workspaces on each monitor which cannot be shared across monitors.
+Apr 17 21:11:49 <kchibisov>	like resize with keyboard in i3 is a shitstorm.
+Apr 17 21:11:57 <ifreund>	for real
+Apr 17 21:11:59 <kchibisov>	as well as traversion order.
+Apr 17 21:12:06 <UndeadLeech>	i3 has mouse for resize too?
+Apr 17 21:12:10 <UndeadLeech>	Or what do you mean?
+Apr 17 21:12:12 <ifreund>	i just like dynamic window management better than manual though personally
+Apr 17 21:12:15 <kchibisov>	I mean for window move.
+Apr 17 21:12:27 <kchibisov>	resize is fine, nvm.
+Apr 17 21:12:28 <ifreund>	which you can't really get in i3 no matter how much you configure
+Apr 17 21:12:30 <kchibisov>	moving containers is broken.
+Apr 17 21:12:37 <UndeadLeech>	How so?
+Apr 17 21:12:37 <kchibisov>	however maybe new i3 has it.
+Apr 17 21:12:42 <UndeadLeech>	ifreund: You can.
+Apr 17 21:12:52 <UndeadLeech>	It would just be a bit of work.
+Apr 17 21:12:52 <ifreund>	UndeadLeech: got a link?
+Apr 17 21:12:53 <kchibisov>	it's hard, when you have plenty of them.
+Apr 17 21:13:24 <ifreund>	i feel like no matter how you implement it it's going to be a massive hack and not work as well as a wm designed around it
+Apr 17 21:13:25 <UndeadLeech>	kchibisov: How is it broken though, just out of curiosity?
+Apr 17 21:13:40 <kchibisov>	I can record you a giga video of me trying to move window.
+Apr 17 21:13:43 <ifreund>	maybe I'll convert y'all once my compositor is more feature complete
+Apr 17 21:13:47 <UndeadLeech>	ifreund: That's not the same as saying you can't really get it no matter how much you configure.
+Apr 17 21:14:19 <UndeadLeech>	Moving windows in i3 with the mouse you mean? While tiled?
+Apr 17 21:14:21 <ifreund>	i meant that you can sorta aproximate it, but not in a satisfactory way (at least to me)
+Apr 17 21:14:26 <kchibisov>	UndeadLeech: yeah.
+Apr 17 21:14:37 <UndeadLeech>	Ah, gotcha. Like drag & drop or what?
+Apr 17 21:14:47 <UndeadLeech>	I've never had any desire for that. Thought you were talking about floating windows or something.
+Apr 17 21:14:48 <kchibisov>	yeah, this drag & drop works fine.
+Apr 17 21:15:07 <kchibisov>	but moving with keyboard tiled windows if you have many of them is just hard.
+Apr 17 21:15:21 <kchibisov>	you'll break your layout and everything 100 times during it.
+Apr 17 21:16:26 <UndeadLeech>	I'd say that's just mostly something that depends on getting used to it, but the layout management of i3 certainly isn't perfect imho.
+Apr 17 21:16:49 <UndeadLeech>	But I never have more than 3 windows open at the same time on the same monitor really.
+Apr 17 21:17:09 <kchibisov>	I have somtimes like 8 windows on the same monitor.
+Apr 17 21:17:33 <kchibisov>	I mean workspace.
+Apr 17 21:19:28 <kchibisov>	Oh, and if you have tabbed container in this equation, everything will be even more broken.
+Apr 17 21:20:04 <kchibisov>	Like it's not a problem if you use 3 windows max on workspace without tabs, etc.
+Apr 17 21:22:59 <UndeadLeech>	Exactly what I'm saying.
+Apr 17 21:23:09 <UndeadLeech>	Just gotta fix the user.
+Apr 17 21:23:53 <UndeadLeech>	Also ifreund, are you writing your compositor in C based on WLC?
+Apr 17 21:25:05 <kchibisov>	Though, once anvil will become more stable I'll just use it.
+Apr 17 21:25:22 <kchibisov>	because it's anvil.
+Apr 17 21:25:40 <ifreund>	UndeadLeech: in Zig based on wlroots
+Apr 17 21:25:47 <UndeadLeech>	Isn't anvil floating?
+Apr 17 21:25:50 <ifreund>	https://github.com/ifreund/river
+Apr 17 21:25:55 <kchibisov>	it doesn't matter.
+Apr 17 21:26:04 <UndeadLeech>	Fair enough.
+Apr 17 21:26:10 <kchibisov>	it's anvil and it works.
+Apr 17 21:26:31 <UndeadLeech>	ifreund: What do you like about zig?
+Apr 17 21:27:37 <ifreund>	So in comparison with Rust, it's a far simpler language and has much less painful interop with C, making it pretty ideal for this project
+Apr 17 21:28:04 <kchibisov>	Nah, we need competition.
+Apr 17 21:28:20 <kchibisov>	so smithay is the way to go.
+Apr 17 21:28:28 <ifreund>	the ergonomics are pretty great and the finely grained pointer and optional pointer types are powerful enough that I'm not shooting myself in the foot anywhere near as easily as in C
+Apr 17 21:30:10 <UndeadLeech>	Fair enough, I'd assume by better interop you mean that the APIs are easier to use since it's more similar to C, rather than that connecting to those APIs is easier?
+Apr 17 21:30:18 <UndeadLeech>	Since just the FFI part is pretty trivial in Rust too.
+Apr 17 21:32:52 <ifreund>	both tbh, Zig lets you import C stuff directly without any need for bindings
+Apr 17 21:33:04 <ifreund>	you're also definitely right about it being closer to C
+Apr 17 21:33:38 <ifreund>	take the example of the offset_of macro that wayland-rs uses for the bindings to system wayland libs
+Apr 17 21:34:12 <ifreund>	that macro is technically UB since rust doesn't have the required compiler builtins yet
+Apr 17 21:34:42 <UndeadLeech>	I mean yeah, when it comes to the APIs of C just working better in Zig, I can totally see that.
+Apr 17 21:34:43 <ifreund>	(this is translating the wl_container_of macro that gets a pointer to a struct from a pointer to a member and the name of the field)
+Apr 17 21:34:52 <UndeadLeech>	That's why I'd just use the Wayland libs, rather than WLC tbh.
+Apr 17 21:34:59 <ifreund>	Zig just has @fieldParentPtr
+Apr 17 21:35:02 <kchibisov>	You see, Rust tells you to rewrite libwayland-client/server in Rust.
+Apr 17 21:35:08 <kchibisov>	so you're safe.
+Apr 17 21:35:40 <ifreund>	if you want my honest opinion, i don't think that RWIR is good engineering
+Apr 17 21:36:06 <UndeadLeech>	I think rewriting things is always great.
+Apr 17 21:36:21 <UndeadLeech>	Pretty much the best way to learn about things.
+Apr 17 21:36:21 <ifreund>	if they're probelms with them, sure
+Apr 17 21:36:22 <kchibisov>	exactly, especially if it'll be more secure.
+Apr 17 21:36:30 <kchibisov>	or scalable.
+Apr 17 21:37:00 <kchibisov>	Like the least thing I want is crashing of my compositor due to use-after-free.
+Apr 17 21:37:07 <UndeadLeech>	Also systems languages are pretty much the only ones so heavily relying on C. Having alternatives is definitely a good choice.
+Apr 17 21:37:17 <UndeadLeech>	There shouldn't be just one Wayland library.
+Apr 17 21:37:19 <ifreund>	it is a very good way to learn as well, but it's not very pragmatic as rust libraries are not reusable outside of the rust ecosystem
+Apr 17 21:37:35 <UndeadLeech>	That's not true.
+Apr 17 21:37:55 <UndeadLeech>	Not necessarily at least.
+Apr 17 21:38:00 <kchibisov>	Wayland is just a protocol, it doesn't matter what is on the other end.
+Apr 17 21:38:10 <UndeadLeech>	That too of course.
+Apr 17 21:38:13 <kchibisov>	like if it's rust lib or some C lib.
+Apr 17 21:38:17 <kchibisov>	doesn't matter.
+Apr 17 21:38:41 <UndeadLeech>	I mean one of the whole things about zig is that they don't use the C libc, right?
+Apr 17 21:38:43 <kchibisov>	At least for server, since you only have one compostor running.
+Apr 17 21:39:15 <ifreund>	yes, but exporting a C ABI with auto-generated C headers is a first class use-case for zig
+Apr 17 21:39:33 <kchibisov>	I don't have any problems with zig.
+Apr 17 21:39:42 <kchibisov>	I see that it could be useful for baremetal.
+Apr 17 21:39:48 <ifreund>	to be clear I quite like rust too
+Apr 17 21:40:02 <kchibisov>	However if it's using LLVM, I don't see much value for cross over rust.
+Apr 17 21:40:54 <kchibisov>	since #[no_std] is fine to write kernels, etc.
+Apr 17 21:41:05 <ifreund>	cross becomes a lot more painless due to the fact that Zig ships with the libcs of all the targets
+Apr 17 21:41:07 <UndeadLeech>	Yeah, bare metal without gcc is kinda tough tbh.
+Apr 17 21:41:24 <UndeadLeech>	So that kinda defeats the point.
+Apr 17 21:41:55 <kchibisov>	yeah, but you don't need libc for rust core IIRC.
+Apr 17 21:42:20 <kchibisov>	The problem is LLVM limitations most of the time.
+Apr 17 21:43:02 <ifreund>	rust std does depend on libc though right?
+Apr 17 21:43:17 <kchibisov>	std probably, but you have core.
+Apr 17 21:43:20 <UndeadLeech>	Yeah, LLVM is the big thing people complain about with Rust's cross-platform support on embedded. So that's the same for zig.
+Apr 17 21:43:41 <kchibisov>	like core isn't a problem in cross.
+Apr 17 21:43:54 <kchibisov>	And it aslo has vector, etc.
+Apr 17 21:44:15 <kchibisov>	With a bit more effort, but it's exaclty built for cross.
+Apr 17 21:44:33 <UndeadLeech>	Also has a great VTE lib I heard.
+Apr 17 21:44:51 <Levanx>	you need alloc to have the collections, core is not enough
+Apr 17 21:45:03 <kchibisov>	yeah, but you can create your allocator.
+Apr 17 21:45:28 <kchibisov>	So you'll have alloc, but still #[no_std]
+Apr 17 21:46:33 <kchibisov>	vec is in alloc::vec::Vec, right.
+Apr 17 21:46:33 <kchibisov>	but it's still can be #[no_std]
+Apr 17 21:46:45 <UndeadLeech>	Nah, vec is std exclusive iirc. But there are crates for no-std vec.
+Apr 17 21:47:35 <kchibisov>	I've seen alloc::vec::Vec on #[no_std] recently.
+Apr 17 21:48:38 <Levanx>	https://doc.rust-lang.org/stable/alloc/vec/struct.Vec.html
+Apr 17 21:48:38 <Levanx>	looks like alloc to me
+Apr 17 21:48:38 <UndeadLeech>	Yeah, you're right: https://doc.rust-lang.org/alloc/vec/struct.Vec.html
+Apr 17 21:48:38 <UndeadLeech>	But it doesn't show up in core::alloc: https://doc.rust-lang.org/core/alloc/index.html?search=
+Apr 17 21:48:58 <UndeadLeech>	Only in alloc::.
+Apr 17 21:49:28 <UndeadLeech>	So there's ::alloc, std::alloc, core::alloc, std::vec::Vec and alloc::vec::Vec.
+Apr 17 21:49:28 <UndeadLeech>	Simple.
+Apr 17 21:50:11 <Levanx>	Half of std is reexports from core or alloc though
+Apr 17 21:50:19 <UndeadLeech>	Yeah.
+Apr 17 21:50:42 <UndeadLeech>	I'm fine with two different allocs, three's just a bit much.
+Apr 17 21:51:12 <Levanx>	Probably they could have been better named
+Apr 17 21:51:49 <Levanx>	I understand core::alloc as the APIs for defining an allocator, and ::alloc as a collection of containers & types needing an allocator
+Apr 17 21:52:01 <kchibisov>	IIRC to make Vec work you need #[global_allocator] somewhere on your #[no_std]
+Apr 17 21:52:27 <kchibisov>	Since you don't have allocator on bare metal for known reasons.
+Apr 17 21:52:48 <kchibisov>	once you have dynamic memory you can use it.
+Apr 17 21:53:03 <Levanx>	We need CPUs with a malloc opcode then
+Apr 17 21:53:53 <kchibisov>	I mean you can define [0u64;1000] area and say that's your dynamic memory.
+Apr 17 21:54:13 <ifreund>	ah yeah that's another thing I really appreciate about zig, allocators are all local and you have total controll
+Apr 17 21:54:46 <UndeadLeech>	Levanx: I think that ::alloc is kind of a recent thing, right?
+Apr 17 21:54:55 <UndeadLeech>	That's probably some of the reason why it is the way it is.
+Apr 17 21:55:14 <UndeadLeech>	Since Rust's STD cannot introduce breaking changes ever.
+Apr 17 21:55:31 <Levanx>	Its stabilization is relatively recent yeah
+Apr 17 21:55:50 <Levanx>	it has been existing on nightly for quite some time though
+Apr 17 21:56:35 <Levanx>	stabilized in 1.36.0 looks like
+Apr 17 21:56:51 <kchibisov>	Yeah, just fine out code that uses #[no_std] + Vec from `alloc::vec::Vec`
+Apr 17 21:56:52 <UndeadLeech>	Yeah that's like extremely recent.
+Apr 17 21:57:02 <UndeadLeech>	The whole custom allocator thing is fairly fresh.
+Apr 17 21:57:08 <kchibisov>	without any external crates.
+Apr 17 21:57:27 <kchibisov>	custom allocator isn't that fresh.
+Apr 17 21:57:45 <kchibisov>	it was during jemalloc/sys allocator updates.
+Apr 17 21:58:00 <UndeadLeech>	Pretty fresh if you ask me.
+Apr 17 21:58:07 <Levanx>	<ifreund "ah yeah that's another thing I r"> There is one thing that wayland-rs does not support at all that the C libwayland lib handle, it's OOM.
+Apr 17 21:58:40 <UndeadLeech>	How do they handle it and during what time might you run into OOM?
+Apr 17 21:59:37 <Levanx>	Well, they check the return value of malloc and return NULL if it is NULL, mostly.
+Apr 17 22:00:18 <UndeadLeech>	Ah, so you just mean in general rather than some specific cases? Since Rust doesn't handle OOM?
+Apr 17 22:00:37 <Levanx>	In Rust currently, OOM => panic
+Apr 17 22:00:42 <UndeadLeech>	Yeah exactly.
+Apr 17 22:00:45 <kchibisov>	but you can catch panic.
+Apr 17 22:01:31 <Levanx>	Well yeah but
+Apr 17 22:01:59 <kchibisov>	I still think that checking malloc won't help if you if get `NULL`
+Apr 17 22:02:15 <ifreund>	what? why not?
+Apr 17 22:02:40 <kchibisov>	Like it could help, but if your system already goes to OOM, kernel will just start killing everyone.
+Apr 17 22:03:17 <ifreund>	well if everything crashes execept your program, it may very well survive
+Apr 17 22:03:34 <kchibisov>	nah, I can make my GPU driver to leak 64GB
+Apr 17 22:03:53 <kchibisov>	and kernel won't free that memory ever.
+Apr 17 22:04:00 <ifreund>	hah
+Apr 17 22:04:00 <kchibisov>	like whatever.
+Apr 17 22:04:18 <kchibisov>	and UndeadLeech even reproduced that bug at some point IIRC.
+Apr 17 22:04:25 <UndeadLeech>	:)
+Apr 17 22:04:50 <kchibisov>	And we now that removing kernel module for your GPU isn't a good idea.
+Apr 17 22:04:58 <Levanx>	driver bugs are always the best part
+Apr 17 22:05:47 <ifreund>	which driver is this?
+Apr 17 22:05:59 <kchibisov>	amdgpu
+Apr 17 22:06:14 <ifreund>	hah i guess it will happen to me someday as well then
+Apr 17 22:06:21 <kchibisov>	oh, you can try.
+Apr 17 22:06:24 <Yaniel>	what bug with amdgpu?
+Apr 17 22:06:37 <Yaniel>	oh, a memory leak
+Apr 17 22:06:47 <Levanx>	Oh, how do you make it leak that much memory? I'll have to try it when I go back to the lab
+Apr 17 22:06:56 <kchibisov>	it's not really a leak.
+Apr 17 22:07:08 <kchibisov>	amdgpu can use RAM if it runs out of dedicated memory
+Apr 17 22:07:15 <kchibisov>	by default.
+Apr 17 22:07:29 <Yaniel>	yes that's how OpenGL works
+Apr 17 22:07:52 <Levanx>	and that is never freed ?
+Apr 17 22:07:56 <kchibisov>	yeah.
+Apr 17 22:08:10 <kchibisov>	and it goes like from 8GB to 64GB under a second.
+Apr 17 22:08:34 <kchibisov>	Just increase font in alacritty, and at some point it'll blow up.
+Apr 17 22:08:48 <kchibisov>	At least it was true somee time ago, when I've found it out.
+Apr 17 22:09:03 <UndeadLeech>	Yeah, I wasn't able to reload my kernel module. :) Didn't go well.
+Apr 17 22:09:04 <kchibisov>	like 5 months ago.
+Apr 17 22:09:13 <UndeadLeech>	Unless you like black screens.
+Apr 17 22:09:25 <kchibisov>	but you should do it for some time.
+Apr 17 22:09:49 <Levanx>	Black screens do have some kind of aesthetics though
+Apr 17 22:10:01 <UndeadLeech>	True.
+Apr 17 22:10:13 <UndeadLeech>	If you're lucky it will just kill X and because of that close Alacritty though.
+Apr 17 22:10:27 <kchibisov>	but memory won't be freed.
+Apr 17 22:10:43 <kchibisov>	even if you logout.
+Apr 17 22:10:44 <UndeadLeech>	You sure? I thought that it worked for me. I don't quite remember.
+Apr 17 22:10:59 <kchibisov>	I've logged out/logged in and there was a leak.
+Apr 17 22:11:00 <UndeadLeech>	But yeah, I just don't remember anymore.
+Apr 17 22:11:16 <UndeadLeech>	I do remember not being able to free stuff anymore.
+Apr 17 22:11:21 <kchibisov>	like 48 GB of memory without even a process in htop.
+Apr 17 22:11:21 <Levanx>	Who needs more than 640kB of memory though
+Apr 17 22:12:21 <kchibisov>	If someone will repro this bug, let me know.
+Apr 17 22:12:31 <kchibisov>	I don't want to try it one more time.
+Apr 17 22:12:39 <Yaniel>	I did manage to cause a kernel panic from amdgpu recently but I don't think it was related to this
+Apr 17 22:12:52 <UndeadLeech>	You really have to look for this to work.
+Apr 17 22:13:01 <kchibisov>	yeah.
+Apr 17 22:13:10 <Yaniel>	since it happened when I tried hw encoding video at 4K
+Apr 17 22:13:12 <kchibisov>	you should increase font in alacritty for some time.
+Apr 17 22:13:40 <kchibisov>	like a minute or two.
+Apr 17 22:15:37 <kchibisov>	but the funnies thing here, that kernel will be killing everyone, because no process is owning this memory at all.
+Apr 17 22:15:50 <kchibisov>	funniest*
+Apr 17 22:16:07 <UndeadLeech>	The Purge.
+Apr 17 22:16:17 <Levanx>	how to make the oom killer freak out
+Apr 17 22:16:34 <kchibisov>	but hey, it works at least.
+Apr 17 22:17:52 <Levanx>	Does that end up with a "Kernel panic: attempted to kill init!" ?
+Apr 17 22:18:04 <Levanx>	I've hit this message a few times, don't remember how though
+Apr 17 22:18:07 <kchibisov>	I pressed reboot earlier.
+Apr 17 22:18:33 <kchibisov>	but you can try!
+Apr 17 22:19:26 <kchibisov>	I feel like this bug should be still there.
+Apr 17 22:19:40 <Levanx>	I don't have my amgpu laptop with me, I left it at the lab. So I have to wait to be allowed to go work again.
+Apr 17 22:19:53 <Levanx>	The suspense is going to kill me :'(
+Apr 17 22:19:58 <UndeadLeech>	It came back for me after killing Alacritty.
+Apr 17 22:20:02 <UndeadLeech>	Just tested it.
+Apr 17 22:20:09 <kchibisov>	:- )
+Apr 17 22:20:14 <kchibisov>	so bug is still there.
+Apr 17 22:20:15 <UndeadLeech>	https://paste.rs/zHR.png
+Apr 17 22:20:23 <UndeadLeech>	But the 11G memory are gone.
+Apr 17 22:21:05 <UndeadLeech>	I think that's what happened for me last time too. So you're right that there's no way to get back that memory, but you might be able to recover.
+Apr 17 22:21:13 <UndeadLeech>	Guess I'll see you guys after a reboot. :)
+Apr 17 22:21:31 <kchibisov>	11 GB isn't a thing, just let them chill around.
+Apr 17 22:21:48 <UndeadLeech>	I mean I could. But I can't.
+Apr 17 22:21:51 <Levanx>	What kind of computer is that
+Apr 17 22:21:56 <Levanx>	48 cpus ? :o
+Apr 17 22:21:57 <UndeadLeech>	That's my desktop.
+Apr 17 22:22:14 <Yaniel>	presumably (logical) cores
+Apr 17 22:22:45 <Levanx>	yeah but still
+Apr 17 22:22:49 <Levanx>	Do you have a Xeon on your desktop ?
+Apr 17 22:22:57 <Yaniel>	I'm guessing two xeons
+Apr 17 22:23:07 <kchibisov>	it's just threadripper for 24 cores.
+Apr 17 22:23:50 <kchibisov>	https://www.amd.com/en/products/cpu/amd-ryzen-threadripper-3960x
+Apr 17 22:23:53 <Yaniel>	oh right that has a 24/48 variant too
+Apr 17 22:24:27 <UndeadLeech>	Yeah, it's the 3960X.
+Apr 17 22:25:07 <Levanx>	Wow, AMD sure went down the "moar cores" road
+Apr 17 22:25:21 <UndeadLeech>	Not having a power of 2 as CPUs is a bit annoying, but I just couldn't justify paying even more.
+Apr 17 22:25:43 <UndeadLeech>	At least it divides nicely by 3.
+Apr 17 22:27:33 *	Levanx just checked the price on Amazon.
+Apr 17 22:27:43 <Levanx>	._.
+Apr 17 22:28:16 <kchibisov>	but hey, imagine gentoo on this thing.
+Apr 17 22:28:24 <kchibisov>	system update is a breeze.
+Apr 17 22:28:39 <Levanx>	I can imagine that, yeah
+Apr 17 22:29:01 <kchibisov>	like on my 8 core system kernen takes like 90 seconds.
+Apr 17 22:29:06 <Levanx>	Compiling rustc must take, hmmm, at least 10 minutes
+Apr 17 22:29:13 <Yaniel>	*cries in 4 cores without HT*
+Apr 17 22:29:48 <kchibisov>	but with let's say 32/64 it's just waiting for linker.
+Apr 17 22:29:59 <Yaniel>	heh
+Apr 17 22:31:22 <Levanx>	The time I contributed a little to rustc, on my poor i5, was quite a painful experience
+Apr 17 22:32:27 <UndeadLeech>	Yeah, even on this machine it's basically all linking.
+Apr 17 22:32:37 <UndeadLeech>	Though debug mode Alacritty with lldb is pretty fast.
+Apr 17 22:32:47 <kchibisov>	lldb?
+Apr 17 22:32:55 <UndeadLeech>	lld, not lldb.
+Apr 17 22:32:57 <kchibisov>	time to lldb my code.
+Apr 17 22:33:02 <UndeadLeech>	:P
+Apr 17 22:33:24 <kchibisov>	I feel like I don't need to sleep that often tbh.
+Apr 17 22:33:42 <UndeadLeech>	What?
+Apr 17 22:33:44 <kchibisov>	Like I have giga PRs around to review and shit ton of code to write.
+Apr 17 22:34:01 <kchibisov>	Should be fine.
+Apr 17 22:34:27 <kchibisov>	Also, UndeadLeech , is it a bug or feature with selection expansion on shell?
+Apr 17 22:34:39 <UndeadLeech>	Ah, good thing search is only 1000 lines on top of the existing PR.
+Apr 17 22:34:43 <UndeadLeech>	What do you mean?
+Apr 17 22:35:00 <kchibisov>	I mean when you paste with middle click you auto extend selection
+Apr 17 22:35:08 <kchibisov>	Have you reprod it?
+Apr 17 22:36:02 <kchibisov>	it's a thing on master as well, but I'm not sure what this thing is.
+Apr 17 22:36:51 <kchibisov>	I feel like it's a bug.
+Apr 17 22:36:51 <UndeadLeech>	Selection always auto expands.
+Apr 17 22:36:53 <UndeadLeech>	No matter what you do.
+Apr 17 22:37:00 <UndeadLeech>	That has always been how it works.
+Apr 17 22:37:35 <kchibisov>	Oh, it's a correct behavior.
+Apr 17 22:37:55 <kchibisov>	since it's a word, and you increase word len.
+Apr 17 22:38:08 <UndeadLeech>	Yeah. It's always been a bit weird to me.
+Apr 17 22:38:12 <kchibisov>	so you just update it to include word.
+Apr 17 22:38:15 <kchibisov>	whatever.
+Apr 17 22:38:20 <UndeadLeech>	But expansion is done at render time, not at selection time.
+Apr 17 22:38:35 <kchibisov>	yeah, I know, we started doing so recently.
+Apr 17 22:38:38 <UndeadLeech>	So I don't want to say it should definitely work the way it does, but it has always at least until now.
+Apr 17 22:41:10 <kchibisov>	But at least we found out a lot of strange issues about our reflow.
+Apr 17 22:42:16 <UndeadLeech>	Gotta look at the bright things. If something's not working amazingly well, it's an opportunity to make it.
+Apr 17 22:42:51 *	kchibisov looks at our renderer, closes our renderer code.
+Apr 17 22:43:03 <UndeadLeech>	I don't think that's terrible tbh.
+Apr 17 22:43:08 <UndeadLeech>	Like reflow is much worse.
+Apr 17 22:43:19 <kchibisov>	it's not terrible, it's strange.
+Apr 17 22:43:20 <UndeadLeech>	The worst parts are just all the OpenGL stuff.
+Apr 17 22:43:26 <UndeadLeech>	Which is how OpenGL works.
+Apr 17 22:43:42 <kchibisov>	everything in render/mod.rs is just strange.
+Apr 17 22:43:53 <kchibisov>	starting from live reload of shaders from build directory.
+Apr 17 22:44:05 <kchibisov>	I mean project root or whatever.
+Apr 17 22:44:18 <UndeadLeech>	Huh, don't really feel the same. All the glyph/font/atlas stuff is pretty good imho.
+Apr 17 22:44:38 <UndeadLeech>	Live shader reload is a bit strange, that's true.
+Apr 17 22:45:11 <UndeadLeech>	Which is why I've proposed removing it before. I feel like we either need to make it a first class citizen or just scrap it. It might have originally been there to make development easier, I'm not sure.
+Apr 17 22:45:38 <UndeadLeech>	Like that's the only usecase I see for how it works at the moment.
+Apr 17 22:46:14 <kchibisov>	you should edit your shader in nano to make it work.
+Apr 17 22:46:51 <UndeadLeech>	Right, there was some kind of issue with reloading files instead of directories.
+Apr 17 22:47:06 <UndeadLeech>	Though I don't really remember what it was.
+Apr 17 22:47:17 <UndeadLeech>	Vim replaces the file instead of changing it?
+Apr 17 22:47:27 <kchibisov>	I've used this feature only once.
+Apr 17 22:47:55 <UndeadLeech>	I've never used this feature for anything other than testing it out to mess with funky shaders.
+Apr 17 22:48:37 <kchibisov>	I feel like util.rs files are just neccessary evil sometimes.
+Apr 17 22:48:47 <UndeadLeech>	Never!
+Apr 17 22:48:53 <kchibisov>	like I have no idea where to put some glue code.
+Apr 17 22:49:35 <kchibisov>	Like I don't need it in public, just in 2 different modules.
+Apr 17 22:49:39 <kchibisov>	which are not connected
+Apr 17 22:49:49 <UndeadLeech>	Just found the `limit` function, which we use in exactly one place.
+Apr 17 22:49:50 <UndeadLeech>	Nice.
+Apr 17 22:50:41 <kchibisov>	I really don't see where you'll put something like `spawned_named` tbh.
+Apr 17 22:50:52 <kchibisov>	spawn_named*
+Apr 17 22:51:00 <kchibisov>	or start_daemon
+Apr 17 22:51:37 <kchibisov>	touch util.rs
+Apr 17 22:52:11 <UndeadLeech>	alacritty_terminal/thread.rs?
+Apr 17 22:52:27 <UndeadLeech>	Oh, nvm you're talking about the process stuff not thread.
+Apr 17 22:52:35 <UndeadLeech>	alacritty_terminal/process.rs?
+Apr 17 22:52:45 <kchibisov>	and alacritty_terminal/thread.rs as well
+Apr 17 22:53:10 <kchibisov>	just 2 files with 1 function each.
+Apr 17 22:53:25 <UndeadLeech>	At least it's not 1 file with a shitty name!
+Apr 17 22:53:26 <kchibisov>	and copyright message larger than the entire file.
+Apr 17 22:53:50 <UndeadLeech>	I don't really understand the capyright message anyways.
+Apr 17 22:54:00 <kchibisov>	I also wonder whether we should use it for new files
+Apr 17 22:54:00 <UndeadLeech>	I'm not quite sure about its purpose.
+Apr 17 22:54:09 <kchibisov>	But we can't just remove it
+Apr 17 22:54:17 <UndeadLeech>	Why not?
+Apr 17 22:54:32 <kchibisov>	This is not how it works, since you should likely request perm.
+Apr 17 22:54:52 <UndeadLeech>	It's apache2 anyways though.
+Apr 17 22:54:59 <UndeadLeech>	Like it doesn't change the license.
+Apr 17 22:55:06 <kchibisov>	Since you're technically relicense source.
+Apr 17 22:55:06 <UndeadLeech>	You're not.
+Apr 17 22:55:18 <UndeadLeech>	That's why I don't really understand it.
+Apr 17 23:00:06 <kchibisov>	idk, LLVM is also using it right in source.
+Apr 17 23:00:27 <UndeadLeech>	Does it have the license listed separately?
+Apr 17 23:00:33 <kchibisov>	yeah
+Apr 17 23:00:44 <kchibisov>	it's Apache 2 with LLVM extenstions.
+Apr 17 23:01:27 <kchibisov>	each project has LICENSE.txt
+Apr 17 23:01:51 <UndeadLeech>	Is it the same everywhere?
+Apr 17 23:02:04 <UndeadLeech>	I feel like this would only be useful if the entire project isn't under the same license.
+Apr 17 23:02:25 <kchibisov>	it's some political thing tbh.
+Apr 17 23:02:41 <UndeadLeech>	As far as I know, there is absolutely no legal requirement for it.
+Apr 17 23:02:52 <UndeadLeech>	So removing it from the top of files does not change anything about the licensing.
+Apr 17 23:03:42 <ifreund>	yeah i've never understood that thing either, but so many projects seem to do it
+Apr 17 23:05:05 <UndeadLeech>	For now I've just gone with the approach of not adding it to new files, but I suppose I could remove it from everywhere for uniformity.
+Apr 17 23:05:53 <kchibisov>	I'd rather understand the reason behind such thing first tbh.
+Apr 17 23:05:57 <kchibisov>	like there should be a reason.
+Apr 17 23:06:42 <ifreund>	i feel like in 90% of cases people are just doing it cause they see others do it
+Apr 17 23:06:44 <UndeadLeech>	As far as I understand it, the purpose is to make it easier to find the license of each specific file without risk of confusion.
+Apr 17 23:07:02 <UndeadLeech>	Like if someone just copy/pasted our util.rs into their own project, it would automatically copy over the license too.
+Apr 17 23:07:26 <UndeadLeech>	So the license is automatically enforced.
+Apr 17 23:07:47 <kchibisov>	I feel like it makes the mose sense for GPL
+Apr 17 23:07:53 <kchibisov>	most*
+Apr 17 23:08:08 <kchibisov>	you see GPL, you don't touch this thing.
+Apr 17 23:08:57 <UndeadLeech>	Like for apache 2 you need to include the full license of the original file too.
+Apr 17 23:09:13 <UndeadLeech>	So if one wanted to copy our util.rs, it would be done automatically.
+Apr 17 23:09:23 <UndeadLeech>	If it's not part of the file, they'd have to do it manually.
+Apr 17 23:10:06 <kchibisov>	I mean that if you copy random GPL-3 code on the internet to your MIT project you're fucked, right?
+Apr 17 23:10:37 <kchibisov>	e.g. you can't copy code from gcc to LLVM most of the time.
+Apr 17 23:10:47 <UndeadLeech>	Yeah.
+Apr 17 23:10:48 <kchibisov>	so LLVM has to rewrite the same functions in asm sometimes.
+Apr 17 23:12:56 <UndeadLeech>	MIT is compatible with GPL, but not the other way around. So you can have MIT in GPL projects, but not GPL in MIT projects.
+Apr 17 23:13:37 <kchibisov>	yeah, so if you copy MIT code in GPL code you should preserve MIT, right?
+Apr 17 23:14:05 <kchibisov>	Like it should be right in the source.
+Apr 17 23:14:29 <UndeadLeech>	> The above copyright notice and this permission notice shall be included in all
+Apr 17 23:14:32 <UndeadLeech>	copies or substantial portions of the Software.
+Apr 17 23:14:46 <UndeadLeech>	This is what the MIT license says. So yeah it probably needs to be distributed with the software.
+Apr 17 23:17:34 <kchibisov>	So it makes sense to have it in files.
+Apr 17 23:17:50 <UndeadLeech>	I'm not sure it does.
+Apr 17 23:17:52 <kchibisov>	like you can have LLVM right in your project and change it.
+Apr 17 23:17:54 <UndeadLeech>	Like it's not our problem.
+Apr 17 23:18:29 <kchibisov>	Like you can clearly state that 'this code is a part of XXX' with 'YYY changes'
+Apr 17 23:18:48 <kchibisov>	and YYY changes has a different license than XXX.
+Apr 17 23:18:56 <kchibisov>	it should be valid, right?
+Apr 17 23:19:20 <UndeadLeech>	Yeah, but honestly I don't see why we would make our code worse to make license compatibility easier for others.
+Apr 17 23:19:30 <UndeadLeech>	I don't really want to bother with that mess.
+Apr 17 23:19:50 <kchibisov>	me neiter, but I don't mind those headers.
+Apr 17 23:20:23 <UndeadLeech>	I kinda do.
+Apr 17 23:20:27 <UndeadLeech>	But it's fine for now.
+Apr 17 23:21:19 <kchibisov>	Just start putting your name and it'll be fine.
+Apr 17 23:21:37 <kchibisov>	for new files.
+Apr 17 23:21:48 <UndeadLeech>	Just my name?
+Apr 17 23:22:13 <kchibisov>	I mean in license text
+Apr 17 23:22:29 <UndeadLeech>	Not really feeling that tbh.
+Apr 18 08:27:55 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 18 08:27:55 2020
+
+**** BEGIN LOGGING AT Sat Apr 18 08:58:55 2020
+
+Apr 18 08:58:55 *	Now talking on #alacritty
+Apr 18 08:58:55 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 18 08:58:55 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 18 12:36:09 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 18 12:36:09 2020
+
+**** BEGIN LOGGING AT Sat Apr 18 18:12:37 2020
+
+Apr 18 18:12:37 *	Now talking on #alacritty
+Apr 18 18:12:37 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 18 18:12:37 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 18 18:13:40 <UndeadLeech>	No, Termite's character does not exist.
+Apr 18 18:13:49 <UndeadLeech>	We're using the font, Termite does not.
+Apr 18 18:14:50 <randomia>	Oh thank you. I thought I was going bonkers there.
+Apr 18 18:15:29 <randomia>	Have a nice day UndeadLeech :)
+Apr 18 20:38:31 <UndeadLeech>	kchibisov: How would you expect search to work with highlighting everything? Freeze new input?
+Apr 18 20:41:01 <kchibisov>	I feel like it applies to normal search as well?
+Apr 18 20:41:20 <UndeadLeech>	In a way, yeah.
+Apr 18 20:41:28 <UndeadLeech>	But tracking a million points is harder than traking two.
+Apr 18 20:42:07 <kchibisov>	Oh, can we hold screen?
+Apr 18 20:42:18 <UndeadLeech>	That's what I'm asking. If we should do that.
+Apr 18 20:42:24 <kchibisov>	I'm not sure that it's the right thing to do, but it'll be interesting.
+Apr 18 20:42:33 <kchibisov>	like you just start changing display_offset.
+Apr 18 20:42:34 <UndeadLeech>	Yeah I have similar feelings.
+Apr 18 20:42:57 <kchibisov>	I feel like it's fine tbh.
+Apr 18 20:43:09 <kchibisov>	like at which point do you want to search scrolling text?
+Apr 18 20:43:19 <kchibisov>	I always want to stop it.
+Apr 18 20:43:31 <UndeadLeech>	I'm wondering if we should do that in general, once we have it in place anyways.
+Apr 18 20:43:45 <kchibisov>	I guess.
+Apr 18 20:44:09 <UndeadLeech>	Also wondering if that tiny bit of code removed from scroll_up scroll_down would affect performance at all.
+Apr 18 20:47:38 <UndeadLeech>	On the other hand, rotation isn't that difficult.
+Apr 18 20:48:38 <cole-h>	As a user, I think I'd rather freeze new input. If you're searching for something, it's usually something  that has already been displayed, so searching newly-displayed stuff has little to no value IMO
+Apr 18 20:48:54 <UndeadLeech>	How about selection?
+Apr 18 20:49:44 <UndeadLeech>	And vi mode too I suppose.
+Apr 18 20:49:48 <cole-h>	Like if I were to hold Shift+Left click while stuff scrolls? Hm.
+Apr 18 20:51:11 <cole-h>	Most of the time I do that, I'm already scrolled up a little bit (and so new content doesn't affect it). So, I think freezing that should be fine as well?
+Apr 18 20:52:22 <cole-h>	I don't know about vi, though.
+Apr 18 20:53:52 <UndeadLeech>	I'm also not even sure anymore if it's worth it to try and track points during resize then.
+Apr 18 20:54:21 <UndeadLeech>	Or if we should just always freeze and then clear action whenever resizing.
+Apr 18 21:34:11 <holomorph>	hi, i'm making some bindings like so http://ix.io/2iAH to replicate some xterm modifyOtherKeys business.  i'm wondering how i would bind things like C-(, C-), or C-?
+Apr 18 21:35:09 <holomorph>	glutin appears to be missing keycodes for these, and i'm not sure what showkey --scancodes is telling me or if i can use scancodes for such a key combo
+Apr 18 21:37:42 <kchibisov>	You can get scancodes by `alacritty --print-events | grep -i keyboardinput`
+Apr 18 21:44:09 <holomorph>	kchibisov: oic. got it, thank you
+Apr 18 21:46:41 <kchibisov>	if it shows you vitrualkeycode then you can bind by it + modifier
+Apr 18 21:48:50 <holomorph>	which comes from glutin, so yeah
+Apr 18 22:06:59 <mynamehere>	Sorry to keep bothering you guys, but I have been doing some distro hopping and installing various distros across different systems.... Right now I am trying pop_OS and alacritty is acting strange. Backspaces move and don't remove any of the words. tmux responds with "open terminal failed: missing or unsuitable terminal: alacritty" and  commands such as clear and reset respond with "unknown
+Apr 18 22:07:01 <mynamehere>	terminal type"
+Apr 18 22:07:24 <mynamehere>	backspaces move forward*
+Apr 18 22:07:44 <wma>	you need to copy the terminfo
+Apr 18 22:08:25 <wma>	https://github.com/alacritty/alacritty/blob/master/INSTALL.md#terminfo
+Apr 18 22:45:28 <mynamehere>	Okay, so now all that works, but there are only colors if tmux is activated
+Apr 18 22:47:05 <gamara>	Hey does anyone know how to get a terminal to load into scratch pad on startup on sway? I cant seem to get this to work at all I am running 4.2 and none of the methods I have found seem to work.
+Apr 18 22:48:38 <mynamehere>	well actually that'll work for now, thanks @wma!
+Apr 18 22:55:56 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 18 22:55:56 2020
+
+**** BEGIN LOGGING AT Sat Apr 18 23:00:30 2020
+
+Apr 18 23:00:30 *	Now talking on #alacritty
+Apr 18 23:00:30 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 18 23:00:30 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 18 23:01:19 <cole-h>	gamara: Here's what I use https://gist.github.com/cole-h/75e7321316315a717e5ab8282f64b86f
+Apr 19 01:45:31 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 01:45:31 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 01:49:03 2020
+
+Apr 19 01:49:03 *	Now talking on #alacritty
+Apr 19 01:49:03 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 19 01:49:03 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 19 02:44:28 <UndeadLeech>	kchibisov: Do you have an issue with inputs building up when holding down enter while in shell on latest master?
+Apr 19 02:46:12 <UndeadLeech>	Oh, I think it's an issue with my zsh.
+Apr 19 02:46:15 <UndeadLeech>	Phew.
+Apr 19 08:52:16 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 08:52:16 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 08:52:41 2020
+
+Apr 19 08:52:41 *	Now talking on #alacritty
+Apr 19 08:52:41 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 19 08:52:41 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 19 09:16:34 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 09:16:34 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 09:17:01 2020
+
+Apr 19 09:17:01 *	Now talking on #alacritty
+Apr 19 09:17:01 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 19 09:17:01 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 19 10:17:13 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 10:17:13 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 10:24:02 2020
+
+Apr 19 10:24:02 *	Now talking on #alacritty
+Apr 19 10:24:02 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 19 10:24:02 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 19 11:01:01 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 11:01:01 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 11:01:38 2020
+
+Apr 19 11:01:38 *	Now talking on #alacritty
+Apr 19 11:01:38 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 19 11:01:38 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 19 12:45:30 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 12:45:30 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 12:45:49 2020
+
+Apr 19 12:45:49 *	Now talking on #alacritty
+Apr 19 12:45:49 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 19 12:45:49 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 19 14:45:37 <UndeadLeech>	kchibisov: Have you ever used search in Kitty?
+Apr 19 14:45:58 <kchibisov>	I've never used any terminal for more than 1 hour.
+Apr 19 14:46:18 <UndeadLeech>	So is that a yes or a no?
+Apr 19 14:46:23 <kchibisov>	no
+Apr 19 14:46:33 <kchibisov>	and it's true for everything except tmux/alacritty.
+Apr 19 14:46:44 <kchibisov>	and I have some memory about iterm.
+Apr 19 14:46:58 <kchibisov>	like I've pressed it for sure in it, but I don't rememeber.
+Apr 19 14:47:01 <UndeadLeech>	Ah. I thought you were the one suggesting the separate terminal opening the scrollback in less like Kitty.
+Apr 19 14:47:11 <kchibisov>	No
+Apr 19 14:47:28 <UndeadLeech>	I'm just wondering about the drawbacks of that approach.
+Apr 19 14:47:52 <UndeadLeech>	Like is a vi mode and search even necessary, when you can open the scrollback in vim in the same terminal emulator without any hassle?
+Apr 19 14:49:10 <kchibisov>	If you can do that inplace -> no issues.
+Apr 19 14:49:38 <UndeadLeech>	I mean you could start up a separate terminal and replace the current one.
+Apr 19 14:49:58 <kchibisov>	but it sounds like one giant hack.
+Apr 19 14:50:00 <UndeadLeech>	And it would automatically support all vim motions, not just some of them. Though with vim you wouldn't get color.
+Apr 19 14:50:21 <UndeadLeech>	It does, but search and vimode is getting a bit hacky too tbh.
+Apr 19 14:50:41 <kchibisov>	I mean search and vimode are fine.
+Apr 19 14:50:49 <UndeadLeech>	Like I'm just thinking that we might be able to simplify things so much more if we just let vi do what it's good at, instead of trying to do it ourselves.
+Apr 19 14:51:17 <UndeadLeech>	Otoh, I'm trying to figure out a good reason not to, because I don't want to throw away everything I've been doing for the past like month. :P
+Apr 19 14:51:18 <kchibisov>	then add tabs
+Apr 19 14:51:35 <kchibisov>	if you really want to make it work, we need tabs, etc.
+Apr 19 14:51:41 <UndeadLeech>	Why?
+Apr 19 14:51:53 <kchibisov>	opening shit in place without creating a new instance
+Apr 19 14:52:13 <kchibisov>	like I don't want to open one more terminal.
+Apr 19 14:52:13 <UndeadLeech>	I mean you can just replace the terminal that is currently active and store the old one for later use.
+Apr 19 14:52:26 <kchibisov>	yeah, but you're already 50% done tabs.
+Apr 19 14:52:28 <kchibisov>	if you do that.
+Apr 19 14:52:46 <UndeadLeech>	I mean everything but the UI, yeah. But the UI is like the exact thing I don't want to do.
+Apr 19 14:52:54 <UndeadLeech>	We'll need to 50% do tabs to support it for macOS too.
+Apr 19 14:53:05 <UndeadLeech>	So I feel like some of this work will need to be done sooner or later anyways.
+Apr 19 14:53:07 <kchibisov>	and for multi window.
+Apr 19 14:53:11 <UndeadLeech>	Yeah exactly.
+Apr 19 14:53:13 <kchibisov>	but I like our current vi mode.
+Apr 19 14:53:37 <kchibisov>	and I'll refuse to open vim in place with grid.
+Apr 19 14:53:42 <UndeadLeech>	I don't disagree with that. I feel like swapping to another application could be a bit jarring.
+Apr 19 14:53:57 <UndeadLeech>	Let me actually play around with Kitty for a bit. See how it works out.
+Apr 19 14:54:06 <kchibisov>	don't forget that I can paste from vi mode right into app.
+Apr 19 14:54:28 <UndeadLeech>	Yeah, right. You don't need to close vi to get back to Alacritty.
+Apr 19 14:54:49 <kchibisov>	don't forget to give it some milk, once you've done.
+Apr 19 14:54:55 <UndeadLeech>	:P
+Apr 19 14:55:04 <kchibisov>	But I don't like spawning vi.
+Apr 19 14:55:11 <kchibisov>	like you'll break layout of the app, etc.
+Apr 19 14:55:28 <UndeadLeech>	What do you mean by that?
+Apr 19 14:55:48 <kchibisov>	imagine opening weechat in vim.
+Apr 19 14:56:04 <kchibisov>	I mean vim with weechat content to just select
+Apr 19 14:56:08 <UndeadLeech>	I mean since the horizontal width is the same, it shouldn't be too bad.
+Apr 19 14:56:17 <kchibisov>	my weechat is using tabs
+Apr 19 14:56:24 <kchibisov>	vim is using spaces
+Apr 19 14:56:38 <kchibisov>	weechat is larger than vim.
+Apr 19 14:56:50 <kchibisov>	due to line number by default in vim.
+Apr 19 14:56:52 <UndeadLeech>	Ah you mean like different tabwidth configured?
+Apr 19 14:56:57 <kchibisov>	ofc.
+Apr 19 14:56:59 <UndeadLeech>	Right, right.
+Apr 19 14:57:07 <kchibisov>	you'll loose colors, etc.
+Apr 19 14:57:13 <kchibisov>	and live update of content.
+Apr 19 14:57:16 <UndeadLeech>	I mean Kitty is using `less` by default.
+Apr 19 14:57:20 <UndeadLeech>	Which works much better.
+Apr 19 14:57:27 <kchibisov>	select with keyboard in less
+Apr 19 14:57:41 <UndeadLeech>	But it obviously doesn't work for vi mode, just for search yeah.
+Apr 19 14:57:57 <kchibisov>	so I should use vi as pager
+Apr 19 14:58:05 <kchibisov>	and we should dump with truecolors
+Apr 19 14:58:40 <kchibisov>	this is just never ending shit show.
+Apr 19 14:58:54 <UndeadLeech>	It's difficult. But if a pager would exist that allowed vi mode, it should work out great.
+Apr 19 14:59:04 <UndeadLeech>	And that might be a problem that can be tackled independently.
+Apr 19 14:59:44 <kchibisov>	and then you should also live reload pager
+Apr 19 14:59:59 <UndeadLeech>	I don't think that's necessary tbh.
+Apr 19 15:00:11 <UndeadLeech>	Like we were discussing freezing Alacritty anyways.
+Apr 19 15:00:11 <kchibisov>	what if I just chilling in vi mode and open random links
+Apr 19 15:00:20 <kchibisov>	I mean for search when scrolling is done
+Apr 19 15:00:30 <kchibisov>	but in alt-screen you won't freeze anything
+Apr 19 15:00:47 <kchibisov>	I mean freezing scrolling, not content update
+Apr 19 15:00:49 <UndeadLeech>	Either everywhere or nowhere.
+Apr 19 15:01:12 <kchibisov>	but we need a good way to update our terminal atomically
+Apr 19 15:01:16 <UndeadLeech>	I was always talking about freezing content update, since that's what URxvt/VTE do.
+Apr 19 15:01:49 <kchibisov>	I mean we need it at some point.
+Apr 19 15:01:57 <UndeadLeech>	Why?
+Apr 19 15:02:04 <kchibisov>	sync updates.
+Apr 19 15:02:30 <kchibisov>	since you need a way to perform atomic changes to a visible content
+Apr 19 15:04:11 <UndeadLeech>	Yeah, though we can get away with a lot more for that. Since it's probably going to be a sub one second window.
+Apr 19 15:04:19 <UndeadLeech>	So in theory we could probably just stop rendering completely.
+Apr 19 15:04:27 <UndeadLeech>	Though obviously that wouldn't be ideal.
+Apr 19 15:05:00 <kchibisov>	there're a lot of edge cases, but you can buffer input before calling `fn input`
+Apr 19 15:05:06 <kchibisov>	and then push it all at once.
+Apr 19 15:05:21 <kchibisov>	but it'll be complex.
+Apr 19 15:05:49 <kchibisov>	at least we have testing clients already(tmux/mpv).
+Apr 19 15:06:23 <kchibisov>	but let's go back to search
+Apr 19 15:07:28 <kchibisov>	I feel like we shouldn't freeze it entirely, I was talking about stopping scrolling by changing display offset.
+Apr 19 15:07:41 <kchibisov>	Just because it makes the most sense to do.
+Apr 19 15:08:20 <kchibisov>	I mean fixing the viewport, but I'm fine with content update
+Apr 19 15:08:23 <UndeadLeech>	I mean that's fair, if you automatically scroll up during search, you at least don't need to live re-search.
+Apr 19 15:08:54 <kchibisov>	However something like search during asrw is complex.
+Apr 19 15:09:13 <kchibisov>	So we can search lazy.
+Apr 19 15:09:27 <UndeadLeech>	Honestly I don't think we should support drawing over content without clearing it first.
+Apr 19 15:09:31 <UndeadLeech>	Like being aware that it happens, sure.
+Apr 19 15:09:38 <UndeadLeech>	But I don't think our selection and search should work around it.
+Apr 19 15:11:25 <kchibisov>	tmux also entirely freezes btw
+Apr 19 15:11:36 <UndeadLeech>	During search/vi mode?
+Apr 19 15:11:39 <kchibisov>	yeah
+Apr 19 15:12:13 <kchibisov>	I'm not really sure that I like it, but I've never paid attention tbh
+Apr 19 15:12:45 <UndeadLeech>	It seems to be a pretty common pattern.
+Apr 19 15:12:49 <UndeadLeech>	Does it do that when selecting?
+Apr 19 15:13:01 <kchibisov>	selection is part of this mode
+Apr 19 15:13:14 <kchibisov>	just entering it - freezes.
+Apr 19 15:13:16 <UndeadLeech>	There's also mouse selection though, right?
+Apr 19 15:13:24 <kchibisov>	let me try
+Apr 19 15:13:52 <kchibisov>	yeah, because it's done via this mode
+Apr 19 15:14:02 <kchibisov>	And you can't have live selection in tmux
+Apr 19 15:14:12 <UndeadLeech>	Why not?
+Apr 19 15:14:18 <kchibisov>	ask them?
+Apr 19 15:14:24 <UndeadLeech>	:P
+Apr 19 15:15:01 <UndeadLeech>	But yeah, you're right. It always freezes.
+Apr 19 15:15:15 <kchibisov>	but imagine how you can flex with live search
+Apr 19 15:15:41 <UndeadLeech>	Yeah, but I absolutely hate all this mess already.
+Apr 19 15:16:02 <kchibisov>	it'll be like the only terminal with live search updates, etc.
+Apr 19 15:16:29 <UndeadLeech>	But is that actually something anyone needs? Or does it just make things unnecessarily complicated?
+Apr 19 15:16:46 <kchibisov>	I like live update in vimode
+Apr 19 15:17:28 <kchibisov>	does termite freeze in vi mode?
+Apr 19 15:18:01 <UndeadLeech>	Yeah, in vi mode and during selection.
+Apr 19 15:18:39 <kchibisov>	VTE doesn't freeze during selection
+Apr 19 15:19:10 <kchibisov>	oh, nvm, it's just buggy
+Apr 19 15:19:23 <UndeadLeech>	Also don't resize while in vi mode with termite.
+Apr 19 15:19:31 <UndeadLeech>	It seems to be impossible to recover from that.
+Apr 19 15:19:42 <kchibisov>	I don't have termite
+Apr 19 15:19:49 <kchibisov>	just plain vte-2.91
+Apr 19 15:20:02 <UndeadLeech>	Fair enough. That doesn't have vi mode though, right?
+Apr 19 15:20:06 <kchibisov>	and since I don't have a lot of xorg shit I test only vte/tmux/alacritty
+Apr 19 15:20:15 <kchibisov>	right, I just test vte
+Apr 19 15:21:40 <kchibisov>	Oh, can we freeze in normal mode, but not in alt-screen?
+Apr 19 15:21:59 <UndeadLeech>	Why?
+Apr 19 15:22:18 <kchibisov>	hm, idk tbqh, it seems like alt-screen is easier to handle.
+Apr 19 15:22:54 <kchibisov>	since you don't have scrollback, etc.
+Apr 19 15:23:06 <kchibisov>	but I really have questions about complete freeze for vi mode.
+Apr 19 15:23:10 <UndeadLeech>	I'm just not really sure what I really want, or which approach I like most. So it's tough to implement something if you don't know where you want to go with it.
+Apr 19 15:25:20 <kchibisov>	The thing is that we need to support complete freeze somehow for sync updates.
+Apr 19 15:25:43 <UndeadLeech>	I mean that's not really something I worry about, since it's something concrete that has a clear solution.
+Apr 19 15:25:58 <UndeadLeech>	If I know that's what I want to do, implementing it is just a matter of executing it.
+Apr 19 15:26:04 <kchibisov>	I don't have a solution for it.
+Apr 19 15:26:15 <kchibisov>	like you should do it fast.
+Apr 19 15:26:22 <UndeadLeech>	Though I would like to skip buffering.
+Apr 19 15:26:38 <kchibisov>	The thing is that you should have this pending buffer.
+Apr 19 15:26:43 <kchibisov>	and draw old synced buffer
+Apr 19 15:26:56 <kchibisov>	so it's purely terminal freeze problem.
+Apr 19 15:27:35 <UndeadLeech>	I mean that'll never happen unless we handle selection separately.
+Apr 19 15:27:56 <kchibisov>	like if you have BSU CONTENT_1 ESU BSU CONTENT_2 .. . You should be able to draw CONTENT_1 while you're in CONTENT_2
+Apr 19 15:28:50 <kchibisov>	assuming you don't have time between or you've skipped transition from ESU -> BSU
+Apr 19 15:29:05 <UndeadLeech>	Like if the buffer written is small enough, it shouldn't matter anyways.
+Apr 19 15:29:15 <kchibisov>	however you can in theory just lock temrinal and force trigger redraw
+Apr 19 15:29:27 <kchibisov>	terminal*
+Apr 19 15:29:34 <kchibisov>	I mean after ESU
+Apr 19 15:30:14 <kchibisov>	but you can do that only in ESU -> BSU
+Apr 19 15:30:30 <UndeadLeech>	I really don't see much of a problem with this.
+Apr 19 15:30:31 <kchibisov>	and if you won't be able to redraw fast enough
+Apr 19 15:30:43 <kchibisov>	I mean performance, etc.
+Apr 19 15:30:56 <UndeadLeech>	I don't think it will be problematic tbh.
+Apr 19 15:31:03 <kchibisov>	ok
+Apr 19 15:31:41 <kchibisov>	but it's just a matter of trying different things, since all of the are +- concrete
+Apr 19 15:32:25 <kchibisov>	I'm really unsure about losing live update for vi mode, and freezing for every selection.
+Apr 19 15:33:00 <UndeadLeech>	I'm unsure about everything related to vi mode and selection basically.
+Apr 19 15:33:43 <UndeadLeech>	Like I've got search with highlighting all matches mostly working, but I don't know about clearing and rotation.
+Apr 19 15:33:50 <UndeadLeech>	Or resize.
+Apr 19 15:34:19 <kchibisov>	Well in theory it's not a big problem with your reflow PR
+Apr 19 15:34:43 <UndeadLeech>	Having to reflow all matches seems like a waste though.
+Apr 19 15:34:59 <kchibisov>	escapcially if you reflow each character
+Apr 19 15:35:13 <UndeadLeech>	I mean it would be two points for every match.
+Apr 19 15:35:27 <kchibisov>	Imagine reflowing `.`
+Apr 19 15:35:39 <kchibisov>	with all matches
+Apr 19 15:37:20 <UndeadLeech>	Yeah, pretty much.
+Apr 19 15:37:32 <kchibisov>	and then you do it in asrw and start resizing.
+Apr 19 15:37:57 <UndeadLeech>	That's why I've been wondering if it's even worth it to merge reflow in the current state.
+Apr 19 15:38:06 <UndeadLeech>	Or if we just shouldn't reflow vi cursor and selection.
+Apr 19 15:43:59 <kchibisov>	I mean you need reflow selection.
+Apr 19 15:44:04 <UndeadLeech>	Why?
+Apr 19 15:44:40 <kchibisov>	if you resize frozen content you should reflow selection as well
+Apr 19 15:45:20 <UndeadLeech>	Why?
+Apr 19 15:45:21 <kchibisov>	and selection should be visible in general, like it's now.
+Apr 19 15:45:43 <kchibisov>	I mean I don't want selection like in tmux tbh
+Apr 19 15:45:59 <UndeadLeech>	But why?
+Apr 19 15:46:07 <kchibisov>	idk, preference
+Apr 19 15:46:16 <kchibisov>	like it feels weird in tmux to use its selection
+Apr 19 15:46:21 <kchibisov>	and I never use it due to that
+Apr 19 15:46:24 <UndeadLeech>	Yeah, but there has to be some logical reason to it.
+Apr 19 15:46:44 <kchibisov>	there's no logical reason behind it.
+Apr 19 15:47:16 <UndeadLeech>	I mean then that doesn't help.
+Apr 19 15:47:20 <kchibisov>	I just like to see my selection on screen to highlight stuff from time to time.
+Apr 19 15:47:39 <kchibisov>	And I use it to highlight stuff for others from time to time.
+Apr 19 15:47:48 <kchibisov>	with tmux selection it's impossible.
+Apr 19 15:49:09 <kchibisov>	And most terminals are showing you selection and live updates.
+Apr 19 15:49:52 <kchibisov>	like ok, VTE freezes during selection, but once I've selected, it's properly rotated.
+Apr 19 15:50:11 <UndeadLeech>	Yeah.
+Apr 19 15:50:35 <UndeadLeech>	I wouldn't want to freeze permanently.
+Apr 19 15:50:47 <kchibisov>	during selection process - ok.
+Apr 19 15:51:11 <kchibisov>	once selection is done, and it's on screen you should reflow/rotate it.
+Apr 19 15:51:26 <UndeadLeech>	Rotate it, sure. But do you need to reflow it?
+Apr 19 15:51:42 <kchibisov>	I'm not sure, it was your idea initially
+Apr 19 15:51:54 <UndeadLeech>	Yeah, mostly because of search.
+Apr 19 15:52:03 <UndeadLeech>	But I don't even know how I want that to behave.
+Apr 19 15:52:10 <kchibisov>	I don't need reflow for selection 50% of the time
+Apr 19 15:52:25 <UndeadLeech>	Like 90% of that reflow PR is perfectly good. The cursor moved to grid, the selection moved to terminal, all fine.
+Apr 19 15:52:38 <UndeadLeech>	I just don't know about passing vi cursor and selection to the grid for reflow.
+Apr 19 15:53:06 <kchibisov>	yeah, it's good, I'd like docs for pub stuff and I should check your reflow logic.
+Apr 19 15:53:35 <UndeadLeech>	I'm not sure about field docs for all items. What we have right now is kinda terrible tbh.
+Apr 19 15:53:56 <kchibisov>	I mean if something is pub, it should have docs.
+Apr 19 15:54:08 <kchibisov>	that's just good practise.
+Apr 19 15:54:26 <UndeadLeech>	Yeah, but `/// Selection\npub selection: Selection` doesn't help at all.
+Apr 19 15:54:28 <kchibisov>	and clippy even has a lint for such thing
+Apr 19 15:54:36 <kchibisov>	you can add more docs
+Apr 19 15:55:07 <UndeadLeech>	Yeah, that would probably be the way to go.
+Apr 19 15:55:16 <UndeadLeech>	Write better docs, rather than remove them.
+Apr 19 15:55:23 <kchibisov>	// Active terminal selection\nselection: Option<Selection>
+Apr 19 15:55:38 <UndeadLeech>	That doesn't really improve anything tbh.
+Apr 19 15:55:54 <UndeadLeech>	Just more words.
+Apr 19 16:12:09 <UndeadLeech>	Ultimately my question was though if it's even worth it to implement search directly in Alacritty. And I'm not sure about that.
+Apr 19 16:17:33 <UndeadLeech>	Though it is useful to navigate vi mode.
+Apr 19 18:29:24 <UndeadLeech>	kchibisov: You said you use the ability to pass while in vi mode, right?
+Apr 19 18:29:35 <UndeadLeech>	Is that for pasting multiple times?
+Apr 19 18:48:28 <kchibisov>	it's to use simplier hotkey, like `p`.
+Apr 19 18:53:17 <UndeadLeech>	Ah, fair enough.
+Apr 19 18:53:53 <UndeadLeech>	It seems near impossible to do search without freezing though, since it'll basically clear itself as soon as you start it.
+Apr 19 18:54:10 <UndeadLeech>	Since zsh sends a Clear::Below once the search bar goes away on confirmation.
+Apr 19 18:54:33 <UndeadLeech>	And we can't partially clear search, since we cannot re-search while content is being written.
+Apr 19 20:47:00 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 20:47:00 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 20:50:15 2020
+
+Apr 19 20:50:15 *	Now talking on #alacritty
+Apr 19 20:50:15 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 19 20:50:15 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 19 21:10:30 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 21:10:30 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 21:25:32 2020
+
+Apr 19 21:25:32 *	Now talking on #alacritty
+Apr 19 21:25:32 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 19 21:25:32 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 19 23:05:30 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 23:05:30 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 23:07:42 2020
+
+Apr 19 23:07:42 *	Now talking on #alacritty
+Apr 19 23:07:42 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 19 23:07:42 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 20 00:07:18 <UndeadLeech>	nixpulvis: If you're around, I'd be very curious what you think about the pager vs integrated in Alacritty idea.
+Apr 20 01:08:30 *	Disconnected ()
+**** ENDING LOGGING AT Mon Apr 20 01:08:30 2020
+
+**** BEGIN LOGGING AT Mon Apr 20 01:12:23 2020
+
+Apr 20 01:12:23 *	Now talking on #alacritty
+Apr 20 01:12:23 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 20 01:12:23 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 20 08:33:21 *	Disconnected ()
+**** ENDING LOGGING AT Mon Apr 20 08:33:21 2020
+
+**** BEGIN LOGGING AT Mon Apr 20 08:33:42 2020
+
+Apr 20 08:33:42 *	Now talking on #alacritty
+Apr 20 08:33:42 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 20 08:33:42 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 20 20:59:44 *	Disconnected ()
+**** ENDING LOGGING AT Mon Apr 20 20:59:44 2020
+
+**** BEGIN LOGGING AT Mon Apr 20 21:00:28 2020
+
+Apr 20 21:00:28 *	Now talking on #alacritty
+Apr 20 21:00:28 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 20 21:00:28 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 20 21:01:14 *	Disconnected ()
+**** ENDING LOGGING AT Mon Apr 20 21:01:14 2020
+
+**** BEGIN LOGGING AT Mon Apr 20 21:02:10 2020
+
+Apr 20 21:02:10 *	Now talking on #alacritty
+Apr 20 21:02:10 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 20 21:02:10 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 20 22:42:14 *	Disconnected ()
+**** ENDING LOGGING AT Mon Apr 20 22:42:14 2020
+
+**** BEGIN LOGGING AT Mon Apr 20 23:54:54 2020
+
+Apr 20 23:54:54 *	Now talking on #alacritty
+Apr 20 23:54:54 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 20 23:54:54 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 21 00:50:03 <AppAraat[m]>	hi, does anyone know when ppa:mmstick76/alacritty is going to update Alacritty to v0.4.2?
+Apr 21 00:55:32 <cole-h>	When mmstick has time to update it, probably.
+Apr 21 01:06:20 <UndeadLeech>	You can try shooting him a mail, I'm not sure if he's watching releases. But it's up to them of course.
+Apr 21 08:17:03 *	Disconnected ()
+**** ENDING LOGGING AT Tue Apr 21 08:17:03 2020
+
+**** BEGIN LOGGING AT Tue Apr 21 08:17:28 2020
+
+Apr 21 08:17:28 *	Now talking on #alacritty
+Apr 21 08:17:28 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 21 08:17:28 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 21 08:40:09 <Hamilton>	kchibisov, Thanks :D
+Apr 21 08:41:28 <casperstorm>	you talked about you fixed the bold font issue kchibisov or was it a dream?
+Apr 21 08:41:38 <casperstorm>	the mac os rendering issue or what not
+Apr 21 08:45:05 <kchibisov>	I'm aware on how to fix it.
+Apr 21 08:45:25 <casperstorm>	cool, whats the issue?
+Apr 21 08:45:29 <kchibisov>	it's a macOS Mojave+ feuture/limitation
+Apr 21 08:47:12 <kchibisov>	so you should set defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO right in alacritty to make it work.
+Apr 21 08:47:30 <casperstorm>	yeah thought so, saw that before.
+Apr 21 08:47:42 <kchibisov>	this is a global update, but it's possible to do that just for alacritty.
+Apr 21 08:47:49 <kchibisov>	iterm is doing the same thing
+Apr 21 08:48:37 <kchibisov>	because thin strokes requires subpixel AA, but macOS Mojave+ doesn't have it
+Apr 21 08:49:32 <casperstorm>	well, it has it, just disabled if i understand correctly
+Apr 21 08:50:09 <kchibisov>	So solution is to write user defaults in alacritty and enable subpixel AA
+Apr 21 09:02:20 <casperstorm>	There are a few objc apis we could use, but not sure we have a graphical context to pass it.
+Apr 21 09:02:36 <casperstorm>	so yes that might be the best solution what you are proposing, for now at least.
+Apr 21 09:02:45 <casperstorm>	until they deprecate it.
+Apr 21 09:03:09 <casperstorm>	see: https://developer.apple.com/documentation/coregraphics/1456263-cgcontextsetallowsfontsubpixelqu?language=objc
+Apr 21 09:09:41 <kchibisov>	we're setting them
+Apr 21 09:10:06 <casperstorm>	huh? where?
+Apr 21 09:10:16 <kchibisov>	The problem is that without the mentioning setting they are no-op
+Apr 21 09:10:38 <kchibisov>	Once you toggle this setting, you'll see subpixel AA in alacritty
+Apr 21 09:11:12 <kchibisov>	https://github.com/alacritty/alacritty/blob/3bfb5958bc39360aeb071055660c2509650b6a95/font/src/darwin/mod.rs#L506
+Apr 21 09:11:50 <kchibisov>	so as I said, we should write NSUserDefaults, or whatever this thing is called.
+Apr 21 09:22:50 <UndeadLeech>	kchibisov: Btw, is there a reason for why this setting has been disabled globally, do you know?
+Apr 21 09:22:56 <UndeadLeech>	Is there a plan to remove this?
+Apr 21 09:23:53 <kchibisov>	ask apple?
+Apr 21 09:24:09 <UndeadLeech>	Gotcha, just curious if you found anything.
+Apr 21 09:24:18 <UndeadLeech>	Because it seems strange that every application would have to set this.
+Apr 21 09:24:47 <kchibisov>	idk, maybe they assume that you use only their retina displays, since without subpixel AA the font will look like shit.
+Apr 21 09:25:04 <kchibisov>	on 1080p displays, etc.
+Apr 21 09:26:27 <UndeadLeech>	Yeah, that's kinda what I've been thinking.
+Apr 21 09:26:51 <UndeadLeech>	"Nothing other than our high dpi displays exist, so why do we need subpixel AA?"
+Apr 21 09:27:18 <UndeadLeech>	Oh, retina, not high dpi. They'd never use a term they haven't standardized themselves! That would be terrible marketing!
+Apr 21 09:28:27 <kchibisov>	fwiw 1080p looks like shit most of the time, so they are not far from trueth.
+Apr 21 09:29:11 <kchibisov>	But overly thick font stroke is a question.
+Apr 21 09:29:25 <UndeadLeech>	Eh I don't think I agree.
+Apr 21 09:30:27 <kchibisov>	idk, I'm running away from 1080p, etc.
+Apr 21 09:31:30 <UndeadLeech>	I mean I don't think I would get a new 24inch+ monitor with 1080p. But it's not that bad and for smaller displays it's still perfectly great.
+Apr 21 09:31:41 <UndeadLeech>	Phones for example, really don't need 1440p+ for that.
+Apr 21 09:32:35 <kchibisov>	I was purely about 21+ inch monitors
+Apr 21 09:33:47 <UndeadLeech>	Fair enough.
+Apr 21 09:34:27 <kchibisov>	idc about phones, just use proper DPR and you're fine.
+Apr 21 09:34:53 <kchibisov>	like 3+ DPR is a way to go for phones.
+Apr 21 11:14:30 *	Disconnected ()
+**** ENDING LOGGING AT Tue Apr 21 11:14:30 2020
+
+**** BEGIN LOGGING AT Tue Apr 21 11:14:51 2020
+
+Apr 21 11:14:51 *	Now talking on #alacritty
+Apr 21 11:14:51 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 21 11:14:51 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 21 13:44:00 *	Disconnected ()
+**** ENDING LOGGING AT Tue Apr 21 13:44:00 2020
+
+**** BEGIN LOGGING AT Tue Apr 21 13:50:46 2020
+
+Apr 21 13:50:46 *	Now talking on #alacritty
+Apr 21 13:50:46 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 21 13:50:46 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 21 13:57:30 *	Disconnected ()
+**** ENDING LOGGING AT Tue Apr 21 13:57:30 2020
+
+**** BEGIN LOGGING AT Tue Apr 21 15:11:34 2020
+
+Apr 21 15:11:34 *	Now talking on #alacritty
+Apr 21 15:11:34 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 21 15:11:34 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 21 15:13:30 *	Disconnected ()
+**** ENDING LOGGING AT Tue Apr 21 15:13:30 2020
+
+**** BEGIN LOGGING AT Tue Apr 21 17:31:24 2020
+
+Apr 21 17:31:24 *	Now talking on #alacritty
+Apr 21 17:31:24 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 21 17:31:24 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 21 18:14:05 *	Disconnected ()
+**** ENDING LOGGING AT Tue Apr 21 18:14:05 2020
+
+**** BEGIN LOGGING AT Tue Apr 21 18:14:34 2020
+
+Apr 21 18:14:34 *	Now talking on #alacritty
+Apr 21 18:14:34 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 21 18:14:34 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 21 20:35:57 *	Disconnected ()
+**** ENDING LOGGING AT Tue Apr 21 20:35:57 2020
+
+**** BEGIN LOGGING AT Tue Apr 21 20:37:14 2020
+
+Apr 21 20:37:14 *	Now talking on #alacritty
+Apr 21 20:37:14 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 21 20:37:14 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 22 09:17:30 *	Disconnected ()
+**** ENDING LOGGING AT Wed Apr 22 09:17:30 2020
+
+**** BEGIN LOGGING AT Wed Apr 22 09:20:35 2020
+
+Apr 22 09:20:35 *	Now talking on #alacritty
+Apr 22 09:20:37 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 22 09:20:37 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 22 09:22:00 *	Disconnected ()
+**** ENDING LOGGING AT Wed Apr 22 09:22:00 2020
+
+**** BEGIN LOGGING AT Wed Apr 22 09:26:09 2020
+
+Apr 22 09:26:09 *	Now talking on #alacritty
+Apr 22 09:26:09 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 22 09:26:09 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 22 09:36:00 *	Disconnected ()
+**** ENDING LOGGING AT Wed Apr 22 09:36:00 2020
+
+**** BEGIN LOGGING AT Wed Apr 22 09:54:04 2020
+
+Apr 22 09:54:04 *	Now talking on #alacritty
+Apr 22 09:54:04 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 22 09:54:04 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 22 11:13:37 *	Disconnected ()
+**** ENDING LOGGING AT Wed Apr 22 11:13:37 2020
+
+**** BEGIN LOGGING AT Wed Apr 22 11:13:56 2020
+
+Apr 22 11:13:56 *	Now talking on #alacritty
+Apr 22 11:13:56 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 22 11:13:56 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 22 12:17:07 *	Disconnected ()
+**** ENDING LOGGING AT Wed Apr 22 12:17:07 2020
+
+**** BEGIN LOGGING AT Wed Apr 22 12:17:45 2020
+
+Apr 22 12:17:45 *	Now talking on #alacritty
+Apr 22 12:17:45 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 22 12:17:45 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 22 14:10:11 <ubitux>	is it possible to jump between links in vi-mode with something like tab / shift-tab?
+Apr 22 14:10:29 <kchibisov>	not yet.
+Apr 22 14:11:17 <ubitux>	alright :)

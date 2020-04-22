@@ -4049,3 +4049,1359 @@ Apr 16 16:36:15 *	Now talking on #fedora
 Apr 16 16:36:15 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
 Apr 16 16:36:15 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
 Apr 16 16:36:15 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 16 16:40:53 <specing>	matt3o12: you can copy the first 2MB (bootloader), then use fdisk to delete the partition table and add a new partition with the same number as on the old hdd but with new start-end sectors, then just dd fedora to that new partition
+Apr 16 16:41:53 <matt3o12>	Do I also need the other drives? Like /boot/uefi/ and /boot/? Or is the lvm partion enough?
+Apr 16 16:43:20 <matt3o12>	Or are the automatically regenerated?
+Apr 16 16:44:49 <Khaytsus>	Fastest way would be a fresh install
+Apr 16 16:45:20 <Khaytsus>	But yes if you're moving to a new drive you would need all of the partitions, such as boot, efi, etc
+Apr 16 16:45:50 <matt3o12>	I think it would be faster to just copy everything (including windows), and then removing windows in my new drive and remove linux in my old
+Apr 16 16:46:21 <Khaytsus>	You could do that I suppose.  And resize partitions, and resize filessytems, and fix stuff, and update fstab, etc.  Up to you :)
+Apr 16 16:47:12 <matt3o12>	Where can I learn how to use fstab? I have never sued it before. Resizing the partiations should be easy enough in gnome right?
+Apr 16 16:49:06 <Khaytsus>	No idea about 'gnome' but I imagine you'd use the partd guid
+Apr 16 16:49:08 <Khaytsus>	gui..
+Apr 16 16:57:42 <specing>	matt3o12: ah, I thought it was pre-UEFI. on UEFI my answer does not apply
+Apr 16 16:58:15 <matt3o12>	yeah I am using UEFI
+Apr 16 16:58:49 <Khaytsus>	Still say you could do a fresh install and migrate much faster
+Apr 16 16:59:34 <Khaytsus>	4 days, 22 hours, 0 minutes, 8 seconds until the Fedora 32 (4/21/2020) release.
+Apr 16 16:59:43 <matt3o12>	I honestly don't want to restore from a backup, that takes way longer (the hard drive is quite slow, maxes out at 40MB after 10min), meanwhile my ssd is at least 200MBs
+Apr 16 18:28:44 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 16 18:28:44 2020
+
+**** BEGIN LOGGING AT Thu Apr 16 18:29:13 2020
+
+Apr 16 18:29:13 *	Now talking on #fedora
+Apr 16 18:29:13 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 16 18:29:13 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 16 18:29:14 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 16 22:58:49 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 16 22:58:49 2020
+
+**** BEGIN LOGGING AT Thu Apr 16 22:59:16 2020
+
+Apr 16 22:59:16 *	Now talking on #fedora
+Apr 16 22:59:16 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 16 22:59:16 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 16 22:59:18 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 16 23:09:11 <renich>	Hey, check this out: https://archives.fedoraproject.org/pub/archive/fedora/linux/core/1/. Do you notice something odd?
+Apr 16 23:09:44 <renich>	Fedora Core 1 x86_64 ?
+Apr 16 23:09:47 <renich>	¬_¬
+Apr 16 23:10:26 <cyveris>	Ah, FC1.
+Apr 16 23:10:29 <cyveris>	Those were the days.
+Apr 16 23:10:33 <renich>	... I wonder how do I get the mouse to work? in Fedora core 1...
+Apr 16 23:10:42 <renich>	cyveris: yeah, I remember when I tried it for the first time.
+Apr 16 23:10:57 <renich>	what I don't remember is x86_64 in FC1
+Apr 16 23:11:16 <renich>	And, btw, the installation fails with x86_64. It only works with i386
+Apr 16 23:19:25 <renich>	ha! mouse started working by removing the "tablet" device from the KVM/qemu guest. :D
+Apr 16 23:29:22 <renich>	Fixed the repos. :D. Now, I am applying updates! Let's see how that goes...
+Apr 16 23:49:29 <sincorchetes>	Hi
+Apr 16 23:50:29 <sincorchetes>	Something can import gi module in Python? I cannot do it. I have installed pygobject3 python3-gobject
+Apr 16 23:51:36 <sincorchetes>	s/Something/Somebody/g
+Apr 16 23:52:04 <ossifrage>	I really miss yumex, dnfdragora is just not very useful
+Apr 16 23:52:26 <CustosLimen>	hi
+Apr 16 23:53:37 <CustosLimen>	I want all my computers to authenticate from the same source, but I don't want to run active directory or somethin
+Apr 16 23:53:45 <CustosLimen>	are there other options?
+Apr 16 23:59:54 <sincorchetes>	no problem, I found the problem. I was installed Anaconda software into my user, so, this added a some code to preload custom environment python to use in my login session. I comment it and works fine
+Apr 17 00:03:17 <tnelis>	CustosLimen: Sounds like you're looking for FreeIPA <https://www.freeipa.org/>
+Apr 17 00:05:51 <ossifrage>	I just tried to get yumex-dnf to work with fedora 31, it almost does...
+Apr 17 00:09:19 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 17 00:09:19 2020
+
+**** BEGIN LOGGING AT Fri Apr 17 09:56:58 2020
+
+Apr 17 09:56:58 *	Now talking on #fedora
+Apr 17 09:56:58 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 17 09:56:58 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 17 09:56:58 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 17 09:57:03 <ledeni>	chilversc, using Kernel driver in use: nouveau for nvidia gpu driver is open source and sometime make glitches but if you want you can try nvidia driver from rpmfusion repos
+Apr 17 10:00:17 <ledeni>	chilversc, check --> https://rpmfusion.org/Configuration  &  https://rpmfusion.org/Howto/NVIDIA?highlight=%28CategoryHowto%29
+Apr 17 10:10:00 <chilversc>	ledeni: yeah, I was trying to avoid setting up prime, etc as it seems nouveau is gaining better support for hybrid now
+Apr 17 10:10:36 <chilversc>	though I don't thing this is graphics card related this time, as the system worked fine, I just ended up having to log out and log back in to unbreak the overlay
+Apr 17 10:11:45 <chilversc>	https://paste.centos.org/view/e172dee8
+Apr 17 10:12:01 <chilversc>	though not sure if any of those missing objects are related to the logging out
+Apr 17 10:12:36 <chilversc>	maybe the ones around the 28 minute mark, but the error at 26 minutes is what I suspect broke the overlay?
+Apr 17 10:15:04 <ledeni>	chilversc, could be
+Apr 17 11:20:18 <slavic>	Where would one find the repository for the downstream modified packages for Fedora, say gnome-software?
+Apr 17 11:25:11 <[Enrico]>	slavic: https://src.fedoraproject.org/
+Apr 17 11:29:22 <slavic>	Thanks Enrico.
+Apr 17 11:46:28 <[Enrico]>	slavic: you're welcome
+Apr 17 12:59:11 <slavic>	https://pastebin.com/raw/ex3Ci8KT   -- gnome-software compiles on F32 but not on F31. Any insight into the error?
+Apr 17 13:00:29 <slavic>	libXau is installed (both 32 and 64 versions)
+Apr 17 13:26:26 <Southern_Gentlem>	slavic, rpm -q libgcrypt
+Apr 17 13:27:01 <Southern_Gentlem>	slavic,  no idea of why you are installing from source on a packaged distro
+Apr 17 13:27:39 <slavic>	I'm trying to fix a bug with gnome-software
+Apr 17 13:28:29 <slavic>	rpm -q libgcrypt returns libgcrypt-1.8.5-1.fc31.x86_64 and the 32bit equiv
+Apr 17 13:29:08 <Southern_Gentlem>	slavic,  has there been a bugzilla reported
+Apr 17 13:29:27 <slavic>	This has been reported everywhere :)
+Apr 17 13:30:02 <Southern_Gentlem>	ok then this should be in #fedora-qa and or #fedora-devel
+Apr 17 13:30:03 <slavic>	I'm fixing upstream though. I can't get it to compile on a locla machine that exhibits the bug: https://gitlab.gnome.org/GNOME/gnome-software/-/issues/793
+Apr 17 13:30:26 <slavic>	ok, I'll move
+Apr 17 13:30:28 <slavic>	thanks
+Apr 17 13:43:00 <johnfg>	so, just to verify, with fedora, /boot can *not* be on lvm?  No workaround possible?
+Apr 17 13:44:16 <Khaytsus>	The bootloader can not read lvm, so no.
+Apr 17 13:48:36 <Southern_Gentlem>	lvm isnt started until after the boot loader so there is no way for it to boot if boot was in a lvm
+Apr 17 13:49:06 <Southern_Gentlem>	lvm isnt started until after the boot loader so there is no way for it to boot if /boot was in a lvm
+Apr 17 13:53:29 <EffSquared>	Hi guys. Does anybody here know where I can find the source of a package if it is not listed on src.fedoraproject.org?
+Apr 17 13:53:46 <EffSquared>	I am talking about firefox-wayland in particulat.
+Apr 17 13:54:56 <Khaytsus>	EffSquared: Is it not just output from the FF srpm?
+Apr 17 13:55:24 <Khaytsus>	Yes it is.
+Apr 17 13:57:11 <johnfg>	K thanks.  I'll try and get some non-lvm space for /boot.
+Apr 17 13:57:39 <johnfg>	On latest fedora, is there a minimal size for /boot recommended?
+Apr 17 13:58:13 <Southern_Gentlem>	EffSquared, dnf info firefox-wayland tells you the source rpm  if nothing else you can get it from koji.fedoraproject.org
+Apr 17 13:59:42 <Khaytsus>	johnfg: 500M is the default.  I have 210M used here with a normal setup.
+Apr 17 14:00:20 <Khaytsus>	So just make it 500M.  If you make it smaller you'll be fighting with it at some point.
+Apr 17 14:04:30 <EffSquared>	@Southern_Gentlem @Khaytsus Thank you for the info, I will have a look at the source package then. I am just looking for some wayland patches to bring over to NixOS.
+Apr 17 14:04:56 <EffSquared>	With everybody working from home know, I need pipewire support! ;-)
+Apr 17 14:05:13 <Khaytsus>	Everyone needs a hobby
+Apr 17 14:05:19 <Southern_Gentlem>	*** Kernel 5.5.17 has been pushed to Testing for F30 and F31: Please test and give Karma on https://bodhi.fedoraproject.org/updates/?packages=kernel  ***
+Apr 17 14:05:41 <johnfg>	I think I have this (which is now not usable for Fedora) at 1 gb.
+Apr 17 14:06:30 <Southern_Gentlem>	johnfg, if in the future you are planning to use dnf system-upgrade i advise /boot at 1G
+Apr 17 14:06:40 <EffSquared>	Not sure where to report this but all the "Link to raw patch" links on app.fedoraproject.org are broken if there is not direct source package, e.g.  https://apps.fedoraproject.org/packages/firefox-wayland/sources/patches/
+Apr 17 14:06:52 <Southern_Gentlem>	EffSquared, known issue
+Apr 17 14:07:16 <Southern_Gentlem>	app is known to be behind the curve
+Apr 17 14:07:35 <Southern_Gentlem>	thus use koji which is the fedora builder
+Apr 17 14:07:36 <johnfg>	Southern_Gentlem: I will.  especially if I decide I want, like in the case of trying those new kernels, a number of kernels around.
+Apr 17 14:08:01 <Southern_Gentlem>	johnfg,  fedora default is 3
+Apr 17 14:10:14 <Khaytsus>	Southern_Gentlem: dnf system-upgrade doesn't use any space in /boot
+Apr 17 14:10:22 <Khaytsus>	Maybe one additional kernel?  I dunno
+Apr 17 14:11:32 <prussian>	^ can confirm, given my /boot is like 512MiB, I wouldn't be able to install otherwise lol
+Apr 17 14:12:21 <Khaytsus>	My /boot has been 477M (why that size, no idea) for years
+Apr 17 14:13:45 <Southern_Gentlem>	same here
+Apr 17 14:14:04 <Southern_Gentlem>	grrr libvirt update gotta reboot
+Apr 17 14:14:59 <Khaytsus>	I had it at just under 250M before this current install (circa f17 as I recall) and I had to randomly fight with it for space in /boot
+Apr 17 14:15:02 <\n3p\>	arc-theme is obsolete for fedora 32 or there will be updated?
+Apr 17 14:17:45 <Khaytsus>	\n3p\: I see arc-theme built for 32?  Whatever it is.
+Apr 17 14:18:00 <Khaytsus>	Ah, it failed, nevermind
+Apr 17 14:21:44 <ziff>	what's the right place to report a suspected bug in the SELinux targeted policy in Fedora?
+Apr 17 14:23:36 <Khaytsus>	bugzilla
+Apr 17 14:23:42 *	Khaytsus points to https://bugzilla.redhat.com/bugzilla
+Apr 17 14:23:49 <Khaytsus>	If it's a Fedora package, of course.  Third party package, no.
+Apr 17 14:24:09 <ziff>	yep, vanilla Fedora 31
+Apr 17 14:24:09 <ziff>	thanks!
+Apr 17 14:25:02 <Khaytsus>	ziff: Make sure your system is labeleled correctly first, wouldn't be a bad idea to relabel the whole system and test.  Unless you're absolutely sure selinux has never been off, never moved files around with non-selinux suoporting tools, etc
+Apr 17 14:46:42 <EffSquared>	\quit Thanks for the help
+Apr 17 14:56:19 <ziff>	Khaytsus: thanks for the suggestion, doing an autorelabel seems to have resolved it (I don't quite understand why though - the labels of the involved process and file don't seem to have changed).
+Apr 17 15:00:24 <mulletman>	Hey, i know this isnt a gaming channel (is there a linux gaming channel?) but for gaming on linux, for things like 0ad and maybe doom 2016 or the older halflifes would something with like an AMD A4-7300B and 8G mem be enough?
+Apr 17 15:00:47 <mulletman>	Im not looking for a super system, just "good enough"
+Apr 17 15:01:40 <billings>	what kind of GPU?  or does that have an integrated GPU?
+Apr 17 15:01:57 <rudrab>	in f32, workspace is not visible. 4-finger swipe is working, but there is no indecator on the right of the screen
+Apr 17 15:02:06 <mulletman>	integrated i think, was looking at refuirbished options on newegg
+Apr 17 15:02:10 <plundra>	A4-7300B sounds very underpowered? https://www.cpubenchmark.net/cpu.php?cpu=AMD+A4+PRO-7300B+APU&id=2439
+Apr 17 15:02:49 <mulletman>	if i popped a GPU in there would that compensate for the older cpu?
+Apr 17 15:03:08 <plundra>	The cpu it self seems super slow.
+Apr 17 15:03:54 <mulletman>	thats a pity, does anyone know of any (used is fine) sub $400 systems that can play older games?
+Apr 17 15:04:23 <mulletman>	(doom 2016 being the newest i have on my list)
+Apr 17 15:05:15 <plundra>	I got a new system last weekend, and have been playing DOOM 2016 for the first time. Replacing my old Skull Canyon NUC, which has this cpu: https://www.cpubenchmark.net/cpu.php?cpu=intel+core+i7-6770hq+%40+2.60ghz&id=2759
+Apr 17 15:05:38 <plundra>	And I wouldn't even think of trying DOOM 2016 on it. But maybe I'm wrong, don't know how low it scales. Maybe it's great.
+Apr 17 15:07:10 <mulletman>	doh, that is way out of my price range.
+Apr 17 15:07:23 <plundra>	Yeah no, not suggesting it, just for comparsion
+Apr 17 15:07:24 <mulletman>	maybe i will jsut replay half life again a few times lol
+Apr 17 15:07:41 <plundra>	https://www.cpubenchmark.net/cpu.php?cpu=AMD+A8+PRO-7600B+APU&id=2352 That is even cheaper than the HP I assume you were looking at, in the refurb section?
+Apr 17 15:07:49 <plundra>	The Lenovo one, at newegg.
+Apr 17 15:08:01 <mulletman>	so you think that your system wouldnt run doom 2016?
+Apr 17 15:08:07 <mulletman>	i was indeed
+Apr 17 15:09:09 <plundra>	Not really, but I haven't tried :) And it's in iffy shape, cut screen in the beginning of HL2 it crashes.
+Apr 17 15:09:16 <plundra>	It's running Debian, so probably why :P
+Apr 17 15:11:21 <mulletman>	:)
+Apr 17 15:13:03 <plundra>	mulletman: Going by the Minimum spec for DOOM 2016 in Steam, they have these cpus https://www.cpubenchmark.net/compare/AMD-FX-8320-Eight-Core-vs-Intel-i5-2400/1782vs793
+Apr 17 15:13:47 <plundra>	To get a feel for it. I'm sure there's a million more factors, but I'd try and compare cpu mark score to get a feel for what might be doable.
+Apr 17 15:14:25 <plundra>	That's a 2010 and 2012 cpu, but higher end ones at that time maybe.
+Apr 17 15:17:58 <mulletman>	thanks for looking that up, i need to use cpubenchmarks more :)
+Apr 17 15:21:06 <mulletman>	I know this isnt a lin/fed question but on spubenchmarks i see they have the option to buy now but the link doesnt seem to point to a page that one can buy said system, is there a way? (that would be the most super custom option i have ever seen but had to ask)
+Apr 17 15:21:35 <mulletman>	agh. nix that previous question
+Apr 17 15:21:57 <mulletman>	i had it in my head those were prices for systems not cpus. duh.
+Apr 17 15:24:46 <plundra>	mulletman: If you are comfortable building a system by yourself? :-) https://pcpartpicker.com/guide/wQscCJ/budget-homeoffice-build
+Apr 17 15:25:21 <mulletman>	am lazy :P but can put a sys together
+Apr 17 15:25:30 <mulletman>	thanks for the link
+Apr 17 15:25:33 <plundra>	(Just found as an example of within budget and as a starting point)
+Apr 17 15:25:57 <mulletman>	am cheaper than lazy though so might end up going this route, thanks :)
+Apr 17 15:26:32 <plundra>	No worries. I haven't built a system for like 15 years, before this last week when I finally did it again. Have been using Intel NUCs and playing games accordingly.
+Apr 17 15:27:30 <mulletman>	lol, i usually avoid it but ended up having to put my server together last year as i coudnt find anything prebuilt that wasnt an absolute fortune
+Apr 17 15:27:39 <plundra>	So very happy with it, everything just worked out of the box with no issues. Went with the Fedora 32 beta, because felt fine for new home/game pc. Graphics and all, just works great. Having steam as a third party repo built in just enabling was nice, just like in Debian.
+Apr 17 15:28:20 <plundra>	Well yeah, I've liked the NUCs and been fine with the premium of them, price/performance. Because I just want something that works. Not having to figure out parts and pick the right thing.
+Apr 17 15:28:32 <mulletman>	I hear ya!
+Apr 17 15:28:39 <plundra>	But being budget constrained, I'd definitly go with building myself.
+Apr 17 15:29:09 <mulletman>	btw, have you used steam? does that require CDs?
+Apr 17 15:29:10 <plundra>	Specially after building this one successfully :D
+Apr 17 15:29:19 <plundra>	Yes a lot, and no never.
+Apr 17 15:29:35 <plundra>	You can at most enter a CD-key of old games you own (Like, a hardcopy of Half-Life) to add to it :)
+Apr 17 15:30:15 <plundra>	Not sure if you ever could use a CD/DVD with Steam actually, for copying data I mean. I think it's been over the internet always.
+Apr 17 15:30:39 <mulletman>	sweet! still got that, was going to try playonlinux but wasnt looking forward to it (wine, even a sanitized version, and I never have gotten along it seems)
+Apr 17 15:31:52 <Southern_Gentlem>	mulletman, use the wine in fedora
+Apr 17 15:32:16 <mulletman>	i do, mainly for foobar2000 but i have used it for a few other things but things usually end up working suboptimally (ie buggy)
+Apr 17 15:32:52 <plundra>	I'm really impressed by Steam and the proton-magic, making DOOM 2016 available. Totally seamless, ps aux shows a .exe but nothing would make me think it wasn't native from the experience.
+Apr 17 15:33:35 <plundra>	No like, "install on windows, copy the files, rotate computer towards the moon, pray some winetricks fixes helps, and then MAYBE it works"
+Apr 17 15:34:08 <mulletman>	yeah, thats what i have heard - hence my renewed interest (plus the whole not going out thing lol)
+Apr 17 15:35:45 <plundra>	Bing stuck at home definitly helped push me to pull the trigger :)
+Apr 17 15:35:56 <johnfg>	What do you think is the *safest* way to shrink lvol1, in the current os (on vg0) or with gparted,           or can fedora installer handle this?
+Apr 17 15:36:48 <johnfg>	that may not have  been a clear question: use my current os to adjust lvm, use gparted, or fedora installer?
+Apr 17 15:37:52 <plundra>	I'd prep as much as possible before launching the installer. Just in general.
+Apr 17 15:39:00 <plundra>	But are you using the filesystem currently? Then booting up the install media seems the right way to do it.
+Apr 17 15:39:48 <plundra>	I always use xfs when having the option, so shrinking filesystem isn't an option, so no need to worry about it.
+Apr 17 15:40:35 <RagingBuffalo>	Hi here, is there a pro with thunderbolt who could help me understand how to force recognise the docking again, on Fedora 31? as in a command to rescan or something
+Apr 17 15:40:43 <RagingBuffalo>	as I do "boltctl list" I get nothing
+Apr 17 15:41:18 <RagingBuffalo>	I also systemctl restart bolt.service
+Apr 17 15:41:50 <RagingBuffalo>	I get this now with status: https://paste.centos.org/view/434ff28d
+Apr 17 15:43:40 <sincere_fox>	Khaytsus: Hey I did $ xmodmap -e "keycode 89 = NoSymbol"  and it did the trick, the F5 key no longer works, thanks a lot, I love this keyboard I didn't want to discard it for a key
+Apr 17 15:49:12 <RagingBuffalo>	seems that unplugging the mini DP cable on the docking side (and not on the computer side)
+Apr 17 15:49:20 <RagingBuffalo>	made it automatically recnogised again
+Apr 17 15:49:56 <RagingBuffalo>	that did not make the screen read again the signal, they are still blank
+Apr 17 15:51:10 <Southern_Gentlem>	RagingBuffalo, reboot with dock attached?
+Apr 17 15:51:29 <RagingBuffalo>	yes that usually work, after a few reboots. Sometimes immediately
+Apr 17 15:51:39 <RagingBuffalo>	sometimes I have to disconnect the power of the docking
+Apr 17 15:51:51 <RagingBuffalo>	I was trying a less disrupting workaround
+Apr 17 15:52:12 <Southern_Gentlem>	so shutdown power cycle the dock and then restart the computer
+Apr 17 15:52:14 <RagingBuffalo>	I usually waste 20min-1h everyday with that j*nk
+Apr 17 15:52:59 <RagingBuffalo>	im int he middle of a training, thats why I don't want to reboot right now, I have several labs running
+Apr 17 15:53:09 <RagingBuffalo>	I lost the screens
+Apr 17 15:53:12 <RagingBuffalo>	beside laptop screen
+Apr 17 15:53:56 <RagingBuffalo>	a bit ugly errors: https://paste.centos.org/view/2df966b2
+Apr 17 15:57:53 <Khaytsus>	sincere_fox: Still seems a bit crazy that you have issues with f5..  what keyboard?
+Apr 17 15:58:39 <sincere_fox>	Khaytsus: is an HP wireless one, is really comfortable
+Apr 17 15:59:13 <RagingBuffalo>	it crashed, once I reconnected the docking, it froze the laptoip
+Apr 17 15:59:30 <Khaytsus>	ew, low profile chicklets.  but odd f5 is in the way.  Anywho, glad it sorted it out fo ryou
+Apr 17 15:59:44 <RagingBuffalo>	it just had the time to generate a report
+Apr 17 15:59:46 <RagingBuffalo>	list_del corruption, ffff8e4aa25cf6a8->next is LIST_POISON1 (dead000000000100) [thunderbolt]
+Apr 17 16:00:11 <RagingBuffalo>	so funny... POISON1 (dead)
+Apr 17 16:00:15 <RagingBuffalo>	looks scary
+Apr 17 16:01:11 <RagingBuffalo>	In the end I had to reboot after all, lost all my lab servers great...
+Apr 17 16:08:40 <Robby>	question, so, we have https://apps.fedoraproject.org/packages where we can lookup package info, what I am missing, however, is the ability to see a list of dependencies
+Apr 17 16:08:40 <RagingBuffalo>	is there a way to check detection of screens in Wayland, I googled a lot I can't find much
+Apr 17 16:08:45 <stofflswelt>	Hi! How can I view, what iss et as default browser?
+Apr 17 16:09:12 <Robby>	the question is: is there some other fedoraproject webapp that shows this info?
+Apr 17 16:11:39 <stofflswelt>	The funny thing is when I try xdg-open http://fedoraproject.org - Mozilla Thunderbird is openen.... *puzzled*
+Apr 17 16:13:28 <RagingBuffalo>	stofflswelt, right click on html file and "open with"?
+Apr 17 16:13:33 <RagingBuffalo>	if you use Gnome
+Apr 17 16:15:34 <Robby>	found a workaround to my issue I guess, its to use https://rpmfind.net/linux/RPM/
+Apr 17 16:16:28 <Robby>	that one shows a "requires" section
+Apr 17 16:17:05 <RichardET>	My personal opinion is that Fedora Mate seems to be the most easy to use of the Fedora spins
+Apr 17 16:17:19 <RichardET>	any other views out there?
+Apr 17 16:19:28 <matt3o12>	Hey, according to disks I have a 980GB block storage device with a ext file system (it is part of a LVM partition, the LVM is 997GB and the hard drive is 1000GB). When I mount the partition and write df -h, it only shows 898G (assuming df uses GiB not GB), I am missing about ~15GiB, where did they go?
+Apr 17 16:21:55 <Southern_Gentlem>	RichardET, please see the channelfaq in the topic
+Apr 17 16:22:13 <Southern_Gentlem>	basicly comes down to dsdf
+Apr 17 16:25:48 <matt3o12>	 I ran resize2fs on that drive before that (without any specific size), maybe it didn't increase the file system all the way?
+Apr 17 16:31:47 <Southern_Gentlem>	1000000000/1024
+Apr 17 16:46:16 <sincere_fox>	Khaytsus: yeah, must be a hardware issue, but with this fix I have keyboard for some more time
+Apr 17 16:49:46 <sincere_fox>	Khaytsus: https://images.idgesg.net/images/article/2019/02/hp-wireless-elite-keyboard-v2-primary-with-mouse-100789040-large.3x2.jpg
+Apr 17 16:50:09 <sincere_fox>	chiclet indeed
+Apr 17 17:03:10 <Khaytsus>	So curious.. how do you keep hitting F5? :P
+Apr 17 17:03:31 <sincere_fox>	Not me
+Apr 17 17:04:06 <sincere_fox>	it starts registering F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+Apr 17 17:04:22 <sincere_fox>	so the websites start loading and loading and loading lol
+Apr 17 17:06:29 <Khaytsus>	sincere_fox: OH.  The keyboard is broken?  Stuck key?
+Apr 17 17:10:53 <sincere_fox>	Khaytsus: exactly, very frustrating
+Apr 17 17:11:30 <Khaytsus>	So it's still going to cause you some issues with rollover etc, but if it works......  maybe you should fix it though ;)  Probably some crumb or something in it.
+Apr 17 17:14:30 <sincere_fox>	Khaytsus: I've tried to clean it but doesn't seem to be the problem,
+Apr 17 17:14:51 <Khaytsus>	Try whacking it with a hammer?
+Apr 17 17:15:20 <peque>	Hi there! :-) I created a Proxy Auto-Configuration (PAC) file. I can load this configuration with Firefox and everything works as expected. When I try to configure Chromium to do the same, the browser opens the GNOME network settings. I can configure the Network Proxy from there: select "Automatic" and pass `file:///my/path/to/pac.js` as the configuration URL, just like I would do with Firefox. I turn off the wired connection, then
+Apr 17 17:15:21 <peque>	turn it on again and... nothing happens. The proxy does not seem to work and I can not use Chromium to get to the domains behind the proxy. Any idea on what could be wrong? Using Fedora 31 Workstation. Thanks in advance! ^^
+Apr 17 17:16:05 <sincere_fox>	Khaytsus: well, that's something I havent try for sure
+Apr 17 17:17:36 <vwbusguy>	I'm having some trouble upgrading to f32 since some modules are stuck looking for f31 release (gimp, libgit2).  I could just uninstall reinstall these, but is there an obvious way to upgrade them?
+Apr 17 17:17:56 <Khaytsus>	Yuck, still weirdness updating with modules? :(
+Apr 17 17:18:10 <Southern_Gentlem>	vwbusguy,  uninstall the modules
+Apr 17 17:18:15 <Southern_Gentlem>	then try again
+Apr 17 17:18:26 <whatnow111>	hey southern.
+Apr 17 17:19:19 *	Southern_Gentlem grabs a dryer sheet to clear away the static cling 
+Apr 17 17:20:54 <whatnow111>	southern, i found one thing i overlooked when try to make the computer less noisier.
+Apr 17 17:21:19 <Southern_Gentlem>	what was that
+Apr 17 17:21:27 <whatnow111>	a good case.
+Apr 17 17:22:41 <whatnow111>	with thicker panel. the one i was using was a cooler master haf and i think due to thinner side panel, the noise was audible.
+Apr 17 17:24:59 <whatnow111>	i had an ancient antec case. when i transferred the same motherboard over, i hear much less fan noise.
+Apr 17 17:26:06 <vwbusguy>	Southern_Gentlem, disabling the modules worked
+Apr 17 17:26:23 <vwbusguy>	Southern_Gentlem, thanks
+Apr 17 17:26:43 <mangoicedtea>	how do I install soulseek? http://www.soulseekqt.net/news/node/1
+Apr 17 17:27:10 <mangoicedtea>	please help, thanks
+Apr 17 17:31:07 <Southern_Gentlem>	mangoicedtea, what have you done
+Apr 17 17:31:40 <mangoicedtea>	Southern_Gentlem, just downloaded the .tgz file
+Apr 17 17:31:57 <Southern_Gentlem>	and its a compressed file
+Apr 17 17:32:16 <Southern_Gentlem>	so uncompress it
+Apr 17 17:32:47 <mangoicedtea>	ok done there is an appimage
+Apr 17 17:33:45 <Southern_Gentlem>	have you read their documentation on how to install
+Apr 17 17:34:38 <mangoicedtea>	nope
+Apr 17 17:34:38 <Southern_Gentlem>	i am not going to install that on my system to tell you how to install it
+Apr 17 17:34:39 <peque>	I have used the GNOME Settings to try to configure a proxy loading a local Proxy Auto-Configuration (PAC) file. The configuration is taking no effect. Any idea on what could be wrong? (the configuration file is fine, since it works when loaded with Firefox)
+Apr 17 17:36:09 <vwbusguy>	mangoicedtea, If it's an appimage, normally you can run it directly
+Apr 17 17:36:36 <vwbusguy>	mangoicedtea, like it's an executable.  Make sure you really trust where you downloaded it from!
+Apr 17 17:37:36 <mangoicedtea>	vwbusguy, https://paste.centos.org/view/dba55f33
+Apr 17 17:38:23 <Southern_Gentlem>	mangoicedtea, dnf search xcb
+Apr 17 17:38:29 <vwbusguy>	mangoicedtea, It's not packaged by Fedora so your support here will be pretty limited for that
+Apr 17 17:40:00 <Southern_Gentlem>	mangoicedtea, we highly discourage stuff like this but it is your machine so your issue
+Apr 17 17:41:24 <Southern_Gentlem>	mangoicedtea, there is a client for soulseek in the repos
+Apr 17 17:42:17 <Southern_Gentlem>	dnf search soulseek
+Apr 17 17:49:57 <mangoicedtea>	Southern_Gentlem, thanks
+Apr 17 18:02:48 <Khaytsus>	Southern_Gentlem: 32 only?  I don't see anything here.
+Apr 17 18:03:13 <Khaytsus>	Oooh, gotcha.  not that name, I see it now
+Apr 17 18:04:16 <Khaytsus>	So what is soulseek anyway, besides piracay
+Apr 17 18:04:18 <Khaytsus>	piracy
+Apr 17 18:06:32 <Southern_Gentlem>	p2p network
+Apr 17 18:07:36 <Khaytsus>	Yeah, piracy
+Apr 17 18:12:53 <peque>	Khaytsus, I usually use p2p networks to download Fedora images :-P
+Apr 17 18:14:14 <Khaytsus>	...
+Apr 17 18:14:34 <RagingBuffalo>	(/.*)?
+Apr 17 18:15:55 <RagingBuffalo>	On that note, captain' RagingBuffalo is leaving the ship, ahoy!  (/.*)?
+Apr 17 18:16:19 <yates_home>	i'm trying to get sdk installed
+Apr 17 18:16:29 <yates_home>	per https://gradle.org/install/
+Apr 17 18:16:43 <yates_home>	is aws-sdk-java THAT sdk?
+Apr 17 19:16:28 <overflyer>	So ChanServ directed me here from #redhat
+Apr 17 19:16:33 <overflyer>	Hello everyone, is the project of bpfilter different from what Facebook is planning to replace iptables/nftables with using eBPF technology? I heard there is supposed to be a Facebook talk out there from the BPDF summit on November 12, 2019 but I cant find it.
+Apr 17 19:29:03 <dowdle>	overflyer: Find the homepage of bpfilter?
+Apr 17 19:29:59 <overflyer>	no not the home page just some third-party articles about it
+Apr 17 19:30:02 <dawud>	overflyer: https://kernel-recipes.org/en/2019/talks/bpf-at-facebook/ but slideshare is down for me at the moment
+Apr 17 19:30:27 <overflyer>	I can see the slideshare and use it
+Apr 17 19:30:29 <overflyer>	awesome
+Apr 17 19:30:33 <overflyer>	thank you!
+Apr 17 19:30:46 <dowdle>	https://linux-audit.com/bpfilter-next-generation-linux-firewall/
+Apr 17 19:30:58 <overflyer>	ah yes I got this article open
+Apr 17 19:31:36 <overflyer>	So lets see if facebook is doing something different or if it is just using bpfilter....
+Apr 17 19:32:02 <overflyer>	(I am an IT Admin that is interested in new technologies all the time, privately and professionally)
+Apr 17 20:27:39 <fedbot>	*** F31-20200408 updated lives available: https://tinyurl.com/Live-respins2  Built by the Fedora Respin Sig more info #fedora-respins ***
+Apr 17 20:40:47 <aterius>	I updated to Fedora 32, and I'm not having issues with DNS resolution in docker, (I can't use podamn currently I've filed a few pending bugs) of the form ```Err1: 1 https://security.ubuntu.com/ubuntu bionic-security
+Apr 17 20:40:48 <aterius>	   Temporary failure resolving 'security.ubuntu.com```
+Apr 17 20:40:58 <aterius>	Anyoen else having issues?
+Apr 17 20:49:48 <Khaytsus>	aterius: No, but perhaps you need some proxy stuff if you use a proxy
+Apr 17 20:50:06 <Khaytsus>	I had to set proxy vars in docker envs at work because we have a proxy we have to manually set
+Apr 17 20:50:11 <aterius>	 * Anyone else having issues?
+Apr 17 20:51:17 <aterius>	Yeah, I'm not using a proxy. Just a standard networking environment
+Apr 17 21:15:27 <Rozha>	hallo can halep
+Apr 17 21:17:01 <Rozha>	if i forgot password fedora 31 root ? how can i to change it
+Apr 17 21:17:15 <piston>	Hi folks, Recently I reinstalled FC31 with multiple desktop environments, rarely I am able to connect wifi, I suspect some service is conflicting with NetworkManager, any suggestions ?
+Apr 17 21:17:17 <piston>	https://pastebin.com/PVYmu9H7
+Apr 17 21:18:48 <Taim>	Rozha: https://docs.fedoraproject.org/en-US/quick-docs/reset-root-password/
+Apr 17 21:19:02 <piston>	https://fedoramagazine.org/reset-root-password-fedora/
+Apr 17 21:29:35 <vwbusguy>	Fedora 32 upgrade went fine.  I did have to remove some py2 libs and disable a couple of modules.  I didn't lose anything important with the py2 libs.
+Apr 17 21:29:49 <vwbusguy>	dnf check showed empty after the upgrade
+Apr 17 21:39:52 <Khaytsus>	vwbusguy: about 7 weeks too early IMO ;)
+Apr 17 21:40:16 <Khaytsus>	vwbusguy: but that's.... interesting.  modules, eh..  I dunno why those don't upgrade, that seems buggy.. but python modules?
+Apr 17 21:40:23 <vwbusguy>	Khaytsus, that is your opinion and you're welcome to it.  I upgrade a week or two before GA so I can hel pout my coworkers.
+Apr 17 21:40:27 <vwbusguy>	*help put
+Apr 17 21:40:30 <vwbusguy>	*help out...
+Apr 17 21:40:46 <Khaytsus>	vwbusguy: I do too.. in a vm ;)
+Apr 17 21:40:48 <vwbusguy>	Khaytsus, Not python modules.  gimp was one of them.  libgit2 was another.  and jmx.
+Apr 17 21:41:05 <Khaytsus>	erm, py libs...sorry
+Apr 17 21:41:18 <vwbusguy>	I had to remove some python libs via dnf first
+Apr 17 21:41:24 <Khaytsus>	Odd...
+Apr 17 21:41:36 <vwbusguy>	I don't remember which ones but they didn't take anything important with them
+Apr 17 21:41:55 <Khaytsus>	I guess I'll see when I update in a few months
+Apr 17 21:42:07 <vwbusguy>	I think they were probably orphaned gnome deps from older versions
+Apr 17 21:42:25 <vwbusguy>	(I know, you don't like gnome...)
+Apr 17 21:47:25 <Khaytsus>	I'm not allowed to talk about gnome anymore
+Apr 17 21:50:53 <peque>	For anybody interested, I ended up creating an issue in GNOME Settings (https://gitlab.gnome.org/GNOME/gnome-control-center/-/issues/957) it seems the problem is with trying lo use a local file (i.e.: `file:///...`)
+Apr 17 21:54:29 <akuhcap>	Hey im trying out wayland instead of xorg on this install and im wondering how i should go about with drivers.  I have a nvidia 1660
+Apr 17 21:58:52 <piston>	Can anyone suggest If conflicting services are on here? I am not able to connect wifi.
+Apr 17 21:58:57 <piston>	https://pastebin.com/PVYmu9H7
+Apr 17 22:01:14 <piston>	I shouldnt have installed with deepin as primary environment,
+Apr 17 22:01:54 <piston>	thats where the conflict started I feel, now not able to connect on any environment.
+Apr 17 23:05:25 <mrvenkman>	Question about partitioning: I have just removed some space from my windows partition using gparted. Freed up ~10G how do I now allocate that to my home? https://pasteboard.co/J4hJWS7.png
+Apr 17 23:07:40 <tolland>	hey, im getting loads of peculiar scrambled windows problems since the last update
+Apr 17 23:08:51 <tolland>	firefox and chrome keep crashing with glitched windows
+Apr 17 23:11:11 <mrvenkman>	Nailed it.
+Apr 18 00:07:13 <mrvenkman>	I think I might of just fucked up my /home partition.
+Apr 18 00:07:13 <Khaytsus>	mrvenkman: This is a family channel, such language is not acceptable.  Please remember children and their grandmothers may be watching.
+Apr 18 00:07:47 <Jordan_U>	mrvenkman: What exactly did you do to your /home/ partition?
+Apr 18 00:08:41 <mrvenkman>	Well, I tried to add to it from my Windows partition. I freed up some space (only 10Gb) using gparted. Then I couldn't move the new space so I thought ,,,
+Apr 18 00:08:57 <mrvenkman>	Maybe it's because I am using the swap space etc.
+Apr 18 00:09:04 <mrvenkman>	so I used a LIVE usb stick
+Apr 18 00:09:19 <mrvenkman>	and tried with that. It's complicated.
+Apr 18 00:09:28 <mrvenkman>	I am here so it's not all bad.
+Apr 18 00:11:12 <mrvenkman>	Actually it's not as bad as I thought.
+Apr 18 00:13:56 <mrvenkman>	What is the difference between a root partition and a home partition?
+Apr 18 00:14:40 <mrvenkman>	tmpfs                                     3040896  1899040   1141856  63% /tmp
+Apr 18 00:15:03 <mrvenkman>	root  64691820 11564724  49811180  19% /
+Apr 18 00:15:12 <mrvenkman>	home  31582048 25332052   4622656  85%
+Apr 18 00:15:48 <mrvenkman>	Shouldn't the most space be allocated to "home2?
+Apr 18 00:16:27 <kk4ewt>	lsblk|fpaste please
+Apr 18 00:16:36 <kk4ewt>	and df -h |fpaste
+Apr 18 00:17:34 <mrvenkman>	Wow!!! That is cool! It uploads a screen shot.
+Apr 18 00:17:58 <mrvenkman>	https://paste.centos.org/view/ce4dd309
+Apr 18 00:18:04 <mrvenkman>	https://paste.centos.org/view/549bd7d8
+Apr 18 00:19:25 <mrvenkman>	Not even a screenshot! It's selectable!
+Apr 18 00:19:33 <mrvenkman>	I am really enjoying Fedora
+Apr 18 00:20:12 <mrvenkman>	I selected the defaults when I installed it ... just don't know why I don't have much space.
+Apr 18 00:20:53 <mrvenkman>	So I took 10G off winblows and it's now free to use. I would like that to use.
+Apr 18 00:24:41 <BobLfoot>	mrvenkman: root is systemspace while home is userspace
+Apr 18 00:25:25 <mrvenkman>	BobLfoot, ok thanks. Can I basically not re-allocate space to home?
+Apr 18 00:25:53 <mrvenkman>	kk4ewt, sorry for the pasting of text .. that fpaste utility is amazing!
+Apr 18 00:26:28 <Khaytsus>	Looks like the 10g is just a partition, not allocated to anything, not part of the lvm
+Apr 18 00:27:27 <mrvenkman>	Khaytsus, I took it off my windows partition using gparted. Then I reformatted it to be lvm in the hope I could add that 10g to my home
+Apr 18 00:27:41 <Khaytsus>	it's just a partition, not part of your lvm
+Apr 18 00:28:10 <mrvenkman>	Khaytsus, ok. But it id formatted as lvm?
+Apr 18 00:28:19 <Khaytsus>	doesn't really matter
+Apr 18 00:28:24 <mrvenkman>	Khaytsus, ok
+Apr 18 00:28:27 <mrvenkman>	:(
+Apr 18 00:28:55 <mrvenkman>	Khaytsus, how would I go about moving it to home?
+Apr 18 00:29:46 <Khaytsus>	First off, you said your /home is broken..  is it?
+Apr 18 00:29:57 <mrvenkman>	Khaytsus, no ... I thought it was
+Apr 18 00:30:08 <mrvenkman>	Khaytsus, I am using it right now.
+Apr 18 00:30:38 <BobLfoot>	mrvenkman: As I understand it you can allegedly add the new partition to the lvm and then to home, but I've never had success doing that.  Crashed many a system trying.  YOu could also format the partition and mount it to your existing system and have a /home2 or /stuff section for files.  That's probably clear as mud but best I can desscribe it.
+Apr 18 00:30:42 <Khaytsus>	then you just pvcreate on the new partion then vgextend existinglvm /new/partition
+Apr 18 00:30:50 <mrvenkman>	I thought I lost any remaining space from /home but it seems I haven't.
+Apr 18 00:30:55 <Khaytsus>	https://www.krenger.ch/blog/linux-lvm-how-to-adding-a-new-partition/    read through that
+Apr 18 00:31:08 <Khaytsus>	basically this person is adding /dev/sdb1 (a new partition) to his existing lvm, named 'pandora'
+Apr 18 00:31:48 <Khaytsus>	but that just adds the space, you'd have to extend etc
+Apr 18 00:31:53 <BobLfoot>	disclaimer it has been a few fedora releases since I messed with lvm/pvm I'm sure things have improved.  Khaytsus's instructions would be more current than mine
+Apr 18 00:31:54 <mrvenkman>	BobLfoot, and Khaytsus thank you :) :) I'll read through the help. BobLfoot Thank you :)
+Apr 18 00:32:06 <Khaytsus>	Honestly the _easiest_ thing.....  is just format that new partition as ext4 and use it as storage
+Apr 18 00:32:20 <BobLfoot>	Khaytsus: ++
+Apr 18 00:32:43 <Khaytsus>	Messing about with the lvm is a neat exercise but...  well..  a lv spread over two drives is twice as much failure opportunity
+Apr 18 00:33:16 <Khaytsus>	If you can find 10g of chunk of stuff you can move to it, or whatever, that'll work out just as well
+Apr 18 00:33:28 <Khaytsus>	and you don't have to do nearly as much..  just format it and mount it
+Apr 18 00:34:10 <mrvenkman>	Khaytsus, interesting.
+Apr 18 00:34:40 <Khaytsus>	You can do that booted from the system itself.. make sure it's working, pretty trivial..  add it to fstab
+Apr 18 00:34:51 <mrvenkman>	Yeh
+Apr 18 00:35:14 <Khaytsus>	you can then chown the mount point as your user and write to the whole drive, or mkdir something and chown it..
+Apr 18 00:35:24 <mrvenkman>	Yeh
+Apr 18 00:35:47 <mrvenkman>	I answered a question on the fedora website about that...
+Apr 18 00:36:26 <mrvenkman>	https://ask.fedoraproject.org/t/vagrant-up-not-mounting-the-directory/6040/2
+Apr 18 00:37:08 <mrvenkman>	But forget that, my issue is that I just need the space
+Apr 18 00:37:36 <mrvenkman>	I'm gonna read that link you gave me and report back.
+Apr 18 00:37:48 *	dowdle gives mrvenkman a few spacebars, some commas, and finally a period.
+Apr 18 00:37:50 <mrvenkman>	Thank you, Khaytsus and BobLfoot
+Apr 18 00:44:37 <mrvenkman>	Right .. am gonna reboot using the live usb. wish me luck! if I'm not back in an hour - call tech support!
+Apr 18 01:24:13 <ossifrage>	This is annoying, wireshark in f31 can't read from a pipe without being a member of the wirshark group
+Apr 18 01:25:11 <ossifrage>	"ssh ... tcpdump -i eth0 -s 1800 -w - udp port 53 | wireshark -k -i -" used to work, now it fails with a permission denied error dialog (for /usr/bin/dumppcap
+Apr 18 01:26:04 <ossifrage>	 /usr/bin/dumppcap is now 0750
+Apr 18 01:39:02 <mrvenkman>	Khaytsus, nailed it mate. Works.#
+Apr 18 01:40:15 <mrvenkman>	https://pastebin.com/KRJvCGWd
+Apr 18 01:41:04 <mrvenkman>	https://paste.centos.org/view/b1d00f57
+Apr 18 01:42:41 <mrvenkman>	I followed the link you have me. Thank you!!
+Apr 18 01:45:10 <mrvenkman>	Khaytsus, https://paste.centos.org/view/21a65485
+Apr 18 06:46:30 <piston>	hi folks I am having trouble connecting to wifi, it connects some times, so I believe some services are conflicting
+Apr 18 06:47:44 <piston>	https://pastebin.com/42eA9VbJ
+Apr 18 07:09:12 <M_aD>	piston: i believe you have more luck at the forums. At this hour there's not much activity in the channel.
+Apr 18 07:15:37 <piston>	M_aD, Thanks for pointing , which one is standard https://forums.fedoraforum.org or ask.fedoraproject.org ?
+Apr 18 07:17:08 <Sokel>	fedoraforum.org is NOT part of the fedora project.
+Apr 18 07:17:57 <piston>	Sokel++ thanks for confirmation.
+Apr 18 08:27:55 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 18 08:27:55 2020
+
+**** BEGIN LOGGING AT Sat Apr 18 08:58:55 2020
+
+Apr 18 08:58:55 *	Now talking on #fedora
+Apr 18 08:58:55 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 18 08:58:55 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 18 08:58:57 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 18 09:15:31 <ledeni>	piston, still around?
+Apr 18 10:40:11 <piston>	ledeni, o/
+Apr 18 12:36:09 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 18 12:36:09 2020
+
+**** BEGIN LOGGING AT Sat Apr 18 18:12:37 2020
+
+Apr 18 18:12:37 *	Now talking on #fedora
+Apr 18 18:12:37 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 18 18:12:37 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 18 18:12:38 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 18 18:21:19 <retentiveboy>	`iptables -L INPUT` shows first entry ACCEPT's related traffic as expected but second entry ACCEPT's all from anywhere to anywhere.
+Apr 18 18:21:36 <retentiveboy>	Am I reading this correctly?
+Apr 18 18:22:22 <retentiveboy>	3rd rule jumps to INPUT_direct and 4th to INPUT_ZONES.  That 2nd one though seems to short-circuit and accept anything.
+Apr 18 19:43:29 <dowdle>	So, when there is a package for something AND a module... and the module is older... how to I get dnf to install the newer package?
+Apr 18 19:43:46 <dowdle>	I'm guessing that I've got something set saying the module is preferred... but I'm not sure how to troubleshoot that.
+Apr 18 19:44:17 <dowdle>	The package in question is gimp-2.10.18 package vs the gimp-2.10.14 module (in Fedora 32)
+Apr 18 20:00:01 *	dowdle has obviously stumped 732 nicks
+Apr 18 20:01:06 <sincere_fox>	Khaytsus: Is weird, even after using xmodmap it somehow manages to bypass it
+Apr 18 20:01:28 <sincere_fox>	I still get random page reload on the browser and also debug in the IDE
+Apr 18 20:01:42 <sincere_fox>	so it is F5 indeed
+Apr 18 20:02:05 <sincere_fox>	maybe gets pressed faster than xmodmap has the chance to register?
+Apr 18 20:02:10 <zuvy>	Im attempting to install from a source and it says I need TypeScript 3.8, dnf cant find it. Help please!
+Apr 18 20:02:17 <[R]>	xmodmap isn't a deamon
+Apr 18 20:02:21 <[R]>	it remaps the keyboard in X
+Apr 18 20:02:39 <[R]>	zuvy: you'll have to talk to the author if they dont provide a good dependency list
+Apr 18 20:02:54 <dowdle>	zuvy: What version of Fedora?
+Apr 18 20:03:08 <zuvy>	dowdle: 32
+Apr 18 20:03:10 <Khaytsus>	sincere_fox: Broken keyboard bruh
+Apr 18 20:03:35 <sincere_fox>	Khaytsus: But how is the name of everything on earth and elsewhere is this broken keyboard bypassing xmodmap
+Apr 18 20:04:26 <Khaytsus>	sincere_fox: pay shipping and I'll mai you a proper keyboard
+Apr 18 20:04:27 <Khaytsus>	IBM M
+Apr 18 20:04:35 <sincere_fox>	[R]: that is even weirder
+Apr 18 20:06:17 <sincere_fox>	Khaytsus: That's a nice offer, Ibut yeah, I should get a new kb
+Apr 18 20:06:18 <sincere_fox>	:(
+Apr 18 20:31:23 <NoOova>	Guys i have a problem with wireguard via network namager.
+Apr 18 20:31:56 <NoOova>	nmcli connection up "Linode WireGuard"
+Apr 18 20:32:00 <NoOova>	Error: Connection activation failed: The VPN service 'org.freedesktop.NetworkManager.wireguard' was not installed.
+Apr 18 20:32:31 <NoOova>	I have a "wireguard-tools-1.0.20200319-1.fc30.x86_64" installed
+Apr 18 20:33:55 <sincere_fox>	Khaytsus: I am even getting the roll over problems you waid
+Apr 18 20:34:00 <sincere_fox>	said* lo
+Apr 18 20:34:04 <sincere_fox>	lol*
+Apr 18 20:34:52 <Khaytsus>	NoOova: You have wireguard itself?
+Apr 18 20:35:35 <Khaytsus>	the module, that is
+Apr 18 20:35:43 <Khaytsus>	Just wireguard-utils isn't going to do it
+Apr 18 20:35:51 <NoOova>	I have a 'wg' command in my desktop fedora. Also i setted up a connection in network preferences (in network manager interface)
+Apr 18 20:36:01 <Khaytsus>	rpm -qa | grep wireguard
+Apr 18 20:36:11 <Khaytsus>	if you don't have a kmod-wireguard you missed a step ;)
+Apr 18 20:36:24 <NoOova>	i have no kernel module
+Apr 18 20:36:41 <NoOova>	ok. thx
+Apr 18 20:39:59 <zaccanasta>	hi guys, i'm playing with dwm and wanna run few programs upon login. none of .Xclients, .xprofile, .xinitrc seem to work
+Apr 18 20:41:05 <[R]>	how are you starting dwm
+Apr 18 20:42:01 <zaccanasta>	now i'm playing with it in rawhide on a VM. It's started by gdm
+Apr 18 20:42:27 <[R]>	none of those files have antyhing to do with autostart
+Apr 18 20:42:36 <[R]>	your wm needs to support autostart if you want things to autostart
+Apr 18 20:43:49 <zaccanasta>	[R]: ok so those files are only sourced when starting X via startx
+Apr 18 20:45:04 <kk4ewt>	zaccanasta; yes but you are starting gdm which is wayland by default
+Apr 18 20:45:20 <kk4ewt>	grab something other than gnome and text
+Apr 18 20:45:55 <zaccanasta>	kk4ewt: what if i start gdm on X11?
+Apr 18 20:47:41 <kk4ewt>	are you?
+Apr 18 20:51:38 <zaccanasta>	i changed it now, let's see
+Apr 18 20:55:18 <M_aD>	dowdle: when is the go/nogo meeting for fedora 32?
+Apr 18 20:56:30 <dowdle>	M_aD: It was last Thursday.
+Apr 18 20:56:36 <dowdle>	M_aD: And it was a no-go.
+Apr 18 20:56:51 <dowdle>	M_aD: I'll have to check the schedule to see when the next one is.
+Apr 18 20:57:00 <tnelis>	https://apps.fedoraproject.org/calendar
+Apr 18 20:57:00 <dowdle>	Next Thursday?
+Apr 18 20:57:06 <tnelis>	https://apps.fedoraproject.org/calendar/Fedora%20release/
+Apr 18 20:57:17 <M_aD>	dowdle: oh darn, had to work so i missed it. Thanks for letting know. :)
+Apr 18 20:57:20 <dowdle>	I can't get there because my DNS is being very weird.
+Apr 18 20:57:51 <tnelis>	(Next thursday yes.)
+Apr 18 20:58:03 <M_aD>	tnelis: thanks
+Apr 18 21:22:57 <zaccanasta>	oh well, kwm is messing up with my wifi driver
+Apr 18 21:23:24 <Khaytsus>	How so
+Apr 18 21:23:42 <[R]>	lol
+Apr 18 21:23:46 <zaccanasta>	no idea, never happened before
+Apr 18 21:25:03 <zaccanasta>	ath: phy0: DMA failed to stop in 10 ms AR_CR=0xffffffff AR_DIAG_SW=0xffffffff DMADBG_7=0xffffffff
+Apr 18 21:25:15 <zaccanasta>	and so on...
+Apr 18 21:50:37 <ryszard>	do you use any screen video recording software?
+Apr 18 22:08:52 <schmuck>	hi. Penis and so forth.
+Apr 18 22:08:54 <schmuck>	man boobs.
+Apr 18 22:08:59 <schmuck>	k thanks.
+Apr 18 22:09:15 <schmuck>	not large but very long man boobs.
+Apr 18 22:09:39 <schmuck>	AndyCap and andy|, read the above.
+Apr 18 22:09:55 <zaccanasta>	cool, there's an "autostart" patch that works well
+Apr 18 22:10:25 <schmuck>	zaccanasta: yep. SO what do you think about the informatoin that I provided above?
+Apr 18 22:11:35 <zaccanasta>	schmuck: what did I miss?
+Apr 18 22:11:58 <nauticalnexus>	zaccanasta: ignore them
+Apr 18 22:12:26 <zaccanasta>	nauticalnexus: I guess
+Apr 18 22:13:03 <schmuck>	zaccanasta: don't ignore us.
+Apr 18 22:13:14 <schmuck>	zaccanasta: nauticalnexus and I are having a baby.
+Apr 18 22:13:39 <schmuck>	and we're going to dump it in the nearest dumpster when it gets born <3
+Apr 18 22:13:41 <zaccanasta>	lockdown syndrome
+Apr 18 22:15:10 <schmuck>	trolling is the only therapy that "works" for me
+Apr 18 22:15:17 <schmuck>	"trolling". I'm being creative.
+Apr 18 22:15:24 <schmuck>	I am expressing myself.
+Apr 18 22:16:30 *	fedbot sets ban on *!*@gateway/tor-sasl/protectess
+Apr 18 22:16:34 *	fedbot has kicked schmuck from #fedora (You are banned from this channel)
+Apr 18 22:31:33 *	fedbot removes ban on *!*@gateway/tor-sasl/protectess
+Apr 18 22:55:56 *	Disconnected ()
+**** ENDING LOGGING AT Sat Apr 18 22:55:56 2020
+
+**** BEGIN LOGGING AT Sat Apr 18 23:00:30 2020
+
+Apr 18 23:00:30 *	Now talking on #fedora
+Apr 18 23:00:30 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 18 23:00:30 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 18 23:00:31 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 19 00:02:08 <poro>	hi, what is a good way of keeping a clean system, say Ive installed a bunch of stuff and now I wanna get rid of it but I forgot what it was
+Apr 19 00:02:34 <[R]>	look at the log
+Apr 19 00:03:51 <poro>	is there something like synaptics for fedora? where I can see packages and dependencies in a gui
+Apr 19 00:04:29 <[R]>	theres tons of useless package guis
+Apr 19 00:04:58 <poro>	oh yes, the linux community
+Apr 19 00:05:41 <poro>	come for info, get emotions
+Apr 19 00:06:03 <[R]>	lol
+Apr 19 00:13:55 <Taim>	dnf history is an option.
+Apr 19 00:14:39 <golanv1>	I would use dnf history also. If it isn't listed there, it's probably a dependency you shouldn't remove.
+Apr 19 00:33:52 <squarebracket>	i added a second monitor (1680x1050) to my setup (primary is 1920x1080), and it seems that, at least for chrome, there's no font smoothing happening. anyone know why this might be the case?
+Apr 19 00:34:10 <squarebracket>	font smoothing for the second monitor, i mean
+Apr 19 01:45:31 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 01:45:31 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 01:49:03 2020
+
+Apr 19 01:49:03 *	Now talking on #fedora
+Apr 19 01:49:03 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 19 01:49:03 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 19 01:49:04 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 19 01:49:54 <Foxfir3>	ping ping ding ding
+Apr 19 08:52:16 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 08:52:16 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 08:52:41 2020
+
+Apr 19 08:52:41 *	Now talking on #fedora
+Apr 19 08:52:41 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 19 08:52:41 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 19 08:52:41 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 19 09:16:34 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 09:16:34 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 09:17:01 2020
+
+Apr 19 09:17:01 *	Now talking on #fedora
+Apr 19 09:17:01 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 19 09:17:01 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 19 09:17:01 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 19 10:17:13 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 10:17:13 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 10:24:02 2020
+
+Apr 19 10:24:02 *	Now talking on #fedora
+Apr 19 10:24:02 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 19 10:24:02 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 19 10:24:03 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 19 10:44:45 <cr0ssw1nd>	Heya
+Apr 19 10:45:04 <cr0ssw1nd>	I have a fresh installation of Fedora on my old laptop
+Apr 19 10:45:32 <cr0ssw1nd>	so far so good, but something is wrong with DNS resolving when I connect WiFi
+Apr 19 10:46:14 <cr0ssw1nd>	 /etc/resolv.conf get only 1 dns server
+Apr 19 10:46:34 <cr0ssw1nd>	though I set 8.8.8.8 and 8.8.4.4 via nm-connection-editor
+Apr 19 10:47:25 <cr0ssw1nd>	`systemctl status wpa_supplicant` shows a weird error:
+Apr 19 10:47:26 <cr0ssw1nd>	dbus: wpa_dbus_property_changed: no property SessionLength in object /fi/w1/wpa_supplicant
+Apr 19 10:47:41 <cr0ssw1nd>	how should I approach investigating this issue?
+Apr 19 10:47:53 <cr0ssw1nd>	network works but most of websites couldn't be reached
+Apr 19 11:01:01 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 11:01:01 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 11:01:38 2020
+
+Apr 19 11:01:38 *	Now talking on #fedora
+Apr 19 11:01:38 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 19 11:01:38 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 19 11:01:40 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 19 11:05:00 <cr0ssw1nd>	tnelis, I checked that both are automatic, and manual DNS entries for IPv4
+Apr 19 11:05:46 <cr0ssw1nd>	but things sre the same.. I am also afraid that it is something with wpa_supplicant wrong
+Apr 19 11:05:46 <cr0ssw1nd>	it takes reaaally long time to connect
+Apr 19 12:45:30 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 12:45:30 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 12:45:49 2020
+
+Apr 19 12:45:49 *	Now talking on #fedora
+Apr 19 12:45:49 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 19 12:45:49 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 19 12:45:50 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 19 13:01:09 <FranciscoD>	jezebel: they're used for organisation, but generally not used by end-users
+Apr 19 13:01:18 <FranciscoD>	use `dnf grouplist --hidden` to list them
+Apr 19 13:01:21 <FranciscoD>	etc.
+Apr 19 13:12:53 <miku>	FranciscoD, tnelis, I would like to solict your opinions if you'd be so kind as to spare the time
+Apr 19 13:13:11 <miku>	the program: https://github.com/sinamas/gambatte
+Apr 19 13:13:51 <miku>	seeing as the version listed in that changelog hasn't been bumped for 11 years, I'm tempted to assume it's B.S by this point in time
+Apr 19 13:14:46 <miku>	name: gambatte-sdl, version: 0.4.1, release: 1.20200308git56e3371
+Apr 19 13:15:20 <miku>	I feel I shouldn't use 0.1.20200308git... as it isn't explicitly stated to be a prerelease
+Apr 19 13:15:33 <FranciscoD>	best to ask upstream
+Apr 19 13:15:56 <FranciscoD>	these can be considered as post-release snapshots, or pre-release
+Apr 19 13:16:02 <FranciscoD>	depends on what upstream's plans are
+Apr 19 13:16:33 <FranciscoD>	either case will work for the package: the idea is that the version-release bits always increase, so that the "upgrade path" is maintained
+Apr 19 13:16:46 <miku>	upstream = author of program?
+Apr 19 13:17:03 <FranciscoD>	yes, the developers are "upstream"
+Apr 19 13:17:18 <FranciscoD>	we package maintainers and linux distributions are "downstream" of them
+Apr 19 13:17:33 <FranciscoD>	(like a river: developers are the source, and we're all downstream from the source)
+Apr 19 13:17:43 <FranciscoD>	https://fedoraproject.org/wiki/Staying_close_to_upstream_projects
+Apr 19 13:17:55 <miku>	gotcha
+Apr 19 13:19:17 <miku>	suppose I make 3 changes to 0.4.1, so fooapp-0.4.1-1.blabla, 0.4.1-2.blala, 0.4.1-3.blabla
+Apr 19 13:19:38 <FranciscoD>	yes, then when a new release comes out, you get 0.4.1-...
+Apr 19 13:19:40 <FranciscoD>	er
+Apr 19 13:19:43 <FranciscoD>	0.4.2-...
+Apr 19 13:19:47 <miku>	then comes 0.4.2, do I go 0.4.2-1.blabla or continue 0.4.2-4.blabla?
+Apr 19 13:19:48 <FranciscoD>	so the upgrade will be OK
+Apr 19 13:19:57 <soda2[m]1>	i have one question - why updating by gnome-software is so slow? when i use dnf all is ok
+Apr 19 13:19:58 <FranciscoD>	no, the release can be reset for each version
+Apr 19 13:20:08 <miku>	great!
+Apr 19 13:20:12 <FranciscoD>	soda2[m]1: define "slow"?
+Apr 19 13:20:13 <miku>	I am happy when I learn new things
+Apr 19 13:20:32 <FranciscoD>	miku: reading the guidelines is a good start, lots of information there
+Apr 19 13:20:42 <soda2[m]1>	5-10 minutes of searching packages to update for example
+Apr 19 13:21:02 <FranciscoD>	soda2[m]1: it downloads the metadata, then checks for updates
+Apr 19 13:21:08 <FranciscoD>	dnf runs a timer that updates the cache periodically
+Apr 19 13:21:24 <soda2[m]1>	yup, but why so slow? when i use dnf or yum everything is fast
+Apr 19 13:21:58 <FranciscoD>	soda2[m]1: if you use `sudo dnf --refresh` it'll also take time: it'll download the metadata again
+Apr 19 13:22:16 <soda2[m]1>	because of this gnome-software seems broken
+Apr 19 13:22:21 <miku>	FranciscoD, guideline documents tend to be too dense for community outsides to grasp on their first few tries...
+Apr 19 13:22:22 <soda2[m]1>	in my opinion
+Apr 19 13:23:06 <FranciscoD>	miku: there are lots of other documents: https://fedoraproject.org/wiki/How_to_create_an_RPM_package for example
+Apr 19 13:23:18 <FranciscoD>	https://fedoraproject.org/wiki/Join_the_package_collection_maintainers is step by step
+Apr 19 13:23:44 <miku>	a lot like manpages in that they are helpful when you already know a program and seek to improve your utilization of it
+Apr 19 13:23:54 <miku>	but very frustrating and not much use when you are new to program
+Apr 19 13:24:08 <FranciscoD>	miku: depends on the man page: most contain examples, which are great for beginners
+Apr 19 13:24:26 <FranciscoD>	also depends on the person :)
+Apr 19 13:24:47 <FranciscoD>	soda2[m]1: file bugs, provide information, the developers will see what can be done to improve the user experience
+Apr 19 13:25:12 <miku>	I definitely do have somewhat of those TL;DR genes
+Apr 19 13:27:46 <tnelis>	soda2[m]1: Maybe try using pkcon which is a CLI for PackageKit, which is the component behind GNOME Software (if you observe noticably better perf you could exclude PK and focus on the GNOME Software, otherwise it could be a problem in either of these)
+Apr 19 13:29:03 <tnelis>	soda2[m]1: Note that apparently (per Wikipedia) PK might use hawkey/librepo directly (i.e. not via DNF), meaning it's very possible there are differences between both as you observe.
+Apr 19 13:30:44 <tnelis>	soda2[m]1: One example you could check: Support for Zchunk added in F30 <https://fedoraproject.org/wiki/Changes/Zchunk_Metadata>. This improved perf immensely for me with DNF, but I'm not sure if it's supported by PK/GNOME Software -- so if not it could explain what you're observing.
+Apr 19 13:32:31 <soda2[m]1>	i was traying run gnome-software by terminal command to check logs but i noticed memory error ;/ probably i cant run this program in terminal
+Apr 19 13:33:32 <tnelis>	soda2[m]1: Actually that might help figure it out. What kind of error? An OOM condition?
+Apr 19 13:34:16 <soda2[m]1>	Memory protection violation
+Apr 19 13:34:26 <soda2[m]1>	i think this is not related
+Apr 19 13:35:02 <tnelis>	soda2[m]1: Well if you have some time it'd be great if you could report it still. Regardless of whether you're launching from the CLI or the shell it shouldn't happen.
+Apr 19 13:35:12 <soda2[m]1>	probably conflict with running dnf/yum/gnome-software
+Apr 19 13:35:46 <soda2[m]1>	an you try run gnome-software by terminal?
+Apr 19 13:36:06 <soda2[m]1>	i think you cannot do that, just like me
+Apr 19 13:36:47 <tnelis>	soda2[m]1: I'll reinstall it and check, but again this shouldn't result in memory violation (that's usually wording for segmentation faults).
+Apr 19 13:37:53 <tnelis>	soda2[m]1: Assuming it's a subprocess, and nondeterministic, and the app retries repeatedly, then with a little imagination it could also explain your issue (I know, lots of assumptions, but just sayin' ;P)
+Apr 19 13:38:32 <soda2[m]1>	hmm, i wondering how i can check what is up with that wihout command output xd
+Apr 19 13:39:31 <tnelis>	soda2[m]1: Well again try pkcon, that would give you a chance to split to search in two and exclude one half.
+Apr 19 13:45:22 <tnelis>	soda2[m]1: Also use pkmon (while using GNOME Software and pkcon) to monitor PackageKit events/transactions.
+Apr 19 13:45:46 <soda2[m]1>	updates check in pkcon is fast too so this is not related
+Apr 19 13:46:02 <soda2[m]1>	ok i will check it
+Apr 19 13:46:43 <tnelis>	soda2[m]1: Interesting, so it's pkmon + GNOME Software might yield something interesting. For the record I tried launching GNOME Software from the CLI, no problem on my machine, definitely no memory violation.
+Apr 19 13:48:20 <soda2[m]1>	yup! pkmon can show me output so we have step one :D
+Apr 19 13:54:25 <soda2[m]1>	now when i run software-gnome updating is short and i cant reproduce issue. ;/
+Apr 19 13:54:36 <soda2[m]1>	but i know how check it in future :) thx
+Apr 19 13:55:37 <tnelis>	soda2[m]1: Given launching it from the CLI is supposed to work, it'be extra cool if you could file that memory violation if you still have the log! Otherwise yes, would have to wait until it reappears.
+Apr 19 13:56:30 <soda2[m]1>	ahhh probably i know what is the problem with terminal running
+Apr 19 13:56:49 <soda2[m]1>	when i use suda i recive memory valation
+Apr 19 13:56:53 <soda2[m]1>	sudo*
+Apr 19 13:57:13 <soda2[m]1>	but when i enter just gnome-software all is right
+Apr 19 13:58:08 <tnelis>	Ah, alrighty!
+Apr 19 13:58:44 <soda2[m]1>	thanks a lot :)
+Apr 19 15:51:35 <jim87>	Hello! I'm having an issue with an intel I211 ethernet port. On windows I'm able to connect to the router with a 1000Mbps connection, but on linux I'm only able to reach 100mbps
+Apr 19 15:51:44 <jim87>	How can I sort this out?
+Apr 19 15:56:14 <jim87>	Somehow autoneg was off and set to 100 Mbps... I've now set autoneg still to off, but 1000 Mbps
+Apr 19 15:56:19 <jim87>	It's another music :)
+Apr 19 16:14:04 <fedbot>	*** F31-20200408 updated lives available: https://tinyurl.com/Live-respins2  Built by the Fedora Respin Sig more info #fedora-respins  ***
+Apr 19 16:34:19 <bitlord>	Hi, have some complex question regarding networking seutp. I have an old box which I use as a hypervisor it has two interfaces in two networks (wifi goes outside), and lan which is used locally. I'm using libvirt and used default firewalld rules. Now I want access to that box and to VMs inside virtual network, to do that I changed default firewalld zone for `virtbr0` to `dmz`, that did solve one issue, but now VMs cannot go to the internet using
+Apr 19 16:34:19 <bitlord>	that wifi interface. Is there any easy guide on how to achieve something similar?
+Apr 19 16:45:46 <securerootd>	hello
+Apr 19 17:18:07 <jidar>	I just switched over to systemd-resolved, did a few things like enable DNSOverTLS, disable DNSSEC, and now I'm trying to understand why something like ping takes forever (roughly 10s) to being pinging my local address. All things point to working, valid, and speedy DNS responses timing dig against 127.0.0.53, and resolvectl query take far less than 1 second; running strace -w, shows me poll is
+Apr 19 17:18:09 <jidar>	waiting 99.9% of the time, and I note that eventually it calls out to: connect(5, {sa_family=AF_UNIX, sun_path="/var/run/avahi-daemon/socket"}, 110) = 0; but this is > 10 seconds
+Apr 19 17:18:59 <jidar>	the same can not be said for ping -6, against the same address
+Apr 19 17:24:33 <bitlord>	does `ping -n` do the same?
+Apr 19 17:26:22 <jidar>	> time ping b-wing.local -c 1 -n 1
+Apr 19 17:26:28 <jidar>	> real    0m20.014s
+Apr 19 17:26:40 <jidar>	> time resolvectl query b-wing.local
+Apr 19 17:26:46 <jidar>	> real    0m0.012s
+Apr 19 17:28:07 <bitlord>	oh, I thought you were pinging local IP directly not DNS and I was thinking some reverse lookup maybe took that much :(
+Apr 19 17:28:34 <jidar>	oh!
+Apr 19 17:28:54 <jidar>	yeah, I was reading the man page on that going, hurm, not sure what this will do lol
+Apr 19 17:29:44 <jidar>	time ping -c 1 -6 b-wing.local -> real    0m0.846s
+Apr 19 17:29:46 <jidar>	just as a FYI
+Apr 19 17:44:34 <jidar>	ok, it was LLMNR
+Apr 19 17:44:44 <jidar>	MulticastDNS seems quick, but LLMNR is super super slow
+Apr 19 18:07:10 <soda2[m]1>	i have one question. i am going to buy someking server (hp or lenovo probably). i want to create home lab for learning openstack,openshift,ansible is there something I should pay special attention to? from your experience?
+Apr 19 18:07:48 <soda2[m]1>	buy somekind*
+Apr 19 18:21:36 <ledeni>	soda2[m], check topic of the channel --> /topic
+Apr 19 18:32:43 <kk4ewt>	soda2[m]; lots of cpu power (lots of processors min 16) and at least 1-2G of ram per processor (min 32G) and it most be able to do virtualization
+Apr 19 18:33:10 <kk4ewt>	and with that lots of storage space for VMs
+Apr 19 18:33:25 <\n3p\>	jidar, what dns server do you use?
+Apr 19 18:35:59 <kk4ewt>	soda2[m] take a look at "https://docs.fedoraproject.org/en-US/quick-docs/getting-started-with-virtualization/ "
+Apr 19 18:49:35 <fedbot>	*** F31-20200408 updated lives available: https://tinyurl.com/Live-respins2  Built by the Fedora Respin Sig more info #fedora-respins  ***
+Apr 19 18:57:36 <jidar>	\n3p\: cloudflairs 1.1.1.1
+Apr 19 18:58:03 <\n3p\>	jidar, thx
+Apr 19 19:17:35 <Bayesian_Coffee>	getting an error when trying to use GUI GNOME Software Update: `Unable to download updates: could not do untrusted question as no klass support`
+Apr 19 19:17:35 <Bayesian_Coffee>	a quick Google search reveals that this has something to do with the repo mirrors being out of sync? what's up with that? why would that not work while `# dnf update` would?
+Apr 19 19:22:42 <Mac101>	anyone got any suggestions for a really cheap/small portable device to run fedora on?
+Apr 19 19:50:48 <Taim>	Raspberry PI
+Apr 19 19:51:21 <Taim>	Just not a PI 4 quite yet.
+Apr 19 20:08:07 <golanv1>	No Pi4 yet?
+Apr 19 20:08:43 <Foxfir3>	Silverblue. How to go about Wine?
+Apr 19 20:09:14 <Foxfir3>	Should wine be run from a toolbox?
+Apr 19 20:14:38 <Taim>	Golanv: PI 4, It...works-ish....on Fedora 32...sort of.  It still needs some time to mature there, imo.
+Apr 19 20:21:08 <golanv1>	Oh I see.
+Apr 19 20:21:24 <golanv1>	I don't have one (yet).
+Apr 19 20:33:07 <Foxfir3>	so all the guys who were on IRC at work, are now watching Netflix?
+Apr 19 20:33:54 <Foxfir3>	third Silverblue install. in doubt now. Almost no documentation. IRC channel almost dead silent.
+Apr 19 20:34:33 <Foxfir3>	its things like how to install Wine that makes it frustrating. Am I supposed to dump all those packages into the ostree?
+Apr 19 20:35:16 <bitlord>	probably just not many people here use Silverblue :(
+Apr 19 20:37:03 <Foxfir3>	bitlord: okay. Maybe I invested too early in Silverblue. Its a great idea, but so many things are shaky. Like broken Flatpaks. Seems like there are no money behind the project, and no one writing documentation. I would offer my help, but the Fedora community seems closed.
+Apr 19 20:37:56 <bitlord>	Foxfir3, have you tried on mailing lists?
+Apr 19 20:38:22 <Foxfir3>	And there is the Gnome bleatware. I dont get the meaning of that. Silverblue is definately not for beginners, so why Gnome? Why not some desktop that is easy to remove.
+Apr 19 20:38:28 <Foxfir3>	bitlord: I didnt know there was a mailing list. Maybe I should I should try that
+Apr 19 20:39:18 <Foxfir3>	bitlord: Who is paying for Fedora?
+Apr 19 20:39:40 <caterfxo>	red hat sponsors it
+Apr 19 20:39:47 <caterfxo>	o-rt
+Apr 19 20:39:57 <Foxfir3>	okay. So thats the trouble. There is money behind CoreOS, but not Silverblue.
+Apr 19 20:41:12 <bitlord>	Foxfir3, https://silverblue.fedoraproject.org/contribute I hope those are valid still
+Apr 19 20:41:56 <bitlord>	Foxfir3, so it seems there is a forum like platform, instead of mailing list
+Apr 19 20:43:24 <tnelis>	Yeah I receive digests from the community forum, most of the discussion is about Silverblue.
+Apr 19 20:44:31 <tnelis>	https://discussion.fedoraproject.org/c/desktop/silverblue
+Apr 19 20:47:00 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 20:47:00 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 20:50:15 2020
+
+Apr 19 20:50:15 *	Now talking on #fedora
+Apr 19 20:50:15 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 19 20:50:15 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 19 20:50:16 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 19 20:55:38 <ledeni>	Foxfir3, for you #silverblue
+Apr 19 21:10:30 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 21:10:30 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 21:25:32 2020
+
+Apr 19 21:25:32 *	Now talking on #fedora
+Apr 19 21:25:32 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 19 21:25:32 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 19 21:25:32 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 19 21:35:04 <Ben_1>	ledeni: no, there is no package for nemo-media-columns
+Apr 19 21:35:50 <Ben_1>	there is a package nemo-extensions but nemo-media-tags is not part of this package
+Apr 19 21:46:17 <\n3p\>	Mac101, https://www.phoronix.com/scan.php?page=article&item=ryzen-3200u-motile&num=1
+Apr 19 22:22:25 <oppiet30>	Hello everyone.
+Apr 19 22:41:53 <Ben_1>	hi, someone here who got nemo-media-columns working in fedora?
+Apr 19 22:59:51 <dowdle>	Ben_1: What is that?  Some sort of alternative or overlay for OBS?
+Apr 19 23:01:06 <CyberHacker>	dowdle, no it is extension for nemo file manager
+Apr 19 23:05:30 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 19 23:05:30 2020
+
+**** BEGIN LOGGING AT Sun Apr 19 23:07:42 2020
+
+Apr 19 23:07:42 *	Now talking on #fedora
+Apr 19 23:07:42 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 19 23:07:42 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 19 23:07:43 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 19 23:14:08 <fedbot>	*** F31-20200408 updated lives available: https://tinyurl.com/Live-respins2  Built by the Fedora Respin Sig more info #fedora-respins  ***
+Apr 19 23:37:39 <zuvy>	Hypothetically, where would one go, is there a channel for Rawhide? If you needed assistance?
+Apr 19 23:41:35 <ledeni>	zuvy, check #fedora-qa
+Apr 19 23:42:01 <dowdle>	zuvy: Or #fedora-devel ?
+Apr 19 23:42:16 <dowdle>	zuvy: There are > 100 #fedora-* channels
+Apr 19 23:42:22 <zuvy>	dowdle: check, tq
+Apr 20 00:10:39 <golanv1>	Isn't there a way to reinstall all package files with dnf, forcefully?
+Apr 20 00:11:21 <golanv1>	errr....maybe reinstall does this....nevermind
+Apr 20 01:08:30 *	Disconnected ()
+**** ENDING LOGGING AT Mon Apr 20 01:08:30 2020
+
+**** BEGIN LOGGING AT Mon Apr 20 01:12:23 2020
+
+Apr 20 01:12:23 *	Now talking on #fedora
+Apr 20 01:12:23 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 20 01:12:23 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 20 01:12:23 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 20 01:24:51 <yumbox>	hi, when I run `make -C /lib/modules/(uname -r)/build modules` I get the following error: scripts/selinux/genheaders/genheaders.c:18:10: fatal error: classmap.h: No such file or directory
+Apr 20 01:25:27 <yumbox>	I have kernel-headers and kernel-devel installed.
+Apr 20 01:26:00 <yumbox>	I've tried `dnf provides \*/classmap.h`, but that returns nothing.
+Apr 20 01:33:23 <kk4ewt>	what are you trying to build
+Apr 20 01:36:41 <yumbox>	the kernel, or any module
+Apr 20 01:37:13 <yumbox>	`cd /usr/src/kernels/(uname -r)` and `make` give the same error
+Apr 20 01:39:07 <yumbox>	gives*
+Apr 20 08:33:21 *	Disconnected ()
+**** ENDING LOGGING AT Mon Apr 20 08:33:21 2020
+
+**** BEGIN LOGGING AT Mon Apr 20 08:33:42 2020
+
+Apr 20 08:33:42 *	Now talking on #fedora
+Apr 20 08:33:42 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 20 08:33:42 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 20 08:33:43 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 20 10:22:52 <gintonyc>	Hi, it's a good or bad idea to reject outgoing traffic by defaulf on firewalld ?
+Apr 20 10:24:40 <[Enrico]>	gintonyc: depends what you want to do
+Apr 20 10:24:51 <[Enrico]>	for normal desktop I would say it's a very bad idea
+Apr 20 10:27:52 <gintonyc>	Yes, its on a desktop.
+Apr 20 11:52:29 <plarsen>	gintonyc, unplug it from the network?
+Apr 20 12:04:26 <gouf>	how to make fedora use xorg instead of wayalnd ?
+Apr 20 12:06:18 <bitlord>	gouf, if you ask about fedora workstation, on the login you can select gnome on xorg session
+Apr 20 13:19:21 <gintonyc>	plarsen, i don't understand the question ?
+Apr 20 13:20:47 <linuxkeitaro>	Is fedora still on schedule to come out tomorrrow?
+Apr 20 13:21:52 <linuxkeitaro>	if this is up to date https://fedorapeople.org/groups/schedule/f-32/f-32-key-tasks.html then next Tuesday instead
+Apr 20 13:22:30 <linuxkeitaro>	Asking google says it's tomorrow based on a fosslinux.com article
+Apr 20 13:23:56 <FranciscoD>	linuxkeitaro: https://lists.fedoraproject.org/archives/list/test-announce@lists.fedoraproject.org/thread/HXSBRI4LRWKKHLUH2OI4UPBKJJKGCDQR/
+Apr 20 13:25:08 <FranciscoD>	third party articles are correct when they are published, but they're generally not updated regularly
+Apr 20 14:01:51 <Southern_Gentlem>	gintonyc, why do you want to disable all outgoing traffic
+Apr 20 14:02:42 <Southern_Gentlem>	gintonyc, plarsen was basicly saying if yo disable all outgoing traffic you dont need a network connection
+Apr 20 14:13:55 <Southern_Gentlem>	*** Kernel 5.5.17 has been pushed to Testing for F30: Please test and give Karma on https://bodhi.fedoraproject.org/updates/?packages=kernel  ***
+Apr 20 14:23:27 <oppiet30>	Hm
+Apr 20 14:36:19 <corshmock>	Hi all
+Apr 20 14:36:43 <corshmock>	Does anyone know how to port forward on Fedora 31?  IP: 78.16.51.68 Port: 2234/tcp
+Apr 20 14:37:03 <corshmock>	It's for Nicotine+
+Apr 20 14:41:36 <Southern_Gentlem>	all outgoing connections should open incoming
+Apr 20 14:43:20 <corshmock>	Southern_Gentlem: mmmmm.  I'm getting IP: 78.16.51.68 Port: 15000/tcp CLOSED
+Apr 20 14:44:25 <Khaytsus>	You sure your ISP isn't doing it?
+Apr 20 14:44:52 <Southern_Gentlem>	corshmock,  so open the port in your firewall
+Apr 20 14:45:10 <Khaytsus>	Some ISPs block p2p ports etc
+Apr 20 14:51:58 <Southern_Gentlem>	corshmock, what Desktop environment are you using
+Apr 20 14:55:05 <corshmock>	Khaytsus: not sure pal
+Apr 20 14:55:36 <corshmock>	Is it a firewalkd command?  Sorry I'm quite new to Linux?
+Apr 20 14:56:02 <corshmock>	I'm on Fedora 31
+Apr 20 15:00:32 <Southern_Gentlem>	corshmock, sudo fpaste --sysinfo
+Apr 20 15:02:50 <Southern_Gentlem>	corshmock, give us the output url of that command
+Apr 20 15:07:15 <corshmock>	Southern_Gentlem: https://paste.centos.org/view/25915cf8
+Apr 20 15:08:00 <corshmock>	That's a neat command
+Apr 20 15:10:10 <Southern_Gentlem>	corshmock,  so you are using gnome
+Apr 20 15:10:49 <corshmock>	Southern_Gentlem: apologies, I wasn't sure
+Apr 20 15:11:36 <Southern_Gentlem>	corshmock, fedora has many desktop environments thats why i asked you your answer should of been gnome or workstation
+Apr 20 15:11:46 <linuxkeitaro>	thank @FranciscoD
+Apr 20 15:12:23 <corshmock>	Southern_Gentlem: I get you.  So does the command vary from one environment to another?
+Apr 20 15:12:32 <Southern_Gentlem>	yep
+Apr 20 15:12:51 <Southern_Gentlem>	well i am going to instruct in using the gui
+Apr 20 15:15:25 <corshmock>	Southern_Gentlem: is the gui standard part of the os?
+Apr 20 15:15:47 <Southern_Gentlem>	yes
+Apr 20 15:15:52 <corshmock>	Lovely
+Apr 20 15:16:02 <Southern_Gentlem>	soon as i can find it in gnome
+Apr 20 15:16:14 <gintonyc>	Southern Gentlem: It was just to control the outgoing connection
+Apr 20 15:16:37 <corshmock>	Can I search for it in apps?
+Apr 20 15:18:31 <Khaytsus>	Southern_Gentlem: What are yo ulooking for, the firewalld gui?
+Apr 20 15:18:40 <Southern_Gentlem>	yep
+Apr 20 15:18:54 <Khaytsus>	Isn't it just firewall-config
+Apr 20 15:19:07 <Southern_Gentlem>	not comeing up in the live
+Apr 20 15:19:35 <Khaytsus>	Dunno.  I don't keep a WS VM on hand, makes me queasy it just being on disk.
+Apr 20 15:19:46 <corshmock>	I've found Firewall Configuration - not installed yet
+Apr 20 15:20:13 <corshmock>	Should I install it?
+Apr 20 15:20:18 <Southern_Gentlem>	thats strange
+Apr 20 15:20:26 <Southern_Gentlem>	corshmock,  hold on a few
+Apr 20 15:20:33 <corshmock>	Southern_Gentlem: sure
+Apr 20 15:20:41 <Southern_Gentlem>	corshmock, what did you use to install your fedora
+Apr 20 15:21:19 <Southern_Gentlem>	i am installing in a vm to see whats up
+Apr 20 15:21:20 <corshmock>	Southern_Gentlem: Oh dear, I can't remember, but I think I know what you mean.  gui should be in standard build?
+Apr 20 15:21:47 <Southern_Gentlem>	from getfedora or the updated isos in the topic
+Apr 20 15:22:20 <corshmock>	Southern_Gentlem: Sorry, I don't understand
+Apr 20 15:23:41 <Khaytsus>	I doubt that matters Southern_Gentlem
+Apr 20 15:23:53 <Khaytsus>	But odd that firewall-config isn't in the base ks
+Apr 20 15:25:12 <corshmock>	The firewall configuration tool in software gets very good reviews!
+Apr 20 15:25:24 <corshmock>	Should I install it?
+Apr 20 15:25:52 <Khaytsus>	dnf install firewall-config
+Apr 20 15:26:28 <ohmyfish>	hi .. sry short question .. it's gnome related .. is there a way to reduce the size of the symbols (overview - on the left - gnome panel (i do not want to use an extension .. like dash2panel ect ..)?  per css or something else..
+Apr 20 15:26:40 <Khaytsus>	It's installed here though...  so..  I'm a bit confused why it wouldn't be in WS
+Apr 20 15:26:40 <Southern_Gentlem>	no
+Apr 20 15:26:48 <Southern_Gentlem>	ohmyfish, no
+Apr 20 15:27:09 <ohmyfish>	uh .. ok thx southern
+Apr 20 15:27:28 <Southern_Gentlem>	its gnome you have to use the tweaktool and an extension
+Apr 20 15:27:36 <corshmock>	That's installed now
+Apr 20 15:28:08 <corshmock>	and running now
+Apr 20 15:28:14 <ohmyfish>	yep, but i can't change the size per tweaks & i do not want to install dash2panel .. to many extensions
+Apr 20 15:28:22 <Southern_Gentlem>	corshmock, ok f2 type firewall
+Apr 20 15:28:43 <corshmock>	f2 type firewall
+Apr 20 15:28:53 <corshmock>	?
+Apr 20 15:28:54 <Southern_Gentlem>	press f2
+Apr 20 15:29:11 <dowdle>	alt+f2?
+Apr 20 15:29:20 <Southern_Gentlem>	f2
+Apr 20 15:29:34 <Southern_Gentlem>	or the windows key
+Apr 20 15:29:54 <Southern_Gentlem>	or click applications at the top left
+Apr 20 15:30:15 <Southern_Gentlem>	dowdle, **tag your it*
+Apr 20 15:30:18 *	Southern_Gentlem runs away
+Apr 20 15:30:19 <corshmock>	I've got firewall configuration running.  Sorry nothing happening on f2 or windows key
+Apr 20 15:31:53 <corshmock>	Should I add port 15000 (the one that's closed)?
+Apr 20 15:32:09 <Khaytsus>	I thought you just clicked the applications text at the top, because ya know, that's obvious user design
+Apr 20 15:32:28 <Southern_Gentlem>	corshmock,  you need 2234
+Apr 20 15:32:39 <Southern_Gentlem>	tcp open that under public
+Apr 20 15:32:44 <corshmock>	Yep
+Apr 20 15:33:51 <corshmock>	I've added 2234 into ports, but it isn't showing up.  No errors
+Apr 20 15:37:31 <Southern_Gentlem>	2234 select tcp enter
+Apr 20 15:37:41 <corshmock>	So I've added that into public
+Apr 20 15:37:45 <Southern_Gentlem>	and restart the firewall
+Apr 20 15:37:50 <corshmock>	and it's showing up as entered
+Apr 20 15:37:58 <Southern_Gentlem>	now test with nicotine
+Apr 20 15:40:40 <corshmock>	I add the port, then reload firewalld, and the port disappears.  Still not connecting in nicotine+
+Apr 20 15:41:19 <Southern_Gentlem>	in the firewall select permanet
+Apr 20 15:41:29 <Southern_Gentlem>	public
+Apr 20 15:41:37 <Southern_Gentlem>	port 2234 tcp
+Apr 20 15:42:36 <Southern_Gentlem>	corshmock, why have you not updated this computer in over a month
+Apr 20 15:42:55 <Southern_Gentlem>	you are still on the 5.4 kernel
+Apr 20 15:45:29 <corshmock>	Southern_Gentlem: afraid that it might break :(  Do you update regularly?
+Apr 20 15:46:06 <corshmock>	So I've restarted with systemctl restart firewall d, but still no joy
+Apr 20 15:46:53 <Khaytsus>	Southern_Gentlem: That is funny, firewall-config is not on the WS spin, but is on XFCE.  That seems quite odd.  Maybe gnome has some other specific firewall tool I'm unaware of?
+Apr 20 15:49:18 <corshmock>	It's not saving the port I add.  If I restart firewalld, or the firewall config app, port 2234 disappears
+Apr 20 15:49:35 <corshmock>	I wonder could I add 2234 through cli?
+Apr 20 15:50:17 <Khaytsus>	Perhaps you didn't tell it persistent or whatever it is in firewalld
+Apr 20 15:51:13 <corshmock>	Ah
+Apr 20 15:51:24 <corshmock>	Does anyone know the exact command?
+Apr 20 15:51:33 <jidar>	--permanent
+Apr 20 15:52:02 <jidar>	which doesn't make it immediate, you need to restart it after that iirc
+Apr 20 15:53:37 <plarsen>	Khaytsus, it was my understanding that the "gui tools" for administration was part of Cockpit now ... now specific to a DE?
+Apr 20 15:53:54 <plarsen>	s/now specific/not specific/
+Apr 20 15:55:14 <Khaytsus>	plarsen: huh..  interesting.  Let me look
+Apr 20 15:56:55 <Khaytsus>	plarsen: I wonder how one discovers cockpit.  It's not a default link in Firefox, it's not in the menus, etc
+Apr 20 15:57:31 <Khaytsus>	And cockpit isn't enabled by default anyway
+Apr 20 15:57:34 <plarsen>	It's definitely a separate install; like so many other things, it's stuff you need to understand
+Apr 20 15:57:37 <plarsen>	to ue
+Apr 20 15:57:38 <plarsen>	use*
+Apr 20 15:57:43 <plarsen>	grrr - fingers are on strike!
+Apr 20 15:57:44 <corshmock>	sudo firewall-cmd --zone=dmz --add-port=2234/tcp --permanent - success
+Apr 20 15:58:08 <Khaytsus>	plarsen: So no I can't imagine they'd use that as the default administration since it isn't even installed.  Being able to adjust a firewall seems like a pretty common thing to me for users.
+Apr 20 15:58:09 <corshmock>	But systemctl restart firewalld fail - timeout
+Apr 20 15:58:18 <Khaytsus>	Perhaps less than it used to be, with firewall and dynamic ports etc, but
+Apr 20 15:58:20 <plarsen>	That said, Cockpit has definitely been enhanced a lot over the last few years - tons of articles and more to explain how to use it.
+Apr 20 15:58:47 <Khaytsus>	plarsen: I am not really referring to cockpits function/disfunction, rather its end-user discoverability.  How would a user even know to use it.
+Apr 20 15:59:07 <plarsen>	Khaytsus, it's a question if you need to reinvent the wheel for every DE and even a TUI interface, or have a single web interface that works regardless of how you have things installed/setup
+Apr 20 15:59:47 <plarsen>	I'm sure something could be done to help users to find it. Red Hat definitely uses Cockpit to show how 'user friendly'  RHEL is to a Windows user.
+Apr 20 15:59:59 <plarsen>	That said - I rarely use it .... :D
+Apr 20 16:00:12 <Khaytsus>	If it's replacing the GUI tools, then it should be installed by default and have links in the menus.  That simple.
+Apr 20 16:01:24 <plarsen>	Khaytsus, most of the GUI tools we used to have are gone. With the exception of NetworkManager, you don't have GUI tools for partitioning, boot management, DE configuration etc.  the few that we have, are ancient left-overs?
+Apr 20 16:01:55 <Khaytsus>	Given most of those arne't needed anymore...
+Apr 20 16:02:03 <Khaytsus>	gparted works fine for partitions, the rest.. useless
+Apr 20 16:02:23 <plarsen>	I haven't used GUI tools to configure a server for ages ...
+Apr 20 16:02:40 <plarsen>	So I can only tell you I don't see the tools listed anymore when I look for packages
+Apr 20 16:03:17 <plarsen>	Fedora used to have an admin menu with all kinds of "control panel" gui apps for everything from users, networking, disks etc.
+Apr 20 16:03:28 <plarsen>	Do anyone use the "disk administrator" gui??
+Apr 20 16:03:35 <plarsen>	It's AWFUL ....
+Apr 20 16:03:54 <plarsen>	Hasn't changed in a long long time
+Apr 20 16:06:11 <Piston>	hi folks, I getting following error while connecting via nm , any pointers would help..
+Apr 20 16:06:23 <plarsen>	Khaytsus, it's announcements/requests like this I remember: https://fedoraproject.org/wiki/Changes/CockpitManagementConsole
+Apr 20 16:06:26 <Piston>	nmcli device wifi connect "Dragon Warrior" password passwd
+Apr 20 16:06:34 <Piston>	Error: Connection activation failed: (39) Device disconnected by user or client.
+Apr 20 16:06:57 <Khaytsus>	Piston: rfkill
+Apr 20 16:07:00 <Khaytsus>	See if it says blocked
+Apr 20 16:07:19 <Piston>	unblocked
+Apr 20 20:59:44 *	Disconnected ()
+**** ENDING LOGGING AT Mon Apr 20 20:59:44 2020
+
+**** BEGIN LOGGING AT Mon Apr 20 21:00:28 2020
+
+Apr 20 21:00:28 *	Now talking on #fedora
+Apr 20 21:00:28 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 20 21:00:28 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 20 21:00:29 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 20 21:00:50 <paint-it-black>	.. yes I have seen that for using xfce4
+Apr 20 21:01:11 <paint-it-black>	I used to always use xfce4 but got tired of fighting the default install
+Apr 20 21:01:11 <corshmock>	Southern_Gentlem: I think you're under a bit of pressure today.  Don't mind about mind stuff.  It's not life threatening :)
+Apr 20 21:01:14 *	Disconnected ()
+**** ENDING LOGGING AT Mon Apr 20 21:01:14 2020
+
+**** BEGIN LOGGING AT Mon Apr 20 21:02:10 2020
+
+Apr 20 21:02:10 *	Now talking on #fedora
+Apr 20 21:02:10 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 20 21:02:10 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 20 21:02:14 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 20 21:04:34 <Southern_Gentlem>	corshmock, so yes you do have rpmfusion installed
+Apr 20 21:04:40 <Southern_Gentlem>	so dnf search kodi
+Apr 20 21:04:53 <Southern_Gentlem>	and look at all the addons there are for it
+Apr 20 21:07:59 <dowdle>	corshmock: I've been using the less free Plex Media Server for a number of years.
+Apr 20 21:12:00 <fedbot>	*** F31-20200420 updated lives available: https://tinyurl.com/Live-respins2  Built by the Fedora Respin Sig more info #fedora-respins ***
+Apr 20 21:12:09 <Southern_Gentlem>	happy dobie day
+Apr 20 21:25:25 <paint-it-black>	Southern_Gentlem  yes! screenshots are no longer blue!  thanks!  hmm I wonder if shutter works now ...
+Apr 20 21:25:27 <paint-it-black>	thanks!
+Apr 20 21:25:30 <paint-it-black>	have a good one
+Apr 20 21:41:03 <corshmock>	Sorry but I really don't know about dependencies.  Do I need to download each one individually?  Please excuse my ignorance.  https://paste.centos.org/view/a6722f4e
+Apr 20 21:46:20 <allizom>	corshmock: are you running fedora?
+Apr 20 22:23:48 <oppiet30>	allizona, he must be, he did a paste bin link.
+Apr 20 22:24:04 <oppiet30>	allizom, he must be, he did a paste bin link.
+Apr 20 22:42:14 *	Disconnected ()
+**** ENDING LOGGING AT Mon Apr 20 22:42:14 2020
+
+**** BEGIN LOGGING AT Mon Apr 20 23:54:54 2020
+
+Apr 20 23:54:54 *	Now talking on #fedora
+Apr 20 23:54:54 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 20 23:54:54 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 20 23:54:55 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 21 01:49:06 <gambl0re>	what's the most straight forward to install postgresql?
+Apr 21 01:49:45 <Sokel>	dnf...
+Apr 21 01:50:12 <plarsen>	gambl0re, dnf install postgresql
+Apr 21 01:50:39 <plarsen>	ehhh + -server.. So, dnf install postgresql-server
+Apr 21 01:50:46 <gambl0re>	is that all it takes? why am i reading docs online that i have to do all these other steps
+Apr 21 01:51:15 <Sokel>	you install it, init the database, start it up.
+Apr 21 01:51:16 <Sokel>	done
+Apr 21 01:51:17 <plarsen>	Depends on what exactly you want, the type of features, libraries you need available to different programming languages etc.
+Apr 21 01:52:02 <gambl0re>	https://fedoraproject.org/wiki/PostgreSQL
+Apr 21 01:52:17 <mutk>	gambl0re, https://developer.fedoraproject.org/tech/database/postgresql/about.html     is best.
+Apr 21 01:52:26 <mutk>	Its a good recipe
+Apr 21 01:53:00 <gambl0re>	mutk: thanks
+Apr 21 01:53:47 <gambl0re>	if i run this command...$ sudo dnf install postgresql-server postgresql-contrib
+Apr 21 01:54:00 <gambl0re>	what's the difference if i just did $ dnf install postgresql?
+Apr 21 01:54:45 <Sokel>	you need sudo unless you're running the command as root, obviously.
+Apr 21 01:55:16 <gambl0re>	i'm not talking about sudo.
+Apr 21 01:55:26 <gambl0re>	postgresql-server postgresql-contrib
+Apr 21 01:55:59 <mutk>	postgresql-server   is the SERVER package.  postgresql-contrib  is a package that has a lot of useful contributed tools for postgres.
+Apr 21 01:57:07 <gambl0re>	does dnf install postgresql include both server and contrib?
+Apr 21 01:57:15 <mutk>	gambl0re, I don't know
+Apr 21 01:57:16 <Sokel>	no, it doesn't.
+Apr 21 01:57:31 <mutk>	gambl0re,   dnf info postgresql-contrib         have a look
+Apr 21 01:57:33 <Sokel>	dnf info explains that postgresql is not the server package.
+Apr 21 01:57:34 <gambl0re>	then why wouldnt the docs just say to do 'dnf install postgresql'?
+Apr 21 01:58:22 <Sokel>	the postgresql package is for the client portion.
+Apr 21 01:58:29 <plarsen>	gambl0re, because that's not the database. That's tools/software to connect and use database
+Apr 21 01:58:33 <Sokel>	Summary      : PostgreSQL client programs
+Apr 21 01:59:17 <Sokel>	dnf info postgresql-server: Summary      : The programs needed to create and run a PostgreSQL server
+Apr 21 02:02:16 <gambl0re>	is postgresql-server the actual postgres database?
+Apr 21 02:02:38 <gambl0re>	im confused with which packages to install. there's postgres postgres-contrib postgres-server postgres-client
+Apr 21 02:02:49 <gambl0re>	i just want to install postgres db on my computer
+Apr 21 02:02:53 <mutk>	gambl0re, dnf info  tells you
+Apr 21 02:03:22 <mutk>	You have already had this explained :0
+Apr 21 02:03:31 <gambl0re>	ok nevermind. thanks anyways
+Apr 21 02:03:36 <plarsen>	gambl0re, you can see what each package contains like this: https://paste.centos.org/view/65bddbb6
+Apr 21 02:04:19 <gambl0re>	yea i get. what makes me confused is when i do a google search on how to install postgres i'll get like 4 different answers
+Apr 21 02:04:51 <plarsen>	Welcome to Linux - where having one way to do things is NEVER good enough :D
+Apr 21 02:05:45 <plarsen>	gambl0re, you need to consider the distribution, when things were written up (things change) and what the actual goal is.  Some guides assume a specific type of installation/setup of the database and include more stuff than you may need to
+Apr 21 02:05:56 <gambl0re>	plarsen: you use centos?
+Apr 21 02:06:04 <plarsen>	Among others, yes
+Apr 21 02:06:08 <gambl0re>	but why?
+Apr 21 02:07:03 <Sokel>	...because it's an enterprise distro?
+Apr 21 02:09:17 <plarsen>	gambl0re, one of the reasons I found Linux so helpful back in the days was that it's not just done one way. There are options for EVERYTHING.   Not just between distributions, but within them. It makes it possible for you to pick the right tool for the right project
+Apr 21 02:10:21 <plarsen>	I use Fedora every day on my workstations. It's very current with things, I get to use great virtualization and containerization tools right out of the standard/official repos.  With CentOS I know what I design today will work 5 years from now. Unmodified (well, people probably wouldn't use it if I didn't keep it up to date though)
+Apr 21 02:23:09 <sonik_hex>	plarsen, that pastebin is a great example of a dnf search.  very useful
+Apr 21 02:24:57 <gambl0re>	how do i search packages in rpm fusion?
+Apr 21 02:25:46 <gambl0re>	anyone know how i can install pgadmin, i dont see it in software management when i searched
+Apr 21 02:26:14 <plarsen>	gambl0re, install the repo(s) and use the command I showed you. You can add --enablerepo and --disablerepo to control which repos it will query
+Apr 21 02:27:12 <tnelis>	gambl0re: Did you _really_ look? ;) <https://apps.fedoraproject.org/packages/s/pgadmin>
+Apr 21 02:27:51 <zuvy>	gambl0re: rtfm
+Apr 21 02:28:10 <gambl0re>	tnelis: yea when i searched in software manager for pgadmin, it returned empty
+Apr 21 02:28:58 <gambl0re>	https://i.imgur.com/5c8Aj8v.png
+Apr 21 02:29:06 <gambl0re>	just in case you don't believe me
+Apr 21 02:31:03 <Sokel>	https://paste.centos.org/view/a5a76c27
+Apr 21 02:32:40 <zuvy>	You cannot trust output from KDE Discovery or from Gnoma Software, do a real dnf search
+Apr 21 02:32:54 <gambl0re>	zuvy: why not?
+Apr 21 02:32:59 <sonik_hex>	gambl0re, $ dnf search pgadmin
+Apr 21 02:33:10 <Sokel>	pgadmin3 is the package.
+Apr 21 02:33:21 <Sokel>	I would never rely on the software centers of a DE, ever.
+Apr 21 02:33:23 <sonik_hex>	gambl0re, $ dnf info pgadmin3.x86_64
+Apr 21 02:33:59 <tnelis>	gambl0re: Indeed. I think not all packages are considered "applications" as in "AppStream" apps. It's not a question of trust or anything IMO; it's just that they're like "app stores", not for low-level components/packages or server software.
+Apr 21 02:34:23 <zuvy>	gambl0re: years decades of use
+Apr 21 02:34:52 *	sonik_hex nods
+Apr 21 02:36:17 <gambl0re>	zuvy: oh
+Apr 21 02:36:50 <zuvy>	gambl0re: see tnelis comment above
+Apr 21 02:37:57 <tnelis>	gambl0re: I just realized pgAdmin 4 is not packaged yet, yet that's perhaps the only one with a Qt implementation. If pgAdmin 3 is strictly a web application (which I think it is), then it would explain why it doesn't appear in "app stores" (it requires server components that don't fit the traditional app model).
+Apr 21 02:39:20 <tnelis>	gambl0re: This would be a good fit for a flatpak, but I don't see any on Flathub, you might be out-of-luck if you want the latest version outside of third-party repos (Copr has a couple you might want to check out <https://copr.fedorainfracloud.org/coprs/fulltext/?fulltext=pgadmin>).
+Apr 21 02:39:28 <gambl0re>	is pgadmin 4 better than pgadmin3?
+Apr 21 02:40:42 <tnelis>	gambl0re: I don't know, I'm kind of a psql guy myself ;). I would imagine there are improvements yes, though of course a version bump does not _always_ means strictly better.
+Apr 21 02:41:39 <tnelis>	gambl0re: Actually, check this out <https://bugzilla.redhat.com/show_bug.cgi?id=1771823>; it seems it's no longer supported upstream so yeah, the situation is not ideal right now.
+Apr 21 08:17:03 *	Disconnected ()
+**** ENDING LOGGING AT Tue Apr 21 08:17:03 2020
+
+**** BEGIN LOGGING AT Tue Apr 21 08:17:28 2020
+
+Apr 21 08:17:28 *	Now talking on #fedora
+Apr 21 08:17:28 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 21 08:17:28 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 21 08:17:28 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 21 08:32:44 *	ChanServ gives channel operator status to fedbot
+Apr 21 09:25:32 <mkara>	Hi! :) Today seems like the date for F32 release. Is it still valid, or postponed?
+Apr 21 09:25:57 *	mkara is waiting to download the new F32 iso. :)
+Apr 21 11:14:30 *	Disconnected ()
+**** ENDING LOGGING AT Tue Apr 21 11:14:30 2020
+
+**** BEGIN LOGGING AT Tue Apr 21 11:14:51 2020
+
+Apr 21 11:14:51 *	Now talking on #fedora
+Apr 21 11:14:51 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 21 11:14:51 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 21 11:14:51 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 21 13:08:36 <Taim>	https://lists.fedoraproject.org/archives/list/test-announce@lists.fedoraproject.org/thread/HXSBRI4LRWKKHLUH2OI4UPBKJJKGCDQR
+Apr 21 13:10:33 <Southern_Gentlem>	@f32release
+Apr 21 13:10:34 <fedbot>	Fedora 32 is planned for release on 2020-04-28, which is 1 week, 0 days, 1 hour, 49 minutes, and 3 seconds from now
+Apr 21 13:17:12 <fedbot>	*** F31-20200420 updated lives available: https://tinyurl.com/Live-respins2  Built by the Fedora Respin Sig more info #fedora-respins ***
+Apr 21 13:44:00 *	Disconnected ()
+**** ENDING LOGGING AT Tue Apr 21 13:44:00 2020
+
+**** BEGIN LOGGING AT Tue Apr 21 13:50:46 2020
+
+Apr 21 13:50:46 *	Now talking on #fedora
+Apr 21 13:50:46 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 21 13:50:46 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 21 13:50:46 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 21 13:57:30 *	Disconnected ()
+**** ENDING LOGGING AT Tue Apr 21 13:57:30 2020
+
+**** BEGIN LOGGING AT Tue Apr 21 15:11:34 2020
+
+Apr 21 15:11:34 *	Now talking on #fedora
+Apr 21 15:11:34 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 21 15:11:34 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 21 15:11:34 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 21 15:13:30 *	Disconnected ()
+**** ENDING LOGGING AT Tue Apr 21 15:13:30 2020
+
+**** BEGIN LOGGING AT Tue Apr 21 17:31:24 2020
+
+Apr 21 17:31:24 *	Now talking on #fedora
+Apr 21 17:31:24 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 21 17:31:24 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 21 17:31:27 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 21 18:14:05 *	Disconnected ()
+**** ENDING LOGGING AT Tue Apr 21 18:14:05 2020
+
+**** BEGIN LOGGING AT Tue Apr 21 18:14:34 2020
+
+Apr 21 18:14:34 *	Now talking on #fedora
+Apr 21 18:14:34 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 21 18:14:34 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 21 18:14:38 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 21 18:20:42 <grant>	installing gtk3 downgrades glib2 on fedora 32, is there a way around this?
+Apr 21 18:23:09 <Khaytsus>	dowdle: Well, that was easy, I had to delete the pool I'd set up for my custom location and the "default" pool, then just recreate 'default' at my custom path.  Pretty trivial, no data loss or moving or such
+Apr 21 18:24:04 <Khaytsus>	Be niceer if there were just a "default" flag, not literally "default" as the name of the pool
+Apr 21 18:24:07 <Khaytsus>	but ah well
+Apr 21 18:25:13 <dowdle>	grant: I would have thought if you had a DE that was gtk3-based, it'd already be installed?!?
+Apr 21 18:25:46 <grant>	I'm unsure of packaging, I'm on gnome currently
+Apr 21 18:26:07 <grant>	but I was not able to follow compile instructions for an example gtk app
+Apr 21 18:26:54 <grant>	I'll check for the headers now
+Apr 21 18:28:18 <grant>	not there as far as I can tell
+Apr 21 20:35:57 *	Disconnected ()
+**** ENDING LOGGING AT Tue Apr 21 20:35:57 2020
+
+**** BEGIN LOGGING AT Tue Apr 21 20:37:14 2020
+
+Apr 21 20:37:14 *	Now talking on #fedora
+Apr 21 20:37:14 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 21 20:37:14 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 21 20:37:14 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 21 20:50:40 <dbasinge>	Saw the Redhat Virtual Summit page suggestion Fedora 25 with Chrome to view the summit :)
+Apr 21 21:19:51 <idlemind>	any backup recommendations for fedora as a server?
+Apr 21 21:19:55 <idlemind>	(cli)
+Apr 21 21:22:57 <tkonto>	I do notice that when I recover my STR laptop, being docked, my cursor flickers. When undocking it the cursor is fine on the LVDS... any hints?
+Apr 21 21:23:04 <tkonto>	No errors on X.log or dmesg
+Apr 21 21:23:09 <tkonto>	F31
+Apr 21 21:23:42 <dbasinge>	idlemind: I just have a script with rync that uses mtime to keep last 7 days
+Apr 21 21:27:26 <idlemind>	dbasinge Thanks, cool that's what I've historically done but didn't know if i should be doing something with a fancier program
+Apr 21 21:39:57 <der_Alte>	idlemind, if you'd like to use an object store for backups have a look at restic
+Apr 21 21:41:11 <dbasinge>	Think amanda has some cmd otion, but never have used it
+Apr 21 21:42:41 <idlemind>	der alte thx ya i've thought about that, i don't have a private object store handy atm and anything public would be annoying expensive for home use so i think i'm sticking with usb drive here and geographically somewhere else
+Apr 21 21:44:03 <benjwadams>	Are there low-latency audio kernels supporting Fedora 31?  I know the third-party repos through PlanetCCRMA seem to support up to Fedora 30
+Apr 21 21:46:46 <Sokel>	planet ccrma has 31, but they don't show the link (which means they never update their pages as often as they should)
+Apr 22 09:17:30 *	Disconnected ()
+**** ENDING LOGGING AT Wed Apr 22 09:17:30 2020
+
+**** BEGIN LOGGING AT Wed Apr 22 09:20:38 2020
+
+Apr 22 09:20:38 *	Now talking on #fedora
+Apr 22 09:20:38 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 22 09:20:38 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 22 09:20:43 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 22 09:22:00 *	Disconnected ()
+**** ENDING LOGGING AT Wed Apr 22 09:22:00 2020
+
+**** BEGIN LOGGING AT Wed Apr 22 09:26:09 2020
+
+Apr 22 09:26:09 *	Now talking on #fedora
+Apr 22 09:26:09 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 22 09:26:09 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 22 09:26:09 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 22 09:36:00 *	Disconnected ()
+**** ENDING LOGGING AT Wed Apr 22 09:36:00 2020
+
+**** BEGIN LOGGING AT Wed Apr 22 09:54:04 2020
+
+Apr 22 09:54:04 *	Now talking on #fedora
+Apr 22 09:54:04 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 22 09:54:04 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 22 09:54:06 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 22 10:05:54 <Venemo>	can you elaborate more?
+Apr 22 10:15:21 <ledeni>	Venemo: run pavucontrol in term and set input device to 20% of input device  (your mic) dB https://imgur.com/a/UYfRdn1
+Apr 22 11:13:37 *	Disconnected ()
+**** ENDING LOGGING AT Wed Apr 22 11:13:37 2020
+
+**** BEGIN LOGGING AT Wed Apr 22 11:13:56 2020
+
+Apr 22 11:13:56 *	Now talking on #fedora
+Apr 22 11:13:56 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 22 11:13:56 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 22 11:13:56 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 22 11:48:21 <stemid>	Error: container c77a31f05bea0022fa00db5ba6f52c81cc57f89f404ce0db26f780e872e06d76 is the infra container of pod 22a54778f81bf32102b8c0031d8e9c2ac6dd47d6fc468c7bc89d5108bf7d4d1f and cannot be removed without removing the pod
+Apr 22 11:48:31 <stemid>	what is this? I have a container I can't remove and no trace of this "infra container"
+Apr 22 11:49:27 <stemid>	https://paste.centos.org/view/f4c2065d podman ps -a output
+Apr 22 11:53:43 <stemid>	oh I had to do podman pod ps and then I saw a pod, so I could do podman pod rm -af
+Apr 22 11:53:45 <stemid>	solved
+Apr 22 11:54:01 <stemid>	then after that I could podman rmi -af and podman rm -af
+Apr 22 12:17:07 *	Disconnected ()
+**** ENDING LOGGING AT Wed Apr 22 12:17:07 2020
+
+**** BEGIN LOGGING AT Wed Apr 22 12:17:45 2020
+
+Apr 22 12:17:45 *	Now talking on #fedora
+Apr 22 12:17:45 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 22 12:17:45 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 22 12:17:46 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 22 12:40:14 <DaFiN>	hi
+Apr 22 13:19:52 <Southern_Gentlem>	@f32release
+Apr 22 13:19:52 <fedbot>	Fedora 32 is planned for release on 2020-04-28, which is 6 days, 1 hour, 39 minutes, and 44 seconds from now
+Apr 22 14:37:49 <SeeM2>	I already upgrade to 32 on desktops and vps and screwed only one thing: Python version changed, which broke virtualenv and backend for a simple webpage was not feeding new data. :) And certbot warned me about expiring certificates, since it did not renewed them automaticcaly. Upgrade process was very clean and simple. The only thing I didn't like is how dnf handles appstreams during system update. It's a
+Apr 22 14:37:55 <SeeM2>	known issue and among wild proposals for Fedora 33
+Apr 22 14:53:44 <ikonia>	in F31 I'm on a host with one physical network interface, I'm considering making two bridge devices hanging off the single physical interfaces
+Apr 22 14:54:20 <ikonia>	normally I do this on servers with the bridge config files in the sysconfig/network-scripts section, but I'm wondering if there is anyway to do this with the network manager gui in F31 ?
+Apr 22 14:54:54 <ikonia>	also is there any issues with the primary IP being on a bridge device rather than the physical interface, I cant' think of any, but I've never had reason to put it on a bridge device before
+Apr 22 14:59:03 <rationaltech>	ikonia You can have the primary IP be on a bridge in most cases a bridge has the physical ports IP in it anyway since that's what you're doing...making a bridge and a one way bridge wouldn't be super useful unless all you wanted to do was monitor.  No idea on the network manager bit.
+Apr 22 15:01:20 <ikonia>	rationaltech: not quite,
+Apr 22 15:02:02 <ikonia>	rationaltech: my use case is I'm running and hold workstation while I'm at home as a kvm host, it only has one interface on it, so I want to put all VM's against the bridge so that they are exposed to the network with a network IP and just use the interface as a pass through
+Apr 22 15:02:18 <ikonia>	for this to work the interface can't have it's own ip
+Apr 22 15:02:20 <ikonia>	so I'd need a second bridge for the host to appear on the network
+Apr 22 15:06:33 <akik>	ikonia: i've done it with the nmcli tool. would that help you? i've listed the commands i ran
+Apr 22 15:16:00 <ikonia>	akik: tht would really help
+Apr 22 15:16:05 <ikonia>	akik: did you have any problems with it ?
+Apr 22 15:16:19 <ikonia>	(out of interest)
+Apr 22 15:19:33 <akik>	ikonia: https://pastebin.com/raw/TLpSkW8F no problems, eth0 is on dhcp and eth1 on that static ip
+Apr 22 15:19:50 <akik>	br0 and br1 that is
+Apr 22 15:20:15 <akik>	somebody said they needed this option but i didn't need it
+Apr 22 15:20:29 <akik>	nmcli connection modify eth0 connection.autoconnect yes
+Apr 22 15:20:39 <ledeni>	ikonia: you can run 'nm-connection-editor' GUI not sure about setting up your network but you can look at
+Apr 22 15:23:31 <akik>	ikonia: i use this setup to give a lxc container network access to both those network(s)
+Apr 22 15:26:10 <fedorafan>	if you like q and would like to talk about it join ##qanon
+Apr 22 15:26:36 <akik>	nice person
+Apr 22 15:28:36 <ikonia>	akik: that sounds like a similar usecase for just a different reason, sounds like what I'm using for
+Apr 22 15:29:31 <ikonia>	akik: looks really good, thank you
+Apr 22 15:30:04 <ikonia>	ledeni: didn't know about nm-connection-editor either, thankyou
+Apr 22 15:30:17 <akik>	i had to learn it because fedora 31 removed those network-scripts configs
+Apr 22 15:30:26 <akik>	or was it fedora 30
+Apr 22 15:37:33 <ledeni>	ikonia:you're welcome
+Apr 22 16:03:38 <plundra>	Hmm, how do I run a polkit agent under sway? I only see a reference to polkit-gnome-authentication-agent-1 which doesn't seem tobe available.
+Apr 22 16:04:36 <plundra>	I assume it's built into gnome or somehing now. So maybe ome other agent or way is possible?
+Apr 22 16:05:07 <plundra>	Ah, lxpolkit was even installed, let me try that.
+Apr 22 16:06:46 <plundra>	lxpolkit worked great. Let me add that to the startup :-)
+Apr 22 16:40:50 <fedbot>	*** F31-20200420 updated lives available: https://tinyurl.com/Live-respins2  Built by the Fedora Respin Sig more info #fedora-respins ***
+Apr 22 16:52:14 <gintonyc>	Hi, in Grub2 / Fedora 31, it's not enough to put a GRUB_BACKGROUND in /etc/default/grub (and update command) ? Thanks
+Apr 22 17:02:03 <dowdle>	gintonyc: Is this a new setup with a new image file?
+Apr 22 17:02:18 <gintonyc>	Yes
+Apr 22 17:02:50 <gintonyc>	New to Fedora, i thought grub has a background :D
+Apr 22 17:03:16 <dowdle>	gintonyc: I think it has to be in a certain format and it is working for me on some lab machines.
+Apr 22 17:04:48 <gintonyc>	I tried JPEG
+Apr 22 17:10:25 <dowdle>	gintonyc: Let me look.  Just a second.
+Apr 22 17:11:05 <dowdle>	gintonyc: Mine is in .png format.
+Apr 22 17:11:16 <gintonyc>	Ok
+Apr 22 17:11:19 <gintonyc>	i will try wit
+Apr 22 17:11:21 <gintonyc>	h PN
+Apr 22 17:11:40 <gintonyc>	sorry, i will try with PNG, thanks
+Apr 22 17:11:41 <dowdle>	gintonyc: And I put it in /boot/grub2/themes/system/
+Apr 22 17:12:23 <gintonyc>	and the parameter "GRUB_BACKGROUND=/boot/grub2/themes/system/background.PNG" on /etc/default/grub, yes ?
+Apr 22 17:12:28 <dowdle>	gintonyc: Also, I think you need to comment out this line #GRUB_TERMINAL_OUTPUT="console"
+Apr 22 17:12:54 <gintonyc>	oh ok, i thought when you use a theme, not just a background, so it's sure, i didn't comment this line.
+Apr 22 17:13:21 <dowdle>	gintonyc: I believe that line needs to be commented out for the background image to show up.
+Apr 22 17:13:46 <gintonyc>	Ok thanks
+Apr 22 17:18:00 <dowdle>	gintonyc: And of course, every time you change /etc/default/grub you need to rerun grub2-mkconfig with the proper parameters (depending on boot mode)
+Apr 22 17:18:39 <gintonyc>	depending on boot mode ?
+Apr 22 17:20:11 <Southern_Gentlem>	bios or efi
+Apr 22 17:20:54 <gintonyc>	i'm on EFI
+Apr 22 17:21:37 <Southern_Gentlem>	so what is the parameters for efi
+Apr 22 17:24:23 <mrproper>	I'm using Fedora Cinnamon 31 in VMware Fusion and when I'm in the terminal and do an alt-left (or right) to move forward or back whole words, it prints D or C respectively instead of moving the cursor.
+Apr 22 17:25:13 <gintonyc>	I update with this command : grub2-mkconfig -o /etc/grub2.cfg and i see that i have another file "/etc/grub2-efi-.cfg" ! I think i didn't update the right file after my "nano /etc/default/grub"
+Apr 22 17:26:05 <Southern_Gentlem>	thus the depending on boot mode
+Apr 22 17:26:15 <dowdle>	gintonyc: If you are UEFI boot, It'd be the /etc/grub2-efi-.cfg
+Apr 22 17:26:42 <dowdle>	 (which is a symlink to /boot/efi/EFI/fedora/grub.cfg
+Apr 22 17:26:44 <dowdle>	)
+Apr 22 17:27:19 <gintonyc>	Ok so another reason it didn't work :D
+Apr 22 17:27:33 <Southern_Gentlem>	mrproper, so are you in bash or in vim
+Apr 22 17:27:57 <mrproper>	Southern_Gentlem: Bash, zsh really.
+Apr 22 17:28:06 <mrproper>	Hmmmm it works in bash so zsh is broke.
+Apr 22 17:28:24 <Southern_Gentlem>	or it has different setting
+Apr 22 17:29:00 <Southern_Gentlem>	expecting zsh to act like bash is a PEBCAK to me
+Apr 22 17:29:28 <Southern_Gentlem>	i suggest looking at the zsh documentation
+Apr 22 17:29:53 <Southern_Gentlem>	then if it says that should work then file a bugzilla
+Apr 22 17:33:17 <mrproper>	Southern_Gentlem: Control works so it's a different setting.
+Apr 22 17:33:58 <Southern_Gentlem>	so it was a pebcak
+Apr 22 17:35:13 <mrproper>	It wa.s
+Apr 22 17:38:19 <fedbot>	*** F31-20200420 updated lives available: https://tinyurl.com/Live-respins2  Built by the Fedora Respin Sig more info #fedora-respins ***
+Apr 22 17:47:08 <unun>	Hello, I am just getting started with docker, and was trying to find a lightweight redhat based distro to base my container off of.
+Apr 22 17:47:15 <unun>	I found atomic, which turned into CoreOS, which has now turned into a different CoreOS?
+Apr 22 17:47:50 <unun>	But I am not even sure if coreos is an OS for container hosting, or to tuned to be hosted
+Apr 22 17:47:55 <unun>	could anyone help clarify?
+Apr 22 17:49:33 <plundra>	unun: It's to host the containers.
+Apr 22 17:51:06 <akik>	unun: i use centos 7 as my docker host(s)
+Apr 22 17:51:55 <akik>	centos 8 also works with some modifications
+Apr 22 17:55:59 <unun>	Ah, ok. Is there a lightweight redhat distro that is specialized to be used as a container operating system? I am currently using fedora which is 400mb size wise. which isnt bad, but I would think there would be better out there, no?
+Apr 22 18:00:34 <unun>	alpine by contrast is only 5 mb
+Apr 22 18:03:14 <chncynic[m]>	Besides silverblue all others will be exactly as you know it
+Apr 22 18:07:54 <unun>	ok. thanks
+Apr 22 18:29:22 <gintonyc>	So i tried again to configure the background of Grub but nothing... I have an error message but i not have the time to see it... I can find a log somewhere ? boot.log begin with plymouth right ?
+Apr 22 18:29:57 <dowdle>	gintonyc: Given that there is no OS / logger when in grub, I wouldn't think there is a way to get a log entry.
+Apr 22 18:32:01 <Southern_Gentlem>	dmesg maybe
+Apr 22 18:32:25 <gintonyc>	so i put a PNG in /boot/grub2/themes/system (i see 2 others PNG "background" and "fireworks". I put the paramater grub_background on /etc/default/grub. Launched the grub2-mkconfig for EFI. Its talk about the background... But it didn't work.. Maybe i will stay with the black style :D
+Apr 22 18:34:15 <gintonyc>	I found nothing about grub in dmesg
+Apr 22 18:36:45 <dowdle>	gintonyc: You might look into what limitations there are with images you can use.  I've not done it with UEFI.
+Apr 22 18:36:51 <Sokel>	gintonyc: EFI?
+Apr 22 18:36:57 <dowdle>	Sokel: Yep.
+Apr 22 18:37:48 <gintonyc>	dowdle, i can try with background.png which is already in the system folder right ? If it's work, it's my image which has the problem.
+Apr 22 18:43:16 <gintonyc>	Ok, i take a movie so i have the error message, same with the background.png ! "It's : error: ../../grub-core/fs/fshelp.c:257:file ` /EFI/fedora/locale/fr.gmo` not found"
+Apr 22 18:44:00 <Sokel>	that is not related to backgrounds.
+Apr 22 18:44:25 <gintonyc>	yeah but i didn't see this error before change the background :D
+Apr 22 18:44:42 <Sokel>	https://bugzilla.redhat.com/show_bug.cgi?id=1592124 doesn't matter.
+Apr 22 18:46:12 <ledeni>	gintonyc: try this steps --> https://paste.centos.org/view/84d28230
+Apr 22 18:46:23 <gintonyc>	I didn't have the locale folder xD
+Apr 22 18:46:28 <Sokel>	https://paste.centos.org/view/5c96374b - this worked for me immediately.
+Apr 22 18:48:25 <ledeni>	Sokel: :)
+Apr 22 18:49:12 <dowdle>	Sokel: So you used gfxterm_background.mod for it and didn't use the line in /etc/default/grub?
+Apr 22 18:51:41 <gintonyc>	Ok i followed the link, thanks. You know where i can find the locale folder ?
+Apr 22 18:57:14 <dowdle>	gintonyc: Looks like it takes a bit more work with UEFI boot... but be that as it may... what locale folder?
+Apr 22 18:58:15 <ledeni>	 gintonyc: copy "/boot/grub2/locale" to "/boot/efi/EFI/fedora/locale"
+Apr 22 18:59:17 <gintonyc>	The problem is i don't have the folder locale in /boot/grub2
+Apr 22 19:00:18 <gintonyc>	dowdle: the fr.gmo not found error
+Apr 22 19:03:54 <MICROburst>	how to list ALL backup dates using duplicity? The solutions I found just list dates since last full backup, like https://serverfault.com/questions/429392/how-to-list-all-available-backup-dates-using-duplicity
+Apr 22 20:00:59 <omajid>	hey folks. is there a way to generate a list of members of a fas group automatically on the wiki? i would rather not have to maintain https://fedoraproject.org/wiki/SIGs/DotNet#Members by hand :)
+Apr 22 20:03:03 <Southern_Gentlem>	go into fas and cut and paste ?
+Apr 22 20:03:29 <omajid>	well, manual operations like cut+paste is what i am trying to avoid
+Apr 22 20:05:22 <Southern_Gentlem>	that group is small
+Apr 22 20:05:45 <Southern_Gentlem>	omajid, #fedora-admin may can help
+Apr 22 20:06:16 <omajid>	thanks
+Apr 22 20:07:35 <Southern_Gentlem>	omajid, also you need to check with every group member that their info is on the webpage (some have private settings enabled in FAS)
+Apr 22 20:10:21 <Southern_Gentlem>	is ok to have on the wiki rather
+Apr 22 20:19:32 <dowdle>	How can I troubleshoot an sshd.service that is enabled but sometimes doesn't start on boot?
+Apr 22 20:19:37 <dowdle>	I'm not seeing any log entries.
+Apr 22 20:21:44 <dowdle>	The last log entry for it shows that it shutdown prior to me rebooting the system.
+Apr 22 20:22:38 <omajid>	what does `systemctl status sshd.service` say?
+Apr 22 20:23:51 <dowdle>	omajid: That is is enabled and not running.
+Apr 22 20:24:40 <dowdle>	omajid: With the same last log entry.  No mention of a failure to start.  It just didn't.
+Apr 22 20:25:00 <janos_>	dowdle: maybe check the boot log?
+Apr 22 20:25:09 <janos_>	in /var/log/boot.log iirc
+Apr 22 20:25:54 <dowdle>	Also, the stock sshd.service file has Restart=on-failure and RestartSec=42s
+Apr 22 20:28:40 <dowdle>	janos_: Nothing relevant in the boot.log.  grep ssh /var/log/boot.log shows two lines, one for x2dkeygen.slice and the other for sshd-keygen.target
+Apr 22 20:28:52 <janos_>	dang

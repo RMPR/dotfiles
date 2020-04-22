@@ -2000,3 +2000,1095 @@ T 1586742601 FiSHLiM plugin unloaded
 T 1587051375 19*	Now talking on 22#alacritty
 T 1587051375 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
 T 1587051375 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587058124 20*	Disconnected (20)
+T 1587058153 19*	Now talking on 22#alacritty
+T 1587058153 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587058153 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587074329 20*	Disconnected (20)
+T 1587074356 19*	Now talking on 22#alacritty
+T 1587074356 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587074356 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587078559 20*	Disconnected (20)
+T 1587113818 19*	Now talking on 22#alacritty
+T 1587113818 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587113818 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587138500 18<20basic18>	as soon as i have opacity activated in alacritty
+T 1587138507 18<20basic18>	i observe some sort of "border" inside windows
+T 1587138517 18<29kchibisov18>	Could you screenshot it?>
+T 1587138524 18<20basic18>	it's really faint, i might not be able to screenshot it
+T 1587138531 18<20basic18>	im sure i wouldn't see it on another monitor
+T 1587138538 18<20basic18>	(because this one is expensive af)
+T 1587138541 18<20basic18>	i try to screenshot
+T 1587138573 18<20basic18>	https://paste.pics/71f76ca131c03e52c2fa1435f10fd5ae
+T 1587138581 18<20basic18>	it's very visible
+T 1587138600 18<20basic18>	(top and left edge)
+T 1587138624 18<20basic18>	the floating shell window shows that it's not something that "shrines through"
+T 1587138629 18<20basic18>	while that would be a weird shape either way
+T 1587138653 18<20basic18>	it could be compton, tho
+T 1587138655 18<29kchibisov18>	I see it, indeed.
+T 1587138666 18<29kchibisov18>	I can't repro ofc.
+T 1587138675 18<20basic18>	compton running?
+T 1587138680 18<29kchibisov18>	I don't have X11.
+T 1587138683 18<20basic18>	hm
+T 1587138705 18<29kchibisov18>	Could it be shadows from compton?
+T 1587138716 18<20basic18>	oh interesting
+T 1587138755 18<20basic18>	yeah it's shadows
+T 1587138758 18<20basic18>	:) thanks
+T 1587138786 18<20basic18>	but why is everythings brighterr now
+T 1587138788 18<20basic18>	wwhen startet
+T 1587138788 18<20basic18>	hm
+T 1587138841 18<20basic18>	well the answer is also shadow >.<
+T 1587140413 18<29kchibisov18>	UndeadLeech: amazing selection reflow, it discovered Wayland clipboard bug.
+T 1587145003 18<24nimbius18>	anyone using noto fonts? im getting weird spacing issues.
+T 1587145030 18<29kchibisov18>	make sure to type it coloreclty in config and ensure that it's a monospace font.
+T 1587145100 18<24nimbius18>	same issue if i switch to mono
+T 1587145247 18<24nimbius18>	hm
+T 1587145253 18<24nimbius18>	nevermind, retyped and now it works?
+T 1587145337 18<24nimbius18>	do all fonts have to be monospace?
+T 1587145535 18<20cole-h18>	If you want them to look nice in a terminal
+T 1587145618 18<24nimbius18>	hm
+T 1587145628 18<24nimbius18>	im guessing alacritty is somehow different than gnome-terminal?
+T 1587145739 18<29kchibisov18>	ofc, it's a different terminal.
+T 1587145755 18<29kchibisov18>	but I don't know any terminal supporting proportional fonts.
+T 1587145773 18<29kchibisov18>	Like we can draw them, sure, but they won't look good.
+T 1587145785 18<29kchibisov18>	So you need monospace fonts.
+T 1587145796 18<29kchibisov18>	e.g. DejaVu Sans Mono, Roboto Mono,
+T 1587145914 18<24nimbius18>	interesting.
+T 1587145968 18<24nimbius18>	maybe Noto isnt the best monospace font then.
+T 1587145996 18<29kchibisov18>	there's Noto Mono
+T 1587146021 18<29kchibisov18>	just try `fc-list | grep -i "noto.*mono"`
+T 1587146025 18<24nimbius18>	correct...
+T 1587146031 18<29kchibisov18>	you'll likely find out something.
+T 1587146056 18<29kchibisov18>	note, if you see suffix CJK, that's not what you want.
+T 1587146077 18<24nimbius18>	i guess noto is a step up from inconsolata
+T 1587146155 18<24nimbius18>	rendering weird utf characters however is something different i guess.
+T 1587147178 18<24nimbius18>	iosevka is a nice font
+T 1587147473 18<24nimbius18>	thanks kchibisov  :)
+T 1587151978 18<26candy18>	Hi
+T 1587151986 18<29kchibisov18>	Hi.
+T 1587151987 18<24UndeadLeech18>	kchibisov: Huh, really? What bug is it?
+T 1587151992 18<26candy18>	how can i make new tab in alacritty?
+T 1587151999 18<24UndeadLeech18>	You can't.
+T 1587152011 18<26candy18>	ru sure?
+T 1587152017 18<29kchibisov18>	UndeadLeech: there's some strange limit for 64KB, etc.
+T 1587152029 18<29kchibisov18>	will be fixed at some point, but it was funny.
+T 1587152059 18<24UndeadLeech18>	candy: I'm relatively certain that I haven't accidentally implemented this, yes.
+T 1587152067 18<29kchibisov18>	Also, I feel like selection expansion on paste shouldn't be a thing.
+T 1587152082 18<24UndeadLeech18>	Selection expansion on paste?
+T 1587152090 18<26candy18>	i thinking about moving from lxterminal to alacritty, what you think about?
+T 1587152093 18<29kchibisov18>	just try `cat`, paste something, select it, and continue to paste with mouse.
+T 1587152108 18<29kchibisov18>	selection will be growing.
+T 1587152151 18<24UndeadLeech18>	Oh yeah of course, selection expansion has always been a thing done on rendering, not on select.
+T 1587152163 18<24UndeadLeech18>	Though it always has been questioned.
+T 1587152223 18<29kchibisov18>	I wonder why it happens now.
+T 1587152261 18<24UndeadLeech18>	It always was a problem with stuff like weechat, where we didn't have properly working rotation.
+T 1587152266 18<26candy18>	can i change the colors of hostname etc?
+T 1587152277 18<29kchibisov18>	it's done in your shell.
+T 1587152282 18<24UndeadLeech18>	That's a shell, not a terminal thing candy. So yes you can.
+T 1587152283 18<29kchibisov18>	we have nothing to do with that.
+T 1587152290 18<26candy18>	that's a terminal thing
+T 1587152294 18<29kchibisov18>	no.
+T 1587152313 18<26candy18>	yes, it's different than all my other terminals
+T 1587152324 18<29kchibisov18>	echo -e "\e[31mHOME\e[0m" is red
+T 1587152328 18<29kchibisov18>	that's how coloring is done.
+T 1587152354 18<26candy18>	yea i know
+T 1587152363 18<26candy18>	but something just different in it
+T 1587152370 18<29kchibisov18>	you can have system configuration to color hostname.
+T 1587152378 18<29kchibisov18>	based on e.g. terminfo name.
+T 1587152391 18<26candy18>	LOL , i try to explain
+T 1587152408 18<29kchibisov18>	I try to answer how it is.
+T 1587152418 18<26candy18>	i know what you talking about, i talking about different thing
+T 1587152438 18<26candy18>	the gui is weird
+T 1587152442 18<29kchibisov18>	ok, what thing are you talking about?
+T 1587152456 18<29kchibisov18>	what gui?
+T 1587152484 18<29kchibisov18>	I'm not sure that we have any, besides the terminal content.
+T 1587152513 18<29kchibisov18>	if you can screenshot that gui, it could help.
+T 1587152524 18<26candy18>	https://ibb.co/0M8q3s1
+T 1587152528 18<26candy18>	see that picture
+T 1587152541 18<29kchibisov18>	yeah, it's your shell.
+T 1587152551 18<29kchibisov18>	green and blue.
+T 1587152568 18<29kchibisov18>	you can change colors in config if you don't like them.
+T 1587152616 18<29kchibisov18>	But you should ask, `my green color is weird`, since we have no clue what color your hostname is using.
+T 1587152619 18<26candy18>	now look at the original colors
+T 1587152621 18<26candy18>	https://ibb.co/D7dfQTb
+T 1587152628 18<29kchibisov18>	they are not origianl
+T 1587152645 18<29kchibisov18>	that's just your other terminal defined them.
+T 1587152651 18<26candy18>	ok
+T 1587152652 18<29kchibisov18>	we have our own colors.
+T 1587152657 18<24UndeadLeech18>	If you don't like the colors, just change them?
+T 1587152658 18<29kchibisov18>	some temrinal Y has their own.
+T 1587152660 18<26candy18>	maybe i wrong
+T 1587152667 18<26candy18>	that's a shell thing?
+T 1587152675 18<29kchibisov18>	Shell askes for green.
+T 1587152677 18<24UndeadLeech18>	The colors are identical.
+T 1587152681 18<29kchibisov18>	asks*
+T 1587152684 18<24UndeadLeech18>	They're just rendered differently.
+T 1587152697 18<29kchibisov18>	we render green with value defined in our config.
+T 1587152712 18<26candy18>	ok
+T 1587152720 18<26candy18>	how can i change that?
+T 1587152728 18<24UndeadLeech18>	The configuration file.
+T 1587152735 18<29kchibisov18>	edit `alacritty.yml`
+T 1587152737 18<26candy18>	it's in home?
+T 1587152744 18<29kchibisov18>	you can place it in home.
+T 1587152744 18<24UndeadLeech18>	You create it.
+T 1587152752 18<24UndeadLeech18>	It's all documented on GitHub.
+T 1587152772 18<29kchibisov18>	or was shipped with your distro package somewhere
+T 1587152782 18<26candy18>	actually i think you need to improve the docs
+T 1587152790 18<29kchibisov18>	how so?
+T 1587152823 18<26candy18>	with pictures
+T 1587152828 18<26candy18>	more visual
+T 1587152842 18<29kchibisov18>	our docs are just .yml file.
+T 1587152849 18<29kchibisov18>	what pictures do you want in .yml file?
+T 1587152849 18<26candy18>	yea i saw
+T 1587152851 18<24UndeadLeech18>	It's a terminal emulator...
+T 1587152857 18<29kchibisov18>	^
+T 1587152857 18<26candy18>	i know
+T 1587152883 18<29kchibisov18>	I've never seen pictures of a terminal emulator tbh, they are all the same visually.
+T 1587152892 18<29kchibisov18>	I mean multiple on front page.
+T 1587152908 18<26candy18>	or maybe change the default shell color
+T 1587152922 18<29kchibisov18>	What shell color?
+T 1587152933 18<29kchibisov18>	Do you mean default color values?
+T 1587152937 18<26candy18>	yes
+T 1587152939 18<29kchibisov18>	That's subjective
+T 1587152941 18<26candy18>	the hostname color etc
+T 1587152982 18<29kchibisov18>	maybe you don't like them, someone else likes them, etc.
+T 1587153006 18<26candy18>	i have to say i like it because of the performance
+T 1587153006 18<29kchibisov18>	I mean colors.
+T 1587153014 18<29kchibisov18>	if you don't like colors, just change them.
+T 1587153080 18<26candy18>	you told me i need to place yml config file and i can choose the location. i am not sure how to set the location
+T 1587153080 18<29kchibisov18>	We even has a wiki to copypaste colorschemes.
+T 1587153080 18<29kchibisov18>	https://github.com/alacritty/alacritty#configuration
+T 1587153080 18<26candy18>	i am using the binary file of this
+T 1587153080 18<26candy18>	not package
+T 1587153101 18<24UndeadLeech18>	The location for the configuration file is documented right in the readme.
+T 1587153108 18<24UndeadLeech18>	It's also in the manpage.
+T 1587153154 18<26candy18>	can i fetch only the man page?
+T 1587153169 18<24UndeadLeech18>	I suppose you could.
+T 1587153183 18<29kchibisov18>	I mean you've installed our binary somehow.
+T 1587153188 18<26candy18>	yea
+T 1587153194 18<26candy18>	i didn't installed
+T 1587153195 18<29kchibisov18>	so if you have repo, then you have manpage in it.
+T 1587153201 18<26candy18>	just run it
+T 1587153233 18<26candy18>	sorry for my noob questions
+T 1587153254 18<29kchibisov18>	our manpage doens't differ that match from alacritty --help
+T 1587153272 18<24UndeadLeech18>	No problem, though reading through the documentation is likely going to be easier for you than having to wait for responses.
+T 1587153293 18<24UndeadLeech18>	kchibisov: The difference matters here though, since `--help` does not document the config locations.
+T 1587153294 18<24UndeadLeech18>	But the manpage does.
+T 1587153298 18<29kchibisov18>	Specify alternative configuration file [default: $XDG_CONFIG_HOME/alacritty/alacritty.yml]
+T 1587153301 18<29kchibisov18>	it has one of them at least.
+T 1587153332 18<24UndeadLeech18>	Fair enough.
+T 1587153417 18<26candy18>	what you think about adding tabs option?
+T 1587153441 18<29kchibisov18>	We think that your window manager should do that.
+T 1587153479 18<29kchibisov18>	But you have plenty of options like tmux/tabbed/i3 to have tabs.
+T 1587153530 18<26candy18>	only few people using i3 wm
+T 1587153548 18<26candy18>	and in the other we can make new tab, lets say in lxde
+T 1587153554 18<26candy18>	can
+T 1587153556 18<26candy18>	can't
+T 1587153557 18<29kchibisov18>	I feel like a giant chunk of our users are using i3/sway
+T 1587153566 18<29kchibisov18>	even macOS has a concept of tabs on a wm level.
+T 1587153579 18<29kchibisov18>	and for the rest, there's `tabbed`.
+T 1587153596 18<24UndeadLeech18>	If you can't make tabs in your window manager, but you want multiple tabs in your window manager, you're using the wrong window manager.
+T 1587153623 18<24steinex18>	:D
+T 1587153624 18<22ifreund18>	^^^
+T 1587153627 18<26candy18>	maybe you right :)
+T 1587153640 18<29kchibisov18>	Just use tabbed from suckless, and embed alacritty into it.
+T 1587153647 18<26candy18>	but i3 it too minimal
+T 1587153650 18<24UndeadLeech18>	Though there are alternatives, like kchibisov has mentioned.
+T 1587153654 18<22ifreund18>	no i3 is bloated
+T 1587153668 18<22ifreund18>	(it's all relative)
+T 1587153670 18<24UndeadLeech18>	Even has resize with mouse.
+T 1587153684 18<26candy18>	what do you suggest?
+T 1587153695 18<29kchibisov18>	idk, try `tabbed`.
+T 1587153695 18<24UndeadLeech18>	It depends on your needs.
+T 1587153706 18<24UndeadLeech18>	I run i3, but I never use tabs.
+T 1587153718 18<24UndeadLeech18>	Someone else might run tmux, because they need it anyways.
+T 1587153720 18<29kchibisov18>	I run sway and use tabs quite often.
+T 1587153769 18<26candy18>	i'm using tmux
+T 1587153778 18<29kchibisov18>	it has tabs as well.
+T 1587153789 18<26candy18>	but you know, it has his Disadvantages
+T 1587153802 18<24UndeadLeech18>	Yeah if you're running tmux anyways, just use tmux for tabs.
+T 1587153837 18<29kchibisov18>	I don't see any problems with tmux at all, it's nice.
+T 1587153851 18<29kchibisov18>	it aslo has a lot of flagship features, etc.
+T 1587153864 18<24UndeadLeech18>	I mean it is slow.
+T 1587153868 18<29kchibisov18>	not really.
+T 1587153873 18<26candy18>	i didn't knew tmux can create tabs
+T 1587153879 18<29kchibisov18>	like it's still faster than most terminal emulators.
+T 1587153881 18<26candy18>	i mean background tabs
+T 1587153887 18<24UndeadLeech18>	Yeah, but compared to raw Alacritty it's slow.
+T 1587153897 18<29kchibisov18>	yeah, but it's faster than 99% of terminals.
+T 1587153911 18<24UndeadLeech18>	Unfortunately I don't run 99% of terminals. :P
+T 1587153915 18<29kchibisov18>	and then you have alacirtty, which is faster than tmux.
+T 1587153925 18<29kchibisov18>	by like 2x.
+T 1587153951 18<24UndeadLeech18>	I really wonder how an Alacritty based multiplexer would perform wrt overhead.
+T 1587153952 18<22ifreund18>	i don't run tmux either, it does the same job as my window manager
+T 1587153958 18<24UndeadLeech18>	One of these days I'm going to give it a try.
+T 1587153978 18<22ifreund18>	like a client/sever session model? or what?
+T 1587153994 18<24UndeadLeech18>	Nah, just a tmux/screen clone based on Alacritty.
+T 1587153995 18<26candy18>	what is good wm other than i3?
+T 1587154007 18<29kchibisov18>	it's up to your needs.
+T 1587154009 18<22ifreund18>	dwm, awesomewm, xmonad sway
+T 1587154016 18<29kchibisov18>	dwm lul.
+T 1587154029 18<22ifreund18>	dude i liked dwm
+T 1587154039 18<24UndeadLeech18>	lol
+T 1587154051 18<22ifreund18>	but i don't like x, so i'm making my own dwm-alike for wayland
+T 1587154064 18<29kchibisov18>	I hate a lot of things about i3 window management.
+T 1587154071 18<22ifreund18>	same
+T 1587154077 18<29kchibisov18>	but whatever.
+T 1587154078 18<24UndeadLeech18>	dwm is the largest stockholm syndrome experiment to date.
+T 1587154091 18<26candy18>	i3 is so lite
+T 1587154092 18<26candy18>	that's cool
+T 1587154098 18<26candy18>	what's about dwm?
+T 1587154103 18<29kchibisov18>	it's even lighter.
+T 1587154109 18<26candy18>	wow
+T 1587154109 18<29kchibisov18>	like 1k lines of code.
+T 1587154113 18<22ifreund18>	2k
+T 1587154114 18<24UndeadLeech18>	Yeah, it just doesn't do anything.
+T 1587154118 18<29kchibisov18>	no tabs, nothing IIRC.
+T 1587154126 18<29kchibisov18>	can tile though.
+T 1587154135 18<22ifreund18>	tags and dynamic tiling isn't nothing
+T 1587154139 18<22ifreund18>	i3 doesn't have tags
+T 1587154145 18<26candy18>	in which lang it was written?
+T 1587154147 18<22ifreund18>	c
+T 1587154151 18<26candy18>	nice
+T 1587154155 18<22ifreund18>	you configure it by editing the source code
+T 1587154161 18<26candy18>	lol
+T 1587154167 18<22ifreund18>	https://dwm.suckless.org/
+T 1587154168 18<29kchibisov18>	I guess you can write it in whatever language you want under a few evenings.
+T 1587154183 18<24UndeadLeech18>	I mean that's mostly because i3 doesn't want to have tags.
+T 1587154190 18<22ifreund18>	yeah xmonad is basically dwm in haskell in even less sloc
+T 1587154195 18<26candy18>	i am not so well in c
+T 1587154210 18<24UndeadLeech18>	Though I do feel like there's a market for other tiling WMs. Just not dwm.
+T 1587154214 18<26candy18>	i know how to program in it but i regular to python etc
+T 1587154223 18<26candy18>	so i don't know how to handle the memory
+T 1587154235 18<29kchibisov18>	i3 navigation between containers and multi monitor support is weird.
+T 1587154250 18<29kchibisov18>	And resize is even weirder.
+T 1587154255 18<22ifreund18>	yeah, i want separate roots for each monitor
+T 1587154262 18<29kchibisov18>	like 2 widnows - ok, 6 windows - hell no.
+T 1587154277 18<29kchibisov18>	glad sway has mouse for such things, since it's way easier than keyboard.
+T 1587154278 18<24UndeadLeech18>	Oh yeah, I have that setup in i3.
+T 1587154281 18<24UndeadLeech18>	The defaults just suck.
+T 1587154298 18<24UndeadLeech18>	Like I have 5 workspaces on each monitor which cannot be shared across monitors.
+T 1587154309 18<29kchibisov18>	like resize with keyboard in i3 is a shitstorm.
+T 1587154317 18<22ifreund18>	for real
+T 1587154319 18<29kchibisov18>	as well as traversion order.
+T 1587154326 18<24UndeadLeech18>	i3 has mouse for resize too?
+T 1587154330 18<24UndeadLeech18>	Or what do you mean?
+T 1587154332 18<22ifreund18>	i just like dynamic window management better than manual though personally
+T 1587154335 18<29kchibisov18>	I mean for window move.
+T 1587154347 18<29kchibisov18>	resize is fine, nvm.
+T 1587154348 18<22ifreund18>	which you can't really get in i3 no matter how much you configure
+T 1587154350 18<29kchibisov18>	moving containers is broken.
+T 1587154357 18<24UndeadLeech18>	How so?
+T 1587154357 18<29kchibisov18>	however maybe new i3 has it.
+T 1587154362 18<24UndeadLeech18>	ifreund: You can.
+T 1587154372 18<24UndeadLeech18>	It would just be a bit of work.
+T 1587154372 18<22ifreund18>	UndeadLeech: got a link?
+T 1587154373 18<29kchibisov18>	it's hard, when you have plenty of them.
+T 1587154404 18<22ifreund18>	i feel like no matter how you implement it it's going to be a massive hack and not work as well as a wm designed around it
+T 1587154405 18<24UndeadLeech18>	kchibisov: How is it broken though, just out of curiosity?
+T 1587154420 18<29kchibisov18>	I can record you a giga video of me trying to move window.
+T 1587154423 18<22ifreund18>	maybe I'll convert y'all once my compositor is more feature complete
+T 1587154427 18<24UndeadLeech18>	ifreund: That's not the same as saying you can't really get it no matter how much you configure.
+T 1587154459 18<24UndeadLeech18>	Moving windows in i3 with the mouse you mean? While tiled?
+T 1587154461 18<22ifreund18>	i meant that you can sorta aproximate it, but not in a satisfactory way (at least to me)
+T 1587154466 18<29kchibisov18>	UndeadLeech: yeah.
+T 1587154477 18<24UndeadLeech18>	Ah, gotcha. Like drag & drop or what?
+T 1587154487 18<24UndeadLeech18>	I've never had any desire for that. Thought you were talking about floating windows or something.
+T 1587154488 18<29kchibisov18>	yeah, this drag & drop works fine.
+T 1587154507 18<29kchibisov18>	but moving with keyboard tiled windows if you have many of them is just hard.
+T 1587154521 18<29kchibisov18>	you'll break your layout and everything 100 times during it.
+T 1587154586 18<24UndeadLeech18>	I'd say that's just mostly something that depends on getting used to it, but the layout management of i3 certainly isn't perfect imho.
+T 1587154609 18<24UndeadLeech18>	But I never have more than 3 windows open at the same time on the same monitor really.
+T 1587154629 18<29kchibisov18>	I have somtimes like 8 windows on the same monitor.
+T 1587154653 18<29kchibisov18>	I mean workspace.
+T 1587154768 18<29kchibisov18>	Oh, and if you have tabbed container in this equation, everything will be even more broken.
+T 1587154804 18<29kchibisov18>	Like it's not a problem if you use 3 windows max on workspace without tabs, etc.
+T 1587154979 18<24UndeadLeech18>	Exactly what I'm saying.
+T 1587154989 18<24UndeadLeech18>	Just gotta fix the user.
+T 1587155033 18<24UndeadLeech18>	Also ifreund, are you writing your compositor in C based on WLC?
+T 1587155105 18<29kchibisov18>	Though, once anvil will become more stable I'll just use it.
+T 1587155122 18<29kchibisov18>	because it's anvil.
+T 1587155140 18<22ifreund18>	UndeadLeech: in Zig based on wlroots
+T 1587155147 18<24UndeadLeech18>	Isn't anvil floating?
+T 1587155150 18<22ifreund18>	https://github.com/ifreund/river
+T 1587155155 18<29kchibisov18>	it doesn't matter.
+T 1587155164 18<24UndeadLeech18>	Fair enough.
+T 1587155170 18<29kchibisov18>	it's anvil and it works.
+T 1587155191 18<24UndeadLeech18>	ifreund: What do you like about zig?
+T 1587155257 18<22ifreund18>	So in comparison with Rust, it's a far simpler language and has much less painful interop with C, making it pretty ideal for this project
+T 1587155284 18<29kchibisov18>	Nah, we need competition.
+T 1587155300 18<29kchibisov18>	so smithay is the way to go.
+T 1587155308 18<22ifreund18>	the ergonomics are pretty great and the finely grained pointer and optional pointer types are powerful enough that I'm not shooting myself in the foot anywhere near as easily as in C
+T 1587155410 18<24UndeadLeech18>	Fair enough, I'd assume by better interop you mean that the APIs are easier to use since it's more similar to C, rather than that connecting to those APIs is easier?
+T 1587155418 18<24UndeadLeech18>	Since just the FFI part is pretty trivial in Rust too.
+T 1587155572 18<22ifreund18>	both tbh, Zig lets you import C stuff directly without any need for bindings
+T 1587155584 18<22ifreund18>	you're also definitely right about it being closer to C
+T 1587155618 18<22ifreund18>	take the example of the offset_of macro that wayland-rs uses for the bindings to system wayland libs
+T 1587155652 18<22ifreund18>	that macro is technically UB since rust doesn't have the required compiler builtins yet
+T 1587155682 18<24UndeadLeech18>	I mean yeah, when it comes to the APIs of C just working better in Zig, I can totally see that.
+T 1587155683 18<22ifreund18>	(this is translating the wl_container_of macro that gets a pointer to a struct from a pointer to a member and the name of the field)
+T 1587155692 18<24UndeadLeech18>	That's why I'd just use the Wayland libs, rather than WLC tbh.
+T 1587155699 18<22ifreund18>	Zig just has @fieldParentPtr
+T 1587155702 18<29kchibisov18>	You see, Rust tells you to rewrite libwayland-client/server in Rust.
+T 1587155708 18<29kchibisov18>	so you're safe.
+T 1587155740 18<22ifreund18>	if you want my honest opinion, i don't think that RWIR is good engineering
+T 1587155766 18<24UndeadLeech18>	I think rewriting things is always great.
+T 1587155781 18<24UndeadLeech18>	Pretty much the best way to learn about things.
+T 1587155781 18<22ifreund18>	if they're probelms with them, sure
+T 1587155782 18<29kchibisov18>	exactly, especially if it'll be more secure.
+T 1587155790 18<29kchibisov18>	or scalable.
+T 1587155820 18<29kchibisov18>	Like the least thing I want is crashing of my compositor due to use-after-free.
+T 1587155827 18<24UndeadLeech18>	Also systems languages are pretty much the only ones so heavily relying on C. Having alternatives is definitely a good choice.
+T 1587155837 18<24UndeadLeech18>	There shouldn't be just one Wayland library.
+T 1587155839 18<22ifreund18>	it is a very good way to learn as well, but it's not very pragmatic as rust libraries are not reusable outside of the rust ecosystem
+T 1587155855 18<24UndeadLeech18>	That's not true.
+T 1587155875 18<24UndeadLeech18>	Not necessarily at least.
+T 1587155880 18<29kchibisov18>	Wayland is just a protocol, it doesn't matter what is on the other end.
+T 1587155890 18<24UndeadLeech18>	That too of course.
+T 1587155893 18<29kchibisov18>	like if it's rust lib or some C lib.
+T 1587155897 18<29kchibisov18>	doesn't matter.
+T 1587155921 18<24UndeadLeech18>	I mean one of the whole things about zig is that they don't use the C libc, right?
+T 1587155923 18<29kchibisov18>	At least for server, since you only have one compostor running.
+T 1587155955 18<22ifreund18>	yes, but exporting a C ABI with auto-generated C headers is a first class use-case for zig
+T 1587155973 18<29kchibisov18>	I don't have any problems with zig.
+T 1587155982 18<29kchibisov18>	I see that it could be useful for baremetal.
+T 1587155988 18<22ifreund18>	to be clear I quite like rust too
+T 1587156002 18<29kchibisov18>	However if it's using LLVM, I don't see much value for cross over rust.
+T 1587156054 18<29kchibisov18>	since #[no_std] is fine to write kernels, etc.
+T 1587156065 18<22ifreund18>	cross becomes a lot more painless due to the fact that Zig ships with the libcs of all the targets
+T 1587156067 18<24UndeadLeech18>	Yeah, bare metal without gcc is kinda tough tbh.
+T 1587156084 18<24UndeadLeech18>	So that kinda defeats the point.
+T 1587156115 18<29kchibisov18>	yeah, but you don't need libc for rust core IIRC.
+T 1587156140 18<29kchibisov18>	The problem is LLVM limitations most of the time.
+T 1587156182 18<22ifreund18>	rust std does depend on libc though right?
+T 1587156197 18<29kchibisov18>	std probably, but you have core.
+T 1587156200 18<24UndeadLeech18>	Yeah, LLVM is the big thing people complain about with Rust's cross-platform support on embedded. So that's the same for zig.
+T 1587156221 18<29kchibisov18>	like core isn't a problem in cross.
+T 1587156234 18<29kchibisov18>	And it aslo has vector, etc.
+T 1587156255 18<29kchibisov18>	With a bit more effort, but it's exaclty built for cross.
+T 1587156273 18<24UndeadLeech18>	Also has a great VTE lib I heard.
+T 1587156291 18<20Levanx18>	you need alloc to have the collections, core is not enough
+T 1587156303 18<29kchibisov18>	yeah, but you can create your allocator.
+T 1587156328 18<29kchibisov18>	So you'll have alloc, but still #[no_std]
+T 1587156393 18<29kchibisov18>	vec is in alloc::vec::Vec, right.
+T 1587156393 18<29kchibisov18>	but it's still can be #[no_std]
+T 1587156405 18<24UndeadLeech18>	Nah, vec is std exclusive iirc. But there are crates for no-std vec.
+T 1587156455 18<29kchibisov18>	I've seen alloc::vec::Vec on #[no_std] recently.
+T 1587156518 18<20Levanx18>	https://doc.rust-lang.org/stable/alloc/vec/struct.Vec.html
+T 1587156518 18<20Levanx18>	looks like alloc to me
+T 1587156518 18<24UndeadLeech18>	Yeah, you're right: https://doc.rust-lang.org/alloc/vec/struct.Vec.html
+T 1587156518 18<24UndeadLeech18>	But it doesn't show up in core::alloc: https://doc.rust-lang.org/core/alloc/index.html?search=
+T 1587156538 18<24UndeadLeech18>	Only in alloc::.
+T 1587156568 18<24UndeadLeech18>	So there's ::alloc, std::alloc, core::alloc, std::vec::Vec and alloc::vec::Vec.
+T 1587156568 18<24UndeadLeech18>	Simple.
+T 1587156611 18<20Levanx18>	Half of std is reexports from core or alloc though
+T 1587156619 18<24UndeadLeech18>	Yeah.
+T 1587156642 18<24UndeadLeech18>	I'm fine with two different allocs, three's just a bit much.
+T 1587156672 18<20Levanx18>	Probably they could have been better named
+T 1587156709 18<20Levanx18>	I understand core::alloc as the APIs for defining an allocator, and ::alloc as a collection of containers & types needing an allocator
+T 1587156721 18<29kchibisov18>	IIRC to make Vec work you need #[global_allocator] somewhere on your #[no_std]
+T 1587156747 18<29kchibisov18>	Since you don't have allocator on bare metal for known reasons.
+T 1587156768 18<29kchibisov18>	once you have dynamic memory you can use it.
+T 1587156783 18<20Levanx18>	We need CPUs with a malloc opcode then
+T 1587156833 18<29kchibisov18>	I mean you can define [0u64;1000] area and say that's your dynamic memory.
+T 1587156853 18<22ifreund18>	ah yeah that's another thing I really appreciate about zig, allocators are all local and you have total controll
+T 1587156886 18<24UndeadLeech18>	Levanx: I think that ::alloc is kind of a recent thing, right?
+T 1587156895 18<24UndeadLeech18>	That's probably some of the reason why it is the way it is.
+T 1587156914 18<24UndeadLeech18>	Since Rust's STD cannot introduce breaking changes ever.
+T 1587156931 18<20Levanx18>	Its stabilization is relatively recent yeah
+T 1587156950 18<20Levanx18>	it has been existing on nightly for quite some time though
+T 1587156995 18<20Levanx18>	stabilized in 1.36.0 looks like
+T 1587157011 18<29kchibisov18>	Yeah, just fine out code that uses #[no_std] + Vec from `alloc::vec::Vec`
+T 1587157012 18<24UndeadLeech18>	Yeah that's like extremely recent.
+T 1587157022 18<24UndeadLeech18>	The whole custom allocator thing is fairly fresh.
+T 1587157028 18<29kchibisov18>	without any external crates.
+T 1587157047 18<29kchibisov18>	custom allocator isn't that fresh.
+T 1587157065 18<29kchibisov18>	it was during jemalloc/sys allocator updates.
+T 1587157080 18<24UndeadLeech18>	Pretty fresh if you ask me.
+T 1587157087 18<20Levanx18>	<ifreund "ah yeah that's another thing I r"> There is one thing that wayland-rs does not support at all that the C libwayland lib handle, it's OOM.
+T 1587157120 18<24UndeadLeech18>	How do they handle it and during what time might you run into OOM?
+T 1587157177 18<20Levanx18>	Well, they check the return value of malloc and return NULL if it is NULL, mostly.
+T 1587157218 18<24UndeadLeech18>	Ah, so you just mean in general rather than some specific cases? Since Rust doesn't handle OOM?
+T 1587157237 18<20Levanx18>	In Rust currently, OOM => panic
+T 1587157242 18<24UndeadLeech18>	Yeah exactly.
+T 1587157245 18<29kchibisov18>	but you can catch panic.
+T 1587157291 18<20Levanx18>	Well yeah but
+T 1587157319 18<29kchibisov18>	I still think that checking malloc won't help if you if get `NULL`
+T 1587157335 18<22ifreund18>	what? why not?
+T 1587157360 18<29kchibisov18>	Like it could help, but if your system already goes to OOM, kernel will just start killing everyone.
+T 1587157397 18<22ifreund18>	well if everything crashes execept your program, it may very well survive
+T 1587157414 18<29kchibisov18>	nah, I can make my GPU driver to leak 64GB
+T 1587157433 18<29kchibisov18>	and kernel won't free that memory ever.
+T 1587157440 18<22ifreund18>	hah
+T 1587157440 18<29kchibisov18>	like whatever.
+T 1587157458 18<29kchibisov18>	and UndeadLeech even reproduced that bug at some point IIRC.
+T 1587157465 18<24UndeadLeech18>	:)
+T 1587157490 18<29kchibisov18>	And we now that removing kernel module for your GPU isn't a good idea.
+T 1587157498 18<20Levanx18>	driver bugs are always the best part
+T 1587157547 18<22ifreund18>	which driver is this?
+T 1587157559 18<29kchibisov18>	amdgpu
+T 1587157574 18<22ifreund18>	hah i guess it will happen to me someday as well then
+T 1587157581 18<29kchibisov18>	oh, you can try.
+T 1587157584 18<28Yaniel18>	what bug with amdgpu?
+T 1587157597 18<28Yaniel18>	oh, a memory leak
+T 1587157607 18<20Levanx18>	Oh, how do you make it leak that much memory? I'll have to try it when I go back to the lab
+T 1587157616 18<29kchibisov18>	it's not really a leak.
+T 1587157628 18<29kchibisov18>	amdgpu can use RAM if it runs out of dedicated memory
+T 1587157635 18<29kchibisov18>	by default.
+T 1587157649 18<28Yaniel18>	yes that's how OpenGL works
+T 1587157672 18<20Levanx18>	and that is never freed ?
+T 1587157676 18<29kchibisov18>	yeah.
+T 1587157690 18<29kchibisov18>	and it goes like from 8GB to 64GB under a second.
+T 1587157714 18<29kchibisov18>	Just increase font in alacritty, and at some point it'll blow up.
+T 1587157728 18<29kchibisov18>	At least it was true somee time ago, when I've found it out.
+T 1587157743 18<24UndeadLeech18>	Yeah, I wasn't able to reload my kernel module. :) Didn't go well.
+T 1587157744 18<29kchibisov18>	like 5 months ago.
+T 1587157753 18<24UndeadLeech18>	Unless you like black screens.
+T 1587157765 18<29kchibisov18>	but you should do it for some time.
+T 1587157789 18<20Levanx18>	Black screens do have some kind of aesthetics though
+T 1587157801 18<24UndeadLeech18>	True.
+T 1587157813 18<24UndeadLeech18>	If you're lucky it will just kill X and because of that close Alacritty though.
+T 1587157827 18<29kchibisov18>	but memory won't be freed.
+T 1587157843 18<29kchibisov18>	even if you logout.
+T 1587157844 18<24UndeadLeech18>	You sure? I thought that it worked for me. I don't quite remember.
+T 1587157859 18<29kchibisov18>	I've logged out/logged in and there was a leak.
+T 1587157860 18<24UndeadLeech18>	But yeah, I just don't remember anymore.
+T 1587157876 18<24UndeadLeech18>	I do remember not being able to free stuff anymore.
+T 1587157881 18<29kchibisov18>	like 48 GB of memory without even a process in htop.
+T 1587157881 18<20Levanx18>	Who needs more than 640kB of memory though
+T 1587157941 18<29kchibisov18>	If someone will repro this bug, let me know.
+T 1587157951 18<29kchibisov18>	I don't want to try it one more time.
+T 1587157959 18<28Yaniel18>	I did manage to cause a kernel panic from amdgpu recently but I don't think it was related to this
+T 1587157972 18<24UndeadLeech18>	You really have to look for this to work.
+T 1587157981 18<29kchibisov18>	yeah.
+T 1587157990 18<28Yaniel18>	since it happened when I tried hw encoding video at 4K
+T 1587157992 18<29kchibisov18>	you should increase font in alacritty for some time.
+T 1587158020 18<29kchibisov18>	like a minute or two.
+T 1587158137 18<29kchibisov18>	but the funnies thing here, that kernel will be killing everyone, because no process is owning this memory at all.
+T 1587158150 18<29kchibisov18>	funniest*
+T 1587158167 18<24UndeadLeech18>	The Purge.
+T 1587158177 18<20Levanx18>	how to make the oom killer freak out
+T 1587158194 18<29kchibisov18>	but hey, it works at least.
+T 1587158272 18<20Levanx18>	Does that end up with a "Kernel panic: attempted to kill init!" ?
+T 1587158284 18<20Levanx18>	I've hit this message a few times, don't remember how though
+T 1587158287 18<29kchibisov18>	I pressed reboot earlier.
+T 1587158313 18<29kchibisov18>	but you can try!
+T 1587158366 18<29kchibisov18>	I feel like this bug should be still there.
+T 1587158380 18<20Levanx18>	I don't have my amgpu laptop with me, I left it at the lab. So I have to wait to be allowed to go work again.
+T 1587158393 18<20Levanx18>	The suspense is going to kill me :'(
+T 1587158398 18<24UndeadLeech18>	It came back for me after killing Alacritty.
+T 1587158402 18<24UndeadLeech18>	Just tested it.
+T 1587158409 18<29kchibisov18>	:- )
+T 1587158414 18<29kchibisov18>	so bug is still there.
+T 1587158415 18<24UndeadLeech18>	https://paste.rs/zHR.png
+T 1587158423 18<24UndeadLeech18>	But the 11G memory are gone.
+T 1587158465 18<24UndeadLeech18>	I think that's what happened for me last time too. So you're right that there's no way to get back that memory, but you might be able to recover.
+T 1587158473 18<24UndeadLeech18>	Guess I'll see you guys after a reboot. :)
+T 1587158491 18<29kchibisov18>	11 GB isn't a thing, just let them chill around.
+T 1587158508 18<24UndeadLeech18>	I mean I could. But I can't.
+T 1587158511 18<20Levanx18>	What kind of computer is that
+T 1587158516 18<20Levanx18>	48 cpus ? :o
+T 1587158517 18<24UndeadLeech18>	That's my desktop.
+T 1587158534 18<28Yaniel18>	presumably (logical) cores
+T 1587158565 18<20Levanx18>	yeah but still
+T 1587158569 18<20Levanx18>	Do you have a Xeon on your desktop ?
+T 1587158577 18<28Yaniel18>	I'm guessing two xeons
+T 1587158587 18<29kchibisov18>	it's just threadripper for 24 cores.
+T 1587158630 18<29kchibisov18>	https://www.amd.com/en/products/cpu/amd-ryzen-threadripper-3960x
+T 1587158633 18<28Yaniel18>	oh right that has a 24/48 variant too
+T 1587158667 18<24UndeadLeech18>	Yeah, it's the 3960X.
+T 1587158707 18<20Levanx18>	Wow, AMD sure went down the "moar cores" road
+T 1587158721 18<24UndeadLeech18>	Not having a power of 2 as CPUs is a bit annoying, but I just couldn't justify paying even more.
+T 1587158743 18<24UndeadLeech18>	At least it divides nicely by 3.
+T 1587158853 18*	20Levanx just checked the price on Amazon.
+T 1587158863 18<20Levanx18>	._.
+T 1587158896 18<29kchibisov18>	but hey, imagine gentoo on this thing.
+T 1587158904 18<29kchibisov18>	system update is a breeze.
+T 1587158919 18<20Levanx18>	I can imagine that, yeah
+T 1587158941 18<29kchibisov18>	like on my 8 core system kernen takes like 90 seconds.
+T 1587158946 18<20Levanx18>	Compiling rustc must take, hmmm, at least 10 minutes
+T 1587158953 18<28Yaniel18>	*cries in 4 cores without HT*
+T 1587158988 18<29kchibisov18>	but with let's say 32/64 it's just waiting for linker.
+T 1587158999 18<28Yaniel18>	heh
+T 1587159082 18<20Levanx18>	The time I contributed a little to rustc, on my poor i5, was quite a painful experience
+T 1587159147 18<24UndeadLeech18>	Yeah, even on this machine it's basically all linking.
+T 1587159157 18<24UndeadLeech18>	Though debug mode Alacritty with lldb is pretty fast.
+T 1587159167 18<29kchibisov18>	lldb?
+T 1587159175 18<24UndeadLeech18>	lld, not lldb.
+T 1587159177 18<29kchibisov18>	time to lldb my code.
+T 1587159182 18<24UndeadLeech18>	:P
+T 1587159204 18<29kchibisov18>	I feel like I don't need to sleep that often tbh.
+T 1587159222 18<24UndeadLeech18>	What?
+T 1587159224 18<29kchibisov18>	Like I have giga PRs around to review and shit ton of code to write.
+T 1587159241 18<29kchibisov18>	Should be fine.
+T 1587159267 18<29kchibisov18>	Also, UndeadLeech , is it a bug or feature with selection expansion on shell?
+T 1587159279 18<24UndeadLeech18>	Ah, good thing search is only 1000 lines on top of the existing PR.
+T 1587159283 18<24UndeadLeech18>	What do you mean?
+T 1587159300 18<29kchibisov18>	I mean when you paste with middle click you auto extend selection
+T 1587159308 18<29kchibisov18>	Have you reprod it?
+T 1587159362 18<29kchibisov18>	it's a thing on master as well, but I'm not sure what this thing is.
+T 1587159411 18<29kchibisov18>	I feel like it's a bug.
+T 1587159411 18<24UndeadLeech18>	Selection always auto expands.
+T 1587159413 18<24UndeadLeech18>	No matter what you do.
+T 1587159420 18<24UndeadLeech18>	That has always been how it works.
+T 1587159455 18<29kchibisov18>	Oh, it's a correct behavior.
+T 1587159475 18<29kchibisov18>	since it's a word, and you increase word len.
+T 1587159488 18<24UndeadLeech18>	Yeah. It's always been a bit weird to me.
+T 1587159492 18<29kchibisov18>	so you just update it to include word.
+T 1587159495 18<29kchibisov18>	whatever.
+T 1587159500 18<24UndeadLeech18>	But expansion is done at render time, not at selection time.
+T 1587159515 18<29kchibisov18>	yeah, I know, we started doing so recently.
+T 1587159518 18<24UndeadLeech18>	So I don't want to say it should definitely work the way it does, but it has always at least until now.
+T 1587159670 18<29kchibisov18>	But at least we found out a lot of strange issues about our reflow.
+T 1587159736 18<24UndeadLeech18>	Gotta look at the bright things. If something's not working amazingly well, it's an opportunity to make it.
+T 1587159771 18*	29kchibisov looks at our renderer, closes our renderer code.
+T 1587159783 18<24UndeadLeech18>	I don't think that's terrible tbh.
+T 1587159788 18<24UndeadLeech18>	Like reflow is much worse.
+T 1587159799 18<29kchibisov18>	it's not terrible, it's strange.
+T 1587159800 18<24UndeadLeech18>	The worst parts are just all the OpenGL stuff.
+T 1587159806 18<24UndeadLeech18>	Which is how OpenGL works.
+T 1587159822 18<29kchibisov18>	everything in render/mod.rs is just strange.
+T 1587159833 18<29kchibisov18>	starting from live reload of shaders from build directory.
+T 1587159845 18<29kchibisov18>	I mean project root or whatever.
+T 1587159858 18<24UndeadLeech18>	Huh, don't really feel the same. All the glyph/font/atlas stuff is pretty good imho.
+T 1587159878 18<24UndeadLeech18>	Live shader reload is a bit strange, that's true.
+T 1587159911 18<24UndeadLeech18>	Which is why I've proposed removing it before. I feel like we either need to make it a first class citizen or just scrap it. It might have originally been there to make development easier, I'm not sure.
+T 1587159938 18<24UndeadLeech18>	Like that's the only usecase I see for how it works at the moment.
+T 1587159974 18<29kchibisov18>	you should edit your shader in nano to make it work.
+T 1587160011 18<24UndeadLeech18>	Right, there was some kind of issue with reloading files instead of directories.
+T 1587160026 18<24UndeadLeech18>	Though I don't really remember what it was.
+T 1587160037 18<24UndeadLeech18>	Vim replaces the file instead of changing it?
+T 1587160047 18<29kchibisov18>	I've used this feature only once.
+T 1587160075 18<24UndeadLeech18>	I've never used this feature for anything other than testing it out to mess with funky shaders.
+T 1587160117 18<29kchibisov18>	I feel like util.rs files are just neccessary evil sometimes.
+T 1587160127 18<24UndeadLeech18>	Never!
+T 1587160133 18<29kchibisov18>	like I have no idea where to put some glue code.
+T 1587160175 18<29kchibisov18>	Like I don't need it in public, just in 2 different modules.
+T 1587160179 18<29kchibisov18>	which are not connected
+T 1587160189 18<24UndeadLeech18>	Just found the `limit` function, which we use in exactly one place.
+T 1587160190 18<24UndeadLeech18>	Nice.
+T 1587160241 18<29kchibisov18>	I really don't see where you'll put something like `spawned_named` tbh.
+T 1587160252 18<29kchibisov18>	spawn_named*
+T 1587160260 18<29kchibisov18>	or start_daemon
+T 1587160297 18<29kchibisov18>	touch util.rs
+T 1587160331 18<24UndeadLeech18>	alacritty_terminal/thread.rs?
+T 1587160347 18<24UndeadLeech18>	Oh, nvm you're talking about the process stuff not thread.
+T 1587160355 18<24UndeadLeech18>	alacritty_terminal/process.rs?
+T 1587160365 18<29kchibisov18>	and alacritty_terminal/thread.rs as well
+T 1587160390 18<29kchibisov18>	just 2 files with 1 function each.
+T 1587160405 18<24UndeadLeech18>	At least it's not 1 file with a shitty name!
+T 1587160406 18<29kchibisov18>	and copyright message larger than the entire file.
+T 1587160430 18<24UndeadLeech18>	I don't really understand the capyright message anyways.
+T 1587160440 18<29kchibisov18>	I also wonder whether we should use it for new files
+T 1587160440 18<24UndeadLeech18>	I'm not quite sure about its purpose.
+T 1587160449 18<29kchibisov18>	But we can't just remove it
+T 1587160457 18<24UndeadLeech18>	Why not?
+T 1587160472 18<29kchibisov18>	This is not how it works, since you should likely request perm.
+T 1587160492 18<24UndeadLeech18>	It's apache2 anyways though.
+T 1587160499 18<24UndeadLeech18>	Like it doesn't change the license.
+T 1587160506 18<29kchibisov18>	Since you're technically relicense source.
+T 1587160506 18<24UndeadLeech18>	You're not.
+T 1587160518 18<24UndeadLeech18>	That's why I don't really understand it.
+T 1587160806 18<29kchibisov18>	idk, LLVM is also using it right in source.
+T 1587160827 18<24UndeadLeech18>	Does it have the license listed separately?
+T 1587160833 18<29kchibisov18>	yeah
+T 1587160844 18<29kchibisov18>	it's Apache 2 with LLVM extenstions.
+T 1587160887 18<29kchibisov18>	each project has LICENSE.txt
+T 1587160911 18<24UndeadLeech18>	Is it the same everywhere?
+T 1587160924 18<24UndeadLeech18>	I feel like this would only be useful if the entire project isn't under the same license.
+T 1587160945 18<29kchibisov18>	it's some political thing tbh.
+T 1587160961 18<24UndeadLeech18>	As far as I know, there is absolutely no legal requirement for it.
+T 1587160972 18<24UndeadLeech18>	So removing it from the top of files does not change anything about the licensing.
+T 1587161022 18<22ifreund18>	yeah i've never understood that thing either, but so many projects seem to do it
+T 1587161105 18<24UndeadLeech18>	For now I've just gone with the approach of not adding it to new files, but I suppose I could remove it from everywhere for uniformity.
+T 1587161153 18<29kchibisov18>	I'd rather understand the reason behind such thing first tbh.
+T 1587161157 18<29kchibisov18>	like there should be a reason.
+T 1587161202 18<22ifreund18>	i feel like in 90% of cases people are just doing it cause they see others do it
+T 1587161204 18<24UndeadLeech18>	As far as I understand it, the purpose is to make it easier to find the license of each specific file without risk of confusion.
+T 1587161222 18<24UndeadLeech18>	Like if someone just copy/pasted our util.rs into their own project, it would automatically copy over the license too.
+T 1587161246 18<24UndeadLeech18>	So the license is automatically enforced.
+T 1587161267 18<29kchibisov18>	I feel like it makes the mose sense for GPL
+T 1587161273 18<29kchibisov18>	most*
+T 1587161288 18<29kchibisov18>	you see GPL, you don't touch this thing.
+T 1587161337 18<24UndeadLeech18>	Like for apache 2 you need to include the full license of the original file too.
+T 1587161353 18<24UndeadLeech18>	So if one wanted to copy our util.rs, it would be done automatically.
+T 1587161363 18<24UndeadLeech18>	If it's not part of the file, they'd have to do it manually.
+T 1587161406 18<29kchibisov18>	I mean that if you copy random GPL-3 code on the internet to your MIT project you're fucked, right?
+T 1587161437 18<29kchibisov18>	e.g. you can't copy code from gcc to LLVM most of the time.
+T 1587161447 18<24UndeadLeech18>	Yeah.
+T 1587161448 18<29kchibisov18>	so LLVM has to rewrite the same functions in asm sometimes.
+T 1587161576 18<24UndeadLeech18>	MIT is compatible with GPL, but not the other way around. So you can have MIT in GPL projects, but not GPL in MIT projects.
+T 1587161617 18<29kchibisov18>	yeah, so if you copy MIT code in GPL code you should preserve MIT, right?
+T 1587161645 18<29kchibisov18>	Like it should be right in the source.
+T 1587161669 18<24UndeadLeech18>	> The above copyright notice and this permission notice shall be included in all
+T 1587161672 18<24UndeadLeech18>	copies or substantial portions of the Software.
+T 1587161686 18<24UndeadLeech18>	This is what the MIT license says. So yeah it probably needs to be distributed with the software.
+T 1587161854 18<29kchibisov18>	So it makes sense to have it in files.
+T 1587161870 18<24UndeadLeech18>	I'm not sure it does.
+T 1587161872 18<29kchibisov18>	like you can have LLVM right in your project and change it.
+T 1587161874 18<24UndeadLeech18>	Like it's not our problem.
+T 1587161909 18<29kchibisov18>	Like you can clearly state that 'this code is a part of XXX' with 'YYY changes'
+T 1587161928 18<29kchibisov18>	and YYY changes has a different license than XXX.
+T 1587161936 18<29kchibisov18>	it should be valid, right?
+T 1587161960 18<24UndeadLeech18>	Yeah, but honestly I don't see why we would make our code worse to make license compatibility easier for others.
+T 1587161970 18<24UndeadLeech18>	I don't really want to bother with that mess.
+T 1587161990 18<29kchibisov18>	me neiter, but I don't mind those headers.
+T 1587162023 18<24UndeadLeech18>	I kinda do.
+T 1587162027 18<24UndeadLeech18>	But it's fine for now.
+T 1587162079 18<29kchibisov18>	Just start putting your name and it'll be fine.
+T 1587162097 18<29kchibisov18>	for new files.
+T 1587162108 18<24UndeadLeech18>	Just my name?
+T 1587162133 18<29kchibisov18>	I mean in license text
+T 1587162149 18<24UndeadLeech18>	Not really feeling that tbh.
+T 1587194875 20*	Disconnected (20)
+T 1587196735 19*	Now talking on 22#alacritty
+T 1587196735 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587196735 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587209769 20*	Disconnected (20)
+T 1587229957 19*	Now talking on 22#alacritty
+T 1587229957 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587229957 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587230020 18<24UndeadLeech18>	No, Termite's character does not exist.
+T 1587230029 18<24UndeadLeech18>	We're using the font, Termite does not.
+T 1587230090 18<27randomia18>	Oh thank you. I thought I was going bonkers there.
+T 1587230129 18<27randomia18>	Have a nice day UndeadLeech :)
+T 1587238711 18<24UndeadLeech18>	kchibisov: How would you expect search to work with highlighting everything? Freeze new input?
+T 1587238861 18<29kchibisov18>	I feel like it applies to normal search as well?
+T 1587238880 18<24UndeadLeech18>	In a way, yeah.
+T 1587238888 18<24UndeadLeech18>	But tracking a million points is harder than traking two.
+T 1587238927 18<29kchibisov18>	Oh, can we hold screen?
+T 1587238938 18<24UndeadLeech18>	That's what I'm asking. If we should do that.
+T 1587238944 18<29kchibisov18>	I'm not sure that it's the right thing to do, but it'll be interesting.
+T 1587238953 18<29kchibisov18>	like you just start changing display_offset.
+T 1587238954 18<24UndeadLeech18>	Yeah I have similar feelings.
+T 1587238977 18<29kchibisov18>	I feel like it's fine tbh.
+T 1587238989 18<29kchibisov18>	like at which point do you want to search scrolling text?
+T 1587238999 18<29kchibisov18>	I always want to stop it.
+T 1587239011 18<24UndeadLeech18>	I'm wondering if we should do that in general, once we have it in place anyways.
+T 1587239025 18<29kchibisov18>	I guess.
+T 1587239049 18<24UndeadLeech18>	Also wondering if that tiny bit of code removed from scroll_up scroll_down would affect performance at all.
+T 1587239258 18<24UndeadLeech18>	On the other hand, rotation isn't that difficult.
+T 1587239318 18<20cole-h18>	As a user, I think I'd rather freeze new input. If you're searching for something, it's usually something  that has already been displayed, so searching newly-displayed stuff has little to no value IMO
+T 1587239334 18<24UndeadLeech18>	How about selection?
+T 1587239384 18<24UndeadLeech18>	And vi mode too I suppose.
+T 1587239388 18<20cole-h18>	Like if I were to hold Shift+Left click while stuff scrolls? Hm.
+T 1587239471 18<20cole-h18>	Most of the time I do that, I'm already scrolled up a little bit (and so new content doesn't affect it). So, I think freezing that should be fine as well?
+T 1587239542 18<20cole-h18>	I don't know about vi, though.
+T 1587239632 18<24UndeadLeech18>	I'm also not even sure anymore if it's worth it to try and track points during resize then.
+T 1587239661 18<24UndeadLeech18>	Or if we should just always freeze and then clear action whenever resizing.
+T 1587242051 18<24holomorph18>	hi, i'm making some bindings like so http://ix.io/2iAH to replicate some xterm modifyOtherKeys business.  i'm wondering how i would bind things like C-(, C-), or C-?
+T 1587242109 18<24holomorph18>	glutin appears to be missing keycodes for these, and i'm not sure what showkey --scancodes is telling me or if i can use scancodes for such a key combo
+T 1587242262 18<29kchibisov18>	You can get scancodes by `alacritty --print-events | grep -i keyboardinput`
+T 1587242649 18<24holomorph18>	kchibisov: oic. got it, thank you
+T 1587242801 18<29kchibisov18>	if it shows you vitrualkeycode then you can bind by it + modifier
+T 1587242930 18<24holomorph18>	which comes from glutin, so yeah
+T 1587244019 18<26mynamehere18>	Sorry to keep bothering you guys, but I have been doing some distro hopping and installing various distros across different systems.... Right now I am trying pop_OS and alacritty is acting strange. Backspaces move and don't remove any of the words. tmux responds with "open terminal failed: missing or unsuitable terminal: alacritty" and  commands such as clear and reset respond with "unknown
+T 1587244021 18<26mynamehere18>	terminal type"
+T 1587244044 18<26mynamehere18>	backspaces move forward*
+T 1587244064 18<20wma18>	you need to copy the terminfo
+T 1587244105 18<20wma18>	https://github.com/alacritty/alacritty/blob/master/INSTALL.md#terminfo
+T 1587246328 18<26mynamehere18>	Okay, so now all that works, but there are only colors if tmux is activated
+T 1587246425 18<26gamara18>	Hey does anyone know how to get a terminal to load into scratch pad on startup on sway? I cant seem to get this to work at all I am running 4.2 and none of the methods I have found seem to work.
+T 1587246518 18<26mynamehere18>	well actually that'll work for now, thanks @wma!
+T 1587246956 20*	Disconnected (20)
+T 1587247071 20*	Disconnected (20Remote host closed socket)
+T 1587247129 20*	Disconnected (20Remote host closed socket)
+T 1587247186 20*	Disconnected (20Remote host closed socket)
+T 1587247230 19*	Now talking on 22#alacritty
+T 1587247230 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587247230 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587247279 18<20cole-h18>	gamara: Here's what I use https://gist.github.com/cole-h/75e7321316315a717e5ab8282f64b86f
+T 1587257131 20*	Disconnected (20)
+T 1587257181 20*	Disconnected (20Remote host closed socket)
+T 1587257249 20*	Disconnected (20Remote host closed socket)
+T 1587257317 20*	Disconnected (20Remote host closed socket)
+T 1587257343 19*	Now talking on 22#alacritty
+T 1587257343 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587257343 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587260668 18<24UndeadLeech18>	kchibisov: Do you have an issue with inputs building up when holding down enter while in shell on latest master?
+T 1587260772 18<24UndeadLeech18>	Oh, I think it's an issue with my zsh.
+T 1587260775 18<24UndeadLeech18>	Phew.
+T 1587282736 20*	Disconnected (20)
+T 1587282761 19*	Now talking on 22#alacritty
+T 1587282761 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587282761 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587284194 20*	Disconnected (20)
+T 1587284221 19*	Now talking on 22#alacritty
+T 1587284221 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587284221 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587287833 20*	Disconnected (20)
+T 1587288242 19*	Now talking on 22#alacritty
+T 1587288242 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587288242 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587290461 20*	Disconnected (20)
+T 1587290498 19*	Now talking on 22#alacritty
+T 1587290498 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587290498 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587296730 20*	Disconnected (20)
+T 1587296749 19*	Now talking on 22#alacritty
+T 1587296749 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587296749 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587303937 18<24UndeadLeech18>	kchibisov: Have you ever used search in Kitty?
+T 1587303958 18<29kchibisov18>	I've never used any terminal for more than 1 hour.
+T 1587303978 18<24UndeadLeech18>	So is that a yes or a no?
+T 1587303983 18<29kchibisov18>	no
+T 1587303993 18<29kchibisov18>	and it's true for everything except tmux/alacritty.
+T 1587304004 18<29kchibisov18>	and I have some memory about iterm.
+T 1587304018 18<29kchibisov18>	like I've pressed it for sure in it, but I don't rememeber.
+T 1587304021 18<24UndeadLeech18>	Ah. I thought you were the one suggesting the separate terminal opening the scrollback in less like Kitty.
+T 1587304031 18<29kchibisov18>	No
+T 1587304048 18<24UndeadLeech18>	I'm just wondering about the drawbacks of that approach.
+T 1587304072 18<24UndeadLeech18>	Like is a vi mode and search even necessary, when you can open the scrollback in vim in the same terminal emulator without any hassle?
+T 1587304150 18<29kchibisov18>	If you can do that inplace -> no issues.
+T 1587304178 18<24UndeadLeech18>	I mean you could start up a separate terminal and replace the current one.
+T 1587304198 18<29kchibisov18>	but it sounds like one giant hack.
+T 1587304200 18<24UndeadLeech18>	And it would automatically support all vim motions, not just some of them. Though with vim you wouldn't get color.
+T 1587304221 18<24UndeadLeech18>	It does, but search and vimode is getting a bit hacky too tbh.
+T 1587304241 18<29kchibisov18>	I mean search and vimode are fine.
+T 1587304249 18<24UndeadLeech18>	Like I'm just thinking that we might be able to simplify things so much more if we just let vi do what it's good at, instead of trying to do it ourselves.
+T 1587304277 18<24UndeadLeech18>	Otoh, I'm trying to figure out a good reason not to, because I don't want to throw away everything I've been doing for the past like month. :P
+T 1587304278 18<29kchibisov18>	then add tabs
+T 1587304295 18<29kchibisov18>	if you really want to make it work, we need tabs, etc.
+T 1587304301 18<24UndeadLeech18>	Why?
+T 1587304313 18<29kchibisov18>	opening shit in place without creating a new instance
+T 1587304333 18<29kchibisov18>	like I don't want to open one more terminal.
+T 1587304333 18<24UndeadLeech18>	I mean you can just replace the terminal that is currently active and store the old one for later use.
+T 1587304346 18<29kchibisov18>	yeah, but you're already 50% done tabs.
+T 1587304348 18<29kchibisov18>	if you do that.
+T 1587304366 18<24UndeadLeech18>	I mean everything but the UI, yeah. But the UI is like the exact thing I don't want to do.
+T 1587304374 18<24UndeadLeech18>	We'll need to 50% do tabs to support it for macOS too.
+T 1587304385 18<24UndeadLeech18>	So I feel like some of this work will need to be done sooner or later anyways.
+T 1587304387 18<29kchibisov18>	and for multi window.
+T 1587304391 18<24UndeadLeech18>	Yeah exactly.
+T 1587304393 18<29kchibisov18>	but I like our current vi mode.
+T 1587304417 18<29kchibisov18>	and I'll refuse to open vim in place with grid.
+T 1587304422 18<24UndeadLeech18>	I don't disagree with that. I feel like swapping to another application could be a bit jarring.
+T 1587304437 18<24UndeadLeech18>	Let me actually play around with Kitty for a bit. See how it works out.
+T 1587304446 18<29kchibisov18>	don't forget that I can paste from vi mode right into app.
+T 1587304468 18<24UndeadLeech18>	Yeah, right. You don't need to close vi to get back to Alacritty.
+T 1587304489 18<29kchibisov18>	don't forget to give it some milk, once you've done.
+T 1587304495 18<24UndeadLeech18>	:P
+T 1587304504 18<29kchibisov18>	But I don't like spawning vi.
+T 1587304511 18<29kchibisov18>	like you'll break layout of the app, etc.
+T 1587304528 18<24UndeadLeech18>	What do you mean by that?
+T 1587304548 18<29kchibisov18>	imagine opening weechat in vim.
+T 1587304564 18<29kchibisov18>	I mean vim with weechat content to just select
+T 1587304568 18<24UndeadLeech18>	I mean since the horizontal width is the same, it shouldn't be too bad.
+T 1587304577 18<29kchibisov18>	my weechat is using tabs
+T 1587304584 18<29kchibisov18>	vim is using spaces
+T 1587304598 18<29kchibisov18>	weechat is larger than vim.
+T 1587304610 18<29kchibisov18>	due to line number by default in vim.
+T 1587304612 18<24UndeadLeech18>	Ah you mean like different tabwidth configured?
+T 1587304617 18<29kchibisov18>	ofc.
+T 1587304619 18<24UndeadLeech18>	Right, right.
+T 1587304627 18<29kchibisov18>	you'll loose colors, etc.
+T 1587304633 18<29kchibisov18>	and live update of content.
+T 1587304636 18<24UndeadLeech18>	I mean Kitty is using `less` by default.
+T 1587304640 18<24UndeadLeech18>	Which works much better.
+T 1587304647 18<29kchibisov18>	select with keyboard in less
+T 1587304661 18<24UndeadLeech18>	But it obviously doesn't work for vi mode, just for search yeah.
+T 1587304677 18<29kchibisov18>	so I should use vi as pager
+T 1587304685 18<29kchibisov18>	and we should dump with truecolors
+T 1587304720 18<29kchibisov18>	this is just never ending shit show.
+T 1587304734 18<24UndeadLeech18>	It's difficult. But if a pager would exist that allowed vi mode, it should work out great.
+T 1587304744 18<24UndeadLeech18>	And that might be a problem that can be tackled independently.
+T 1587304784 18<29kchibisov18>	and then you should also live reload pager
+T 1587304799 18<24UndeadLeech18>	I don't think that's necessary tbh.
+T 1587304811 18<24UndeadLeech18>	Like we were discussing freezing Alacritty anyways.
+T 1587304811 18<29kchibisov18>	what if I just chilling in vi mode and open random links
+T 1587304820 18<29kchibisov18>	I mean for search when scrolling is done
+T 1587304830 18<29kchibisov18>	but in alt-screen you won't freeze anything
+T 1587304847 18<29kchibisov18>	I mean freezing scrolling, not content update
+T 1587304849 18<24UndeadLeech18>	Either everywhere or nowhere.
+T 1587304872 18<29kchibisov18>	but we need a good way to update our terminal atomically
+T 1587304876 18<24UndeadLeech18>	I was always talking about freezing content update, since that's what URxvt/VTE do.
+T 1587304909 18<29kchibisov18>	I mean we need it at some point.
+T 1587304917 18<24UndeadLeech18>	Why?
+T 1587304924 18<29kchibisov18>	sync updates.
+T 1587304950 18<29kchibisov18>	since you need a way to perform atomic changes to a visible content
+T 1587305051 18<24UndeadLeech18>	Yeah, though we can get away with a lot more for that. Since it's probably going to be a sub one second window.
+T 1587305059 18<24UndeadLeech18>	So in theory we could probably just stop rendering completely.
+T 1587305067 18<24UndeadLeech18>	Though obviously that wouldn't be ideal.
+T 1587305100 18<29kchibisov18>	there're a lot of edge cases, but you can buffer input before calling `fn input`
+T 1587305106 18<29kchibisov18>	and then push it all at once.
+T 1587305121 18<29kchibisov18>	but it'll be complex.
+T 1587305149 18<29kchibisov18>	at least we have testing clients already(tmux/mpv).
+T 1587305183 18<29kchibisov18>	but let's go back to search
+T 1587305248 18<29kchibisov18>	I feel like we shouldn't freeze it entirely, I was talking about stopping scrolling by changing display offset.
+T 1587305261 18<29kchibisov18>	Just because it makes the most sense to do.
+T 1587305300 18<29kchibisov18>	I mean fixing the viewport, but I'm fine with content update
+T 1587305303 18<24UndeadLeech18>	I mean that's fair, if you automatically scroll up during search, you at least don't need to live re-search.
+T 1587305334 18<29kchibisov18>	However something like search during asrw is complex.
+T 1587305353 18<29kchibisov18>	So we can search lazy.
+T 1587305367 18<24UndeadLeech18>	Honestly I don't think we should support drawing over content without clearing it first.
+T 1587305371 18<24UndeadLeech18>	Like being aware that it happens, sure.
+T 1587305378 18<24UndeadLeech18>	But I don't think our selection and search should work around it.
+T 1587305485 18<29kchibisov18>	tmux also entirely freezes btw
+T 1587305496 18<24UndeadLeech18>	During search/vi mode?
+T 1587305499 18<29kchibisov18>	yeah
+T 1587305533 18<29kchibisov18>	I'm not really sure that I like it, but I've never paid attention tbh
+T 1587305565 18<24UndeadLeech18>	It seems to be a pretty common pattern.
+T 1587305569 18<24UndeadLeech18>	Does it do that when selecting?
+T 1587305581 18<29kchibisov18>	selection is part of this mode
+T 1587305594 18<29kchibisov18>	just entering it - freezes.
+T 1587305596 18<24UndeadLeech18>	There's also mouse selection though, right?
+T 1587305604 18<29kchibisov18>	let me try
+T 1587305632 18<29kchibisov18>	yeah, because it's done via this mode
+T 1587305642 18<29kchibisov18>	And you can't have live selection in tmux
+T 1587305652 18<24UndeadLeech18>	Why not?
+T 1587305658 18<29kchibisov18>	ask them?
+T 1587305664 18<24UndeadLeech18>	:P
+T 1587305701 18<24UndeadLeech18>	But yeah, you're right. It always freezes.
+T 1587305715 18<29kchibisov18>	but imagine how you can flex with live search
+T 1587305741 18<24UndeadLeech18>	Yeah, but I absolutely hate all this mess already.
+T 1587305762 18<29kchibisov18>	it'll be like the only terminal with live search updates, etc.
+T 1587305789 18<24UndeadLeech18>	But is that actually something anyone needs? Or does it just make things unnecessarily complicated?
+T 1587305806 18<29kchibisov18>	I like live update in vimode
+T 1587305848 18<29kchibisov18>	does termite freeze in vi mode?
+T 1587305881 18<24UndeadLeech18>	Yeah, in vi mode and during selection.
+T 1587305919 18<29kchibisov18>	VTE doesn't freeze during selection
+T 1587305950 18<29kchibisov18>	oh, nvm, it's just buggy
+T 1587305963 18<24UndeadLeech18>	Also don't resize while in vi mode with termite.
+T 1587305971 18<24UndeadLeech18>	It seems to be impossible to recover from that.
+T 1587305982 18<29kchibisov18>	I don't have termite
+T 1587305989 18<29kchibisov18>	just plain vte-2.91
+T 1587306002 18<24UndeadLeech18>	Fair enough. That doesn't have vi mode though, right?
+T 1587306006 18<29kchibisov18>	and since I don't have a lot of xorg shit I test only vte/tmux/alacritty
+T 1587306015 18<29kchibisov18>	right, I just test vte
+T 1587306100 18<29kchibisov18>	Oh, can we freeze in normal mode, but not in alt-screen?
+T 1587306119 18<24UndeadLeech18>	Why?
+T 1587306138 18<29kchibisov18>	hm, idk tbqh, it seems like alt-screen is easier to handle.
+T 1587306174 18<29kchibisov18>	since you don't have scrollback, etc.
+T 1587306186 18<29kchibisov18>	but I really have questions about complete freeze for vi mode.
+T 1587306190 18<24UndeadLeech18>	I'm just not really sure what I really want, or which approach I like most. So it's tough to implement something if you don't know where you want to go with it.
+T 1587306320 18<29kchibisov18>	The thing is that we need to support complete freeze somehow for sync updates.
+T 1587306343 18<24UndeadLeech18>	I mean that's not really something I worry about, since it's something concrete that has a clear solution.
+T 1587306358 18<24UndeadLeech18>	If I know that's what I want to do, implementing it is just a matter of executing it.
+T 1587306364 18<29kchibisov18>	I don't have a solution for it.
+T 1587306375 18<29kchibisov18>	like you should do it fast.
+T 1587306382 18<24UndeadLeech18>	Though I would like to skip buffering.
+T 1587306398 18<29kchibisov18>	The thing is that you should have this pending buffer.
+T 1587306403 18<29kchibisov18>	and draw old synced buffer
+T 1587306416 18<29kchibisov18>	so it's purely terminal freeze problem.
+T 1587306455 18<24UndeadLeech18>	I mean that'll never happen unless we handle selection separately.
+T 1587306476 18<29kchibisov18>	like if you have BSU CONTENT_1 ESU BSU CONTENT_2 .. . You should be able to draw CONTENT_1 while you're in CONTENT_2
+T 1587306530 18<29kchibisov18>	assuming you don't have time between or you've skipped transition from ESU -> BSU
+T 1587306545 18<24UndeadLeech18>	Like if the buffer written is small enough, it shouldn't matter anyways.
+T 1587306555 18<29kchibisov18>	however you can in theory just lock temrinal and force trigger redraw
+T 1587306567 18<29kchibisov18>	terminal*
+T 1587306574 18<29kchibisov18>	I mean after ESU
+T 1587306614 18<29kchibisov18>	but you can do that only in ESU -> BSU
+T 1587306630 18<24UndeadLeech18>	I really don't see much of a problem with this.
+T 1587306631 18<29kchibisov18>	and if you won't be able to redraw fast enough
+T 1587306643 18<29kchibisov18>	I mean performance, etc.
+T 1587306656 18<24UndeadLeech18>	I don't think it will be problematic tbh.
+T 1587306663 18<29kchibisov18>	ok
+T 1587306701 18<29kchibisov18>	but it's just a matter of trying different things, since all of the are +- concrete
+T 1587306745 18<29kchibisov18>	I'm really unsure about losing live update for vi mode, and freezing for every selection.
+T 1587306780 18<24UndeadLeech18>	I'm unsure about everything related to vi mode and selection basically.
+T 1587306823 18<24UndeadLeech18>	Like I've got search with highlighting all matches mostly working, but I don't know about clearing and rotation.
+T 1587306830 18<24UndeadLeech18>	Or resize.
+T 1587306859 18<29kchibisov18>	Well in theory it's not a big problem with your reflow PR
+T 1587306883 18<24UndeadLeech18>	Having to reflow all matches seems like a waste though.
+T 1587306899 18<29kchibisov18>	escapcially if you reflow each character
+T 1587306913 18<24UndeadLeech18>	I mean it would be two points for every match.
+T 1587306927 18<29kchibisov18>	Imagine reflowing `.`
+T 1587306939 18<29kchibisov18>	with all matches
+T 1587307040 18<24UndeadLeech18>	Yeah, pretty much.
+T 1587307052 18<29kchibisov18>	and then you do it in asrw and start resizing.
+T 1587307077 18<24UndeadLeech18>	That's why I've been wondering if it's even worth it to merge reflow in the current state.
+T 1587307086 18<24UndeadLeech18>	Or if we just shouldn't reflow vi cursor and selection.
+T 1587307439 18<29kchibisov18>	I mean you need reflow selection.
+T 1587307444 18<24UndeadLeech18>	Why?
+T 1587307480 18<29kchibisov18>	if you resize frozen content you should reflow selection as well
+T 1587307520 18<24UndeadLeech18>	Why?
+T 1587307521 18<29kchibisov18>	and selection should be visible in general, like it's now.
+T 1587307543 18<29kchibisov18>	I mean I don't want selection like in tmux tbh
+T 1587307559 18<24UndeadLeech18>	But why?
+T 1587307567 18<29kchibisov18>	idk, preference
+T 1587307576 18<29kchibisov18>	like it feels weird in tmux to use its selection
+T 1587307581 18<29kchibisov18>	and I never use it due to that
+T 1587307584 18<24UndeadLeech18>	Yeah, but there has to be some logical reason to it.
+T 1587307604 18<29kchibisov18>	there's no logical reason behind it.
+T 1587307636 18<24UndeadLeech18>	I mean then that doesn't help.
+T 1587307640 18<29kchibisov18>	I just like to see my selection on screen to highlight stuff from time to time.
+T 1587307659 18<29kchibisov18>	And I use it to highlight stuff for others from time to time.
+T 1587307668 18<29kchibisov18>	with tmux selection it's impossible.
+T 1587307749 18<29kchibisov18>	And most terminals are showing you selection and live updates.
+T 1587307792 18<29kchibisov18>	like ok, VTE freezes during selection, but once I've selected, it's properly rotated.
+T 1587307811 18<24UndeadLeech18>	Yeah.
+T 1587307835 18<24UndeadLeech18>	I wouldn't want to freeze permanently.
+T 1587307847 18<29kchibisov18>	during selection process - ok.
+T 1587307871 18<29kchibisov18>	once selection is done, and it's on screen you should reflow/rotate it.
+T 1587307886 18<24UndeadLeech18>	Rotate it, sure. But do you need to reflow it?
+T 1587307902 18<29kchibisov18>	I'm not sure, it was your idea initially
+T 1587307914 18<24UndeadLeech18>	Yeah, mostly because of search.
+T 1587307923 18<24UndeadLeech18>	But I don't even know how I want that to behave.
+T 1587307930 18<29kchibisov18>	I don't need reflow for selection 50% of the time
+T 1587307945 18<24UndeadLeech18>	Like 90% of that reflow PR is perfectly good. The cursor moved to grid, the selection moved to terminal, all fine.
+T 1587307958 18<24UndeadLeech18>	I just don't know about passing vi cursor and selection to the grid for reflow.
+T 1587307986 18<29kchibisov18>	yeah, it's good, I'd like docs for pub stuff and I should check your reflow logic.
+T 1587308015 18<24UndeadLeech18>	I'm not sure about field docs for all items. What we have right now is kinda terrible tbh.
+T 1587308036 18<29kchibisov18>	I mean if something is pub, it should have docs.
+T 1587308048 18<29kchibisov18>	that's just good practise.
+T 1587308066 18<24UndeadLeech18>	Yeah, but `/// Selection\npub selection: Selection` doesn't help at all.
+T 1587308068 18<29kchibisov18>	and clippy even has a lint for such thing
+T 1587308076 18<29kchibisov18>	you can add more docs
+T 1587308107 18<24UndeadLeech18>	Yeah, that would probably be the way to go.
+T 1587308116 18<24UndeadLeech18>	Write better docs, rather than remove them.
+T 1587308123 18<29kchibisov18>	// Active terminal selection\nselection: Option<Selection>
+T 1587308138 18<24UndeadLeech18>	That doesn't really improve anything tbh.
+T 1587308154 18<24UndeadLeech18>	Just more words.
+T 1587309129 18<24UndeadLeech18>	Ultimately my question was though if it's even worth it to implement search directly in Alacritty. And I'm not sure about that.
+T 1587309453 18<24UndeadLeech18>	Though it is useful to navigate vi mode.
+T 1587317364 18<24UndeadLeech18>	kchibisov: You said you use the ability to pass while in vi mode, right?
+T 1587317375 18<24UndeadLeech18>	Is that for pasting multiple times?
+T 1587318508 18<29kchibisov18>	it's to use simplier hotkey, like `p`.
+T 1587318797 18<24UndeadLeech18>	Ah, fair enough.
+T 1587318833 18<24UndeadLeech18>	It seems near impossible to do search without freezing though, since it'll basically clear itself as soon as you start it.
+T 1587318850 18<24UndeadLeech18>	Since zsh sends a Clear::Below once the search bar goes away on confirmation.
+T 1587318873 18<24UndeadLeech18>	And we can't partially clear search, since we cannot re-search while content is being written.
+T 1587325620 20*	Disconnected (20)
+T 1587325815 19*	Now talking on 22#alacritty
+T 1587325815 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587325815 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587327030 20*	Disconnected (20)
+T 1587327932 19*	Now talking on 22#alacritty
+T 1587327932 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587327932 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587333930 20*	Disconnected (20)
+T 1587333983 20*	Disconnected (20Remote host closed socket)
+T 1587334041 20*	Disconnected (20Remote host closed socket)
+T 1587334062 19*	Now talking on 22#alacritty
+T 1587334062 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587334062 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587337638 18<24UndeadLeech18>	nixpulvis: If you're around, I'd be very curious what you think about the pager vs integrated in Alacritty idea.
+T 1587341310 20*	Disconnected (20)
+T 1587341353 20*	Disconnected (20Remote host closed socket)
+T 1587341413 20*	Disconnected (20Remote host closed socket)
+T 1587341473 20*	Disconnected (20Remote host closed socket)
+T 1587341523 20*	Disconnected (20Remote host closed socket)
+T 1587341543 19*	Now talking on 22#alacritty
+T 1587341543 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587341543 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587368001 20*	Disconnected (20)
+T 1587368022 19*	Now talking on 22#alacritty
+T 1587368022 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587368022 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587412784 20*	Disconnected (20)
+T 1587412828 19*	Now talking on 22#alacritty
+T 1587412828 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587412828 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587412874 20*	Disconnected (20)
+T 1587412906 20*	Disconnected (20Remote host closed socket)
+T 1587412930 19*	Now talking on 22#alacritty
+T 1587412930 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587412930 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587418934 20*	Disconnected (20)
+T 1587423294 19*	Now talking on 22#alacritty
+T 1587423294 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587423294 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587426603 18<19AppAraat[m]18>	hi, does anyone know when ppa:mmstick76/alacritty is going to update Alacritty to v0.4.2?
+T 1587426932 18<20cole-h18>	When mmstick has time to update it, probably.
+T 1587427580 18<24UndeadLeech18>	You can try shooting him a mail, I'm not sure if he's watching releases. But it's up to them of course.
+T 1587453423 20*	Disconnected (20)
+T 1587453448 19*	Now talking on 22#alacritty
+T 1587453448 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587453448 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587454809 18<19Hamilton18>	kchibisov, Thanks :D
+T 1587454888 18<27casperstorm18>	you talked about you fixed the bold font issue kchibisov or was it a dream?
+T 1587454898 18<27casperstorm18>	the mac os rendering issue or what not
+T 1587455105 18<29kchibisov18>	I'm aware on how to fix it.
+T 1587455125 18<27casperstorm18>	cool, whats the issue?
+T 1587455129 18<29kchibisov18>	it's a macOS Mojave+ feuture/limitation
+T 1587455232 18<29kchibisov18>	so you should set defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO right in alacritty to make it work.
+T 1587455250 18<27casperstorm18>	yeah thought so, saw that before.
+T 1587455262 18<29kchibisov18>	this is a global update, but it's possible to do that just for alacritty.
+T 1587455269 18<29kchibisov18>	iterm is doing the same thing
+T 1587455317 18<29kchibisov18>	because thin strokes requires subpixel AA, but macOS Mojave+ doesn't have it
+T 1587455372 18<27casperstorm18>	well, it has it, just disabled if i understand correctly
+T 1587455409 18<29kchibisov18>	So solution is to write user defaults in alacritty and enable subpixel AA
+T 1587456140 18<27casperstorm18>	There are a few objc apis we could use, but not sure we have a graphical context to pass it.
+T 1587456156 18<27casperstorm18>	so yes that might be the best solution what you are proposing, for now at least.
+T 1587456165 18<27casperstorm18>	until they deprecate it.
+T 1587456189 18<27casperstorm18>	see: https://developer.apple.com/documentation/coregraphics/1456263-cgcontextsetallowsfontsubpixelqu?language=objc
+T 1587456581 18<29kchibisov18>	we're setting them
+T 1587456606 18<27casperstorm18>	huh? where?
+T 1587456616 18<29kchibisov18>	The problem is that without the mentioning setting they are no-op
+T 1587456638 18<29kchibisov18>	Once you toggle this setting, you'll see subpixel AA in alacritty
+T 1587456672 18<29kchibisov18>	https://github.com/alacritty/alacritty/blob/3bfb5958bc39360aeb071055660c2509650b6a95/font/src/darwin/mod.rs#L506
+T 1587456710 18<29kchibisov18>	so as I said, we should write NSUserDefaults, or whatever this thing is called.
+T 1587457370 18<24UndeadLeech18>	kchibisov: Btw, is there a reason for why this setting has been disabled globally, do you know?
+T 1587457376 18<24UndeadLeech18>	Is there a plan to remove this?
+T 1587457433 18<29kchibisov18>	ask apple?
+T 1587457449 18<24UndeadLeech18>	Gotcha, just curious if you found anything.
+T 1587457458 18<24UndeadLeech18>	Because it seems strange that every application would have to set this.
+T 1587457487 18<29kchibisov18>	idk, maybe they assume that you use only their retina displays, since without subpixel AA the font will look like shit.
+T 1587457504 18<29kchibisov18>	on 1080p displays, etc.
+T 1587457587 18<24UndeadLeech18>	Yeah, that's kinda what I've been thinking.
+T 1587457611 18<24UndeadLeech18>	"Nothing other than our high dpi displays exist, so why do we need subpixel AA?"
+T 1587457638 18<24UndeadLeech18>	Oh, retina, not high dpi. They'd never use a term they haven't standardized themselves! That would be terrible marketing!
+T 1587457707 18<29kchibisov18>	fwiw 1080p looks like shit most of the time, so they are not far from trueth.
+T 1587457751 18<29kchibisov18>	But overly thick font stroke is a question.
+T 1587457765 18<24UndeadLeech18>	Eh I don't think I agree.
+T 1587457827 18<29kchibisov18>	idk, I'm running away from 1080p, etc.
+T 1587457890 18<24UndeadLeech18>	I mean I don't think I would get a new 24inch+ monitor with 1080p. But it's not that bad and for smaller displays it's still perfectly great.
+T 1587457901 18<24UndeadLeech18>	Phones for example, really don't need 1440p+ for that.
+T 1587457955 18<29kchibisov18>	I was purely about 21+ inch monitors
+T 1587458027 18<24UndeadLeech18>	Fair enough.
+T 1587458067 18<29kchibisov18>	idc about phones, just use proper DPR and you're fine.
+T 1587458093 18<29kchibisov18>	like 3+ DPR is a way to go for phones.
+T 1587464070 20*	Disconnected (20)
+T 1587464091 19*	Now talking on 22#alacritty
+T 1587464091 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587464091 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587473040 20*	Disconnected (20)
+T 1587473446 19*	Now talking on 22#alacritty
+T 1587473446 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587473446 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587473850 20*	Disconnected (20)
+T 1587478294 19*	Now talking on 22#alacritty
+T 1587478294 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587478294 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587478410 20*	Disconnected (20)
+T 1587478523 20*	Disconnected (20Remote host closed socket)
+T 1587486655 20*	Disconnected (20Connection timed out)
+T 1587486684 19*	Now talking on 22#alacritty
+T 1587486684 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587486684 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587489245 20*	Disconnected (20)
+T 1587489274 19*	Now talking on 22#alacritty
+T 1587489274 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587489274 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587497757 20*	Disconnected (20)
+T 1587497834 19*	Now talking on 22#alacritty
+T 1587497834 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587497834 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587543450 20*	Disconnected (20)
+T 1587543635 19*	Now talking on 22#alacritty
+T 1587543637 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587543637 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587543720 20*	Disconnected (20)
+T 1587543829 20*	Disconnected (20Remote host closed socket)
+T 1587543901 20*	Disconnected (20Remote host closed socket)
+T 1587543943 20*	Disconnected (20Remote host closed socket)
+T 1587543969 19*	Now talking on 22#alacritty
+T 1587543969 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587543969 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587544560 20*	Disconnected (20)
+T 1587544606 20*	Disconnected (20Remote host closed socket)
+T 1587545618 20*	Disconnected (20Network is unreachable)
+T 1587545644 19*	Now talking on 22#alacritty
+T 1587545644 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587545644 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587550417 20*	Disconnected (20)
+T 1587550436 19*	Now talking on 22#alacritty
+T 1587550436 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587550436 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587554227 20*	Disconnected (20)
+T 1587554265 19*	Now talking on 22#alacritty
+T 1587554265 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587554265 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587561011 18<28ubitux18>	is it possible to jump between links in vi-mode with something like tab / shift-tab?
+T 1587561029 18<29kchibisov18>	not yet.
+T 1587561077 18<28ubitux18>	alright :)
