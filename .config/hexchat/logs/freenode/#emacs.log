@@ -18312,3 +18312,1595 @@ Apr 22 20:27:58 <wgreenhouse>	and those machines pretty much all use intel gpu
 Apr 22 20:28:11 <wgreenhouse>	maybe a subtle and terrible configuration problem
 Apr 22 20:28:28 <Aurora_v_kosmose>	Possible.
 Apr 22 20:28:45 <Aurora_v_kosmose>	I suspect it'd have worked fine if I gave PCI passthrough.
+Apr 22 20:29:21 <Aurora_v_kosmose>	But that's essentially giving full access to memory unless the machine has working IOMMU so... I didn't.
+Apr 22 20:29:44 <wgreenhouse>	the chromebook thing uses VirGL, I believe
+Apr 22 20:29:49 <wgreenhouse>	which I know nothing about
+Apr 22 20:30:42 <Aurora_v_kosmose>	Same.
+Apr 22 20:31:08 <Aurora_v_kosmose>	It may also be Androidx86 itself that was doing something terribly inefficiently.
+Apr 22 20:31:49 <bremner>	wgreenhouse: the imap-dl author was sympathetic to the idea of IDLE support. So if you wanted to work on that I think he'd be thrilled.
+Apr 22 20:34:34 <Aurora_v_kosmose>	Hm. I should see if it isn't the storage I ran it on. SO threads mention it for some proprietary emulators...
+Apr 22 20:38:02 <wgreenhouse>	bremner: that's good to hear. that package/repo has other interesting goodies too, I see, of possible relevance to a user of notmuch and/or maildirs
+Apr 22 20:38:40 <Aurora_v_kosmose>	IDLE?
+Apr 22 20:38:43 <bremner>	no u
+Apr 22 20:39:07 <wgreenhouse>	Aurora_v_kosmose: persistent connection to imap server/fast updates when there's new mail
+Apr 22 20:39:22 <wgreenhouse>	surprisingly hard to find support for in *nix on desktop
+Apr 22 20:39:30 <ober>	did they ever get a full elisp runtime on guile?
+Apr 22 20:39:34 <bremner>	wgreenhouse: apparently imap-dl is _much_ faster than getmail in non-idle mode
+Apr 22 20:40:02 <bremner>	ober: what counts as full? isn't that emacs?
+Apr 22 20:40:41 <Aurora_v_kosmose>	Emacs has a large part of it written in Elisp. Those parts aren't runtime.
+Apr 22 20:41:10 <wgreenhouse>	ober: guilemacs (emacs with the elisp interpreter and some things that are normally C builtins reimplemented in guile) exists but is not very usable
+Apr 22 20:41:27 <wgreenhouse>	it manages to be slower than elisp bytecode
+Apr 22 20:41:42 <Aurora_v_kosmose>	Hm, that's no good.
+Apr 22 20:41:51 <wgreenhouse>	ober: gnu guix is the best way to try it
+Apr 22 20:41:58 <wgreenhouse>	also the best way to try gccemacs
+Apr 22 20:42:02 <Aurora_v_kosmose>	One wonders how it slows down that much, given Guile tends to be fairly fast.
+Apr 22 20:42:14 <wasamasa>	it's as if I'm in a CS class again
+Apr 22 20:42:29 <wasamasa>	and someone's asking "Why are compiled languages faster than interpreted ones?"
+Apr 22 20:42:45 <Aurora_v_kosmose>	wasamasa: Hardly. Guile compiles to bytecode which is faster than JVM bytecode often.
+Apr 22 20:42:47 <wasamasa>	and you can feel the condescension about to come at them
+Apr 22 20:42:58 <Aurora_v_kosmose>	So why doesn't it run at least as fast in this case?
+Apr 22 20:43:10 <wasamasa>	you cannot do such generalizations
+Apr 22 20:43:30 <wgreenhouse>	Aurora_v_kosmose: the elisp byte compiler is crude but it has a head start of a couple decades optimizing for its narrow cases, whereas guile comes from a world without e.g. dynamically scoped variables
+Apr 22 20:43:40 <wasamasa>	if you were someone doing VM tuning for a living, sure, I'd be inclined to take you seriously
+Apr 22 20:43:57 <wasamasa>	because then I'd know you've taken a few of these apart and can accurately gauge their strengths and how they work
+Apr 22 20:44:08 <wasamasa>	but these people tend to not use IRC
+Apr 22 20:44:11 <Aurora_v_kosmose>	I'm making this comparison based on programs of mine which I have observed their runtime.
+Apr 22 20:44:20 <wasamasa>	yeah, no
+Apr 22 20:44:57 <wasamasa>	I mean, for starters, we're talking about an implementation in C that's been optimized over decades and compare it to an implementation in guile that's relatively new
+Apr 22 20:45:08 <wasamasa>	why do you even expect a fair comparison here?
+Apr 22 20:45:16 <Aurora_v_kosmose>	Yes, and that's a valid reason.
+Apr 22 20:45:24 <Aurora_v_kosmose>	I never said it wasn't. I specifically ask why.
+Apr 22 20:45:26 <wasamasa>	you are at vastly different levels here
+Apr 22 20:45:38 <Aurora_v_kosmose>	That's exactly the sort of reason I was asking for.
+Apr 22 20:45:58 <wasamasa>	one level is concerned with encoding data structures in pointers, the other chucks all responsibility to andy wingo's VM optimizations
+Apr 22 20:46:17 <wasamasa>	figuring that out is easy
+Apr 22 20:46:28 <wasamasa>	it's the kind of thing you discover as you idly ponder that CS class
+Apr 22 20:46:37 <wasamasa>	figuring out how to do better isn't as easy
+Apr 22 20:46:46 <Aurora_v_kosmose>	It's more the sort of thing you figure out when you take a first look at the codebase.
+Apr 22 20:46:53 <Aurora_v_kosmose>	Your CS class says nothing about how optimized or not a program is.
+Apr 22 20:47:11 <bremner>	My CS class does!
+Apr 22 20:47:18 <wasamasa>	it talks about interpreters and compilers at length
+Apr 22 20:47:25 <wgreenhouse>	also (find-library "byte-opt") is a great read
+Apr 22 20:47:36 <wgreenhouse>	jwz opining about making pigs fast
+Apr 22 20:47:44 <wasamasa>	things like pypy are a miracle
+Apr 22 20:47:44 <Aurora_v_kosmose>	wasamasa: Note that I never asked why it isn't faster than C.
+Apr 22 20:47:54 <wasamasa>	they are not the norm
+Apr 22 20:48:25 <wgreenhouse>	yeah, it's not a generalized technology
+Apr 22 20:48:46 <wasamasa>	and even those do not stand on equal ground with a well-written C program (for some funny definition of well)
+Apr 22 20:48:53 <Aurora_v_kosmose>	Native compilation is faster than bytecode for obvious reasons. Why some bytecode is faster than others is a different question.
+Apr 22 20:49:19 <bremner>	nothing is obvious about VMs
+Apr 22 20:49:28 <wasamasa>	I'd like you to ponder how self-hosting plays into this
+Apr 22 20:50:27 <wasamasa>	guile wants to be in the same league as other scheme implementations and not to be known for being slow
+Apr 22 20:50:50 <wasamasa>	but there's only so much a handful of hackers around Andy Wingo can do
+Apr 22 20:51:45 <wasamasa>	another thing you can discover by idly pondering: mismatches in performance-critical code are deadly to performance
+Apr 22 20:52:10 <wasamasa>	if something like hash tables or variable lookup or string processing are slower in your reimplementation for reasons™ than the original, it's not going to look good
+Apr 22 20:52:26 <butterypancake>	The manual says guile is slower than other implementations so that you can modify the code on the fly, whereas other scheme's are more for static scripts
+Apr 22 20:52:36 <Aurora_v_kosmose>	Bottleneck optimization is familiar to me, yes.
+Apr 22 20:52:53 <wasamasa>	that's not exactly an excuse given how highly dynamic languages like CL and clojure are
+Apr 22 20:53:06 <hodapp>	other schemes like what, Gambit-C? I've never used the ones that are supposed to be able to compile down
+Apr 22 20:53:10 <holomorph>	chezmacs save us
+Apr 22 20:53:12 <wasamasa>	lol
+Apr 22 20:53:22 <Aurora_v_kosmose>	chickenscheme too
+Apr 22 20:53:27 <bremner>	holomorph: itym racketchezmacs
+Apr 22 20:53:40 <wasamasa>	I can't think of a scheme that's not inherently a mismatch for emacs' idea of text processing
+Apr 22 20:53:51 <butterypancake>	I'm not defending it, I actually know very little about it. I'm very interested in guile emacs though as I feel like learning emacs lisp might be a waste as it's only good for emacs and nothing else
+Apr 22 20:54:31 <wasamasa>	guile emacs doesn't mean you'll write your init file in guile
+Apr 22 20:54:32 <Aurora_v_kosmose>	Depends how much of your life you spend in Emacs.
+Apr 22 20:54:46 <Aurora_v_kosmose>	It's a waste if you barely use Emacs, indeed.
+Apr 22 20:54:48 <wasamasa>	it means that you'll gain an appreciation for the separation between emacs lisp the language vs emacs lisp the API
+Apr 22 20:55:20 <wasamasa>	you don't need to know much about the language to customize emacs effectively, but you can spend inordinate amounts of time figuring out the API
+Apr 22 20:55:48 <wasamasa>	guile won't fix that
+Apr 22 20:56:13 <npostavs>	I think there's also the problem that guilemacs currently doesn't support dumping, so just starting up might take 30~60 seconds
+Apr 22 20:56:18 <wasamasa>	yes, it does
+Apr 22 20:56:37 <wasamasa>	and it's behind the current state of emacs for obvious reasons
+Apr 22 20:57:02 <holomorph>	bremner: forgot about that!
+Apr 22 20:57:02 <winny>	butterypancake: put one more down for racketchezmacs
+Apr 22 20:57:08 <winny>	sorry, that was for bremner ^
+Apr 22 20:57:43 <bremner>	every problem can be solved by adding more layers right?
+Apr 22 20:58:01 <butterypancake>	What's racketchezmacs? Like guile emacs but do racket instead?
+Apr 22 20:58:30 <wasamasa>	racket decided to choose chez scheme as its new implementation language
+Apr 22 20:59:00 <hodapp>	whaaaa, so Racket isn't self-hosting?!
+Apr 22 20:59:03 <wgreenhouse>	wasamasa: somehow I find all of this stuff deeply reassuring in ways I probably shouldn't
+Apr 22 20:59:07 <wgreenhouse>	wasamasa: like, complacency-inducing
+Apr 22 20:59:18 <wasamasa>	complacency is something different though
+Apr 22 20:59:25 <wgreenhouse>	fair.
+Apr 22 20:59:30 <wasamasa>	complacency is why the dog in the fire says "This is fine"
+Apr 22 21:00:11 <wgreenhouse>	right. I just mean it is reassuring to hear that elisp is actually highly optimized for emacs, and decades of effort to make it not slow does matter
+Apr 22 21:00:28 <wgreenhouse>	as made apparent by the so-far miserable failure of these alternative implementations
+Apr 22 21:01:03 <wasamasa>	speaking of which, how does remacs do
+Apr 22 21:01:03 <butterypancake>	I thought that guile emacs was supposed to be faster if it managed to succesfully byte compile
+Apr 22 21:01:13 <wgreenhouse>	butterypancake: it does and it isn't
+Apr 22 21:01:33 <wgreenhouse>	but I don't know how many of the actual developers ever claimed it would be
+Apr 22 21:01:45 <wasamasa>	have people been satisfied by all the code they rewrote in rust so far?
+Apr 22 21:01:47 <Aurora_v_kosmose>	http://gunshowcomic.com/comics/20130109.png Hardly complacency. I'd consider it more like trying to lie to yourself about things not being horrible because you lack alternatives.
+Apr 22 21:02:49 <rpav>	but things being horrible without alternatives doesn't really change the situation .. there are still no alternatives
+Apr 22 21:02:51 <Aurora_v_kosmose>	Complacency requires legitimate acceptance.
+Apr 22 21:03:08 <Aurora_v_kosmose>	Resignation is different.
+Apr 22 21:03:14 <rpav>	eh
+Apr 22 21:03:51 <rpav>	i think the real problem is everyone is trying to reinvent the programmable text editor, rather than making it irrelevant
+Apr 22 21:04:27 <Aurora_v_kosmose>	Can you really make it irrelevant without somehow making text editors irrelevant?
+Apr 22 21:04:39 <rpav>	it's like complaining about becoming complacent about how horseshoes are designed, and it's like .. ok, maybe, but i mean, that's not really the future
+Apr 22 21:04:45 <Aurora_v_kosmose>	The question this begs is how do you even make text editors irrelevant?
+Apr 22 21:05:01 <rpav>	a much more interesting question
+Apr 22 21:05:07 <rpav>	think along those lines
+Apr 22 21:05:08 <yeti>	emojicode!
+Apr 22 21:05:15 <rpav>	emoji are still text
+Apr 22 21:05:27 <yeti>	but unreadable
+Apr 22 21:05:38 <yeti>	https://www.emojicode.org/
+Apr 22 21:05:52 <technomancy>	I think that requires redefining "text" to be completely meaningless
+Apr 22 21:05:53 <cvandusen>	That's okay, most people can't read 
+Apr 22 21:06:02 <Aurora_v_kosmose>	heh
+Apr 22 21:06:03 <yeti>	someday we wake up and all the kids are carving hieroglyphs in bitstone
+Apr 22 21:06:44 <wgreenhouse>	there's this whole fan theory that the Star Wars universe is largely illiterate
+Apr 22 21:07:07 <bremner>	based on the writing in the movies?
+Apr 22 21:07:19 <cvandusen>	,sting 
+Apr 22 21:07:20 <fsbot>	*badum TISH*
+Apr 22 21:07:25 <wgreenhouse>	ha
+Apr 22 21:08:00 <rocx>	yeti: in a thousand years, archæologists will uncover a silicon tablet. they'll think it's an ancient pcb, but "💩🚫👌😑" is etched in the corner.
+Apr 22 21:08:17 <wgreenhouse>	bremner: based on the general lack of typography on set ever except when a technician type person is doing something technical. and also the availability of ubiquitous droid translation/interpretation
+Apr 22 21:08:45 <aidalgol>	The Star Wars universe is also tiny.
+Apr 22 21:08:56 <wgreenhouse>	and it's generally a dystopia with extreme Gini coefficient, so illiteracy would track
+Apr 22 21:09:05 <wgreenhouse>	Public goods are seemingly not supplied much by either Republic or Empire
+Apr 22 21:10:26 <aidalgol>	There was potential for some interesting world building in that series, but Lucas was a lousy writer, and Disney is has no artistic integrity, so it'll never happen now.
+Apr 22 21:10:59 <wgreenhouse>	aidalgol: the expanded universe which disney has largely burned to the ground still has some interesting lore in it, and they can't suck it out of my brain. :)
+Apr 22 21:11:04 <technomancy>	wgreenhouse: that theory held up really well until Rogue One
+Apr 22 21:11:11 <technomancy>	that was my least favorite thing about that film tbh
+Apr 22 21:11:22 <wgreenhouse>	technomancy: too much text in Rogue One?
+Apr 22 21:11:34 <aidalgol>	wgreenhouse: Well, look, I'm not *that* big a nerd.
+Apr 22 21:11:37 <aidalgol>	Nerd.
+Apr 22 21:11:45 <technomancy>	wgreenhouse: no, just the implication of widespread literacy flying in the face of established canon
+Apr 22 21:11:50 <technomancy>	"established"
+Apr 22 21:11:57 <technomancy>	is a bit of a stretch there but =)
+Apr 22 21:12:00 <apteryx>	can I define syntax (macros) in a lexical block? like in Scheme with (let-syntax ...)
+Apr 22 21:12:01 <aidalgol>	Star Wars has canon?
+Apr 22 21:12:04 <wgreenhouse>	technomancy: ah. hmm. I'll have to take note of that if I rewatch it
+Apr 22 21:12:23 <aidalgol>	FTR, I lost interest after Return of the Jedi.
+Apr 22 21:12:33 <aidalgol>	So I'm not really qualified to comment.
+Apr 22 21:12:44 <aidalgol>	(Not that stops anyone in the internet.)
+Apr 22 21:12:55 <aidalgol>	*on
+Apr 22 21:13:22 <aidalgol>	Unrelated: I'm about ready to give up on The Fediverse™ again.
+Apr 22 21:13:47 <wgreenhouse>	aidalgol: meaning mastodon? matrix? xmpp?
+Apr 22 21:13:53 <butterypancake>	wait, going back to the guile emacs bit. The last known guile emacs was based on guile 2.2 which didn't do jit. guile 3 is supposed to be like twice as fast because it can jit now. If someone rebased guile emacs onto the latest guile, it might be faster than the current elisp engine? maybe?
+Apr 22 21:13:59 <aidalgol>	wgreenhouse: Mastodon + Pleroma.
+Apr 22 21:14:01 <holomorph>	aidalgol: there's a big one they called the death star!
+Apr 22 21:14:03 <wgreenhouse>	aidalgol: ah
+**** ENDING LOGGING AT Wed Apr 22 21:14:05 2020
+
+**** BEGIN LOGGING AT Wed Apr 22 21:14:05 2020
+
+Apr 22 21:14:11 <technomancy>	wgreenhouse: there's the scene where she's reading over a bunch of stuff from her dad and she sees that he used a nickname for her in it or something?
+Apr 22 21:14:18 <wasamasa>	butterypancake: you seem to have skipped the CS class parts earlier
+Apr 22 21:14:27 <aidalgol>	wgreenhouse: For some reason, mastodon has laid claim to that term, which bugs me.
+Apr 22 21:14:36 <aidalgol>	holomorph: ?
+Apr 22 21:14:47 <wasamasa>	butterypancake: optimizations in guile will not magically fix pain points in a guile project
+Apr 22 21:14:48 <holomorph>	aidalgol: … canon … ._.
+Apr 22 21:14:52 <technomancy>	wgreenhouse: tho I guess... if they were hiding out away from the empire, and he was a trained engineer, he could have taught his daughter to read because he had nothing else to do with his time
+Apr 22 21:14:54 <aidalgol>	wrong spelling
+Apr 22 21:14:59 <wgreenhouse>	technomancy: oh right. but yeah, assuming that it's like Imperial-Russia levels of illiteracy, say, she's still a child of the intelligentsia
+Apr 22 21:15:02 <butterypancake>	wasamasa: ya, my bad. I decided to figure out how to irc in emacs today. I missed some of the chat
+Apr 22 21:15:03 <holomorph>	it's a pun you mofo
+Apr 22 21:15:03 <technomancy>	in retrospect it might not really imply widespread literacy?
+Apr 22 21:15:14 <aidalgol>	,shoot holomorph 
+Apr 22 21:15:15 *	fsbot loads its augean stables and hands holomorph a mop and bucket.
+Apr 22 21:15:17 <wgreenhouse>	technomancy: yeah, she's just part of the very small literate class maybe
+Apr 22 21:15:20 *	holomorph bows
+Apr 22 21:15:35 <technomancy>	wgreenhouse: franchise saved!
+Apr 22 21:15:36 <technomancy>	,next
+Apr 22 21:15:37 <fsbot>	Another satisfied customer. NEXT!
+Apr 22 21:15:54 <ober>	is there a way to keep the minibuffer deletions from clogging the kill-ring?
+Apr 22 21:16:15 <technomancy>	aidalgol: are you still running your own matrix server?
+Apr 22 21:16:21 <aidalgol>	technomancy: ha! no.
+Apr 22 21:16:29 <technomancy>	aidalgol: too unstable?
+Apr 22 21:16:33 <aidalgol>	yeah
+Apr 22 21:16:35 <wasamasa>	butterypancake: one of the problems I see with guilemacs is that you need someone proficient in C, elisp and guile to improve it
+Apr 22 21:16:37 <lampilelo>	apteryx: cl-macrolet maybe? i've never used it, but sounds right
+Apr 22 21:16:40 <aidalgol>	One day it kept OOMing, and I gave up.
+Apr 22 21:16:45 <technomancy>	aidalgol: I looked into running it on my pi but they don't have arm packages
+Apr 22 21:16:46 <wasamasa>	butterypancake: these kind of people are rare
+Apr 22 21:16:53 <apteryx>	lampilelo: thanks
+Apr 22 21:16:56 <aidalgol>	technomancy: It would not run on a pi.
+Apr 22 21:16:58 <technomancy>	and then I read that it needs way more oooomph than a pi, yeah
+Apr 22 21:17:01 <aidalgol>	Its memory requirements are insane.
+Apr 22 21:17:02 <technomancy>	shame
+Apr 22 21:17:10 <technomancy>	Maybe Rust Will Save Us
+Apr 22 21:17:38 <technomancy>	too bad they didn't pick elixir at the outset!
+Apr 22 21:17:41 *	Aurora_v_kosmose takes cover
+Apr 22 21:17:44 <wasamasa>	aidalgol: I find fediverse as silly of a term as kotlin, but that doesn't stop me from using it
+Apr 22 21:17:54 <hodapp>	why is Kotlin a silly term?
+Apr 22 21:18:01 <aidalgol>	oh no, not again...
+Apr 22 21:18:25 <lampilelo>	kotlin is a brand of ketchup in poland
+Apr 22 21:18:27 <Aurora_v_kosmose>	It's a pun.
+Apr 22 21:18:29 <wasamasa>	it's a russian specialty to look for offensive terms in words
+Apr 22 21:18:50 <wasamasa>	and if they can't find them, they make their own offensive nicknames
+Apr 22 21:18:58 <Aurora_v_kosmose>	https://en.wiktionary.org/wiki/Kotlin
+Apr 22 21:19:11 <hodapp>	siiiiigh
+Apr 22 21:19:14 <wgreenhouse>	wasamasa: the docking station I use with my rpi has one of boris's "Blin Inside" stickers (in the style of the Intel logo) on it
+Apr 22 21:19:24 <Aurora_v_kosmose>	heh
+Apr 22 21:19:41 <wasamasa>	I couldn't use kotlin at work without people thinking of the german word for faeces
+Apr 22 21:20:14 <butterypancake>	wasamasa: well right now we need people who know c and elisp for the current implementation. byte code optimizations will be done by the guile project which will hopefully pull people from more than just emacs. The emacs folk will have to maintian the elisp definition. Assuming people come to the guile project from other sources (guix, gdb) which I get is a big if, than it would be easier to maintain.
+Apr 22 21:20:54 <wasamasa>	butterypancake: wrong, you need to know guile to understand how to fix the pain points in its implementation of elisp
+Apr 22 21:21:19 <wasamasa>	butterypancake: like the suboptimal implementation of strings
+Apr 22 21:21:25 <wgreenhouse>	butterypancake: I think that's exactly backwards--there is a bigger pool of people optimizing theperformance of already existing emacs than guilemacs
+Apr 22 21:21:44 <wgreenhouse>	so far at least
+Apr 22 21:21:51 <wgreenhouse>	assuming emacs doesn't manage to alienate everybody as a project
+Apr 22 21:22:11 <holomorph>	lol
+Apr 22 21:22:35 <hodapp>	isn't that what it was meant for in the first place?
+Apr 22 21:22:41 <wasamasa>	I hope that GNU projects don't alienate each other
+Apr 22 21:22:58 <holomorph>	hodapp: it's the enemies we make along the way!
+Apr 22 21:23:10 <hodapp>	holomorph: the real Emacs was in your heart all along.
+Apr 22 21:23:36 <butterypancake>	I really thought guile was quite good. It looked really cool and I stated reading the documentation. Isn't guile like RMS's baby or something? Is it bad because Emacs is already super developed or is it bad because something is inherently wrong with guile
+Apr 22 21:24:23 <wgreenhouse>	emacs is super developed and it's hard to naively replace a compiler with decades of optimization behind it
+Apr 22 21:24:29 <wgreenhouse>	even if everyone loves to hate on said compiler
+Apr 22 21:24:51 <hodapp>	couldn't we just get some grad students and make them rewrite Emacs for a term project?
+Apr 22 21:24:53 <wgreenhouse>	also not having your existing apps work smoothly is painful
+Apr 22 21:24:54 <wasamasa>	butterypancake: RMS very much likes the idea of guile, that's it
+Apr 22 21:25:05 <Aurora_v_kosmose>	lol
+Apr 22 21:25:12 <aidalgol>	See http://notinventedhe.re/on/2010-9-13 and the next few comics.
+Apr 22 21:25:18 <wasamasa>	he also likes the idea of emacs competing with word processors
+Apr 22 21:25:22 <lampilelo>	hodapp: you'd use something written entirely by grad students?
+Apr 22 21:25:24 <noobly>	why are we rewriting emacs
+Apr 22 21:25:37 <aidalgol>	he also likes the idea of deflowering "emacs virgins"
+Apr 22 21:25:38 <tromey>	speed
+Apr 22 21:25:57 <Aurora_v_kosmose>	Well, anything capable of editing LaTeX & markup languages essentially beats word processors imo.
+Apr 22 21:26:01 <noobly>	make sure to include continuous scrolling for pdf-tools in the rewrite
+Apr 22 21:26:13 <butterypancake>	noobly: +1
+Apr 22 21:26:15 <wasamasa>	he didn't understand the idea of replacing word processors with using late
+Apr 22 21:26:15 <wasamasa>	*latex
+Apr 22 21:26:33 <wasamasa>	at that point I realized that RMS is an ideological, not a technological leader
+Apr 22 21:26:46 <butterypancake>	ya I was reading his email in dmacs devel. he wanted to replace libre office with emacs right?
+Apr 22 21:26:53 <butterypancake>	that's pretty nutty
+Apr 22 21:27:27 <noobly>	butterypancake: have you tried the emacs-application-framework pdf viewer?
+Apr 22 21:27:32 <aidalgol>	wasamasa: I'm not sure he's even that anymore, with how out of touch he repeatedly shows himself to be.
+Apr 22 21:27:39 <noobly>	i guess it has continuous scrolling, but EAF scares me
+Apr 22 21:28:32 <butterypancake>	ya. I've steered clear of EAF. Mostly because I don't know anything about it. 
+Apr 22 21:28:39 <wgreenhouse>	EAF is manateelazycat's crazy thing, right?
+Apr 22 21:28:42 <wasamasa>	yes
+Apr 22 21:28:44 <wgreenhouse>	he's been around a while, at least
+Apr 22 21:28:55 <wgreenhouse>	I think he pitched that to #emacs at least 10 years ago
+Apr 22 21:29:42 <wgreenhouse>	so I suspect he's not going away anytime soon doing this weird thing
+Apr 22 21:29:42 <Aurora_v_kosmose>	So... what is it doing that's crazy?
+Apr 22 21:30:08 <wgreenhouse>	Aurora_v_kosmose: basically it's a suite of pyqt apps that talk to emacs but are Qt applications
+Apr 22 21:30:15 <wgreenhouse>	browser, media player, etc.
+Apr 22 21:30:40 <Aurora_v_kosmose>	Huh.
+Apr 22 21:30:52 <wgreenhouse>	I think manatee created them as part of the chinese "linux-deepin" distro which he also affiliates with
+Apr 22 21:31:12 <wgreenhouse>	so it's a whole weird little collection of software, of the kind emacs has always attracted
+Apr 22 21:31:18 <wgreenhouse>	will exist even if all of us think it's crazy
+Apr 22 21:31:26 <butterypancake>	but are they generic qt applications or do they have to be breed specifically for emacs 
+Apr 22 21:31:38 <Aurora_v_kosmose>	Huh, kinda neat.
+Apr 22 21:31:43 <wgreenhouse>	butterypancake: aiui they're qt applications specifically designed for remote control through emacs
+Apr 22 21:31:52 <wgreenhouse>	wouldn't be very useful in a non-emacs world
+Apr 22 21:33:16 <butterypancake>	so it was too hard to make threads so he decided just to run two seperate applications with one controling the other?
+Apr 22 21:33:27 <butterypancake>	seems, wrong
+Apr 22 21:33:52 <wgreenhouse>	butterypancake: it's a fairly classic emacs design pattern :P
+Apr 22 21:33:58 <bremner>	works for chrome
+Apr 22 21:34:10 <Aurora_v_kosmose>	Works with pretty much anything with a client vs daemon core.
+Apr 22 21:34:27 <Aurora_v_kosmose>	Which is generally a good pattern if you don't want to have to reimplement the core for every platform client.
+Apr 22 21:35:09 <Aurora_v_kosmose>	Keybase's chat client for example.
+Apr 22 21:35:14 <wgreenhouse>	right. for this, you need emacs and you need qt and pyqt, which in theory are all pretty widely available
+Apr 22 21:35:24 <wgreenhouse>	in practice I think the developer only cares about a linux host anyway
+Apr 22 21:35:30 <Aurora_v_kosmose>	Fair observation.
+Apr 22 21:36:25 <Aurora_v_kosmose>	There's also something to be said for the inability of one process-node to crash every other one.
+Apr 22 21:36:38 <Aurora_v_kosmose>	If you have supervision trees, you could even have automatic recovery to a point.
+Apr 22 21:38:48 <butterypancake>	I fail to see how that different from a properly threaded application
+Apr 22 21:38:59 <butterypancake>	but I do see how that could be cool for something like Emacs
+Apr 22 21:39:48 <usr123>	I'm trying to setup java with lsp java. I already installed lsp-java wiht MELPA. I also ran M-x lsp-install-server and installed jdtt, I still don't get any autocompletion or error checking. I also installed lsp-company
+Apr 22 21:40:29 <Aurora_v_kosmose>	butterypancake: Memory errors are less likely to screw up everything.
+Apr 22 21:41:03 <Defolos>	wasamasa: thank you for your previous tip wrt to xsettings.c
+Apr 22 21:41:05 <Aurora_v_kosmose>	Otherwise yeah, it's kinda samey
+Apr 22 21:41:13 <wasamasa>	Defolos: what did you find?
+Apr 22 21:41:19 <Defolos>	wasamasa: emacs does indeed work without gconf just fine
+Apr 22 21:41:24 <wasamasa>	ok, cool
+Apr 22 21:41:28 <ldlework>	how do get emacs to treat TitleCase as two words?
+Apr 22 21:41:33 <Defolos>	no need to use that deprecate dependency
+Apr 22 21:41:34 <wasamasa>	what distro was this about again?
+Apr 22 21:41:34 <ldlework>	for motion and deletion and everything
+Apr 22 21:41:40 <Aurora_v_kosmose>	Well, there's other more obscure details about vulnerabilities in processes but I'm not exactly knowledgeable in that field.
+Apr 22 21:41:41 <Defolos>	wasamasa: Fedora
+Apr 22 21:41:46 <tromey>	ldlework: see M-x subword-mode
+Apr 22 21:41:55 <mehlon>	yo emacs
+Apr 22 21:42:27 <wasamasa>	Defolos: I'm kind of surprised arch didn't run in this, I guess they've just let autoconf figure it out
+Apr 22 21:42:29 <grym>	yemacs
+Apr 22 21:42:42 <ldlework>	tromey: god bless you
+Apr 22 21:42:48 <bremner>	,ymacs
+Apr 22 21:42:49 <fsbot>	ymacs is [0] an Emacs-like editor that works in your browser: http://www.ymacs.org/
+Apr 22 21:42:49 <fsbot>	[1] see vimjs
+Apr 22 21:43:05 <mehlon>	emacs sounds like a gender neutral version of eboy/egirl
+Apr 22 21:43:07 <butterypancake>	Aurora_v_kosmose: Single application aplications are probably more portable but I don't think threads are generally super portable
+Apr 22 21:43:13 <Defolos>	wasamasa: it could also be that they still have gconf2-devel in the buildroot
+Apr 22 21:44:18 <Defolos>	or it just went away and no one noticed, because nothing changed
+Apr 22 21:45:10 <Aurora_v_kosmose>	butterypancake: That may have to do with it too. Less platform-specific concerns if you ignore the issue entirely.
+Apr 22 21:45:20 <wgreenhouse>	butterypancake: client-server is a very prevalent elisp design pattern partly due to lack of threads but more compellingly due to lack of FFI (until lately); a lot of elisp that talks to a tiny server to do some library stuff. see e.g. pdf-tools, mu4e and notmuch.el, elim/garak
+Apr 22 21:46:42 <wgreenhouse>	exwm, too, I suppose :)
+Apr 22 21:47:06 <wgreenhouse>	though exwm does actually port much of Xcb to elisp and then speak it to the X server socket
+Apr 22 21:48:32 <usr123>	any hep please?
+Apr 22 21:48:40 <usr123>	help*
+Apr 22 21:49:10 <wgreenhouse>	,ask
+Apr 22 21:49:11 <fsbot>	Just ask your question. It's the best way to know if anyone can help.
+Apr 22 21:49:30 <butterypancake>	I think client-server stuff is cool. But I think it's cool because I can throw away part of it if i want. I can use and client I want talk to MPD. but the EAF feels like I couldn't easily replace either piece.
+Apr 22 21:49:46 <butterypancake>	any client*
+Apr 22 21:50:30 <mehlon>	,help
+Apr 22 21:50:31 <fsbot>	help -- PM me and type help-erbot
+Apr 22 21:50:52 <butterypancake>	EXWM is cool because it'l allowing me to put any graphical app into emacs. EAF only allowing very specific qt apps seems very niche
+Apr 22 21:51:06 <wgreenhouse>	butterypancake: right. it also predates anyone daring to make exwm
+Apr 22 21:51:11 <wgreenhouse>	but you could use the two together
+Apr 22 21:51:33 <wgreenhouse>	since exwm still has some frictions between emacs ui and arbitrary X client ui
+Apr 22 21:51:43 <noobly>	he already asked, he trying to setup java with lsp java. he already installed lsp-java wiht MELPA. he also ran M-x lsp-install-server and installed jdtt, he still don't get any autocompletion or error checking. he also installed lsp-company
+Apr 22 21:52:03 <wgreenhouse>	oh, sorry
+Apr 22 21:52:17 <butterypancake>	turn debug-on-error on? anything funny in the messages buffer? I have no experince with the software you're having trouble with
+Apr 22 21:52:55 <Aurora_v_kosmose>	I'm kind of curious about using EXWM
+Apr 22 21:53:02 <butterypancake>	I'm using it now
+Apr 22 21:53:11 <butterypancake>	it's kinda awful but I love it
+Apr 22 21:53:26 <Aurora_v_kosmose>	lol
+Apr 22 21:53:29 <wgreenhouse>	Aurora_v_kosmose: I switched from stumpwm to exwm
+Apr 22 21:53:31 <Aurora_v_kosmose>	What's wrong with it?
+Apr 22 21:53:34 <wgreenhouse>	it is better and worse all at once
+Apr 22 21:53:41 <noobly>	yeah exwm is awesome
+Apr 22 21:53:44 <Aurora_v_kosmose>	both stumpwm & exwm, since I can get a comparsion
+Apr 22 21:53:48 <butterypancake>	it's fun when you get a pop-up, which freezes the UI, so you have to force shut emacs losing all your work and you just get to sit there and be like, "oh, this is fun"
+Apr 22 21:53:56 <ldlework>	^
+Apr 22 21:54:05 <Aurora_v_kosmose>	Oh. That's not cool.
+Apr 22 21:54:07 <ldlework>	a variety of things will do this
+Apr 22 21:54:41 <wgreenhouse>	Aurora_v_kosmose: re stumpwm: I love debugging and reconfiguring using emacs+slime; I hate some things that are wontfix, like the input boxes not handling non-Latin characters
+Apr 22 21:54:48 <Aurora_v_kosmose>	ldlework: Known cause?
+Apr 22 21:55:01 <ldlework>	Aurora_v_kosmose: it's single threaded I guess
+Apr 22 21:55:13 <Aurora_v_kosmose>	wgreenhouse: :/ The non-English polyglot in me is annoyed.
+Apr 22 21:55:16 <butterypancake>	using exwm I've actually only been frozen by gpg/ssh pinentry pop-ups. 
+Apr 22 21:55:17 <wgreenhouse>	Aurora_v_kosmose: re exwm: debugging and reconfiguring in emacs is even better than using slime; otoh, process separation between my editing emacs and my WM might be nice
+Apr 22 21:55:34 <wgreenhouse>	butterypancake: the fix for that is to use emacs for pinentry, which gpg2 lately supports
+Apr 22 21:55:41 <wgreenhouse>	and don't use the menu bar
+Apr 22 21:56:05 <wgreenhouse>	Aurora_v_kosmose: exwm itself is largely async but some of the historic window decoration code in emacs is blocking if you let it be blocking
+Apr 22 21:56:05 <Aurora_v_kosmose>	Why are input boxes non-UTF8?
+Apr 22 21:56:27 <wgreenhouse>	Aurora_v_kosmose: I think stumpwm is naively reading keycodes or something crazy like that
+Apr 22 21:56:34 <butterypancake>	wgreenhouse: so, that only works if the INSIDE_EMACS environment variable gets propagated properly to the application that is making the prompt
+Apr 22 21:56:35 <wgreenhouse>	there are also some interesting xmodmap symptoms related to this
+Apr 22 21:56:40 <Aurora_v_kosmose>	wgreenhouse: And I suppose one can't simply disable all blocking?
+Apr 22 21:57:03 <wgreenhouse>	Aurora_v_kosmose: disabling the menu bar helps, and in my experience using something other than ./configure --with-x-toolkit=gtk helps
+Apr 22 21:57:16 <usr123>	wgreenhouse: I did, I installed lsp-java and I have a server connected, it just dones't give any autocompletion or error checking
+Apr 22 21:57:51 <Aurora_v_kosmose>	Hm... I wonder how much work it'd be to fix the stumpwm input code
+Apr 22 21:58:04 <wgreenhouse>	usr123: sorry I missed your question. unfortunately I don't have experience with either lsp or company. my recommendation would be to make a minimum case reproducing the problem, i.e. maybe starting from emacs -q
+Apr 22 21:58:16 <wgreenhouse>	Aurora_v_kosmose: I have a maybe 7-year-old bug against it
+Apr 22 21:58:32 <wgreenhouse>	Aurora_v_kosmose: the problem is they aren't using a real text editing library. which is where exwm is much better. :P
+Apr 22 21:58:42 <Aurora_v_kosmose>	wgreenhouse: Are any bugs being fixed?
+Apr 22 21:58:47 <ahungry>	What are good setups for "jump to definition" in C/C++ code short of that large CIDE Emacs thing?  ctags? etags? lsp (does such a thing exist for C?)
+Apr 22 21:58:56 <wgreenhouse>	Aurora_v_kosmose: others have been, sure. this one's hard
+Apr 22 21:59:07 <Aurora_v_kosmose>	I'm all for having a CL WM, but if it's nearly abandonware...
+Apr 22 21:59:09 <Aurora_v_kosmose>	Ah. I see.
+Apr 22 21:59:44 <butterypancake>	ahungry: this is my c dev setup: 
+Apr 22 21:59:45 <butterypancake>	(use-package xcscope
+Apr 22 21:59:45 <butterypancake>	  :config (cscope-setup))
+Apr 22 21:59:48 <technomancy>	I don't use stumpwm but I respect the dedication of someone who refuses to own a mouse to ensure their heart remains pure enough to maintain a WM
+Apr 22 21:59:50 <wgreenhouse>	butterypancake: ah. I only use gnupg from emacs, in regular usage, I guess
+Apr 22 22:00:17 <wgreenhouse>	butterypancake: maybe you could fake that environment variable from xinitrc? >:)
+Apr 22 22:00:18 <ahungry>	thanks butterypancake I'll give that a shot
+Apr 22 22:00:40 <Aurora_v_kosmose>	I've been thinking of trackballs but they seem expensive. :/
+Apr 22 22:00:48 <butterypancake>	ahungry: install the cscope binary too
+Apr 22 22:01:27 <Aurora_v_kosmose>	technomancy: That's interesting. I find my keyboard-driven preference was actually induced by my use of tiling WMs. Shitty small screens, don't want to waste screen space.
+Apr 22 22:01:31 <butterypancake>	wgreenhouse: if you tell ssh-agent to use gpg, and then do a push through magit, I get a popup
+Apr 22 22:01:36 <wgreenhouse>	Aurora_v_kosmose: ideally something like stumpwm would use the existing, mature free software implementation of CLIM, but there's no such thing
+Apr 22 22:02:11 <butterypancake>	wgreenhouse: however to sign the commit through magit using gpg, the pinentry works through emacs
+Apr 22 22:02:18 <Aurora_v_kosmose>	https://en.wikipedia.org/wiki/Common_Lisp_Interface_Manager This thing yeah?
+Apr 22 22:02:27 <wgreenhouse>	Aurora_v_kosmose: right
+Apr 22 22:02:31 <Aurora_v_kosmose>	It's LGPL though?
+Apr 22 22:02:46 <wgreenhouse>	Aurora_v_kosmose: McCLIM exists and is unusable
+Apr 22 22:02:57 <wgreenhouse>	so stumpwm is just written in some quick hacks instead
+Apr 22 22:02:57 <Aurora_v_kosmose>	Oh, that's unfortunate.
+Apr 22 22:03:13 <wgreenhouse>	I think stumpwm is in maintenance mode pending its ascension to CLIMness
+Apr 22 22:03:36 <wgreenhouse>	my bug being one of those they were hoping would get solved by that
+Apr 22 22:03:40 <usr123>	I get this error in *Messages* Error processing message (error "Keyword argument :end-column not one of (:buffer :checker :filename :line :column :message :level :id :group)"). [5 times]
+Apr 22 22:03:41 <usr123>	 
+Apr 22 22:03:48 <Aurora_v_kosmose>	wgreenhouse: So they're waiting on CLIM fixing the issue?
+Apr 22 22:05:40 <Aurora_v_kosmose>	wgreenhouse: Say, those Latin-only input boxes, what are they used for in stumpwm?
+Apr 22 22:06:27 <butterypancake>	actually, I did fix the exwm gpg popup thing once. I think i set pinentry program to be pinentry-emacs so it literally couldn't do a popup. This is kinda like force setting the environment variable. The problem that happened that time, was that thunderbird did a popup telling me it was waiting to encrypt but I couldn't enter my password into emacs because of that popup. But if that situtaion occurs and the gtk pinentry pop
+Apr 22 22:06:27 <butterypancake>	everything is fine
+Apr 22 22:07:24 <butterypancake>	so basically if you're writing a program and it creates a pop-up. Stop. re-evaluate your life. You're doing something wrong
+Apr 22 22:07:38 <wgreenhouse>	butterypancake: yeah, the gpg.conf setting should fix it
+Apr 22 22:07:51 <usr123>	Okay, so it seems now every thing is working, but autocomplete is not working
+Apr 22 22:08:41 <Aurora_v_kosmose>	butterypancake: Rather, it may be nice to have exwm properly manage popups.
+Apr 22 22:09:00 <wgreenhouse>	butterypancake: it mostly does, except if the caller if emacs
+Apr 22 22:09:03 <wgreenhouse>	*is
+Apr 22 22:09:08 <wgreenhouse>	and emacs is hanging waiting for the response
+Apr 22 22:09:46 <wgreenhouse>	as in the gnupg pinentry example
+Apr 22 22:10:07 <Aurora_v_kosmose>	Hm. Depends. If we mean ala pinentry, yes, that's rather cancerous. If it's like dmesg, it's okay.
+Apr 22 22:10:13 <Aurora_v_kosmose>	erh...
+Apr 22 22:10:15 <Aurora_v_kosmose>	wrong name
+Apr 22 22:10:25 <butterypancake>	I mean, I dislike pop-ups for more than just that. I like a clean tiling window manager where things stay in there tiles.
+Apr 22 22:10:40 <Aurora_v_kosmose>	dunst -_-
+Apr 22 22:10:43 <wgreenhouse>	exwm handles floating windows including popups just fine, including coercing them to be tiling if you want
+Apr 22 22:11:04 <butterypancake>	nah, I set some setting that I want but has a warning that it makes pop-ups not work
+Apr 22 22:11:12 <butterypancake>	I forget which one, but it's a setting I really like
+Apr 22 22:11:24 <flypaper-ultimat>	butterypancake: you can force tiling if you (setq exwm-manage-force-tiling t)
+Apr 22 22:11:41 <wgreenhouse>	Aurora_v_kosmose: the latin-only stumpwm input boxes are for things like e.g. changing the title of a window or workspace
+Apr 22 22:11:53 <Aurora_v_kosmose>	Keepassxc handles popups like they should. Previous versions created popups galore.
+Apr 22 22:11:58 <butterypancake>	flypaper-ultimat: woah. thanks!!
+Apr 22 22:12:01 <wgreenhouse>	Aurora_v_kosmose: or anything where the UI is asking you a question and you are typing a response
+Apr 22 22:12:09 <Aurora_v_kosmose>	(handling properly = displaying in the main window UI)
+Apr 22 22:12:59 <Aurora_v_kosmose>	wgreenhouse: I see. So it wouldn't make firefox suddenly incapable of comprehending russian.
+Apr 22 22:13:19 <wgreenhouse>	Aurora_v_kosmose: right. and it can even display a window's title that is Russian
+Apr 22 22:13:25 <wgreenhouse>	you just can't type russian at stumpwm
+Apr 22 22:13:31 <wgreenhouse>	you can type russian at the X clients, but not the WM
+Apr 22 22:14:00 <wgreenhouse>	and this weakness of stump is a strength of exwm. you can actually make emacs the X input manager for the entire X session
+Apr 22 22:14:09 <wgreenhouse>	and have just one setting to set to change input language
+Apr 22 22:14:15 <wgreenhouse>	(assuming you like emacs's input methods)
+Apr 22 22:14:41 <Aurora_v_kosmose>	Emacs' input methods generally work nicely for me. I haven't tried kanji though.
+Apr 22 22:14:47 <Aurora_v_kosmose>	I suspect I may dislike that.
+Apr 22 22:15:10 <wgreenhouse>	yeah, IDK how emacs's offerings compare to something like ibus that is used by more humans
+Apr 22 22:15:15 <wgreenhouse>	for that case
+Apr 22 22:16:10 <Aurora_v_kosmose>	Huh, nevermind, it works fine.
+Apr 22 22:16:15 <butterypancake>	oh, I wanted to figure out which setting was the one that made exwm not do pop-ups well. Turns out I misread a note in the wiki. It doesn't handle some pop-ups by default
+Apr 22 22:16:58 <grym>	technomancy: oh no i have helm macros bound to keys now
+Apr 22 22:17:16 <Aurora_v_kosmose>	wgreenhouse: Or at least, I get the same sort of input usage as I do with ibus-anthy.
+Apr 22 22:17:19 <flypaper-ultimat>	butterypancake: i just entered the conversation, but i heard you talking about pinentry, do you have your loopback configured how you want it? I have the contents of  my ~/.gpg/gpg-agent.conf as allow-emacs-pintentry (newline) allow-loopback-pinentry, and in my initfile (setq epg-pinentry-mode 'loopback), and now whenever emacs needs my gpg key it asks for it in the minibuffer.
+Apr 22 22:17:54 <wgreenhouse>	Aurora_v_kosmose: then that might be an appealing option that exwm has--to set input method once for everything, both emacs/exwm and its X clients
+Apr 22 22:18:04 <wgreenhouse>	on a per-window basis
+Apr 22 22:18:48 <butterypancake>	flypaper-ultimat: so, that only works if the INSIDE_EMACS environment variable gets propagated properly to the application that is making the prompt
+Apr 22 22:19:36 <butterypancake>	 if you tell ssh-agent to use gpg, and then do a push through magit, I get a popup, however to sign the commit through magit using gpg, the pinentry works through emacs
+Apr 22 22:20:58 <apteryx>	how can I make my global-set-key override a minor mode's key map? It seems to shadow it (perhaps because it is loaded after I define my key map).
+Apr 22 22:21:04 <butterypancake>	you can force every application to use emacs by setting pinentry program to be the emacs pinentry but then you can still get the UI to freeze if you're using exwm, and also now you can't use pinentry outside of emacs
+Apr 22 22:22:16 <butterypancake>	flypaper-ultimat: also slight nitpick: you forgot the (pinentry-start) bit. But thanks for showing interest :D
+Apr 22 22:23:11 <flypaper-ultimat>	hmm, i dont have a pinentry-start in my initfile, still works though :S
+Apr 22 22:23:12 <wgreenhouse>	butterypancake: clearly this setting is just trying to make you use exwm :)
+Apr 22 22:23:55 <wgreenhouse>	apteryx: That's what minor mode keymaps do
+Apr 22 22:23:58 <flypaper-ultimat>	*for within emacs, indeed with xapplications, it still does the popup
+Apr 22 22:23:59 <butterypancake>	I guess I never tried it without that line. intresting
+Apr 22 22:24:41 <butterypancake>	also, I recommend putting this line in your init as I think it help. It might not but whatever: (setenv "INSIDE_EMACS" emacs-version)
+Apr 22 22:26:22 <flypaper-ultimat>	apteryx: you can define the key in that minor mode map, or you could add to the hook of that mode to define a local key with the function of that global key
+Apr 22 22:26:23 <butterypancake>	flypaper-ultimat: This is the documentation I used to create my setup. It seems to think the (pinentry-start) line is important
+Apr 22 22:26:26 <butterypancake>	 ;; To use, add "allow-emacs-pinentry" to "~/.gnupg/gpg-agent.conf",
+Apr 22 22:26:26 <butterypancake>	;; reload the configuration with "gpgconf --reload gpg-agent", and
+Apr 22 22:26:26 <butterypancake>	;; start the server with M-x pinentry-start.
+Apr 22 22:33:45 <sm[m]>	g'day all.. would you know why dired won't follow the various links in ~/.nix-profile ? I can cd and ls, but not browse with dired
+Apr 22 22:34:33 <flypaper-ultimat>	butterypancake: ah, there's actually a package called pinentry, i was just using the built-in epg. anyway i dont encounter situations outside of emacs that ask for my gpg password, (i use gnus for mail client for example), so im not bothered by prompts for it.
+Apr 22 22:35:44 <ullbeking>	i have a dired listing of the same directory in two separate windows/frames/whatever.  in one i want default sortting of files, in the other i want to press 's' and get sorting of files by date.  but pressing s (`dired-sort-toggle-or-edit`) changes the order of files in *both* windows, which is hardly surprising considering they are showing the same bufer.
+Apr 22 22:35:46 <butterypancake>	flypaper-ultimat: well my ssh example is actually from within emacs. I'm trying to use gnus because thunderbird sucks (for more reasons than it freezes my ui) but unfortunatly gnus doesn't support encrypting the subject line of an email :/
+Apr 22 22:35:50 <apteryx>	bpalmer: still a bit rough, but this works for a tag finder that uses semantic, then ggtags, then xref: https://paste.debian.net/1142291/
+Apr 22 22:35:53 <apteryx>	:-)
+Apr 22 22:35:56 <ullbeking>	how can i get one dired window to sort by name, the other by date?
+Apr 22 22:36:27 <wgreenhouse>	butterypancake: the magit thing sounds like a bug. magit should be making sure the env var is preserved 
+Apr 22 22:36:45 <wgreenhouse>	If you directly called ssh from emacs it would be, I suspect 
+Apr 22 22:37:13 <wgreenhouse>	But I do wonder about globally setenv'ing it
+Apr 22 22:39:13 <butterypancake>	wgreenhouse: Well I'm doing a niche thing so I'm hesitant to open a bug report. See, I need to push through ssh but I'm telling ssh to grab it's ssh key from gpg and then gpg needs to grab a password from me. Ontop of this, I do set the environment in my init file which should propegate to sub processes automagically (I think?). So it might be a magit bug or an ssh-agent bug or a gpg bug
+Apr 22 22:40:19 <butterypancake>	ullbeking: try this (customize-set-variable 'dired-listing-switches "-aFhl")
+Apr 22 22:40:34 <butterypancake>	I forget what those switches do. I think one sorts?
+Apr 22 22:40:49 <ullbeking>	-F i think
+Apr 22 22:40:59 *	ullbeking is reading the ls man page
+Apr 22 22:41:01 <butterypancake>	oh shit, I didn't even read your message :P lemme wake up first
+Apr 22 22:41:30 <ullbeking>	butterypancake: it seems none of these switches do what i need
+Apr 22 22:41:43 <ullbeking>	i think the first thing i need is two idependent buffers
+Apr 22 22:43:07 *	Disconnected ()
+**** ENDING LOGGING AT Wed Apr 22 22:43:07 2020
+
+**** BEGIN LOGGING AT Wed Apr 22 22:43:36 2020
+
+Apr 22 22:43:36 *	Now talking on #emacs
+Apr 22 22:43:36 *	Topic for #emacs is: Emacs 27.0.91, the second pretest of 27.1, is out.  Please test | 'https://emacsconf.org/2019/videos | Emacs questions take priority over off-topic chatter, so ask! | No Public Loging! What happens in #emacs stays in #emacs | No Racism, sexism, xenophobia, botwanking, or other asshattery
+Apr 22 22:43:36 *	Topic for #emacs set by wgreenhouse!wgreenhous@fsf/member/wgreenhouse (Mon Apr 20 07:39:23 2020)
+Apr 22 22:43:37 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Apr 22 22:44:49 <butterypancake>	my ls man page says sorting by date is ls -clt
+Apr 22 22:45:27 <wgreenhouse>	ullbeking: you can clone-buffer the dired buffer and then toggle dired sorting in each 
+Apr 22 22:45:40 <wgreenhouse>	They will be independent of each other this way
+Apr 22 22:45:44 <ullbeking>	wgreenhouse: good idea, will try
+Apr 22 22:46:22 <wgreenhouse>	Just confirmed, that should work
+Apr 22 22:46:55 <ullbeking>	wgreenhouse: bingo!
+Apr 22 22:47:03 <ullbeking>	ty wgreenhouse :D
+Apr 22 22:47:30 <doomlist3>	hi
+Apr 22 22:47:40 <doomlist3>	on ubuntu there is no window-swap-states cmd? why
+Apr 22 22:48:14 <butterypancake>	what's your emacs version. It was added 26.1. Is that recent?
+Apr 22 22:48:42 <butterypancake>	M-x emacs-version
+Apr 22 22:48:53 <ullbeking>	i always compile my own emacs on any workstation or laptop i have as "my own" to settle down with
+Apr 22 22:49:31 <butterypancake>	same. my version says 28 but I don't think that's been launched yet?
+Apr 22 22:49:58 <butterypancake>	also it was mainly so I could put my dotfiles not in my home directory :P
+Apr 22 22:50:43 <doomlist3>	GNU Emacs 25.2.2 (x86_64-pc-linux-gnu, GTK+ Version 3.22.21) of 2017-09-23, modified by Debian [3 times
+Apr 22 22:51:18 <butterypancake>	yep. You need a newer emacs to use that function
+Apr 22 22:51:34 <doomlist3>	so before that what did emacs users use
+Apr 22 22:51:44 <doomlist3>	surely it had some function before that
+Apr 22 22:51:51 <butterypancake>	that's a really good question
+Apr 22 22:51:56 <doomlist3>	i know
+Apr 22 22:52:30 <butterypancake>	the news entry literally just says this: 
+Apr 22 22:52:31 <butterypancake>	*** New command 'window-swap-states' swaps the states of two live
+Apr 22 22:52:31 <butterypancake>	windows.
+Apr 22 22:53:59 <butterypancake>	I mean, if there was an older function, it's most likely deprecated and might be removed in future emacs. Is it at all possible for you to upgrade Emacs?
+Apr 22 22:54:55 <wgreenhouse>	doomlist3: it just didn't exist outside of very numerous third party window management hacks
+Apr 22 22:55:21 <wgreenhouse>	A common case of a problem that existed for a long time and was papered over with homebrew elisp
+Apr 22 22:55:31 <butterypancake>	wait, what's a window? are we talking frames? I always forget
+Apr 22 22:55:36 <wgreenhouse>	that waited a few decades for an official solution 
+Apr 22 22:55:50 <wgreenhouse>	butterypancake: a window displays a buffer and goes inside a framr
+Apr 22 22:55:50 <Aurora_v_kosmose>	Frames are Emacs' x11-windows.
+Apr 22 22:55:54 <wgreenhouse>	*frame
+Apr 22 22:55:56 <doomlist3>	wha'ts home brow elisp
+Apr 22 22:56:12 <butterypancake>	cool. Thanks
+Apr 22 22:56:16 <wgreenhouse>	doomlist3: as in unofficial, third party fixes
+Apr 22 22:56:49 <wgreenhouse>	doomlist3: thanks, I didn't know they finally fixed this officially 
+Apr 22 22:56:53 <wgreenhouse>	Fun
+Apr 22 22:57:05 <Aurora_v_kosmose>	An easy way to remember is 'c-h k' + ('c-x 5 2' or 'c-x 2')
+Apr 22 23:27:04 <Twist>	My orgmode html export is suddenly failing with "org-html-table-cell: Args out of range: [left right], 2"
+Apr 22 23:27:13 <Twist>	Is there any way to get a useful error?
+Apr 22 23:30:22 <Aurora_v_kosmose>	Twist: toggle-debug-on-error and read the stacktrace?
+Apr 22 23:31:02 <Twist>	I tried toggling that on.. where should I be looking for said stack trace? Emacs just hung when I generated the error.
+Apr 22 23:31:26 <Aurora_v_kosmose>	Normally it pops up in another window.
+Apr 22 23:32:12 <Aurora_v_kosmose>	Twist: It'd be a buffer called *Backtrace*
+Apr 22 23:34:10 <Twist>	Yeah.. I have no idea where that window is going. "Entering debugger..." appears briefly in the status bar, then emacs hangs.
+Apr 22 23:35:07 <Twist>	Debugger does apppear in the menubar, but that's not super helpful with the UI locked up solid
+Apr 22 23:36:06 <wgreenhouse>	C-g a few times to unhang thyself and then read the backtrace
+Apr 22 23:37:41 <Twist>	Heh. Is 50 enough times? 
+Apr 22 23:41:26 <ober>	guile is all about the jit
+Apr 22 23:42:27 <Aurora_v_kosmose>	Twist: esc-esc-esc
+Apr 22 23:42:49 <bpalmer>	as of version 3, perhaps
+Apr 22 23:43:39 <ober>	aye. and it's still slow af :P
+Apr 22 23:45:42 <ober>	or changing benchmarks for competitors to make them slower to make it 'fair'.
+Apr 22 23:45:43 <ober>	https://github.com/ecraven/r7rs-benchmarks/pull/45
+Apr 22 23:47:21 <Twist>	oh, that's friggin wierd
+Apr 22 23:47:36 <Twist>	the size of the emacs window seems to matter. If it's relatively small, the debugger appears.
+Apr 22 23:48:27 <Twist>	Oh well. Fuck it.
+Apr 22 23:48:59 <Twist>	Thanks for trying.. maybe I'll carve out some time to learn emacs debugging later, but it's not on the critical path tonight.
+Apr 22 23:51:06 <Twist>	I found the malformed org table manually, but that's going to be less and less possible as the size of the org file increases.
+Apr 22 23:52:01 <bpalmer>	benchmarking is hard, and benchmark comparisons harder.
+Apr 22 23:54:30 <bremner>	,shopping everything
+Apr 22 23:54:32 <fsbot>	Let's go shopping!
+Apr 22 23:57:00 <noobly>	can someone help me with this super basic elisp problem? http://dpaste.com/3ESJR0N
+Apr 22 23:57:50 <wasamasa>	but what is the problem?
+Apr 22 23:58:07 <wasamasa>	a broken question mark key?
+Apr 22 23:58:16 <noobly>	i thought it didn't work
+Apr 22 23:58:23 <dale>	ober: Just how unsafe is "unsafe"?  Like "program will crash randomly 50% of the time" or "we find a bug every year or so but otherwise runs fine"?
+Apr 22 23:58:41 <noobly>	actually it looked like it just did though, swear it was breaking everytime before the post
+Apr 22 23:59:15 <wasamasa>	¯\_(ツ)_/¯
+Apr 23 00:01:34 <edgar-rft>	posting to #emacs solves all problems
+Apr 23 00:02:02 <grym>	so about this vaccine then
+Apr 23 00:09:55 <spikemaster>	using (cl-eval-when 'compile (require 'lib)) is harfmful
+Apr 23 00:10:09 <ober>	dale: according to them, C is unsafe at any speed :P
+Apr 23 00:10:23 <ober>	(car 1) segfaults
+Apr 23 00:14:18 <dale>	ober: That does strike me as pretty unsafe.
+Apr 23 00:14:54 <dale>	ober: But then maybe the suggestion there to run the benchmarks both with "safe" and "unsafe" settings is useful.
+Apr 23 00:16:43 <ober>	yeap.
+Apr 23 00:17:32 <dale>	Hm, MacPorts is behind on Guile and Chicken, that's too bad.
+Apr 23 00:17:35 <ober>	but it won't help make guile faster
+Apr 23 00:17:40 <offby1>	wgreenhouse: bpalmer: I did write something to get the latest kill from my console-mode emacs into my laptop's clipboard, but ... it is sooo  ugly
+Apr 23 00:17:45 <offby1>	(and I'm very proud of it)
+Apr 23 00:17:50 <ober>	dale: homebrew is up to date
+Apr 23 00:18:02 <offby1>	((I'm so proud of it that I created the internal "emacs" chat room at work just to show it off))
+Apr 23 00:18:08 <ober>	and has gambit/gerbil alternatives
+Apr 23 00:18:32 <technomancy>	offby1: nice
+Apr 23 00:18:52 <offby1>	technomancy: it's a _huge_ productivity win though
+Apr 23 00:19:10 <offby1>	oh by the way: congrats on what, 10x what you wanted for the kickstarter
+Apr 23 00:19:19 <offby1>	lotta nerds out there
+Apr 23 00:19:29 <technomancy>	offby1: oh yeah, thanks! pretty exciting.
+Apr 23 00:19:44 <offby1>	get any press attention?  Are you gonna be on "All Things Considered"?
+Apr 23 00:19:51 <offby1>	remember us little people
+Apr 23 00:19:55 <technomancy>	I had an interview last week with someone from Bloomberg
+Apr 23 00:19:58 <dale>	ober: I sense a lack of enthusiasm about Guile. :)
+Apr 23 00:20:16 <offby1>	"Your lack of enthusiasm about Guile disturbs me"
+Apr 23 00:20:17 <technomancy>	(the magazine, not the terrible former presidential candidate)
+Apr 23 00:20:28 <bremner>	technomancy: I was about to snark err ask
+Apr 23 00:20:40 <offby1>	well _I_ knew what he meant
+Apr 23 00:20:40 <bremner>	although one does own the other?
+Apr 23 00:20:44 <offby1>	probably
+Apr 23 00:20:49 <dale>	(ITYM the terrible media company not the terrible former presidential candidate)
+Apr 23 00:21:01 <offby1>	he has (had) a whole financial news service named after him
+Apr 23 00:21:14 <offby1>	,g bloomberg terminal
+Apr 23 00:21:14 <fsbot>	rudybot: g bloomberg terminal
+Apr 23 00:21:15 <rudybot>	fsbot: Bloomberg Terminal | Bloomberg Professional Services https://www.bloomberg.com/professional/solution/bloomberg-terminal/
+Apr 23 00:21:23 <offby1>	,wi bloomberg terminal
+Apr 23 00:21:23 <fsbot>	Either unbound or.. M-x bloomberg RET;
+Apr 23 00:21:23 <fsbot>	 its alias M-x fs-gnufans RET;
+Apr 23 00:21:23 <fsbot>	 its alias M-x fsi-? RET;
+Apr 23 00:21:23 <fsbot>	 its alias M-x fsi-gnufans RET; ;;[ ,more / ,dump]
+Apr 23 00:21:24 <dale>	Yes, ISTR in fact that there were some... questions about exactly what Bloomberg reporters would or would not say about the candidate.
+Apr 23 00:21:30 <technomancy>	https://www.bloomberg.com/graphics/2015-paul-ford-what-is-code/ the only thing I know about the magazine is they published this piece, which I thought was pretty good
+Apr 23 00:21:32 <offby1>	hm, who remembers how the bots work
+Apr 23 00:21:44 <offby1>	,gw bloomberg terminal
+Apr 23 00:21:44 <fsbot>	rudybot: g site:wikipedia.org bloomberg terminal
+Apr 23 00:21:45 <rudybot>	fsbot: Bloomberg Terminal - Wikipedia https://en.wikipedia.org/wiki/Bloomberg_Terminal
+Apr 23 00:21:46 <ober>	well r7rs-big will remove the real concerns over having to pick an implementation, I hope
+Apr 23 00:21:51 <offby1>	\o/
+Apr 23 00:21:51 <offby1>	 0
+Apr 23 00:21:51 <offby1>	/ \
+Apr 23 00:22:28 <dale>	I remember Bloomberg as the news outlet who published apparently unsubstantiated claims that SuperMicro was shipping hardware with rice-grain-sized surveillance devices soldered on them.
+Apr 23 00:23:26 <ober>	yeah they never recanted that did they?
+Apr 23 00:23:28 <dale>	ober: Could you elaborate a bit on why that is?  I'm not very familiar with Scheme, beyond googling "which scheme should I use" every few months before I go back to Elisp.
+Apr 23 00:23:36 <dale>	No, AFAIK they never retracted it.
+Apr 23 00:23:52 <bpalmer>	Someday scheme questions will make it into the presidential campaigns
+Apr 23 00:23:53 <ober>	clhs equivalents, except they are released more often.
+Apr 23 00:24:23 <ober>	and are not 20+ years old. it's the latest round to try to add items to a standard that allow for non-trivial portable code
+Apr 23 00:24:43 <aidalgol>	technomancy is now tainted.  He must be expunged.
+Apr 23 00:24:49 <bremner>	does r7rs-big have a decent module system?
+Apr 23 00:25:02 <bremner>	whatever decent means.
+Apr 23 00:25:04 <dale>	ober: Oh, I vaguely know what R7RS is, I just didn't understand how the release of R7RS big would make it easier to pick a scheme implementation?  Is it something like everyone is going to support it?  Or only one or two implementation are going to support it, so the choice will become easier?
+Apr 23 00:25:18 <ober>	that's a good quesion, I've only kept up on them as they are released.
+Apr 23 00:25:26 <ober>	r7rs red, blue, etc.
+Apr 23 00:25:47 <ober>	https://small.r7rs.org/
+Apr 23 00:25:50 <dale>	I was just looking over Scheme implementations, in fact, and I'm not even sure how widely and completely implemented R7RS small is at this point.
+Apr 23 00:26:25 <ober>	so stuff like postgresql drivers can be written portably
+Apr 23 00:26:35 <dale>	Oh, OK, nice.
+Apr 23 00:27:00 <ober>	yeah like chibi/gerbil, and a few others.
+Apr 23 00:27:01 <bpalmer>	It feels like a lot of the touted benefits for scheme are now handled by things like lua
+Apr 23 00:27:31 <ober>	well in the role of say a Bolt on Scheme, like Guile for existing C binaries sure.
+Apr 23 00:27:49 <bremner>	I didn't know that was a scheme things so much as a guile thing
+Apr 23 00:28:02 <bpalmer>	Well, simple; easy to embed; straightforward computation model.
+Apr 23 00:28:05 <ober>	well guile was an extention language right?
+Apr 23 00:28:13 <bpalmer>	What other benefits does scheme have?
+Apr 23 00:28:13 <bremner>	it's cool?
+Apr 23 00:28:18 <ober>	not being CL?
+Apr 23 00:28:29 <ober>	hang out in #chicken-scheme for a while. nice group. happy people..
+Apr 23 00:28:32 <technomancy>	continuations!!!
+Apr 23 00:28:41 <technomancy>	but don't actually use them
+Apr 23 00:28:47 <technomancy>	because they will turn your brain inside out
+Apr 23 00:28:50 <bremner>	continuations are cool. I think I finally understand them after teaching them twice
+Apr 23 00:29:00 <ober>	not a bunch of old ass ants in a queenless colony... awaiting their imminent dealth
+Apr 23 00:29:23 <ober>	</badenglish>
+Apr 23 00:29:41 <bpalmer>	bremner: you should have just taught them once, but taken a break in the middle
+Apr 23 00:29:51 <dale>	Was that a dig at CL?  Or at #emacs?
+Apr 23 00:30:03 <technomancy>	yeah tbh the appeal of racket is definitely not the simplicity or the embeddability, it's the availability of cross-platform libraries without the nasty memory/startup-time issues of clojure
+Apr 23 00:30:06 <dale>	Are we the ants?
+Apr 23 00:30:14 <bremner>	rudybot: what is an ass-ant? that seems like a bad thing
+Apr 23 00:30:19 <rudybot>	bremner: Hows Emacs integration with tla? I'm assuming fairly good? (I got an ant up my ass to learn it...)
+Apr 23 00:30:34 <bremner>	well. there you go. ass-ants are thing. TIL
+Apr 23 00:30:39 <bpalmer>	ah, arch.
+Apr 23 00:30:53 <ober>	dale: no, I'm referring to #lisp
+Apr 23 00:30:54 <bpalmer>	I had allowed bzr to subsume those memories.
+Apr 23 00:31:11 <dale>	bpalmer: Oh, and here I just assumed it was referring to TLA+.  Your reading is funnier.
+Apr 23 00:31:17 <ober>	those that dared defy uncle john to label Their os as 'Lisp'
+Apr 23 00:32:46 <butterthebuddha>	Hello. I
+Apr 23 00:32:57 <butterthebuddha>	'm struggling with fuzzy text with pdf-tools on macos
+Apr 23 00:33:29 <butterthebuddha>	the text gets less fuzzy if I zoom in, so it seems like it should be a fixable problem
+Apr 23 00:33:53 <dale>	butterthebuddha: Are you using Mitsuharu's unofficial Mac port, or the official NeXTStep port?
+Apr 23 00:34:10 <butterthebuddha>	I built emacs off of master, so I'm assuming official
+Apr 23 00:34:44 <dale>	butterthebuddha: Are you on a Retina/high DPI display?
+Apr 23 00:34:54 <butterthebuddha>	yep
+Apr 23 00:35:19 <dale>	butterthebuddha: To my knowledge, NS Emacs doesn't support high DPI stuff.  You need the unofficial Mac port or Aquamacs for that.
+Apr 23 00:36:31 <butterthebuddha>	there seem to be various different ports floating around, and I'm not sure which one is best
+Apr 23 00:36:49 <dale>	butterthebuddha: I'm not sure there is a consensus on "best".
+Apr 23 00:40:44 <dale>	butterthebuddha: https://github.com/politza/pdf-tools/issues/51 and https://github.com/politza/pdf-tools/pull/469 seem relevant.  They suggest use of variable pdf-view-use-scaling, but I think you still need the unofficial Mac port for that to do anything.
+Apr 23 00:41:14 <dale>	butterthebuddha: Personally I read all that and just went back to using Preview to read PDFs.
+Apr 23 00:43:30 <bremner>	switching to linux / X11 also fixes the fuzzyness :P
+Apr 23 00:45:21 <dale>	Really?  Does something in that stack of software let Emacs know about DPI?
+Apr 23 00:45:34 <butterthebuddha>	hmm are there any plans for high-DPI support to land in mainline?
+Apr 23 00:46:01 <bremner>	dale: no idea. Probably I don't understand the problem, but I only ever see mac users complaining about it
+Apr 23 00:46:53 <bpalmer>	linux users have much bigger things to complain about.
+Apr 23 00:47:23 <bremner>	heh. that could be.
+Apr 23 00:47:43 <bremner>	especially know that a given day involves skype, webex, and MS teams
+Apr 23 00:48:15 <technomancy>	bremner: I finally uninstalled zoom off my work laptop after the latest stuff came out about the installer and now I run it only from this janky chromebook
+Apr 23 00:48:44 <bremner>	I just use android for that. I mean, all hope is lost there anyway
+Apr 23 00:48:48 <dale>	For pdf-tools and Emacs to be non-jagged on macOS, I believe pdf-tools would need to generate rasters of its pages at e.g. 2x resolution, then hand the raster off to the macOS-specific APIs to draw the image, so that macOS can handle drawing it onto a 1.5x/2x/whatever scaled display.
+Apr 23 00:49:05 <technomancy>	bremner: I did that but it chews thru the battery so fast, and it's annoying to hold it up while plugged in
+Apr 23 00:49:07 <dale>	Whereas right now I think Emacs basically just bit blasts the raster itself.
+Apr 23 00:49:27 <technomancy>	bremner: TBH I think even when plugged in, the net battery charge was negative during zoom calls
+Apr 23 00:49:52 <technomancy>	rudybot: raster blaster
+Apr 23 00:49:52 <rudybot>	technomancy: fancies a pan galactic gargle blaster
+Apr 23 00:50:04 <bremner>	technomancy: yeah. I have a bit from ali-express order to hold my phone. So lame.
+Apr 23 00:50:06 <dale>	I have no idea how any of that works on Linux/X11.  I think it's possible somehow.
+Apr 23 00:50:44 <technomancy>	bremner: I still have the last pre-USB-C nexus so probably that's why the charging current isn't enough
+Apr 23 00:51:14 <technomancy>	I've also read that charging the battery while it's hot is pretty bad for the life of the cells tho
+Apr 23 00:51:39 <bremner>	technomancy: ah. I have new USB-c moto g7. Which is annoying in some ways, but charges wicked fast
+Apr 23 00:59:52 <bpalmer>	rudybot: even the unix haters had to admit, Suns boot really fast.
+Apr 23 00:59:53 <xristos>	butterthebuddha: if you're on macOS and want to take advantage of multiple macOS-only features, you need to use Emacs mac port, and not the official Emacs (or emacsformacosx)
+Apr 23 00:59:54 <rudybot>	bpalmer: C-f to "pros and cons of suns" http://www.art.net/~hopkins/Don/unix-haters/preface.html
+Apr 23 01:03:35 <ober>	oh that Sitcom, Stanford and Sun?
+Apr 23 01:24:06 <butterthebuddha>	Yep emacs-mac fixed it
+Apr 23 01:24:14 <butterthebuddha>	very happy with this
+Apr 23 01:24:53 <butterthebuddha>	continuous scroll doesn't seem to be working using the mouse though
+Apr 23 01:42:23 <noobly>	what am i doing wrong here http://dpaste.com/1TFZDK4 ? I can't seem to get replace-regexp-in-string to alter the string 
+Apr 23 01:44:54 <jamzattack>	https://0x0.st/ijcE.bin (browse-url ...) wasn't inside the let form
+Apr 23 01:46:40 <jamzattack>	also the pluses should be escaped i.e. "insert+query+here" -> "insert\\+query\\+here"
+Apr 23 01:48:19 <noobly>	jamzattack: thanks!
+Apr 23 01:51:59 <noobly>	I'm still having trouble with it, what exactly was wrong with my let form?
+Apr 23 01:52:28 <noobly>	the (browse-url ..) is within that s-expression
+Apr 23 01:55:30 <noobly>	looks like what's happening now is the 'query' variable won't change
+Apr 23 01:59:13 <xristos>	noobly: need let* instead of let
+Apr 23 01:59:56 <noobly>	xristos: that's doing it, thanks!
+Apr 23 02:01:02 <xristos>	noobly: https://www.gnu.org/software/emacs/manual/eintr.html
+Apr 23 02:01:16 <xristos>	will teach you the basics and more than
+Apr 23 02:02:10 <jamzattack>	oh yea
+Apr 23 02:02:11 <jamzattack>	my bad
+Apr 23 02:02:16 <noobly>	xristos: yeah I always get too bored with it and give up, but today i've really been wishing I had that under my belt.. I'll pick it back up, thx
+Apr 23 02:03:28 <jamzattack>	even better would be using query as the argument https://0x0.st/ijck.bin
+Apr 23 02:04:49 <jamzattack>	https://0x0.st/ijcd.bin oops
+Apr 23 02:05:33 <jamzattack>	https://0x0.st/ijcn.bin my god I must be tired
+Apr 23 02:05:34 <noobly>	jamzattack: yeah I didn't like my form much
+Apr 23 02:06:22 <noobly>	that one works :^)
+Apr 23 02:39:24 <Aurora_v_kosmose>	Why was mcclim unusable again?
+Apr 23 02:40:18 <ober>	ugg try it, and tell us :P
+Apr 23 02:40:33 <ober>	like trying to use News on emacs gui
+Apr 23 02:41:07 <Aurora_v_kosmose>	News or Gnus?
+Apr 23 02:41:09 <JordiGH>	If I have a ModelForm where I set Meta: fields = ['foo']
+Apr 23 02:41:20 <JordiGH>	And in my form I do form.bar = 'baz'
+Apr 23 02:41:33 <JordiGH>	If I do form.save(), will the bar field also be saved like normal?
+Apr 23 02:41:51 <butterthebuddha>	Just wondering if this guide still applies: https://github.com/nilcons/emacs-use-package-fast
+Apr 23 02:42:12 <JordiGH>	Crap, wrong channel.
+Apr 23 02:42:13 <JordiGH>	Sorry.
+Apr 23 02:42:26 <JordiGH>	I was wondering why it was so lively in here.
+Apr 23 02:45:08 <ober>	you clearly did not see same mistake with "can a foreskin be too long?" question
+Apr 23 02:46:02 <lhx>	ober: didn't expect to see "foreskin" when dropping in. LOL
+Apr 23 02:48:12 <hodapp>	...
+Apr 23 02:48:18 <Aurora_v_kosmose>	kek
+Apr 23 02:56:05 <wgreenhouse>	butterthebuddha: the approach remains sound; use-package now takes care of some of the pitfalls itself (such as load-path setup, cf. https://github.com/jwiegley/use-package/blob/master/README.md#extending-the-load-path )
+Apr 23 03:08:04 <aidalgol>	JordiGH: Is that... Objective C?
+Apr 23 03:10:54 <hodapp>	it's Objectivist C.
+Apr 23 03:12:28 *	edgar-rft makes his own Subjective C
+Apr 23 03:13:34 <JordiGH>	aidalgol: Python. Btw, where ya been?
+Apr 23 03:13:41 <JordiGH>	You disappeared from my other hangouts.
+Apr 23 03:14:14 <aidalgol>	Hiding from ornery people.
+Apr 23 03:14:29 <JordiGH>	You can't run from yourself, man.
+Apr 23 03:14:36 <aidalgol>	twitch weirded me out finally.
+Apr 23 03:14:40 <aidalgol>	oof, burn.
+Apr 23 03:16:12 <JordiGH>	Okay, fine, Twitch, whatevs. What about masto?
+Apr 23 03:16:32 <aidalgol>	ugh, I'm growing tired of The Fediverse™
+Apr 23 03:18:12 <Aurora_v_kosmose>	Too many social outlets gets exhausting?
+Apr 23 04:04:01 <butterthebuddha>	pdf-tools is behaving a bit weirdly for me
+Apr 23 04:04:14 <butterthebuddha>	When scrolling up, continuous scroll works as expected
+Apr 23 04:04:37 <butterthebuddha>	but when scrolling down, the page I'm on currently scrolls out of the frame and then reppears
+Apr 23 04:04:52 <butterthebuddha>	pdf-tools never moves on to the next paeg
+Apr 23 04:22:51 <catacombs>	proud moment: i finally figured out how to get emacs --daemon working probably on my mac.
+Apr 23 04:23:01 <catacombs>	now i can launch it super quickly via alfred
+Apr 23 04:45:55 <Samo_svoj>	slightly off-topic - how to establish new usenet group (either as a top level, or as some other level) and how to restrict access to it? (i would like to use news group as text-only version of modern web forums)
+Apr 23 04:47:33 <Aurora_v_kosmose>	Afaik that's instance-specific and something requiring admin intervention.
+Apr 23 04:50:03 <Samo_svoj>	Aurora_v_kosmose: if I establish my own usenet server?
+Apr 23 04:51:53 <Aurora_v_kosmose>	No idea. I presume it's whitelists & peering only with servers using the same whitelists.
+Apr 23 04:57:37 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 23 04:57:37 2020
+
+**** BEGIN LOGGING AT Thu Apr 23 05:05:07 2020
+
+Apr 23 05:05:07 *	Now talking on #emacs
+Apr 23 05:05:07 *	Topic for #emacs is: Emacs 27.0.91, the second pretest of 27.1, is out.  Please test | 'https://emacsconf.org/2019/videos | Emacs questions take priority over off-topic chatter, so ask! | No Public Loging! What happens in #emacs stays in #emacs | No Racism, sexism, xenophobia, botwanking, or other asshattery
+Apr 23 05:05:07 *	Topic for #emacs set by wgreenhouse!wgreenhous@fsf/member/wgreenhouse (Mon Apr 20 07:39:23 2020)
+Apr 23 05:05:07 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Apr 23 05:29:18 <codingquark>	Good morning!
+Apr 23 05:36:10 <aidalgol>	Usenet is dying a slow, sad death.  Don't try starting anything new there.
+Apr 23 05:36:39 <aidalgol>	Maybe your own NNTP server, but not Usenet.
+Apr 23 05:37:01 <Aurora_v_kosmose>	They were probably conflating the terms.
+Apr 23 05:38:28 <codingquark>	Surely nobody will use gnus after Usenet dies.
+Apr 23 05:39:40 <Aurora_v_kosmose>	Eh... I wouldn't say that. NNTPchan exists. And I'd rather like having NNTP forums on darknets.
+Apr 23 05:40:24 <aidalgol>	nntpchan?
+Apr 23 05:41:44 <Aurora_v_kosmose>	Federating imageboard madness.
+Apr 23 05:41:57 <Aurora_v_kosmose>	https://github.com/majestrate/nntpchan
+Apr 23 05:42:11 <Aurora_v_kosmose>	oh, it got derezzed. Well that's not cool
+Apr 23 05:42:25 <ryouma>	,deres
+Apr 23 05:42:27 <fsbot>	yoda-phrases: [0/33] Hmmm. Much anger in him, like his father.
+Apr 23 05:42:27 <fsbot>	[1] Hah. He is not ready.
+Apr 23 05:42:27 <fsbot>	[2] Ready, are you? What know you of ready?
+Apr 23 05:42:27 <fsbot>	[3] For eight hundred years have I trained Jedi. My own counsel will I keep on who is to be trained! ;;[ ,more / ,dump]
+Apr 23 05:42:30 <ryouma>	,derez
+Apr 23 05:42:31 <fsbot>	I need a little more detail please. 
+Apr 23 05:43:08 <Aurora_v_kosmose>	https://www.urbandictionary.com/define.php?term=derezzed
+Apr 23 05:43:38 <ryouma>	is it anything more than spammers that killed usenet?
+Apr 23 05:44:18 <Aurora_v_kosmose>	More easily accessible websites and spam, afaik.
+Apr 23 05:44:55 <codingquark>	NNTP forums of darknet is a good thing, okay.
+Apr 23 05:45:11 <Samo_svoj>	I think usenet can be very usefull for lots of things.
+Apr 23 05:45:31 <aidalgol>	Samo_svoj: Such as...?
+Apr 23 05:45:34 <codingquark>	_Is_ it?
+Apr 23 05:45:53 <aidalgol>	codingquark: Certainly better than phpBB.
+Apr 23 05:45:55 <Aurora_v_kosmose>	Easier to trust plaintext payloads than more complex ones.
+Apr 23 05:46:25 <ryouma>	usenet was a delight compared to today's most of web
+Apr 23 05:46:29 <aidalgol>	Aurora_v_kosmose: Um... those two thins are unrelated.
+Apr 23 05:46:36 <Samo_svoj>	first, I do not like darknet. I like clean things :)
+Apr 23 05:46:37 <ryouma>	whether nn or readnews or gnus or whatever
+Apr 23 05:46:49 <homerj>	usenet is for piracy
+Apr 23 05:46:51 <ryouma>	,darknet
+Apr 23 05:46:53 <fsbot>	hmm, darknet is [0] One of various possible things: 1) A network with no actual machines on it, used primarily for internet monitoring or honeypots; 2) a "secret" network that spans the internet; 3) a private (file sharing) network where connections are only made between trusted users; 4) any part of the internet used for criminal activity
+Apr 23 05:46:54 <fsbot>	[1] see also deepweb
+Apr 23 05:47:05 <Samo_svoj>	aidalgol: for software development coordination.... for disucssion ... for decision making....
+Apr 23 05:47:09 <homerj>	you get your .nzb file
+Apr 23 05:47:14 <homerj>	download some stuff
+Apr 23 05:47:21 <Aurora_v_kosmose>	aidalgol: @ News vs Gnus?  I had been asking, because I can't find any reference to "News" as some Emacs package
+Apr 23 05:47:37 <aidalgol>	Aurora_v_kosmose: what?
+Apr 23 05:47:44 <aidalgol>	Samo_svoj: Literally none of that happens on usenet anymore.
+Apr 23 05:47:49 <Aurora_v_kosmose>	aidalgol: I'm unsure what you response is about.
+Apr 23 05:47:59 <aidalgol>	Aurora_v_kosmose: I wasn't responding to you.
+Apr 23 05:48:07 <aidalgol>	oh, right...
+Apr 23 05:48:11 <homerj>	usenet is a throwback from when everything had its own protocol
+Apr 23 05:48:12 <Samo_svoj>	aidalgol: I know. But that is not good.
+Apr 23 05:48:13 <homerj>	and wasn't all http
+Apr 23 05:48:20 <ryouma>	my isp had an nntp server until, idk, 12y ago
+Apr 23 05:48:25 <Aurora_v_kosmose>	aidalgol: Aurora_v_kosmose: Um... those two thins are unrelated. | That looks kind of like pinging me.
+Apr 23 05:48:27 <aidalgol>	Aurora_v_kosmose: I meant plaintext vs complex.
+Apr 23 05:48:50 <homerj>	it's all uuencoded anyways
+Apr 23 05:48:52 <Aurora_v_kosmose>	aidalgol: NNTP content requires less parsing than HTML from some random site.
+Apr 23 05:49:08 <aidalgol>	Aurora_v_kosmose: Whether it is plaintext or not is unrelated to its complexity.
+Apr 23 05:49:31 <Aurora_v_kosmose>	Insofar as things can break to allow RCE on a client? yes.
+Apr 23 05:49:33 <aidalgol>	That term means unencrypted, not "simple".
+Apr 23 05:49:38 <Samo_svoj>	emacs + gnus + malierx + ERC and you do not need anything else
+Apr 23 05:49:51 <codingquark>	Since HTTP allows better communication by giving more ways to express, for those who do not want to trust such websites should sandbox their browsers.
+Apr 23 05:49:58 <ryouma>	shar files instead of github!
+Apr 23 05:50:34 <ryouma>	,malierx
+Apr 23 05:50:36 <fsbot>	Exercise caution in your daily affairs.
+Apr 23 05:50:44 <aidalgol>	I'll leave you lot to your nostalgia wanking
+Apr 23 05:50:49 <Aurora_v_kosmose>	Why only rely on one layer of security? A sandbox can break. Limit attack surface and sandbox.
+Apr 23 05:50:55 <ryouma>	more like longing
+Apr 23 05:51:08 <codingquark>	I have worked with people writing router firmware, without using git etc. Once the build is deleted, it is gone (unless it was backed up on a server)
+Apr 23 05:51:44 <aidalgol>	ryouma: "Old times so much better than now.  Damn kids and new tech!"
+Apr 23 05:52:15 <ryouma>	ok change of subject.  did git win because of its creator and fanboys?  or on technical merits?
+Apr 23 05:52:47 *	ryouma is using a vga monitor
+Apr 23 05:53:07 <Aurora_v_kosmose>	New LCD monitors use less power, lower electricity bills.
+Apr 23 05:53:11 *	ryouma which is not better
+Apr 23 05:53:11 <homerj>	neither
+Apr 23 05:53:14 <codingquark>	VGA is a good port. What's the max res it can do?
+Apr 23 05:53:37 <ryouma>	lcd monitors suck.  a lot.  but vga lcd monitors do not suck less.
+Apr 23 05:53:59 <ryouma>	   1920x1080     60.00*+
+Apr 23 05:54:09 <codingquark>	Not bad at all
+Apr 23 05:54:13 <Samo_svoj>	aidalgol: Nobody says old things are better. Old things are good enough to be used and very simple and cheap.
+Apr 23 05:54:23 <Aurora_v_kosmose>	LED & oLED are expensive.
+Apr 23 05:54:30 <ryouma>	Screen 0: minimum 320 x 200, current 1920 x 1080, maximum 8192 x 8192
+Apr 23 05:54:34 <homerj>	Samo_svoj, like codingquark's mama
+Apr 23 05:54:42 <codingquark>	Wait why me
+Apr 23 05:54:42 <homerj>	old, simple, used, and very cheep
+Apr 23 05:54:50 <ryouma>	at my dpi or something it really sucks because websites assume i have more pixels than i do thus requirign horizontal scrolling
+Apr 23 05:55:17 <homerj>	codingquark, first up on the complete nick
+Apr 23 05:55:40 <ryouma>	i want a 32 inch monitor with a MINIMUM brightness of 1 nit
+Apr 23 05:55:46 <ryouma>	and no higher
+Apr 23 05:55:48 <Aurora_v_kosmose>	In some cases, new things are more complex to expose more features. That may be desirable or not depending on the use-case. In a use-case where you don't necessarily trust the source, reducing features & complexity to a minimum is desirable.
+Apr 23 05:55:50 <codingquark>	Time to deliver a payload that changes your completion algorithm. Bet your OLD TECH could not do THAT!
+Apr 23 05:55:52 <Samo_svoj>	aidalgol: git is not and was not the best solution but marketing did it. you can write much beter version control
+Apr 23 05:56:25 <codingquark>	Aurora_v_kosmose: now I can say yes to that
+Apr 23 05:58:58 <Aurora_v_kosmose>	codingquark: Common Lisp has been capable of live code updates since forever. :p
+Apr 23 05:59:31 <codingquark>	Don't bring my emacs in this mess!
+Apr 23 05:59:38 <codingquark>	I shall not tolerate that
+Apr 23 05:59:41 <Aurora_v_kosmose>	heh
+Apr 23 06:00:17 <codingquark>	You might ask how's CL related to Emacs, but I know it was only a few steps from CL that you reach Emacs.
+Apr 23 06:07:14 <codingquark>	On a 15' monitor, it is amazing that I can make 3 windows and everything mostly fits
+Apr 23 06:07:27 <codingquark>	Except code because nobody writes in short lines anymore
+Apr 23 06:09:02 <Aurora_v_kosmose>	Either you scroll vertically or horizontally. There's no winning move.
+Apr 23 06:10:22 <codingquark>	Well said
+Apr 23 06:26:38 <ryouma>	15 foot monitor sounds good to me
+Apr 23 06:29:38 <inkbottle>	I write in short lines: at least I scroll in only one direction
+Apr 23 06:30:00 <inkbottle>	15 foot is good size for a monitor
+Apr 23 06:37:56 <ryouma>	i write in short lines also
+Apr 23 06:38:43 <ryouma>	elisp aligns stuff well
+Apr 23 06:45:52 <noobly>	1 and l look to similar, how do i fix this
+Apr 23 06:46:40 <ryouma>	new font i guess.  dunno if you can fix individual glyphs?
+Apr 23 06:47:24 <ryouma>	l1|I wow I and l look identical in deja vu sans mono which i really like
+Apr 23 06:47:36 <ryouma>	:(
+Apr 23 06:48:04 <noobly>	close that hanging paren :)
+Apr 23 06:48:36 <ryouma>	you just did
+Apr 23 06:48:50 <Cairn[m]>	Hey friends. global-unset-key doesn't touch Info keybinds, apparently? How might I use different Info keybinds?
+Apr 23 06:49:17 <ryouma>	it should
+Apr 23 06:49:27 <noobly>	,hi
+Apr 23 06:49:28 <fsbot>	안녕하세요 noobly)
+Apr 23 06:49:42 <ryouma>	Cairn[m]: local-unset-key
+Apr 23 06:49:52 <ryouma>	or define-key
+Apr 23 06:50:50 <ryouma>	what is the number of glyphs in hangul?  if it is not huge then its feature of glyphs within glyphs is not that useful.  right?
+Apr 23 06:50:58 <ryouma>	what makes it good then?
+Apr 23 06:51:13 <Cairn[m]>	Well local worked, it seems. But I'll check out define-key
+Apr 23 06:53:02 <ryouma>	it is the general purpose one.  no need for the others
+Apr 23 06:55:15 <Cairn[m]>	Alright, thanks for telling me
+Apr 23 06:57:04 <ryouma>	i wouuld think a good script would have distinguishable glyphs unlike l and I for example, rather than just including consonants and vowels
+Apr 23 06:57:32 <ryouma>	let's invent a new script for english
+Apr 23 07:11:33 <iqubic>	Where is it that I can go to ask for help with EXWM?
+Apr 23 07:13:55 <ryouma>	here probably
+Apr 23 07:14:07 <ryouma>	but um that was a useless comment
+Apr 23 07:17:16 <iqubic>	So, I have an graphical application, and it spawns external windows. I'd like those windows to be created as floating windows, instead of what's happening now, which is to make the new windows take up the entire screen.
+Apr 23 07:17:24 <iqubic>	How can I make that happen?
+Apr 23 07:19:56 <wgreenhouse>	iqubic: you can toggle them to be floating manually. You can also use a hook so that they become floating when e.g. a particular window name or class is matched
+Apr 23 07:20:33 <iqubic>	I'll need to create a hook to do this for me.
+Apr 23 07:21:04 <iqubic>	But I have no idea how to do that.
+Apr 23 07:21:18 <iqubic>	Which is what I was asking about.
+Apr 23 07:22:07 <aidalgol>	Aurora_v_kosmose: And in a lot of cases, old things are less secure, buggier, harder to use, and harder to fix.
+Apr 23 07:24:06 <ryouma>	economists seem to have consensus
+Apr 23 07:24:20 <ryouma>	the pandemic will lead to inflation.  and/or deflation.
+Apr 23 07:24:56 <wgreenhouse>	iqubic: https://github.com/ch11ng/exwm/wiki has an example of forcing a given window title to be floating, using the `exwm-manage-configurations' variable
+Apr 23 07:24:56 <ryouma>	or maybe it won't have either effect?  let's make sure economists predict every possibility
+Apr 23 07:25:46 <iqubic>	wgreenhouse: That's excellent, but I'd love it if I could do something like that, but for a specific window class
+Apr 23 07:26:05 <wgreenhouse>	iqubic: you can match on classes too
+Apr 23 07:26:15 <iqubic>	Cool. I'll look into that.
+Apr 23 07:27:21 <feannag>	Anyone here has some experience with gpg?
+Apr 23 07:28:56 <iqubic>	Now, how the hell do I get the WM_CLASS of a window?
+Apr 23 07:32:09 <wgreenhouse>	iqubic: xprop
+Apr 23 07:32:31 <iqubic>	Thanks. I'll look into it.
+Apr 23 07:34:48 <ayuce>	feannag: what kind of experience?
+Apr 23 07:39:00 <feannag>	ayuce, well, i have a couple of files encrypted using gpg with the same passphrase. But one of isn't getting decrypted. It returns "decryption failed: bad session key"
+Apr 23 07:39:20 <feannag>	ayuce, brb
+Apr 23 07:47:17 <wgreenhouse>	ryouma: one consensus that's pretty interesting is that the crash is due to the uncontrolled nature of the pandemic, and not due to any policy response. Places without any lockdown are still in recession because individuals still have to decide to weigh the risk and are determining it not worth it, en masse
+Apr 23 07:48:20 <wgreenhouse>	Lockdowns aren't killing the economy, having no handle on the disease is
+Apr 23 07:48:43 <twb>	turns out sitting in my living room for the first time in 5 years is not good for my lungs
+Apr 23 07:49:14 <wgreenhouse>	twb: dusty in there, is it?
+Apr 23 07:49:24 <twb>	I guess
+Apr 23 07:49:31 <twb>	I just had to wash my eyes out
+Apr 23 07:54:37 <wasamasa>	is that why the map is called dedust
+Apr 23 07:58:35 <twb>	wasamasa: hmmmm?
+Apr 23 07:59:05 <aidalgol>	twb: Wait, where do you normally play videogames?
+Apr 23 08:00:21 <wasamasa>	> Dust (de_dust) is a bomb defusal map, and the predecessor to Dust2. It appears in every game of the multiplayer Counter-Strike series.
+Apr 23 08:02:48 <codingquark>	It took >30sec to upload 82KB
+Apr 23 08:02:48 <codingquark>	Fcukin' servers
+Apr 23 08:05:50 <twb>	aidalgol: in my bedroom
+Apr 23 08:06:25 <twb>	i have a private bedroom
+Apr 23 08:08:41 <codingquark>	Is that not the norm?
+Apr 23 08:09:06 <twb>	codingquark: only since the 1950s
+Apr 23 08:09:08 <parsnip>	rudybot: fuck yeah
+Apr 23 08:09:09 <rudybot>	parsnip: FUCK YEAH, CHANGED IT TO JAPAN, 300 KB/s
+Apr 23 08:09:28 <codingquark>	twb: that is a lot of years dude
+Apr 23 08:09:43 <twb>	codingquark: in the 1850s it was normal for all the children in a family to share a bed even
+Apr 23 08:10:04 <iqubic>	wgreenhouse: The link you gave me doesn't really give me any information on hooks in EXWM.
+Apr 23 08:10:09 <iqubic>	Can you help me out?
+Apr 23 08:10:09 <dale>	I have so many questions.
+Apr 23 08:10:20 *	twb tries to remember the ratio for masa-methi flatbread
+Apr 23 08:10:20 <codingquark>	twb: I don't know why you're talking of 80s. People still do it for kids. Not for adults though.
+Apr 23 08:10:48 <parsnip>	i have so many answers. 1. 2. 3. ...
+Apr 23 08:11:59 <wgreenhouse>	iqubic: I was wrong in thinking that you still had to have a function fire on a hook when an individual exwm window was detected changing class or title. It grew that variable to give you one place to put preferences like "make this class floating"
+Apr 23 08:12:07 *	parsnip leers at channel
+Apr 23 08:12:16 <iqubic>	wgreenhouse: What does that mean?
+Apr 23 08:12:42 <parsnip>	bbl
+Apr 23 08:12:59 <iqubic>	Basically what I want is to tell EXWM to take any windows with a give WM_CLASS x and make it floating
+Apr 23 08:15:34 <wgreenhouse>	iqubic: see the example, and see C-h v exwm-manage-configurations. I think your case is something like (setq exwm-manage-configurations '(((string-match-p "foo" exwm-class-name) floating t)))
+Apr 23 08:15:44 <iqubic>	I'll try that.
+Apr 23 08:17:04 <wgreenhouse>	(Also, doing C-h v exwm-class-name for a given exwm window will give you the WM_CLASS)
+Apr 23 08:25:54 <iqubic>	So, if I start a program X, and it spawns an external window, shouldn't those two windows have the same WM_CLASS?
+Apr 23 08:31:03 <twb>	So I watched a remake of East Lynne last night
+Apr 23 08:31:06 <wgreenhouse>	iqubic: by convention, yes. WM_CLASS is meant to indicate the "general class of applications to which the client that owns this window belongs." https://tronche.com/gui/x/icccm/sec-4.html#WM_CLASS
+Apr 23 08:31:27 <twb>	The guy literally goes "just so we're clear: you're my slave now, and you must obey me in all things without question"
+Apr 23 08:31:33 <wgreenhouse>	iqubic: but nothing in X prevents an application from behaving badly
+Apr 23 08:32:13 <twb>	WM_CLASS is optional also
+Apr 23 08:32:30 <wgreenhouse>	iqubic: WM_INSTANCE_NAME is the other thing you could maybe match against 
+Apr 23 08:32:44 <iqubic>	can I access that in EXWM?
+Apr 23 08:32:45 <twb>	wgreenhouse: yeah I used that to implement spotlight in ratpoison
+Apr 23 08:33:14 <twb>	or... no to implement COMMAND + Tab vs. OPTION + Tab
+Apr 23 08:33:59 <wgreenhouse>	iqubic: yes, it's called exwm-instance-name as an elisp variable 
+Apr 23 08:34:05 <iqubic>	Cool
+Apr 23 08:34:37 <iqubic>	Well, now, I want to take all windows with the exwm-instance-name set to "godot_engine" and make them floating.
+Apr 23 08:35:10 <twb>	iqubic: yeah that's a fairly normal workflow
+Apr 23 08:35:22 <twb>	exwm might even have a built-in var for that
+Apr 23 08:35:30 <iqubic>	For what?
+Apr 23 08:35:47 <twb>	"make this class floating"
+Apr 23 08:36:03 <wgreenhouse>	try (setq exwm-manage-configurations '(((string-match-p "godot_engine" exwm-instance-name) floating t)))
+Apr 23 08:37:14 <twb>	if a computer has a 100W PSU, it'll never draw more than 100W right?
+Apr 23 08:38:14 <wgreenhouse>	twb: I think that just means some lab rated the psu to not blow up at 100W
+Apr 23 08:38:37 <twb>	surely blow down
+Apr 23 08:38:48 <twb>	100W is the downstream rating not the upstream rating
+Apr 23 08:38:51 <twb>	(right?)
+Apr 23 08:38:54 <wgreenhouse>	don't call me shirley
+Apr 23 08:39:30 <wgreenhouse>	but yes you're right
+Apr 23 08:45:36 <iqubic>	wgreenhouse: I also have all of my X11 windows set to Char mode by default. Is it possible to set those with an instance name of "godot_engine" to line mode?
+Apr 23 08:47:40 <iqubic>	Actually, I'd like to modify this: "(setq exwm-manage-configurations '((t char-mode t)))" so that it applies to everything, EXCEPT the "godot_engine" windows
+Apr 23 08:53:01 <jamzattack>	iqubic: https://0x0.st/ijmH.bin something like this should work to switch it to line-mode
+Apr 23 08:53:49 <jamzattack>	and add it to exwm-mode-hook
+Apr 23 08:54:13 <iqubic>	Would something like this also work: http://dpaste.com/2C682VZ
+Apr 23 08:54:45 <jamzattack>	try it?
+Apr 23 08:55:11 <iqubic>	If the instance name doesn't match "godot_engine" then it will be set to Char. If it does match, then it will be left in the default line mode.
+Apr 23 08:55:48 <iqubic>	At least that's the theory.
+Apr 23 08:56:56 <jamzattack>	Hmm, exwm seems to try the predicates only until one matches
+Apr 23 08:58:07 <jamzattack>	but that works for me
+Apr 23 08:58:40 <iqubic>	Weird.
+Apr 23 08:58:45 <iqubic>	I'll see if this works.
+Apr 23 08:59:23 <iqubic>	Yeah. That works for me.
+Apr 23 09:00:29 <iqubic>	Now, how can I remove the modeline from a window using this variable?
+Apr 23 09:00:31 *	bpalmer ponders reading something by Andrey Bieley
+Apr 23 09:00:51 <bpalmer>	the trouble with reading "classics" is every one is the "defining" story about something or other
+Apr 23 09:01:30 <bpalmer>	or is incomparable. e.g., "In this incomparable novel of the seething revolutionary Russia of 1905" ... come on, I'm sure you can compare it to something.
+Apr 23 09:02:02 <iqubic>	So, I know it's possible for EXWM to hide the modeline of a floating window, I just don't know how to do it.
+Apr 23 09:08:09 <twb>	bpalmer: there's a joke like that about H.P. Lovecraft
+Apr 23 09:08:26 <twb>	like 'it was a crawling mass of writing blah blah... it was indescribable"
+Apr 23 09:08:42 <twb>	and the manic pixie is like "never mind, you had a good try"
+Apr 23 09:10:46 <jamzattack>	https://0x0.st/ijmN.bin iqubic: here you go
+Apr 23 09:11:27 <iqubic>	How do I view that file?
+Apr 23 09:11:58 <jamzattack>	It's just plain text, open with eww
+Apr 23 09:11:59 <iqubic>	firefox wants me to download it, and then I'm being told that it's a bin file, and not a text file?
+Apr 23 09:12:29 <jamzattack>	https://0x0.st/ijmq.el
+Apr 23 09:14:34 <iqubic>	that doesn't actually remove the modeline for me.
+Apr 23 09:15:39 <jamzattack>	Huh, works with xterm for me
+Apr 23 09:16:14 <iqubic>	yeah, that's not working for me.
+Apr 23 09:19:42 <jamzattack>	Just installed godot to test, and it works... weird since exwm-manage-configuration hasn't changed since september 2019
+Apr 23 09:20:11 <jamzattack>	so it shouldn't be because you're using an old version
+Apr 23 09:23:14 <iqubic>	I'm literally using the latest version, pulled from github and compiled on my machine. I'm using the exact opposite thing.
+Apr 23 09:24:01 <jamzattack>	yeah me too
+Apr 23 09:24:25 <jamzattack>	maybe try using customize-set-variable instead of setq?
+Apr 23 09:24:37 <iqubic>	actually, that works for me.
+Apr 23 09:24:55 <iqubic>	I added the code to my .emacs, and then just procceed to not execute it.
+Apr 23 09:25:18 <iqubic>	I just went ahead and hit C-x C-e and now it's working
+Apr 23 09:27:30 <jamzattack>	I actually never used floating windows in exwm before...  it's actually pretty decent
+Apr 23 09:57:20 <Twist>	Is there a list of valid orgmode block types around anywhere? I'm not finding it in the manual. I see source blocks and a few paragraph types. (quote, verse, center) Are there others?
+Apr 23 10:00:25 <deerpig>	AFAIK it's same as the list in the menu when you use C-, to insert a block.
+Apr 23 10:01:08 <deerpig>	notes, center, comment, exprt, quote, src, verse or define your own.
+Apr 23 10:03:07 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 23 10:03:07 2020
+
+**** BEGIN LOGGING AT Thu Apr 23 10:07:40 2020
+
+Apr 23 10:07:40 *	Now talking on #emacs
+Apr 23 10:07:40 *	Topic for #emacs is: Emacs 27.0.91, the second pretest of 27.1, is out.  Please test | 'https://emacsconf.org/2019/videos | Emacs questions take priority over off-topic chatter, so ask! | No Public Loging! What happens in #emacs stays in #emacs | No Racism, sexism, xenophobia, botwanking, or other asshattery
+Apr 23 10:07:40 *	Topic for #emacs set by wgreenhouse!wgreenhous@fsf/member/wgreenhouse (Mon Apr 20 07:39:23 2020)
+Apr 23 10:07:42 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Apr 23 10:16:28 <Twist>	You lost me at menu. Ctrl-C doesn't invoke one.
+Apr 23 10:16:45 <jamzattack>	C-c C-, runs the command org-insert-structure-template
+Apr 23 10:17:57 <Twist>	jamzattack: thanks.
+Apr 23 10:18:23 <deerpig>	I stand corrected -- you are correct.  Never chat when you are heavily medicated.
+Apr 23 10:18:50 <Twist>	deerpig: Hey, you were right. Just unclear. :D
+Apr 23 10:19:31 <Twist>	That directed me to the relevant manual section. Much appreciated. 
+Apr 23 10:27:45 <Twist>	Huh. C-c C-, is undefined in my config. Wonder why it's not the default.
+Apr 23 10:28:31 <jamzattack>	Oh, it's as of version 27 I think... older versions use abbrevs instead of a menu thing
+Apr 23 10:29:09 <jamzattack>	i.e. type "< s TAB" and it expands to "#+BEGIN_SRC ..."
+Apr 23 10:29:12 <Twist>	The command works.. it's just not bound
+Apr 23 10:29:20 <jamzattack>	oh right
+Apr 23 10:29:41 <Twist>	And since it's in the manual as you describe, I was expecting it to be the default.
+Apr 23 10:30:41 <jamzattack>	well it's the default for 27+.  Kind of weird that it's bound to a key that can't be used in a terminal though
+Apr 23 10:33:09 <Twist>	27's not stable yet, right?
+Apr 23 10:33:55 <Twist>	Apologies for idiocy.. I'm trying to pick up emacs and orgmode at the same time.
+Apr 23 10:34:00 <jamzattack>	not "officially" yet
+Apr 23 10:34:27 <Twist>	A day will come when I'll understand where one ends and the other begins. But it is not this day.
+Apr 23 10:44:50 <codingquark>	After installing a package from Debian repo (I installed yaml-mode), how do I load it?
+Apr 23 10:45:30 <twb>	codingquark: restart emacs is easiest
+Apr 23 10:45:33 <jamzattack>	It would have been installed in /usr/share/emacs/site-lisp so either restart or manually add it to load-path
+Apr 23 10:45:39 <twb>	codingquark: otherwise you ^ that
+Apr 23 10:46:11 <codingquark>	twb, jamzattack: I killed the YAML buffer and opened the file again. This caused the YAML mode to be activated.
+Apr 23 10:46:14 <codingquark>	Quite amazing
+Apr 23 10:52:45 <twb>	Hrmmm
+Apr 23 10:52:58 <twb>	Let's write a dystopia where pizza is illegal and you are an undercover pizza dealer
+Apr 23 10:53:34 <deerpig>	Sounds like something Philip K Dick would write.
+Apr 23 10:58:57 <twb>	Hrm, a video game where player 1 is Dennis the Menace, and player 2 tries to stop him
+Apr 23 11:06:07 <codingquark>	Why am I doing devops, might I wonder myself
+Apr 23 11:06:32 <codingquark>	Let me fetch some caffeine for support
+Apr 23 11:08:25 *	twb pictures caffeine trying to give emotional support
+Apr 23 11:13:27 <codingquark>	Is there enough research supporting that it does not give emotional support?
+Apr 23 11:14:03 <codingquark>	So, do you want to know the CI/CD workflow I have come up with? It involves Kubernetes and Gitlab Review Apps! Yea? Yea?
+Apr 23 11:28:22 <codingquark>	Nobody? Alright.
+Apr 23 11:28:48 <jamzattack>	I'd love to hear haha
+Apr 23 11:28:54 <codingquark>	Oh cool!
+Apr 23 11:28:57 <codingquark>	Here it goes
+Apr 23 11:28:58 <jamzattack>	can't imagine anything more thrilling
+Apr 23 11:29:29 <bremner>	bungee jumping from my desk??
+Apr 23 11:29:30 <fsbot>	mu!
+Apr 23 11:29:42 <fledermaus>	bungee climbing the empire state building.
+Apr 23 11:29:55 <codingquark>	First, every time code is pushed, Gitlab will run tests. These tests will be run under a clean node-alpine docker image.
+Apr 23 11:29:59 <flypaper-ultimat>	i wonder how many people now that you can actually add hooks to git that run on commit, and that rejects that commit if those hooks dont exit succesfully
+Apr 23 11:30:49 <jamzattack>	just figured that out earlier today actually FACE PALM EMOJI
+Apr 23 11:31:02 <bremner>	:thumbsup:
+Apr 23 11:31:08 <codingquark>	Then, if the tests succeed, it builds the entire app along with other services like Database, API server etc as Docker images and asks Kubernetes to deploy a new cluster.
+Apr 23 11:31:48 <codingquark>	All this is orchestrated by gitlab-ci
+Apr 23 11:32:24 <codingquark>	When the cluster is ready, people get a link in gitlab UI from where they can test the app. After validating, they can click a button and the entire cluster vanishes in thin air
+Apr 23 11:32:56 <codingquark>	There are rules that make sure such clusters are not deployed for master, production, staging branches.
+Apr 23 11:33:08 <codingquark>	For those, deployment is done differently.
+Apr 23 11:33:12 <codingquark>	How do you like this?
+Apr 23 11:33:58 <codingquark>	For all such runs, gitlab also spins up a spot instance on AWS
+Apr 23 11:46:48 <twb>	is there an emoji yet for BOOT STAMPING ON HUMAN FACE FOREVER
+Apr 23 11:47:21 <codingquark>	That's a bit too aggressive for a small wall of text, I must say!
+Apr 23 11:49:00 <thblt>	codingquark: you wrote “click a button” on #emacs, what do you expect?
+Apr 23 11:49:29 <codingquark>	thblt: but... but... It is user friendly!!1!
+Apr 23 11:49:32 *	codingquark hides
+Apr 23 11:49:55 *	codingquark runs away from behind the barrel
+Apr 23 11:50:15 <bremner>	the webtoon??
+Apr 23 11:50:15 <fsbot>	Reply unclear, try again
+Apr 23 12:11:59 <twb>	And this, kiddies, is why grumpy people like me still prefer ttys
+Apr 23 12:12:34 <twb>	60% packet loss at every hop, SSH still works, but HTML over SSH is timing out
+Apr 23 12:13:03 <kensanata>	twb: Are you in a warzone?
+Apr 23 12:14:04 <kensanata>	codingquark: Such solutions make me think about CO₂
+Apr 23 12:14:47 <twb>	kensanata: well I exaggerated.  http://ix.io/2jbw
+Apr 23 12:14:48 <codingquark>	kensanata: good use of unicode
+Apr 23 12:15:10 <twb>	But BMC is definitely timing out, and it's not local packet storms 
+Apr 23 12:15:36 <kensanata>	codingquark: caps lock as compose key is the best caps lock
+Apr 23 12:15:55 <twb>	kensanata: I use it as control because I don't live in .ch
+Apr 23 12:16:11 <twb>	so I don't need accents enough to warrant a compose
+Apr 23 12:16:36 <twb>	(and when I need cyrillic or korean I switch IM entirely)
+Apr 23 12:16:51 <bremner>	to line??
+Apr 23 12:16:51 <fsbot>	No!
+Apr 23 12:17:43 <kensanata>	I use a lot of arrows, superscripts, subscripts, multiplication sign, real quotes, interrobang, extra brackets... lots of stuff that doesn't require accents and diaerese (because if that were the case I could simply use the Swiss German keyboard layout...)
+Apr 23 12:18:28 <kensanata>	And C-x 8 RET is slow as soon as you use stuff regularly.
+Apr 23 12:18:32 <bremner>	as opposed to imaginary quotes? such complex typography you have
+Apr 23 12:18:36 <bremner>	TeX IM is best IM
+Apr 23 12:18:49 <aidalgol>	bremner: Instant Messaging?
+Apr 23 12:19:06 <kensanata>	are ' and " even quotes‽
+Apr 23 12:19:09 <bremner>	aidalgol: I already made that joke a few minutes ago. Try to keep up.
+Apr 23 12:19:36 <codingquark>	No!
+Apr 23 12:19:39 <kensanata>	Are we reserving jokes, now?
+Apr 23 12:19:46 <bremner>	of course my joke conflated korea and japan. So fair to ignore it
+Apr 23 12:21:09 <aidalgol>	You did?
+Apr 23 12:21:19 <codingquark>	who is "korea and japan"?
+Apr 23 12:23:20 <bremner>	aidalgol: line is an proprietary messaging app popular in japan
+Apr 23 12:24:22 <bpalmer>	"Line began in 2011 as the brainchild of engineers at NHN Japan, the Japanese arm of Naver Corporation (formerly NHN) based in South Korea."
+Apr 23 12:24:43 <bpalmer>	so it works for both Korea and Japan
+Apr 23 12:24:55 <bremner>	oh. damn. You know what, I knew line was popular in Korea too, I just forgot.
+Apr 23 12:25:08 <aidalgol>	bremner: Yeah, that was pretty convoluted and obscure.
+Apr 23 12:25:19 <bremner>	aidalgol: ack
+Apr 23 12:25:28 <aidalgol>	Although I think it pitches itself as a "social networking app".
+Apr 23 12:25:35 <bremner>	like emacs
+Apr 23 12:25:42 <bremner>	or like nc
+Apr 23 12:25:47 <bpalmer>	I thought that was a social distancing app
+Apr 23 12:25:53 <codingquark>	I want to know if vim supports colored emoji properly
+Apr 23 12:26:06 <jamzattack>	depends on the terminal I guess
+Apr 23 12:26:49 <aidalgol>	bpalmer: That's Tinder.
+Apr 23 12:27:07 <twb>	in my day we didn't have "social distancing apps", they were just called yardsticks
+Apr 23 12:27:08 <aidalgol>	Go on Tinder; find no one; feel socially distant from everyone; silently weep.
+Apr 23 12:27:48 <aidalgol>	I thought "yardstick" was only a term in backwards countries that still use imperial.
+Apr 23 12:27:50 <twb>	aidalgol: I think you're supposed to run it when you live in manhattan, not on a farm
+Apr 23 12:28:12 <twb>	aidalgol: I had to say "yardstick" because the joke wouldn't work in regular language
+Apr 23 12:28:21 <twb>	I suppose I could have said "the cane"
+Apr 23 12:29:22 <aidalgol>	twb: No, it's really not just me.
+Apr 23 12:29:37 <bpalmer>	Ruby on Rails; Go on Tinder; Java on Bumble. I just can't keep up.
+Apr 23 12:29:41 <aidalgol>	twb: or "barge pole"
+Apr 23 12:30:12 <twb>	bpalmer: don't forget taylorswift on security
+Apr 23 12:30:13 <aidalgol>	bpalmer: Ain't Ruby on Rails one of dem early silent films?
+Apr 23 12:30:20 <codingquark>	At least dunst is showing emojis well
+Apr 23 12:30:54 <twb>	aidalgol: that's Wings on the River Kwai
+Apr 23 12:31:37 <aidalgol>	*sigh*...
+Apr 23 12:32:17 <codingquark>	ho ho ho
+Apr 23 12:32:20 <aidalgol>	twb: Look, the joke was that Ruby is a girl's name, and "damsel in distress tied to railroad tracks" was an trope of silent films.
+Apr 23 12:33:54 <bpalmer>	I never heard it
+Apr 23 12:34:21 <aidalgol>	bpalmer: You never do hear it coming.
+Apr 23 12:34:36 <aidalgol>	Snidely Whiplash uses only silent, stealth trains.
+Apr 23 12:35:14 <twb>	aidalgol: oh
+Apr 23 12:35:28 <bpalmer>	useful against the rare foe that tries to use radar to detect train incursions.
+Apr 23 12:36:14 <aidalgol>	I always knew old-timey women were hiding something under those huge dresses.
+Apr 23 12:36:44 <twb>	aidalgol: crinoline
+Apr 23 12:39:46 <aidalgol>	under the petticoats, then.
+Apr 23 12:42:10 <aidalgol>	rudybot: This is just sounding creepy now, isn't it?
+Apr 23 12:42:29 <rudybot>	aidalgol: because you are sounding kinda creepy right now and validating the whole point of using codenames
+Apr 23 12:45:09 <aidalgol>	o_o
+Apr 23 12:45:20 <hodapp>	craaaap, I'm out of my depth again on linear algebra
+Apr 23 12:45:43 <bpalmer>	hodapp: get yours xs all in a line on the same side of the equation.
+Apr 23 12:47:02 <Twist>	hodapp: is ##math here on freenode worth the time?
+Apr 23 12:47:09 <bpalmer>	rudybot: all this linear algebra stuff is really easy as long as it all fits on a line.
+Apr 23 12:47:18 <rudybot>	bpalmer: Usually those programmers only glue stuff together, so all they need is boolean algebra and given the lack of quality in today's machines, voodoo. 
+Apr 23 12:47:24 <hodapp>	Twist: who knows. there are enough math people here that I usually get an answer
+Apr 23 12:48:36 <hodapp>	I have my same series of matrices from the other day that looks like M0 = N1 * N2 * N3..., M1 = N1 * P1 * N2 * P2 * N3..., M2 = N1 * P1^2 * N2 * P2^2 * N3..., Mi = N1 * P1^i * N2 * P2^2 * N3
+Apr 23 12:49:17 <Plazma>	,juggalo
+Apr 23 12:49:19 <fsbot>	From memory, dooms are [0/62] balls of fire
+Apr 23 12:49:20 <fsbot>	[1] pure liquid pain
+Apr 23 12:49:20 <fsbot>	[2] nuclear holocaust
+Apr 23 12:49:20 <fsbot>	[3] rabid puppies ;;[ ,more / ,dump]
+Apr 23 12:49:22 <hodapp>	 and I verified numerically that for at least one particular example, this appears equivalent to Mi = M0 * X^i by simply solving X = M0^-1 * M1
+Apr 23 12:50:09 <hodapp>	and it looks like there "should" be a way to analytically solve for X based on the formula for Mi but I don't know what sorts of transforms to do
+Apr 23 12:50:15 <Plazma>	bpalmer: as one who uses linear algebra in quantum computing research, it gets complicated :P
+Apr 23 12:50:47 <hodapp>	transforms are all 4x4 homogeneous & affine transforms for 3D geometry
+Apr 23 12:52:20 <bpalmer>	Plazma: aye, I was making a weak joke about linearity and algebra
+Apr 23 12:54:09 <Plazma>	bpalmer: ohhhh , i get it now :p
+Apr 23 12:57:02 <bremner>	bpalmer: I thought you were advocating for programming in APL
+Apr 23 12:57:35 <bpalmer>	I'm not *not* advocating that...
+Apr 23 12:57:51 <hodapp>	it sounds like you are
+Apr 23 12:58:25 <kensanata>	I recently looked at J. It even has an Emacs Mode.
+Apr 23 12:58:30 <Plazma>	bpalmer: i suck at all math including linear algebra, seems like it's a game you never 'win' but do a bit better each time
+Apr 23 12:58:39 <Plazma>	it's fun though, to suck at it!
+Apr 23 13:00:17 <twb>	"root@yodel:~# shutdown -r 300" "Shutdown scheduled for Fri 2020-04-24 03:00:11 AEST"
+Apr 23 13:00:24 <twb>	...what, no, what the fuck is wrong with you systemd
+Apr 23 13:00:41 <twb>	Oh it's +300
+Apr 23 13:01:05 <twb>	nope, that's still wrong apparently.  Ugh fucking sloppy parsers.
+Apr 23 13:01:54 <twb>	ohhh, derp.  it's in minutes not seconds, and now + 300min happens to be 3:00 clock
+Apr 23 13:06:02 <hodapp>	hummm. if I can turn Mi = N0*(P0^i)*N1*(P1^i) to Mi=M0 * X^i through some hypothetical transform then I can just repeat this process recursively and turn an arbitrary string of products to what I need
+Apr 23 13:06:21 <hodapp>	so it seems I need only worry about the simplified case
+Apr 23 13:13:56 <python476>	o/
+Apr 23 13:14:00 <hodapp>	now, mark my words, once I derive a solution to this myself, JordiGH is gonna waltz in and hear me talking about it and be like "uhhh, you should have just done the LO*LF*U*CK decomposition from the start and applied the Magical Spectral Theorem" or something
+Apr 23 13:15:28 <kensanata>	hodapp: You just tell him why git is better than mercurial and it's going to be an easy win for you.
+Apr 23 13:16:02 <hodapp>	kensanata: but all I wanted was to know the magical linear algebra thingy I'm not doing right here :[
+Apr 23 13:16:08 <hodapp>	not to start another VCS war
+Apr 23 13:16:31 <kensanata>	the VCS war would be just a distraction, to be honest.
+Apr 23 13:18:48 <bremner>	oh look, it's boris johnson with COVID19
+Apr 23 13:19:08 <bremner>	I see your VCS war and raise you brexit
+Apr 23 13:21:43 <twb>	What's the equivalent of NAPLAN for mobile phone numbers
+Apr 23 13:25:07 <fledermaus>	twb: don't think there is one - it's down to each country.
+Apr 23 13:25:37 <fledermaus>	eg in the US mobile phones don't have a separate allocation, they're issued out of the region where you first register your phone.
+Apr 23 13:25:54 <fledermaus>	in the UK they have their own prefix blocks.
+Apr 23 13:26:11 <twb>	they = telcos, or counties?
+Apr 23 13:26:17 <fledermaus>	countries.
+Apr 23 13:26:26 <twb>	I meant counties, like Sussex or whatever
+Apr 23 13:26:55 <hodapp>	loooool, our one friend came from Ireland, got a mobile phone in the US, and he just asked where he can go to opt out of all these damn robocalls and telemarketers he keeps getting.
+Apr 23 13:26:57 <fledermaus>	oh. well in the US say you're in the 555-* area, and you buy a mobile phone- you get a 555-* mobile number
+Apr 23 13:27:26 <fledermaus>	so eg a NYC resident will have a mobile with a NYC code.
+Apr 23 13:27:26 <twb>	so if I learn your mobile number, I can make a good guess it was (say) initially issued in Ecuador but not which telco or state/provide/terroritory
+Apr 23 13:27:35 <twb>	fledermaus: oh weird
+Apr 23 13:27:46 <twb>	fledermaus: here landlines and mobiles have totally different prefixes
+Apr 23 13:27:54 <fledermaus>	twb: well a mobile number includes the +X country code, so you can definitely do country.
+Apr 23 13:28:09 <bremner>	twb: same in countries where caller pays to call mobile numbers
+Apr 23 13:28:10 <fledermaus>	twb: I think most countries separate out the mobile prefixes. prefices?
+Apr 23 13:28:35 <fledermaus>	but the US (or possibly all NANPA countries) are different.
+Apr 23 13:28:41 <bpalmer>	basically, in the US, people's mobile phone numbers are a great way to leak data about where you lived when you were 12-18 (or whenever you get your first phone)
+Apr 23 13:28:56 <bpalmer>	since once the number is issued, people can keep transferring it across the country.
+Apr 23 13:29:10 <fledermaus>	so for most countries the mobile phone # tells you at most which country.
+Apr 23 13:29:18 <ilkermutlu>	fledermaus: i think "prefixes"
+Apr 23 13:29:27 <fledermaus>	in the US it tells you the original issuing local prefix
+Apr 23 13:29:36 <fledermaus>	ilkermutlu: I was joking :) I know.
+Apr 23 13:29:38 <hodapp>	the hackerspace in Cincinnati, Hive13, is named after Cinci's area code, 513
+Apr 23 13:29:55 <hodapp>	which was also Dayton's area code till the early '90s or something when Dayton got 937
+Apr 23 13:32:03 <fledermaus>	in the UK the number can also hint at which mobile network a number is on (since I think it comes out of the telco's allocation) but since number porting was enforced that's probably not helpful unless you're hacking the phone system
+Apr 23 13:33:08 <hodapp>	hacking the phone system is the #3 hobby of the youth of America, behind having the sex (which is #1), and smoking drugs (which is #2).
+Apr 23 13:33:26 <hodapp>	I think Satanic cults are #4?
+Apr 23 13:33:53 *	fledermaus prefers to smoke bacon. or salmon.
+Apr 23 13:34:09 <hodapp>	ooh, I've never smoked my own bacon or salmon, but I do make gravlax pretty often
+Apr 23 13:34:23 <fledermaus>	great, now I'm hungry.
+Apr 23 13:34:36 <hodapp>	I need to make another batch of sauerkraut
+Apr 23 13:34:43 <hodapp>	also sourdough
+Apr 23 13:35:20 <wgreenhouse>	hodapp: Just did this; great use of a good piece of salmon and a few days' patience
+Apr 23 13:35:30 <hodapp>	wgreenhouse: what sort of seasonings did you use?
+Apr 23 13:36:50 <wgreenhouse>	hodapp: this time, pretty simple--coriander seed, caraway seed, black pepper, salt and sugar. And vodka of course. No dill because one must suffer a little in quarantine 
+Apr 23 13:37:03 <hodapp>	vodka?
+Apr 23 13:37:20 <hodapp>	I normally just do dill, and coriander or caraway (lots of sugar and salt of course)
+Apr 23 13:37:26 <bremner>	thank goodness quarantine means 40 days. We must be almost there.
+Apr 23 13:37:52 <wgreenhouse>	Just like a shot or so. Soaks into the salmon and maybe helps the spices infuse or maybe that's just woo but I do it
+Apr 23 13:38:15 <hodapp>	huh
+Apr 23 13:38:27 <bpalmer>	Ah, sourdough.  https://twitter.com/GretchenKoch/status/1248351210475831297
+Apr 23 13:38:29 <hodapp>	I'm not doing anything else with this Svedka...
+Apr 23 13:39:55 <wgreenhouse>	Just sort of brush it over top with the spices
+Apr 23 13:40:11 <fledermaus>	hm. have you used anything other than vodka? like say rum or gin?
+Apr 23 13:40:28 <wgreenhouse>	Gin would probably be great
+Apr 23 13:40:32 <wgreenhouse>	Good idea
+Apr 23 13:40:37 <fledermaus>	well gin is basically vodka + botanicals
+Apr 23 13:40:53 <fledermaus>	so arguably you already have tried it :)
+Apr 23 13:41:07 <wgreenhouse>	Right but not usually juniper
+Apr 23 13:41:19 <wgreenhouse>	Which is one of the main gin botanicals
+Apr 23 13:41:27 <hodapp>	have done juniper in my sauerkraut but not in my gravlax
+Apr 23 13:42:02 <twb>	i prefer cisco
+Apr 23 13:42:04 <bremner>	rudybot: ok, what about instant gratification from bad fish?
+Apr 23 13:42:08 <rudybot>	bremner: we're living in a world of instant gratification and severely shortened attention spans :D
+Apr 23 13:42:24 <bremner>	2 rite bro
+Apr 23 13:43:27 <hodapp>	rudybot: it's such a shame how nowadays all of our explanations pretend like the world used to be dramatically better
+Apr 23 13:43:56 <rudybot>	hodapp: the number of citizens per representative has increased dramatically since the original vision laid out in the constitution, though to hit anywhere close to the limit  put forth in the constitution we would have a house that was so large as to be almost useless.
+Apr 23 13:47:01 <bpalmer>	rudybot: remember how awesome the world was in November?
+Apr 23 13:47:05 <rudybot>	bpalmer: ... they did as of November anyway
+Apr 23 13:53:18 <twb>	hodapp: I'm not sure if you're being snarky about "make america great again" or "we have always been at war with indochina"
+Apr 23 13:53:20 <kensanata>	On emacs-devel, RMS says that he only wants to recommend #emacs on gnu.org if it has "a general policy of not promoting nonfree programs (neither applications nor systems) nor helping people use them." My impression is that we have no such policy and that the ops are pretty meh about one. Got strong opinions? https://lists.gnu.org/archive/html/emacs-devel/2020-04/msg00740.html
+Apr 23 13:54:11 <twb>	kensanata: channel policy or regulars' personal policies?
+Apr 23 13:54:45 <hodapp>	twb: it's a joke about how people just always make up nostalgic bullshit explanations that blatantly ignore facts
+Apr 23 13:54:46 <kensanata>	twb: "check that each of those three sites has a general policy" sounds like a channel policy.
+Apr 23 13:55:06 <twb>	I *mostly* recommend DFSG solutions, but not always, and I'll be cranky if #emacs tries to stop me mentioning non-DFSG options
+Apr 23 13:55:08 <kensanata>	Also note "Helping people use Emacs on a nonfree system or with some well known nonfree program is ok as an exception."
+Apr 23 13:55:28 <kensanata>	twb: Then again, when are you not cranky?
+Apr 23 13:55:31 <hodapp>	twb: like people who lament how "it's so dangerous and violent out there nowadays" and ignore that violent crime has been falling for decades
+Apr 23 13:55:57 <twb>	hodapp: one snark I liked a while ago was americans going like "why haven't we had any quality of life improvements since 1900"
+Apr 23 13:56:06 <kensanata>	Wow
+Apr 23 13:56:21 <twb>	hodapp: and somebody saying "because all the improvements went to people who still had like 60% infant mortality"
+Apr 23 13:56:29 <hodapp>	haaaah
+Apr 23 13:56:43 <twb>	and no running water and no artificial lighting and not even a hole to shit in
+Apr 23 13:57:17 <twb>	literally, half the people alive today don't have a hole to shit in
+Apr 23 14:03:14 <miskatonic>	they should shit into the security holes of Windows 10
+Apr 23 14:03:22 <hodapp>	no
+Apr 23 14:03:34 <skangas>	kensanata: Thanks for bringing this question here.  For what it's worth, I personally would support a decision to adopt such a policy.  I'm not a regular though, as you know.
+Apr 23 14:06:28 <bpalmer>	I've spoken up against it; I think it's fine for individuals to choose whether to promote or help people (in the same way that many people in the channel don't particularly promote or help with spacemacs/aquamacs/etc, although that may be for different reasons)
+Apr 23 14:09:06 <skangas>	I have to admit I'm not sure what it would mean in practice.  Perhaps it would mostly amount to pointing out to users recommending the use of proprietary software <foo> that the channel has a policy not to recommend it.
+Apr 23 14:09:25 <twb>	kensanata: btw you could use ircs:// instead of irc:// ;-)
+Apr 23 14:10:33 <rpav>	"you must be this dogmatic to ride the ride"
+Apr 23 14:10:50 <thblt>	Not recommending is not the same as “not helping”.  Not helping kinda sucks.
+Apr 23 14:11:49 <fledermaus>	It's not as if this channel is a hotbed of proprietary software evangelism.
+Apr 23 14:11:55 <rpav>	having a "policy of not recommending" and "reminding people to not recommend" is a bit creepy cultist vibe
+Apr 23 14:12:10 <rpav>	well exactly
+Apr 23 14:12:48 <skangas>	To be fair, there are many places where one can get help with proprietary software already.
+Apr 23 14:12:54 <fledermaus>	We barely have any policies beyond "could you be less of a dick, 'mkay?" and "we try to answer emacs questions first when we're not debating Kant or how to smoke salmon."
+Apr 23 14:13:15 <wasamasa>	but what if your recipes aren't free
+Apr 23 14:13:18 <fledermaus>	or indeed how kant would smoke salmon.
+Apr 23 14:13:28 <rpav>	if it was "the channel _has a policy of recommending_ non-free software and often promotes non-free solutions, non-free rewrites of emacs, etc, that's a bit against our philosophy" and "are you dogmatic enough"
+Apr 23 14:13:34 <rpav>	err rather than "are you .."
+Apr 23 14:17:03 <thblt>	Microsoft Visual Emacs for 
+Apr 23 14:17:07 <thblt>	Windows
+Apr 23 14:17:34 <bremner>	speaking of visual, how are electron apps for blind people?
+Apr 23 14:17:47 <bremner>	do they work ok with screenreaders?
+Apr 23 14:18:37 <bpalmer>	https://www.electronjs.org/docs/tutorial/accessibility : "Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it."
+Apr 23 14:19:06 <bpalmer>	it looks like there are solutions for windows and macos
+Apr 23 14:19:43 <bpalmer>	no mention of *nix accessibility, which probably means support is terrible.
+Apr 23 14:20:56 <thblt>	This may be a Chromium thing “For performance reasons Chromium waits until it detects the presence of assistive technology before enabling full support for accessibility APIs.”
+Apr 23 14:21:32 <bpalmer>	https://github.com/electron/electron/issues/11544 makes a claim dated march 20 that "Chromium now has support for Orca, which is available to Electron developers and users via the --force-renderer-accessibility flag."
+Apr 23 14:21:55 <bpalmer>	(orca being a screenreader for linux and solaris)
+Apr 23 14:23:58 <fledermaus>	wait wait wait
+Apr 23 14:24:09 <fledermaus>	electron does things _for_ performance?
+Apr 23 14:24:25 <fledermaus>	like, this is the result after they _tried_?
+Apr 23 14:25:45 <bpalmer>	vscode seems pretty code when I've tried it.
+Apr 23 14:25:51 <bpalmer>	pretty fast, that is.
+Apr 23 14:26:08 <kensanata>	Regarding an #emacs policy I think the best course of action would simply be admitting that we wouldn't know how to enforce such a policy and that therefore not getting listed on gnu.org is OK.
+Apr 23 14:26:23 <fledermaus>	+1
+Apr 23 14:26:25 <kensanata>	I just care about people being nice to each other and people answering emacs questions before other questions.
+Apr 23 14:26:51 <rpav>	benevolent anarchism! ;)
+Apr 23 14:26:54 <fledermaus>	noch einmal plus-eins.
+Apr 23 14:27:31 <kensanata>	rpav: I don't know enough about anarchism to comment. :)
+Apr 23 14:31:31 <grym>	rpav: i know of a nice house of hospitality in maryland.. 
+Apr 23 14:33:30 <bremner>	I know a house in New Orleans, they call the rising sun...
+Apr 23 14:33:41 <rpav>	kensanata: same, i just like that one song ;)
+Apr 23 14:33:47 <grym>	oh there's one in pgh too that's still alive 
+Apr 23 14:38:04 <miskatonic>	so electron must be boycotted rigorously at any cost whatsoever
+Apr 23 14:39:51 <grym>	miskatonic: alas, signal-desktop is super handy 
+Apr 23 14:41:10 <bpalmer>	hopefully PWAs will replace a lot of the electron apps
+Apr 23 14:42:11 <bremner>	Personal Weapon Arrays??
+Apr 23 14:42:12 <fsbot>	Improbable!
+Apr 23 14:42:21 <mplsCorwin>	kensanata: I agree with the consensus; it's hard to have 'policies' on an help forum and I think making this a chil place to chat and get help is of more value than the pat on the head from RMS and gnu.org.
+Apr 23 14:43:07 <mplsCorwin>	And I say this as a total FSF fanboy.
+Apr 23 14:44:46 <mplsCorwin>	It's better this channel be super fun and useful to those here than that it be a primary organ for supporting Emacs.  The home page, Savannah, plus Devel and the other lists have that covered anyway.
+Apr 23 14:45:28 <mplsCorwin>	also, what rpav said RE creepy.
+Apr 23 14:48:46 <grym>	"you must be our kind of free in order to be free" is ... let's go with "highly debatable"
+Apr 23 14:49:37 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 23 14:49:37 2020
+
+**** BEGIN LOGGING AT Thu Apr 23 14:53:17 2020
+
+Apr 23 14:53:17 *	Now talking on #emacs
+Apr 23 14:53:17 *	Topic for #emacs is: Emacs 27.0.91, the second pretest of 27.1, is out.  Please test | 'https://emacsconf.org/2019/videos | Emacs questions take priority over off-topic chatter, so ask! | No Public Loging! What happens in #emacs stays in #emacs | No Racism, sexism, xenophobia, botwanking, or other asshattery
+Apr 23 14:53:17 *	Topic for #emacs set by wgreenhouse!wgreenhous@fsf/member/wgreenhouse (Mon Apr 20 07:39:23 2020)
+Apr 23 14:53:20 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Apr 23 14:53:58 <mplsCorwin>	On the on hand I appreciate and admire the hard line that tries to protect against threats to source, it self, e.g. the copyright assignment stuff.  On the other, more flies with honey.  When you air-drop leaflets they shouldn't say "your culture stinks".
+Apr 23 15:02:37 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 23 15:02:37 2020
+
+**** BEGIN LOGGING AT Thu Apr 23 15:11:11 2020
+
+Apr 23 15:11:11 *	Now talking on #emacs
+Apr 23 15:11:11 *	Topic for #emacs is: Emacs 27.0.91, the second pretest of 27.1, is out.  Please test | 'https://emacsconf.org/2019/videos | Emacs questions take priority over off-topic chatter, so ask! | No Public Loging! What happens in #emacs stays in #emacs | No Racism, sexism, xenophobia, botwanking, or other asshattery
+Apr 23 15:11:11 *	Topic for #emacs set by wgreenhouse!wgreenhous@fsf/member/wgreenhouse (Mon Apr 20 07:39:23 2020)
+Apr 23 15:11:12 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Apr 23 15:12:04 <twainwek>	i'm looking at this https://www.gnu.org/software/emacs/manual/html_node/emacs/Package-Menu.html , but i'm seeing `x` only install the selected package and not its dependencies
+Apr 23 15:12:37 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 23 15:12:37 2020
+
+**** BEGIN LOGGING AT Thu Apr 23 15:13:25 2020
+
+Apr 23 15:13:25 *	Now talking on #emacs
+Apr 23 15:13:25 *	Topic for #emacs is: Emacs 27.0.91, the second pretest of 27.1, is out.  Please test | 'https://emacsconf.org/2019/videos | Emacs questions take priority over off-topic chatter, so ask! | No Public Loging! What happens in #emacs stays in #emacs | No Racism, sexism, xenophobia, botwanking, or other asshattery
+Apr 23 15:13:25 *	Topic for #emacs set by wgreenhouse!wgreenhous@fsf/member/wgreenhouse (Mon Apr 20 07:39:23 2020)
+Apr 23 15:13:27 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Apr 23 15:14:07 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 23 15:14:07 2020
+
+**** BEGIN LOGGING AT Thu Apr 23 15:18:28 2020
+
+Apr 23 15:18:28 *	Now talking on #emacs
+Apr 23 15:18:28 *	Topic for #emacs is: Emacs 27.0.91, the second pretest of 27.1, is out.  Please test | 'https://emacsconf.org/2019/videos | Emacs questions take priority over off-topic chatter, so ask! | No Public Loging! What happens in #emacs stays in #emacs | No Racism, sexism, xenophobia, botwanking, or other asshattery
+Apr 23 15:18:28 *	Topic for #emacs set by wgreenhouse!wgreenhous@fsf/member/wgreenhouse (Mon Apr 20 07:39:23 2020)
+Apr 23 15:18:29 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Apr 23 15:19:18 <bremner>	hmm. YouTube thinks I would enjoy the "MAGAtruthChannel". Clearly they think I am a Java programmer. Any good schemer knows that should be the maga-truth-channel.
+Apr 23 15:19:33 <wgreenhouse>	:D
+Apr 23 15:19:34 <notnotdan>	lol
+Apr 23 15:20:35 <Aurora_v_kosmose>	It'd nice to merge ungoogled chromium into chromium's main branch, I guess.
+Apr 23 15:20:47 <wgreenhouse>	https://en.wikipedia.org/wiki/Naming_convention_(programming)#Multiple-word_identifiers says there's no fully agreed-upon name for lisp-case
+Apr 23 15:20:51 <wgreenhouse>	kebab-case is a fun candidate
+Apr 23 15:22:08 <wgreenhouse>	Aurora_v_kosmose: that would enable some of the blocking bugs against a chromium-based torbrowser to be cleared
+Apr 23 15:22:24 <bpalmer>	sadly snake_case is only half the convention in python.
+Apr 23 15:26:16 <mfg>	Hi :) I have a question regarding diminish and helm/geiser. I have (with-eval-after-load 'helm '(diminish 'helm-mode)) in my init file. It works. But when i start geiser with M-x run-geiser the indicator pops up again. Does anybody know why? or how i can find out?
+Apr 23 15:30:05 <bpalmer>	mfg: with-eval-after-load, unlike eval-after-load, does not require quoting the form.
+Apr 23 15:30:14 <bpalmer>	mfg: it's like progn.
+Apr 23 15:30:20 <mfg>	oh, okay
+Apr 23 15:30:41 <bpalmer>	so, (with-eval-after-load "helm" (diminish 'helm-mode))  , probably
+Apr 23 15:31:11 <mfg>	i will try that
+Apr 23 15:33:18 <mfg>	this doesn't solve the problem. After starting geiser it pops up again and i have to evaluate with-eval-after-load a second time
+Apr 23 15:33:31 <bpalmer>	mfg: the second time it does work?
+Apr 23 15:33:45 <mfg>	the second time removes it again, yes
+Apr 23 15:36:38 <bpalmer>	Hmm. try "helm-mode" instead of "helm" as the first argument.
+Apr 23 15:37:02 <bpalmer>	helm.el defines a minor mode helm--minor-mode , but avoids loading helm-mode.el which defines helm-mode
+Apr 23 15:38:15 <mfg>	that solved it, thanks :)
+Apr 23 15:38:54 <bpalmer>	awesome.
+Apr 23 15:43:03 <bpalmer>	and with that, time to go be productive in the cyberdeck.
+Apr 23 15:46:20 <bpalmer>	(hmm, technomancy built a cyberdeck once. That looks interesting)
+Apr 23 15:49:14 <Aurora_v_kosmose>	That's pretty cool.
+Apr 23 15:52:37 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 23 15:52:37 2020
+
+**** BEGIN LOGGING AT Thu Apr 23 17:38:58 2020
+
+Apr 23 17:38:58 *	Now talking on #emacs
+Apr 23 17:38:58 *	Topic for #emacs is: Emacs 27.0.91, the second pretest of 27.1, is out.  Please test | 'https://emacsconf.org/2019/videos | Emacs questions take priority over off-topic chatter, so ask! | No Public Loging! What happens in #emacs stays in #emacs | No Racism, sexism, xenophobia, botwanking, or other asshattery
+Apr 23 17:38:58 *	Topic for #emacs set by wgreenhouse!wgreenhous@fsf/member/wgreenhouse (Mon Apr 20 07:39:23 2020)
+Apr 23 17:38:58 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Apr 23 17:52:26 <thblt>	jusss: what are you trying to do?
+Apr 23 18:20:34 <wasamasa>	> Discourse cannot be used offline, doesn't work with terminal-based workflows, and requires a JavaScript-enabled browser that may be too resource-intensive for the PDP-11-based development system that somebody is surely still using.
+Apr 23 18:20:46 <hodapp>	wut
+Apr 23 18:21:25 <wgreenhouse>	wasamasa: since discourse forums can be accessed as mailinglists, why can't it be used offline?
+Apr 23 18:21:32 <wgreenhouse>	oh, this is some dinosaur on emacs-devel saying weird stuff
+Apr 23 18:21:36 <wasamasa>	I have no idea
+Apr 23 18:21:40 <wasamasa>	and no, this is LWN
+Apr 23 18:21:42 <bremner>	apparently only a subset of features are accesible
+Apr 23 18:21:59 <wgreenhouse>	I learned lately that the fsf has actually been running discourse for a while
+Apr 23 18:22:04 <wgreenhouse>	as one of the fsf associate member toys
+Apr 23 18:22:05 <bremner>	don't ask me the details; I can barely be bothered to read mailing lists. If it gets any harder I'll just stop
+Apr 23 18:22:41 <CaffeineVaccine>	is there a way to exit `minibuffer-inactive-mode` in elisp?
+Apr 23 18:23:19 <ober>	elisp is the atoms that make up everything you see, touch, and interact with... so yes.
+Apr 23 18:23:57 <CaffeineVaccine>	at the end of the function I'm creating, I'm stuck in the minibuffer with `minibuffer-inactive-mode`, with  no way to get out of it other than to `(other-window 1)` it.
+Apr 23 18:24:20 <CaffeineVaccine>	but that's not something I want to do. And I can't `(keyboard-quit)` because then I exit the function..
+Apr 23 18:24:26 <CaffeineVaccine>	So it's like a catch-22 situation
+Apr 23 18:25:35 <wasamasa>	I'm mildly curious what gotchas I'll uncover by moving my melpa stuff off github
+Apr 23 18:25:47 <wasamasa>	theoretically there should be no issues whatsoever
+Apr 23 18:26:00 <wgreenhouse>	what gotchas do you expect?
+Apr 23 18:26:16 <wasamasa>	things like melpa-stable not picking up my releases
+Apr 23 18:26:38 <wasamasa>	aside from melpa I do scheme stuff and that one particular community expects release tarballs
+Apr 23 18:26:45 <wgreenhouse>	wasamasa: surely melpa's coding is general to git and not specific to git_hub_
+Apr 23 18:26:47 <wasamasa>	so I've hacked up code to generate them
+Apr 23 18:26:49 <CaffeineVaccine>	Actually `(keyboard-quit)`/`(exit-minibuffer)`/etc. won't even exit the minibuffer when in `minibuffer-inactive-mode`. 
+Apr 23 18:27:09 <wasamasa>	they do have separate git and github fetchers, something is bound to be different between them
+Apr 23 18:28:14 <wasamasa>	like the github fetcher getting more github-specific info
+Apr 23 18:29:08 <wgreenhouse>	melpa-stable "releases" are just git tags, yeah?
+Apr 23 18:29:33 <wasamasa>	that's my impression of it
+Apr 23 18:30:01 <wasamasa>	I remember one hitch where they accidentally deleted all their data and didn't repopulate the stable packages
+Apr 23 18:30:19 <wasamasa>	packages reappeared there only after pushing a new tag
+Apr 23 18:30:27 <wasamasa>	so for a while you couldn't install evil from melpa-stable :D
+Apr 23 18:31:08 <CaffeineVaccine>	anyone have any ideas?
+Apr 23 18:32:43 <wgreenhouse>	CaffeineVaccine: without seeing your library, it kind of sounds like whatever you're trying to do is probably too low-level. if you're using the minibuffer to get user input, something like `read-minibuffer' should get you outta there when it's done
+Apr 23 18:33:20 <wgreenhouse>	CaffeineVaccine: alternatively, I think a save-window-excursion would get you back home once the user is done interacting with the minibuffer
+Apr 23 18:39:10 <CaffeineVaccine>	wgreenhouse: very interesting ideas
+Apr 23 18:39:12 <CaffeineVaccine>	wgreenhouse: thanks
+Apr 23 18:39:51 <wgreenhouse>	CaffeineVaccine: you're welcome; I think that is the order I would try them in, too, as save-window-excursion is imperfect and sometimes surprising
+Apr 23 18:40:01 <wgreenhouse>	might revert the emacs window config to a state the user finds unexpected
+Apr 23 18:40:45 <bpalmer>	Repeating a question in case others are active with more opinions: 'On emacs-devel, RMS says that he only wants to recommend #emacs on gnu.org if it has "a general policy of not promoting nonfree programs (neither applications nor systems) nor helping people use them." My impression is that we have no such policy and that the ops are pretty meh about one. Got strong opinions?
+Apr 23 18:40:45 <bpalmer>	https://lists.gnu.org/archive/html/emacs-devel/2020-04/msg00740.html '
+Apr 23 18:41:49 <wasamasa>	it seems like a slippery slope
+Apr 23 18:43:33 <bpalmer>	some people are always trying to ice skate uphill.
+Apr 23 18:44:29 <cvandusen>	Is there any faster way to go??
+Apr 23 18:44:30 <fsbot>	Cannot predict now
+Apr 23 18:46:26 <technomancy>	lol; this channel is a "site"?
+Apr 23 18:47:33 <bpalmer>	a site for sore ice
+Apr 23 18:47:33 <bandali>	he probably saw a link and thought so
+Apr 23 18:47:45 <bandali>	maybe didn't notice that it's an irc:// one
+Apr 23 18:48:24 <wgreenhouse>	in fairness we were listed among things that actually are websites
+Apr 23 18:48:28 <cvandusen>	He's probably concerned that #emacs runs non-free javascript 
+Apr 23 18:49:06 <bandali>	and #emacs is already listed on https://www.gnu.org/server/irc-rules.html, so i'm hoping we can be thoughtful and not promote nonfree software/systems here
+Apr 23 18:49:31 <wasamasa>	just define promoting nonfree stuff as being an asshat, bam
+Apr 23 18:49:33 <wasamasa>	problem solved
+Apr 23 18:49:57 <wgreenhouse>	bandali: that page also implies that contacting the campaigns manager at FSF will somehow get abuse issues at #emacs resolved, which I think is...optimistic?
+Apr 23 18:50:23 <wasamasa>	as optimistic as the RMS take on netiquettes
+Apr 23 18:50:59 <wgreenhouse>	bandali: as bpalmer pointed out, this channel predates any official "blessing" by fsf/gnu of #emacs being on freenode, as well as the requirement that single-# channels be officially sanctioned. but otoh we have the current emacs maintainer as founder and op so that may be a nonissue
+Apr 23 18:51:32 <bandali>	wgreenhouse, afaik the fsf staff, including the campaigns team, have ops privileges on nearly all fsf/gnu channels, and can intervene if need be. though, i think for gnu-related channels they'd ask gnu people first
+Apr 23 18:51:58 <wgreenhouse>	bandali: are there any people on fsf staff (except accidentally) who are ops on /chanserv access #emacs list?
+Apr 23 18:52:02 <tromey>	what is being proposed?
+Apr 23 18:52:13 <wgreenhouse>	I'm saying I think that page is making a claim that's not necessarily accurate about the status of #emacs
+Apr 23 18:52:21 <bandali>	wgreenhouse, i think johnsu01 is one
+Apr 23 18:52:44 <wgreenhouse>	bandali: yeah, he is
+Apr 23 18:53:00 <wasamasa>	anyway, I see that as a chance to quickly resolve this one
+Apr 23 18:53:22 <wasamasa>	if #emacs is considered an official GNU promoting channel, surely it can be recommended
+Apr 23 18:53:28 <bpalmer>	tromey: the proposal, I guess, would be that the channel adopts a general policy of etc etc
+Apr 23 18:53:32 <wgreenhouse>	I wonder if the participants in that email thread have already looked at that page
+Apr 23 18:54:16 <bandali>	and in all fairness, in the reply above rms does say:
+Apr 23 18:54:18 <bandali>	Helping people use Emacs on a nonfree system or with some well known
+Apr 23 18:54:19 <bandali>	nonfree program is ok as an exception.  (See References in GNU Coding
+Apr 23 18:54:19 <bandali>	Standards.)
+Apr 23 18:54:47 <bpalmer>	(that particular page about the irc channels also discourages off-topic conversation, so ... hm)
+Apr 23 18:55:05 <wgreenhouse>	bandali: right. I told skangas that, de facto, that's generally followed here (the only discussion of nonfree software/systems that really happens is e.g. emacs os-compatibility issues)
+Apr 23 18:55:09 <bandali>	but yeah besides that, i think it's distasteful to recommend or help with nonfree programs that are somehow remotely related to emacs
+Apr 23 18:55:17 <bandali>	wgreenhouse, right
+Apr 23 18:55:27 <ober>	yeah... they had a page about operating systems too, but some how Linus never changed his communications style to conform... 
+Apr 23 18:55:35 <wgreenhouse>	bandali: but having that be the de facto vibe of the channel is different than formally enforcing it
+Apr 23 18:56:40 <holomorph>	i write elisp to interact with nonfree software, do i get banned now??
+Apr 23 18:56:40 <fsbot>	My sources say no!
+Apr 23 18:56:47 <bandali>	wgreenhouse, not *that* different i think, practically. it could be as simple as "hey, discussion of nonfree programs is off-topic for #emacs"
+Apr 23 18:56:53 <holomorph>	whew
+Apr 23 18:57:07 <bandali>	that happens somewhat often e.g. on #guix when people ask how to install nonfree drivers
+Apr 23 18:57:29 <wgreenhouse>	bandali: another problem is that that gnu page's rules are different than https://www.emacswiki.org/emacs/EmacsChannel#toc3
+Apr 23 18:57:41 <wgreenhouse>	which anticipates and sets parameters around off-topic conduct
+Apr 23 18:58:13 <wgreenhouse>	or more specifically https://www.emacswiki.org/emacs/EmacsChannel#toc6
+Apr 23 18:58:15 <bandali>	wgreenhouse, right, and i think that's fine? channels can have more specific rules/guidelines so long as they don't fly in the face of gnu's
+Apr 23 18:58:36 *	bpalmer doesn't really care about gnu's policies, just for the record
+Apr 23 18:58:57 *	bandali does, just for the record
+Apr 23 18:59:43 <ober>	,aec
+Apr 23 18:59:44 <fsbot>	ober, AEC is an acronym for "Actual Emacs Content". Given how rare that is in #emacs
+Apr 23 19:00:14 <bpalmer>	at any rate. I or kensanata or another op will be asking for people's opinions periodically to get a sense of the channel's feelings. Feel free to drop a PM to a friendly op if you'd like to express an opinion privately.
+Apr 23 19:00:50 <bandali>	so long as we're kind to each other and don't encourage use of nonfree software we should all be just fine :-)
+Apr 23 19:01:03 <bpalmer>	the opinions expressed at this point in time are already more varied than the ones from earlier today, so more points of view are being represented :)
+Apr 23 19:02:01 <bpalmer>	Uhm. I don't agree with that stance, either.
+Apr 23 19:02:53 <bandali>	what stance?
+Apr 23 19:03:28 <goatish>	Hi team, I don't know if this is a good time but I'm trying to add timezones to my timestamps in org mode. I'm inserting these timestamps with C-c C-u . and they appear in format <2020-04-23 Thu 13:44>. Is there any way to add some kind of timezone, such as a UTC offset? I've been digging through the docs and tried setting org-export-date-timestamp-format by adding %z but that didnt seem to help
+Apr 23 19:03:39 <holomorph>	i think we'll be just fine largely ignoring emacs-devel
+Apr 23 19:03:55 <ober>	^^
+Apr 23 19:04:24 <bandali>	that's...
+Apr 23 19:04:36 <goatish>	(originally this was for exporting but having them display in emacs too would be great too)
+Apr 23 19:04:37 <bpalmer>	goatish: what command is C-c C-u .   ? In my org that just does an upheading
+Apr 23 19:05:17 <bpalmer>	well, C-c C-u does that.
+Apr 23 19:05:34 <wgreenhouse>	bandali: "flying in the face of" is kind of the question. I think the gnu.org page's attitude toward off-topic content "flies in the face of" the emacswiki rules (which are the only rules most of the ops here were ever aware existed for this channel)
+Apr 23 19:05:34 <goatish>	That's a good question! I tried to do the C-h k but wasn't sure how to return the function for multi keys like that
+Apr 23 19:05:50 <goatish>	PS: I'm a noob
+Apr 23 19:06:06 <bpalmer>	goatish: C-h k and then start the sequence ; when it stops accepting input, you've reached the command :)
+Apr 23 19:06:08 <wgreenhouse>	there is a direct conflict, is off-topic content in general allowed (with limitations) or not
+Apr 23 19:06:12 <goatish>	I think it's org-time-stamp
+Apr 23 19:06:46 <scheming_around>	This is driving me mad: for some reason, pdf-tools doesn't work correctly when scrolling down using the mouse, but it does work correctly when scrolling up
+Apr 23 19:06:56 <goatish>	However, if I run org-time-stamp with M-x it doesn't add the time. Wheras C-u C-c . does
+Apr 23 19:07:23 <ober>	scheming_around: is it still rendering?
+Apr 23 19:07:30 <scheming_around>	When scrolling down, the page just scrolls out of the frame and then pdf-tools redisplays that page from the beginning
+Apr 23 19:07:35 <bpalmer>	aha. C-u C-c is different than C-c C-u . C-u is the "universal prefix" -- running it before a command usually changes it in some way
+Apr 23 19:07:59 <bandali>	wgreenhouse, regarding being on/off topic, that gnu.org pages says: Keep it on topic — personal attacks, trolling/baiting or flooding (posting multiple repetitive lines or large amounts of code) of the channel will not be tolerated.
+Apr 23 19:08:03 <goatish>	I think I made a mistake when I originally said C-c C-u, and had them reversed
+Apr 23 19:08:12 <bandali>	which i think is in line with "no asshatery" bit in the #emacs topic
+Apr 23 19:08:22 <CaffeineVaccine>	wgreenhouse: Found another way: `(throw 'exit t)`
+Apr 23 19:09:01 <bpalmer>	goatish: https://orgmode.org/manual/Custom-time-format.html#Custom-time-format  -- change org-time-stamp-custom-format 
+Apr 23 19:09:30 <bpalmer>	goatish: and you need to enable the timestamp overlays
+Apr 23 19:09:36 <goatish>	Thanks bpalmer, I'll give it a try
+Apr 23 19:10:34 <wgreenhouse>	bandali: do you think, anecdotally, that the % of off-topic (not abuse, just not about emacs) here is roughly in line with other gnu channels, or are we wildly more off topic
+Apr 23 19:11:21 <bandali>	wgreenhouse, i don't think we need to keep #emacs *strictly* emacs-related at all times. hell, even #gnu and #fsf sometimes diverge into drastically off-topic discussions sometimes. in those cases, we gently remind people to try and bring discussion back to topic and perhaps take unrelated discussion to more appropriate places
+Apr 23 19:11:37 <tromey>	TBH, emacs is normally more off-topic but also perhaps less trolly/irritating than some other chans
+Apr 23 19:11:55 <tromey>	anyway I would be opposed to a major policy change, since IME #emacs works well already
+Apr 23 19:12:08 <bandali>	i get the impression that perhaps #emacs is a *bit* more off-topic sometimes, but not by too much
+Apr 23 19:12:14 <bandali>	and i don't think it's a problem
+Apr 23 19:12:21 <Aurora_v_kosmose>	#lisp has a very seriousface on-topic attitude.
+Apr 23 19:12:41 <bandali>	almost anytime i look here, there's been or is already some emacs-related discussion going on, which is great and on-topic
+Apr 23 19:12:48 <grym>	i understand why the rules are different in both places, but i like off-topic in chat here. In #python where i also hang out a lot, you can't do that.  channel's too big 
+Apr 23 19:12:57 <se-sm-ca>	is there an elisp channel or is list the closest thing
+Apr 23 19:13:02 <wgreenhouse>	bandali, tromey: then perhaps the answer to the email thread should be to point out that this channel is already an official gnu channel (citing to that page), with policies in line with other gnu channels and both johnsu01 and johnw among the operators
+Apr 23 19:14:13 <bandali>	right
+Apr 23 19:14:16 <goatish>	bpalmer: I set org-time-stamp-custom-format to "%F %a %R %z" but it didn't add the timezone for the %z part. I confirmed that org-time-stamp-custom-format was set with C-h v. I also toggled org-toggle-time-stamp-overlays a couple of times
+Apr 23 19:14:41 <bandali>	wgreenhouse, i haven't been keeping up to date with emacs-devel for a few days, i'll be catching up soon, and might send a reply along those lines
+Apr 23 19:14:44 <grym>	(and i really appreciate the crusty old school vibe here) 
+Apr 23 19:14:54 <wasamasa>	lol
+Apr 23 19:14:56 <hodapp>	get off my lawn.
+Apr 23 19:15:02 <wasamasa>	the crusty chat
+Apr 23 19:15:05 <ober>	what time is it?
+Apr 23 19:15:12 <hodapp>	time for you to get off my lawn too
+Apr 23 19:15:16 <bpalmer>	goatish: hmm. I guess I don't know.
+Apr 23 19:15:38 <goatish>	Well thanks for your help. I'm learning a lot :)
+Apr 23 19:15:42 <lampilelo>	what kind of off-topic are you talking about?
+Apr 23 19:15:55 *	ober is not sure there is sufficient evidence that 'commercial software' is stealing free support here.
+Apr 23 19:15:58 <grym>	wasamasa: all i'm saying is that i didn't join this channel from 2005 to 2017 and when i rejoined nothing seems to have changed except one guy got banned 
+Apr 23 19:18:14 <ober>	sounds like it follows the pattern of the nature of emacs over the years
+Apr 23 19:18:23 <grym>	yep
+Apr 23 19:18:43 <miskatonic>	paredit works so far quite well with emacs -nw. The debian packager requires gui emacs for it. Is there a hitch or is the packager incompetent?
+Apr 23 19:19:06 <grym>	miskatonic: you said debian at least once... 
+Apr 23 19:19:15 <grym>	no need to repeat yourself :) 
+Apr 23 19:21:03 <ober>	,mitc
+Apr 23 19:21:04 <fsbot>	ober: mitc: The person standing in the corner wearing a trench coat, whispering "want some closed source software?"
+Apr 23 19:21:06 <bpalmer>	miskatonic: I don't see the requirement in https://packages.debian.org/source/buster/paredit-el . Like other elisp packages, it depends on the emacs virtual  package.
+Apr 23 19:21:37 <bpalmer>	well, it depends on emacsen-common and recommends the emacs virtual package
+Apr 23 19:21:52 <bpalmer>	no, not virtual, metapackage
+Apr 23 19:22:16 <miskatonic>	I am on stretch, so maybe buster has corrected it
+Apr 23 19:23:27 <bpalmer>	https://packages.debian.org/stretch/paredit-el depends on emacs which is satisfied by emacs24-nox
+Apr 23 19:24:38 <grym>	i make kelleyk handle my deb emacs needs
+Apr 23 19:33:36 <wgreenhouse>	bandali: I'm really glad of a potential resolution of this quandary that involves nobody doing much of anything. :)
+Apr 23 19:34:12 <bandali>	:-)
+Apr 23 19:34:42 <miskatonic>	mmm in stretch, "emacs" is a metapackage and not a virtual package ... big difference
+Apr 23 19:36:46 <thblt>	The virtual package is emacsen, apparently. Probably rarely used.
+Apr 23 19:37:07 <bremner>	well, there's that one guy who still cares about xemacs
+Apr 23 19:38:08 <miskatonic>	which one guy? certainly not RMS
+Apr 23 19:39:11 <lampilelo>	i don't think rms uses debian
+Apr 23 19:39:46 <thblt>	I have a whetstone emergency, but the country is in lockdown for some two more weeks.  Poor knife.
+Apr 23 19:40:19 <lampilelo>	try dhrystone
+Apr 23 19:40:23 <bremner>	lampilelo: I'm pretty sure rms does not use xemacs, which was a hostile fork of gnu emacs
+Apr 23 19:41:13 <miskatonic>	oh, I understood that there is globally only one person to care about xemacs, with or without a particular os/distro
+Apr 23 19:41:40 <lampilelo>	i know, bremner 
+Apr 23 19:42:10 <bremner>	well whoosh me sideways
+Apr 23 19:42:21 <bandali>	lol
+Apr 23 19:42:31 <bandali>	i stumbled upon this a while ago: https://stallman.org/articles/xemacs.origin
+Apr 23 19:42:52 <wasamasa>	the origin story?
+Apr 23 19:43:11 <rpav>	anyone tried dap-mode
+Apr 23 19:43:13 <bandali>	yeah
+Apr 23 19:43:26 <rpav>	gud just seems broken :(
+Apr 23 19:43:33 <miskatonic>	20 years ago, most xemacs users were redhatters ... but that may have been a Germany-only coincidence
+Apr 23 19:51:35 <wgreenhouse>	hay, there's at least two people in this channel who care about xemacs
+Apr 23 19:52:00 <wgreenhouse>	bpalmer, and sometimes Steve Youngs (the sxemacs maintainer) is in here
+Apr 23 19:52:24 <rpav>	is xemacs still a thing?
+Apr 23 19:53:07 <rpav>	updated a lot more recently than i expected actually
+Apr 23 19:53:45 <wgreenhouse>	they were a window manager a lot earlier than gnu emacs, so arguably they're still anticipating our evolution. :P
+Apr 23 19:53:55 <wgreenhouse>	,xwem
+Apr 23 19:53:56 <fsbot>	xwem is a  WM implemented for XEmacs <http://emacswiki.org/XWindowEmacsManager>
+Apr 23 20:01:06 <miskatonic>	there is now exwm or something similar, a much better window manager based on emacs
+Apr 23 20:07:37 <skangas>	bandali: It would be useful if you replied to the thread on emacs-devel, thanks.
+Apr 23 20:09:57 <skangas>	Regarding XEmacs, last year they had less commits for the full year than GNU Emacs had some *days*.
+Apr 23 20:10:47 <mplsCorwin>	+1
+Apr 23 20:11:40 <mplsCorwin>	sorry.  +1 is RE it would be useful if you will point out the existing officaldom, etc., bandali
+Apr 23 20:19:08 <grym>	wgreenhouse: "not doing anything" is the academia slowroll 101 
+Apr 23 20:19:14 <grym>	it's a fine life 
+Apr 23 20:19:24 <bandali>	skangas, mplsCorwin, cheers; will do so later tonight
+Apr 23 20:30:08 <bpalmer>	it's not clear to me what consensus has been reached. "The irc channel #emacs is already listed on gnu.org. Cheers." ?
+Apr 23 20:33:40 <edgar-rft>	rudybot: what is bpalmer talking about?
+Apr 23 20:33:41 <rudybot>	edgar-rft: bpalmer`: alignment my car is perfectly aligned bro i dun no what your talking about you saying because I wrote PHP I dont know stuff bro
+Apr 23 20:34:01 <grym>	bpalmer: lgtm ship it 
+Apr 23 20:36:40 <bandali>	bpalmer, what wgreenhouse wrote to me and tromey above
+Apr 23 20:39:40 <wgreenhouse>	bpalmer: in summary, we're already a gnu channel; our policies match up with other gnu channels, and we've already got johnsu01 and johnw as ops
+Apr 23 20:42:35 <rpav>	holy crap i accidentally pressed C-h l and facepalm .. i set up a command log thing just to track this, sigh
+Apr 23 20:43:04 <rpav>	i think emacs will never fail to have undiscovered corners
+Apr 23 20:43:31 <miskatonic>	rudybot: do you care about xemacs?
+Apr 23 20:43:37 <rudybot>	miskatonic: "I most certainly do care about XEmacs!"
+Apr 23 20:43:49 <bandali>	rpav, which-key may help you explore/discover more of it :-)
+Apr 23 20:44:45 <wgreenhouse>	bpalmer: which I suppose you could read as "don't annex us, #emacs has always been part of #gnu"
+Apr 23 20:44:49 <rpav>	hah, yet another handy thing, nice
+Apr 23 20:45:46 <noobly>	any tips on getting pdf-tools annotations to display as the actual annotations, not just icons?
+Apr 23 20:47:39 <dale>	noobly: They display as icons in pdf-tools, or in other PDF readers?
+Apr 23 20:48:53 <bpalmer>	I feel like there's a rewrite of history going on.
+Apr 23 20:49:32 *	bpalmer shrugs for now.
+Apr 23 20:58:45 <bandali>	what rewrite of history?
+Apr 23 20:59:14 <lxsameer>	hey folks, how can i execute several external processes in async mode and wait for all of them to finish ? I need to collect their stdout and stderr as well
+Apr 23 20:59:14 <lxsameer>	make-process ?
+Apr 23 20:59:48 <miskatonic>	the takover of #emacs by xemacs
+Apr 23 21:01:26 <holomorph>	lxsameer: if you need stdout and stderr separately, i think you have to use make-process
+Apr 23 21:02:07 <holomorph>	to do something when they all finish, you can give the processes sentinels that keep track of a counter
+Apr 23 21:02:23 <lxsameer>	holomorph: nice. thanks 
+Apr 23 21:03:31 <miskatonic>	even one async process is often a pain in the rear 
+Apr 23 21:07:37 <aidalgol>	technomancy: FWIW, someone I used to work with had some special dev board that let them charge a device via USB while also using the port for data.
+Apr 23 21:38:30 <arwn>	Hey how can I delete all of the default menu-bar menus in order to create my onw?
+Apr 23 21:40:21 <technomancy>	aidalgol: oh reeeeeally
+Apr 23 21:40:25 <technomancy>	I should take another look, huh
+Apr 23 21:44:51 <rpav>	heh larry ellison behind the hydroxychloroquine delusion?
+Apr 23 21:45:03 <rpav>	ellision is definitely the real actual devil
+Apr 23 21:47:19 <john2x>	hello :wave:
+Apr 23 22:04:42 <zeta_0>	  (use-package lsp-mode
+Apr 23 22:04:42 <zeta_0>	    :ensure t
+Apr 23 22:04:42 <zeta_0>	    :hook (
+Apr 23 22:04:42 <zeta_0>	      (elm-mode . lsp))
+Apr 23 22:04:42 <zeta_0>	    :commands lsp)
+Apr 23 22:04:52 <wgreenhouse>	rpav: it seems common for these guys to have really weird medical beliefs 
+Apr 23 22:05:13 <zeta_0>	i used this code to setup the elm-language-server, but it does not work when i open an elm file?
+Apr 23 22:06:04 <wgreenhouse>	zeta_0: is M-x lsp the command you call to start the server by hand?
+Apr 23 22:06:27 <hodapp>	rpav: one thing I'm curious on is if they've done controlled trials on the full treatment people kept touting - hydroxychloroquine, azithromycin, and zinc. so far I've seen only combinations of the first two parts.
+Apr 23 22:07:20 <hodapp>	and people* keep clamoring about why the zinc is actually** the crucial part of that
+Apr 23 22:07:49 <rpav>	hodapp: pretty sure there was just a study completed that the former at least if anything made people worse
+Apr 23 22:08:12 <rpav>	isn't azithromycin an AB? i'm not sure why that would even have an effect
+Apr 23 22:08:29 <zeta_0>	wgreenhouse: when i run that command it tells me that there are not servers supporting that current mode, but i do have elm-languages-server installed?
+Apr 23 22:08:37 <hodapp>	rpav: the study that just happened, I thought, did hydroxychloroquine & azithromycin
+Apr 23 22:08:50 <wgreenhouse>	zeta_0: then it sounds like you have a further problem 
+Apr 23 22:09:06 <wgreenhouse>	Why isn't the elm language server loaded?
+Apr 23 22:09:36 <hodapp>	and AFAIK, yes, azithromycin is that, but I know sometimes antibiotics are used to prevent complications from bacteria that can happen alonside. either that or I am talking out my ass.
+Apr 23 22:09:57 <rpav>	dunno, unqualified/ignorant people make wild unfounded medical claims all the time, it's just funny this one was by probably one of the most malevolent / misanthropic individuals there is ;)
+Apr 23 22:10:11 <zeta_0>	wgreenhouse: i don't know, none of the instructions said that i need to setup env vars
+Apr 23 22:10:18 <hodapp>	I have heard so many people's shitty theories of why zinc *must* be effective that I really just want some good data that actually tests the treatment they keep touting (even if they'll just ignore it)
+Apr 23 22:10:42 <rpav>	nah pretty sure you're right, secondary infections or whatnot happen
+Apr 23 22:10:58 <wgreenhouse>	zeta_0: well it sounds like the use-package invocation is doing what it should but some other piece is missing
+Apr 23 22:11:51 <wgreenhouse>	Zinc is used in some OTC cold remedies ("supplements") that were dinged in .us for unverified claims

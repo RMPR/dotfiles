@@ -5405,3 +5405,244 @@ Apr 22 20:25:09 <janos_>	in /var/log/boot.log iirc
 Apr 22 20:25:54 <dowdle>	Also, the stock sshd.service file has Restart=on-failure and RestartSec=42s
 Apr 22 20:28:40 <dowdle>	janos_: Nothing relevant in the boot.log.  grep ssh /var/log/boot.log shows two lines, one for x2dkeygen.slice and the other for sshd-keygen.target
 Apr 22 20:28:52 <janos_>	dang
+Apr 22 20:29:07 <dowdle>	It's like it forgot to start and doesn't realize it isn't running... a double wammy.
+Apr 22 20:41:32 <dowdle>	It's been doing this for a few months... maybe 1 out of 3 boots... started in F31... and still here in F32 pre-release.
+Apr 22 20:41:38 <dowdle>	But that's the only system I've had the trouble with.
+Apr 22 20:54:51 <MICROburst>	how to list ALL backup dates using duplicity? The solutions I found just list dates since last full backup, like https://serverfault.com/questions/429392/how-to-list-all-available-backup-dates-using-duplicity
+Apr 22 20:58:02 <Khaytsus>	MICROburst: ##duplicity exists, no idea how popular it is
+**** ENDING LOGGING AT Wed Apr 22 21:14:05 2020
+
+**** BEGIN LOGGING AT Wed Apr 22 21:14:05 2020
+
+Apr 22 22:43:07 *	Disconnected ()
+**** ENDING LOGGING AT Wed Apr 22 22:43:07 2020
+
+**** BEGIN LOGGING AT Wed Apr 22 22:43:35 2020
+
+Apr 22 22:43:35 *	Now talking on #fedora
+Apr 22 22:43:35 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 22 22:43:35 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 22 22:43:37 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 22 22:55:45 <Caterpillar>	do you know if there is an utility that shuts down the computer if it detects that the fan is running at 0 RPM? I need that because I have a liquid cooling system and the motherboard detects the pump RPM as if it is a regular fan
+Apr 22 23:01:08 <tnelis>	Caterpillar: That's a good question. I don't know of any though somebody else might know more. Worst case you could hack something up quick quickly by polling with lm-sensors or something. All that being said, I don't know how easy it is to fry a modern CPU or GPU -- my understanding is that virtually every hardware package now has thermal safeties built-in (first with throttling then shutting down
+Apr 22 23:01:14 <tnelis>	completely).
+Apr 22 23:08:58 <Caterpillar>	tnelis: yes, but with a liquid cooling system, you may trigger liquid to go to boiling point, which can trigger cooling system to destroy
+Apr 22 23:27:23 <Khaytsus>	Caterpillar: dnf search sensors
+Apr 22 23:27:36 <Khaytsus>	There are many desktop utilities for monitoring lmsensors, most have alerts you can set
+Apr 22 23:27:44 <Caterpillar>	ok
+Apr 22 23:48:38 <Khaytsus>	\n3p\: please fix your connection
+Apr 23 00:25:44 <amundsen>	hi
+Apr 23 00:26:01 <amundsen>	does anybody know the release date for F32?
+Apr 23 00:26:07 <amundsen>	thanks in advance
+Apr 23 00:29:21 <bkero>	amundsen: Duckduckgo "Fedora 32 timeline". First link links to https://fedorapeople.org/groups/schedule/f-32/f-32-key-tasks.html
+Apr 23 00:37:38 <mutk>	@f32release
+Apr 23 00:37:38 <fedbot>	Fedora 32 is planned for release on 2020-04-28, which is 5 days, 14 hours, 21 minutes, and 57 seconds from now
+Apr 23 00:37:50 <mutk>	amundsen, bkero ^^
+Apr 23 00:40:07 <bkero>	Oh cool!
+Apr 23 00:40:35 <tx>	I tried SuSE. The KDE experience is way better, but man...
+Apr 23 00:40:38 <tx>	I miss dnf so much.
+Apr 23 01:26:01 <golanv1>	openSUSE's KDE is very nice.  Zypper is a good tool really.  I still prefer Fedora though.
+Apr 23 02:54:18 <sqwishy>	What's the best way to prevent anything from ever going into /var/spool/abrt?
+Apr 23 02:55:37 <tnelis>	sqwishy: Removing the abrt package I guess. Does anything critical depend on it maybe?
+Apr 23 02:56:49 <sqwishy>	doesn't look like it; awesome
+Apr 23 04:34:00 <DaemonFC[m]>	If it doesn't arrrive on time, do you get your money back? Asking for a friend.
+Apr 23 04:38:51 <M_aD>	DaemonFC[m]: ?
+Apr 23 04:38:56 <bkhl>	Got a new USB headset with a weird issue. I get sound from _some_ programs, like Celluloid, but not from e.g. Audacity. In "Skypeforlinux" I get the ringing sounds, but not speech.
+Apr 23 04:39:09 <bkhl>	Anyone have a clue what that might be?
+Apr 23 04:39:24 <DaemonFC[m]>	<M_aD "DaemonFC: ?"> Just a joke about the release down to the second.
+Apr 23 04:39:43 <M_aD>	ah, ok
+Apr 23 04:57:37 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 23 04:57:37 2020
+
+**** BEGIN LOGGING AT Thu Apr 23 05:05:07 2020
+
+Apr 23 05:05:07 *	Now talking on #fedora
+Apr 23 05:05:07 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 23 05:05:07 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 23 05:05:07 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 23 05:15:55 <kk4ewt>	DaemonFC[m]; you can always go to the go/nogo at 1700 utc tomorrow in #fedora-meeting1
+Apr 23 06:43:13 <Mordoc>	q
+Apr 23 09:48:45 <soda2[m]1>	hello i wrote a few days ago about bug with gnome-software and updates in new fedora (probably)
+Apr 23 09:49:28 <soda2[m]1>	in gnome-software i have "searching new updates (it may takes a while)"
+Apr 23 09:49:48 <soda2[m]1>	in pkmon i have:
+Apr 23 09:49:49 <soda2[m]1>	1196_ababcaaa	percentage   91
+Apr 23 09:49:49 <soda2[m]1>	/1196_ababcaaa	percentage   92
+Apr 23 09:49:49 <soda2[m]1>	/1196_ababcaaa	status       loading-cache
+Apr 23 09:49:49 <soda2[m]1>	/1196_ababcaaa	percentage   95
+Apr 23 09:49:49 <soda2[m]1>	/1196_ababcaaa	percentage   96
+Apr 23 09:49:49 *	fedbot sets quiet on *!*@2a02:a314:8145:b000:55cd:668b:1d40:e73e
+Apr 23 09:50:23 *	fedbot removes quiet on *!*@2a02:a314:8145:b000:55cd:668b:1d40:e73e
+Apr 23 09:51:14 <soda2[m]1>	https://paste.centos.org/view/24b9893d
+Apr 23 10:03:07 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 23 10:03:07 2020
+
+**** BEGIN LOGGING AT Thu Apr 23 10:07:40 2020
+
+Apr 23 10:07:40 *	Now talking on #fedora
+Apr 23 10:07:40 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 23 10:07:40 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 23 10:07:42 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 23 10:58:20 <stemid>	I have to keep the pavucontrol app running when I start MS Teams or Teams won't recognize my microphone. odd. since pavucontrol running fixes it, I figure there must be some way to automate this? without keeping the pavucontrol gui app running visibly on my desktop. what does it do? starts some service in the background perhaps?
+Apr 23 10:58:25 <stemid>	or releases some lock, I can only speculate
+Apr 23 11:00:24 <stemid>	pstree on its PID shows no tree.
+Apr 23 11:07:36 <stemid>	I did this so far. added pavucontrol to autostarting programs. installed auto move window gnome extension and placed pavucontrol on workspace 2. that'll do I guess.
+Apr 23 11:59:40 <rindolf>	Hi all! What is the dnf / fedora equivalent to mageia's "urpmf" or debian's apt-file (= search for packages' contents) - "dnf provides" doesn;t work on f32 x86-64: https://www.shlomifish.org/Files/files/text/dnf-provides-issue.txt
+Apr 23 11:59:58 <FranciscoD>	rindolf: rpm -ql / rpmls
+Apr 23 12:00:17 <FranciscoD>	for installed rpms, or dnf repopquery -l for packages in the repositories
+Apr 23 12:00:32 <rindolf>	FranciscoD: ah, thanks
+Apr 23 12:00:54 <FranciscoD>	rpm -q --provides will tell you the capabilities an installed rpm provides also
+Apr 23 12:01:16 <FranciscoD>	and similarly dnf repoquery --provides applies to packages in the repos,
+Apr 23 12:03:58 <rindolf>	FranciscoD: i want to search for a certain contained filename by pattern - dnf repoquery -l doesn't do that
+Apr 23 12:09:51 <FranciscoD>	sudo dnf whatprovides '*/<filename>'?
+Apr 23 12:10:00 <FranciscoD>	(sudo is optional, I always use the root cache)
+Apr 23 12:10:33 <FranciscoD>	rpm -ql etc, give you the file list if you know the package name
+Apr 23 12:10:48 <FranciscoD>	whatprovides tells you packages that contain/provide the capability
+Apr 23 12:18:06 <rindolf>	FranciscoD: thanks!
+Apr 23 13:28:15 <rindolf>	Hi all! Can anyone help with this issue: https://www.shlomifish.org/Files/files/text/qt-and-firefox-update-graphics-artifacts-on-icewm-and-jwm-on-fedora32-x86_64.md
+Apr 23 14:49:37 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 23 14:49:37 2020
+
+**** BEGIN LOGGING AT Thu Apr 23 14:53:17 2020
+
+Apr 23 14:53:17 *	Now talking on #fedora
+Apr 23 14:53:17 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 23 14:53:17 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 23 14:53:20 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 23 15:02:37 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 23 15:02:37 2020
+
+**** BEGIN LOGGING AT Thu Apr 23 15:11:03 2020
+
+Apr 23 15:11:03 *	Now talking on #fedora
+Apr 23 15:11:03 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 23 15:11:03 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 23 15:11:12 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 23 15:12:37 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 23 15:12:37 2020
+
+**** BEGIN LOGGING AT Thu Apr 23 15:13:23 2020
+
+Apr 23 15:13:23 *	Now talking on #fedora
+Apr 23 15:13:23 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 23 15:13:23 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 23 15:13:27 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 23 15:14:07 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 23 15:14:07 2020
+
+**** BEGIN LOGGING AT Thu Apr 23 15:18:28 2020
+
+Apr 23 15:18:28 *	Now talking on #fedora
+Apr 23 15:18:28 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 23 15:18:28 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 23 15:18:29 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 23 15:38:25 <CrazySam>	Fedora 31 comes with VBox GA preinstalled?
+Apr 23 15:39:08 <CrazySam>	The VBox GA installer tells me that the system appears to have a version of it already installed.
+Apr 23 15:41:12 <rindolf>	CrazySam: what is GA?
+Apr 23 15:42:03 <CrazySam>	rindolf: Guest Additions
+Apr 23 15:42:07 <rindolf>	Hi all! Can anyone help with this issue: https://www.shlomifish.org/Files/files/text/qt-and-firefox-update-graphics-artifacts-on-icewm-and-jwm-on-fedora32-x86_64.md
+Apr 23 15:42:13 <rindolf>	CrazySam: ah
+Apr 23 15:43:42 <rindolf>	CrazySam: what does "rpm -qa" say?
+Apr 23 15:44:45 <mikeymop>	virtualbox-guest-additions-6.1.4-4.fc32.x86_64
+Apr 23 15:45:10 <rindolf>	mikeymop: are you CrazySam ?
+Apr 23 15:52:37 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 23 15:52:37 2020
+
+**** BEGIN LOGGING AT Thu Apr 23 17:38:58 2020
+
+Apr 23 17:38:58 *	Now talking on #fedora
+Apr 23 17:38:58 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 23 17:38:58 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 23 17:38:58 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 23 17:42:43 <Khaytsus>	autopsy_: 1/3.
+Apr 23 18:16:26 <ziff>	kk4ewt: not sure why, but after a full shutdown + power cycle (removed laptop battery and psu) my mobile broadband connection is working now. I did numerous reboots during troubleshooting, but that didn't help. Lets see if it keeps working.
+Apr 23 18:16:44 <ziff>	kk4ewt: thanks again for your help
+Apr 23 18:18:49 <ziff>	I had inserted the sim card while the laptop was running, maybe that was part of the problem
+Apr 23 18:26:57 <kk4ewt>	Fedora 32 Final is GO
+Apr 23 18:28:48 <ledeni>	kk4ewt, nice
+Apr 23 18:35:44 <M_aD>	So the release is next week the 28th then
+Apr 23 18:37:41 <kk4ewt>	@f32release
+Apr 23 18:37:41 <fedbot>	Fedora 32 is planned for release on 2020-04-28, which is 4 days, 20 hours, 21 minutes, and 55 seconds from now
+Apr 23 18:41:39 <Khaytsus>	Cool, missed the meeting today, was going to watch for it
+Apr 23 18:44:42 <ledeni>	 kk4ewt, rc-1.6 will be final iso ?
+Apr 23 18:45:57 <Khaytsus>	Yes
+Apr 23 18:50:29 <ziff>	nice
+Apr 23 19:00:53 <PPP999>	Hi
+Apr 23 19:01:08 <PPP999>	I'm having an issue with grub2
+Apr 23 19:01:22 <PPP999>	I have 3 entries for Fedora and I want to get rid of them
+Apr 23 19:01:52 <PPP999>	Whenever I try "sudo grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg" it doesn't list any of them
+Apr 23 19:04:18 <prussian>	PPP999: I'd just use grubby
+Apr 23 19:04:47 <prussian>	grubby --info=ALL; grubby --remove-kernel=...blah
+Apr 23 19:04:50 <prussian>	etc
+Apr 23 19:05:09 <prussian>	dealing with grub2 config is suffering in my opinion. one of the reasons I use systemd-boot
+Apr 23 19:05:41 <PPP999>	Thanks I'll try it out
+Apr 23 19:06:33 <cyberpear>	how do I launch a .sh file in Gnome?
+Apr 23 19:07:10 <cyberpear>	(other than "open in terminal", then `./program.sh`?
+Apr 23 19:07:33 <rindolf>	cyberpear: write a .desktop file?
+Apr 23 19:08:01 <cyberpear>	then "open in terminal" then `./program.sh` is much faster...
+Apr 23 19:08:17 <cyberpear>	I though once upon a time, I could just double-click the .sh file
+Apr 23 19:08:32 <janos_>	is it executable?
+Apr 23 19:08:35 <cyberpear>	yes
+Apr 23 19:08:35 <rindolf>	cyberpear: right, if it's a one time thing
+Apr 23 19:09:19 <rindolf>	cyberpear: behaviour like that made mswindows susceptible to worms
+Apr 23 19:09:52 <cyberpear>	even a righ-click->execute would be helpful...
+Apr 23 19:10:02 <ledeni>	cyberpear, check --> https://developer.gnome.org/integration-guide/stable/desktop-files.html.en
+Apr 23 19:10:36 <cyberpear>	unfortunately, it'd have to be "convince third party to include .desktop file"
+Apr 23 19:11:05 <rindolf>	cyberpear: why?
+Apr 23 19:11:39 <kk4ewt>	cyberpear; or build one of your own which is not hard
+Apr 23 19:11:42 <cyberpear>	because I regularly wipe the system and have to start from scratch
+Apr 23 19:11:56 <cyberpear>	or I'm writing instructions for someone else
+Apr 23 19:12:09 <rindolf>	cyberpear: then create an installer / setup script
+Apr 23 19:13:53 <kk4ewt>	https://developer.gnome.org/integration-guide/stable/desktop-files.html.en
+Apr 23 19:14:21 <tnelis>	Not sure I understand. When I double-click a shell script in Nautilus I am given the options to: "Run in Terminal", "Display", "Cancel" or "Run". Isn't that what you want?
+Apr 23 19:14:44 <tnelis>	(You'll want to make sure that the program has a shebang and is marked executable.)
+Apr 23 19:15:48 <janos_>	sounds like a missing shebang then - nautilus doesn't know what to launch with
+Apr 23 19:15:59 <tnelis>	janos_
+Apr 23 19:16:05 <tnelis>	janos_: My thinking as well.
+Apr 23 19:28:09 <hiredman>	I've got a thunderbolt dock thing, which sometimes shows as charging my laptop when booted to fedora, but more often not, when in the bios it always shows as charging
+Apr 23 19:28:27 <hiredman>	anyone have any idea what the deal with that could be?
+Apr 23 19:32:46 <Khaytsus>	hiredman: is it charging?
+Apr 23 19:36:06 <cyberpear>	tnelis: is there an extension to enable that? -- it just opens in gedit for me... it has a sheband line, and is marked +x
+Apr 23 19:36:27 <hiredman>	Khaytsus: not according to anyway I can tell (upower and whatever polybar's battery module uses)
+Apr 23 19:37:22 <hiredman>	powertop also shows as running on battery
+Apr 23 19:43:37 <janos_>	cyberpear:in nautilus preference - behavior tab. Executable Text Files - has option "Run them". default set to "Display them"
+Apr 23 19:44:18 <janos_>	there's also "Ask what to do"
+Apr 23 19:44:25 <cyberpear>	janos++
+Apr 23 19:45:10 <cyberpear>	janos_: exactly what I was looking for. thanks!
+Apr 23 19:45:12 <PPP999>	I think I see the problem but I don't know how to fix it
+Apr 23 19:45:22 <PPP999>	Every other OS says where it is on the disk
+Apr 23 19:45:24 <janos_>	cyberpear: cool
+Apr 23 19:45:28 <PPP999>	e.g /dev/sda
+Apr 23 19:45:37 <PPP999>	the 3 entries for Fedora do not
+Apr 23 19:45:48 <PPP999>	So that tells me they're found by os-prober
+Apr 23 19:45:57 <PPP999>	Anyone know how to solve this?
+Apr 23 19:48:54 <PPP999>	https://files.catbox.moe/u94d90.png
+Apr 23 19:48:59 <PPP999>	Here's the partition scheme
+Apr 23 19:52:03 <scr267>	Anyone know why starting a podman image would result in a "preparing rootfs caused \\\"permission denied\\\"\"": OCI runtime permission denied error" ?
+Apr 23 19:52:31 <scr267>	I'm simply adding the "-v /home/<user>/somedir:/data/:Z" option
+Apr 23 19:56:24 <Khaytsus>	scr267: try --systemd=false in your podman run
+Apr 23 19:57:07 <Khaytsus>	scr267: Could also be cgroups v1 vs v2   and don't have any specific suggestions there
+Apr 23 19:58:40 <scr267>	Khaytsus, I will try that
+Apr 23 19:58:42 <scr267>	thanks
+Apr 23 19:59:20 <Khaytsus>	Someone here a while back fiddled iwth cgroups to fix something along thoselines
+Apr 23 19:59:37 <Khaytsus>	Now WHY?  No idea.  I've seen that too.  but I think in my case I fixed it with --systemd=false  I think.
+Apr 23 20:01:01 <scr267>	Weird heh... well adding --systemd=false didn't work in my case it seems.  Thanks for the cgroups info though, I'll look for info about that.
+Apr 23 20:02:00 <scr267>	oooooh geez, that sounds so familiar: https://www.redhat.com/sysadmin/fedora-31-control-group-v2
+Apr 23 20:16:12 <prussian>	if you can, i'd recommend podman.
+Apr 23 20:16:26 <prussian>	oh. didn't read enough
+Apr 23 20:17:59 <yates_home>	where are the policy files that the "audit2allow -p" option requires on f31?
+Apr 23 20:22:57 <yates_home>	if i just run audit2allow, i get this: https://paste.centos.org/view/9425d51e
+Apr 23 20:24:05 <Khaytsus>	prussian: Podman is great, if you're on cgroups v1 I guess.  I have no idea what I'm on here.......  v2 I guess?  But podman works.  i dnno
+Apr 23 20:29:57 <tnelis>	libpod/podman definitely support unified cgroups (cgroupv2). Moby/Docker was lagging a bit behind but I think it'll be supported in the next release or something (if not in the latest one already). There shouldn't be much reason to switch back to cgroupv1 in the near future.
+Apr 23 21:14:37 <rindolf>	Hi all! Just letting you know that I've upgraded my f32 x64 sys to updates-testing, rebooted for the new kernel, and most everything seems to work smoothly - like before.
+Apr 23 21:18:14 <rindolf>	Thanks all, and good night.
+Apr 23 21:40:30 <Grinnz>	I'm not sure if it's how vmware has set it up, but Fedora seems to ignore Fedora live CDs when booting now and just boots to the installed OS. How do I get it to boot the CD?
+Apr 23 21:41:52 <dowdle>	Grinnz: That would be your preferred boot device setting in your virt platform.
+Apr 23 21:42:09 <Grinnz>	yeah nevermind, I just need to figure out what key to hit in the 0.5 seconds vmware allows me to. thanks
+Apr 23 21:43:03 <Grinnz>	got it, esc
+Apr 23 21:44:07 <Grinnz>	free version of vmware at least does not appear to have any setting for preferred boot device. oh well
+Apr 23 21:52:37 <janos_>	impressive in the wrong way!
+Apr 23 22:00:01 <Mordoc>	exit
+Apr 23 22:02:45 <caterfxo>	ok. so, src.fedoraproject.org content is different from pagure.io content, right?
+Apr 23 22:03:25 <caterfxo>	ok
+Apr 23 22:04:52 <megacoder>	Orion sucks
+Apr 23 22:05:09 <megacoder>	[redacted]

@@ -3519,3 +3519,442 @@ Apr 22 12:17:45 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.
 Apr 22 14:10:11 <ubitux>	is it possible to jump between links in vi-mode with something like tab / shift-tab?
 Apr 22 14:10:29 <kchibisov>	not yet.
 Apr 22 14:11:17 <ubitux>	alright :)
+**** ENDING LOGGING AT Wed Apr 22 21:14:05 2020
+
+**** BEGIN LOGGING AT Wed Apr 22 21:14:05 2020
+
+Apr 22 22:43:07 *	Disconnected ()
+**** ENDING LOGGING AT Wed Apr 22 22:43:07 2020
+
+**** BEGIN LOGGING AT Wed Apr 22 22:43:35 2020
+
+Apr 22 22:43:35 *	Now talking on #alacritty
+Apr 22 22:43:35 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 22 22:43:35 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 23 01:02:01 <UndeadLeech>	kchibisov: Is it correct that you've looked into mio 0.7.0 before?
+Apr 23 01:02:36 <kchibisov>	we likely don't need it, since it doesn't have level triggering
+Apr 23 01:03:07 <UndeadLeech>	I mean we need it. Since it'll just build up more and more ancient depedencies we cannot update.
+Apr 23 01:03:21 <UndeadLeech>	I don't think sitting on some super outdated unmaintained version of a depedency is a good idea.
+Apr 23 01:03:50 <kchibisov>	well, if you want to add level-triggering to it
+Apr 23 01:04:07 <UndeadLeech>	I mean there's no intention to use level triggering. You should do that yourself with mio 0.7.0.
+Apr 23 01:04:45 <kchibisov>	it's just wrong.
+Apr 23 01:04:54 <UndeadLeech>	How so?
+Apr 23 01:05:41 <kchibisov>	level triggering is default on epoll
+Apr 23 01:06:08 <kchibisov>	and is done by kernel
+Apr 23 01:06:22 <kchibisov>	why the fuck should I do that myself?
+Apr 23 01:06:37 <UndeadLeech>	Are you aware of why it was removed? Was it because of Windows?
+Apr 23 01:06:49 <kchibisov>	have no idea.
+Apr 23 01:07:02 <kchibisov>	but sctk gave up on that
+Apr 23 01:07:03 <UndeadLeech>	I mean it's either macOS or Windows, which we both need to support.
+Apr 23 01:07:16 <kchibisov>	on macOS you have kqueue
+Apr 23 01:07:29 <kchibisov>	on linux you have epoll
+Apr 23 01:07:37 <kchibisov>	on bsd you have kqueue
+Apr 23 01:07:54 <kchibisov>	so you should figure out what we have on windows
+Apr 23 01:08:16 <kchibisov>	so macOS/linux isn't a problem here
+Apr 23 01:10:17 <kchibisov>	Also, if you need some polling, https://github.com/Smithay/calloop/blob/master/src/sys/mod.rs calloop already has impls for epoll/kqueue
+Apr 23 01:10:44 <kchibisov>	so in theory you can extract that code into a lib.
+Apr 23 01:13:35 <UndeadLeech>	We still need to work on Windows.
+Apr 23 01:13:50 <UndeadLeech>	Which I'd assume is the reason for this API.
+Apr 23 01:14:07 <kchibisov>	I mean we're working somehow right now
+Apr 23 01:14:56 <kchibisov>	So porting old mio code into new lib isn't a problem, I guess.
+Apr 23 01:15:13 <UndeadLeech>	I mean the problem's not with not working, but with overhead according to mio.
+Apr 23 01:15:30 <kchibisov>	on Windows?
+Apr 23 01:15:41 <UndeadLeech>	It doesn't state that, but I'd assume so.
+Apr 23 01:15:56 <kchibisov>	maybe mio is too network oriented
+Apr 23 01:16:10 <kchibisov>	like it was impossible to use it in sctk.
+Apr 23 01:16:22 <kchibisov>	was just broken.
+Apr 23 01:16:26 <UndeadLeech>	https://github.com/tokio-rs/mio/issues/928
+Apr 23 01:16:29 <kchibisov>	due to edge-triggering
+Apr 23 01:20:46 <kchibisov>	so they said - they are broken, and called it a day? wtf
+Apr 23 01:22:01 <kchibisov>	I mean whatever, but it already proved that it's impossible to use edge-triggering, unless you want to have lost events all the time.
+Apr 23 01:22:27 <UndeadLeech>	I mean they support all kinds of shit including Solaris.
+Apr 23 01:22:37 <UndeadLeech>	I don't know which of their supported platforms has problems.
+Apr 23 01:22:50 <UndeadLeech>	It seems macOs has problems with oneshot, but I don't know about level.
+Apr 23 01:23:21 <kchibisov>	you mean macOS/BSD?
+Apr 23 01:23:30 <kchibisov>	since kqueue isn't not macOS only
+Apr 23 01:23:36 <kchibisov>	s/not//
+Apr 23 01:23:37 <UndeadLeech>	Yeah. The issue was just about macOS.
+Apr 23 01:23:44 <UndeadLeech>	Who knows how they managed to break kqueue.
+Apr 23 01:24:03 <UndeadLeech>	https://github.com/tokio-rs/mio/issues/911#issuecomment-465619538
+Apr 23 01:26:43 <kchibisov>	it seems like they should use EV_DISPATCH instead of EV_ONESHOT?
+Apr 23 01:27:10 <UndeadLeech>	I don't know, this is about oneshot, not level. Which seems far easier to work around.
+Apr 23 01:27:26 <kchibisov>	I was also talking about oneshot right now.
+Apr 23 01:28:26 <kchibisov>	Also, I don't want to debug edge-triggering issues, just saying.
+Apr 23 01:29:42 <UndeadLeech>	What do you mean?
+Apr 23 01:29:54 <UndeadLeech>	You don't want to deal with maintaining it yourself?
+Apr 23 01:30:16 <kchibisov>	I mean, I had enough of missing events when writting sctk app.
+Apr 23 01:30:36 <UndeadLeech>	That doesn't seem like it would be a problem.
+Apr 23 01:32:16 <kchibisov>	I mean, I don't want to use mio 0.7.0
+Apr 23 01:32:25 <UndeadLeech>	Because?
+Apr 23 01:32:45 <kchibisov>	because it doesn't have level-triggering
+Apr 23 01:32:56 <UndeadLeech>	Which we could work around.
+Apr 23 01:33:05 <kchibisov>	how?
+Apr 23 01:33:28 <kchibisov>	do you want to do kernel's job?
+Apr 23 01:33:32 <UndeadLeech>	By looping around all I/O operations?
+Apr 23 01:33:38 <kchibisov>	I'd rather trust kernel
+Apr 23 01:33:49 <UndeadLeech>	I don't see how this is about 'trust'.
+Apr 23 01:34:02 <kchibisov>	I mean it'll be faster if kernel does that for us
+Apr 23 01:34:04 <UndeadLeech>	If your loop fails there are more serious issues going on than level or edge.
+Apr 23 01:34:13 <UndeadLeech>	I'm not sure if it will.
+Apr 23 01:34:48 <UndeadLeech>	I would be very careful with statements like that without actually having benchmarked it.
+Apr 23 01:35:09 <kchibisov>	I mean there's a reason why libevent exists
+Apr 23 01:35:49 <UndeadLeech>	Which isn't because the existence of level means that 0.6 is faster than 0.7.
+Apr 23 01:36:22 <UndeadLeech>	libevent would also exist even if level wasn't a thing tbh.
+Apr 23 01:36:43 <kchibisov>	I mean what's the use case behind edge?
+Apr 23 01:36:56 <kchibisov>	I mean `for` edge?
+Apr 23 01:37:06 <UndeadLeech>	Cross-platform support it seems?
+Apr 23 01:37:35 <kchibisov>	yeah, yeah, but you have select(3)?
+Apr 23 01:37:43 <UndeadLeech>	So?
+Apr 23 01:37:58 <kchibisov>	it's on every platform
+Apr 23 01:38:42 <UndeadLeech>	I mean that's not really the case, but I don't see how that's relevant.
+Apr 23 01:38:47 <kchibisov>	since it's POSIX
+Apr 23 01:38:55 <UndeadLeech>	Windows isn't POSIX.
+Apr 23 01:39:07 <kchibisov>	Windows has something for that already
+Apr 23 01:39:19 <kchibisov>	I'm just saying that you have Windows + select for everything else
+Apr 23 01:39:55 <kchibisov>	And I bet you have something for that on Windows already
+Apr 23 01:39:57 <UndeadLeech>	I don't see how you want to use Windows + POSIX select to support level triggering.
+Apr 23 01:40:20 <kchibisov>	I mean that you use special API on Windows and select on each otehr platform.
+Apr 23 01:41:33 <UndeadLeech>	So you want to emulate level triggering on platforms that don't support it, like mio previously did?
+Apr 23 01:41:52 <kchibisov>	Windows doesn't have level triggering at all?
+Apr 23 01:43:00 <UndeadLeech>	I don't know which platform is the cause of this.
+Apr 23 01:43:05 <UndeadLeech>	Might be iOS for all I know.
+Apr 23 01:43:12 <kchibisov>	it has kqueue
+Apr 23 01:43:27 <UndeadLeech>	Yes, but that's not the point.
+Apr 23 01:43:31 <UndeadLeech>	The point is that I can't tell you.
+Apr 23 01:43:38 <kchibisov>	android should have epoll
+Apr 23 01:44:18 <UndeadLeech>	There's no point in making guesses, but according to mio it seems that the cross-platform level abstraction resulted in overhead.
+Apr 23 01:44:32 <kchibisov>	ok, ok.
+Apr 23 01:44:37 <UndeadLeech>	So it's possible that switching to edge triggering would improve performance.
+Apr 23 01:44:52 <kchibisov>	and lost events.
+Apr 23 01:46:09 <UndeadLeech>	Why would it lead to lost events?
+Apr 23 01:46:25 <kchibisov>	man epoll
+Apr 23 01:46:35 <kchibisov>	Level-triggered and edge-triggered
+Apr 23 01:47:22 <kchibisov>	man 7 epoll to be more precise
+Apr 23 01:47:41 <UndeadLeech>	What about it?
+Apr 23 01:48:16 <kchibisov>	I mean it has an example who you can lose events.
+Apr 23 01:48:23 <kchibisov>	s/who/how
+Apr 23 01:51:11 <UndeadLeech>	I don't see what you mean.
+Apr 23 01:51:38 <kchibisov>	I mean if you read some buffer but not fully, you'll block.
+Apr 23 01:51:43 <kchibisov>	assume PTY
+Apr 23 01:52:10 <kchibisov>	even if you have data in it.
+Apr 23 01:53:46 <kchibisov>	from what I see that is exactly what we can end up with?
+Apr 23 01:54:22 <UndeadLeech>	We already do not use level for PTY reads.
+Apr 23 01:54:45 <UndeadLeech>	Actually nvm.
+Apr 23 01:54:46 <kchibisov>	Oh, so maybe our X11 issue is due to that?
+Apr 23 01:54:59 <UndeadLeech>	Nvm that nvm, for the PTY itself we don't use it.
+Apr 23 01:55:06 <UndeadLeech>	We use it related to PTYs, but not for reading it.
+Apr 23 01:55:24 <UndeadLeech>	Due to what?
+Apr 23 01:55:49 <kchibisov>	I mean if we've used edge on PTY read, I see how we can miss something.
+Apr 23 01:55:49 <UndeadLeech>	You mean because we don't always read until Interrupted | WouldBlock, but stop on MAX_BYTES?
+Apr 23 01:55:52 <kchibisov>	but I don't see edge
+Apr 23 01:56:18 <UndeadLeech>	It's PollOpt::edge() | PollOpt::oneshot().
+Apr 23 01:57:29 <UndeadLeech>	IIRC I've already tried removing the MAX_READ condition to fix this though.
+Apr 23 01:57:51 <kchibisov>	have you tried PollOpt::level()?
+Apr 23 01:58:13 <UndeadLeech>	I mean without MAX_READ there shouldn't be any problem.
+Apr 23 01:58:31 <UndeadLeech>	You do mean that the problem could be that we don't read everything and then don't get woken up again, right?
+Apr 23 01:58:38 <kchibisov>	kind of
+Apr 23 01:58:50 <kchibisov>	so your poll will block infinitely
+Apr 23 01:59:04 <kchibisov>	However from what I remember that wasn't the problem
+Apr 23 01:59:20 <kchibisov>	the problem was that we won't be able to wakeup in some edge case
+Apr 23 01:59:36 <kchibisov>	however wakeup event should wakeup winit, which is also using mio
+Apr 23 01:59:48 <UndeadLeech>	If we don't read all the bytes, we won't get woken up again untill the next EAGAIN when using edge triggers.
+Apr 23 02:00:22 <UndeadLeech>	If you're talking about the PTY, though I'm not sure you are.
+Apr 23 02:00:23 <kchibisov>	yeah, but I don't know into what mio translates it.
+Apr 23 02:00:51 <kchibisov>	from my experience I've never got a wake up with edge.
+Apr 23 02:01:04 <kchibisov>	like reading wayland display was infinite block with edge for me, most of the time.
+Apr 23 02:01:35 <kchibisov>	unless I've flushed fd.
+Apr 23 02:01:40 <kchibisov>	from other thread
+Apr 23 02:01:59 <UndeadLeech>	If that was the case, Alacritty wouldn't work.
+Apr 23 02:02:06 <UndeadLeech>	Like at all.
+Apr 23 02:02:36 <kchibisov>	I mean likely, I don't know our setup for mio, maybe it's fine.
+Apr 23 02:04:13 <kchibisov>	but the only thing I haven't tried is using level.
+Apr 23 02:04:29 <UndeadLeech>	For wayland stuff you mean?
+Apr 23 02:04:40 <kchibisov>	For wayland stuff mio was already removed.
+Apr 23 02:04:50 <UndeadLeech>	What do you mean then?
+Apr 23 02:05:05 <kchibisov>	I mean for our X11 bug.
+Apr 23 02:05:20 <kchibisov>	but I feel like it's winit problem, since it loses events.
+Apr 23 02:05:29 <kchibisov>	somehow, but loses.
+Apr 23 02:05:47 <UndeadLeech>	You mean https://github.com/alacritty/alacritty/issues/824? Why is this X11 specific?
+Apr 23 02:06:08 <kchibisov>	was only reproduced on X11.
+Apr 23 02:06:28 <kchibisov>	and reported on X11 as well.
+Apr 23 02:06:51 <UndeadLeech>	I mean I'm using X11 and I can't repro it at all.
+Apr 23 02:06:57 <kchibisov>	you've done it once.
+Apr 23 02:07:01 <UndeadLeech>	Might just be that more people are using X11?
+Apr 23 02:07:09 <UndeadLeech>	I'm not sure if I've reproed this bug or the other one tbh.
+Apr 23 02:07:15 <UndeadLeech>	I wouldn't trust anything I've said about reproing it.
+Apr 23 02:07:47 <kchibisov>	you've reproduced it this summer with weechat.
+Apr 23 02:08:22 <UndeadLeech>	I've reproduced the issue fixed by evlp2 with weechat.
+Apr 23 02:08:27 <UndeadLeech>	I don't know about 824.
+Apr 23 02:08:38 <kchibisov>	no, it was 824
+Apr 23 02:09:02 <kchibisov>	since I've reproduced the same issue on master shortly after with tmux
+Apr 23 02:09:11 <UndeadLeech>	I have absolutely zero evidence that I was actually able to reproduce this bug.
+Apr 23 02:09:12 <kchibisov>	and on evlp2 branch
+Apr 23 02:09:20 <kchibisov>	I have logs.
+Apr 23 02:09:22 <UndeadLeech>	I've never been able to reproduce it before evlp2 and have never seen it since.
+Apr 23 02:09:33 <kchibisov>	me neither.
+Apr 23 02:09:34 <UndeadLeech>	You have logs of me thinking I might have reproduced it.
+Apr 23 02:09:41 <UndeadLeech>	But I have never been able to confirm it.
+Apr 23 02:10:07 <kchibisov>	likely, but the issue you've described was exactly 824.
+Apr 23 02:10:14 <UndeadLeech>	It could have been a networking problem for all I know.
+Apr 23 02:10:29 <UndeadLeech>	Or I ran the wrong branch.
+Apr 23 02:10:53 <kchibisov>	and since we know that winit can lose events, maybe there's something.
+Apr 23 02:11:49 <UndeadLeech>	Yeah, but that's likely because winit might be doing something stupid.
+Apr 23 02:12:20 <UndeadLeech>	Like as far as I know, we use edge just fine and that can actually help with performance.
+Apr 23 02:13:04 <kchibisov>	likely, since from what I've seen the issue wasn't with us polling and sending wakeups.
+Apr 23 02:13:30 <kchibisov>	sending wakeup to winit could unfreeze us, but it had nothing to do with pty reading.
+Apr 23 02:14:19 <UndeadLeech>	My latest understanding about it was that winit wakeups were dropped, especially in the visual bell bug that seemed to be the case.
+Apr 23 02:14:30 <UndeadLeech>	But the details got very hazy once winit introduced another bug that was so similar.
+Apr 23 02:15:10 <UndeadLeech>	But the visual bell problem itself can't possibly be due to PTY, so that makes winit a more likely target.
+Apr 23 02:16:19 <UndeadLeech>	I'll mark both issues as X11-only for now, maybe that'll trigger some more input if anyone ever actually managed to repro on Wayland.
+Apr 23 02:16:40 <kchibisov>	visual bell was on macOS as well
+Apr 23 02:16:48 <UndeadLeech>	Oh, really?
+Apr 23 02:16:52 <kchibisov>	yes
+Apr 23 02:16:57 <UndeadLeech>	Indeed.
+Apr 23 02:17:03 <UndeadLeech>	So maybe it is about more than just X11.
+Apr 23 02:17:54 <UndeadLeech>	Then I'll remove the tags, but I'd still like to know if anyone was able to repro 824 on non-wayland.
+Apr 23 02:18:10 <UndeadLeech>	But that seems to be pretty conclusive evidence that something funky might be going on with more than just x11.
+Apr 23 02:18:26 <UndeadLeech>	Like that seems to show that winit swallows wakeups on multiple platforms.
+Apr 23 02:39:31 <UndeadLeech>	Oh god damn it. Someone updated their stuff again breaking our build.
+Apr 23 02:41:04 <UndeadLeech>	Oh, but we can update to 1.41.0.
+Apr 23 04:57:37 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 23 04:57:37 2020
+
+**** BEGIN LOGGING AT Thu Apr 23 05:05:07 2020
+
+Apr 23 05:05:07 *	Now talking on #alacritty
+Apr 23 05:05:07 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 23 05:05:07 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 23 07:52:52 <Levanx>	about mio, if I understand correctly the main difficulty they meet with Windows is that it's selector system is completion-based, rather than readiness-based, and that this is the main source of overhead in mio on Windows.
+Apr 23 07:53:12 <Levanx>	Not completely sure how it translates to edge/level triggering though
+Apr 23 08:05:17 <casperstorm>	UndeadLeech: thanks for the feedback in the utf8/locale PR. let me know if you wanna discuss anything over irc.
+Apr 23 10:03:07 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 23 10:03:07 2020
+
+**** BEGIN LOGGING AT Thu Apr 23 10:07:40 2020
+
+Apr 23 10:07:40 *	Now talking on #alacritty
+Apr 23 10:07:40 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 23 10:07:40 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 23 10:22:09 <UndeadLeech>	Levanx: Ah okay, so can you confirm this edge/level thing is actually about Windows?
+Apr 23 10:22:54 <Levanx>	I'm not sure, but afaik this windows thing has always be the pain point for mio
+Apr 23 10:23:09 <UndeadLeech>	Seems like it's very likely then, yeah.
+Apr 23 10:23:34 <UndeadLeech>	I just named Windows as my best guess for what is causing the problem, to be fair that wouldn't be very surprising.
+Apr 23 10:23:51 <UndeadLeech>	Though once they move their kernel to Linux that should all hopefully be fixed. :)
+Apr 23 10:23:53 <UndeadLeech>	Any moment now.
+Apr 23 10:27:20 <UndeadLeech>	casperstorm: I'm not 100% certain how to best approach this tbh. We could just check environment variable, but that would break setups where locale magically works.
+Apr 23 10:27:22 <Levanx>	Looking at the issues, it looks like it was actually linked to macos kqueue
+Apr 23 10:27:38 <UndeadLeech>	That was about oneshot though, no mention of level problems with kqueue.
+Apr 23 10:28:14 <Levanx>	But it looks a lot to me like mio's maintainer got fet up with trying to maintain cross-platform compatibility and decided to focus on the only use that really mattered to them : edge-triggers to scalable web apps
+Apr 23 10:28:30 <casperstorm>	I think the only case we dont support right now is launching alacritty from terminal - most(?) cases should be handled now, tho.
+Apr 23 10:28:30 <Levanx>	maintainers *
+Apr 23 10:30:46 <UndeadLeech>	Levanx: I mean if there are problems with it on Windows, that has an effect on more than just webapps.
+Apr 23 10:32:29 <Levanx>	I mean, they are considering bringing level&oneshot back, just not on a cross-platform way : https://github.com/tokio-rs/mio/issues/1049
+Apr 23 10:33:52 <Levanx>	I really don't know much about what mio does with windows. But I think they are basically emulating an epoll-like api, so probably thay can do whatever they want at this point ?
+Apr 23 10:34:28 <UndeadLeech>	Yeah, so that seems a lot more like giving up on cross-platform support for it, than giving up on supporting it. Which makes it seems unlikely that the only reason is that they don't care about it at all.
+Apr 23 10:36:00 <Levanx>	Well, looks like their initial point of view was "everything can be emulated using edge triggers so we'll just focus on that"
+Apr 23 10:36:22 <UndeadLeech>	I mean for you it probably doesn't matter, but Alacritty has to support Windows anyways. Though I think we just use `level` on unix...
+Apr 23 10:36:37 <UndeadLeech>	Levanx: I mean that's not wrong, is it?
+Apr 23 10:37:36 <Levanx>	Well, only if you assume that you won't have the same socket monitored by several mostly independent event loops.
+Apr 23 10:37:58 <Levanx>	Which can be a convenient thing to do for multithreaded wayland apps
+Apr 23 10:39:01 <Levanx>	If you monitor the wayland socket with multiple event loops, hen it becomes readable, level trigger wakes them all, while edge-trigger only wakes one
+Apr 23 10:39:55 <UndeadLeech>	Using multiple indepedently registered SourceFd sources?
+Apr 23 10:40:35 <Levanx>	Yeah.
+Apr 23 10:40:48 <Levanx>	That's just how epoll works
+Apr 23 10:40:52 <UndeadLeech>	Or are you just not reading all of it and relying on level triggering to wake you up again until you'd block?
+Apr 23 10:41:15 <Levanx>	and an other issue we encountered with smithay is that when you register an epoll fd into an other epoll instance, some weirf things can happen when using edge-triggers
+Apr 23 10:42:03 <Levanx>	Well, if I have two event loops waiting on the same client wayland socket (using a different event queue), it's very likely that when the socket becomes readable, it'll contain events for both
+Apr 23 10:42:34 <Levanx>	so both need to wake up and process their events (even if only one will actually read them from the socket)
+Apr 23 10:43:17 <UndeadLeech>	I'm just wondering if level triggering really woke up both initially, or if it just woke up the other one because the socket wasn't drained.
+Apr 23 10:43:33 <Levanx>	kchibisov encountered issues ith smithay-clipboard due to exactly that
+Apr 23 10:45:33 <Levanx>	I think it's part of the specification of epoll's level-triggered mode that all waiting epoll are woken up
+Apr 23 10:45:34 <Levanx>	let me check
+Apr 23 10:46:29 <UndeadLeech>	Also have you tried the new unix socket APIs?
+Apr 23 10:46:37 <UndeadLeech>	Those are already specific to unix, maybe that would work?
+Apr 23 10:47:00 <Levanx>	the "new" unix socket api ?
+Apr 23 10:47:11 <Levanx>	Though I'm bound to using the sockets that libwayland uses
+Apr 23 10:48:17 <UndeadLeech>	It seems to be very networking focused, I'm not actually quite sure if they're meant to be used for anything else.
+Apr 23 10:49:08 <Levanx>	which api are you talking about?
+Apr 23 10:50:42 <UndeadLeech>	https://docs.rs/mio/0.7.0/mio/net/index.html
+Apr 23 10:51:09 <UndeadLeech>	Also you're correct, edge triggering will intentionally wakeup only one thread as an optimization.
+Apr 23 10:51:11 <Levanx>	Ah, mio's API
+Apr 23 10:51:30 <UndeadLeech>	Oh yeah, sorry I didn't mention that part. :D
+Apr 23 10:52:13 <UndeadLeech>	Though it does say that this is the case if multiple threads have inherited the same epoll file descriptor.
+Apr 23 10:52:14 <Levanx>	Actually I'm using directly nix, because I need to sendmsg/recvsmg with auxilliary data, to pass file descriptors between client & server
+Apr 23 10:52:25 <UndeadLeech>	Fair enough.
+Apr 23 10:53:56 <Levanx>	(and when using the system libwayland, it's it that does that)
+Apr 23 10:54:19 <Levanx>	I'm just monitoring the socket to know when I should call libwayland's functions to process events
+Apr 23 10:58:41 <UndeadLeech>	It seems like this is a common problem though: https://idea.popcount.org/2017-02-20-epoll-is-fundamentally-broken-12/
+Apr 23 10:59:47 <UndeadLeech>	Do you know if mio automatically makes level triggering exclusive?
+Apr 23 11:00:42 <Levanx>	Well, mio 0.7 does not do level triggering at all, so...
+Apr 23 11:00:45 <UndeadLeech>	Old mio that is. :P
+Apr 23 11:06:30 <Levanx>	Don't know tbh. Decided to ditch it completely, allowed me to drastically reduce the dependencies of calloop :p
+Apr 23 11:07:02 <UndeadLeech>	Oh I mean that's certainly the way to go.
+Apr 23 11:07:05 <UndeadLeech>	What do you do now?
+Apr 23 11:07:38 <Levanx>	directly call into epoll / kqueue
+Apr 23 11:07:46 <Levanx>	I don't really care about windows support tbh ^^"
+Apr 23 11:08:16 <UndeadLeech>	Wasn't calloop cross-platform before?
+Apr 23 11:09:25 <Levanx>	kind of ? It wasn't really usable on platforms not relying on FDs
+Apr 23 11:10:30 <UndeadLeech>	Hm, might be good to state that. Also the README needs an update.
+Apr 23 11:11:11 <Levanx>	at, that's possible
+Apr 23 11:11:26 <UndeadLeech>	I hope so. :)
+Apr 23 11:20:49 <casperstorm>	UndeadLeech: indeed, was a bit confused by locale and env variables. I am unsure how I can move this forward if you are questioning the functionality of it.
+Apr 23 11:26:12 <UndeadLeech>	Could check if the environment variable is set?
+Apr 23 11:29:02 <casperstorm>	can i use env::var("LC_CTYPE")?
+Apr 23 11:29:50 <UndeadLeech>	I can give it a try later. But you can check if a variable is set with env::var, yes.
+Apr 23 11:30:31 <casperstorm>	let me just update the code and you can give me feedback again?
+Apr 23 11:30:47 <UndeadLeech>	Sure.
+Apr 23 12:32:21 <casperstorm>	UndeadLeech: i've updated the PR now, let me know what you think.
+Apr 23 12:49:08 <eoli3n_>	Hi
+Apr 23 12:49:12 <eoli3n_>	is there a way to add inside padding ?
+Apr 23 12:49:26 <UndeadLeech>	Like the window.padding config option?
+Apr 23 12:50:27 <eoli3n_>	i tried that
+Apr 23 12:50:34 <eoli3n_>	it doesnt change internal padding
+Apr 23 12:50:43 <UndeadLeech>	How does it not?
+Apr 23 12:50:56 <eoli3n_>	i think it applies to "window" but i use a tilling window manager
+Apr 23 12:51:03 <eoli3n_>	lets retry
+Apr 23 12:51:11 <UndeadLeech>	It definitely doesn't.
+Apr 23 12:51:20 <eoli3n_>	ah my bad
+Apr 23 12:51:28 <eoli3n_>	miss to uncomment a line
+Apr 23 12:51:55 <basic>	is there a way to have the font size adjust itself to the screensize?
+Apr 23 12:52:02 <basic>	or does this not make sense at all?
+Apr 23 12:52:21 <kchibisov>	it's done by default based on your DPR
+Apr 23 12:52:36 <basic>	what does R stand for?
+Apr 23 12:52:41 <Yaniel>	ratio
+Apr 23 12:52:50 <Yaniel>	(Display Pixel Ratio)
+Apr 23 12:53:05 <basic>	i see, but on my laptop it varies to hard that it is annoying me :/
+Apr 23 12:53:09 <basic>	so that is just me?
+Apr 23 12:53:21 <Yaniel>	then you need to fix your laptop's configuration
+Apr 23 12:53:33 <Yaniel>	to report the correct DPR for each display
+Apr 23 12:53:50 <kchibisov>	yeah, if it's X11 you should make xrandr report saner values
+Apr 23 12:54:17 <basic>	how can i check those values?
+Apr 23 12:54:24 <kchibisov>	Also, the same is the same physically, not in pixels.
+Apr 23 12:54:29 <Yaniel>	xrandr
+Apr 23 12:54:36 <basic>	okway, my laptop screen seems not to report the screen size
+Apr 23 12:54:41 <basic>	HDMI-A-0 connected 3440x1440+0+0 (normal left inverted right x axis y axis) 797mm x 333mm
+Apr 23 12:54:52 <kchibisov>	797mm x 333mm
+Apr 23 12:54:55 <basic>	eDP connected primary 1920x1080+0+0 (normal left inverted right x axis y axis) 309mm x 173mm
+Apr 23 12:55:02 <kchibisov>	309mm x 173mm
+Apr 23 12:55:03 <basic>	well, it does
+Apr 23 12:55:20 <Yaniel>	is it correct though?
+Apr 23 12:55:29 <kchibisov>	seems like it tbh
+Apr 23 12:55:35 <basic>	yes
+Apr 23 12:55:39 <Yaniel>	and yeah, alacritty tries to keep font size the same in mm, not in pixels
+Apr 23 12:56:12 <basic>	so it looks so "zoomed" to be because my laptop is too small
+Apr 23 12:56:20 <basic>	solution: get rich and have a portable beamerh
+Apr 23 12:56:23 <basic>	?
+Apr 23 12:56:48 <Yaniel>	?
+Apr 23 12:56:52 <kchibisov>	?
+Apr 23 12:57:16 <basic>	so if i measure AAAAAAAAAAAAA on my big screen
+Apr 23 12:57:19 <kchibisov>	run `alacritty --print-events | grep -i scale` and move your window across the screens
+Apr 23 12:57:27 <basic>	it should be as big as equivalent thing on laptop screen?
+Apr 23 12:57:44 <Yaniel>	it should yes
+Apr 23 12:58:00 <Yaniel>	try what kchibisov suggested, it should print an event when the window moves to the other screen
+Apr 23 12:58:08 <basic>	[2020-04-23 13:58:33.617366770] [INFO] glutin event: WindowEvent { window_id: WindowId(X(WindowId(117440514))), event: ScaleFactorChanged { scale_factor: 1.6666666666666667, new_inner_size: PhysicalSize { width: 1143, height: 857 } } }
+Apr 23 12:58:16 <basic>	[2020-04-23 13:58:34.865588052] [INFO] glutin event: WindowEvent { window_id: WindowId(X(WindowId(117440514))), event: ScaleFactorChanged { scale_factor: 1.1666666666666667, new_inner_size: PhysicalSize { width: 800, height: 600 } } }
+Apr 23 12:58:44 <basic>	that looks correct i guess
+Apr 23 12:59:22 <kchibisov>	and font should be the samw physically then
+Apr 23 13:02:29 <kchibisov>	you can have fixed scale factor like all other apps by using Xft.dpi: 96 settin in xresources
+Apr 23 13:02:41 <basic>	oh, okay, cool thanks
+Apr 23 14:49:37 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 23 14:49:37 2020
+
+**** BEGIN LOGGING AT Thu Apr 23 14:53:17 2020
+
+Apr 23 14:53:17 *	Now talking on #alacritty
+Apr 23 14:53:17 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 23 14:53:17 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 23 15:02:37 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 23 15:02:37 2020
+
+**** BEGIN LOGGING AT Thu Apr 23 15:11:01 2020
+
+Apr 23 15:11:01 *	Now talking on #alacritty
+Apr 23 15:11:01 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 23 15:11:03 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 23 15:12:37 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 23 15:12:37 2020
+
+**** BEGIN LOGGING AT Thu Apr 23 15:13:23 2020
+
+Apr 23 15:13:23 *	Now talking on #alacritty
+Apr 23 15:13:23 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 23 15:13:23 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 23 15:14:07 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 23 15:14:07 2020
+
+**** BEGIN LOGGING AT Thu Apr 23 15:18:28 2020
+
+Apr 23 15:18:28 *	Now talking on #alacritty
+Apr 23 15:18:28 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 23 15:18:28 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 23 15:52:37 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 23 15:52:37 2020
+
+**** BEGIN LOGGING AT Thu Apr 23 17:38:58 2020
+
+Apr 23 17:38:58 *	Now talking on #alacritty
+Apr 23 17:38:58 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+Apr 23 17:38:58 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sun Mar 29 22:59:41 2020)
+Apr 23 18:32:16 <fixel->	hi, trying to run alacritty on macos (installed via homebrew) but no modifier shortcuts seem to work (C-a or C-c or C-d) -- any ideas what's going on?
+Apr 23 18:33:08 <fixel->	(i do see the keypresses when using --print-events, does that mean i need to map them somehow?)
+Apr 23 18:34:14 <Yaniel>	yes you need to map them to something in your config file
+Apr 23 18:34:35 <kchibisov>	you shoulnd't if it's C - c /C - dd
+Apr 23 18:34:39 <kchibisov>	C-d*
+Apr 23 18:35:01 <kchibisov>	What are you expecting them to do?
+Apr 23 18:35:37 <Yaniel>	yeah for most shortcuts you should use Command instead of Control as per macOS convention
+Apr 23 18:35:54 <Yaniel>	and because Control-c etc have special meanings in terminal emulators
+Apr 23 18:36:18 <fixel->	i'd expect C-d to terminate the running shell, C-c to "interrupt" and stop the current prompt, starting a new one
+Apr 23 18:36:25 <kchibisov>	they should work?
+Apr 23 18:36:33 <kchibisov>	you don't have to bind them.
+Apr 23 18:37:55 <kchibisov>	Do you see something when you try `C-d` into `cat`?
+Apr 23 18:39:56 <fixel->	my best guess at what the corresponding event for `C-d` is when using --print-events: WindowEvent { window_id: WindowId(Id(140477264353008)), event: KeyboardInput { device_id: DeviceId(DeviceId), input: KeyboardInput { scancode: 62, state: Released, virtual_keycode: Some(RControl), modifiers: (empty) }, is_synthetic: false } }
+Apr 23 18:40:30 <kchibisov>	Can you try `LControl`?
+Apr 23 18:40:40 <cole-h>	There's a difference between RControl and LControl AFAIK
+Apr 23 18:40:41 <fixel->	in alacritty i get a `d` (rather than terminating cat)
+Apr 23 18:41:26 <kchibisov>	I mean who knows what macOS does here, but I don't have a keyboard with RControl.
+Apr 23 18:41:35 <fixel->	for lcontrol: WindowEvent { window_id: WindowId(Id(140719080954656)), event: KeyboardInput { device_id: DeviceId(DeviceId), input: KeyboardInput { scancode: 59, state: Released, virtual_keycode: Some(LControl), modifiers: (empty) }, is_synthetic: false } }
+Apr 23 18:41:46 <kchibisov>	I mean does binding with LControl works?
+Apr 23 18:41:49 <cole-h>	But does LControl work as you expect RControlto?
+Apr 23 18:42:45 <fixel->	sorry, not sure what you guys mean: @kchibisov do you mean that i should bind LControl in alacritty.yml?
+Apr 23 18:43:08 <kchibisov>	I mean does LControl + C/D works?
+Apr 23 18:43:10 <fixel->	@cole-h they have the same effect in other terminal emulators for me (iterm2 and terminal.app)
+Apr 23 18:43:11 <kchibisov>	when you just press them.
+Apr 23 18:43:51 <fixel->	kchibisov: in alacritty neither lcontrol nor rcontrol + d work as i expect them to
+Apr 23 18:44:19 <kchibisov>	Can you share the entire `alacritty --print-events` log?
+Apr 23 18:44:30 <kchibisov>	while you're reproducing the issue.
+Apr 23 18:44:47 <kchibisov>	Also, what keyboard layout are you using?
+Apr 23 18:44:56 <kchibisov>	And what alacritty version
+Apr 23 18:45:16 <kchibisov>	you can get version information with `alacritty --version`
+Apr 23 18:47:38 <fixel->	https://pastebin.com/vvGLccab
+Apr 23 18:48:40 <fixel->	keyboard layout is workman, alacritty version 0.4.2 f68de37
+Apr 23 18:49:15 <kchibisov>	Oh, that's likely the issue.
+Apr 23 18:49:25 <fixel->	the keyboard layout?
+Apr 23 18:49:31 <kchibisov>	yeah.
+Apr 23 18:49:58 <fixel->	re pastebin: i started alacritty, hit C-d (which prints d) and then Cmd-Q to quit alacritty
+Apr 23 18:50:15 <kchibisov>	yeah, I read pastebin, it seems like we're not getting proper char.
+Apr 23 18:50:36 <kchibisov>	It's not some predefined layout on macOS, right?
+Apr 23 18:51:59 <fixel->	yep (not pre-defined) and yep - when i change to qwerty C-d and friends work
+Apr 23 18:52:21 <fixel->	any idea on how to approach this?
+Apr 23 18:52:31 <kchibisov>	IIRC dvorak/etc works, how did you setup your layout?
+Apr 23 18:53:03 <kchibisov>	I mean they work without special bindings, etc.
+Apr 23 18:53:28 <fixel->	started out with this: https://github.com/workman-layout/Workman/tree/master/mac
+Apr 23 18:58:33 <kchibisov>	I guess this is somehow related https://github.com/workman-layout/Workman/issues/13
+Apr 23 18:59:11 <kchibisov>	you can define bindings for all things, but if we don't get proper chars from the os, it could be annoying
+Apr 23 19:00:25 <fixel->	could be - i haven't come across it though from what I recall and i use those readline/emacs bindings a lot (also in browsers and other apps)
+Apr 23 19:00:59 <fixel->	i mean C-a to jump to the start, C-k to kill, C-e to jump to the end and so on
+Apr 23 19:01:28 <kchibisov>	I don't know anything about custom layouts on macOS, maybe our windowing library should do more to handle them, but since dvorak/colemak works, I'm a bit skeptical.
+Apr 23 19:01:42 <kchibisov>	If the solution is to hardcode everything it's not really a solution.
+Apr 23 19:02:05 <kchibisov>	But yeah, you can add bindings in alacritty.yml for Ctrl + c, etc.
+Apr 23 19:02:31 <fixel->	yep - some for mapping those binding imho, as an emacs user i probably use most possible combinations of C-* ;)
+Apr 23 19:02:44 <fixel->	some/same/
+Apr 23 19:03:57 <fixel->	i've modified the layout some years ago, i'll try to switch to the vanilla one and see how that goes - need to log out for that, thanks for your help so far kchibisov!
+Apr 23 19:05:30 <kchibisov>	I mean maybe there's something our library doesn't handle, but debugging such things could be a bit of a task.
+Apr 23 19:11:06 <fixel->	same issue on the vanilla workman keyboard layout -- i'm guessing the `scanCode` is incorrect?
+Apr 23 19:11:24 <fixel->	(ie 62 doesn't correspond to d)
+Apr 23 19:11:32 <kchibisov>	it's not related to scanCode, etc.
+Apr 23 19:11:44 <kchibisov>	OS is sending some characters with each key press.
+Apr 23 19:12:07 <kchibisov>	So, it sends proper chars for, let's say Ctrl + C/D automatically on qwerty
+Apr 23 19:12:23 <kchibisov>	which corresponds to proper chars for Ctrl + C/D
+Apr 23 19:12:29 <kchibisov>	so we just forward them.
+Apr 23 19:29:17 <fixel->	fyi looks like remapping keys via Karabiner-Elements works
+Apr 23 19:40:03 <fixel->	yep - so just remapped via Karabiner Elements - and everything i've tested so far works as expected -- cheers!

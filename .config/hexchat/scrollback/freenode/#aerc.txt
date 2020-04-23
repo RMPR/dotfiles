@@ -1449,3 +1449,66 @@ T 1587582776 18<28bookworm18>	email signatures look terrible in mails yo
 T 1587582797 18<28bookworm18>	but no, aerc only does plain text (by design), minus attachments that is
 T 1587582841 18<28bookworm18>	Drew has rather strict opinions regarding plain text mails
 T 1587582908 18<28bookworm18>	you could try and set the content type header manually, if you are lucky the current implementation will update it in place, but I didn't test that
+T 1587586343 18<26pepper_chico18>	heywoodlh: you may write text email and pass it to a filter to attach an html part automatically, which can have this signature embedded. I actually write my emails as markdown and have a sendmail script that first adds an html part (by calling pandoc over the text) before sending.
+T 1587589416 18<28heywoodlh18>	pepper_chico, being able to use Markdown in a message sounds amazing.
+T 1587589848 18<26pepper_chico18>	heywoodlh: I have reapplied an old recipe (https://nosubstance.me/post/mutt-secret-sauce/) for aerc. Needs this updated script: https://gist.github.com/oblitum/6eeffaebd9a4744e762e49e6eb19d189#file-mimembellish-fixed-for-aerc. The post explains its use.
+T 1587589869 18<28heywoodlh18>	Thank you for the resources. That's super helpful.
+T 1587589969 18<26pepper_chico18>	today there's some stuff there I don't use anymore, for example, I don't run a preview daemon anymore because iamcco/markdown-preview.nvim is enough and much better for [neo]vim previewing
+T 1587590033 18<26pepper_chico18>	but multipart transformation is still based on MIMEmbellish script
+T 1587590096 18<28heywoodlh18>	Yeah, that makes sense. I'm kind of just getting started with Aerc, configuring it, etc. so ironing out all these workflows for me now is super helpful.
+T 1587590116 18<28heywoodlh18>	Again, I really appreciate the resources
+T 1587590189 18<26pepper_chico18>	np, moving to aerc also removed the need for multiple instances per account for me, I had to do that with mutt cuz their multiple account support was really bad
+T 1587590231 18<28heywoodlh18>	Yeah, that makes perfect sense. Aerc seems to strike a really good usable balance for me.
+T 1587591787 20*	Disconnected (20)
+T 1587591809 22*	26RMPR sets mode 24+Z on 22RMPR
+T 1587591809 22*	26RMPR sets mode 24+i on 22RMPR
+T 1587591816 19*	Now talking on 22#aerc
+T 1587591816 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587591816 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587604672 18<24nicky_caa18>	Does aerc work PGP ?
+T 1587611200 18<20gjabell18>	Anyone who uses enterprise google w/ aerc or mbsync know if there's any extra steps for getting app keys to work?
+T 1587611226 18<20gjabell18>	I was under the impression that even "less secure" apps should work if app keys are generated
+T 1587614257 20*	Disconnected (20)
+T 1587614701 22*	26RMPR sets mode 24+Z on 22RMPR
+T 1587614701 22*	26RMPR sets mode 24+i on 22RMPR
+T 1587614707 19*	Now talking on 22#aerc
+T 1587614707 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587614707 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587629937 18<24jbox18>	I'm using neovim as my editor. How can I escape from nvim and go back to edit the subject or recipient when composing a message?
+T 1587630221 18<28bookworm18>	:wq
+T 1587630250 18<28bookworm18>	or with the bindings you set in binds.conf
+T 1587630596 18<24jbox18>	bookworm: with :wq I can't seem to get the cursor back up to the subject/recipient lines; I'll check binds.conf in a sec :)
+T 1587630601 18<24jbox18>	thank you for the reply
+T 1587630762 18<28bookworm18>	yeah, misunderstood your question at first
+T 1587630807 18<28bookworm18>	jbox: :prev-field and the next variant
+T 1587630819 18<28bookworm18>	C-k / C-j by default
+T 1587632182 18<24jbox18>	bookworm: works for me! Thanks again :)
+T 1587632587 20*	Disconnected (20)
+T 1587632853 22*	26RMPR sets mode 24+Z on 22RMPR
+T 1587632853 22*	26RMPR sets mode 24+i on 22RMPR
+T 1587632860 19*	Now talking on 22#aerc
+T 1587632860 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587632860 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587649777 20*	Disconnected (20)
+T 1587649836 20*	Disconnected (20Remote host closed socket)
+T 1587649903 20*	Disconnected (20Remote host closed socket)
+T 1587649951 20*	Disconnected (20Remote host closed socket)
+T 1587649997 19*	Now talking on 22#aerc
+T 1587649997 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587649997 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587650557 20*	Disconnected (20)
+T 1587651069 19*	Now talking on 22#aerc
+T 1587651069 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587651069 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587651157 20*	Disconnected (20)
+T 1587651205 19*	Now talking on 22#aerc
+T 1587651205 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587651205 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587651247 20*	Disconnected (20)
+T 1587651508 19*	Now talking on 22#aerc
+T 1587651508 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587651508 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1587653557 20*	Disconnected (20)
+T 1587659938 19*	Now talking on 22#aerc
+T 1587659938 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1587659938 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)

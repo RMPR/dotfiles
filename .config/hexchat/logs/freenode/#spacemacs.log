@@ -2480,3 +2480,107 @@ Apr 22 19:31:35 <FromGitter>	<anlsh> How can I customize the keybindings for thi
 Apr 22 19:33:36 <FromGitter>	<igoralmeida> @anlsh `spacemacs/set-leader-keys`, and you drop the SPC
 Apr 22 19:36:27 <FromGitter>	<anlsh> Thank you!
 Apr 22 20:19:18 <FromGitter>	<SreenivasVRao> https://www.reddit.com/r/emacs/comments/g5owt0/spacemacs_shell_mode_wonky_formatting_for_output/ ⏎  ⏎ @igoralmeida sorry to bother you on this. :) changing tab width didn't fix it. Looks it's a problem even with a clean install on spacemacs/develop...
+Apr 22 20:36:37 <FromGitter>	<rolandg> hey guys. seems i can't get ranger to open on `-`. I set `(setq ranger-enter-with-minus t)` in my user-config. using current develop branch. any idea? thanks
+Apr 22 21:04:09 <FromGitter>	<rolandg> I can do `describe-variable` but I can
+**** ENDING LOGGING AT Wed Apr 22 21:14:05 2020
+
+**** BEGIN LOGGING AT Wed Apr 22 21:14:05 2020
+
+Apr 22 21:23:40 <FromGitter>	<robbyoconnor> > @herop I learned Vim style editing by using Spacemacs, I wrote a section on vim basics here that you may find useful https://practicalli.github.io/spacemacs/spacemacs-basics/vim-basics.html ⏎  ⏎ I love your guides @jr0cket <3
+Apr 22 21:26:02 <FromGitter>	<igoralmeida> @SreenivasVRao it's no bother, but I'm just a user as well :) also, i can't reproduce on my end
+Apr 22 21:26:25 <FromGitter>	<igoralmeida> i'd look into different fonts, font sizes, turning on whitespace-mode and see if there are weird chars
+Apr 22 21:54:32 <FromGitter>	<SreenivasVRao> got it, I'll do that and see where that leads
+Apr 22 21:54:35 <FromGitter>	<SreenivasVRao> thanks!
+Apr 22 22:43:07 *	Disconnected ()
+**** ENDING LOGGING AT Wed Apr 22 22:43:07 2020
+
+**** BEGIN LOGGING AT Wed Apr 22 22:43:36 2020
+
+Apr 22 22:43:36 *	Now talking on #spacemacs
+Apr 22 22:43:36 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 22 22:43:36 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 22 22:44:30 <FromGitter>	<MenkeTechnologies> @anlsh you are not encouraged to override default keybindings.  Rather you put then in SPC-o namespace.  Like (spacemacs/set-leader-keys (kbd "o/") #'spotify-playpause)
+Apr 22 22:45:32 <FromGitter>	<MenkeTechnologies> test
+Apr 22 22:45:44 <FromGitter>	<MenkeTechnologies> test
+Apr 22 22:46:02 <FromGitter>	<MenkeTechnologies> testing
+Apr 22 22:51:48 <FromGitter>	<MenkeTechnologies> 
+Apr 22 23:50:32 <FromGitter>	<jr0cket> @rolandg I tried `ranger-enter-with-minus t` as ranger layer variable and a `setq` and even after a reboot it still uses `deer` when pressing `-` in Evil normal mode.  I suggest you check if an issue has been raised and if not then `SPC h I` to raise one.
+Apr 23 02:52:17 <FromGitter>	<MenkeTechnologies> test
+Apr 23 03:21:40 <FromGitter>	<pubple> @jr0cket thank you, it works, but whenever I use `emacsclient -t` the `SPC` key doesn't show transient window, `SPC SPC` still show `M-x`window..
+Apr 23 03:25:08 <FromGitter>	<pubple>  (https://files.gitter.im/syl20bnr/spacemacs/dh5r/image.png)
+Apr 23 03:25:11 <FromGitter>	<pubple> for who might need this to hide the `menu bar` while running emacsclient in terminal: `SPC SPC` then `menu-bar-mode` to toggle it.
+Apr 23 04:57:37 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 23 04:57:37 2020
+
+**** BEGIN LOGGING AT Thu Apr 23 05:05:07 2020
+
+Apr 23 05:05:07 *	Now talking on #spacemacs
+Apr 23 05:05:07 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 23 05:05:07 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 23 08:06:18 <FromGitter>	<magthe> @igoralmeida and @jr0cket  I found a working solution to my problem of auto-loading a persp layout on startup... `with-eval-after-load` didn't work, which was surprising. Then today I thought, maybe there's a `persp-mode-hook` I can use instead, and of course there is, and it works beautifully: ⏎  ⏎ ```code paste, see link``` [https://gitter.im/syl20bnr/spacemacs?at=5ea13e823ea9b172a48456ab]
+Apr 23 08:07:05 <FromGitter>	<magthe> Makes me feel a little silly to not have thought about a hook-based solution earlier.. I mean, hooks is a cornerstone of dynamic Emacs configuration.
+Apr 23 10:03:07 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 23 10:03:07 2020
+
+**** BEGIN LOGGING AT Thu Apr 23 10:07:40 2020
+
+Apr 23 10:07:40 *	Now talking on #spacemacs
+Apr 23 10:07:40 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 23 10:07:40 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 23 11:17:14 <whatisRT>	c
+Apr 23 12:45:15 <FromGitter>	<onriv> how can one fold selected text please?
+Apr 23 12:50:31 <FromGitter>	<karcio> hi installed emacs from package, also cloned spacemacs `git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d` but when I run `open -a /Applications/Emacs.app` normal emacs open for me.  Also noticed that .spacemacs file is not present .
+Apr 23 12:51:13 <FromGitter>	<karcio> I can only install from package - sorry I can not do this like on linux :(
+Apr 23 13:40:02 <FromGitter>	<igoralmeida> @magthe nice
+Apr 23 13:45:18 <FromGitter>	<afrantisak> How to call `purpose-pop-to-buffer "*compliaton*") from a `defun`? I can't get it to work unless I use `(interactive)` but I want it non-interactive. I'm trying to make a `defun` bound to a key to show the compliaton window.
+Apr 23 13:46:26 <FromGitter>	<yyoncho> @afrantisak I added SPC c b shortcut for that in latest develop
+Apr 23 13:46:54 <FromGitter>	<rolandg> @jr0cket thanks. will do
+Apr 23 13:50:59 <FromGitter>	<afrantisak> @yyoncho Thanks so much! I've been looking for this for a long, long time. Very useful.
+Apr 23 14:28:10 <FromGitter>	<jr0cket> @karcio Sounds like Emacs is using a different home directory.  If you open a file, does the default home folder contain the .emacs.d directory.  If it does, then perhaps its the Emacs version used.  The brief time I had to use a Mac I used https://emacsformacosx.com/
+Apr 23 14:48:07 <FromGitter>	<jr0cket> @pubple `SPC T m` will toggle the menu display.
+Apr 23 14:49:37 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 23 14:49:37 2020
+
+**** BEGIN LOGGING AT Thu Apr 23 14:53:17 2020
+
+Apr 23 14:53:17 *	Now talking on #spacemacs
+Apr 23 14:53:17 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 23 14:53:17 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 23 15:02:37 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 23 15:02:37 2020
+
+**** BEGIN LOGGING AT Thu Apr 23 15:11:10 2020
+
+Apr 23 15:11:10 *	Now talking on #spacemacs
+Apr 23 15:11:10 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 23 15:11:10 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 23 15:12:37 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 23 15:12:37 2020
+
+**** BEGIN LOGGING AT Thu Apr 23 15:13:25 2020
+
+Apr 23 15:13:25 *	Now talking on #spacemacs
+Apr 23 15:13:25 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 23 15:13:25 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 23 15:14:07 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 23 15:14:07 2020
+
+**** BEGIN LOGGING AT Thu Apr 23 15:18:28 2020
+
+Apr 23 15:18:28 *	Now talking on #spacemacs
+Apr 23 15:18:28 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 23 15:18:28 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 23 15:43:41 <FromGitter>	<jr0cket> Someone asked about Helm loosing focus when clicking elsewhere with the mouse, eg. like switching to a different application window and back again.  Using `SPC w b` gets the focus back on helm.  So if you `SPC f f` and click somewhere else its not possible to type, but `SPC w b` focuses the mini-buffer window and therefore helm.
+Apr 23 15:47:45 <FromGitter>	<witek> Hello. I would like to rename all occurences of a symbol. I have VIM keybindings. After typing `*` while having the cursor on the symbol, the  Symbol Highlight Transient State comes up. After typing `e`, I get into a "red" mode - but I can't figure out, how to use it. I have tried `cw` and have renamed the symbol under the cursor, but only this one. All others remain the same. What am I missing? Thank you!
+Apr 23 15:52:37 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 23 15:52:37 2020
+
+**** BEGIN LOGGING AT Thu Apr 23 17:38:58 2020
+
+Apr 23 17:38:58 *	Now talking on #spacemacs
+Apr 23 17:38:58 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 23 17:38:58 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 23 19:21:23 <FromGitter>	<dam5h> Hello, Helm question here.  Any idea why `helm-resume` would do nothing?  I use it frequently but at some point recently it stopped working.  I am not seeing any errors in the Messages buffer either.  Any ideas where I would look to debug this?  Thanks very much!
+Apr 23 19:42:52 <FromGitter>	<herop> Hi @dam5h , did you try to start Emacs with --debug flag? Did forget the exact syntax. Likewise, you could refresh the packages installed. For the sake of it - you did restart emacs, right? 😺
+Apr 23 19:48:32 <FromGitter>	<dam5h> Howdy Jochen!  Yes I did restart and also tried the `--debug` flag just now.  I see no messages in the messages buffer added when trying to run `helm-resume`, it just simply does nothing, as if I haven't entered any command
+Apr 23 21:23:17 <FromGitter>	<herop> Even though I don't know what helm-resume does, did you try to delete corresponding folder in layers and restart? It should reinstall the package.

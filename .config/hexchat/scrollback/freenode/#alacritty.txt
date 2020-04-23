@@ -3092,3 +3092,409 @@ T 1587554265 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165
 T 1587561011 18<28ubitux18>	is it possible to jump between links in vi-mode with something like tab / shift-tab?
 T 1587561029 18<29kchibisov18>	not yet.
 T 1587561077 18<28ubitux18>	alright :)
+T 1587591787 20*	Disconnected (20)
+T 1587591815 19*	Now talking on 22#alacritty
+T 1587591815 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587591815 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587600121 18<24UndeadLeech18>	kchibisov: Is it correct that you've looked into mio 0.7.0 before?
+T 1587600156 18<29kchibisov18>	we likely don't need it, since it doesn't have level triggering
+T 1587600187 18<24UndeadLeech18>	I mean we need it. Since it'll just build up more and more ancient depedencies we cannot update.
+T 1587600201 18<24UndeadLeech18>	I don't think sitting on some super outdated unmaintained version of a depedency is a good idea.
+T 1587600230 18<29kchibisov18>	well, if you want to add level-triggering to it
+T 1587600247 18<24UndeadLeech18>	I mean there's no intention to use level triggering. You should do that yourself with mio 0.7.0.
+T 1587600285 18<29kchibisov18>	it's just wrong.
+T 1587600294 18<24UndeadLeech18>	How so?
+T 1587600341 18<29kchibisov18>	level triggering is default on epoll
+T 1587600368 18<29kchibisov18>	and is done by kernel
+T 1587600382 18<29kchibisov18>	why the fuck should I do that myself?
+T 1587600397 18<24UndeadLeech18>	Are you aware of why it was removed? Was it because of Windows?
+T 1587600409 18<29kchibisov18>	have no idea.
+T 1587600422 18<29kchibisov18>	but sctk gave up on that
+T 1587600423 18<24UndeadLeech18>	I mean it's either macOS or Windows, which we both need to support.
+T 1587600436 18<29kchibisov18>	on macOS you have kqueue
+T 1587600449 18<29kchibisov18>	on linux you have epoll
+T 1587600457 18<29kchibisov18>	on bsd you have kqueue
+T 1587600474 18<29kchibisov18>	so you should figure out what we have on windows
+T 1587600496 18<29kchibisov18>	so macOS/linux isn't a problem here
+T 1587600617 18<29kchibisov18>	Also, if you need some polling, https://github.com/Smithay/calloop/blob/master/src/sys/mod.rs calloop already has impls for epoll/kqueue
+T 1587600644 18<29kchibisov18>	so in theory you can extract that code into a lib.
+T 1587600815 18<24UndeadLeech18>	We still need to work on Windows.
+T 1587600830 18<24UndeadLeech18>	Which I'd assume is the reason for this API.
+T 1587600847 18<29kchibisov18>	I mean we're working somehow right now
+T 1587600896 18<29kchibisov18>	So porting old mio code into new lib isn't a problem, I guess.
+T 1587600913 18<24UndeadLeech18>	I mean the problem's not with not working, but with overhead according to mio.
+T 1587600930 18<29kchibisov18>	on Windows?
+T 1587600941 18<24UndeadLeech18>	It doesn't state that, but I'd assume so.
+T 1587600956 18<29kchibisov18>	maybe mio is too network oriented
+T 1587600970 18<29kchibisov18>	like it was impossible to use it in sctk.
+T 1587600982 18<29kchibisov18>	was just broken.
+T 1587600986 18<24UndeadLeech18>	https://github.com/tokio-rs/mio/issues/928
+T 1587600989 18<29kchibisov18>	due to edge-triggering
+T 1587601246 18<29kchibisov18>	so they said - they are broken, and called it a day? wtf
+T 1587601321 18<29kchibisov18>	I mean whatever, but it already proved that it's impossible to use edge-triggering, unless you want to have lost events all the time.
+T 1587601347 18<24UndeadLeech18>	I mean they support all kinds of shit including Solaris.
+T 1587601357 18<24UndeadLeech18>	I don't know which of their supported platforms has problems.
+T 1587601370 18<24UndeadLeech18>	It seems macOs has problems with oneshot, but I don't know about level.
+T 1587601401 18<29kchibisov18>	you mean macOS/BSD?
+T 1587601410 18<29kchibisov18>	since kqueue isn't not macOS only
+T 1587601416 18<29kchibisov18>	s/not//
+T 1587601417 18<24UndeadLeech18>	Yeah. The issue was just about macOS.
+T 1587601424 18<24UndeadLeech18>	Who knows how they managed to break kqueue.
+T 1587601443 18<24UndeadLeech18>	https://github.com/tokio-rs/mio/issues/911#issuecomment-465619538
+T 1587601603 18<29kchibisov18>	it seems like they should use EV_DISPATCH instead of EV_ONESHOT?
+T 1587601630 18<24UndeadLeech18>	I don't know, this is about oneshot, not level. Which seems far easier to work around.
+T 1587601646 18<29kchibisov18>	I was also talking about oneshot right now.
+T 1587601706 18<29kchibisov18>	Also, I don't want to debug edge-triggering issues, just saying.
+T 1587601782 18<24UndeadLeech18>	What do you mean?
+T 1587601794 18<24UndeadLeech18>	You don't want to deal with maintaining it yourself?
+T 1587601816 18<29kchibisov18>	I mean, I had enough of missing events when writting sctk app.
+T 1587601836 18<24UndeadLeech18>	That doesn't seem like it would be a problem.
+T 1587601936 18<29kchibisov18>	I mean, I don't want to use mio 0.7.0
+T 1587601945 18<24UndeadLeech18>	Because?
+T 1587601965 18<29kchibisov18>	because it doesn't have level-triggering
+T 1587601976 18<24UndeadLeech18>	Which we could work around.
+T 1587601985 18<29kchibisov18>	how?
+T 1587602008 18<29kchibisov18>	do you want to do kernel's job?
+T 1587602012 18<24UndeadLeech18>	By looping around all I/O operations?
+T 1587602018 18<29kchibisov18>	I'd rather trust kernel
+T 1587602029 18<24UndeadLeech18>	I don't see how this is about 'trust'.
+T 1587602042 18<29kchibisov18>	I mean it'll be faster if kernel does that for us
+T 1587602044 18<24UndeadLeech18>	If your loop fails there are more serious issues going on than level or edge.
+T 1587602053 18<24UndeadLeech18>	I'm not sure if it will.
+T 1587602088 18<24UndeadLeech18>	I would be very careful with statements like that without actually having benchmarked it.
+T 1587602109 18<29kchibisov18>	I mean there's a reason why libevent exists
+T 1587602149 18<24UndeadLeech18>	Which isn't because the existence of level means that 0.6 is faster than 0.7.
+T 1587602182 18<24UndeadLeech18>	libevent would also exist even if level wasn't a thing tbh.
+T 1587602203 18<29kchibisov18>	I mean what's the use case behind edge?
+T 1587602216 18<29kchibisov18>	I mean `for` edge?
+T 1587602226 18<24UndeadLeech18>	Cross-platform support it seems?
+T 1587602255 18<29kchibisov18>	yeah, yeah, but you have select(3)?
+T 1587602263 18<24UndeadLeech18>	So?
+T 1587602278 18<29kchibisov18>	it's on every platform
+T 1587602322 18<24UndeadLeech18>	I mean that's not really the case, but I don't see how that's relevant.
+T 1587602327 18<29kchibisov18>	since it's POSIX
+T 1587602335 18<24UndeadLeech18>	Windows isn't POSIX.
+T 1587602347 18<29kchibisov18>	Windows has something for that already
+T 1587602359 18<29kchibisov18>	I'm just saying that you have Windows + select for everything else
+T 1587602395 18<29kchibisov18>	And I bet you have something for that on Windows already
+T 1587602397 18<24UndeadLeech18>	I don't see how you want to use Windows + POSIX select to support level triggering.
+T 1587602420 18<29kchibisov18>	I mean that you use special API on Windows and select on each otehr platform.
+T 1587602493 18<24UndeadLeech18>	So you want to emulate level triggering on platforms that don't support it, like mio previously did?
+T 1587602512 18<29kchibisov18>	Windows doesn't have level triggering at all?
+T 1587602580 18<24UndeadLeech18>	I don't know which platform is the cause of this.
+T 1587602585 18<24UndeadLeech18>	Might be iOS for all I know.
+T 1587602592 18<29kchibisov18>	it has kqueue
+T 1587602607 18<24UndeadLeech18>	Yes, but that's not the point.
+T 1587602611 18<24UndeadLeech18>	The point is that I can't tell you.
+T 1587602618 18<29kchibisov18>	android should have epoll
+T 1587602658 18<24UndeadLeech18>	There's no point in making guesses, but according to mio it seems that the cross-platform level abstraction resulted in overhead.
+T 1587602672 18<29kchibisov18>	ok, ok.
+T 1587602677 18<24UndeadLeech18>	So it's possible that switching to edge triggering would improve performance.
+T 1587602692 18<29kchibisov18>	and lost events.
+T 1587602769 18<24UndeadLeech18>	Why would it lead to lost events?
+T 1587602785 18<29kchibisov18>	man epoll
+T 1587602795 18<29kchibisov18>	Level-triggered and edge-triggered
+T 1587602842 18<29kchibisov18>	man 7 epoll to be more precise
+T 1587602861 18<24UndeadLeech18>	What about it?
+T 1587602896 18<29kchibisov18>	I mean it has an example who you can lose events.
+T 1587602903 18<29kchibisov18>	s/who/how
+T 1587603071 18<24UndeadLeech18>	I don't see what you mean.
+T 1587603098 18<29kchibisov18>	I mean if you read some buffer but not fully, you'll block.
+T 1587603103 18<29kchibisov18>	assume PTY
+T 1587603130 18<29kchibisov18>	even if you have data in it.
+T 1587603226 18<29kchibisov18>	from what I see that is exactly what we can end up with?
+T 1587603262 18<24UndeadLeech18>	We already do not use level for PTY reads.
+T 1587603285 18<24UndeadLeech18>	Actually nvm.
+T 1587603286 18<29kchibisov18>	Oh, so maybe our X11 issue is due to that?
+T 1587603299 18<24UndeadLeech18>	Nvm that nvm, for the PTY itself we don't use it.
+T 1587603306 18<24UndeadLeech18>	We use it related to PTYs, but not for reading it.
+T 1587603324 18<24UndeadLeech18>	Due to what?
+T 1587603349 18<29kchibisov18>	I mean if we've used edge on PTY read, I see how we can miss something.
+T 1587603349 18<24UndeadLeech18>	You mean because we don't always read until Interrupted | WouldBlock, but stop on MAX_BYTES?
+T 1587603352 18<29kchibisov18>	but I don't see edge
+T 1587603378 18<24UndeadLeech18>	It's PollOpt::edge() | PollOpt::oneshot().
+T 1587603449 18<24UndeadLeech18>	IIRC I've already tried removing the MAX_READ condition to fix this though.
+T 1587603471 18<29kchibisov18>	have you tried PollOpt::level()?
+T 1587603493 18<24UndeadLeech18>	I mean without MAX_READ there shouldn't be any problem.
+T 1587603511 18<24UndeadLeech18>	You do mean that the problem could be that we don't read everything and then don't get woken up again, right?
+T 1587603518 18<29kchibisov18>	kind of
+T 1587603530 18<29kchibisov18>	so your poll will block infinitely
+T 1587603544 18<29kchibisov18>	However from what I remember that wasn't the problem
+T 1587603560 18<29kchibisov18>	the problem was that we won't be able to wakeup in some edge case
+T 1587603576 18<29kchibisov18>	however wakeup event should wakeup winit, which is also using mio
+T 1587603588 18<24UndeadLeech18>	If we don't read all the bytes, we won't get woken up again untill the next EAGAIN when using edge triggers.
+T 1587603622 18<24UndeadLeech18>	If you're talking about the PTY, though I'm not sure you are.
+T 1587603623 18<29kchibisov18>	yeah, but I don't know into what mio translates it.
+T 1587603651 18<29kchibisov18>	from my experience I've never got a wake up with edge.
+T 1587603664 18<29kchibisov18>	like reading wayland display was infinite block with edge for me, most of the time.
+T 1587603695 18<29kchibisov18>	unless I've flushed fd.
+T 1587603700 18<29kchibisov18>	from other thread
+T 1587603719 18<24UndeadLeech18>	If that was the case, Alacritty wouldn't work.
+T 1587603726 18<24UndeadLeech18>	Like at all.
+T 1587603756 18<29kchibisov18>	I mean likely, I don't know our setup for mio, maybe it's fine.
+T 1587603853 18<29kchibisov18>	but the only thing I haven't tried is using level.
+T 1587603869 18<24UndeadLeech18>	For wayland stuff you mean?
+T 1587603880 18<29kchibisov18>	For wayland stuff mio was already removed.
+T 1587603890 18<24UndeadLeech18>	What do you mean then?
+T 1587603905 18<29kchibisov18>	I mean for our X11 bug.
+T 1587603920 18<29kchibisov18>	but I feel like it's winit problem, since it loses events.
+T 1587603929 18<29kchibisov18>	somehow, but loses.
+T 1587603947 18<24UndeadLeech18>	You mean https://github.com/alacritty/alacritty/issues/824? Why is this X11 specific?
+T 1587603968 18<29kchibisov18>	was only reproduced on X11.
+T 1587603988 18<29kchibisov18>	and reported on X11 as well.
+T 1587604011 18<24UndeadLeech18>	I mean I'm using X11 and I can't repro it at all.
+T 1587604017 18<29kchibisov18>	you've done it once.
+T 1587604021 18<24UndeadLeech18>	Might just be that more people are using X11?
+T 1587604029 18<24UndeadLeech18>	I'm not sure if I've reproed this bug or the other one tbh.
+T 1587604035 18<24UndeadLeech18>	I wouldn't trust anything I've said about reproing it.
+T 1587604067 18<29kchibisov18>	you've reproduced it this summer with weechat.
+T 1587604102 18<24UndeadLeech18>	I've reproduced the issue fixed by evlp2 with weechat.
+T 1587604107 18<24UndeadLeech18>	I don't know about 824.
+T 1587604118 18<29kchibisov18>	no, it was 824
+T 1587604142 18<29kchibisov18>	since I've reproduced the same issue on master shortly after with tmux
+T 1587604151 18<24UndeadLeech18>	I have absolutely zero evidence that I was actually able to reproduce this bug.
+T 1587604152 18<29kchibisov18>	and on evlp2 branch
+T 1587604160 18<29kchibisov18>	I have logs.
+T 1587604162 18<24UndeadLeech18>	I've never been able to reproduce it before evlp2 and have never seen it since.
+T 1587604173 18<29kchibisov18>	me neither.
+T 1587604174 18<24UndeadLeech18>	You have logs of me thinking I might have reproduced it.
+T 1587604181 18<24UndeadLeech18>	But I have never been able to confirm it.
+T 1587604207 18<29kchibisov18>	likely, but the issue you've described was exactly 824.
+T 1587604214 18<24UndeadLeech18>	It could have been a networking problem for all I know.
+T 1587604229 18<24UndeadLeech18>	Or I ran the wrong branch.
+T 1587604253 18<29kchibisov18>	and since we know that winit can lose events, maybe there's something.
+T 1587604309 18<24UndeadLeech18>	Yeah, but that's likely because winit might be doing something stupid.
+T 1587604340 18<24UndeadLeech18>	Like as far as I know, we use edge just fine and that can actually help with performance.
+T 1587604384 18<29kchibisov18>	likely, since from what I've seen the issue wasn't with us polling and sending wakeups.
+T 1587604410 18<29kchibisov18>	sending wakeup to winit could unfreeze us, but it had nothing to do with pty reading.
+T 1587604459 18<24UndeadLeech18>	My latest understanding about it was that winit wakeups were dropped, especially in the visual bell bug that seemed to be the case.
+T 1587604470 18<24UndeadLeech18>	But the details got very hazy once winit introduced another bug that was so similar.
+T 1587604510 18<24UndeadLeech18>	But the visual bell problem itself can't possibly be due to PTY, so that makes winit a more likely target.
+T 1587604579 18<24UndeadLeech18>	I'll mark both issues as X11-only for now, maybe that'll trigger some more input if anyone ever actually managed to repro on Wayland.
+T 1587604600 18<29kchibisov18>	visual bell was on macOS as well
+T 1587604608 18<24UndeadLeech18>	Oh, really?
+T 1587604612 18<29kchibisov18>	yes
+T 1587604617 18<24UndeadLeech18>	Indeed.
+T 1587604623 18<24UndeadLeech18>	So maybe it is about more than just X11.
+T 1587604674 18<24UndeadLeech18>	Then I'll remove the tags, but I'd still like to know if anyone was able to repro 824 on non-wayland.
+T 1587604690 18<24UndeadLeech18>	But that seems to be pretty conclusive evidence that something funky might be going on with more than just x11.
+T 1587604706 18<24UndeadLeech18>	Like that seems to show that winit swallows wakeups on multiple platforms.
+T 1587605971 18<24UndeadLeech18>	Oh god damn it. Someone updated their stuff again breaking our build.
+T 1587606064 18<24UndeadLeech18>	Oh, but we can update to 1.41.0.
+T 1587614257 20*	Disconnected (20)
+T 1587614707 19*	Now talking on 22#alacritty
+T 1587614707 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587614707 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587624772 18<20Levanx18>	about mio, if I understand correctly the main difficulty they meet with Windows is that it's selector system is completion-based, rather than readiness-based, and that this is the main source of overhead in mio on Windows.
+T 1587624792 18<20Levanx18>	Not completely sure how it translates to edge/level triggering though
+T 1587625517 18<27casperstorm18>	UndeadLeech: thanks for the feedback in the utf8/locale PR. let me know if you wanna discuss anything over irc.
+T 1587632587 20*	Disconnected (20)
+T 1587632860 19*	Now talking on 22#alacritty
+T 1587632860 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587632860 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587633729 18<24UndeadLeech18>	Levanx: Ah okay, so can you confirm this edge/level thing is actually about Windows?
+T 1587633774 18<20Levanx18>	I'm not sure, but afaik this windows thing has always be the pain point for mio
+T 1587633789 18<24UndeadLeech18>	Seems like it's very likely then, yeah.
+T 1587633814 18<24UndeadLeech18>	I just named Windows as my best guess for what is causing the problem, to be fair that wouldn't be very surprising.
+T 1587633831 18<24UndeadLeech18>	Though once they move their kernel to Linux that should all hopefully be fixed. :)
+T 1587633833 18<24UndeadLeech18>	Any moment now.
+T 1587634040 18<24UndeadLeech18>	casperstorm: I'm not 100% certain how to best approach this tbh. We could just check environment variable, but that would break setups where locale magically works.
+T 1587634042 18<20Levanx18>	Looking at the issues, it looks like it was actually linked to macos kqueue
+T 1587634058 18<24UndeadLeech18>	That was about oneshot though, no mention of level problems with kqueue.
+T 1587634094 18<20Levanx18>	But it looks a lot to me like mio's maintainer got fet up with trying to maintain cross-platform compatibility and decided to focus on the only use that really mattered to them : edge-triggers to scalable web apps
+T 1587634110 18<27casperstorm18>	I think the only case we dont support right now is launching alacritty from terminal - most(?) cases should be handled now, tho.
+T 1587634110 18<20Levanx18>	maintainers *
+T 1587634246 18<24UndeadLeech18>	Levanx: I mean if there are problems with it on Windows, that has an effect on more than just webapps.
+T 1587634349 18<20Levanx18>	I mean, they are considering bringing level&oneshot back, just not on a cross-platform way : https://github.com/tokio-rs/mio/issues/1049
+T 1587634432 18<20Levanx18>	I really don't know much about what mio does with windows. But I think they are basically emulating an epoll-like api, so probably thay can do whatever they want at this point ?
+T 1587634468 18<24UndeadLeech18>	Yeah, so that seems a lot more like giving up on cross-platform support for it, than giving up on supporting it. Which makes it seems unlikely that the only reason is that they don't care about it at all.
+T 1587634560 18<20Levanx18>	Well, looks like their initial point of view was "everything can be emulated using edge triggers so we'll just focus on that"
+T 1587634582 18<24UndeadLeech18>	I mean for you it probably doesn't matter, but Alacritty has to support Windows anyways. Though I think we just use `level` on unix...
+T 1587634597 18<24UndeadLeech18>	Levanx: I mean that's not wrong, is it?
+T 1587634656 18<20Levanx18>	Well, only if you assume that you won't have the same socket monitored by several mostly independent event loops.
+T 1587634678 18<20Levanx18>	Which can be a convenient thing to do for multithreaded wayland apps
+T 1587634741 18<20Levanx18>	If you monitor the wayland socket with multiple event loops, hen it becomes readable, level trigger wakes them all, while edge-trigger only wakes one
+T 1587634795 18<24UndeadLeech18>	Using multiple indepedently registered SourceFd sources?
+T 1587634835 18<20Levanx18>	Yeah.
+T 1587634848 18<20Levanx18>	That's just how epoll works
+T 1587634852 18<24UndeadLeech18>	Or are you just not reading all of it and relying on level triggering to wake you up again until you'd block?
+T 1587634875 18<20Levanx18>	and an other issue we encountered with smithay is that when you register an epoll fd into an other epoll instance, some weirf things can happen when using edge-triggers
+T 1587634923 18<20Levanx18>	Well, if I have two event loops waiting on the same client wayland socket (using a different event queue), it's very likely that when the socket becomes readable, it'll contain events for both
+T 1587634954 18<20Levanx18>	so both need to wake up and process their events (even if only one will actually read them from the socket)
+T 1587634997 18<24UndeadLeech18>	I'm just wondering if level triggering really woke up both initially, or if it just woke up the other one because the socket wasn't drained.
+T 1587635013 18<20Levanx18>	kchibisov encountered issues ith smithay-clipboard due to exactly that
+T 1587635133 18<20Levanx18>	I think it's part of the specification of epoll's level-triggered mode that all waiting epoll are woken up
+T 1587635134 18<20Levanx18>	let me check
+T 1587635189 18<24UndeadLeech18>	Also have you tried the new unix socket APIs?
+T 1587635197 18<24UndeadLeech18>	Those are already specific to unix, maybe that would work?
+T 1587635220 18<20Levanx18>	the "new" unix socket api ?
+T 1587635231 18<20Levanx18>	Though I'm bound to using the sockets that libwayland uses
+T 1587635297 18<24UndeadLeech18>	It seems to be very networking focused, I'm not actually quite sure if they're meant to be used for anything else.
+T 1587635348 18<20Levanx18>	which api are you talking about?
+T 1587635442 18<24UndeadLeech18>	https://docs.rs/mio/0.7.0/mio/net/index.html
+T 1587635469 18<24UndeadLeech18>	Also you're correct, edge triggering will intentionally wakeup only one thread as an optimization.
+T 1587635471 18<20Levanx18>	Ah, mio's API
+T 1587635490 18<24UndeadLeech18>	Oh yeah, sorry I didn't mention that part. :D
+T 1587635533 18<24UndeadLeech18>	Though it does say that this is the case if multiple threads have inherited the same epoll file descriptor.
+T 1587635534 18<20Levanx18>	Actually I'm using directly nix, because I need to sendmsg/recvsmg with auxilliary data, to pass file descriptors between client & server
+T 1587635545 18<24UndeadLeech18>	Fair enough.
+T 1587635636 18<20Levanx18>	(and when using the system libwayland, it's it that does that)
+T 1587635659 18<20Levanx18>	I'm just monitoring the socket to know when I should call libwayland's functions to process events
+T 1587635921 18<24UndeadLeech18>	It seems like this is a common problem though: https://idea.popcount.org/2017-02-20-epoll-is-fundamentally-broken-12/
+T 1587635987 18<24UndeadLeech18>	Do you know if mio automatically makes level triggering exclusive?
+T 1587636042 18<20Levanx18>	Well, mio 0.7 does not do level triggering at all, so...
+T 1587636045 18<24UndeadLeech18>	Old mio that is. :P
+T 1587636390 18<20Levanx18>	Don't know tbh. Decided to ditch it completely, allowed me to drastically reduce the dependencies of calloop :p
+T 1587636422 18<24UndeadLeech18>	Oh I mean that's certainly the way to go.
+T 1587636425 18<24UndeadLeech18>	What do you do now?
+T 1587636458 18<20Levanx18>	directly call into epoll / kqueue
+T 1587636466 18<20Levanx18>	I don't really care about windows support tbh ^^"
+T 1587636496 18<24UndeadLeech18>	Wasn't calloop cross-platform before?
+T 1587636565 18<20Levanx18>	kind of ? It wasn't really usable on platforms not relying on FDs
+T 1587636630 18<24UndeadLeech18>	Hm, might be good to state that. Also the README needs an update.
+T 1587636671 18<20Levanx18>	at, that's possible
+T 1587636686 18<24UndeadLeech18>	I hope so. :)
+T 1587637249 18<27casperstorm18>	UndeadLeech: indeed, was a bit confused by locale and env variables. I am unsure how I can move this forward if you are questioning the functionality of it.
+T 1587637572 18<24UndeadLeech18>	Could check if the environment variable is set?
+T 1587637742 18<27casperstorm18>	can i use env::var("LC_CTYPE")?
+T 1587637790 18<24UndeadLeech18>	I can give it a try later. But you can check if a variable is set with env::var, yes.
+T 1587637831 18<27casperstorm18>	let me just update the code and you can give me feedback again?
+T 1587637847 18<24UndeadLeech18>	Sure.
+T 1587641541 18<27casperstorm18>	UndeadLeech: i've updated the PR now, let me know what you think.
+T 1587642548 18<27eoli3n_18>	Hi
+T 1587642552 18<27eoli3n_18>	is there a way to add inside padding ?
+T 1587642566 18<24UndeadLeech18>	Like the window.padding config option?
+T 1587642627 18<27eoli3n_18>	i tried that
+T 1587642634 18<27eoli3n_18>	it doesnt change internal padding
+T 1587642643 18<24UndeadLeech18>	How does it not?
+T 1587642656 18<27eoli3n_18>	i think it applies to "window" but i use a tilling window manager
+T 1587642663 18<27eoli3n_18>	lets retry
+T 1587642671 18<24UndeadLeech18>	It definitely doesn't.
+T 1587642680 18<27eoli3n_18>	ah my bad
+T 1587642688 18<27eoli3n_18>	miss to uncomment a line
+T 1587642715 18<20basic18>	is there a way to have the font size adjust itself to the screensize?
+T 1587642722 18<20basic18>	or does this not make sense at all?
+T 1587642741 18<29kchibisov18>	it's done by default based on your DPR
+T 1587642756 18<20basic18>	what does R stand for?
+T 1587642761 18<28Yaniel18>	ratio
+T 1587642770 18<28Yaniel18>	(Display Pixel Ratio)
+T 1587642785 18<20basic18>	i see, but on my laptop it varies to hard that it is annoying me :/
+T 1587642789 18<20basic18>	so that is just me?
+T 1587642801 18<28Yaniel18>	then you need to fix your laptop's configuration
+T 1587642813 18<28Yaniel18>	to report the correct DPR for each display
+T 1587642830 18<29kchibisov18>	yeah, if it's X11 you should make xrandr report saner values
+T 1587642857 18<20basic18>	how can i check those values?
+T 1587642864 18<29kchibisov18>	Also, the same is the same physically, not in pixels.
+T 1587642869 18<28Yaniel18>	xrandr
+T 1587642876 18<20basic18>	okway, my laptop screen seems not to report the screen size
+T 1587642881 18<20basic18>	HDMI-A-0 connected 3440x1440+0+0 (normal left inverted right x axis y axis) 797mm x 333mm
+T 1587642892 18<29kchibisov18>	797mm x 333mm
+T 1587642895 18<20basic18>	eDP connected primary 1920x1080+0+0 (normal left inverted right x axis y axis) 309mm x 173mm
+T 1587642902 18<29kchibisov18>	309mm x 173mm
+T 1587642903 18<20basic18>	well, it does
+T 1587642920 18<28Yaniel18>	is it correct though?
+T 1587642929 18<29kchibisov18>	seems like it tbh
+T 1587642935 18<20basic18>	yes
+T 1587642939 18<28Yaniel18>	and yeah, alacritty tries to keep font size the same in mm, not in pixels
+T 1587642972 18<20basic18>	so it looks so "zoomed" to be because my laptop is too small
+T 1587642980 18<20basic18>	solution: get rich and have a portable beamerh
+T 1587642983 18<20basic18>	?
+T 1587643008 18<28Yaniel18>	?
+T 1587643012 18<29kchibisov18>	?
+T 1587643036 18<20basic18>	so if i measure AAAAAAAAAAAAA on my big screen
+T 1587643039 18<29kchibisov18>	run `alacritty --print-events | grep -i scale` and move your window across the screens
+T 1587643047 18<20basic18>	it should be as big as equivalent thing on laptop screen?
+T 1587643064 18<28Yaniel18>	it should yes
+T 1587643080 18<28Yaniel18>	try what kchibisov suggested, it should print an event when the window moves to the other screen
+T 1587643088 18<20basic18>	[2020-04-23 13:58:33.617366770] [INFO] glutin event: WindowEvent { window_id: WindowId(X(WindowId(117440514))), event: ScaleFactorChanged { scale_factor: 1.6666666666666667, new_inner_size: PhysicalSize { width: 1143, height: 857 } } }
+T 1587643096 18<20basic18>	[2020-04-23 13:58:34.865588052] [INFO] glutin event: WindowEvent { window_id: WindowId(X(WindowId(117440514))), event: ScaleFactorChanged { scale_factor: 1.1666666666666667, new_inner_size: PhysicalSize { width: 800, height: 600 } } }
+T 1587643124 18<20basic18>	that looks correct i guess
+T 1587643162 18<29kchibisov18>	and font should be the samw physically then
+T 1587643349 18<29kchibisov18>	you can have fixed scale factor like all other apps by using Xft.dpi: 96 settin in xresources
+T 1587643361 18<20basic18>	oh, okay, cool thanks
+T 1587649777 20*	Disconnected (20)
+T 1587649836 20*	Disconnected (20Remote host closed socket)
+T 1587649903 20*	Disconnected (20Remote host closed socket)
+T 1587649951 20*	Disconnected (20Remote host closed socket)
+T 1587649997 19*	Now talking on 22#alacritty
+T 1587649997 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587649997 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587650557 20*	Disconnected (20)
+T 1587651061 19*	Now talking on 22#alacritty
+T 1587651061 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587651063 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587651157 20*	Disconnected (20)
+T 1587651203 19*	Now talking on 22#alacritty
+T 1587651203 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587651203 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587651247 20*	Disconnected (20)
+T 1587651508 19*	Now talking on 22#alacritty
+T 1587651508 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587651508 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587653557 20*	Disconnected (20)
+T 1587659938 19*	Now talking on 22#alacritty
+T 1587659938 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
+T 1587659938 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
+T 1587663136 18<26fixel-18>	hi, trying to run alacritty on macos (installed via homebrew) but no modifier shortcuts seem to work (C-a or C-c or C-d) -- any ideas what's going on?
+T 1587663188 18<26fixel-18>	(i do see the keypresses when using --print-events, does that mean i need to map them somehow?)
+T 1587663254 18<28Yaniel18>	yes you need to map them to something in your config file
+T 1587663275 18<29kchibisov18>	you shoulnd't if it's C - c /C - dd
+T 1587663279 18<29kchibisov18>	C-d*
+T 1587663301 18<29kchibisov18>	What are you expecting them to do?
+T 1587663337 18<28Yaniel18>	yeah for most shortcuts you should use Command instead of Control as per macOS convention
+T 1587663354 18<28Yaniel18>	and because Control-c etc have special meanings in terminal emulators
+T 1587663378 18<26fixel-18>	i'd expect C-d to terminate the running shell, C-c to "interrupt" and stop the current prompt, starting a new one
+T 1587663385 18<29kchibisov18>	they should work?
+T 1587663393 18<29kchibisov18>	you don't have to bind them.
+T 1587663475 18<29kchibisov18>	Do you see something when you try `C-d` into `cat`?
+T 1587663596 18<26fixel-18>	my best guess at what the corresponding event for `C-d` is when using --print-events: WindowEvent { window_id: WindowId(Id(140477264353008)), event: KeyboardInput { device_id: DeviceId(DeviceId), input: KeyboardInput { scancode: 62, state: Released, virtual_keycode: Some(RControl), modifiers: (empty) }, is_synthetic: false } }
+T 1587663630 18<29kchibisov18>	Can you try `LControl`?
+T 1587663640 18<20cole-h18>	There's a difference between RControl and LControl AFAIK
+T 1587663641 18<26fixel-18>	in alacritty i get a `d` (rather than terminating cat)
+T 1587663686 18<29kchibisov18>	I mean who knows what macOS does here, but I don't have a keyboard with RControl.
+T 1587663695 18<26fixel-18>	for lcontrol: WindowEvent { window_id: WindowId(Id(140719080954656)), event: KeyboardInput { device_id: DeviceId(DeviceId), input: KeyboardInput { scancode: 59, state: Released, virtual_keycode: Some(LControl), modifiers: (empty) }, is_synthetic: false } }
+T 1587663706 18<29kchibisov18>	I mean does binding with LControl works?
+T 1587663709 18<20cole-h18>	But does LControl work as you expect RControlto?
+T 1587663765 18<26fixel-18>	sorry, not sure what you guys mean: @kchibisov do you mean that i should bind LControl in alacritty.yml?
+T 1587663788 18<29kchibisov18>	I mean does LControl + C/D works?
+T 1587663790 18<26fixel-18>	@cole-h they have the same effect in other terminal emulators for me (iterm2 and terminal.app)
+T 1587663791 18<29kchibisov18>	when you just press them.
+T 1587663831 18<26fixel-18>	kchibisov: in alacritty neither lcontrol nor rcontrol + d work as i expect them to
+T 1587663859 18<29kchibisov18>	Can you share the entire `alacritty --print-events` log?
+T 1587663870 18<29kchibisov18>	while you're reproducing the issue.
+T 1587663887 18<29kchibisov18>	Also, what keyboard layout are you using?
+T 1587663896 18<29kchibisov18>	And what alacritty version
+T 1587663916 18<29kchibisov18>	you can get version information with `alacritty --version`
+T 1587664058 18<26fixel-18>	https://pastebin.com/vvGLccab
+T 1587664120 18<26fixel-18>	keyboard layout is workman, alacritty version 0.4.2 f68de37
+T 1587664155 18<29kchibisov18>	Oh, that's likely the issue.
+T 1587664165 18<26fixel-18>	the keyboard layout?
+T 1587664171 18<29kchibisov18>	yeah.
+T 1587664198 18<26fixel-18>	re pastebin: i started alacritty, hit C-d (which prints d) and then Cmd-Q to quit alacritty
+T 1587664215 18<29kchibisov18>	yeah, I read pastebin, it seems like we're not getting proper char.
+T 1587664236 18<29kchibisov18>	It's not some predefined layout on macOS, right?
+T 1587664319 18<26fixel-18>	yep (not pre-defined) and yep - when i change to qwerty C-d and friends work
+T 1587664341 18<26fixel-18>	any idea on how to approach this?
+T 1587664351 18<29kchibisov18>	IIRC dvorak/etc works, how did you setup your layout?
+T 1587664383 18<29kchibisov18>	I mean they work without special bindings, etc.
+T 1587664408 18<26fixel-18>	started out with this: https://github.com/workman-layout/Workman/tree/master/mac
+T 1587664713 18<29kchibisov18>	I guess this is somehow related https://github.com/workman-layout/Workman/issues/13
+T 1587664751 18<29kchibisov18>	you can define bindings for all things, but if we don't get proper chars from the os, it could be annoying
+T 1587664825 18<26fixel-18>	could be - i haven't come across it though from what I recall and i use those readline/emacs bindings a lot (also in browsers and other apps)
+T 1587664859 18<26fixel-18>	i mean C-a to jump to the start, C-k to kill, C-e to jump to the end and so on
+T 1587664888 18<29kchibisov18>	I don't know anything about custom layouts on macOS, maybe our windowing library should do more to handle them, but since dvorak/colemak works, I'm a bit skeptical.
+T 1587664902 18<29kchibisov18>	If the solution is to hardcode everything it's not really a solution.
+T 1587664925 18<29kchibisov18>	But yeah, you can add bindings in alacritty.yml for Ctrl + c, etc.
+T 1587664951 18<26fixel-18>	yep - some for mapping those binding imho, as an emacs user i probably use most possible combinations of C-* ;)
+T 1587664964 18<26fixel-18>	some/same/
+T 1587665037 18<26fixel-18>	i've modified the layout some years ago, i'll try to switch to the vanilla one and see how that goes - need to log out for that, thanks for your help so far kchibisov!
+T 1587665130 18<29kchibisov18>	I mean maybe there's something our library doesn't handle, but debugging such things could be a bit of a task.
+T 1587665466 18<26fixel-18>	same issue on the vanilla workman keyboard layout -- i'm guessing the `scanCode` is incorrect?
+T 1587665484 18<26fixel-18>	(ie 62 doesn't correspond to d)
+T 1587665492 18<29kchibisov18>	it's not related to scanCode, etc.
+T 1587665504 18<29kchibisov18>	OS is sending some characters with each key press.
+T 1587665527 18<29kchibisov18>	So, it sends proper chars for, let's say Ctrl + C/D automatically on qwerty
+T 1587665543 18<29kchibisov18>	which corresponds to proper chars for Ctrl + C/D
+T 1587665549 18<29kchibisov18>	so we just forward them.
+T 1587666557 18<26fixel-18>	fyi looks like remapping keys via Karabiner-Elements works
+T 1587667203 18<26fixel-18>	yep - so just remapped via Karabiner Elements - and everything i've tested so far works as expected -- cheers!
