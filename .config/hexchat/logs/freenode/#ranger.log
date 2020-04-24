@@ -6054,3 +6054,198 @@ Apr 23 18:10:24 <Luyin>	accept my gratitude, kind sir <3
 Apr 23 20:01:02 <__monty__>	Is this a zen koan? https://github.com/ranger/ranger/pull/1931#issuecomment-618555212
 Apr 23 20:01:38 <__monty__>	I'm pretty sure they're conflating at least two but maybe three of their PRs in that one comment.
 Apr 23 21:42:46 <zaeph>	__monty__: I need to consult the scriptures to answer that.
+Apr 23 22:29:07 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 23 22:29:07 2020
+
+**** BEGIN LOGGING AT Thu Apr 23 22:32:41 2020
+
+Apr 23 22:32:41 *	Now talking on #ranger
+Apr 23 22:32:41 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 23 22:32:41 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 23 22:33:36 <__monty__>	nn, peeps
+Apr 23 22:33:43 <zaeph>	Bye!
+Apr 23 22:33:45 <zaeph>	Gotcha!
+Apr 24 07:55:01 <Luyin>	howdi, rangers!
+Apr 24 07:55:05 <zaeph>	Luyin: Heya!
+Apr 24 07:56:07 <Luyin>	somebody recently recommended I update one of ranger's config files, because I found this weird behaviour when I use "r" and the command lines says literally ":open_with%space". Which file was that again?
+Apr 24 07:56:33 <zaeph>	Luyin: Probably rc.conf.
+Apr 24 07:57:00 <zaeph>	I think we've recently changed the way the escaping works in some commands in order to not have `%%` for expanding chain-commands.
+Apr 24 07:57:03 <Luyin>	zaeph: thanks, I'll check it out
+Apr 24 07:57:12 <zaeph>	Any time!
+Apr 24 08:51:44 <Luyin>	and now for something completely different: http://bracha.org/Site/Theology.html
+Apr 24 08:51:49 <Luyin>	zaeph: you might enjoy this ^
+Apr 24 08:52:16 <zaeph>	Luyin: I'll have a read in a bit.
+Apr 24 08:52:44 <Luyin>	no hurry
+Apr 24 08:52:53 <Luyin>	the internet doesn't run off just because you're busier now :D
+Apr 24 08:53:07 <zaeph>	…Yet.
+Apr 24 08:53:18 <zaeph>	I mean, I wouldn't have thought that they'd cap the internet in the US, and here we are.
+Apr 24 08:53:33 <zaeph>	With so-called fast-lanes and whatnot to get 'faster' internet which used to be the default.
+Apr 24 08:54:12 <Luyin>	yeah...
+Apr 24 09:30:11 <zaeph>	Luyin: Finally got around to reading it.  I wanna be a Computional Eschatologist, then!
+Apr 24 09:30:18 <zaeph>	(FYI: 'The part of theology concerned with death, judgement, and the final destiny of the soul and of humankind')
+Apr 24 09:31:39 <Luyin>	zaeph: :D
+Apr 24 09:31:49 <Luyin>	lol
+Apr 24 09:32:07 <Luyin>	like the "don't ask me to fix this bug in your legacy code OR ELSE" feeling? :D
+Apr 24 09:32:22 <zaeph>	Luyin: Pretty much, yes.
+Apr 24 11:00:32 <grobi>	hello, rangers !:)
+Apr 24 11:02:12 <zaeph>	Hi grobi!
+Apr 24 11:03:04 <zaeph>	__monty__: Read a nice Elisp article by daddy-jwiegley this morning: http://newartisans.com/2016/01/pattern-matching-with-pcase/
+Apr 24 11:03:30 <zaeph>	Completely blew me away with what you could do with pcase.
+Apr 24 11:03:34 <grobi>	hi zaeph i can now command ranger with my eyes
+Apr 24 11:04:30 <zaeph>	Oh nice, with those little webcam that track your eyes movements?
+Apr 24 11:05:04 <grobi>	knoppix comes with viacam and xvkbd
+Apr 24 11:05:42 <zaeph>	Sweet!  Must come in handy for a lot of handicapped folks.
+Apr 24 11:05:51 <__monty__>	That sounds awesome.
+Apr 24 11:06:17 <grobi>	and it has a speach boot option wich starts programs in a console from where you can enter the graphical mode as well
+Apr 24 11:06:37 <zaeph>	Does that mean you can tell your computer to rm your root?
+Apr 24 11:06:43 <zaeph>	Nice~
+Apr 24 11:06:55 <grobi>	no that not
+Apr 24 11:07:06 <zaeph>	Bummer!
+Apr 24 11:07:18 <grobi>	you have to enter the boot options by F2
+Apr 24 11:07:48 <grobi>	then F3 and choose youre options by keyboard
+Apr 24 11:09:06 <grobi>	there is not yet a possibility to command programs espially terminals by voice i guess
+Apr 24 11:09:28 <zaeph>	I mean, it wouldn't be very practical anyway.  Terminals are good when you have access to a keyboard, and a physical one at that.
+Apr 24 11:09:40 <zaeph>	Termux on your phone is kinda bad.
+Apr 24 11:10:02 <grobi>	but it reads the rograms
+Apr 24 11:10:29 <grobi>	you can command with your eyes with the virtual keyboard
+Apr 24 11:10:43 <zaeph>	Yeah, but it'd take ages.
+Apr 24 11:10:43 <grobi>	xvkbd
+Apr 24 11:10:57 <grobi>	you need to exercise thats true
+Apr 24 11:11:42 <zaeph>	The average typist can probably do 400 characters/min.  If you did as many eye-movements, and that's supposing that you've got 100% accuracy with viacam, you'd probably be dizzy by the end of it.
+Apr 24 11:11:59 <zaeph>	But accessibility isn't about speed, so it's awesome :D
+Apr 24 11:12:09 <grobi>	there is automatic click option and you can click with closing your eyelids
+Apr 24 11:12:36 <zaeph>	Sounds like you'd get a lot of misclicks, unless there is a special duration for your eye to be closed.
+Apr 24 11:12:49 <zaeph>	Like, >50 ms, it's considered as a click.  But then we get problems with the FPS on the webcam.
+Apr 24 11:12:56 <grobi>	just blink and blinkblink
+Apr 24 11:13:06 <zaeph>	…Man, it's a nightmare to think of all the possibilities.
+Apr 24 11:13:59 <grobi>	yes the ms-option is configurable by the automatic click-option, so you can choose.
+Apr 24 11:14:35 <grobi>	you can configure the keyboard as well 
+Apr 24 11:14:54 <grobi>	just the look is very awfull
+Apr 24 11:15:00 <zaeph>	It's nice to have a libre tool for handling all this, though.
+Apr 24 11:15:25 <grobi>	maybe i try onboard
+Apr 24 11:17:07 <grobi>	its like magic to move your windows around
+Apr 24 11:18:02 <zaeph>	Just imagine placing extra modifiers on your screen.  Better than footpedals! /s
+Apr 24 11:18:58 <grobi>	:))
+Apr 24 11:31:41 <grobi>	i wrote this with my eyes :) ,but landed in the wrong channel by accident
+Apr 24 11:32:04 <zaeph>	So you almost posted this in #midnightcommander?
+Apr 24 11:32:15 <zaeph>	They wouldn't have minded.
+Apr 24 11:32:21 <grobi>	lol
+Apr 24 11:33:40 <grobi>	one can configure onboard as well and have several own created layouts and switch inbetween
+Apr 24 11:36:25 <grobi>	so one can create a shell-command per key! on each layout (they called it macro)
+Apr 24 11:36:52 <zaeph>	Nice.  I like that this offers a lot of possibility.
+Apr 24 11:37:21 <grobi>	you can have 16 macros by default 
+Apr 24 11:37:43 <grobi>	and i guess you could use even more
+Apr 24 11:38:32 <grobi>	so count the commands you can offer
+Apr 24 11:38:51 <grobi>	the macros can be named as well
+Apr 24 11:39:21 <grobi>	so you will get not tooooooo confused by this
+Apr 24 11:39:50 <grobi>	well omboardwill be it i guess
+Apr 24 12:01:00 <Luyin>	sooo, I just vimdiffed my rc.conf versus the /usr/share/doc one. seems I missed a lot of changes :D
+Apr 24 12:01:18 <Luyin>	should probably only write my _changes_ from the default settings in my ~ one
+Apr 24 12:01:23 <zaeph>	Luyin: I did the same about 3 weeks ago.
+Apr 24 12:01:32 <zaeph>	I finally have the 'use xdg-open as last resort' in my rifle.conf!
+Apr 24 12:01:48 <Luyin>	I assume this stuff is added, not overwritten? so if I don't define a value in my local rc.conf, the higher-level value is taken?
+Apr 24 12:02:12 <zaeph>	Yeah, your custom config is run on top of the default.
+Apr 24 12:02:16 <zaeph>	…If I remember properly.
+Apr 24 12:20:10 <vifon>	__monty__: It's a shame we're well past 1 April.  https://jdan.github.io/98.css/
+Apr 24 12:20:20 <vifon>	A website redesign is due.
+Apr 24 12:20:54 <zaeph>	vifon: Oh this is great.
+Apr 24 12:20:54 <vifon>	(though what you did was excellent too)
+Apr 24 12:20:54 <zaeph>	love the old Windows aesthetic.
+Apr 24 12:21:26 <vifon>	ａｅｓｔｈｅｔｉｃ
+Apr 24 12:21:58 <zaeph>	I'd put some vaporwave emojis right about now if your term could display them.
+Apr 24 12:37:45 *	Luyin aims a cannon at that website
+Apr 24 12:38:03 <Luyin>	webservers should refuse to pass out websites with such a design!
+Apr 24 12:38:35 <zaeph>	Luyin: You philistine.  You don't know what true art is.
+Apr 24 12:39:29 <Luyin>	:)
+Apr 24 12:48:32 <__monty__>	vifon: : )
+Apr 24 12:49:11 <blawiz>	vifon: have you tried click and drag with qmk-kb-mouse?
+Apr 24 12:49:18 <__monty__>	Luyin: Ranger loads the default rc, maybe one in /etc (can't remember which files are loaded from there) and your user config. *Unless* you set RANGER_LOAD_DEFAULT_RC=False.
+Apr 24 12:49:51 <__monty__>	Then it will only load the user config (and the one in etc but I think that's only rifle and commands.py).
+Apr 24 12:50:35 <zaeph>	__monty__: Have you gotten to the bottom of things with your non-native guy, btw?
+Apr 24 12:50:41 <zaeph>	Have you found the answers to the meaning of life?
+Apr 24 12:51:42 <vifon>	blawiz: I think so, yes.
+Apr 24 12:52:02 <zaeph>	Can it actually work with the firmware?
+Apr 24 12:52:24 <zaeph>	Like, the keyboard would simulate a click on any computer?
+Apr 24 12:53:41 <__monty__>	zaeph: I think I understand 3 of his 5 PRs now. The code isn't very usable though : /
+Apr 24 12:54:18 <zaeph>	How is he taking it?
+Apr 24 12:54:19 <vifon>	zaeph: The keeb registers as a keyboard, a mouse and even a joystick IIRC.
+Apr 24 12:54:19 <zaeph>	vifon: Nice!
+Apr 24 12:54:19 <vifon>	It can send events as all these devices.
+Apr 24 12:54:28 <__monty__>	vifon: console not shell-escaping macros is confusing people. You think it'd be ok to default to escaping and provie a --no-shell-escapes flag we can use with the mappings that need it?
+Apr 24 12:54:52 <zaeph>	vifon: Can it make my tea?
+Apr 24 12:54:59 <__monty__>	vifon: Or do you think a new escape_console command is a better alternative?
+Apr 24 12:56:14 <vifon>	Not escaping how?
+Apr 24 12:56:48 <zaeph>	I believe we're talking about the %%space.
+Apr 24 12:56:55 <zaeph>	…Or maybe not.
+Apr 24 12:56:55 <__monty__>	No, that's still unavoidable for now.
+Apr 24 12:57:25 <__monty__>	vifon: map a console shell mv %s %f
+Apr 24 12:57:55 <vifon>	Wouldn't it get expanded even before calling :console?
+Apr 24 12:57:55 <__monty__>	Those macros will be substituted in a "console" context, which doesn't do shell escaping. And then passed to the shell command.
+Apr 24 12:57:58 <__monty__>	No, console doesn't do shell escaping of macros.
+Apr 24 12:58:11 <__monty__>	Consider `console touch %s`.
+Apr 24 12:58:20 <__monty__>	You don't need shell escaping for `:touch`.
+Apr 24 12:58:32 <__monty__>	Because you'd create a file with apostrophes.
+Apr 24 12:58:36 <vifon>	For me it does, I got :touch [whatever I had focused]
+Apr 24 13:01:15 <__monty__>	vifon: But you're doing `:touch %s`?
+Apr 24 13:01:31 <__monty__>	And of course it works currently, because we don't shell escape.
+Apr 24 13:02:04 <__monty__>	vifon: If we did shell escape you'd get `:touch 'file'`.
+Apr 24 13:03:13 <zaeph>	So much PDA up in here.
+Apr 24 13:03:13 <__monty__>	vifon: That should be our next April fool's. It's glorious.
+Apr 24 13:03:17 <blawiz>	vifon: cool
+Apr 24 13:03:17 <zaeph>	I feel mildly uncomfortable.
+Apr 24 13:03:51 <vifon>	PDA?
+Apr 24 13:04:04 <vifon>	Ah.
+Apr 24 13:04:10 <zaeph>	Public Display of Affection.
+Apr 24 13:04:10 <zaeph>	With so much touching.
+Apr 24 13:04:42 <vifon>	__monty__: I cannot focus on it right now, I've got a deadline in like 2h.
+Apr 24 13:05:10 <vifon>	I'll get back to you and if I won't, please bother me later.
+Apr 24 13:05:19 <zaeph>	Oh he will.
+Apr 24 13:05:31 <__monty__>	vifon: Okidoke.
+Apr 24 13:05:44 <vifon>	zaeph: Dear Frenglishman, is "bother" considered offensive?
+Apr 24 13:06:16 <__monty__>	Oooh, like "frenemy" but for english majors? : >
+Apr 24 13:06:19 <zaeph>	It's deeply rooted in English culture that whenever you need to disturb/bother/hit up somebody, it's never nice because you're interrupting them.
+Apr 24 13:06:25 <vifon>	Can you propose a more neutral word?
+Apr 24 13:06:45 <zaeph>	No, because the English haven't figured out how to *not* be offended when they get disturbed.
+Apr 24 13:06:50 <vifon>	:D
+Apr 24 13:06:58 <zaeph>	So 'bother' is completely fine.
+Apr 24 13:07:39 <zaeph>	Maybe the technological 'beep me later' or 'ring me later' might be a little more neutral, but they're slightly different.
+Apr 24 13:07:52 <vifon>	__monty__: Boop me later.
+Apr 24 13:08:16 <zaeph>	Now you've just made it weird.
+Apr 24 13:09:07 <__monty__>	Hit me up later is definitely friendlier than "bother me later," that implies you're currently being bothered while the former is more "don't have time rn, bring it up again later."
+Apr 24 13:09:32 <__monty__>	But I wasn't offended, no worries ; )
+Apr 24 13:09:39 <zaeph>	Yeah, now I can see it.  Sorry, my instincts are rusty today.
+Apr 24 13:17:41 <Luyin>	:terminal in ranger doesn't start any terminals for me. Could this have to do with either using zsh as my SHELL or with termite as the emulator?
+Apr 24 13:18:18 <vifon>	Luyin: Do you have TERMCMD set?
+Apr 24 13:18:23 <Luyin>	when I switch to bash (`/bin/bash; ranger -> :terminal` it starts a terminal, so must have to do with ZSH
+Apr 24 13:18:33 <zaeph>	It works for me, opening terminator.
+Apr 24 13:18:43 <zaeph>	(Which, yes, __monty__, I just modified to `kitty`.)
+Apr 24 13:18:50 <Luyin>	vifon: ah, might be TERCMD isn't set in my zshenv
+Apr 24 13:18:50 <zaeph>	Only one way to find out!
+Apr 24 13:19:37 <Luyin>	hu, it isn't set in either bash nor zsh environments
+Apr 24 13:19:37 <Luyin>	weird
+Apr 24 13:19:56 <vifon>	~/.profile?
+Apr 24 13:19:56 <zaeph>	Don't you have it set up in your Xprofile or whatnot?
+Apr 24 13:20:17 <Luyin>	phew, because I have no idea how all this stuff works
+Apr 24 13:20:22 <Luyin>	:D
+Apr 24 13:20:41 <Luyin>	some time™ I'll take care of that
+Apr 24 13:20:45 <zaeph>	Eh, you figure out along the way, across breakages.
+Apr 24 13:20:47 <Luyin>	hehe yeah
+Apr 24 13:20:52 <zaeph>	All you need is just to plop `export TERMCMD="kitty"` in it.
+Apr 24 13:21:06 <vifon>	> plop
+Apr 24 13:21:10 <zaeph>	vifon: I use this word a lot lately. :<
+Apr 24 13:21:28 <vifon>	I've been eating, zaeph.
+Apr 24 13:21:32 <zaeph>	I've been plopping, vifon .
+Apr 24 13:21:34 <vifon>	I will.
+Apr 24 13:21:42 <zaeph>	Be my guest.
+Apr 24 14:13:08 <zaeph>	How did I end up watching Wii Music renditions of the USSR National Anthem, I know not.  But boy am I proud.
+Apr 24 14:34:11 <Luyin>	:D
+**** ENDING LOGGING AT Fri Apr 24 15:07:40 2020
+
+**** BEGIN LOGGING AT Fri Apr 24 15:11:30 2020
+
+Apr 24 15:11:30 *	Now talking on #ranger
+Apr 24 15:11:30 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 24 15:11:30 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 24 15:11:49 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 24 15:11:49 2020
+

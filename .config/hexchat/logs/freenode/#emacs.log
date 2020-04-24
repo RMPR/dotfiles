@@ -19904,3 +19904,525 @@ Apr 23 22:10:18 <hodapp>	I have heard so many people's shitty theories of why zi
 Apr 23 22:10:42 <rpav>	nah pretty sure you're right, secondary infections or whatnot happen
 Apr 23 22:10:58 <wgreenhouse>	zeta_0: well it sounds like the use-package invocation is doing what it should but some other piece is missing
 Apr 23 22:11:51 <wgreenhouse>	Zinc is used in some OTC cold remedies ("supplements") that were dinged in .us for unverified claims
+Apr 23 22:12:10 <wgreenhouse>	It is toxic to some viruses but mostly makes you lose your sense of smell.
+Apr 23 22:12:18 <hodapp>	that and I am really tired of people parroting that one doctor had a "100% success rate" and "0 complications"
+Apr 23 22:12:30 <hodapp>	basically no treatment has a track record like that
+Apr 23 22:13:05 <zeta_0>	wgreenhouse: this is my lsp config in my .emacs: https://dpaste.org/fzJA
+Apr 23 22:13:47 <zeta_0>	i'm not sure what the elm-language-server is missing for it to work?
+Apr 23 22:14:48 <hodapp>	wgreenhouse: oh, I had thought that the zinc losenges had some data (not great data, just data) to back up that they shortened common cold duration by a day or two if taken right at the onset
+Apr 23 22:15:48 <wgreenhouse>	hodapp: the lozenges do a little; the nasal sprays and swabs make you lose your sense of smell. :P
+Apr 23 22:16:07 <hodapp>	wgreenhouse: like, permanently?
+Apr 23 22:16:13 <wgreenhouse>	the lozenges do too, aiui, but are mildly effective 
+Apr 23 22:17:04 <wgreenhouse>	hodapp: I don't remember 
+Apr 23 22:17:37 <wgreenhouse>	zeta_0: I see you're adding hooks for the lsp minor mode. What is supposed to be loading the server side? 
+Apr 23 22:23:17 <zeta_0>	ok, i change my .emacs a little bit, i removed the parenthesis that was wrapped with the :hook https://dpaste.org/FWPM
+Apr 23 22:23:20 <rpav>	gah, wtf keeps resetting my c-offsets-alist
+Apr 23 22:23:51 <zeta_0>	wgreenhouse: i don't know, i've never had problems with lsp before, everything usually works out of the box
+Apr 23 22:25:20 <ryouma>	,lgtm
+Apr 23 22:25:21 <fsbot>	ryouma: LGTM is Looks Good To Me
+Apr 23 22:26:56 <ryouma>	goatish: org ts overlays are the right solution if theyworkf or you.  they are a bit limited.  org discussed tz and basically dropped the idea of supporting them.  that is, all timestamps are local to the clock of the os you ran emacs on when you inserted them.
+Apr 23 22:29:07 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 23 22:29:07 2020
+
+**** BEGIN LOGGING AT Thu Apr 23 22:32:41 2020
+
+Apr 23 22:32:41 *	Now talking on #emacs
+Apr 23 22:32:41 *	Topic for #emacs is: Emacs 27.0.91, the second pretest of 27.1, is out.  Please test | 'https://emacsconf.org/2019/videos | Emacs questions take priority over off-topic chatter, so ask! | No Public Loging! What happens in #emacs stays in #emacs | No Racism, sexism, xenophobia, botwanking, or other asshattery
+Apr 23 22:32:41 *	Topic for #emacs set by wgreenhouse!wgreenhous@fsf/member/wgreenhouse (Mon Apr 20 07:39:23 2020)
+Apr 23 22:32:41 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Apr 23 22:50:30 <ym>	Is there a tutorial how to develop Emacs mode. Particularly I'm interested in developing own special-mode.
+Apr 23 22:50:38 <ym>	s/\./\?/
+Apr 23 22:52:46 <JordiGH>	s@\.@\?@
+Apr 23 22:53:01 <JordiGH>	Anyway, the elisp manual goes into detail, yeah.
+Apr 23 22:53:17 <JordiGH>	,pwel
+Apr 23 22:53:20 <fsbot>	*** Eval error *** Wrong type argument: hackerp, JordiGH
+Apr 23 22:53:29 <JordiGH>	,elisp
+Apr 23 22:53:31 <fsbot>	JordiGH: From memory, Elisp is [0/6] at http://www.emacswiki.org/emacs/Elisp
+Apr 23 22:53:31 <fsbot>	[1] see the built-in documentation via M-: (info "(elisp)Top")
+Apr 23 22:53:31 <fsbot>	[2] C-h r TAB RET
+Apr 23 22:53:31 <fsbot>	[3] http://www.gnu.org/software/emacs/manual/elisp.html ;;[ ,more / ,dump]
+Apr 23 22:53:39 <JordiGH>	,moar
+Apr 23 22:53:39 <fsbot>	[4] there's an elisp for that
+Apr 23 22:53:39 <fsbot>	[5] an excellent choice for those who have no particular requirements or expectations
+Apr 23 22:53:39 <fsbot>	[6] noecho Emacs Lisp can get the job done. No question. It's a car, and it moves. It's better than walking. But it pretty much combines the elegance of Common Lisp with the industrial strength of Scheme, without hitting either of them, if you catch my drift. - Steve Yegge
+Apr 23 22:54:03 <technomancy>	that's harsh, steve
+Apr 23 22:54:05 <JordiGH>	Dammit, where's Bob's book?
+Apr 23 22:54:20 <JordiGH>	,intro
+Apr 23 22:54:21 <fsbot>	I heard Intro is [0] (info "(emacs)Intro")
+Apr 23 22:54:21 <fsbot>	[1] A nice intro to emacs lisp by Chassell: http://www.gnu.org/software/emacs/manual/pdf/eintr.pdf
+Apr 23 22:54:21 <fsbot>	[2] included with emacs docs since emacs 22
+Apr 23 22:54:34 <JordiGH>	ym: There we go --^
+Apr 23 22:55:04 <technomancy>	elisp is the People's Lisp!
+Apr 23 22:55:07 <JordiGH>	,s/noecho // in elisp 6
+Apr 23 22:55:12 <fsbot>	Changed 1 (of 7) notes when replacing *string* "noecho " with "" for term "elisp". (For regexps, use r/../../ in ..). 
+Apr 23 22:55:25 <JordiGH>	,elisp 6
+Apr 23 22:55:26 <fsbot>	Elisp is Emacs Lisp can get the job done. No question. It's a car, and it moves. It's better than walking. But it pretty much combines the elegance of Common Lisp with the industrial strength of Scheme, without hitting either of them, if you catch my drift. - Steve Yegge .. + other notes
+Apr 23 22:55:27 <bandali>	LibrePlanet 2020 videos now out: https://media.libreplanet.org
+Apr 23 22:55:30 <JordiGH>	,botsnack
+Apr 23 22:55:31 *	fsbot dances happily
+Apr 23 22:55:40 <technomancy>	rudybot: where's your revolutionary spirit?
+Apr 23 22:55:40 <rudybot>	technomancy: your was seen in #emacs five years ago, saying "bye", and then your was seen changing their nick to alezost in unaffiliated/alezost three years ago
+Apr 23 22:55:56 <technomancy>	rudybot: your MOM was last seen in #emacs five years ago, amirite?
+Apr 23 22:55:59 <rudybot>	technomancy: Like, with some vaseline and duct tape, amirite?
+Apr 23 22:57:33 <JordiGH>	o_O
+Apr 23 23:10:54 <mplsCorwin>	That's what she said.
+Apr 23 23:11:32 <mplsCorwin>	rudybot: yo momma
+Apr 23 23:11:32 <rudybot>	mplsCorwin: yo momma so dumb she got hit by a parked car!
+Apr 23 23:16:52 <hodapp>	Let's make push-reel vacuum cleaners.
+Apr 23 23:50:10 <zeta_0>	i can't seem to get elm-language-server working in emacs, is there any way to troubleshoot this to see what's wrong?
+Apr 23 23:52:39 <zeta_0>	when i open a .elm file emacs throws this error? https://dpaste.org/yH98
+Apr 24 00:01:17 <wgreenhouse>	zeta_0: that error is telling you you are trying to activate lsp on a buffer that's in fundamental-mode
+Apr 24 00:01:25 <wgreenhouse>	Not elm-modr
+Apr 24 00:01:29 <wgreenhouse>	*elm-mode
+Apr 24 00:11:08 <butterthebuddha>	Is it possible to launch a GUI frame from the terminal?
+Apr 24 00:11:17 <butterthebuddha>	I'm using emacs-mac which doesn't support emacsclient :(
+Apr 24 00:11:31 <dale>	butterthebuddha: Are you absolutely sure it doesn't support emacsclient?  I am 99.9% sure it used to, at least.
+Apr 24 00:11:38 <dale>	butterthebuddha: In particular, what makes you say it doesn't support it?
+Apr 24 00:11:48 <butterthebuddha>	dale: if it does, it doesn't ship with an emacsclient binary
+Apr 24 00:12:20 <dale>	butterthebuddha: Look in Emacs.app/Contents/MacOS/bin
+Apr 24 00:12:22 <butterthebuddha>	Oh wait sorry, it doesn't support emacsclient for GUI
+Apr 24 00:12:50 <cvandusen>	What does that mean?
+Apr 24 00:13:12 <butterthebuddha>	cvandusen: emacsclient launches a frame in the terminal
+Apr 24 00:13:29 <dale>	butterthebuddha: Are you sure you're running the emacsclient that came with the Mac port?
+Apr 24 00:13:38 <butterthebuddha>	Yep
+Apr 24 00:14:06 <butterthebuddha>	I'm using emacs-mac-26.3-7.7 from nixpkgs btw
+Apr 24 00:14:30 <dale>	butterthebuddha: And you've run M-x server-start in your GUI Emacs?
+Apr 24 00:14:37 <butterthebuddha>	dale: my Emacs.app/Contents/MacOS directory only contains a "Emacs" and "Emacs.app" file
+Apr 24 00:14:44 <butterthebuddha>	there is no bin directory
+Apr 24 00:15:27 <cvandusen>	What does `which emacsclient` report? 
+Apr 24 00:15:30 <dale>	butterthebuddha: Emacs.app/Contents/MacOS/Emacs.app is a *file* and not a directory?
+Apr 24 00:31:57 <spudpnds>	butterthebuddha: /whatever/whatever/Emacs.app/Contents/MacOS/Emacs <--- that's the binary. 
+Apr 24 00:36:51 <iqubic>	God... Why is exwm screwing me over?
+Apr 24 00:38:46 <zeta_0>	how strange, i never setup any fundamental-mode, how do i make sure that when i open a .elm file that it uses elm-mode instead?
+Apr 24 00:40:12 <michaelrose>	zeta_0: (add-to-list 'auto-mode-alist '(".*zathurarc" . conf-mode)) its an alist of regexes and modes
+Apr 24 00:40:55 <michaelrose>	usually a major mode does something like this automatically for files with the common extension for a language
+Apr 24 00:49:28 <zeta_0>	michaelrose: i added that piece of code to my .emacs config, but that did not work, it's still in fundamental-mode?
+Apr 24 00:50:11 <zeta_0>	michaelrose: https://dpaste.org/QCvZ
+Apr 24 00:51:48 <zeta_0>	dsal: do you use elm-language-server in emacs? i'm having trouble getting it to activate when i open an elm file
+Apr 24 00:52:20 <butterypancake>	in the snippet zeta_0 sent, they add ".*zathurarc" to the auto-mode-alist variable. do you need to put the ".*"? I think not but idk
+Apr 24 00:54:39 <butterypancake>	iqubic: exwm is lots of fun :P is it that you're entire UI is freezing? Because I do enjoy when that happens
+Apr 24 00:55:16 <iqubic>	No. That's not the issue. This issue is that I can't get this one program to be floating properly.
+Apr 24 00:55:56 <butterypancake>	Can't help you there. I very much enjoy this line of my config: (exwm-manage-force-tiling t)
+Apr 24 00:56:00 <butterypancake>	no floating for me
+Apr 24 00:56:31 <ryouma>	is exwm a good wm independent of its emacsness?  do you run a separate instance of emacs?
+Apr 24 00:56:56 <butterypancake>	oh shit. Can you do that? I currently run only one emacs but when it freezes I'm kinda screwed
+Apr 24 00:57:11 <technomancy>	butterypancake: you can nest emacs instances easily
+Apr 24 00:57:14 <technomancy>	I do that for mu4e
+Apr 24 00:57:30 <butterypancake>	but which emacs receives the input when you input?
+Apr 24 00:57:47 <technomancy>	butterypancake: if the nested one is focused, it receives the input
+Apr 24 00:57:54 <technomancy>	butterypancake: the nested emacs would be in char-mode
+Apr 24 00:58:17 <ryouma>	in term?
+Apr 24 00:58:29 <iqubic>	I'm trying to set-up exwm-manage-configurations properly, but I can't seem to make it work.
+Apr 24 00:59:02 <butterypancake>	I never did figure out the difference between line and char mode. I'm starting to realize why whenver I accidently get nested emacs I don't know what to do. 
+Apr 24 00:59:28 <technomancy>	butterypancake: char-mode means every key binding is passed directly thru
+Apr 24 00:59:39 <technomancy>	so C-x 2, etc affects the inner emacs, not the outer one
+Apr 24 01:00:10 <butterypancake>	this knowledge will prove useful. Thank you very much. No more force shutting down the accidental nested emacs for me!
+Apr 24 01:00:14 <ryouma>	except for exceptions which i always forget
+Apr 24 01:00:29 <ryouma>	c-c or something
+Apr 24 01:01:01 <butterypancake>	sounds complicated. I'll prolly stick with 1 emacs unless someone makes a convincing case
+Apr 24 01:01:16 <ryouma>	i was just thinkiing a separate emacs
+Apr 24 01:01:25 <ryouma>	like, run emacs again
+Apr 24 01:01:50 <butterypancake>	what the heck is this exwm-manage-configurations variable? aren't there like individual variables for everything this single variable controls?
+Apr 24 01:02:15 <wgreenhouse>	butterypancake: it's a way of matching and applying conditions to groups of windows
+Apr 24 01:02:21 <butterypancake>	oh, it's per application. I'm dumb
+Apr 24 01:02:33 <butterypancake>	thanks wgreenhouse 
+Apr 24 01:02:43 <iqubic>	I really wish this worked for me:
+Apr 24 01:02:44 <iqubic>	http://dpaste.com/1FDAP78
+Apr 24 01:03:38 <michaelrose>	zeta_0: you weren't supposed to paste it you were supposed to modify it by adding the correct regex and mode
+Apr 24 01:03:55 <butterypancake>	try a customize-set-variable instead of setq. Some of the exwm variables need to be set at a specific time or done through customize
+Apr 24 01:04:36 <iqubic>	Oh, do they? I didn't know that.
+Apr 24 01:04:49 <iqubic>	I'm just trying to test this out.
+Apr 24 01:04:54 <butterypancake>	ya, that variable has some logic attached to it so you should use customize
+Apr 24 01:05:34 <iqubic>	Oh, I didn't know that.
+Apr 24 01:05:57 <zeta_0>	michaelrose: do you mean like this? https://dpaste.org/BAVA
+Apr 24 01:05:58 <butterypancake>	if you look at a variable and it says you can customize it, it really means you really really should
+Apr 24 01:06:17 <butterypancake>	cuz then you get type checking and possibly it'll run some functions when you set it
+Apr 24 01:06:18 <michaelrose>	zeta_0: (add-to-list 'auto-mode-alist '("\.elm$" . elm-mode)) 
+Apr 24 01:06:41 <zeta_0>	butterypancake: i've always have trouble with that, i prefer to use setq in my .emacs config
+Apr 24 01:07:03 <butterypancake>	probably because you're setting some variables wrong ;)
+Apr 24 01:07:29 <butterypancake>	if you are setting variables correctly, and don't mind quoting the second argument, setq == customize-set-variable
+Apr 24 01:07:47 <michaelrose>	zeta_0: yours says that any file which is any character followed by elm for example the file literally named belm would match, regex 101 . means any character $ means ends in, if you want the literal character you use a backslash to escape
+Apr 24 01:08:15 <iqubic>	technomancy: I know you're an EXWM pro, what would you say is the right way to set those variables?
+Apr 24 01:08:29 <michaelrose>	"\.elm$" means the the string which ends in the literal character period followed by e l m
+Apr 24 01:08:31 <butterypancake>	but yes my .emacs is ugly cuz customize-set-variable is way to long and it doesn't accept multiple values at once
+Apr 24 01:08:46 <technomancy>	iqubic: I must be on an old version of exwm; that variable doesn't even exist for me
+Apr 24 01:08:54 <iqubic>	Oh. I see.
+Apr 24 01:09:07 <iqubic>	How would you do something like this?
+Apr 24 01:09:30 <butterypancake>	but if you open that variable in source code, you'll see it has a ':set' value. this gets run when it's customized but not when you setq it
+Apr 24 01:10:51 <zeta_0>	ok, i set that piece of code in my .emacs, i'll test it out now: (add-to-list 'auto-mode-alist '("\.elm$" . elm-mode))
+Apr 24 01:11:08 <iqubic>	I see. What specifically does it do when I set it via customize?
+Apr 24 01:11:46 <butterypancake>	now this doesn't always matter. for example, if you set your exwm global keys before exwm is loaded, everything is fine. however, if you set the keys after it's loaded, they won't update. If you customize this variable, it runs some code to make sure it applies properlly
+Apr 24 01:12:20 <butterypancake>	idk. The code is complicated. it might not do anything useful like I said above. all I know is that it exists. and it proably exists for a reason
+Apr 24 01:13:30 <butterypancake>	if you're using use-package, check out the ':custom' option. it makes using customize sexy
+Apr 24 01:15:29 <zeta_0>	michaelrose: that caused it to throw an error when i opened an elm file? https://dpaste.org/aMM0
+Apr 24 01:15:56 <dsal>	zeta_0: I don't use any language servers.
+Apr 24 01:17:03 <iqubic>	I am using use package.
+Apr 24 01:17:34 <butterypancake>	if you're using use package, you need to be using :custom
+Apr 24 01:17:49 <zeta_0>	dsal: oh, just that i'd ask, for the most part i've been very happy with lsp in emacs, but for some reason, elm-language-server is not being activated when i open an elm file
+Apr 24 01:18:02 <butterypancake>	 (use-package exwm :custom (exwm-workspace-show-all-buffers t) (exwm-layout-show-all-buffers t))
+Apr 24 01:18:31 <butterypancake>	Look at how sexy that is. I customized two variables and it took less characters than setq
+Apr 24 01:18:37 <dsal>	zeta_0: last time I tried lsp, things went horribly wrong and I just went back to regular emacs modes and dante.  I should give it a shot again someday.
+Apr 24 01:19:01 <iqubic>	What does that custom variable do?
+Apr 24 01:19:30 <butterypancake>	it's equivlant to doing (customize-set-variable 'exwm-workspace-show-all-buffers t)
+Apr 24 01:19:40 <zeta_0>	dsal: lsp works really nice with nix
+Apr 24 01:19:54 <iqubic>	butterypancake: Can't I just run (customie-set-variable) myself?
+Apr 24 01:20:25 <ryouma>	michaelrose: emacs regexP 101 says the $ is actually eol not eos.  for eos, try '.  :)
+Apr 24 01:20:51 *	ryouma goes to check if what he just spat out is correct
+Apr 24 01:20:51 <butterypancake>	iqubic: ya, but it's way to long a function name and you have to write that function name out for every single variable. It looks icky. but doing it using use-package is epic
+Apr 24 01:20:54 <iqubic>	I see.
+Apr 24 01:21:21 <zeta_0>	butterypancake: is this what you meant by using :custon? https://dpaste.org/or2A
+Apr 24 01:21:50 <butterypancake>	one sec zeta_0 there is a better way but I need to look it up
+Apr 24 01:22:16 <ryouma>	here
+Apr 24 01:22:25 <ryouma>	‘\'’ matches the empty string, but only at the end of the buffer or string being matched against. -- (info "(elisp) Regexp Backslash")
+Apr 24 01:22:47 <ryouma>	dunno if similar in non emacs regexp but it includes buffer ehre
+Apr 24 01:23:19 <zeta_0>	when setting up haskell with lsp, all i had to do was copy and paste the code from the instructions into .emacs, but for elm there's not any defauld elisp code to paste into .emacs, so i'm probably missing something
+Apr 24 01:23:22 <butterypancake>	 (use-package lsp-mode :mode ("\\.elm$" . elm-mode))
+Apr 24 01:24:00 <michaelrose>	that is really useful
+Apr 24 01:24:23 <butterypancake>	the :mode thing in use package is specific for adding to the alist thingy and it also defers loading of the package until you open a .elm file
+Apr 24 01:24:23 <zeta_0>	and then all those elm people hang out on slack, so it's a hard to contact them if you don't use slack
+Apr 24 01:24:36 <zeta_0>	butterypancake: thanks, i'll test that out now to see if it works
+Apr 24 01:25:42 <butterypancake>	zeta_0: the problem though is if you want to use lsp-mode on files other than elm-mode. so if you don't wan't to defer the loading so you can use it with other files also add a :ensure t
+Apr 24 01:28:03 <butterypancake>	zeta_0: actually your custom thing was really bad. you need to add to the auto-mode-alist, but you overwrote it losing what it already contained (which is a lot). also, that variable doesn't benifit from customize. It's not bad (other than the over write bit) but no-one has added type checking to that variable for custom
+Apr 24 01:28:24 <ober>	using org-next-block gets me to the next babel block, but can't find a org-babel-jump-to-end
+Apr 24 01:28:52 <butterypancake>	how come all the values in auto-mode-alist end in \\'? is that the end of line symbol?
+Apr 24 01:29:36 <ryouma>	butterypancake: see above
+Apr 24 01:29:48 <butterypancake>	ryouma: sorry I'm bad a reading
+Apr 24 01:29:48 <ryouma>	if your filename has a newline
+Apr 24 01:30:01 <ryouma>	not voice enabled and not able to speak atm
+Apr 24 01:35:37 <zeta_0>	butterypancake: it threw an error: https://dpaste.org/SMpu https://dpaste.org/notV
+Apr 24 01:37:10 <butterypancake>	you have :mode twice
+Apr 24 01:37:10 <zeta_0>	ya, the elm-language-server repo needs to add more emacs documentation so i'm not stuck like this
+Apr 24 01:37:19 <zeta_0>	oh typo, my mistake
+Apr 24 01:37:19 <butterypancake>	also replace $ with \\'
+Apr 24 01:37:27 <butterypancake>	just for consistency with the other auto-mode regexes
+Apr 24 01:39:32 <butterypancake>	zeta_0: could I get your full use-package snippet?
+Apr 24 01:41:23 <zeta_0>	butterypancake: ok i made the changes you suggested, i'll test it out now and here's my full lsp config of my .emacs: https://dpaste.org/mL41
+Apr 24 01:45:54 <butterypancake>	ok I see some things you should change but I can't figure out how to use dpaste.org
+Apr 24 01:46:48 <zeta_0>	butterypancake: it threw another error when i opened a elm file? https://dpaste.org/i9Bj
+Apr 24 01:47:19 <butterypancake>	one sec. I see some things wrong
+Apr 24 01:47:24 <zeta_0>	i didn't think that it would be this difficult to get elm lsp setup
+Apr 24 01:49:24 <butterypancake>	https://dpaste.org/Y52H
+Apr 24 01:49:46 <butterypancake>	well I don't think you should have that thing in the :hook section. I'm pretty sure that's wrong
+Apr 24 01:50:23 <butterypancake>	you can probably ignore the part where i replace a setq with a customize-set-variable. That's just me pushing my custom agenda
+Apr 24 01:51:32 <zeta_0>	butterypancake: thanks, i'll make the changes right now, one second
+Apr 24 01:57:53 <butterypancake>	ok. I made a butt load of changes that I think make it better. just diff this snippet with the old one to see my changes
+Apr 24 01:57:53 <butterypancake>	https://dpaste.org/9kgt
+Apr 24 01:58:31 <butterypancake>	btw I have no clue how lsp works. I don't think I've added any errors. I think I might have corrected some. But I can't judge any lsp specific stuff
+Apr 24 01:59:48 <butterypancake>	Your hooks where quite mangeled. 
+Apr 24 02:08:34 <jamzattack>	pretty sure that should be clojurescript-mode instead of clojurescript-mode-hook in the :hook section of (use-package lsp).
+Apr 24 02:09:25 <butterypancake>	that sounds right. did I make a boo-boo
+Apr 24 02:09:41 <butterypancake>	yes I did make a boo-boo. Thanks jamzattack!
+Apr 24 02:14:19 <zeta_0>	butterypancake: thanks, i'll add the changes and let you know if it works or not
+Apr 24 02:14:52 <butterypancake>	I'll probably be offline by then but good luck!
+Apr 24 02:15:27 <zeta_0>	butterypancake: well if you leave before then, thanks for the help
+Apr 24 02:18:16 <rwp>	Does anyone know if it is possible to disable a .dir-locals.el file globally?  In that I never want it unless I enable it?
+Apr 24 02:18:54 <rwp>	I sometimes browse source that includes it and it is a nuisance to have to say 'n' every time I open a new file.
+Apr 24 02:19:23 <butterypancake>	Never tried but you could try and figure out what hook it is and remove it from the file open hooks list
+Apr 24 02:20:23 <rwp>	This seems to be something that is new in Emacs.  Because I never ran into it in older versions.
+Apr 24 02:20:32 <rwp>	But it is smacking in the face like stepping on a rake now.
+Apr 24 02:20:53 <jamzattack>	enable-dir-local-variables
+Apr 24 02:21:14 <butterypancake>	says it was in emacs 24.4 so it's been around a while
+Apr 24 02:22:20 <rwp>	jamzattack, That was it!  Disabling that solves my stepping on the rake problem.  THANKS!
+Apr 24 02:24:02 <rwp>	butterypancake, This seems to be something that is not documented in Emacs 25.  Comparing 25 to 26 I see it in the info docs for 26 but not for 25.
+Apr 24 02:26:09 <butterypancake>	there is a news entry for 24.4 saying they added the variable. but maybe default behaviour changed more recently?
+Apr 24 02:26:26 <rwp>	butterypancake, Regardless of not being documented in 25 it triggers just the same there.  Same default.  Just not documented.
+Apr 24 02:26:45 *	rwp wonders where I have Emacs 24 still sitting around to go compare with...
+Apr 24 02:27:26 <butterypancake>	well, I'm out. Good night
+Apr 24 02:27:34 <rwp>	Thanks butterypancake!  Good night!
+Apr 24 02:29:46 <rwp>	Triggers exactly the same in Emacs 24 too.  Now looking for Emacs 23...
+Apr 24 02:30:47 <jamzattack>	23 is when dir-locals was first implemented
+Apr 24 02:31:31 <rwp>	I just tried Emacs 23 and it also triggers the same.
+Apr 24 02:31:49 <rwp>	But I guess it was live for a while before the documentation appeared in 26.  Hmm...
+Apr 24 02:32:49 <rwp>	No, it is documented in 23 too.  Just in a different spot in the info docs.  That is what confused me.  They moved the section around apparently.
+Apr 24 02:33:12 <rwp>	I guess I have satisfied my curiosity about it enough...
+Apr 24 02:33:33 <rwp>	Thanks jamzattack for the pointer to enable-dir-local-variables as that was just what I needed!
+Apr 24 02:43:40 <ober>	is there any way to determine the size of a region selected?
+Apr 24 02:44:34 <ober>	count-lines-region.
+Apr 24 02:45:00 <jlf>	,next
+Apr 24 02:45:05 <fsbot>	Another satisfied customer. NEXT!
+Apr 24 02:59:54 <zeta_0>	i made those elm changes in my .emacs config butt errors are still being thrown? https://dpaste.org/rrLC
+Apr 24 03:01:13 <zeta_0>	https://dpaste.org/wLMf
+Apr 24 03:01:20 <zeta_0>	what's going on here? ^
+Apr 24 03:02:33 <zeta_0>	that butterfly dude helped me a lot, but now errors are still being thrown, setting up elm-language-server has been harder than i thought
+Apr 24 03:03:52 <jamzattack>	lsp-mode.el doesn't define elm-mode, so elm stuff should be in (use-package elm-mode) or manually autoloaded in the :init section
+Apr 24 03:07:36 <zeta_0>	jamzattack: isn't it defined here? https://github.com/emacs-lsp/lsp-mode/blob/master/lsp-elm.el
+Apr 24 03:07:58 <zeta_0>	a paste bin would be nice, i'm not sure what you mean?
+Apr 24 03:10:07 <jamzattack>	The function `elm-mode' isn't defined there.  It's defined in a different package.  So either (autoload 'elm-mode "elm-mode") or put the auto-mode-alist bit in (use-package elm-mode)
+Apr 24 03:11:05 <ober>	anyway to escape org-mode syntax in a babel block string added via append-to-file history.org?
+Apr 24 03:13:53 <zeta_0>	some other person says they're using a config similar to mine: https://www.reddit.com/r/elm/comments/g5jfbh/elmlanguageserver_emacs_usepackage_configuration/
+Apr 24 03:14:10 <zeta_0>	but ok, i'll try your method
+Apr 24 03:15:18 <zeta_0>	jamzattack: does (autoload 'elm-mode "elm-mode") need to placed somewhere specific?
+Apr 24 03:15:38 <jamzattack>	either in the top level or in the :init section
+Apr 24 03:18:07 <ober>	trying to escape things in the string to prevent from breaking the babel block https://gist.github.com/09551cd74f66289a2c76dd7695fbe638
+Apr 24 03:19:24 <jamzattack>	(replace-regexp-in-string "^#" ",#" str) ?
+Apr 24 03:19:34 <zeta_0>	jamzattack: i think this is what you mean: https://dpaste.org/wXkX
+Apr 24 03:19:41 <ober>	yeah but ^* can break it too
+Apr 24 03:19:53 <zeta_0>	jamzattack: line 39
+Apr 24 03:21:34 <iqubic>	So, I'm trying to do some EXWM configuration stuff. I'm trying to execute this sexp in my .emacs, but it fails.
+Apr 24 03:21:48 <iqubic>	http://dpaste.com/2P8686C
+Apr 24 03:21:54 <ryouma>	ober: you might want to just call teh equivalent of c-c ' instead to make sure that it is not brittle
+Apr 24 03:21:55 <zeta_0>	jamzattack: if that's wrong, then i'll go with the (use-package elm-mode) method instead
+Apr 24 03:22:01 <iqubic>	apply: Wrong type argument: symbolp, ((string-match-p "Godot_ProjectList" exwm-instance-name) char-mode t floating t)
+Apr 24 03:23:16 <jamzattack>	iqubic: use customize-set-variable
+Apr 24 03:24:09 <jamzattack>	or wrap in parens https://ttm.sh/EsJ.txt
+Apr 24 03:24:21 <iqubic>	Alright... That brings up the debugger. The error remains is longer but has the same content.
+Apr 24 03:24:50 <iqubic>	http://dpaste.com/15BPYKE
+Apr 24 03:25:16 <ober>	ryouma: good point. use the binding to do it right
+Apr 24 03:25:58 <zeta_0>	jamzattack: it's throwing errors, so i'll try out the (use-package elm-mode) method instead
+Apr 24 03:26:16 <jamzattack>	iqubic: if using customize-set-variable you need to quote the first arg
+Apr 24 03:26:33 <iqubic>	I'm not. I'm using custom-set-variables
+Apr 24 03:26:35 <iqubic>	Debugger entered--Lisp error: (void-function exwm-manage-configurations)
+Apr 24 03:27:13 <jamzattack>	then you need to quote the list, see my previous paste
+Apr 24 03:28:05 <iqubic>	Which list needs quoting
+Apr 24 03:28:17 <jamzattack>	iqubic: both
+Apr 24 03:28:25 <iqubic>	I'm using this: http://dpaste.com/0XMDXVJ
+Apr 24 03:28:30 <iqubic>	What do I need to change?
+Apr 24 03:29:04 <jamzattack>	(custom-set-variables '(exwm-manage-canfigurations ...))
+Apr 24 03:29:20 <iqubic>	Yeah. I got it.
+Apr 24 03:31:16 <jamzattack>	ober: org-escape-code-in-string is what you want
+Apr 24 03:34:03 <zeta_0>	ok, how does this look? https://dpaste.org/2nDi
+Apr 24 03:34:56 <jamzattack>	shouldn't need to use autoload manually anymore
+Apr 24 03:38:21 <zeta_0>	ok, i'll fix that now, the instructions for elm lsp are not very specific, so i feel like i'm in the dark: https://github.com/elm-tooling/elm-language-server#emacs
+Apr 24 03:40:56 <ober>	thanks JM0
+Apr 24 03:41:45 <zeta_0>	ok, i fixed it, there's no errors being thrown, so i'll test it out now to see if it works: https://dpaste.org/AdFW
+Apr 24 03:45:09 <zeta_0>	it's still throwing the same error: https://dpaste.org/YGrX
+Apr 24 03:45:34 <jamzattack>	did you install elm-mode??
+Apr 24 03:45:36 <fsbot>	Signs point to yes!
+Apr 24 03:48:35 <zeta_0>	damn i completely forgot to install it, one second
+Apr 24 03:48:39 <zeta_0>	today is not my day
+Apr 24 03:48:39 <jamzattack>	hahaha that'd be it...
+Apr 24 03:48:42 <iqubic>	Is there an exwm function to set a given window to be tiling?
+Apr 24 03:50:29 <jamzattack>	iqubic: there's exwm-floating--unset-floating, not interactive
+Apr 24 03:51:08 <iqubic>	I don't need it to be interactive. I'm putting this an update-title-hook
+Apr 24 03:51:42 <iqubic>	But the question is, how do I get the right ID to pass in to that?
+Apr 24 03:52:15 <jamzattack>	(exwm--buffer->id BUFFER)
+Apr 24 03:56:58 <iqubic>	jamzattack: I'm creating this hook. http://dpaste.com/3JNXXG5
+Apr 24 03:57:15 <iqubic>	I don't know what to put in the place of those 3 ???.
+Apr 24 03:59:21 <jamzattack>	https://0x0.st/ijLb.txt is what I got
+Apr 24 03:59:46 <iqubic>	And now other stuff isn't working.
+Apr 24 04:00:49 <iqubic>	I went back to a simpler config, and it isn't working either.
+Apr 24 04:00:49 <iqubic>	http://dpaste.com/0JFE47Z
+Apr 24 04:01:17 <iqubic>	This should set all new X windows to be char-mode. But it just doesn't.
+Apr 24 04:01:44 <jamzattack>	(custom-set-variables '(exwm-manage-configurations '((t char-mode t)))) you missed a set of parens
+Apr 24 04:02:09 <iqubic>	Ah. I see.
+Apr 24 04:02:19 <zeta_0>	i'm going to do a quick reboot, i'll be back in a bit
+Apr 24 04:04:28 <iqubic>	What the hell is this?
+Apr 24 04:06:00 <iqubic>	exwm-floating--unset-floating requires an ID. exwm-input-release-keyboard has an optional ID argument. exwm-layout-show-mode-line doesn't take any arguments. What the hell is this madness?
+Apr 24 04:07:22 <jamzattack>	yeah it's a bit of a mess. Generally it's just the non-interactive functions that require an id
+Apr 24 04:08:24 <iqubic>	Is there a non-interactive way of setting the input mode to char?
+Apr 24 04:09:03 <iqubic>	Or rather... Non-interact way to show the modeline again.
+Apr 24 04:10:14 <jamzattack>	Why not just use the interactive one?
+Apr 24 04:10:16 <deerpig>	For some reason, the first [git] commit of the morning is always the hardest of all.
+Apr 24 04:10:39 <iqubic>	I want to make sure the right window is target with that function.
+Apr 24 04:11:29 <jamzattack>	could use (with-current-buffer ...)
+Apr 24 04:11:47 <jamzattack>	otherwise copy exwm-layout-shouw-mode-line and add an argument
+Apr 24 04:12:07 <iqubic>	Nah. I think I'll just use with-current-buffer.
+Apr 24 04:16:31 <iqubic>	Why is there no hook for when the instance name changes?
+Apr 24 04:17:48 <iqubic>	Something in this is malformed, and I don't know what it is.
+Apr 24 04:18:04 <iqubic>	http://dpaste.com/3SRC80D
+Apr 24 04:18:20 <zeta_0>	ok, installing elm-mode fixed it, i just need to test out elm-language-server to make sure it's working correctly
+Apr 24 04:19:06 <zeta_0>	  (use-package lsp-mode
+Apr 24 04:19:09 <zeta_0>	    :ensure t
+Apr 24 04:19:09 <zeta_0>	    :hook (
+Apr 24 04:19:09 <zeta_0>	      (elm-mode . lsp))
+Apr 24 04:19:09 <zeta_0>	    :commands lsp)
+Apr 24 04:19:37 <zeta_0>	plus:
+Apr 24 04:19:40 <iqubic>	Looks good.
+Apr 24 04:19:40 <zeta_0>		:custom
+Apr 24 04:19:40 <zeta_0>		(elm-format-on-save-mode t)
+Apr 24 04:19:54 <iqubic>	Please use a paste service next time.
+Apr 24 04:21:24 <zeta_0>	sorry about that, here it is: https://dpaste.org/xFGt
+Apr 24 04:21:29 <iqubic>	So, what part of that function is malformed?
+Apr 24 04:21:34 <iqubic>	Debugger entered--Lisp error: (error "Malformed arglist: (let ((id (exwm--buffer->id (cu...")
+Apr 24 04:21:47 <iqubic>	http://dpaste.com/3MFW6ZM
+Apr 24 04:22:17 <zeta_0>	elm-ls seems to want to start then exits, i need to figure out why that is
+Apr 24 04:25:31 <jusss>	thblt: I'd like to make the focus jump back to the code buffer when async-shell-command done
+Apr 24 04:26:10 <jusss>	like there're two windows, the code buffer and *Async Shell Command*, 
+Apr 24 04:26:59 <jusss>	press F5, then call async-shell-command and use switch-buffer-to-other-window to that *Async Shell Command*
+Apr 24 04:27:37 <jusss>	now when the process is done, I'd like to make the focus jump back to the code buffer
+Apr 24 04:28:05 <spikemaster>	iquibic. YOu mare missing the () after the fn name
+Apr 24 04:29:49 <spikemaster>	(defun foo ()) 
+Apr 24 04:30:43 <mplsCorwin>	or a nil works there also
+Apr 24 04:32:05 <zeta_0>	when i open up a elm file, elm-lsp says starting, but it stays stuck there for a while and then asks me to restart? how do i troubleshoot this?
+Apr 24 04:33:21 <zeta_0>	well here's the errors elm-ls buffer is throwing: http://dpaste.com/2SSX4VE
+Apr 24 04:35:28 <zeta_0>	what does that even mean? ^
+Apr 24 05:25:19 <evanmeek>	Is anyone using Google translate. El? When I call Google translate at point, I always get the wrong result, like this:
+Apr 24 05:25:41 <evanmeek>	hello => %google-translate-at-point: Args out of range: "你好", 2
+Apr 24 05:30:55 <jusss>	where's worong with the anwser's code? https://emacs.stackexchange.com/questions/42172/run-elisp-when-async-shell-command-is-done
+Apr 24 05:31:42 <ryouma>	evanmeek: what do you mean by ei.  where are you getting that google translate function.  istr recently i got weir results trying to search for kanji.
+Apr 24 05:32:20 <ryouma>	google translate is horrendous at japanese->english but it does know kanji usually and can transliterate.
+Apr 24 05:33:59 <ryouma>	wouldn't it ber great if i could just put point above your kanji and then the echo area would contain translations and pronunciation and examples?
+Apr 24 05:34:45 *	ryouma imagines a world with lowered language barriers because emacs rocks
+Apr 24 05:35:15 <sloppone>	where can I get a good emacs?
+Apr 24 05:37:14 <evanmeek>	@ryouma ei means google-translate.el
+Apr 24 05:38:03 <ryouma>	,google-translate.el
+Apr 24 05:38:05 <fsbot>	ryouma: when the humans take over, you will be first against the wall
+Apr 24 05:38:14 <evanmeek>	https://github.com/atykhonov/google-translate
+Apr 24 05:39:04 <ryouma>	thanks
+Apr 24 05:39:17 <ryouma>	sloppone: elaborate
+Apr 24 05:39:46 <ryouma>	i want excellent linux and emacs tools for japanese, from the perspective of a native english speaker
+Apr 24 05:40:09 <sloppone>	ryouma: I need an emacs that respects me. The one I have now is like a sullen teenager.
+Apr 24 05:40:51 <evanmeek>	I'm using a web version of Google translation, but it's still hard to understand what you're saying...
+Apr 24 05:41:10 <sloppone>	How do I get it to do that thing where the cursor is on mutltiple lines at once?
+Apr 24 05:42:04 <ryouma>	huh i thought 好 was a japanese only word but it seems to not be
+Apr 24 05:42:33 <sloppone>	ryouma: cool. how did you do that?
+Apr 24 05:42:46 <ryouma>	do what?
+Apr 24 05:43:04 <sloppone>	the japanese
+Apr 24 05:43:07 <ryouma>	,multiple-cursors
+Apr 24 05:43:10 <fsbot>	multiple-cursors: [0] a package to add faux cursors to modify multiple parts of the buffer at once
+Apr 24 05:43:10 <fsbot>	[1] available at marmalade, MELPA and https://github.com/magnars/multiple-cursors.el
+Apr 24 05:43:10 <fsbot>	[2] demonstrated in this short video: emacsrocks.com/e13.html
+Apr 24 05:43:10 <fsbot>	[3] pretty awesome
+Apr 24 05:43:10 <ryouma>	copy paste
+Apr 24 05:43:15 <evanmeek>	The char '好' is Chinese.
+Apr 24 05:43:30 <sloppone>	my b
+Apr 24 05:43:56 <ryouma>	evanmeek: what is teh rhs?
+Apr 24 05:44:15 <ryouma>	sloppone: but you can use c-u c-\ to input which i will do now to ask evanmeek my followuyp.
+Apr 24 05:44:17 <sloppone>	fsbot: thanks
+Apr 24 05:44:19 <fsbot>	sloppone, no problem
+Apr 24 05:44:44 <ryouma>	好
+Apr 24 05:45:02 <sloppone>	i dont weechat from emacs.
+Apr 24 05:45:03 <ryouma>	is that the same char?
+Apr 24 05:45:03 <evanmeek>	好 means of english is OK
+Apr 24 05:45:15 *	sloppone hangs head in shame
+Apr 24 05:45:26 <ryouma>	evanmeek: it's hao in mandarin right
+Apr 24 05:45:34 <sloppone>	*irc
+Apr 24 05:45:37 <ryouma>	nihao
+Apr 24 05:45:58 <ryouma>	sloppone: ,,irc
+Apr 24 05:45:59 <fsbot>	IRC: [0] Emacs-based IRC clients: erc, rcirc, Circe
+Apr 24 05:45:59 <fsbot>	[1] some people here use weechat, hexchat, irssi and more!
+Apr 24 05:46:01 <evanmeek>	nihao is chinese pinyin
+Apr 24 05:46:26 <deerpig>	It's used in Japanese to mean fondness, in Chinese it means all right, good, if memory serves
+Apr 24 05:46:57 <deerpig>	if my memory serves that is
+Apr 24 05:47:06 <sloppone>	si si si
+Apr 24 05:47:09 <ryouma>	that makes sense but i had the mistaken notion that it was japanese only char
+Apr 24 05:47:27 <ryouma>	a famous example of
+Apr 24 05:47:49 <sloppone>	I suppose I could fire up eshell then weechat...
+Apr 24 05:47:59 <ryouma>	term
+Apr 24 05:48:14 <ryouma>	i use rcirc
+Apr 24 05:49:24 <evanmeek>	I use erc
+Apr 24 05:50:12 <sloppone>	I'm in a seperate terminal with weechat. 
+Apr 24 05:50:22 <evanmeek>	Thank you for your help, I should go to the Chinese community to find a solution
+Apr 24 05:50:43 <sloppone>	coding clojure in my emacs, sort of
+Apr 24 05:50:57 <sloppone>	distracted by my son playing video games.
+Apr 24 05:51:25 <ryouma>	evanmeek: we can try here but i have exchausted my evanmeek helping capacity
+Apr 24 05:53:45 <ryouma>	emacs by default / says there can be only one / sullen teenager
+Apr 24 05:54:00 <ryouma>	my senryu capacity is alive
+Apr 24 05:58:53 <evanmeek>	I fixed the error just now. The solution is to make the following configuration:
+Apr 24 05:59:18 <evanmeek>	(use-package google-translate
+Apr 24 05:59:18 <evanmeek>	  :ensure t
+Apr 24 05:59:18 <evanmeek>	  :config
+Apr 24 05:59:18 <evanmeek>	  (setq google-translate--tkk-url "http://translate.google.cn/"
+Apr 24 05:59:18 <evanmeek>	        google-translate-base-url "http://translate.google.cn/translate\_a/single"
+Apr 24 05:59:24 <evanmeek>	        google-translate-listen-url "https://translate.google.cn/translate\_tts"
+Apr 24 05:59:24 <evanmeek>	        google-translate-default-target-language "zh-CN"
+Apr 24 05:59:30 <evanmeek>	        google-translate-default-source-language "en"))
+Apr 24 05:59:30 <evanmeek>	 
+Apr 24 05:59:40 <evanmeek>	Emmm.I don't think I should paste code directly into the IRC channel
+Apr 24 05:59:46 <evanmeek>	Sorry.
+Apr 24 06:03:11 <codingquark>	Good morning!
+Apr 24 06:03:25 <homerj>	wait
+Apr 24 06:03:28 <jamzattack>	morning codingquark
+Apr 24 06:03:37 <homerj>	former rule 5 pick for the Pirates Evan Meek?
+Apr 24 06:08:08 <codingquark>	Hello jamzattack!
+Apr 24 06:20:52 <aidalgol>	homerj: wat?
+Apr 24 06:24:32 <fengshaun>	hmm Ivy doesn't even recognize plink: as a tramp protocol
+Apr 24 06:24:33 <fengshaun>	and does some weird things with path
+Apr 24 06:31:15 <fengshaun>	there is no winning, helm is slooow and ivy's missing features :S
+Apr 24 06:38:35 <ryouma>	and ido has even fewer!
+Apr 24 06:39:55 <ryouma>	ido is all i need for the time being
+Apr 24 06:41:04 <PlasmaStrike>	You could look at icomplete or selectrum. the selectrum page has a bunch of comparisions for compleatin frameworks
+Apr 24 06:42:10 <afidegnum>	what's the best package to use? i tried helm with no success.... let's say, before running a function, i want to be presented with few parameters. i.e username: "i fill" channel: "i fill"    etc... 
+Apr 24 06:42:22 <afidegnum>	once the parameters are exhauxted, the funciton runs
+Apr 24 06:42:46 <afidegnum>	any package close to that ?
+Apr 24 06:45:22 <jamzattack>	just use a bunch of (read-string)s?
+Apr 24 06:48:04 <afidegnum>	jamzattack: that will be tedious, i think there is a handy package for it 
+Apr 24 07:01:17 <ryouma>	,selectrum
+Apr 24 07:01:21 <fsbot>	It's lucky you're going so slowly, because you're going in the wrong direction.
+Apr 24 07:01:39 <ryouma>	must be ibmum
+Apr 24 07:06:45 <afidegnum>	ryouma: thanks, 
+Apr 24 07:07:13 <afidegnum>	how do i wor with this? https://i.stack.imgur.com/KDJMX.png
+Apr 24 07:07:13 <nwoob>	I have one question which is not related to emacs, just a general question: If I am at home connected to my wifi and then I connect to openvpn connection setup by my college, can they see my internet history?
+Apr 24 07:07:16 <afidegnum>	i mean how do i work with this ?
+Apr 24 07:08:29 <afidegnum>	ryouma: ibmum 404
+Apr 24 07:21:20 <homerj>	nwoob, don't look at porn over your school's vpn
+Apr 24 07:27:29 <dale>	nwoob: Maybe, depends on how they have it configured.
+Apr 24 07:31:16 <PlasmaStrike>	nwoob: Your colloage will be able see you talking to your vpn server, but nothing else besides that. unless they break the encription
+Apr 24 07:34:37 <fengshaun>	welp! that was an easy fix, just needed to add /plink: to the hard-coded prefix list in ivy--magic-file-slash
+Apr 24 07:34:48 <fengshaun>	also, wow edebug-defun is cool
+Apr 24 07:35:17 <fengshaun>	I should make a patch and send it in over the weekend
+Apr 24 07:47:50 <homerj>	which is why you generally use two network interfaces
+Apr 24 07:48:00 <homerj>	attach one to the VPN, but have everything go out your normal one
+Apr 24 07:48:18 <homerj>	then just edit your routing table for things that need VPN
+Apr 24 08:33:24 <tsaka__>	http://dpaste.com/2G7TAM4
+Apr 24 08:33:36 <tsaka__>	yields helm-M-x-execute-command: Wrong type argument: integer-or-marker-p, nil
+Apr 24 08:33:42 <tsaka__>	any tips?
+Apr 24 08:33:54 <tsaka__>	I want it to search for whole words, even if underscores are in them
+Apr 24 09:27:10 <afidegnum>	how do i represent options in elisp/emacs? i.e where i can select mutiple some items?
+Apr 24 09:30:44 <afidegnum>	i want to select a list of few items in an option
+Apr 24 09:42:14 <blandest>	afidegnum: completing-read lets you choose an item from a list interactively
+Apr 24 09:48:30 <wiz21b>	hello, I've made a simple change to rcirc so that it warns me whenever I send too long of a message (which happened to me yesterday :-( ). Anybody interested ?
+Apr 24 09:59:50 <codingquark>	Put it up somewhere. Pretty sure someone would be interested.
+Apr 24 10:01:16 <afidegnum>	blandest: what about list of items ?
+Apr 24 10:05:42 <jusss>	is there a function can generate random strings?
+Apr 24 10:07:03 <Greth>	jusss: do you need them to be random words? You can do (number-to-string (random))
+Apr 24 10:07:26 <jusss>	Greth: yes, I need to use them as random buffer name
+Apr 24 10:21:49 <Greth>	jusss: sadly don't have a good answer then. The way I would do it is something like: (let ((words '("one" "two" "three"))) (nth (random (length words)) words))
+Apr 24 10:44:09 <wasamasa>	truly random buffer names?
+Apr 24 10:44:35 <wasamasa>	generate-new-buffer creates new ones based on a name
+Apr 24 10:44:51 <wasamasa>	it does so by appending numbers
+Apr 24 10:47:46 <lnkcmplxct>	wasamasa I need a more up to date version of emacs than my distro allows for, is it better or more secure to compile the current version from source myself or to use ppa:cassou/emacs ?
+Apr 24 11:01:42 <wasamasa>	it's more a convenience thing
+Apr 24 11:14:31 <codingquark>	,ping
+Apr 24 11:14:35 <fsbot>	␕
+Apr 24 11:14:35 <codingquark>	aw yis
+Apr 24 11:24:57 <notnotdan>	uwu
+Apr 24 11:29:12 <VladTheImplier>	Hey there :] What command is C-h mapped to, I want to remap it. Can't check it via C-h-k for some reason...
+Apr 24 11:30:04 <wasamasa>	it's a prefix
+Apr 24 11:30:04 <miskatonic>	C-h is a prefix, not a command on its own right
+Apr 24 11:30:12 <wasamasa>	if you mean C-h C-h, that's help-for-help
+Apr 24 11:31:57 <VladTheImplier>	wasamasa: Ohh, that's why :S  Can I remap the prefix somehow?
+Apr 24 11:32:39 <wasamasa>	check help.el for how the bindings are set up
+Apr 24 11:32:59 <wasamasa>	f1 is an alias for it
+Apr 24 11:35:34 <VladTheImplier>	wasamasa: Ohh! F1, nice! Just in case I still want to remap it, there are is "help.el.gz, ehelp.el.gz, help.elc, ehelp.elc" where do I look to get the reference?
+Apr 24 11:36:56 <wasamasa>	I used my favorite search tool and looked for help-for-help
+Apr 24 11:37:18 <wasamasa>	then I checked for C-h and f1
+Apr 24 12:32:47 <mixfix411>	,chicken
+Apr 24 12:32:51 <fsbot>	chicken: [0] a Scheme to C compiler. http://call-with-current-continuation.org
+Apr 24 12:32:56 <fsbot>	[1] http://isotropic.org/papers/chicken.pdf
+Apr 24 12:32:56 <fsbot>	[2] https://www.youtube.com/watch?v=yL_-1d9OSdk
+Apr 24 12:33:02 <mixfix411>	, mummy
+Apr 24 12:33:02 <fsbot>	May the True Editor of hope fill you with great joy and peace as you trust in Her, so that you may overflow with hope by the power of the Holy Spirit.
+Apr 24 12:33:07 <mixfix411>	, tk
+Apr 24 12:33:07 <fsbot>	[TMDM] You are a fluke of the universe; you have no right to be here.
+Apr 24 12:33:07 <mixfix411>	, ik
+Apr 24 12:33:07 <fsbot>	[TMDM] Questionable day.
+Apr 24 12:33:07 <fsbot>	Ask somebody something.
+Apr 24 12:34:10 <mixfix411>	,programming
+Apr 24 12:34:10 <fsbot>	hmm, programming is "I feel much dismay at having got into so amazing a quagmire and botheration" - Ada Lovelace
+Apr 24 12:52:17 <wasamasa>	mixfix411: what's your problem?
+Apr 24 12:52:24 <wasamasa>	mixfix411: why are you even here if all you do is yanking the bot?
+Apr 24 12:55:03 <gueorgui>	Is there a way to set up mu4e in a "wide view"? So the list of messages on the left side of the screen, and the message view on the right, rather than list on top and message view on bottom?
+Apr 24 13:00:03 <miskatonic>	maybe Esc-Esc_Esc to make the message tesxt buffer disappear, then split the window horizontally, the use buffer-menu to make the text messages appear in one of the new halves
+Apr 24 13:00:43 <miskatonic>	i got this to work in some other modes, not tried in mu4e
+Apr 24 13:07:32 <gueorgui>	Ah, that's my kind of hacky! I'll try :D
+Apr 24 13:07:52 <gueorgui>	Thanks miskatonic 
+Apr 24 13:11:24 <francisv-local>	Hello, I am developing in Rust, and its compilation output is in `Cargo-Process` mode.  The output is not properly colored.  Instead of colors it shows the bash formatting color sequences, e.g. [331m.  Colors are properly interpreted in `comint` mode.  Anyone who can help me to find out how to interpret color sequences in other modes?  Thank you 🙂
+Apr 24 13:12:19 <afidegnum>	anyone familiar with key-chord ?
+Apr 24 13:12:25 <afidegnum>	is there an additiona required command?
+Apr 24 13:13:22 <afidegnum>	hitting i.e tt doesn't produce any effect
+Apr 24 13:14:35 <adam_erc>	How can I reference a :dir or :var arguments from elisp without running the babel code block?
+Apr 24 14:31:08 <jusss>	https://paste.ubuntu.com/p/qKwjRyKmWb/
+Apr 24 14:31:50 <jusss>	when I run this my-python-compile2 function by press F5 in python mode buffer, it shows "wrong type argument sequencep, cmd"
+Apr 24 14:31:57 <jusss>	where it's wrong?
+**** ENDING LOGGING AT Fri Apr 24 15:07:40 2020
+
+**** BEGIN LOGGING AT Fri Apr 24 15:11:30 2020
+
+Apr 24 15:11:30 *	Now talking on #emacs
+Apr 24 15:11:30 *	Topic for #emacs is: Emacs 27.0.91, the second pretest of 27.1, is out.  Please test | 'https://emacsconf.org/2019/videos | Emacs questions take priority over off-topic chatter, so ask! | No Public Loging! What happens in #emacs stays in #emacs | No Racism, sexism, xenophobia, botwanking, or other asshattery
+Apr 24 15:11:30 *	Topic for #emacs set by wgreenhouse!wgreenhous@fsf/member/wgreenhouse (Mon Apr 20 07:39:23 2020)
+Apr 24 15:11:34 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Apr 24 15:11:49 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 24 15:11:49 2020
+

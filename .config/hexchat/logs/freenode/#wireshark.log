@@ -1911,3 +1911,49 @@ Apr 23 18:56:14 *	ChanServ gives voice to Butterfly^
 Apr 23 21:48:11 <Guest8617>	How do I use gpg-agent to authenticate wireshark for remote capture?
 Apr 23 21:48:18 <Guest8617>	remote SSH capture?
 Apr 23 21:48:49 <Guest8617>	it keeps failing to auth me when ssh works just fine because I'm using gpg-agent for ssh authentication with my PGP identity instead of ssh-agent
+Apr 23 22:29:07 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 23 22:29:07 2020
+
+**** BEGIN LOGGING AT Thu Apr 23 22:32:41 2020
+
+Apr 23 22:32:41 *	Now talking on #wireshark
+Apr 23 22:32:41 *	Topic for #wireshark is: Welcome to #wireshark The new name for the most popular network protocol analyser! | http://www.wireshark.org | Questions? Ask them! (and be patient for a response)
+Apr 23 22:32:41 *	Topic for #wireshark set by Ober (Mon Apr 16 16:39:59 2007)
+Apr 23 22:47:02 <Lekensteyn>	Guest8617: I don't think sshdump supports ssh-agent/gpg-agent
+Apr 23 22:47:30 <Guest8617>	Lekensteyn, the version in debian stable or at all?
+Apr 23 22:47:39 <Lekensteyn>	consider using either ssh-dumpcap or ssh-tcpdump from https://git.lekensteyn.nl/peter/wireshark-notes/tree/extcap
+Apr 23 22:47:43 <Lekensteyn>	at all
+Apr 23 22:47:57 <Lekensteyn>	it links directly with libssh which does not implement the OpenSSH agent AFAIK
+Apr 23 22:48:45 <Guest8617>	is that being worked on at all or plans to?
+Apr 23 22:49:14 <Lekensteyn>	not worked on, maybe if libssh (not to be confused with libssh2) supports it, it could be added
+Apr 23 22:51:40 <Lekensteyn>	looks like it is potentially possible to add agent support
+Apr 23 22:56:34 <Lekensteyn>	Guest8617: ssh-agent appears to be supported, I did not have to configure anything special. Using Arch Linux
+Apr 23 22:56:45 <Lekensteyn>	what debian version are you using with what wireshark and libssh version?
+Apr 23 22:57:15 <Lekensteyn>	agent support must have been present in at least 2010
+Apr 23 22:58:57 <Guest8617>	Version 2.6.8 (Git v2.6.8 packaged as 2.6.8-1.1
+Apr 23 22:59:32 <Lekensteyn>	it should work
+Apr 23 22:59:34 <Guest8617>	Devuan Beowulf
+Apr 23 23:01:40 <Guest8617>	ok, so I got ssh-tcpdump extcap working
+Apr 23 23:02:15 <Guest8617>	but how do I supply extra settings that way, like filtering out my localip address so my ssh session isn't feeding back into the capture and not enable promiscuous mode
+Apr 23 23:03:35 <Guest8617>	or enable ssh compression
+Apr 23 23:06:12 <Guest8617>	nevermind
+Apr 23 23:06:13 <Guest8617>	I see
+Apr 23 23:06:41 <Guest8617>	It's really simple script i can modify. nice I didn't know wireshark was extendable like that. Thanks! =3
+Apr 23 23:11:12 <Guest8617>	In the source filter is it possible to only show ip.src_addr (ipv6 cidr range) ?
+Apr 23 23:11:17 <Guest8617>	or am i wasting my time
+Apr 23 23:11:29 <Guest8617>	for example show all matches that are in the range instead of a single address
+Apr 23 23:15:02 <Guest8617>	oh yes i see bug 5538 solves this
+Apr 24 07:55:52 <edmont>	hi
+Apr 24 07:56:04 <edmont>	is it possible to decrypt DTLS data with ECC?
+Apr 24 14:25:37 *	ChanServ gives voice to Butterfly^
+Apr 24 15:07:40 Python interface unloaded
+**** ENDING LOGGING AT Fri Apr 24 15:07:40 2020
+
+**** BEGIN LOGGING AT Fri Apr 24 15:11:34 2020
+
+Apr 24 15:11:34 *	Now talking on #wireshark
+Apr 24 15:11:34 *	Topic for #wireshark is: Welcome to #wireshark The new name for the most popular network protocol analyser! | http://www.wireshark.org | Questions? Ask them! (and be patient for a response)
+Apr 24 15:11:34 *	Topic for #wireshark set by Ober (Mon Apr 16 16:39:59 2007)
+Apr 24 15:11:49 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 24 15:11:49 2020
+

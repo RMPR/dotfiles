@@ -1543,3 +1543,43 @@ T 1587664574 22*	26ChanServ gives voice to 18Butterfly^
 T 1587674891 18<26Guest861718>	How do I use gpg-agent to authenticate wireshark for remote capture?
 T 1587674898 18<26Guest861718>	remote SSH capture?
 T 1587674929 18<26Guest861718>	it keeps failing to auth me when ssh works just fine because I'm using gpg-agent for ssh authentication with my PGP identity instead of ssh-agent
+T 1587677347 20*	Disconnected (20)
+T 1587677404 20*	Disconnected (20Remote host closed socket)
+T 1587677450 20*	Disconnected (20Remote host closed socket)
+T 1587677496 20*	Disconnected (20Remote host closed socket)
+T 1587677542 20*	Disconnected (20Remote host closed socket)
+T 1587677561 19*	Now talking on 22#wireshark
+T 1587677561 22*	Topic for 22#wireshark is: Welcome to #wireshark The new name for the most popular network protocol analyser! | http://www.wireshark.org | Questions? Ask them! (and be patient for a response)
+T 1587677561 22*	Topic for 22#wireshark set by 26Ober (24Mon Apr 16 16:39:59 2007)
+T 1587678422 18<26Lekensteyn18>	Guest8617: I don't think sshdump supports ssh-agent/gpg-agent
+T 1587678450 18<26Guest861718>	Lekensteyn, the version in debian stable or at all?
+T 1587678459 18<26Lekensteyn18>	consider using either ssh-dumpcap or ssh-tcpdump from https://git.lekensteyn.nl/peter/wireshark-notes/tree/extcap
+T 1587678463 18<26Lekensteyn18>	at all
+T 1587678477 18<26Lekensteyn18>	it links directly with libssh which does not implement the OpenSSH agent AFAIK
+T 1587678525 18<26Guest861718>	is that being worked on at all or plans to?
+T 1587678554 18<26Lekensteyn18>	not worked on, maybe if libssh (not to be confused with libssh2) supports it, it could be added
+T 1587678700 18<26Lekensteyn18>	looks like it is potentially possible to add agent support
+T 1587678994 18<26Lekensteyn18>	Guest8617: ssh-agent appears to be supported, I did not have to configure anything special. Using Arch Linux
+T 1587679005 18<26Lekensteyn18>	what debian version are you using with what wireshark and libssh version?
+T 1587679035 18<26Lekensteyn18>	agent support must have been present in at least 2010
+T 1587679137 18<26Guest861718>	Version 2.6.8 (Git v2.6.8 packaged as 2.6.8-1.1
+T 1587679172 18<26Lekensteyn18>	it should work
+T 1587679174 18<26Guest861718>	Devuan Beowulf
+T 1587679300 18<26Guest861718>	ok, so I got ssh-tcpdump extcap working
+T 1587679335 18<26Guest861718>	but how do I supply extra settings that way, like filtering out my localip address so my ssh session isn't feeding back into the capture and not enable promiscuous mode
+T 1587679415 18<26Guest861718>	or enable ssh compression
+T 1587679572 18<26Guest861718>	nevermind
+T 1587679573 18<26Guest861718>	I see
+T 1587679601 18<26Guest861718>	It's really simple script i can modify. nice I didn't know wireshark was extendable like that. Thanks! =3
+T 1587679872 18<26Guest861718>	In the source filter is it possible to only show ip.src_addr (ipv6 cidr range) ?
+T 1587679877 18<26Guest861718>	or am i wasting my time
+T 1587679889 18<26Guest861718>	for example show all matches that are in the range instead of a single address
+T 1587680102 18<26Guest861718>	oh yes i see bug 5538 solves this
+T 1587711352 18<29edmont18>	hi
+T 1587711364 18<29edmont18>	is it possible to decrypt DTLS data with ECC?
+T 1587734737 22*	26ChanServ gives voice to 18Butterfly^
+T 1587737260 Python interface unloaded
+T 1587737494 19*	Now talking on 22#wireshark
+T 1587737494 22*	Topic for 22#wireshark is: Welcome to #wireshark The new name for the most popular network protocol analyser! | http://www.wireshark.org | Questions? Ask them! (and be patient for a response)
+T 1587737494 22*	Topic for 22#wireshark set by 26Ober (24Mon Apr 16 16:39:59 2007)
+T 1587737509 20*	Disconnected (20)

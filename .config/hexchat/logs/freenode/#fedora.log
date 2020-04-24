@@ -5646,3 +5646,200 @@ Apr 23 22:02:45 <caterfxo>	ok. so, src.fedoraproject.org content is different fr
 Apr 23 22:03:25 <caterfxo>	ok
 Apr 23 22:04:52 <megacoder>	Orion sucks
 Apr 23 22:05:09 <megacoder>	[redacted]
+Apr 23 22:12:40 <oppiet30>	@f32release
+Apr 23 22:12:40 <fedbot>	Fedora 32 is planned for release on 2020-04-28, which is 4 days, 16 hours, 46 minutes, and 56 seconds from now
+Apr 23 22:23:04 <mrvenkman>	I need some serious help.
+Apr 23 22:23:52 <mrvenkman>	I have messed up my volume group or logical volume group. Luckily I know my data is accessible.
+Apr 23 22:23:57 <kk4ewt>	Grinnz; machine doesnt support virtualization
+Apr 23 22:24:15 <Khaytsus>	mrvenkman: again?
+Apr 23 22:24:17 <kk4ewt>	mrvenkman;  so back it up \
+Apr 23 22:24:17 <mrvenkman>	My fedora 31 wont boot
+Apr 23 22:24:22 <mrvenkman>	Khaytsus, lol!
+Apr 23 22:24:50 <fedbot>	*** F31-20200420 updated lives available: https://tinyurl.com/Live-respins2  Built by the Fedora Respin Sig more info #fedora-respins  ***
+Apr 23 22:24:54 <mrvenkman>	What was the command to paste my console to fedora?
+Apr 23 22:25:03 <Khaytsus>	fpaste
+Apr 23 22:25:07 <Khaytsus>	What did you do this time?
+Apr 23 22:25:14 <kk4ewt>	command |fpaste
+Apr 23 22:25:27 <mrvenkman>	Khaytsus, lol, i'll fpaste now
+Apr 23 22:25:30 <mrvenkman>	brb
+Apr 23 22:26:19 <mrvenkman>	(this may take some time to collate the terminal shots)\
+Apr 23 22:27:34 <kk4ewt>	mrvenkman; backup your data then reinstall and be done
+Apr 23 22:29:07 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr 23 22:29:07 2020
+
+**** BEGIN LOGGING AT Thu Apr 23 22:32:41 2020
+
+Apr 23 22:32:41 *	Now talking on #fedora
+Apr 23 22:32:41 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 23 22:32:41 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 23 22:32:41 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 23 22:34:12 <mrvenkman>	Same response
+Apr 23 22:34:38 <mrvenkman>	Not a JSON response
+Apr 23 22:35:30 <mrvenkman>	I am genuinely doing the correct command
+Apr 23 22:36:56 <Khaytsus>	Seriously.  6 days ago everything was fine, what did you do
+Apr 23 22:37:45 <mrvenkman>	Khaytsus, I know! It was so fine. I was so happy.
+Apr 23 22:38:10 <mrvenkman>	I made my partition bigger, I added an extra 10gb, Khaytsus
+Apr 23 22:38:14 <Khaytsus>	Yes,
+Apr 23 22:38:16 <mrvenkman>	It worked.
+Apr 23 22:38:17 <Khaytsus>	2020-04-17 20:39:22 [#fedora] <mrvenkman> Khaytsus, nailed it mate. Works.#
+Apr 23 22:38:19 <mrvenkman>	Thanks to you
+Apr 23 22:38:21 <Khaytsus>	And so what did you break
+Apr 23 22:38:59 <mrvenkman>	Khaytsus, after a few days I wanted to play Cities Skylines (PC Game)
+Apr 23 22:39:08 <mrvenkman>	Khaytsus, so I booted into windows
+Apr 23 22:39:59 <mrvenkman>	And Windows crashed, with the new nbsod. (nice blue screen of death)
+Apr 23 22:40:25 <mrvenkman>	Windows then offered to repair my Windows.
+Apr 23 22:40:50 <mrvenkman>	And because I have a physical partition, I though yeh...
+Apr 23 22:41:17 <mrvenkman>	So I think Windows has messed up my LVM
+Apr 23 22:42:41 <mrvenkman>	I am happy I have managed to find my /home directory
+Apr 23 22:42:46 <mrvenkman>	THAT TOOK SOME TIME!
+Apr 23 22:42:57 <mrvenkman>	and it's ok.
+Apr 23 22:43:37 <mrvenkman>	Why doesn't fpaste work?
+Apr 23 22:45:10 <mrvenkman>	If it doesn't work well I'll make my own when I am out of this trouble
+Apr 23 22:45:41 <mrvenkman>	"venkpaste"
+Apr 23 22:47:04 <mrvenkman>	Can I put links to screen shots?
+Apr 23 22:48:14 <dowdle>	mrvenkman: Yes.
+Apr 23 22:48:41 <mrvenkman>	ok, brb ... collating ...
+Apr 23 23:01:10 <mrvenkman>	https://pastebin.com/WiWr0f3a
+Apr 23 23:01:33 <mrvenkman>	so that is my fdisk
+Apr 23 23:02:50 <mrvenkman>	https://pastebin.com/SGs6yx5r is vgdisplay
+Apr 23 23:04:58 <Khaytsus>	Looks like Windows ate the bootloader, no idea
+Apr 23 23:05:50 <mrvenkman>	lvdisplay: https://pastebin.com/FA1UbiEn
+Apr 23 23:06:12 <kk4ewt>	as windows is know to do
+Apr 23 23:06:29 <mrvenkman>	Yep
+Apr 23 23:06:37 <mrvenkman>	But look at that last paste
+Apr 23 23:07:01 <mrvenkman>	I _can_ select fedora in the Bootloader (grub?)
+Apr 23 23:07:16 <mrvenkman>	here's my next paste ..
+Apr 23 23:07:39 <mrvenkman>	How to I list logical volumes?
+Apr 23 23:07:42 <kk4ewt>	mrvenkman; efi?
+Apr 23 23:07:49 <mrvenkman>	yes
+Apr 23 23:08:11 <kk4ewt>	on your computer how do you select what to boot
+Apr 23 23:08:22 <mrvenkman>	Up and down buttons
+Apr 23 23:08:36 <kk4ewt>	(different bios) have different keys
+Apr 23 23:09:19 <mrvenkman>	I have managed to fix the the boot up thing ...  I select fedora .. and it dies
+Apr 23 23:09:31 <mrvenkman>	wait .. lemme paste this ..
+Apr 23 23:09:44 <kk4ewt>	sudo fdisk -l |fpaste
+Apr 23 23:10:30 <mrvenkman>	https://pastebin.com/74yQWWXF
+Apr 23 23:12:10 <dowdle>	mrvenkman: sudo -i and be root or put sudo in front of the commands.
+Apr 23 23:12:55 <mrvenkman>	[root@localhost-live ~]#
+Apr 23 23:13:02 <mrvenkman>	cool.
+Apr 23 23:14:05 <mrvenkman>	https://pastebin.com/68aRYAHc
+Apr 23 23:14:30 <mrvenkman>	Ignore the 9GB linux partition
+Apr 23 23:14:53 <mrvenkman>	It's the /dev/nvme0n1p6 that I wanna boot into
+Apr 23 23:15:11 <dowdle>	mrvenkman: That last send just had permission denied because you weren't root.
+Apr 23 23:16:23 <mrvenkman>	https://pastebin.com/BzFwVvkY
+Apr 23 23:17:20 <kk4ewt>	**walks away**
+Apr 23 23:17:32 <mrvenkman>	https://pastebin.com/Rq5PE8w7
+Apr 23 23:17:38 <mrvenkman>	Sorry, kk4ewt
+Apr 23 23:18:01 <mrvenkman>	I'll work it out.
+Apr 23 23:18:11 <kk4ewt>	lsblk
+Apr 23 23:18:18 <mrvenkman>	kk4ewt, thank you mate
+Apr 23 23:18:57 <mrvenkman>	https://pastebin.com/Sbey84n8
+Apr 23 23:19:23 <mrvenkman>	on my fstab ...
+Apr 23 23:20:40 <mrvenkman>	https://pastebin.com/a9sbyJDf
+Apr 23 23:21:35 <mrvenkman>	(i am using a live usb)
+Apr 23 23:22:44 <mrvenkman>	I am so sorry for being a such a newb
+Apr 23 23:23:07 <mrvenkman>	I'll work it out.
+Apr 23 23:25:06 <mrvenkman>	kk4ewt, dowdle Khaytsus - can I just say ... thank you for your assistance.
+Apr 23 23:26:09 <ledeni>	mrvenkman,i suggest download supergrub iso put on usb stick and boot up it will find fedora kernel on your system
+Apr 23 23:26:44 <mrvenkman>	ledeni, cool thanks.
+Apr 23 23:27:02 <mrvenkman>	I will try that
+Apr 23 23:28:04 <mrvenkman>	 I honestly love the help that I get here
+Apr 23 23:36:43 <mrvenkman>	after selecting fedora from the grub, what gets loaded first? the lvm configuration or fstab?
+Apr 23 23:44:16 <mrvenkman>	What do you guys think of this: https://pastebin.com/gAQ5iru1 ?
+Apr 23 23:45:42 <mrvenkman>	Now I added the partial option: https://pastebin.com/rpsqsete
+Apr 23 23:49:20 <PPP999>	Anyone?
+Apr 24 05:58:34 <phin>	hello all,  just installed fedora 32 server on a new laptop to start a minimal install and i am unable to connect via wifi.  I keep getting the error Scanning not allowed while unavailable or activating.  iwlist does work.  I have tried to connect to a known ap, it says its unable to (via nmcli) and if i try to add one and connect it also does the same thing.
+Apr 24 05:59:00 <phin>	Intel 8260 card.
+Apr 24 05:59:43 <phin>	system worked with a previous 31 based silverblue and workstation setup.  Just attempting to do a minimal install as i do not want gnome on this.
+Apr 24 06:02:10 <phin>	oh i was able to connect in the installer.  The install did create a nm profile.  this would not activate upon reboot
+Apr 24 09:17:43 <StatelessCat>	Hi
+Apr 24 10:10:42 <DTEIT>	phin: is the wifi enabled? what does nmcli radio wifi says?
+Apr 24 13:55:08 <rindolf>	Hi all! I am also not fond of the default f32 updates-testing wallpaper. :(
+Apr 24 13:57:00 <Khaytsus>	rindolf: Okay, I told them to cancel the release.
+Apr 24 13:57:39 <Khaytsus>	Okay, it's done.  No 32.
+Apr 24 13:57:39 <Khaytsus>	;)
+Apr 24 13:58:04 <rindolf>	Khaytsus: heh
+Apr 24 13:58:27 <Khaytsus>	rindolf: the one tha tlooks like it's..  grainy?
+Apr 24 13:58:47 <rindolf>	Khaytsus: yes
+Apr 24 13:59:12 <Khaytsus>	Yeah, it looks like it was rendered down to like..  16 colors ;)
+Apr 24 13:59:28 <Khaytsus>	Maybe... 32 colors?
+Apr 24 13:59:44 <Khaytsus>	;)
+Apr 24 14:01:20 <rindolf>	Khaytsus: i think ubuntu should have made their bug no. 1 "release critical": https://www.shlomifish.org/humour/bits/Copying-Ubuntu-Bug-No-1/
+Apr 24 14:02:47 <Khaytsus>	rindolf: 3 more years.  Windows will be a DE on Linux.
+Apr 24 14:02:47 <Khaytsus>	And then we'll have to question is #1 fixed or not
+Apr 24 14:05:38 <rindolf>	Khaytsus: BTW, any idea about https://www.shlomifish.org/Files/files/text/qt-and-firefox-update-graphics-artifacts-on-icewm-and-jwm-on-fedora32-x86_64.md ? should I report it on BZ?
+Apr 24 14:05:39 <Khaytsus>	what in the world is this shlmifish thing?
+Apr 24 14:07:51 <rindolf>	Khaytsus: shlomifish.org is my domain:
+Apr 24 14:08:03 <Khaytsus>	oh
+Apr 24 14:08:42 <rindolf>	Khaytsus: it is derived from my name: https://www.shlomifish.org/meta/FAQ/your_name.xhtml
+Apr 24 14:10:28 <Khaytsus>	Anywho, yes, log a bug I guess.  You just ranodmly test all the desktops or switching around or ?
+Apr 24 14:12:09 <rindolf>	Khaytsus: i normally use plasma5 but sometime i use xfce or jwm/icewm
+Apr 24 14:12:45 <rindolf>	Khaytsus: and i tested the issue in gnome3 for completeness' sake
+Apr 24 14:26:07 <rindolf>	Khaytsus: thanks, i filed a ticket here: https://bugzilla.redhat.com/show_bug.cgi?id=1827663
+Apr 24 14:26:46 <Southern_Gentlem>	tWqaq, fix your connection please, one more bounce and i will remove you until you get it fixed
+Apr 24 14:30:40 <jtagcat>	Docker repo is 404 on Fedora?
+Apr 24 14:31:50 <rindolf>	jtagcat: hi
+Apr 24 14:32:04 <rindolf>	jtagcat: what do you mean?
+Apr 24 14:32:44 <jtagcat>	rindolf: https://docs.docker.com/engine/install/fedora/ the repo mentioned there is 404
+Apr 24 14:33:51 <billings>	or you could just use moby-engine
+Apr 24 14:33:55 <jtagcat>	$ sudo dnf install docker-ce docker-ce-cli containerd.io
+Apr 24 14:33:58 <jtagcat>	Docker CE Stable - x86_64                       669  B/s | 577  B     00:00
+Apr 24 14:33:58 <jtagcat>	Errors during downloading metadata for repository 'docker-ce-stable':
+Apr 24 14:33:58 <jtagcat>	  - Status code: 404 for https://download.docker.com/linux/fedora/32/x86_64/stable/repodata/repomd.xml (IP: 2600:9000:2118:5a00:3:db06:4200:93a1)
+Apr 24 14:33:58 <jtagcat>	Error: Failed to download metadata for repo 'docker-ce-stable': Cannot download repomd.xml: Cannot download repodata/repomd.xml: All mirrors were tried
+Apr 24 14:33:58 <billings>	which is packaged as part of Fedora
+Apr 24 14:33:58 *	fedbot sets quiet on *!jtagcat@193.40.103.87
+Apr 24 14:34:39 *	fedbot removes quiet on *!jtagcat@193.40.103.87
+Apr 24 14:34:44 <billings>	don't paste to the channel, use a pastebin like https://paste.centos.org
+Apr 24 14:36:51 <rindolf>	jtagcat: you are on fedora 32 and that third party repo is only for f30 and f31
+Apr 24 14:37:11 <rindolf>	jtagcat: you can try using podman instead
+Apr 24 14:37:25 <billings>	BTW, moby-engine is just the open source version of Docker.  It still has the caveats of running Docker on modern fedora
+Apr 24 14:38:39 <billings>	jtagcat: you've been unquieted, you don't need to PM me.
+Apr 24 14:38:54 <jtagcat>	I facepalmed the moment I saw the paste come through..
+Apr 24 14:42:24 <jtagcat>	What's the difference between podman and moby-engine? rindolf
+Apr 24 14:43:07 <billings>	podman is a completely different container implementation
+Apr 24 14:43:12 <billings>	moby-engine is docker's open source version
+Apr 24 14:43:28 <billings>	(docker itself is not open source anymore.  jerks)
+Apr 24 14:43:55 <billings>	(that was mostly tongue in cheek)
+Apr 24 14:44:46 <Khaytsus>	jtagcat: Ask the Docker folks about their repo if you need to use it.  HOwever, you should see if podman suits your needs.
+Apr 24 14:45:47 <jtagcat>	well I got my first mech kb from a friend I know and was told to use docker for flashing
+Apr 24 14:45:54 <jtagcat>	https://pb.c7.ee/a205
+Apr 24 14:46:32 <rindolf>	jtagcat: what does docker have to do with keyboards?
+Apr 24 14:46:51 <Khaytsus>	nothing..  at all..
+Apr 24 14:46:56 <rindolf>	jtagcat: do you mean a docking station?
+Apr 24 14:46:56 <Khaytsus>	someone just put atmega in a docker file
+Apr 24 14:47:19 <Khaytsus>	jtagcat: substitue docker for podman
+Apr 24 14:47:19 <Khaytsus>	That simple.
+Apr 24 14:47:25 <jtagcat>	I'm not very knowledgable on containers, as far as I know, he just throws everything in containers
+Apr 24 14:48:19 <jtagcat>	What's the relation between docker and podman Khaytsus? iirc something about k8s?
+Apr 24 14:48:51 <Khaytsus>	podman is an open source, root-less replacement for docker
+Apr 24 14:48:51 *	ChanServ gives channel operator status to Southern_Gentlem
+Apr 24 14:49:20 <jtagcat>	using search found me alias docker=podman
+Apr 24 14:49:29 *	Southern_Gentlem sets ban on *!*@*240e:e0:bdba:d500:c51f:8dae:416e:4aba
+Apr 24 14:49:29 *	fedbot has kicked tWqaq from #fedora (You are banned from this channel)
+Apr 24 14:49:55 <Khaytsus>	Still unclear why you'd need a container at all for this qmk project
+Apr 24 14:50:19 <jtagcat>	not sure as well
+Apr 24 14:50:24 <jtagcat>	but I guess til more about containers
+Apr 24 14:51:04 <jtagcat>	so moby is the open-source upstream for docker and podman is a drop-in replacement for docker (like sway is for i3) and better in some way?
+Apr 24 14:51:43 <Khaytsus>	https://google.com/search?q=docker+vs+podman
+Apr 24 14:51:45 <Khaytsus>	And seriously, you don't need a container here.
+Apr 24 14:52:12 <Khaytsus>	https://docs.qmk.fm/#/newbs_getting_started
+Apr 24 14:52:36 <Khaytsus>	The only use a container really has here is not installing anything on the host os
+Apr 24 14:53:32 <jtagcat>	well, thanks for your time
+Apr 24 14:54:13 <Khaytsus>	100% sure that will just-work in podman
+Apr 24 14:56:22 <Khaytsus>	Whole lot of weird obfuscation insttead of just following hte install docs
+Apr 24 14:57:22 <Khaytsus>	 * The firmware size is fine - 24034/28672 (83%, 4638 bytes free)
+Apr 24 14:57:37 <Khaytsus>	so yes, that worked just fine.. it's just put the compilation in docker files.
+Apr 24 14:59:02 <fedbot>	*** F31-20200420 updated lives available: https://tinyurl.com/Live-respins2  Built by the Fedora Respin Sig more info #fedora-respins ***
+Apr 24 15:07:40 FiSHLiM plugin unloaded
+**** ENDING LOGGING AT Fri Apr 24 15:07:40 2020
+
+**** BEGIN LOGGING AT Fri Apr 24 15:11:34 2020
+
+Apr 24 15:11:34 *	Now talking on #fedora
+Apr 24 15:11:34 *	Topic for #fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
+Apr 24 15:11:34 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Mar 17 14:11:59 2020)
+Apr 24 15:11:34 -ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
+Apr 24 15:11:49 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 24 15:11:49 2020
+
