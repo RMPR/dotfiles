@@ -182,7 +182,7 @@ endif
 
 let g:vice_termcolors = 256
 
-set background=dark
+"set background='#343434'
 hi clear
 
 if exists('syntax_on')
