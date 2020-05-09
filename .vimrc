@@ -160,6 +160,14 @@ map <C-n> :call Cbdo() <CR>
 " map ctrl-r to open terminal and file explorer
 map <C-r> :call StartWork() <CR>
 
+tnoremap <C-w>h <C-\><C-n><C-w>h
+
+tnoremap <C-w>j <C-\><C-n><C-w>j
+
+tnoremap <C-w>k <C-\><C-n><C-w>k
+
+tnoremap <C-w>l <C-\><C-n><C-w>l
+
 " set working directory to wherever the open file lives
 "set autochdir
 

@@ -1,4 +1,5 @@
-export EDITOR=vim
+export EDITOR=/usr/bin/nvim
+export VISUAL=/usr/bin/nvim
 export GDK_BACKEND=wayland
 export CLUTTER_BACKEND=wayland
 PATH="$HOME/bin:$PATH"
