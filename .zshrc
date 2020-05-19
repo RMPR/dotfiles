@@ -202,18 +202,15 @@ alias c="clear"
 alias lsa="ls -ah"
 alias zshrc="vim ~/.zshrc"
 alias v="vim"
-alias vim="nvim"
 alias gmi="cd /home/rufus/.mail/account.gmail/ && gmi sync && cd -"
 alias mpv="mpv --loop-playlist=2"
 alias grep="rg"
 alias ls="exa"
 alias cat="bat"
 alias r="ranger"
-alias u="umount"
 alias code="codium"
 alias docker="podman"
 alias vimrc="$EDITOR ~/.vimrc"
 alias df="df -h"
 
 source ~/.profile
-source /home/rufus/.config/broot/launcher/bash/br
