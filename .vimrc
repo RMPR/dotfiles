@@ -31,8 +31,6 @@ set laststatus=2
 " Enable Elite mode, No arrows
 let g:elite_mode=1
 
-" Enable highlighting of the current line
-set cursorline
 "
 " Disable arrow movement, resize splits instead.
 if get(g:, 'elite_mode')
