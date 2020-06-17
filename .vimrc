@@ -7,6 +7,9 @@ set t_Co=256
 " Vanilla Config RMPR
 """""""
 
+if has("autocmd")
+  filetype indent plugin on
+endif
 
 set nocompatible
 set smartcase
