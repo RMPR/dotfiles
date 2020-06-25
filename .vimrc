@@ -73,7 +73,9 @@ xnoremap "+y y:call system("wl-copy", @")<cr>
 nnoremap "+p :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', '', 'g')<cr>p
 nnoremap "*p :let @"=substitute(system("wl-paste --no-newline --primary"), '<C-v><C-m>', '', 'g')<cr>p
 
-" Path for fuzzy find
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+" Paths for fuzzy find
 set path +=**
 set path +=$PWD/
 
@@ -86,13 +88,25 @@ tnoremap <C-w>j <C-\><C-n><C-w>j
 tnoremap <C-w>k <C-\><C-n><C-w>k
 tnoremap <C-w>l <C-\><C-n><C-w>l
 
-" set working directory to wherever the open file lives
-set autochdir
+" Move more easily between splits
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 " number line and fold line background conf
 hi LineNr guibg=bg
 hi foldcolumn guibg=bg
 hi VertSplit guibg=bg guifg=bg
+
+" {{{ netrw: Configuration
+"     ====================
+let g:netrw_banner=0        " disable banner
+let g:netrw_browse_split=4  " open in prior window
+let g:netrw_altv=1          " open splits to the right
+let g:netrw_liststyle=3     " tree view
+" hide dotfiles by default (this is the string toggled by netrw-gh)
+let g:netrw_list_hide=',\(^\|\s\s\)\zs\.\S\+'
 
 " Python programming Specific additions
 " -------------------------------------
