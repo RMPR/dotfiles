@@ -134,3 +134,8 @@ au BufNewFile,BufRead *.js, *.html, *.css
     \ set softtabstop=2
     \ set shiftwidth=2
 
+" Snippets
+" --------
+nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
+nnoremap ,koa :-1read $HOME/.vim/.skeleton.koa<CR>/Hello, World<CR>ci'
+nnoremap ,c :-1read $HOME/.vim/.skeleton.c<CR>/Hello, World<CR>ci'
