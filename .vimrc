@@ -136,6 +136,6 @@ au BufNewFile,BufRead *.js, *.html, *.css
 
 " Snippets
 " --------
-nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
+nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>/title<CR>cit
 nnoremap ,koa :-1read $HOME/.vim/.skeleton.koa<CR>/Hello, World<CR>ci'
 nnoremap ,c :-1read $HOME/.vim/.skeleton.c<CR>/Hello, World<CR>ci'
