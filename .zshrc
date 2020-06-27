@@ -1,115 +1,28 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 export DEFAULT_USER="rufus"
 export TERM="xterm-256color"
 
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/rufus/.oh-my-zsh"
+export ZSH="/home/rufus/.config/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
-
-POWERLEVEL9K_MODE="awesome-fontconfig"
-
-HYPHEN_INSENSITIVE="true"
-COMPLETION_WAITING_DOTS="true"
-# /!\ do not use with zsh-autosuggestions
-
-# plugins=(k tig gitfast colored-man colorize command-not-found cp dirhistory autojump sudo zsh-syntax-highlighting)
-
-source $ZSH/oh-my-zsh.sh
-
-plugins=(tig gitfast colored-man colorize command-not-found cp dirhistory autojump sudo zsh-syntax-highlighting)
-
-# /!\ zsh-syntax-highlighting and then zsh-autosuggestions must be at the end
-
-#POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
-#POWERLEVEL9K_STATUS_VERBOSE=false
-#POWERLEVEL9K_TIME_FORMAT="%D{%H:%M \uE868  %d.%m.%y}"
-
-
-
-POWERLEVEL9K_FOLDER_ICON=""
-POWERLEVEL9K_HOME_SUB_ICON="$(print_icon "HOME_ICON")"
-POWERLEVEL9K_DIR_PATH_SEPARATOR=" $(print_icon "LEFT_SUBSEGMENT_SEPARATOR") "
-
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
-
-POWERLEVEL9K_DIR_OMIT_FIRST_CHARACTER=true
-
-POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND='black'
-POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND='178'
-POWERLEVEL9K_NVM_BACKGROUND="238"
-POWERLEVEL9K_NVM_FOREGROUND="green"
-POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND="blue"
-POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND="015"
-
-POWERLEVEL9K_TIME_BACKGROUND='255'
-#POWERLEVEL9K_COMMAND_TIME_FOREGROUND='gray'
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND='245'
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='black'
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-
-POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon root_indicator context dir vcs)
-
-#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator context dir dir_writable vcs)
-
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs command_execution_time time)
-POWERLEVEL9K_SHOW_CHANGESET=true
-
-typeset -gA ZSH_HIGHLIGHT_STYLES # reset the type of ZSH_HIGHLIGHT_STYLES to array
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
-ZSH_HIGHLIGHT_STYLES[cursor]='bold'
-ZSH_HIGHLIGHT_STYLES[alias]='fg=green,bold'
-ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=green,bold'
-ZSH_HIGHLIGHT_STYLES[builtin]='fg=green,bold'
-ZSH_HIGHLIGHT_STYLES[function]='fg=green,bold'
-ZSH_HIGHLIGHT_STYLES[command]='fg=green,bold'
-ZSH_HIGHLIGHT_STYLES[precommand]='fg=green,bold'
-ZSH_HIGHLIGHT_STYLES[hashed-command]='fg=green,bold'
-
-
-rule () {
-	print -Pn '%F{blue}'
-	local columns=$(tput cols)
-	for ((i=1; i<=columns; i++)); do
-	   printf "\u2588"
-	done
-	print -P '%f'
-}
-
-function _my_clear() {
-	echo
-	rule
-	zle clear-screen
-}
-zle -N _my_clear
-bindkey '^l' _my_clear
-
-
-# Ctrl-O opens zsh at the current location, and on exit, cd into ranger's last location.
-ranger-cd() {
-	tempfile=$(mktemp)
-	ranger --choosedir="$tempfile" "${@:-$(pwd)}" < $TTY
-	test -f "$tempfile" &&
-	if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
-	cd -- "$(cat "$tempfile")"
-	fi
-	rm -f -- "$tempfile"
-	# hacky way of transferring over previous command and updating the screen
-	VISUAL=true zle edit-command-line
-}
-zle -N ranger-cd
-bindkey '^o' ranger-cd
-
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
@@ -123,8 +36,14 @@ bindkey '^o' ranger-cd
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -155,13 +74,14 @@ bindkey '^o' ranger-cd
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -179,18 +99,28 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-#aliases
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="vim ~/.zshrc"
-alias ohmyzsh="vim ~/.oh-my-zsh"
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+ranger-cd() {
+	tempfile=$(mktemp)
+	ranger --choosedir="$tempfile" "${@:-$(pwd)}" < $TTY
+	test -f "$tempfile" &&
+	if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+        cd -- "$(cat "$tempfile")"
+	fi
+	rm -f -- "$tempfile"
+	# hacky way of transferring over previous command and updating the screen
+	VISUAL=true zle edit-command-line
+}
+zle -N ranger-cd
+bindkey '^o' ranger-cd
 
 alias rm="rm -I"
 alias mv="mv -i"
@@ -202,15 +132,15 @@ alias c="clear"
 alias lsa="ls -ah"
 alias zshrc="vim ~/.zshrc"
 alias v="vim"
-alias gmi="cd /home/rufus/.mail/account.gmail/ && gmi sync && cd -"
-alias mpv="mpv --loop-playlist=2"
 alias grep="rg"
 alias ls="exa"
 alias cat="bat"
-alias r="ranger"
 alias code="codium"
 alias docker="podman"
 alias vimrc="$EDITOR ~/.vimrc"
 alias df="df -h"
 
 source ~/.profile
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

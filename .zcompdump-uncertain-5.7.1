@@ -1,7 +1,8 @@
-#files: 950	version: 5.7.1
+#files: 970	version: 5.7.1
 
 _comps=(
 '-' '_precommand'
+'-*-' '_bootctl'
 '.' '_source'
 '5g' '_go'
 '5l' '_go'
@@ -27,6 +28,7 @@ _comps=(
 'add-zle-hook-widget' '_add-zle-hook-widget'
 'add-zsh-hook' '_add-zsh-hook'
 'admin' '_sccs'
+'alacritty' '_alacritty'
 'ali' '_mh'
 'alias' '_alias'
 'amaya' '_webbrowser'
@@ -93,6 +95,7 @@ _comps=(
 'bibtex' '_bibtex'
 'bindkey' '_bindkey'
 'bison' '_bison'
+'bluetoothctl' '_bluetoothctl'
 'bmake' '_make'
 'bogofilter' '_bogofilter'
 'bogotune' '_bogofilter'
@@ -143,6 +146,11 @@ _comps=(
 'caffeinate' '_caffeinate'
 'cal' '_cal'
 'calendar' '_calendar'
+'calibre' '_calibre'
+'calibredb' '_calibre'
+'calibre-debug' '_calibre'
+'calibre-server' '_calibre'
+'calibre-smtp' '_calibre'
 'cargo' '_cargo'
 'cat' '_cat'
 'catchsegv' '_precommand'
@@ -185,6 +193,7 @@ _comps=(
 'cmp' '_cmp'
 'co' '_rcs'
 'code' '_code'
+'codium' '_codium'
 'column' '_column'
 'comb' '_sccs'
 'combine' '_imagemagick'
@@ -329,6 +338,11 @@ _comps=(
 'dwb' '_webbrowser'
 'e2label' '_e2label'
 'eatmydata' '_precommand'
+'ebook-convert' '_calibre'
+'ebook-edit' '_calibre'
+'ebook-meta' '_calibre'
+'ebook-polish' '_calibre'
+'ebook-viewer' '_calibre'
 'ecasound' '_ecasound'
 'echotc' '_echotc'
 'echoti' '_echoti'
@@ -371,8 +385,10 @@ _comps=(
 'fc' '_fc'
 'fc-list' '_xft_fonts'
 'fc-match' '_xft_fonts'
+'fd' '_fd'
 'feh' '_feh'
 'fetch' '_fetch'
+'fetch-ebook-metadata' '_calibre'
 'fetchmail' '_fetchmail'
 'ffmpeg' '_ffmpeg'
 'fg' '_jobs_fg'
@@ -384,6 +400,8 @@ _comps=(
 'finger' '_finger'
 'fink' '_fink'
 'firefox' '_mozilla'
+'firewall-cmd' '_firewalld'
+'firewall-offline-cmd' '_firewalld'
 '-first-' '_first'
 'fixdlsrps' '_psutils'
 'fixfmps' '_psutils'
@@ -633,7 +651,7 @@ _comps=(
 'heat' '_openstack'
 'help' '_sccs'
 'hexdump' '_hexdump'
-'hg' '_hg'
+'hg' '_mercurial'
 'hilite' '_precommand'
 'history' '_fc'
 'host' '_host'
@@ -641,6 +659,7 @@ _comps=(
 'hostnamectl' '_hostnamectl'
 'hotjava' '_webbrowser'
 'htop' '_htop'
+'hub' '_hub'
 'hwinfo' '_hwinfo'
 'iceweasel' '_mozilla'
 'icombine' '_ispell'
@@ -769,6 +788,8 @@ _comps=(
 'lpr' '_lp'
 'lprm' '_lp'
 'lpstat' '_lp'
+'lrf2lrs' '_calibre'
+'lrfviewer' '_calibre'
 'ls' '_ls'
 'lsattr' '_lsattr'
 'lsblk' '_lsblk'
@@ -880,6 +901,7 @@ _comps=(
 'mpc' '_mpc'
 'mplayer' '_mplayer'
 'mpstat' '_sysstat'
+'mpv' '_mpv'
 'mrd' '_mtools'
 'mread' '_mtools'
 'mren' '_mtools'
@@ -926,12 +948,14 @@ _comps=(
 'nginx' '_nginx'
 'ngrep' '_ngrep'
 'nice' '_nice'
+'ninja' '_ninja'
 'nkf' '_nkf'
 'nl' '_nl'
 'nm' '_nm'
 'nmap' '_nmap'
 'nmblookup' '_samba'
 'nmcli' '_networkmanager'
+'nnn' '_nnn'
 'nocorrect' '_precommand'
 'noglob' '_precommand'
 'nohup' '_precommand'
@@ -1046,6 +1070,7 @@ _comps=(
 'pmpath' '_perl_modules'
 'pmvers' '_perl_modules'
 'podgrep' '_perl_modules'
+'podman' '_podman'
 'podpath' '_perl_modules'
 'podtoc' '_perl_modules'
 'poff' '_pon'
@@ -1153,7 +1178,9 @@ _comps=(
 'repl' '_mh'
 'reportbug' '_bug'
 'reprepro' '_reprepro'
+'resolvectl' '_resolvectl'
 'restart' '_initctl'
+'restic' '_restic'
 'retawq' '_webbrowser'
 'rg' '_rg'
 'rgview' '_vim'
@@ -1238,6 +1265,7 @@ _comps=(
 'sha512sum' '_md5sum'
 'sha512t256' '_cksum'
 'shasum' '_shasum'
+'shell-script' '_bootctl'
 'shift' '_arrays'
 'show' '_mh'
 'showchar' '_psutils'
@@ -1341,7 +1369,7 @@ _comps=(
 'systemd-machine-id-setup' '_systemd'
 'systemd-notify' '_systemd'
 'systemd-nspawn' '_systemd-nspawn'
-'systemd-resolve' '_systemd-resolve'
+'systemd-resolve' '_resolvectl'
 'systemd-run' '_systemd-run'
 'systemd-tmpfiles' '_systemd-tmpfiles'
 'systemd-tty-ask-password-agent' '_systemd'
@@ -1418,6 +1446,9 @@ _comps=(
 'type' '_which'
 'typeset' '_typeset'
 'udevadm' '_udevadm'
+'udiskie' '_udiskie'
+'udiskie-mount' '_udiskie-mount'
+'udiskie-umount' '_udiskie-umount'
 'ulimit' '_ulimit'
 'uml_mconsole' '_uml'
 'uml_moo' '_uml'
@@ -1524,6 +1555,7 @@ _comps=(
 '-vared-' '_in_vared'
 'vared' '_vared'
 'vcsh' '_vcsh'
+'vifm' '_vifm'
 'vim' '_vim'
 'vim-addons' '_vim-addons'
 'vimdiff' '_vim'
@@ -1565,6 +1597,8 @@ _comps=(
 'whom' '_mh'
 'wiggle' '_wiggle'
 'wipefs' '_wipefs'
+'wl-copy' '_wl-copy'
+'wl-paste' '_wl-paste'
 'wodim' '_cdrecord'
 'wpa_cli' '_wpa_cli'
 'write' '_users_on'
@@ -1798,14 +1832,18 @@ bindkey '^[,' _history-complete-newer
 bindkey '^[/' _history-complete-older
 bindkey '^[~' _bash_complete-word
 
-autoload -Uz _module _bootctl _busctl _cargo _coredumpctl \
-            _curl _exa _flatpak _hostnamectl _journalctl \
-            _kernel-install _libinput _localectl _loginctl _machinectl \
-            _networkctl _pulseaudio _rg _sd_hosts_or_user_at_host _sd_machines \
+autoload -Uz _module _alacritty _bluetoothctl _bootctl _busctl \
+            _calibre _cargo _codium _coredumpctl _curl \
+            _exa _fd _firewalld _flatpak _hostnamectl \
+            _hub _journalctl _kdeconnect _kernel-install _libinput \
+            _localectl _loginctl _machinectl _mercurial _mpv \
+            _networkctl _ninja _nnn _podman _pulseaudio \
+            _resolvectl _restic _rg _sd_hosts_or_user_at_host _sd_machines \
             _sd_outputmodes _sd_unit_files _sway _swaylock _swaymsg \
             _systemctl _systemd _systemd-analyze _systemd-delta _systemd-inhibit \
-            _systemd-nspawn _systemd-resolve _systemd-run _systemd-tmpfiles _timedatectl \
-            _udevadm _youtube-dl _a2ps _a2utils _aap \
+            _systemd-nspawn _systemd-run _systemd-tmpfiles _timedatectl _udevadm \
+            _udiskie _udiskie-mount _udiskie-umount _vifm _wl-copy \
+            _wl-paste _youtube-dl _a2ps _a2utils _aap \
             _absolute_command_paths _ack _acpi _acpitool _acroread \
             _adb _add-zle-hook-widget _add-zsh-hook _alias _aliases \
             _all_labels _all_matches _alternative _analyseplugin _ansible \
@@ -1992,3 +2030,6 @@ autoload -Uz +X _call_program
 
 typeset -gUa _comp_assocs
 _comp_assocs=( '' )
+
+#omz revision: 6152ac30bede172ba0422a8610dc796948ae1546
+#omz fpath: /home/rufus/.config/.oh-my-zsh/plugins/git /home/rufus/.config/.oh-my-zsh/functions /home/rufus/.config/.oh-my-zsh/completions /usr/share/Modules/init/zsh-functions /usr/local/share/zsh/site-functions /usr/share/zsh/site-functions /usr/share/zsh/5.7.1/functions
