@@ -6,6 +6,7 @@ set t_Co=256
 """""""
 " Vanilla Config RMPR
 """""""
+colorscheme ron
 
 if has("autocmd")
   filetype indent plugin on
@@ -43,11 +44,11 @@ if get(g:, 'elite_mode')
 	nnoremap <Right> :vertical resize +2<CR>
 endif
 
-colorscheme ron
+" Automatically insert closing braces, parentheses, etc.
+inoremap { {}<ESC>i
+inoremap [ []<ESC>i
+inoremap ( ()<ESC>i
 
-" indentation-based folding
-set foldmethod=indent
-set foldlevel=99
 
 " syntax marking for python (may not work)
 let python_highlight_all=1
@@ -125,10 +126,10 @@ au BufNewFile,BufRead *.py
     \ set expandtab
     \ set autoindent
     \ set fileformat=unix
-
-" Flag unecessary white space
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-
+    \ 
+" indentation-based folding
+set foldmethod=indent
+set foldlevel=99
 
 " Web Development
 " ---------------
@@ -136,6 +137,12 @@ au BufNewFile,BufRead *.js, *.html, *.css
     \ set tabstop=2
     \ set softtabstop=2
     \ set shiftwidth=2
+
+" Snippets
+" --------
+nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>/title<CR>cit
+nnoremap ,koa :-1read $HOME/.vim/.skeleton.koa<CR>/Hello, World<CR>ci'
+
 
 " C Programming
 " -------------
@@ -157,6 +164,8 @@ endif
 
 " Snippets
 " --------
-nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>/title<CR>cit
-nnoremap ,koa :-1read $HOME/.vim/.skeleton.koa<CR>/Hello, World<CR>ci'
 nnoremap ,c :-1read $HOME/.vim/.skeleton.c<CR>/Hello, World<CR>ci'
+
+" General Purpose Snippets
+" ----------------
+nnoremap ,sh :-1read $HOME/.vim/.skeleton.sh<CR>A
