@@ -121,6 +121,7 @@ ranger-cd() {
 	# hacky way of transferring over previous command and updating the screen
 	VISUAL=true zle edit-command-line
 }
+## Ranger related section
 zle -N ranger-cd
 # Add a `r` function to zsh that opens ranger either at the given directory or
 # at the one autojump suggests
@@ -137,6 +138,8 @@ r() {
 	return $?
 }
 bindkey '^o' ranger-cd
+
+# User defined aliases
 
 alias rm="rm -I"
 alias mv="mv -i"

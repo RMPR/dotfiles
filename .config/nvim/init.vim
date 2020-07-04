@@ -17,7 +17,7 @@ let &packpath = &runtimepath
 source ~/.vimrc
 
 " Open the built-in terminal if not launched from a Terminal
-map <C-z> :vsplit term://zsh <CR> A
+map <C-z> :split term://zsh <CR> A
 
 " -----------------------------------------------------------------------
 
