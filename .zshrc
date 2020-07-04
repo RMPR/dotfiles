@@ -78,7 +78,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+    git
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -120,6 +122,20 @@ ranger-cd() {
 	VISUAL=true zle edit-command-line
 }
 zle -N ranger-cd
+# Add a `r` function to zsh that opens ranger either at the given directory or
+# at the one autojump suggests
+r() {
+  if [ "$1" != "" ]; then
+    if [ -d "$1" ]; then
+      ranger "$1"
+    else
+      ranger "$(autojump $1)"
+    fi
+  else
+    ranger
+  fi
+	return $?
+}
 bindkey '^o' ranger-cd
 
 alias rm="rm -I"
