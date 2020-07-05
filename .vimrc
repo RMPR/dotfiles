@@ -126,7 +126,6 @@ au BufNewFile,BufRead *.py
     \ set expandtab
     \ set autoindent
     \ set fileformat=unix
-    \ 
 " indentation-based folding
 set foldmethod=indent
 set foldlevel=99

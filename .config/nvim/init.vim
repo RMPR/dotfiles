@@ -18,6 +18,7 @@ source ~/.vimrc
 
 " Open the built-in terminal if not launched from a Terminal
 map <C-z> :split term://zsh <CR> A
+tnoremap <ESC> <C-\><C-n>
 
 " -----------------------------------------------------------------------
 
