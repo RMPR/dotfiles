@@ -158,6 +158,7 @@ alias code="codium"
 alias docker="podman"
 alias vimrc="$EDITOR ~/.vimrc"
 alias df="df -h"
+alias vimrc="vim ~/.vimrc"
 
 source ~/.profile
 

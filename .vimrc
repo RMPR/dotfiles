@@ -24,8 +24,6 @@ set number
 set ruler
 
 " Set Proper Tabs
-set tabstop=4
-set shiftwidth=4
 set smarttab
 set expandtab
 
