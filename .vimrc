@@ -42,12 +42,6 @@ if get(g:, 'elite_mode')
 	nnoremap <Right> :vertical resize +2<CR>
 endif
 
-" Automatically insert closing braces, parentheses, etc.
-inoremap { {}<ESC>i
-inoremap [ []<ESC>i
-inoremap ( ()<ESC>i
-
-
 " syntax marking for python (may not work)
 let python_highlight_all=1
 
@@ -116,14 +110,6 @@ let g:netrw_list_hide=',\(^\|\s\s\)\zs\.\S\+'
 set foldmethod=indent
 set foldlevel=99
 " Set PEP 8 proper formatting
-au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
 " indentation-based folding
 set foldmethod=indent
 set foldlevel=99
