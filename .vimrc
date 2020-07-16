@@ -95,6 +95,15 @@ hi LineNr guibg=bg
 hi foldcolumn guibg=bg
 hi VertSplit guibg=bg guifg=bg
 
+" Create a directory if it doesn't exist yet
+augroup Mkdir
+  autocmd!
+  autocmd BufWritePre * call mkdir(expand("<afile>:p:h"), "p")
+augroup END
+
+" Create a new file under the cursor if it doesn't already exist
+noremap <leader>gf :e <cfile><cr>
+
 " {{{ netrw: Configuration
 "     ====================
 let g:netrw_banner=0        " disable banner

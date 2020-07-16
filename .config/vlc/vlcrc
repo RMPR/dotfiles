@@ -1,5 +1,5 @@
 ﻿###
-###  vlc 3.0.9
+###  vlc 3.0.11
 ###
 
 ###
@@ -503,6 +503,23 @@
 # Region code (string)
 #bluray-region=B
 
+[access_srt] # SRT input
+
+# SRT chunk size (bytes) (integer)
+#chunk-size=1316
+
+# Return poll wait after timeout milliseconds (-1 = infinite) (integer)
+#poll-timeout=-1
+
+# SRT latency (ms) (integer)
+#latency=125
+
+# Password for stream encryption (string)
+#passphrase=
+
+# Crypto key length in bytes (integer)
+#key-length=16
+
 [vnc] # VNC client access
 
 # Username (string)
@@ -781,7 +798,7 @@
 #sout-avi-subject=
 
 # Encoder (string)
-#sout-avi-encoder=VLC Media Player - 3.0.9 Vetinari
+#sout-avi-encoder=VLC Media Player - 3.0.11 Vetinari
 
 # Keywords (string)
 #sout-avi-keywords=
@@ -954,15 +971,6 @@
 # Tone-mapping algorithm (integer)
 #tone-mapping=3
 
-# Desaturation strength (float)
-#desat-strength=0.750000
-
-# Desaturation exponent (float)
-#desat-exponent=1.500000
-
-# Desaturation base (float)
-#desat-base=0.180000
-
 # Tone-mapping parameter (float)
 #tone-mapping-param=0.000000
 
@@ -974,6 +982,18 @@
 
 # Dither depth override (0 = framebuffer depth) (integer)
 #dither-depth=0
+
+# Desaturation strength (float)
+#desat-strength=0.750000
+
+# Desaturation exponent (float)
+#desat-exponent=1.500000
+
+# Desaturation base (float)
+#desat-base=0.180000
+
+# Maximum brightness boost (float)
+#max-boost=0.000000
 
 [xcb_xv] # XVideo output (XCB)
 
@@ -1336,7 +1356,7 @@
 #qt-advanced-pref=0
 
 # Show unimportant error and warnings dialogs (boolean)
-#qt-error-dialogs=1
+qt-error-dialogs=0
 
 # Define the colors of the volume slider (string)
 #qt-slider-colours=153;210;153;20;210;20;255;199;15;245;39;29
@@ -2153,6 +2173,23 @@ qt-privacy-ask=0
 # Synchronous writing (boolean)
 #sout-file-sync=0
 
+[access_output_srt] # SRT stream output
+
+# SRT chunk size (bytes) (integer)
+#chunk-size=1316
+
+# Return poll wait after timeout milliseconds (-1 = infinite) (integer)
+#poll-timeout=100
+
+# SRT latency (ms) (integer)
+#latency=125
+
+# Password for stream encryption (string)
+#passphrase=
+
+# Crypto key length in bytes (integer)
+#key-length=16
+
 [http] # HTTP stream output
 
 # Username (string)
@@ -2484,6 +2521,15 @@ qt-privacy-ask=0
 
 # Use regular HTTP modules (boolean)
 #adaptive-use-access=0
+
+# Live Playback delay (ms) (integer)
+#adaptive-livedelay=15000
+
+# Max buffering (ms) (integer)
+#adaptive-maxbuffer=30000
+
+# Low latency (integer)
+#adaptive-lowlatency=-1
 
 [ts] # MPEG Transport Stream demuxer
 
