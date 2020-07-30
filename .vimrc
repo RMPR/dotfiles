@@ -13,9 +13,16 @@ if has("autocmd")
 endif
 
 set nocompatible
+set relativenumber
+set ignorecase
 set smartcase
 syntax on
+set noerrorbells
 set nowrap
+set noswapfile
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
 set encoding=utf-8
 set guifont=consolas
 
@@ -33,17 +40,20 @@ set laststatus=2
 " Enable Elite mode, No arrows
 let g:elite_mode=1
 
+let mapleader = " "
+
 "
 " Disable arrow movement, resize splits instead.
 if get(g:, 'elite_mode')
 	nnoremap <Up>    :resize +2<CR>
 	nnoremap <Down>  :resize -2<CR>
-	nnoremap <Left>  :vertical resize -2<CR>
-	nnoremap <Right> :vertical resize +2<CR>
+	nnoremap <Left>  :vertical resize +2<CR>
+	nnoremap <Right> :vertical resize -2<CR>
 endif
 
 " syntax marking for python (may not work)
 let python_highlight_all=1
+set tabstop=4 softtabstop=4
 
 " move indent when enter is pressed
 set autoindent
@@ -112,10 +122,8 @@ let g:netrw_altv=1          " open splits to the right
 let g:netrw_liststyle=3     " tree view
 " hide dotfiles by default (this is the string toggled by netrw-gh)
 let g:netrw_list_hide=',\(^\|\s\s\)\zs\.\S\+'
+let g:netrw_winsize = 25
 
-" Python programming Specific additions
-" -------------------------------------
-" Set folding
 set foldmethod=indent
 set foldlevel=99
 " Set PEP 8 proper formatting
@@ -123,17 +131,12 @@ set foldlevel=99
 set foldmethod=indent
 set foldlevel=99
 
-" Web Development
-" ---------------
-au BufNewFile,BufRead *.js, *.html, *.css
-    \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
-
 " Snippets
 " --------
 nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>/title<CR>cit
 nnoremap ,koa :-1read $HOME/.vim/.skeleton.koa<CR>/Hello, World<CR>ci'
+nnoremap ,c :-1read $HOME/.vim/.skeleton.c<CR>/Hello, World<CR>ci'
+nnoremap ,sh :-1read $HOME/.vim/.skeleton.sh<CR>A
 
 
 " C Programming
@@ -154,10 +157,3 @@ if has("cscope")
     set csverb
 endif
 
-" Snippets
-" --------
-nnoremap ,c :-1read $HOME/.vim/.skeleton.c<CR>/Hello, World<CR>ci'
-
-" General Purpose Snippets
-" ----------------
-nnoremap ,sh :-1read $HOME/.vim/.skeleton.sh<CR>A
