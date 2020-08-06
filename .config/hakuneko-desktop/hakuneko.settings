@@ -12,7 +12,7 @@
   "proxyAuth": "",
   "hCaptchaAccessibilityUUID": "",
   "downloadHistoryLogFormat": "",
-  "postChapterDownloadCommand": "",
+  "postChapterDownloadCommand": "mkdir \"%PATH%_conv\" 2>nul & convert \"%PATH%\\*.jpg\" -scene 1 \"%PATH%_conv\\%03d.pdf\"",
   "connectors": {
     "bookmarks": {},
     "clipboard": {},
@@ -621,6 +621,7 @@
     "toomics-es": {},
     "toomics-tc": {},
     "toonily": {},
+    "toonilynet": {},
     "toonkor": {},
     "toonmanga": {},
     "toonsarang": {},

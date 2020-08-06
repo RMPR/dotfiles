@@ -137,6 +137,7 @@ nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>/title<CR>cit
 nnoremap ,koa :-1read $HOME/.vim/.skeleton.koa<CR>/Hello, World<CR>ci'
 nnoremap ,c :-1read $HOME/.vim/.skeleton.c<CR>/Hello, World<CR>ci'
 nnoremap ,sh :-1read $HOME/.vim/.skeleton.sh<CR>A
+nnoremap ,md :-1read $HOME/.vim/.skeleton.md<CR>jf"ci"
 
 
 " C Programming
