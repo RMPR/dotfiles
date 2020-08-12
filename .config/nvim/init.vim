@@ -4,11 +4,13 @@ Plug 'mbbill/undotree'
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf'
-Plug 'vim-utils/vim-man'
+Plug 'junegunn/fzf.vim'
 Plug 'dracula/vim'
 Plug 'sbdchd/neoformat'
 Plug 'neomake/neomake'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc-rls', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
 call plug#end()
 
 " Vanilla
@@ -26,11 +28,22 @@ endif
 map <C-z> :split term://zsh <CR> A
 tnoremap <ESC> <C-\><C-n>
 
+set splitbelow
+set splitright
+
 " -----------------------------------------------------------------------
+"  FZF
+" -----------------------------------------------------------------------
+nnoremap <Leader>f :Files<CR>
+nnoremap <C-p> :GFiles<CR>
+nnoremap <Leader>b :Buffers<CR>
 
 nnoremap <leader>u :UndotreeShow<CR>
 nnoremap <Leader>/ :Rg<SPACE>
 
+"-------------------------------------------------------------------------
+" FUGITIVE CONFIGS 
+"-------------------------------------------------------------------------
 nnoremap <leader>gs :G<CR>
 nnoremap <Leader>gj :diffget //3<CR>
 nnoremap <Leader>gf :diffget //2<CR>
@@ -47,8 +60,6 @@ if (has("termguicolors"))
 endif
 colorscheme dracula
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-set splitbelow
-set splitright
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " open the go-to function in split, not another buffer
