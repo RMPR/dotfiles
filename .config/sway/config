@@ -314,6 +314,11 @@ bindsym $mod+End mode "$mode_system"
 exec --no-startup-id /usr/libexec/kdeconnectd
 
 ##
+## Polkit
+##
+exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1 &
+
+##
 ## External screen toggle
 ##
 bindsym $mod+p output HDMI-A-2 toggle
