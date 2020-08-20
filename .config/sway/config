@@ -210,7 +210,7 @@ output "*" bg /home/rufus/Pictures/wallpaper.jpg fill
 bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec light  -U 5 # decrease screen brightness
 bindsym XF86ScreenSaver exec light -S 0 # shutdown screen 
-exec --no-startup-id redshift -O 5500K
+exec --no-startup-id redshift -l geoclue2 -O 5500K
 
 # Screen orientation
 bindsym --release Ctrl+Alt+Up output eDP-1 transform 0
