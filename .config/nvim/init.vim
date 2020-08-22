@@ -5,6 +5,7 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'stsewd/fzf-checkout.vim'
 Plug 'dracula/vim'
 Plug 'sbdchd/neoformat'
 Plug 'neomake/neomake'
@@ -40,6 +41,8 @@ nnoremap <Leader>b :Buffers<CR>
 
 nnoremap <leader>u :UndotreeShow<CR>
 nnoremap <Leader>/ :Rg<SPACE>
+let $FZF_DEFAULT_OPTS='--reverse'
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 
 "-------------------------------------------------------------------------
 " FUGITIVE CONFIGS 
@@ -48,11 +51,13 @@ nnoremap <leader>gs :G<CR>
 nnoremap <Leader>gj :diffget //3<CR>
 nnoremap <Leader>gf :diffget //2<CR>
 nnoremap <Leader>cc :Gcommit<CR>
-nnoremap <Leader>p :Gpush<CR>
+nnoremap <Leader>gp :Gpush<CR>
 
 nmap <leader>>rr <Plug>(coc-rename)
 
 nnoremap <leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
+
+nnoremap <leader>gc :GCheckout<CR>
 
 " Plugin specific ------------------------------------------------------
 if (has("termguicolors"))
