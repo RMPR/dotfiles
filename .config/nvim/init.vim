@@ -52,12 +52,14 @@ nnoremap <Leader>gj :diffget //3<CR>
 nnoremap <Leader>gf :diffget //2<CR>
 nnoremap <Leader>cc :Gcommit<CR>
 nnoremap <Leader>gp :Gpush<CR>
+nnoremap <Leader>gs :Gstatus<CR>
 
-nmap <leader>>rr <Plug>(coc-rename)
+nmap <leader>rr <Plug>(coc-rename)
 
 nnoremap <leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
 
 nnoremap <leader>gc :GCheckout<CR>
+nnoremap <Leader>gd :<C-u>call CocActionAsync('jumpDefinition')<CR> 
 
 " Plugin specific ------------------------------------------------------
 if (has("termguicolors"))
