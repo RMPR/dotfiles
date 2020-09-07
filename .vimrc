@@ -68,6 +68,9 @@ set hlsearch
 " remove vertical fill characters in splits
 set fillchars+=vert:\  
 
+" Switch to a buffer without saving the previous one
+set hidden
+
 " key binding to turn off search highlighting
 nnoremap <esc><esc> :silent! nohls<cr>
 
