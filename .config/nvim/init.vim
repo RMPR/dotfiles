@@ -6,7 +6,7 @@ Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
-Plug 'dracula/vim'
+Plug 'morhetz/gruvbox'
 Plug 'sbdchd/neoformat'
 Plug 'neomake/neomake'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -31,6 +31,10 @@ tnoremap <ESC> <C-\><C-n>
 
 set splitbelow
 set splitright
+" ------------------------------------
+"  COLORSCHEME
+" ------------------------------------
+let g:gruvbox_italic=1
 
 " -----------------------------------------------------------------------
 "  FZF
@@ -65,7 +69,7 @@ nnoremap <Leader>gd :<C-u>call CocActionAsync('jumpDefinition')<CR>
 if (has("termguicolors"))
  set termguicolors
 endif
-colorscheme dracula
+colorscheme gruvbox
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
