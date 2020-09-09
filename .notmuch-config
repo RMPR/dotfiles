@@ -10,6 +10,7 @@
 # Notmuch will store its database within a sub-directory of the path
 # configured here named ".notmuch".
 #
+
 [database]
 path=/home/rufus/mail
 
@@ -28,8 +29,9 @@ path=/home/rufus/mail
 # recipient list of replies, and will set the From address based on the
 # address to which the original email was addressed.
 #
+
 [user]
-name=Mairo Rufus
+name=Mairo P. Rufus
 primary_email=akoudanilo@gmail.com
 
 # Configuration for "notmuch new"
@@ -46,6 +48,7 @@ primary_email=akoudanilo@gmail.com
 #		names will be ignored, independent of its depth/location
 #		in the mail store.
 #
+
 [new]
 tags=unread;inbox;
 ignore=
@@ -59,6 +62,7 @@ ignore=
 #		search results by default.  Using an excluded tag in a
 #		query will override that exclusion.
 #
+
 [search]
 exclude_tags=deleted;spam;corbeille
 
@@ -83,5 +87,6 @@ exclude_tags=deleted;spam;corbeille
 #	and update tags, while the "notmuch tag" and "notmuch restore"
 #	commands will notice tag changes and update flags in filenames
 #
+
 [maildir]
 synchronize_flags=true
