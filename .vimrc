@@ -33,6 +33,8 @@ set ruler
 " Set Proper Tabs
 set smarttab
 set expandtab
+set smartindent
+set colorcolumn=80
 
 " Always display the status line
 set laststatus=2
