@@ -12,6 +12,7 @@ if has("autocmd")
   filetype indent plugin on
 endif
 
+set history=2000
 set nocompatible
 set relativenumber
 set ignorecase
