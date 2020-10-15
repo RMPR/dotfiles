@@ -2191,3 +2191,17 @@ T 1587737490 19*	Now talking on 22#spacemacs
 T 1587737490 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
 T 1587737490 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
 T 1587737509 20*	Disconnected (20)
+T 1602784599 19*	Now talking on 22#spacemacs
+T 1602784599 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1602784599 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1602785610 18<20FromGitter18>	<EstebanMarin> Hello everyone! Hope this message find you well. I am trying to setup up the Scala layer. When running the GUI interface i get `No Java runtime present, requesting install.` how ever when running emacs from a terminal the the LSP server starts no problem. I am sure that is a path issue but not sure how to fix it any suggestions?
+T 1602786545 18<20FromGitter18>	<milochadam> @EstebanMarin I think the easiest would be to add `(add-to-list 'exec-path "PATH_TO_JAVA")` in your config
+T 1602787845 18<20FromGitter18>	<milochadam> Where `PATH_TO_JAVA` is actually path to directory with java
+T 1602788928 18<20FromGitter18>	<EstebanMarin> @milochadam thanks for the reply so I did  ⏎ echo $JAVA_HOME ⏎ /Users/marinest/.sdkman/candidates/java/current ⏎ This is the path you are mentioning? [https://gitter.im/syl20bnr/spacemacs?at=5f889e4aa7e77a0ff14c6a45]
+T 1602789010 18<20FromGitter18>	<EstebanMarin> Also `(add-to-list 'exec-path "PATH_TO_JAVA”)` you mean in the `.spacemacs` file
+T 1602789035 18<20FromGitter18>	<milochadam> @EstebanMarin Probably. The message says `No Java runtime present`. Is there a jre binary in the directory you mentioned?
+T 1602789058 18<20FromGitter18>	<milochadam> Yes, `.spacemacs` file in `user-config` function
+T 1602789404 18<20FromGitter18>	<EstebanMarin> @milochadam there is a `bin` folder and there seems  ⏎ `ls /Users/marinest/.sdkman/candidates/java/current`=> `bin     conf    include jmods   legal   lib     release`
+T 1602789480 18<20FromGitter18>	<EstebanMarin> within the `ls bin` => all of them `-rwxr-xr-x`
+T 1602789489 18<20FromGitter18>	<EstebanMarin> So I think they are excutables
+T 1602789580 18<20FromGitter18>	<EstebanMarin> Let me try if it works

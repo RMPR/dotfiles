@@ -3994,3 +3994,53 @@ Apr 24 15:11:34 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.
 Apr 24 15:11:49 *	Disconnected ()
 **** ENDING LOGGING AT Fri Apr 24 15:11:49 2020
 
+**** BEGIN LOGGING AT Thu Oct 15 18:56:39 2020
+
+Oct 15 18:56:39 *	Now talking on #alacritty
+Oct 15 18:56:39 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.5.0 - https://github.com/alacritty/alacritty/releases/latest
+Oct 15 18:56:39 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sat Aug  1 00:45:32 2020)
+Oct 15 20:31:02 <UndeadLeech>	https://paste.rs/aFE.png
+Oct 15 20:31:09 <UndeadLeech>	Looks like I might have it.
+Oct 15 20:54:00 <nixpulvis>	still using the custom drop?
+Oct 15 20:56:32 <UndeadLeech>	Nope, I actually managed to do it without the ManuallyDrop.
+Oct 15 20:56:51 <UndeadLeech>	I think the size reduction of the Box<T> managed to get the whole cell struct small enough that cloning it is relatively efficient.
+Oct 15 21:03:50 <kchibisov>	btw, have you tried using cow storage for internal buffer?
+Oct 15 21:08:38 <UndeadLeech>	Why?
+Oct 15 21:08:59 <UndeadLeech>	Putting a Cow in a struct seems kinda... useless?
+Oct 15 21:09:18 <nixpulvis>	why?
+Oct 15 21:09:42 <kchibisov>	you don't change internal buffer too much?
+Oct 15 21:10:09 <UndeadLeech>	Where is it supposed to be stored?
+Oct 15 21:10:15 <UndeadLeech>	What is it borrowing from?
+Oct 15 21:10:25 <kchibisov>	From cursor template.
+Oct 15 21:10:32 <UndeadLeech>	Hah.
+Oct 15 21:10:40 <kchibisov>	Though, it could not beneficial.
+Oct 15 21:11:27 <UndeadLeech>	Yeah let's reference a template cell from everywhere and then permanently change half our grid because our template cell needs to constantly change.
+Oct 15 21:11:48 <UndeadLeech>	Even if one would manage to escape the lifetime hell that puts you in, it just doesn't make any sense.
+Oct 15 21:12:29 <kchibisov>	I forgot that cow in rust has lifetime.
+Oct 15 21:12:36 <kchibisov>	I mean CoW thingy.
+Oct 15 21:12:39 <UndeadLeech>	I mean of course. It's a reference or owned.
+Oct 15 21:13:02 <UndeadLeech>	If you reference something, it needs to be stored somewhere else. You need to link to that which is always a lifetime.
+Oct 15 21:13:05 <kchibisov>	it's impl detail, you can do it without reference.
+Oct 15 21:13:12 <UndeadLeech>	You cannot.
+Oct 15 21:13:40 <kchibisov>	You can.
+Oct 15 21:13:51 <UndeadLeech>	Something that isn't owned, always comes with a reference and every reference comes with a lifetime.
+Oct 15 21:14:13 <kchibisov>	But the back buffer is owned, it's just shared.
+Oct 15 21:14:28 <kchibisov>	it's more like Rc, but you clone buffer on access.
+Oct 15 21:14:37 <kchibisov>	swift does something like that with their strings.
+Oct 15 21:14:42 <kchibisov>	And a lot of other structures.
+Oct 15 21:14:53 <UndeadLeech>	So you want to do reference counting?
+Oct 15 21:15:16 <kchibisov>	it's CoW + Rc thing.
+Oct 15 21:15:30 <UndeadLeech>	I mean the whole CoW concept doesn't work at all.
+Oct 15 21:15:35 <UndeadLeech>	I don't see what you want to gain from a cow.
+Oct 15 21:16:01 <kchibisov>	I was thinking of reducing allocations.
+Oct 15 21:16:09 <UndeadLeech>	There are no allocations.
+Oct 15 21:16:20 <UndeadLeech>	The whole point is that we avoid allocations like the plague.
+Oct 15 21:16:27 <nixpulvis>	cow helps in cases like process forking, where there's a lot of read-only shared data pre-allocated.
+Oct 15 21:16:58 <kchibisov>	I mean cow pages are different story.
+Oct 15 21:17:19 <nixpulvis>	cow pages?
+Oct 15 21:17:45 <kchibisov>	I mean that's how you do fork, no?
+Oct 15 21:17:51 <kchibisov>	I mean performant fork.
+Oct 15 21:17:54 <UndeadLeech>	You just end up constantly dealing with a CoW when the actual usecase of a CoW isn't even 1% of your runtime.
+Oct 15 21:18:05 <UndeadLeech>	Such a massive waste of time.
+Oct 15 21:18:27 <UndeadLeech>	And the benefit basically doesn't exist at all.
+Oct 15 21:18:52 <nixpulvis>	I just don't know what about a cow page is differant from a cow?

@@ -3528,3 +3528,51 @@ T 1587737494 19*	Now talking on 22#alacritty
 T 1587737494 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
 T 1587737494 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
 T 1587737509 20*	Disconnected (20)
+T 1602784599 19*	Now talking on 22#alacritty
+T 1602784599 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.5.0 - https://github.com/alacritty/alacritty/releases/latest
+T 1602784599 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sat Aug  1 00:45:32 2020)
+T 1602790262 18<24UndeadLeech18>	https://paste.rs/aFE.png
+T 1602790269 18<24UndeadLeech18>	Looks like I might have it.
+T 1602791640 18<22nixpulvis18>	still using the custom drop?
+T 1602791792 18<24UndeadLeech18>	Nope, I actually managed to do it without the ManuallyDrop.
+T 1602791811 18<24UndeadLeech18>	I think the size reduction of the Box<T> managed to get the whole cell struct small enough that cloning it is relatively efficient.
+T 1602792230 18<29kchibisov18>	btw, have you tried using cow storage for internal buffer?
+T 1602792518 18<24UndeadLeech18>	Why?
+T 1602792539 18<24UndeadLeech18>	Putting a Cow in a struct seems kinda... useless?
+T 1602792558 18<22nixpulvis18>	why?
+T 1602792582 18<29kchibisov18>	you don't change internal buffer too much?
+T 1602792609 18<24UndeadLeech18>	Where is it supposed to be stored?
+T 1602792615 18<24UndeadLeech18>	What is it borrowing from?
+T 1602792625 18<29kchibisov18>	From cursor template.
+T 1602792632 18<24UndeadLeech18>	Hah.
+T 1602792640 18<29kchibisov18>	Though, it could not beneficial.
+T 1602792687 18<24UndeadLeech18>	Yeah let's reference a template cell from everywhere and then permanently change half our grid because our template cell needs to constantly change.
+T 1602792708 18<24UndeadLeech18>	Even if one would manage to escape the lifetime hell that puts you in, it just doesn't make any sense.
+T 1602792749 18<29kchibisov18>	I forgot that cow in rust has lifetime.
+T 1602792756 18<29kchibisov18>	I mean CoW thingy.
+T 1602792759 18<24UndeadLeech18>	I mean of course. It's a reference or owned.
+T 1602792782 18<24UndeadLeech18>	If you reference something, it needs to be stored somewhere else. You need to link to that which is always a lifetime.
+T 1602792785 18<29kchibisov18>	it's impl detail, you can do it without reference.
+T 1602792792 18<24UndeadLeech18>	You cannot.
+T 1602792820 18<29kchibisov18>	You can.
+T 1602792831 18<24UndeadLeech18>	Something that isn't owned, always comes with a reference and every reference comes with a lifetime.
+T 1602792853 18<29kchibisov18>	But the back buffer is owned, it's just shared.
+T 1602792868 18<29kchibisov18>	it's more like Rc, but you clone buffer on access.
+T 1602792877 18<29kchibisov18>	swift does something like that with their strings.
+T 1602792882 18<29kchibisov18>	And a lot of other structures.
+T 1602792893 18<24UndeadLeech18>	So you want to do reference counting?
+T 1602792916 18<29kchibisov18>	it's CoW + Rc thing.
+T 1602792930 18<24UndeadLeech18>	I mean the whole CoW concept doesn't work at all.
+T 1602792935 18<24UndeadLeech18>	I don't see what you want to gain from a cow.
+T 1602792961 18<29kchibisov18>	I was thinking of reducing allocations.
+T 1602792969 18<24UndeadLeech18>	There are no allocations.
+T 1602792980 18<24UndeadLeech18>	The whole point is that we avoid allocations like the plague.
+T 1602792987 18<22nixpulvis18>	cow helps in cases like process forking, where there's a lot of read-only shared data pre-allocated.
+T 1602793018 18<29kchibisov18>	I mean cow pages are different story.
+T 1602793039 18<22nixpulvis18>	cow pages?
+T 1602793065 18<29kchibisov18>	I mean that's how you do fork, no?
+T 1602793071 18<29kchibisov18>	I mean performant fork.
+T 1602793074 18<24UndeadLeech18>	You just end up constantly dealing with a CoW when the actual usecase of a CoW isn't even 1% of your runtime.
+T 1602793085 18<24UndeadLeech18>	Such a massive waste of time.
+T 1602793107 18<24UndeadLeech18>	And the benefit basically doesn't exist at all.
+T 1602793132 18<22nixpulvis18>	I just don't know what about a cow page is differant from a cow?

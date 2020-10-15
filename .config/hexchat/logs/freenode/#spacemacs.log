@@ -2630,3 +2630,19 @@ Apr 24 15:11:30 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon 
 Apr 24 15:11:49 *	Disconnected ()
 **** ENDING LOGGING AT Fri Apr 24 15:11:49 2020
 
+**** BEGIN LOGGING AT Thu Oct 15 18:56:39 2020
+
+Oct 15 18:56:39 *	Now talking on #spacemacs
+Oct 15 18:56:39 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Oct 15 18:56:39 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Oct 15 19:13:30 <FromGitter>	<EstebanMarin> Hello everyone! Hope this message find you well. I am trying to setup up the Scala layer. When running the GUI interface i get `No Java runtime present, requesting install.` how ever when running emacs from a terminal the the LSP server starts no problem. I am sure that is a path issue but not sure how to fix it any suggestions?
+Oct 15 19:29:05 <FromGitter>	<milochadam> @EstebanMarin I think the easiest would be to add `(add-to-list 'exec-path "PATH_TO_JAVA")` in your config
+Oct 15 19:50:45 <FromGitter>	<milochadam> Where `PATH_TO_JAVA` is actually path to directory with java
+Oct 15 20:08:48 <FromGitter>	<EstebanMarin> @milochadam thanks for the reply so I did  ⏎ echo $JAVA_HOME ⏎ /Users/marinest/.sdkman/candidates/java/current ⏎ This is the path you are mentioning? [https://gitter.im/syl20bnr/spacemacs?at=5f889e4aa7e77a0ff14c6a45]
+Oct 15 20:10:10 <FromGitter>	<EstebanMarin> Also `(add-to-list 'exec-path "PATH_TO_JAVA”)` you mean in the `.spacemacs` file
+Oct 15 20:10:35 <FromGitter>	<milochadam> @EstebanMarin Probably. The message says `No Java runtime present`. Is there a jre binary in the directory you mentioned?
+Oct 15 20:10:58 <FromGitter>	<milochadam> Yes, `.spacemacs` file in `user-config` function
+Oct 15 20:16:44 <FromGitter>	<EstebanMarin> @milochadam there is a `bin` folder and there seems  ⏎ `ls /Users/marinest/.sdkman/candidates/java/current`=> `bin     conf    include jmods   legal   lib     release`
+Oct 15 20:18:00 <FromGitter>	<EstebanMarin> within the `ls bin` => all of them `-rwxr-xr-x`
+Oct 15 20:18:09 <FromGitter>	<EstebanMarin> So I think they are excutables
+Oct 15 20:19:40 <FromGitter>	<EstebanMarin> Let me try if it works

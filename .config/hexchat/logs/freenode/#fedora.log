@@ -5843,3 +5843,47 @@ Apr 24 15:11:34 -ChanServ-	[#fedora] "Any advice you read here is provided by in
 Apr 24 15:11:49 *	Disconnected ()
 **** ENDING LOGGING AT Fri Apr 24 15:11:49 2020
 
+**** BEGIN LOGGING AT Thu Oct 15 18:56:39 2020
+
+Oct 15 18:56:39 *	Now talking on #fedora
+Oct 15 18:56:39 *	Topic for #fedora is: #Fedora F31, F32, F33 Beta end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/f31commonbugs https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F32 Live isos: https://tinyurl.com/Live-respins ||
+Oct 15 18:56:39 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Sep 29 15:18:38 2020)
+Oct 15 18:56:39 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Oct 15 19:01:09 <The_Letter_M>	Any podman power users here?
+Oct 15 19:04:57 <cmurf>	might try in #podman
+Oct 15 19:16:13 <The_Letter_M>	Yeah. I asked my Q about using mariadb in a pod on Podman. They told me try asking in #maria and over there I got no response
+Oct 15 19:17:26 <The_Letter_M>	The other response I got in #podman sounded like they don't know how to utilize pods
+Oct 15 19:18:18 <Khaytsus>	Anything that works for docker should work in podman
+Oct 15 19:18:43 <Khaytsus>	I wish there was a solid compose replacement, but just for runnong containers.. no biggie
+Oct 15 19:26:07 <The_Letter_M>	Khaytsus Docker doesn't do pods
+Oct 15 19:26:32 *	Khaytsus blinks
+Oct 15 19:32:39 <The_Letter_M>	Ok. After looking it up, I am wrong; Docker does do pods.
+Oct 15 19:32:43 <The_Letter_M>	Lol
+Oct 15 19:33:03 <The_Letter_M>	I thought Pods were something that came from K8s
+Oct 15 19:33:56 <Khaytsus>	I'm not quite sure what it has to do with what I said anyway
+Oct 15 19:43:10 <The_Letter_M>	Khaytsus so I'm trying to deploy them inside a pod together. Being inside a pod they should beable to talk to each other using the pods internal network. I haven't seen any Docker compose files deploy a pod or container inside a pod.
+Oct 15 19:44:42 <The_Letter_M>	Khaytsus: Ok so I should explain. I made a pod called "wordpress" and then I deployed a wordpress and mariadb container inside it. I used the options from the docker hub pages for both images, but the Wordpress site is saying it's having trouble connecting to the DB.
+Oct 15 19:54:46 <fedbot>	*** F32-20201001 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 15 20:12:21 <The_Letter_M>	Khaytsus: Sorry if I came off as rude. I never really got into Docker much and now I'm learning containers with Podman and it's ust been kinda frustrating today.
+Oct 15 20:12:47 <Khaytsus>	It should be drop in, again, except for yml composes.
+Oct 15 20:54:49 <fedbot>	*** F32-20201001 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 15 21:39:20 <hyperreal>	what are the recommended mount options for btrfs on fedora?
+Oct 15 21:41:00 <cmurf>	hyperreal: defaults
+Oct 15 21:41:39 <cmurf>	the rest are use case specific so you should be familiar with what they do
+Oct 15 21:43:19 <memoryleak>	The_Letter_M: I understand your frustration, went through the same. What are the services running in your pod, only MariaDB?
+Oct 15 21:43:51 <cmurf>	the one mount option that is recommended but not default due to detection limitations is: desktop usage on a hard drive (spinning) without significant database operations is to add 'autodefrag'
+Oct 15 21:45:21 <cmurf>	unforunately detection of whether media is really rotating or not from sysfs is not reliable
+Oct 15 21:45:31 <hyperreal>	cmurf: I see. I've heard people recommending 'ssd,noatime,space_cache,commit=120,compress=zstd'
+Oct 15 21:45:43 <hyperreal>	I use an SSD
+Oct 15 21:45:48 <hyperreal>	and nvme
+Oct 15 21:45:56 <cmurf>	ssd mount option is autodetected reliably
+Oct 15 21:47:26 <cmurf>	noatime is a tradeoff: less metadata writes due to atime updates once per day (for relatime, the default); but then things like cleaning up /var/tmp/ have to fallback to mtime (I think it's mtime)
+Oct 15 21:47:47 <cmurf>	so some things get cleaned up more aggressively because mtime isn't updated on access
+Oct 15 21:48:10 <cmurf>	so those files might be used, and atime updates would show that, but with noatime it looks like they aren't so they get thrown out
+Oct 15 21:48:29 <cmurf>	space_cache is default already
+Oct 15 21:48:37 <cmurf>	commit=30 is the default, not sure why you want 120
+Oct 15 21:49:16 <cmurf>	compression is safe but you'll have to evaluate it for your use case; helps some and slows down others
+Oct 15 21:49:38 <cmurf>	you can also lightening the level of compression so it takes less of a cpu hit with 'compress=zstd:1'
+Oct 15 21:51:27 <cmurf>	s/lightening/lighten/
+Oct 15 21:51:52 <hyperreal>	cmurf: okay, thank you
+Oct 15 21:54:49 <fedbot>	*** F32-20201001 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***

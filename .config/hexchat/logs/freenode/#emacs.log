@@ -20426,3 +20426,578 @@ Apr 24 15:11:34 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChann
 Apr 24 15:11:49 *	Disconnected ()
 **** ENDING LOGGING AT Fri Apr 24 15:11:49 2020
 
+**** BEGIN LOGGING AT Thu Oct 15 18:56:39 2020
+
+Oct 15 18:56:39 *	Now talking on #emacs
+Oct 15 18:56:39 *	Topic for #emacs is: Gul Dukat says upgrade to 27.1: https://i.imgflip.com/4hpvlw.jpg | Emacs questions take priority over off-topic chatter, so ask! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+Oct 15 18:56:39 *	Topic for #emacs set by wgreenhouse!wgreenhous@fsf/member/wgreenhouse (Thu Oct  8 00:50:34 2020)
+Oct 15 18:56:39 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Oct 15 19:08:48 <ane>	is there a nice way to open up git format-patch emails so that it can be easily edited in e.g. message-mode? right now message-mode kind of gets stuck because it's trying to look for the "text follows this line" crap when adding a To: recipient (or any field)
+Oct 15 19:10:46 <ane>	I would like to need minimal modification for the files so that they can be edited with the message-mode tricks
+Oct 15 19:18:47 <ksynwa>	In org-mode, shouldn't typing `AB\^C` escape the ^ and avoid the superscript?
+Oct 15 19:18:58 <ksynwa>	Seems to not do this in html export.
+Oct 15 19:19:48 <grym>	ksynwa: set #+OPTIONS: ^:nil
+Oct 15 19:20:30 <ksynwa>	How do I do superscript if I enable that?
+Oct 15 19:20:45 <ksynwa>	Not that I need to right now but just wondering in case I need to in the future.
+Oct 15 19:20:58 <ksynwa>	Escaping seems pretty cool to me. Was hoping it worked.
+Oct 15 19:28:50 <grym>	i don't think that would affect something like $2^5$ on export
+Oct 15 19:30:23 <grym>	ksynwa:  If you write ‘^:{}’, ‘a_{b}’ is interpreted, but the simple ‘a_b’ is left as it is (org-export-with-sub-superscripts)
+Oct 15 19:30:58 <ksynwa>	grym: Thanks very much.
+Oct 15 19:31:04 <ksynwa>	Will note this down for future.
+Oct 15 19:32:24 <oats>	I didn't like circe-notifications.el, so I wrote my own simpler alternative. Maybe some folks will like this: https://t.berryhill.me/p/1602786699.el.html
+Oct 15 19:32:28 <grym>	the manual's got you covered.  
+Oct 15 19:33:50 <grym>	ksynwa: (info "(org) Export Settings") 
+Oct 15 19:34:55 <ksynwa>	Thanks :)
+Oct 15 19:47:13 <laertus>	is there some way to submit feature requests for elisp?
+Oct 15 19:50:30 <bremner>	how much do you like being abused by greybeards?
+Oct 15 19:54:19 <wasamasa>	laertus: M-x report-emacs-bug
+Oct 15 19:54:48 <laertus>	even though it's not a bug per-se?
+Oct 15 19:55:17 <laertus>	anyway, i'm kind of a greybeard myself... i can take it
+Oct 15 19:55:44 <wasamasa>	yes, there's an emacs-devel discussion of aliasing a different command to it for feedback in general
+Oct 15 19:55:59 <wasamasa>	and making the system details optional for that case
+Oct 15 19:58:15 <laertus>	i was just reading through the cl-defstruct docs, and read this:
+Oct 15 19:58:21 <laertus>	"‘:print-function’ In full Common Lisp, this option allows you to specify a function that is called to print an instance of the structure type.  The Emacs Lisp system offers no hooks into the Lisp printer which would allow for such a feature, so this package simply ignores ‘:print-function’."
+Oct 15 19:58:42 <laertus>	so i was thinking: why not allow hooks in to the elisp printer?
+Oct 15 19:59:16 <laertus>	and i've come across a bunch of other similar statements in the cl package about stuff that elisp doesn't have that makes the package be unable to implement useful stuff
+Oct 15 19:59:17 <pjb>	laertus: history?
+Oct 15 19:59:29 <laertus>	ok, history for the past
+Oct 15 19:59:40 <laertus>	but the future need not be limited by the past
+Oct 15 19:59:58 <wasamasa>	have you looked at print.c?
+Oct 15 20:00:08 <pjb>	laertus: the history of RMS not liking Common Lisp, and also the fact that the Common Lisp standardization process (started 1984, completed 1996) was parallel to the creation of GNU emacs (started developpement in 1983).
+Oct 15 20:00:15 <wasamasa>	granted, it's half the code of lread.c, but still
+Oct 15 20:00:20 <laertus>	wasamasa: no, but i've looked at emacs c code before, and it ain't pretty
+Oct 15 20:00:24 <wasamasa>	yes indeed
+Oct 15 20:00:39 <pjb>	laertus: oh and yes, the fact that half of emacs is written in C instead of lisp. That doesn't help maintainance and improvements…
+Oct 15 20:00:59 <laertus>	pjb: well, does scheme have hooks in to its printer and other features that would allow implementing some of these cl features?  i'd bet yes
+Oct 15 20:01:01 <wasamasa>	I like how it has confusing = false
+Oct 15 20:01:09 <wasamasa>	trololol
+Oct 15 20:01:13 <pjb>	laertus: nope, not scheme.
+Oct 15 20:01:20 <wasamasa>	maybe some specific schemes do
+Oct 15 20:01:29 <laertus>	chicken probably does :P
+Oct 15 20:01:37 <laertus>	maybe guile too
+Oct 15 20:02:03 <edgar-rft>	laertus: a great opportunity to start another round of the famous "why doesn't Emacs use Common Lisp by default" flamewar :-)
+Oct 15 20:02:04 <laertus>	anyway, there has to be a better reason for not moving forward with a feature than "RMS doesn't like it"
+Oct 15 20:02:27 <johnw>	well, sometimes that IS the reason
+Oct 15 20:02:28 <wasamasa>	CHICKEN has extensions for reader macros, but printing?
+Oct 15 20:02:38 <laertus>	i don't want to make elisp in to common lisp... but i don't see why supporting useful features should be outlawed just because cl has them
+Oct 15 20:02:46 <wasamasa>	might as well be "RMS doesn't see a priority there"
+Oct 15 20:02:48 <pjb>	laertus: well, there is. The weight of third party emacs lisp packages.
+Oct 15 20:02:50 <johnw>	what has been outlawed because CL has it?
+Oct 15 20:03:30 <laertus>	pjb: how would third party emacs lisp packages be affected by having an extra feature in elisp?  they don't have to use that feature or even be aware of it
+Oct 15 20:03:48 <edgar-rft>	laertus: most often the reason is just simply that it requires a huge amount of work to rewrite the Emacs internals to support a specific feature
+Oct 15 20:03:49 <pjb>	laertus: even if we rewrote emacs in CL (it has been done, several times), you still have to provide an emacs lisp in CL (it has been done too), to be able to run third party packages, and you have to implement the whole emacs lisp library too with this emacs lisp API.
+Oct 15 20:04:03 <pjb>	laertus: see hemlock.
+Oct 15 20:04:22 <laertus>	again, i'm not proposing that emacs be written in cl, nor that elisp be turned in to cl
+Oct 15 20:04:27 <laertus>	in fact, i don't want either of those
+Oct 15 20:04:37 <laertus>	(i'd much prefer scheme.. but that's another rant)
+Oct 15 20:04:38 <bremner>	did I mention abuse from greybeards?
+Oct 15 20:04:58 <wasamasa>	actually, yes, I forgot CHICKEN offers custom record printers
+Oct 15 20:05:03 <wasamasa>	which is used by the coops egg
+Oct 15 20:05:10 <laertus>	there you go
+Oct 15 20:05:15 <laertus>	rewrite emacs in chicken!  :)
+Oct 15 20:05:19 <wasamasa>	plzno
+Oct 15 20:05:25 <pjb>	laertus: that said, I'd bet that if you provided a good patch there are chances it'd be accepted.
+Oct 15 20:05:27 <wasamasa>	its interactive development story is terrible
+Oct 15 20:05:38 <wasamasa>	you're confined to the super slow interpreter
+Oct 15 20:06:03 <laertus>	guile, then
+Oct 15 20:06:05 <wasamasa>	so, that being said, I could see the existence of record types in emacs to allow for that feature to happen
+Oct 15 20:06:14 <johnw>	what has been outlawed because CL has it?
+Oct 15 20:07:27 <laertus>	outlawed is too strong a word
+Oct 15 20:07:58 <laertus>	but i've heard again and again about something being frowned upon in emacs because of RMS' dislike for CL
+Oct 15 20:08:06 <edgar-rft>	laertus: ask on emacs-devel to get a huge amount of even stronger words :-)
+Oct 15 20:08:37 <wasamasa>	I know of a few people that use CHICKEN for interactive hacking, but the intended mode of operation is batch compilation really and it's pretty nice for that (though compilation speed is terrible)
+Oct 15 20:08:48 <wasamasa>	unless you use tcc
+Oct 15 20:09:16 <wasamasa>	guile has a better interactive development story, though the bugs people report on #scheme are terrifying
+Oct 15 20:09:34 <wasamasa>	racket would be another obvious one, weren't it for their dismissal of repl-driven development
+Oct 15 20:09:48 <wasamasa>	for other candidates, look at geiser I guess
+Oct 15 20:10:02 <edgar-rft>	laertus: the cl-lib part of emacs is relatively new and it takes some time to convince the core devs to implement new features
+Oct 15 20:10:38 <wasamasa>	ah, I forgot about mit-scheme
+Oct 15 20:10:48 <wasamasa>	and chez is supported as well
+Oct 15 20:11:21 <edgar-rft>	go ask on #lisp why they don't rewrite Common Lisp in Scheme
+Oct 15 20:11:31 <wasamasa>	lol
+Oct 15 20:11:44 <wasamasa>	there's this one guy from there implementing scheme in CL though
+Oct 15 20:12:02 <ksynwa>	which one's older of the two?
+Oct 15 20:12:36 <wasamasa>	I've reread The Pervert's Guide To Computer Programming and it claims at some point scheme happened when lisp had a hysterical moment
+Oct 15 20:12:42 <laertus>	the thing is that elisp is widely acknowledge to be really slow compared to cl and modern schemes
+Oct 15 20:12:53 <laertus>	unlike cl vs scheme
+Oct 15 20:12:55 <edgar-rft>	ksynwa: both are nearly equally old but the ancestors of Common Lisp are older
+Oct 15 20:13:07 <ksynwa>	thanks!
+Oct 15 20:13:45 <wasamasa>	you'll want to patch print_vectorlike if at all
+Oct 15 20:13:50 <jlf>	even if elisp were objectively slower than cl/scheme, what difference would it make?
+Oct 15 20:13:53 <laertus>	lisp dates from the 50's (1950, iirc).. scheme from the 70's (1970 maybe)
+Oct 15 20:14:15 <wasamasa>	and for the record case you'd somehow need the custom print function associated with the record object
+Oct 15 20:14:43 <laertus>	jlf: ever tried looking at a syntax-highlighted long line in emacs?
+Oct 15 20:14:54 <tromey>	that's not an elisp problem
+Oct 15 20:14:58 <wasamasa>	that's not the fault of a single thing
+Oct 15 20:15:10 <tromey>	well at least the ordinary long-line problems aren't elisp
+Oct 15 20:15:24 <wasamasa>	some are intensified by it, yes
+Oct 15 20:15:28 <tromey>	oh?
+Oct 15 20:15:30 <laertus>	also, stuff like single-threaded emacs, vs multithreding in cl and scheme
+Oct 15 20:15:37 <wasamasa>	like if you have suboptimal font lock
+Oct 15 20:16:33 <laertus>	there was a good post somewhere on the advantages running elisp on guile would bring to emacs
+Oct 15 20:17:04 <laertus>	long list of stuff that, on the face of it, seemed like it'd be pretty nice to have
+Oct 15 20:17:37 <laertus>	even apart from the niceness of being able to script emacs in guile if you wanted (though elisp would still be fully compatible)
+Oct 15 20:18:26 <laertus>	https://lists.gnu.org/archive/html/emacs-devel/2010-04/msg00665.html
+Oct 15 20:18:50 <bremner>	observe the date. Observe we still don't have a pony.
+Oct 15 20:19:06 <bremner>	epony doesn't count.
+Oct 15 20:19:18 <laertus>	the task was either too big for him, or he just lost interest and moved on to something else
+Oct 15 20:19:31 <laertus>	he seems to have gotten most of the way there, though.. which is pretty impressive for a one-man effort
+Oct 15 20:19:48 <laertus>	the potential benefits are still there, though, if someone picks up the torch
+Oct 15 20:19:50 <bremner>	the fact that it stayed a one-man effort is a problem
+Oct 15 20:19:56 <laertus>	agreed
+Oct 15 20:20:05 <terpri>	i'm right here (also, "they/them" preferred)
+Oct 15 20:20:21 <bremner>	ok, one-person effort
+Oct 15 20:20:29 <laertus>	sorry.. i'll let you do the speaking, then :)
+Oct 15 20:20:49 <terpri>	it isn't coincidental that progress stopped after funding stopped; and for a while i had to put my full focus on adding BigInt to JS
+Oct 15 20:21:26 <laertus>	so you were being funded?
+Oct 15 20:21:42 <pjb>	I've never had any slowness problem with emacs…
+Oct 15 20:21:51 <laertus>	lucky...
+Oct 15 20:21:55 <terpri>	currently i'm trying to cobble together a few smallish contracts that will pay a living wage while still leaving time for free software development (without burnout from just working 24/7)
+Oct 15 20:22:03 <wasamasa>	I guess pjb never tried helm
+Oct 15 20:22:13 <laertus>	pjb: i've had emacs freeze a lot.. granted, i do have about 260 packages installed..  but still..
+Oct 15 20:22:21 <edgar-rft>	we were used that emacs is slow, so we don't see it as a problem
+Oct 15 20:22:34 <laertus>	terpri: can funding maybe be acquired through a kickstarter?
+Oct 15 20:22:40 <jlf>	that sounds more like "helm is slow" than "emacs is slow"
+Oct 15 20:23:22 <terpri>	laertus, yes, guile-emacs was funded for 5 summers by google summer of code, and for a few months it was a part-time project at igalia for a month or two before JS BigInt ended up requiring my full attention
+Oct 15 20:23:26 <jlf>	though the assembly port of helm will doubtless improve matters
+Oct 15 20:24:34 <terpri>	laertus, i've considered doing a patreon/liberapay, yeah. some people have expressed interest in donating
+Oct 15 20:25:25 <condy>	semantic.el can be dropped since we have lsp-mode, right?
+Oct 15 20:25:45 <condy>	or tags based 
+Oct 15 20:26:00 <tromey>	probably should be since afaik no one maintains or uses it
+Oct 15 20:26:03 <laertus>	terpri: i see people regularly asking about guile emacs in most emacs meetups i've been to, and on forums, etc.. so there's definitely interest in it.. maybe it'd translate in to funding, if a crowdfunding effort was undertaken
+Oct 15 20:26:03 <tromey>	sad to say
+Oct 15 20:26:44 <condy>	:'(
+Oct 15 20:26:49 <laertus>	terpri: if you had the funding, do you think guile emacs could be brought in to a state where it'd be appealing for emacs users?  (ie. be fully elisp-compatible with acceptable performance)
+Oct 15 20:28:13 <mplsCorwin>	how does gccemacs affect the road-map for guile emacs?
+Oct 15 20:28:17 <terpri>	laertus, i believe so, especially now that guile has a decent jit
+Oct 15 20:28:23 <laertus>	i've heard that guile performance has improved a lot recently, so i expect it'd do a lot better now than it did back when the original guile emacs project was alive
+Oct 15 20:28:39 <terpri>	mplsCorwin, they're completely independent right now
+Oct 15 20:29:17 <mplsCorwin>	Thanks.  Does this mean there is not a roadmap for jit based native comp for guile emacs?
+Oct 15 20:29:45 <wasamasa>	you pick one or the other
+Oct 15 20:29:56 <wasamasa>	and I'm afraid gccemacs is preferred
+Oct 15 20:30:06 <mplsCorwin>	I'm just curious here.  I have no stake at all.  Hoping my tone is neutral..
+Oct 15 20:32:14 <laertus>	wasamasa: why is it preferred?  surely emacs core developers wouldn't prefer to maintain more C instead of scheme?
+Oct 15 20:32:19 <mplsCorwin>	wasamasa: that seems unfortunate but sort of what I'd expect.  I have to assume any other approach would involve very aggressively upstreaming changes to guile jit as that seems to be what's happening with Emacs and GCC.  And trying to keep all of that at feature parity sounds *really* hard.
+Oct 15 20:32:54 <wasamasa>	laertus: it landed in a feature branch and can be built and experimented with, plus there's regular communication from the author with emacs-devel, so far everything looks good
+Oct 15 20:33:13 <mplsCorwin>	And a good docker image to play with, as well!
+Oct 15 20:33:32 <laertus>	hmm.. well, i guess those are good reasons :)
+Oct 15 20:33:59 <laertus>	but if guile emacs was as available, they wouldn't turn their nose up on it just because it was built on scheme, would they?
+Oct 15 20:34:03 <wasamasa>	the gravest concern for guilemacs is whether guile as a scheme can shoulder the demands of emacs
+Oct 15 20:34:15 <tromey>	I don't think gccemacs is fantastic, but it's probably better than the guile approach
+Oct 15 20:34:28 <laertus>	better how?
+Oct 15 20:34:29 <npostavs>	"surely emacs core developers wouldn't prefer" - it's not like the core developers can tell other people what to implement
+Oct 15 20:34:33 <terpri>	i'm a guile contributor as well and wingo was on my team at work for years. guile changes can happen if necessary (some emacs-specific accomodations might be required if, e.g., my implementation of buffer local variables in terms of delimited continuations doesn't work out for whatever reason)
+Oct 15 20:35:02 <terpri>	buffer-local variables and strings (emacs isn't "limited" to unicode) are actually the two big question marks
+Oct 15 20:35:23 <wasamasa>	terpri: perhaps you can give me an explanation why code like (fboundp 'bogus) is super slow
+Oct 15 20:36:24 <terpri>	and the C-lisp interface makes some optimizations difficult, for which the ideal solution is probably getting rid of the C :)
+Oct 15 20:36:38 <wasamasa>	also, https://debbugs.gnu.org/cgi/bugreport.cgi?bug=41404
+Oct 15 20:36:48 <mplsCorwin>	terpri: thanks for the chat!
+Oct 15 20:37:18 <laertus>	terpri: oh, i thought for a second you wre wingo... i guess i am confused/misinformed about who did the work on guile emacs.. could you talk about what roles both of you played in the project?
+Oct 15 20:37:46 <wasamasa>	see also https://emacsninja.com/posts/state-of-emacs-lisp-on-guile.html with the "benchmarks"
+Oct 15 20:39:44 <laertus>	there was also some issue about nil vs false in guile vs elisp
+Oct 15 20:39:57 <terpri>	the benchmarks are terrible because compatibility was a much higher priority than performance (not to say there are zero bugs with compatibility)
+Oct 15 20:40:41 <wasamasa>	compatibility is one thing, but really, six minutes to test nine thousand functions/variables?
+Oct 15 20:40:58 <terpri>	i did some ad hoc benchmarks (timing gabriel benchmarks etc.) but essentially had no time to analyze them
+Oct 15 20:41:15 <wasamasa>	is there some funny implementation of lisp-2 semantics?
+Oct 15 20:43:30 <tromey>	doesn't there have to be
+Oct 15 20:43:35 <terpri>	wasamasa, i suspect that the actual problem is, in the that the main branch, guile-emacs was still doing something like using the FFI to call emacs's C variable-value function, due to not being able to capture delimited continuations including FFI calls
+Oct 15 20:43:50 <xristos>	does guile even run on windows?
+Oct 15 20:43:53 <terpri>	just a guess from memory
+Oct 15 20:43:55 <terpri>	xristos, yes
+Oct 15 20:43:59 <xristos>	i don't see any binary downloads on its website
+Oct 15 20:44:08 <terpri>	via mingw, i think
+Oct 15 20:45:39 <laertus>	and maybe via WSL?
+Oct 15 20:45:40 <wasamasa>	these benchmarks were about guile though, not guilemacs
+Oct 15 20:45:58 <wasamasa>	so no emacs functions to reuse
+Oct 15 20:46:00 <terpri>	laertus, i was the primary author of guile-emacs; wingo mentored me for three GSoCs and civodul (Ludovic Courtès, guix and guile maintainer) for one summer
+Oct 15 20:46:22 <laertus>	oh, i see... good to know, thanks
+Oct 15 20:46:48 <aidalgol>	grym: Were you the one who worked on CNNs at moco for a while?
+Oct 15 20:47:13 <laertus>	wasamasa: when did you do those benchmarks on guile which you found to be slow?  guile's performance has supposedly gotten way, way better over the last few years
+Oct 15 20:47:47 <laertus>	and from wingo's talks, i'm hearing that he's optimistic that it'll get much better still
+Oct 15 20:48:17 <terpri>	wasamasa is talking about guile-elisp performance specifically, which is a separate front-end (but compiles to the same intermediate language, so benefits from JIT etc.)
+Oct 15 20:48:39 <laertus>	terpri: wasamasa just said "these benchmarks were about guile though, not guilemacs"
+Oct 15 20:48:44 <wasamasa>	guile 2.2.6 took 77s, guile 3.0.2 took 10 minutes
+Oct 15 20:49:09 <laertus>	ouch
+Oct 15 20:49:10 <wasamasa>	stable versions because compiling guile takes its sweet time
+Oct 15 20:49:27 <terpri>	right, but elisp is supported as a language within guile (you can type ",L elisp" at the repl to get a very, very primitive elisp environment outside of emacs)
+Oct 15 20:49:41 <wasamasa>	yeah and I documented the feature set of that environment
+Oct 15 20:49:45 <sam_>	yeah, it gained JIT
+Oct 15 20:50:21 <wasamasa>	last time I compiled guile 3 from source it did this bootstrapping thing and like, 2 hours for itself and 1.5 hours for guilemacs
+Oct 15 20:50:28 <wasamasa>	still faster than llvm
+Oct 15 20:50:47 <laertus>	rust is super slow at compiling itself too
+Oct 15 20:50:51 <laertus>	gcc is bad too
+Oct 15 20:51:02 <tromey>	gcc does a 3-stage bootstrap though
+Oct 15 20:51:07 <aidalgol>	I mean... aren't they pretty massive?
+Oct 15 20:51:09 <wasamasa>	yes indeed
+Oct 15 20:51:11 <tromey>	also massive
+Oct 15 20:51:15 <terpri>	wasamasa, correction if you're emacsninja: i was maintainer for five GSoCs
+Oct 15 20:51:17 <wasamasa>	and gcc takes less memory than llvm
+Oct 15 20:51:19 <laertus>	doesn't guile also do a multi-stage bootstrap?
+Oct 15 20:51:20 <aidalgol>	Then again, building Racket doesn't take that long.
+Oct 15 20:51:21 <tromey>	I heard gccemacs is slow to build, haven't tried it myself
+Oct 15 20:51:24 <aidalgol>	Or... wait, yes, it can.
+Oct 15 20:51:35 <wasamasa>	terpri: oh, sorry
+Oct 15 20:51:39 <aidalgol>	I was thinking of when I download the bundle with prebuilt bytecode.
+Oct 15 20:51:41 <grym>	aidalgol: no.  i do AI wankery these days, though 
+Oct 15 20:51:43 <laertus>	did something change in guile, then, that made it perform worse on interpreting elisp?
+Oct 15 20:51:47 <wasamasa>	terpri: I found two when I searched the archives
+Oct 15 20:52:05 <terpri>	wasamasa, and ludo also mentored me for one summer
+Oct 15 20:52:21 <aidalgol>	I wonder how long the new CZ-based Racket takes to build.
+Oct 15 20:52:26 <wasamasa>	laertus: the bootstrapping thing is more elegant, but worsens performance
+Oct 15 20:53:15 <terpri>	(i was briefly paid to hack on guile-emacs part time at a for-profit company, but for *some* reason, hacking on web browsers and JS engines are more profitable...)
+Oct 15 20:53:33 <terpri>	is*
+Oct 15 20:53:43 <aidalgol>	grym: Good enough. :p  Have you any idea how hard it would be to make a free version of those image-background-removal things?  e.g. https://remove.bg/
+Oct 15 20:53:44 <wasamasa>	the idea is that bootstrapping allows for easier maintenance so that you eventually get back to acceptable performance
+Oct 15 20:53:56 <wasamasa>	racket should be a good proof of that
+Oct 15 20:54:07 <aidalgol>	wasamasa: how so?
+Oct 15 20:54:22 <wasamasa>	I remember a blogpost about benchmarks comparing the original and chez version
+Oct 15 20:55:38 <wgreenhouse>	wait, so racket is now a scheme that needs to be bootstrapped from another scheme?
+Oct 15 20:55:45 <aidalgol>	I remember a blog post about Agenda 21 is going to enslave us all.
+Oct 15 20:55:48 <wgreenhouse>	like the bigger CL implementations?
+Oct 15 20:56:04 <technomancy>	wgreenhouse: I think that's accurate
+Oct 15 20:56:11 <wgreenhouse>	interesting.
+Oct 15 20:56:14 <wgreenhouse>	are there other schemes in that category?
+Oct 15 20:56:21 <grym>	aidalgol: the term of art for that is 'image segmentation'.  there are some classical techniques that are hit or miss 
+Oct 15 20:56:29 <aidalgol>	wgreenhouse: Original announcement: https://groups.google.com/forum/#!msg/racket-dev/2BV3ElyfF8Y/4RSd3XbECAAJ
+Oct 15 20:56:31 <wgreenhouse>	("SBCL-like" second generation implementations that get bootstrapped from something else)
+Oct 15 20:56:37 <aidalgol>	grym: ah, good to know.
+Oct 15 20:57:42 <grym>	aidalgol: openCV has a 'watershed' or 'grabcut' tool.  you select a few landmarks and then it's some reasonably clever thresholding/edge detection 
+Oct 15 20:57:42 <terpri>	ok, let's take a straw poll. assuming i cut back hours at $work enough to productively work on guile-emacs again, how many people here would kick in $10/mo or more towards guile-emacs development? (potential donators can privmsg if they'd prefer) the goals would be:
+Oct 15 20:58:10 <grym>	aidalgol: expect things like a splayed-hand to be tricky, but big blobby stuff like cars to be OK 
+Oct 15 20:58:39 <laertus>	wasamasa: i just tried your benchmarks on guile 3.0.4, but got some exceptions...  https://dpaste.com/BDG98RSQS   i'm guessing that i need to recompile guile with elisp support or something...
+Oct 15 20:58:47 <terpri>	(1) rebase both the emacs changes and the guile changes, with more of a focus on upstreaming changes than before so it's not a continuous chore
+Oct 15 20:59:23 <terpri>	(2) investigate performance problems and optimize guile-emacs so that it is at least as performant in everyday use as vanilla gnu emacs
+Oct 15 20:59:51 <wasamasa>	hm, 10$
+Oct 15 21:00:01 <wasamasa>	the most I pay on patreon is 5$ for several creators
+Oct 15 21:00:04 <xristos>	terpri: i think you should first try and ascertain that your efforts will not be wasted
+Oct 15 21:00:08 <wasamasa>	yes, that
+Oct 15 21:00:09 <grym>	aidalgol: https://docs.opencv.org/master/d8/d83/tutorial_py_grabcut.html is some less-shitty-than-normal docs on this by openCV standards
+Oct 15 21:00:18 <laertus>	terpri: i'd do it.. but i'm probably a bigger scheme fan than most emacs users...
+Oct 15 21:00:32 <xristos>	terpri: and i doubt you'd manage that
+Oct 15 21:00:56 <xristos>	guile has few users, which means fuzzy implications/uncertainty
+Oct 15 21:01:17 <grym>	aidalgol: thankfully they ship wheels now, too 
+Oct 15 21:01:24 <xristos>	a win is hard to see in any reasonable cost-benefit analysis
+Oct 15 21:01:32 <terpri>	(3) research possible cooperation with other projects like gccemacs and remacs (though i don't think that's likely)
+Oct 15 21:02:19 <wasamasa>	blog post updated
+Oct 15 21:02:47 <laertus>	xristos: did you read this?  https://lists.gnu.org/archive/html/emacs-devel/2010-04/msg00665.html
+Oct 15 21:03:28 <laertus>	there seem to be lots of wins in guile hosting elisp, from where i'm standing
+Oct 15 21:03:33 <terpri>	xristos, previous emacs maintainers have been skeptical but open to the idea of guile integration, if its various problems can be solved (and they can, imo, it's a question of time and labor and cooperation; it's not an unachievable goal)
+Oct 15 21:04:04 <xristos>	laertus: that was 10 years go, none of the promises of guilemacs materialized
+Oct 15 21:04:15 <xristos>	on the other hand, Emacs has managed to move significantly forward
+Oct 15 21:04:28 <xristos>	so if folks were skeptical then, i don't see them being less skeptical now
+Oct 15 21:04:48 <laertus>	well, the interest in my personal experience has been significant.. people ask about guile emacs all the time
+Oct 15 21:05:12 <xristos>	very generic statement, from what i observe it's mostly randoms on reddit
+Oct 15 21:05:16 <xristos>	that have a totally skewed perspective on things
+Oct 15 21:05:21 <xristos>	and/or wild expectations
+Oct 15 21:05:23 <laertus>	i've heard it discussed at emacs meetups as well
+Oct 15 21:05:30 <laertus>	and on this channel many times
+Oct 15 21:05:46 <laertus>	and reddit is not exactly an insignificant forum any more
+Oct 15 21:05:54 <xristos>	let's do it because a bunch of misinformed randoms ask for it doesn't strike me as proper argumentation
+Oct 15 21:06:11 <laertus>	well, those "misiniformed randoms" might actually provide funding
+Oct 15 21:06:24 <laertus>	whereas the more informed gurus stand aside and watch
+Oct 15 21:06:34 <xristos>	you can provide all the funding you want to make a pig fly, but that doesn't seem like a good idea
+Oct 15 21:06:51 <laertus>	i've yet to hear a good argument against guile emacs
+Oct 15 21:06:55 <xristos>	better to examine your foundations and make sure you're not building on sand
+Oct 15 21:07:15 <laertus>	the best i've heard is that some people would prefer to base emacs on CL or rust
+Oct 15 21:08:02 <terpri>	the key remaining advantage for guile-emacs (and possibly gccemacs) is that it will be possible to replace a large portion of C code with elisp. some of the other benefits are still valid too (emacs has bignums but not bigrats, for example -- and implementing JS BigInt forced me to become something of an expert on numeric towers)
+Oct 15 21:08:20 <laertus>	what about multithreading?
+Oct 15 21:08:33 <xristos>	16:05 <xristos> that have a totally skewed perspective on things
+Oct 15 21:08:45 <xristos>	that's multithreading
+Oct 15 21:09:35 <jrm>	wasamasa: Fyi, on https://depp.brause.cc/eyebrowse/ the link to https://github.com/emacsmirror/escreen gives a 404.
+Oct 15 21:09:55 <wasamasa>	regrettable
+Oct 15 21:10:02 <wasamasa>	you'd think an emacsmirror keeps things up
+Oct 15 21:10:02 <aidalgol>	grym: Oh, so these things aren't even using neural networks?
+Oct 15 21:10:19 <jrm>	It's Github page.
+Oct 15 21:10:24 <laertus>	"replacing a large portion of C code with elisp" could be huge, as, as has been mentioned on here many times, emacs' legacy C code is one of the main impediments to emacs moving forward
+Oct 15 21:10:29 <jrm>	Oh, yes.  emacsmirror github account.
+Oct 15 21:10:34 <terpri>	emacs has multithreading now, albeit "mostly cooperative"
+Oct 15 21:10:37 <tromey>	the basic argument against guile is that there is a semantic mismatch that's hard to overcome
+Oct 15 21:10:50 <wasamasa>	jrm: I guess it's https://github.com/emacsattic/escreen now
+Oct 15 21:10:54 <terpri>	guile also has multithreading, of course
+Oct 15 21:10:57 <tromey>	so why bother trying, do something better in situ
+Oct 15 21:11:08 <tromey>	many of the claimed benefits are illusory at best
+Oct 15 21:11:10 <wasamasa>	terpri: sure, but that will need to be integrated with the existing thread support or crash horribly
+Oct 15 21:11:24 <terpri>	yes
+Oct 15 21:11:25 <tromey>	they rely on not engaging in actually trying, to make them sound possible
+Oct 15 21:11:28 <jrm>	I'm giving eyebrowse a go, but I don't think I'm smart enough to figure out how window configurations are generated or saved.
+Oct 15 21:11:34 <grym>	aidalgol: they very likely aren't. 
+Oct 15 21:11:47 <aidalgol>	grym: SCAM!!
+Oct 15 21:11:47 <wasamasa>	jrm: it takes whatever is the current one and stores it in a frame parameter
+Oct 15 21:11:57 <wasamasa>	jrm: then when you switch to another one it restores whatever used to be there
+Oct 15 21:12:05 <wasamasa>	jrm: much like virtual desktops work
+Oct 15 21:12:05 <grym>	aidalgol: you can use a segmentation network if you like, but you'd want either representative pretrained state or some training data of your own 
+Oct 15 21:12:38 <wgreenhouse>	laertus: replacing C code with something alleged to be more maintainable is what remacs, gccemacs, and guile-emacs all suppose they're trying to do--in remacs's case it's about porting the C core to bug-compatible rust
+Oct 15 21:12:45 <xristos>	laertus: replacing a large portion of C code with XXX was one of the reasons behind remacs, they plucked some of the low-hanging fruit and now seem to have reached a deadend
+Oct 15 21:12:52 <laertus>	jrm: just do: (eyebrowse-switch-to-window-config-0)  or (eyebrowse-switch-to-window-config-1) etc.. simple
+Oct 15 21:12:56 <wasamasa>	xristos: hm, is that so
+Oct 15 21:13:04 <aidalgol>	grym: wat?
+Oct 15 21:13:21 <wasamasa>	jrm: fixed the link
+Oct 15 21:13:35 <edgar-rft>	we don't want to lose our long-beloved bugs
+Oct 15 21:13:45 <laertus>	wgreenhouse and xristos: great.. i'm not begrudging remacs trying this road too.. it's not an argument against guile emacs
+Oct 15 21:13:48 <cvandusen>	rudybot: hugabug 
+Oct 15 21:13:48 <rudybot>	cvandusen: eh?  Try "rudybot: help".
+Oct 15 21:13:56 <grym>	aidalgol: you could use a neural network to do this.  you would probably not want to start from scratch, and you'd want to update the pretrained neural network with some of your own data that is representative of the scenarios you'd want to do background subtraction in 
+Oct 15 21:14:32 <grym>	aidalgol: your performance with a NN will be more generalizable to novel backgrounds than classical techniques without human interaction 
+Oct 15 21:14:48 <tromey>	is gccemacs really looking at replacing the c core?
+Oct 15 21:14:49 <aidalgol>	grym: So a neural net would only *possibly* help improve results in special cases?
+Oct 15 21:14:51 <tromey>	I mean, I hope so
+Oct 15 21:14:56 <laertus>	xristos: and just because remacs ran in to some blocking issues doesn't mean that guile will run in to them too.. they are after all radically different langauges with different incompatibilities with emacs/elisp
+Oct 15 21:15:01 <tromey>	but afaik it was mostly focused on speeding up elisp
+Oct 15 21:15:15 <terpri>	that was my impression, too
+Oct 15 21:15:29 <tromey>	remacs actually has a simpler job than guile emacs
+Oct 15 21:15:31 <grym>	aidalgol: it'll get you pretty good or better across lots of scenarios without user tweaking at crop time.
+Oct 15 21:15:52 <terpri>	whereas my long-term goal for guile-emacs is to make emacs more like a lisp machine (which, yes, i have used extensively in emulation)
+Oct 15 21:15:59 <tromey>	because in remacs they aren't concerned about unifying 2 disparate runtimes
+Oct 15 21:16:06 <edgar-rft>	let's rewrite Guile in Common Lisp and then implement Emacs in it
+Oct 15 21:16:35 <technomancy>	not until we finish rewriting CL in Forth
+Oct 15 21:16:46 <terpri>	it's more likely that guile will gain a CL frontend based on the elisp frontend than be rewritten in CL. though you never know
+Oct 15 21:17:10 <grym>	aidalgol: the usual approach for image segmentation, either NN based or classical computer vision based, is to  use your automatic segmentation techniques to get you a mask on the image, and then have the ability to tweak that mask by human intervention when you have to (and hopefully not very often, if you want to do batch processing)
+Oct 15 21:17:34 <aidalgol>	grym: right.  that sounds saner than "rub a NN on it!"
+Oct 15 21:17:50 <terpri>	(i've actually started a side project for that, which might be made easier by beach's SICL though i haven't evaluated it thoroughly)
+Oct 15 21:18:02 <aidalgol>	technomancy: I have resolved to only use fedi for shitposting
+Oct 15 21:18:22 <grym>	aidalgol: yep.  they're not _that_ magical 
+Oct 15 21:18:49 <terpri>	(and guile has something very much like CLOS -- GOOPS -- which makes it simpler)
+Oct 15 21:19:13 <laertus>	how does goops compare to eieio (or whatever it's called) ?
+Oct 15 21:19:36 <aidalgol>	laertus: It's actually sane.)
+Oct 15 21:20:12 <terpri>	^
+Oct 15 21:20:13 <technomancy>	GOOPS vs CLOS: https://p.hagelb.org/jeff.jpg
+Oct 15 21:20:26 <technomancy>	"What's the difference? They're both OOP."
+Oct 15 21:20:34 <grym>	boop
+Oct 15 21:20:53 <wgreenhouse>	laertus: I'm not saying the existence of remacs is an argument against or for guile-emacs, I'm just noting that there at least 3 attempts to "replace the C core"
+Oct 15 21:21:00 <terpri>	technomancy, i'm stealing that meme ;)
+Oct 15 21:21:04 <aidalgol>	technomancy: Thing is, GOOPS methods aren't *in* the objects, so it feels less like OO than... OO.
+Oct 15 21:21:12 <technomancy>	terpri: it's an top-notch grimace
+Oct 15 21:21:22 <laertus>	wgreenhouse: but we have to remember that gnu emacs is itself not the original emacs
+Oct 15 21:21:30 <bandali>	technomancy, that meme is *awesome* :-D
+Oct 15 21:21:38 <wgreenhouse>	laertus: why is that relevant
+Oct 15 21:21:40 <technomancy>	bandali: the original was Marvel vs DC
+Oct 15 21:21:40 <bandali>	ha!
+Oct 15 21:21:40 <tromey>	wgreenhouse: has there been movement on using gccemacs to replace c code?
+Oct 15 21:21:49 <tromey>	I haven't been following e-d
+Oct 15 21:21:51 <aidalgol>	technomancy: What was his answer?  "They're both comics?"
+Oct 15 21:21:53 <laertus>	because some efforts to significantly improve/change emacs fail, while others succeed
+Oct 15 21:21:54 <technomancy>	aidalgol: yeah
+Oct 15 21:22:00 <technomancy>	ironically he got a part in a Marvel film later on
+Oct 15 21:22:05 <laertus>	it's not like the multiple failures of others destines guile emacs to failure
+Oct 15 21:22:08 <bandali>	lol
+Oct 15 21:22:08 <grym>	a _good_ part
+Oct 15 21:22:41 <aidalgol>	technomancy: of course he did...
+Oct 15 21:22:43 <wgreenhouse>	tromey: part of the implicit attraction of gccemacs is e.g. that ansi-term compiled to .eln has similar performance to vterm which is a C module
+Oct 15 21:22:48 <terpri>	i'm following e-d, only 10,004 messages behind
+Oct 15 21:22:51 <wgreenhouse>	with all the build-time annoyances that entails
+Oct 15 21:23:12 <tromey>	my dream is to replace the c with elisp
+Oct 15 21:23:24 <technomancy>	all C
+Oct 15 21:23:24 <tromey>	I don't think gccemacs is a great approach but maybe it's an ok stepping stone
+Oct 15 21:23:27 <technomancy>	in every program
+Oct 15 21:23:29 <grym>	https://uproxx.com/wp-content/uploads/2018/03/the-grandmaster-jeff-goldblum.jpg?w=650
+Oct 15 21:23:33 <technomancy>	no code is safe
+Oct 15 21:23:35 <jrm>	wasamasa: 1. Start with desired window configuration. 2. `eyebrowse-create-window-config' 3. `eyebrowse-rename-window-config' to give the current configuration a name (Review in my case) 4. Switch to displaying a single scratch buffer and I see [1, 2:Review] in the mode-line.  5. `eyebrowse-switch-to-window-config' and choose Review, but it stays at the *scratch* buffer.  That is intended?
+Oct 15 21:23:41 <aidalgol>	technomancy: Except yours?
+Oct 15 21:23:56 <technomancy>	aidalgol: I actually wrote some C code once
+Oct 15 21:24:00 <technomancy>	for my forth implementation
+Oct 15 21:24:05 <technomancy>	if tromey rewrites it in elisp I won't complain
+Oct 15 21:24:16 <wgreenhouse>	:D
+Oct 15 21:24:22 <tromey>	:)
+Oct 15 21:24:27 <aidalgol>	technomancy: Until the revolution comes, we're stuck writing C from time to time.
+Oct 15 21:24:45 <technomancy>	speak for yourself
+Oct 15 21:24:51 <technomancy>	I saw the error of my ways
+Oct 15 21:24:56 <aidalgol>	By "we", I mean "we the workers".
+Oct 15 21:24:59 <wasamasa>	jrm: cannot reproduce that
+Oct 15 21:25:04 <aidalgol>	Let's apply "left twitter" catchphrases to programming.
+Oct 15 21:25:15 *	aidalgol ponders how to shoehorn "mask off" into programming discourse...
+Oct 15 21:25:25 <wasamasa>	jrm: you'll have to be a bit more detailed
+Oct 15 21:25:26 <technomancy>	aidalgol: you have nothing to lose but your segfaults!
+Oct 15 21:25:31 <wasamasa>	jrm: like keypresses detail
+Oct 15 21:25:35 <grym>	i have written about 10 lines of C in my life 
+Oct 15 21:25:41 <grym>	like, ever 
+Oct 15 21:26:07 <laertus>	i used to write a fair bit of C back when i was interested in genetic programming
+Oct 15 21:26:09 <aidalgol>	technomancy: I mean... *something* at *some layer* has to do the ugly work.
+Oct 15 21:26:25 <technomancy>	aidalgol: but that shit's already been written
+Oct 15 21:26:27 <laertus>	but that was something like 20+ years ago...
+Oct 15 21:26:41 <aidalgol>	technomancy: How do you write the new stuff?  For new chips?
+Oct 15 21:27:00 <technomancy>	what new chips?
+Oct 15 21:27:04 <wasamasa>	jrm: the expected thing is that slot 1 has whatever windows/buffers were last displayed there and slot 2 whatever windows/buffers were last displayed there
+Oct 15 21:27:07 <aidalgol>	New SoCs?
+Oct 15 21:27:14 <aidalgol>	New revisions of microcontrollers.
+Oct 15 21:27:22 <aidalgol>	grym, laertus: I work on a C++ codebase for a living that should really be several separate daemons written in something saner.
+Oct 15 21:27:32 <aidalgol>	Fuck, even a pile of go "microservices" would be preferable
+Oct 15 21:27:33 <jrm>	wasamasa: Will write a details log.
+Oct 15 21:28:06 <tromey>	new chips arrive still
+Oct 15 21:28:07 <tromey>	risc-v
+Oct 15 21:28:13 <technomancy>	aidalgol: even if that were a problem that people in this channel had (which it's obviously not) there are better answers than "more C code"
+Oct 15 21:28:41 <laertus>	i still meet big fans of C and C++ from time to time
+Oct 15 21:28:57 <nly>	thanks npostavs for the advice other day
+Oct 15 21:29:12 <terpri>	it's harsh to say that "none of the promises of guile-emacs materialized". i've *demonstrated* some of the promised benefits by getting guile-emacs *functionining* in 18 months (of which more like 12 were fully focused on the problems at hand, as the GSoC internships were staggered over summers and there were always a few weeks spent rebasing on both the emacs and guile sides)
+Oct 15 21:29:14 <nly>	gotta love magit
+Oct 15 21:29:23 <aidalgol>	technomancy: OK, I'm listening...
+Oct 15 21:29:27 <nly>	oh no
+Oct 15 21:29:33 <tromey>	some people really imprint on a system and have trouble changing
+Oct 15 21:29:37 <nly>	talking about guile-emacs...
+Oct 15 21:29:49 <tromey>	though of course I'm that way about emacs
+Oct 15 21:30:16 <technomancy>	aidalgol: my point is that is so far removed from the concerns of 99.9% of software developers as to be completely irrelevant
+Oct 15 21:30:41 <wasamasa>	sad
+Oct 15 21:30:49 <aidalgol>	technomancy: Fair point, but are we not all in this together?
+Oct 15 21:31:06 <laertus>	terpri: i think people that complain about guile emacs are looking for something they can use in place of emacs, with at least comprable performance and elisp compatibility... and most of those people today see guile emacs as an old, dead project.. fortunately there are other people still excited about its potential
+Oct 15 21:31:10 <wasamasa>	one of the few options for programmers to write actually efficient code and it's only relevant for 0.01%??
+Oct 15 21:31:10 <fsbot>	Inconceivable!
+Oct 15 21:31:16 <wasamasa>	a shame
+Oct 15 21:31:27 <aidalgol>	wasamasa is goin' fishin'!
+Oct 15 21:31:51 <nly>	tax the 0.01 %
+Oct 15 21:31:58 <wasamasa>	I just hate inefficient programs
+Oct 15 21:32:07 <xristos>	terpri: hard to get excited about anything guile-related when it's mostly wallowing in obscurity and non-usage
+Oct 15 21:32:47 <laertus>	terpri: also, i wouldn't take the lack of response from your straw poll in here as indicative of general interest in guile emacs.. with a properly publicised crowding campaign i'd expect you'd get a lot more interest
+Oct 15 21:32:51 <technomancy>	wasamasa: for mandlebrot, LuaJIT emits the exact same IR that a C compiler would
+Oct 15 21:33:07 <technomancy>	saying C is the only option for efficient code would be absurd
+Oct 15 21:33:14 <wasamasa>	few I've said
+Oct 15 21:33:34 <wasamasa>	and no, I wouldn't bet on luajit's longevity compared to C
+Oct 15 21:33:44 <wasamasa>	or suitability to replace it
+Oct 15 21:33:47 <terpri>	laertus, yeah, i've run across pro-guile posts in /r/emacs occasionally, so there is at least some community interest
+Oct 15 21:34:03 <technomancy>	using C for application-level coding is a mistake akin to treating illness with leeches
+Oct 15 21:34:20 <laertus>	terpri: if you'd been to the emacs meetups i've gone to you'd hear more interest.. people are always asking about it
+Oct 15 21:34:21 <terpri>	xristos, gnu guix is doing pretty well, but other than that singular project, fair enough
+Oct 15 21:34:53 <xristos>	technomancy: it pains me that gccemacs didn't go down the dynasm/minilua route
+Oct 15 21:34:53 <nly>	don't forget nomad, a web browser in guile
+Oct 15 21:35:01 <jrm>	wasamasa: https://ftfl.ca/paste/eyebrowse-log.html
+Oct 15 21:35:28 <technomancy>	xristos: yeah I've been meaning too look more into dynasm; looks promising
+Oct 15 21:35:45 <aidalgol>	technomancy: Is anyone talking about application-level programming?
+Oct 15 21:35:47 <tromey>	I think vlad makarov's MIR is a promising JIT
+Oct 15 21:36:08 <tromey>	it has a few interesting things and he's a super compiler hacker
+Oct 15 21:36:12 <tromey>	bad choice of name tho
+Oct 15 21:36:20 <technomancy>	aidalgol: not in this channel, but in general
+Oct 15 21:36:25 <laertus>	terpri: the thing is, as you well know, most emacs users are not big fans of C, and everyone wishes that all of emacs could be lisp-based instead of having so much legacy code holding it back.. i think most everybody is onboard with having less C, and if guile was a practical option, i don't think there'd be a lot of resistance... quite the opposite
+Oct 15 21:36:27 <tromey>	if I reboot my emacs jit I plan to use his thing
+Oct 15 21:36:29 <pjb>	nly: the 0.01% don't have money in the bank. They have shares of corporations.  If you want to tax them, they'll have to sell their share. Since only the poor have money in the bank, but very little, their share selling will make the price drop, (to match demand), and very litle money will be extracted and taxed.  
+Oct 15 21:36:30 <pjb>	nly: now, world richest 1% have more than 2x as much wealth as the rest.  Say we take them all they have (shares in corporations), and spread it over the 99%.  This means that if you have 100$ in the bank, you'll get 200$ worth of shares. Say 1/2 a TSLA share.  TSLA has never paid a dividend…
+Oct 15 21:36:30 <pjb>	 
+Oct 15 21:37:09 <pjb>	nly: so you won't be any richer. The 1% will lose control of the corporations. It will be a mess, and you will be fired, and everything will be broken.
+Oct 15 21:37:28 <aidalgol>	technomancy: Right, I was just saying until we have a *full* replacement for C, we need to write stuff in C.  Maybe D is viable.  I honestly don't know.
+Oct 15 21:37:39 <aidalgol>	The only D programmer I know is JordiGH, and he doesn't do embedded dev.
+Oct 15 21:37:57 <wasamasa>	look at the stuff a linux desktop relies on and ask yourself, does your favorite language have the potential to replace all that?
+Oct 15 21:38:00 <wasamasa>	just the packaging situation is absurd
+Oct 15 21:38:07 <technomancy>	luajit is used for userspace networking in cases where the kernel is just too damn slow at routing packets http://lukego.github.io/blog/2013/01/03/snabb-switchs-luajit-ethernet-device-driver/
+Oct 15 21:38:08 <nly>	pjb fair point. I concede my proposal
+Oct 15 21:38:15 <JordiGH>	"Just the packaging situation"
+Oct 15 21:38:20 <JordiGH>	The packaging situation is the whole problem.
+Oct 15 21:38:23 <wasamasa>	what's an ABI again?
+Oct 15 21:38:36 <technomancy>	wasamasa: C's build story is much worse than any other language I've used
+Oct 15 21:38:40 <technomancy>	by an enormous margin
+Oct 15 21:38:41 <pjb>	nly: the error you made is that you are thinking in the terms of the system: you just want to be caliph in place of the caliph. You're a mean jealous.
+Oct 15 21:39:06 <wasamasa>	technomancy: likewise few things work as well inside a Makefile
+Oct 15 21:39:32 <bpalmer>	(The taxation proposal is not a fair point, I will just chime in without wanting to get super-involved; among other things, companies not paying a dividend is not a permanent fact of life. If the people who own shares want, the company will issue dividends, providing cash without change in control)
+Oct 15 21:39:33 <pjb>	http://www.imaveditions.com/collection/iznogoud
+Oct 15 21:39:40 <nly>	pjb: Ah, sorry
+Oct 15 21:39:48 <technomancy>	all the packaging work I've done has really consistent on this: everything is easy, until C is introduced, then it becomes a nightmare
+Oct 15 21:40:06 <technomancy>	there are no exceptions
+Oct 15 21:40:06 <aidalgol>	pjb: Avoid the personal remarks, please.
+Oct 15 21:40:24 <nly>	also pjb good day sir :)
+Oct 15 21:40:34 <aidalgol>	technomancy: From what I've observed, I think that is largely because of what you are trying to do.
+Oct 15 21:40:52 <pjb>	It's funny how the name of the great vizir is English: Isnogoud = Is No Good :-)
+Oct 15 21:40:52 <bpalmer>	I'm not sure what the 'packaging system' is.
+Oct 15 21:41:10 <wasamasa>	the usual suspects, apt, pacman, ...
+Oct 15 21:41:11 <technomancy>	aidalgol: you think "build executables you can distribute to end users" is a weird edge case?
+Oct 15 21:41:24 <bpalmer>	One huge disadvantage in C and C++ is the lack of a single overwhelminingly popular *build* system, but once you figure out to build things, packages seem easy.
+Oct 15 21:41:28 <pjb>	aidalgol: ok. All those who complain about the 1% are mean and jealous people. It's not personal, it's general!
+Oct 15 21:41:39 <aidalgol>	Those "easy" ecosystems become painful when you're in systems development.
+Oct 15 21:41:59 <aidalgol>	technomancy: Statically?  Yes, that's less common.
+Oct 15 21:42:05 <wasamasa>	technomancy: so static linking, I see
+Oct 15 21:42:36 <pjb>	technomancy: I've got an easy solution: run on a system without a C compiler! Preferably a system where the architecture makes it hard to implement C ;-)
+Oct 15 21:42:52 <wasamasa>	lol
+Oct 15 21:42:55 <CompanionCube>	probably rather hard, even ye olde lisp machines had a c compiler...
+Oct 15 21:43:06 <CompanionCube>	maybe a FORTH machine?
+Oct 15 21:43:17 <nly>	anyone here bought any power9 machine?
+Oct 15 21:43:18 <pjb>	AS400?
+Oct 15 21:43:44 <CompanionCube>	pjb: nothing about AS/400 makes it particularly hostile to C as a language
+Oct 15 21:44:02 <bpalmer>	PDP 6 never had a c compiler, I don't believe
+Oct 15 21:44:03 <pjb>	Graned, even lisp machines had a Zeta-C compiler…
+Oct 15 21:44:08 <pjb>	+t
+Oct 15 21:44:16 <wasamasa>	grated
+Oct 15 21:44:35 <bpalmer>	However, only 23 PDP-6s were sold, so not many people will be running these programs, I guess.
+Oct 15 21:44:51 <jrm>	wasamasa: I think I got it.  They are sorta like desktops in a window manager rather than save window configurations.  Makes sense now.  Sorry for the noise.
+Oct 15 21:44:58 <CompanionCube>	could you implement a C compiler, though?
+Oct 15 21:46:21 <johnjay>	isn't the whole point of c you can implement it everywhere?
+Oct 15 21:47:19 <bpalmer>	CompanionCube: hmm. I suppose someone could, at least K&R C.
+Oct 15 21:47:24 <wgreenhouse>	johnjay: the point of C is that you can write a unix in it. now you have 2 problems.
+Oct 15 21:47:33 <pjb>	johnjay: turing equivalencen
+Oct 15 21:47:39 <johnjay>	haha true
+Oct 15 21:47:55 <johnjay>	aidalgol: i guess that makes me a scheming atheist w.r.t. computers then.
+Oct 15 21:48:05 <johnjay>	until we can come up with something better let's just use scheme for everything
+Oct 15 21:48:16 <wasamasa>	lol
+Oct 15 21:48:17 <aidalgol>	johnjay: eh?
+Oct 15 21:48:35 <johnjay>	after you said let's just use C until something better comes along
+Oct 15 21:48:37 <bpalmer>	PDP-6 was a 36-bit architecture, unlike the PDP-7's 18-bit. I wonder what role that would play.
+Oct 15 21:48:39 <mplsCorwin>	Let's make a new c-lang for today's computing environment.  We can call it 20cc.
+Oct 15 21:48:40 <johnjay>	let's take that logic to the next level
+Oct 15 21:49:02 <aidalgol>	oh
+Oct 15 21:49:30 <grym>	mplsCorwin: but, do you get stickers to hand out at cons? 
+Oct 15 21:49:31 <bpalmer>	mplsCorwin: C++20 has some nice things.
+Oct 15 21:49:42 <mplsCorwin>	grym: if you are very brave
+Oct 15 21:50:03 <grym>	mplsCorwin: https://imgur.com/cEzxFOC  it's very The Prime Thanatos ... 
+Oct 15 21:50:07 <mplsCorwin>	bpalmer: *reads*
+Oct 15 21:50:12 <CaffeineVaccine>	I've been stuck on this macro for 2 days... What I'm trying to do is create a macro that creates a data structure and creates an object of that datastructure right after: https://pastebin.com/AczGskm2
+Oct 15 21:50:53 <wasamasa>	macrostep is your friend
+Oct 15 21:51:08 <mplsCorwin>	I wonder if gensym could help here.
+Oct 15 21:51:11 <bpalmer>	mplsCorwin: https://en.cppreference.com/w/cpp/20 . For example, nowadays people writing C++ can safely assume integers are in 2's complement , instead of just blindly assuming integers are in 2's complement.
+Oct 15 21:51:19 <johnjay>	granted someone like wasamasa who actually does scheme on a regular basis probably has more insight
+Oct 15 21:51:25 <johnjay>	i'm just a SICP-level peon
+Oct 15 21:51:34 <mplsCorwin>	bpalmer: that looks better than the wikipedia article. Thanks!
+Oct 15 21:51:47 <wasamasa>	even if my preferred scheme had its pain points fixed I wouldn't use it for everything
+Oct 15 21:52:04 *	edgar-rft prefers megabuttkicks over macrosteps
+Oct 15 21:52:07 <mplsCorwin>	grym: "Fox Force Five"
+Oct 15 21:52:38 <wasamasa>	not in the browser (or other unfriendly environments), not for throwaway scripts, not in other people's projects
+Oct 15 21:52:50 <wasamasa>	like, say, emacs
+Oct 15 21:52:55 <johnjay>	what does unfriendly mean?
+Oct 15 21:53:01 <wasamasa>	hostile
+Oct 15 21:53:10 <johnjay>	oh like security? ok
+Oct 15 21:53:11 <wasamasa>	think of browsers implementing exactly one runtime
+Oct 15 21:53:32 <wasamasa>	or operating systems making support of anything but their blessed language hard (hello windows/mac/android)
+Oct 15 21:53:40 <bpalmer>	CaffeineVaccine: backquote the progn, not progn two backquotes
+Oct 15 21:54:10 <bpalmer>	CaffeineVaccine: I don't know about macrostep, but I would make heavy use of macroexpand
+Oct 15 21:54:45 <wasamasa>	macrostep is interactive macroexpand preview
+Oct 15 21:55:13 <bpalmer>	you'll see that your macro right now, when expanded, is just a defconst. the struct definition is discarded.
+Oct 15 21:56:03 *	bpalmer has long ago fallen into printf debugging, rather than debugger debugging.
+Oct 15 21:56:18 <wasamasa>	both have their use
+Oct 15 21:57:03 <CaffeineVaccine>	bpalmer: It was that simple.......
+Oct 15 21:57:30 <CaffeineVaccine>	bpalmer: Why in the world would it make a difference to backquote the progn instead of the two backquotes???????
+Oct 15 21:57:31 <fsbot>	Improbable!
+Oct 15 21:57:36 <CaffeineVaccine>	That is so unintuitive
+Oct 15 21:57:40 <wasamasa>	no, it's not
+Oct 15 21:57:46 <wasamasa>	the backquote part is the expansion
+Oct 15 21:57:55 <wasamasa>	the non-backquote part is compile-time code
+Oct 15 21:58:10 <CaffeineVaccine>	wasamasa: so I'm not understanding expansion correctly it seems??
+Oct 15 21:58:10 <fsbot>	Ask yourself, do you really want to know?
+Oct 15 21:58:16 <wasamasa>	your macro code has to return the generated code
+Oct 15 21:58:31 <wasamasa>	(progn `(foo) `(bar)) returns `(bar)
+Oct 15 21:58:41 <wasamasa>	`(progn (foo) (bar)) doesn't
+Oct 15 21:58:44 <bpalmer>	CaffeineVaccine: macros are run at macroexpansion/time.  Whatever they return will be evaluated at run-time.
+Oct 15 21:58:57 <bpalmer>	macroexpansion/compile time.
+Oct 15 22:00:46 <bpalmer>	When you write a macro, you want to come up with a fancy shortcut to transform source code into run-time code; this means, as another step in writing a macro, just write all the complicated parts as a function
+Oct 15 22:01:05 <bpalmer>	that way you can easily see what the return value is , and whether it returns code you can evaluate and does the job.
+Oct 15 22:01:28 <bpalmer>	Then do just enough patching to turn it into a macro (e.g., adding quotes & backquotes , changing defun to defmacro)
+Oct 15 22:01:44 <terpri>	laertus, all fair points, and it's encouraging to hear that there's still interest from the rank-and-file after such a long hibernation
+Oct 15 22:01:51 <bpalmer>	It's not the only way to do things, but it's the best way I've found to avoid bugs.
+Oct 15 22:02:25 <terpri>	and, i just checked with my main client and will only have part-time time commitments for the next several months
+Oct 15 22:02:31 <laertus>	terpri: there'll be more interest if people get wind of guile emacs possibly coming back to life
+Oct 15 22:02:47 <CaffeineVaccine>	bpalmer: wasamasa: thanks but still not fully comprehending why backquoting just the progn makes the macro work
+Oct 15 22:02:58 <terpri>	i've never been very good at marketing, but that's a skill that can be learned (and that others can potentially help with)
+Oct 15 22:03:12 <wasamasa>	CaffeineVaccine: perhaps you need to understand evaluation first
+Oct 15 22:03:27 <CaffeineVaccine>	wasamasa: that's probably true
+Oct 15 22:03:48 <johnjay>	wasamasa: i noticed your front page is just plain html. you don't use any web frameworks except for the emacs blogs?
+Oct 15 22:03:57 <wasamasa>	http://gigamonkeys.com/book/macros-defining-your-own.html explains macros with a fun story
+Oct 15 22:04:05 <terpri>	so, i think i'm going to give it a go, and damn the torpedoes! the worst possible outcomes are inadequate funding or inadequate progress, which is no worse than the status quo
+Oct 15 22:04:38 <wasamasa>	johnjay: no frameworks worth using with scheme
+Oct 15 22:04:41 <wasamasa>	johnjay: if any at all
+Oct 15 22:05:07 <wasamasa>	johnjay: the closest thing is called "awful" and it does live up that name indeed, found my first bug in five minutes
+Oct 15 22:05:20 <laertus>	terpri: i encourage you to take a look at the successful crowdfunding campaigns... the ones i know of and paid attention to are those of magit, and andrew plotkin (beloved test-adventure, interactive fiction author).. those made their kickstarter goals pretty quickly.. i'm not sure if guile emacs will have quite that kind of success in fundraising, but you might be surprised at how many people will commit
+Oct 15 22:05:20 <johnjay>	hah
+Oct 15 22:05:22 <laertus>	money if someone who's shown proven results in a project they care about asks for help
+Oct 15 22:05:57 <johnjay>	laertus: how long do you have to work on it to prove you care about it though
+Oct 15 22:06:00 <johnjay>	5 year plan?
+Oct 15 22:06:43 <laertus>	i don't think people are looking for proof of caring about it
+Oct 15 22:07:14 <CaffeineVaccine>	Thanks guys
+Oct 15 22:07:18 <sam_>	as someone who would chip in
+Oct 15 22:07:27 <laertus>	just proof you've done well at something they care about and therefore be likely of achieving more if properly funded
+Oct 15 22:07:35 <sam_>	just provide status updates when you can, be realistic about what you can achieve, and give links/proof that you can do the job
+Oct 15 22:07:42 <sam_>	yep
+Oct 15 22:08:02 <sam_>	terpri: please share the link if it happens (I hope it does)
+Oct 15 22:08:14 <grym>	the only kickstarter i've backed was Thimbleweed Park 
+Oct 15 22:08:23 <grym>	which i would look to as an example of how to do it right 

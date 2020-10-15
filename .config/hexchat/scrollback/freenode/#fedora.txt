@@ -1,8 +1,3 @@
-T 1562946159 20*	Disconnected (20Remote host closed socket)
-T 1562946205 20*	Disconnected (20Remote host closed socket)
-T 1562946253 20*	Disconnected (20Remote host closed socket)
-T 1562946303 20*	Disconnected (20Remote host closed socket)
-T 1562946353 20*	Disconnected (20Remote host closed socket)
 T 1562946362 18<22Southern_Gentlem18>	*** F30-20190708 updated lives available: https://tinyurl.com/Live-respins2  Built by the Fedora Respin Sig more info #fedora-respins  ***
 T 1562946401 20*	Disconnected (20Remote host closed socket)
 T 1562946465 20*	Disconnected (20Remote host closed socket)
@@ -5002,3 +4997,45 @@ T 1587737494 22*	Topic for 22#fedora is: #Fedora F30, F31, F32 Beta end user
 T 1587737494 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Mar 17 14:11:59 2020)
 T 1587737494 -18ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
 T 1587737509 20*	Disconnected (20)
+T 1602784599 19*	Now talking on 22#fedora
+T 1602784599 22*	Topic for 22#fedora is: #Fedora F31, F32, F33 Beta end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/f31commonbugs https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F32 Live isos: https://tinyurl.com/Live-respins ||
+T 1602784599 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Sep 29 15:18:38 2020)
+T 1602784599 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1602784869 18<20The_Letter_M18>	Any podman power users here?
+T 1602785097 18<20cmurf18>	might try in #podman
+T 1602785773 18<20The_Letter_M18>	Yeah. I asked my Q about using mariadb in a pod on Podman. They told me try asking in #maria and over there I got no response
+T 1602785846 18<20The_Letter_M18>	The other response I got in #podman sounded like they don't know how to utilize pods
+T 1602785898 18<26Khaytsus18>	Anything that works for docker should work in podman
+T 1602785923 18<26Khaytsus18>	I wish there was a solid compose replacement, but just for runnong containers.. no biggie
+T 1602786367 18<20The_Letter_M18>	Khaytsus Docker doesn't do pods
+T 1602786392 18*	26Khaytsus blinks
+T 1602786759 18<20The_Letter_M18>	Ok. After looking it up, I am wrong; Docker does do pods.
+T 1602786763 18<20The_Letter_M18>	Lol
+T 1602786783 18<20The_Letter_M18>	I thought Pods were something that came from K8s
+T 1602786836 18<26Khaytsus18>	I'm not quite sure what it has to do with what I said anyway
+T 1602787390 18<20The_Letter_M18>	Khaytsus so I'm trying to deploy them inside a pod together. Being inside a pod they should beable to talk to each other using the pods internal network. I haven't seen any Docker compose files deploy a pod or container inside a pod.
+T 1602787482 18<20The_Letter_M18>	Khaytsus: Ok so I should explain. I made a pod called "wordpress" and then I deployed a wordpress and mariadb container inside it. I used the options from the docker hub pages for both images, but the Wordpress site is saying it's having trouble connecting to the DB.
+T 1602788086 18<28fedbot18>	*** F32-20201001 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1602789141 18<20The_Letter_M18>	Khaytsus: Sorry if I came off as rude. I never really got into Docker much and now I'm learning containers with Podman and it's ust been kinda frustrating today.
+T 1602789167 18<26Khaytsus18>	It should be drop in, again, except for yml composes.
+T 1602791689 18<28fedbot18>	*** F32-20201001 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1602794360 18<19hyperreal18>	what are the recommended mount options for btrfs on fedora?
+T 1602794460 18<20cmurf18>	hyperreal: defaults
+T 1602794499 18<20cmurf18>	the rest are use case specific so you should be familiar with what they do
+T 1602794599 18<28memoryleak18>	The_Letter_M: I understand your frustration, went through the same. What are the services running in your pod, only MariaDB?
+T 1602794631 18<20cmurf18>	the one mount option that is recommended but not default due to detection limitations is: desktop usage on a hard drive (spinning) without significant database operations is to add 'autodefrag'
+T 1602794721 18<20cmurf18>	unforunately detection of whether media is really rotating or not from sysfs is not reliable
+T 1602794731 18<19hyperreal18>	cmurf: I see. I've heard people recommending 'ssd,noatime,space_cache,commit=120,compress=zstd'
+T 1602794743 18<19hyperreal18>	I use an SSD
+T 1602794748 18<19hyperreal18>	and nvme
+T 1602794756 18<20cmurf18>	ssd mount option is autodetected reliably
+T 1602794846 18<20cmurf18>	noatime is a tradeoff: less metadata writes due to atime updates once per day (for relatime, the default); but then things like cleaning up /var/tmp/ have to fallback to mtime (I think it's mtime)
+T 1602794867 18<20cmurf18>	so some things get cleaned up more aggressively because mtime isn't updated on access
+T 1602794890 18<20cmurf18>	so those files might be used, and atime updates would show that, but with noatime it looks like they aren't so they get thrown out
+T 1602794909 18<20cmurf18>	space_cache is default already
+T 1602794917 18<20cmurf18>	commit=30 is the default, not sure why you want 120
+T 1602794956 18<20cmurf18>	compression is safe but you'll have to evaluate it for your use case; helps some and slows down others
+T 1602794978 18<20cmurf18>	you can also lightening the level of compression so it takes less of a cpu hit with 'compress=zstd:1'
+T 1602795087 18<20cmurf18>	s/lightening/lighten/
+T 1602795112 18<19hyperreal18>	cmurf: okay, thank you
+T 1602795289 18<28fedbot18>	*** F32-20201001 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
