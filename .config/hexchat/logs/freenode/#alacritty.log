@@ -4044,3 +4044,327 @@ Oct 15 21:17:54 <UndeadLeech>	You just end up constantly dealing with a CoW when
 Oct 15 21:18:05 <UndeadLeech>	Such a massive waste of time.
 Oct 15 21:18:27 <UndeadLeech>	And the benefit basically doesn't exist at all.
 Oct 15 21:18:52 <nixpulvis>	I just don't know what about a cow page is differant from a cow?
+Oct 16 00:58:52 *	Disconnected ()
+**** ENDING LOGGING AT Fri Oct 16 00:58:52 2020
+
+**** BEGIN LOGGING AT Fri Oct 16 01:02:08 2020
+
+Oct 16 01:02:08 *	Now talking on #alacritty
+Oct 16 01:02:08 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.5.0 - https://github.com/alacritty/alacritty/releases/latest
+Oct 16 01:02:08 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sat Aug  1 00:45:32 2020)
+Oct 16 08:34:34 *	Disconnected ()
+**** ENDING LOGGING AT Fri Oct 16 08:34:34 2020
+
+**** BEGIN LOGGING AT Fri Oct 16 08:35:00 2020
+
+Oct 16 08:35:00 *	Now talking on #alacritty
+Oct 16 08:35:00 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.5.0 - https://github.com/alacritty/alacritty/releases/latest
+Oct 16 08:35:00 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sat Aug  1 00:45:32 2020)
+Oct 16 13:09:59 <Skaface82>	hey
+Oct 16 13:11:13 <kchibisov>	Hello.
+Oct 16 13:11:24 <Skaface82>	I have an interesting situation.. it seems that durng a several hour long rsync, alacritty overheated and blew up my video card
+Oct 16 13:11:49 <kchibisov>	what kind of video card is that?
+Oct 16 13:11:59 <kchibisov>	nvidia?
+Oct 16 13:12:12 <Skaface82>	a geforce 720 i think it was
+Oct 16 13:12:17 <kchibisov>	We don't draw unless something is happening, and our GPU usage is very low even under a full load.
+Oct 16 13:12:33 <kchibisov>	Like 2-3%.
+Oct 16 13:12:37 <Skaface82>	im only assuming that is what happened
+Oct 16 13:13:01 <kchibisov>	Well, you'd have better luck with software that can profile GPU usage.
+Oct 16 13:13:33 <kchibisov>	If you know that alacritty uses 100% of GPU, then it's likely our fault, but you can't say that, since your display server is using your GPU as well.
+Oct 16 13:14:26 <Skaface82>	oh yeah, sorry im not trying to blame anyone, I just thought it was worth mentioning in case it has happened to anyone else :)
+Oct 16 13:14:35 <kchibisov>	I doubt it was.
+Oct 16 13:15:05 <kchibisov>	But anyway, if OpenGL application can crash your entire system there's something wrong with the systeme already.
+Oct 16 13:15:11 <kchibisov>	I
+Oct 16 13:15:15 <kchibisov>	I mean in a way you say that.
+Oct 16 13:18:09 <Skaface82>	it was probably just a coincidence
+Oct 16 19:39:46 *	Disconnected ()
+**** ENDING LOGGING AT Fri Oct 16 19:39:46 2020
+
+**** BEGIN LOGGING AT Fri Oct 16 19:40:15 2020
+
+Oct 16 19:40:15 *	Now talking on #alacritty
+Oct 16 19:40:15 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.5.0 - https://github.com/alacritty/alacritty/releases/latest
+Oct 16 19:40:15 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sat Aug  1 00:45:32 2020)
+Oct 16 20:01:09 <kchibisov>	damn, I lost.
+Oct 16 20:02:14 <UndeadLeech>	lol
+Oct 16 20:02:57 <kchibisov>	But I was slow, since I was checking for matches! macro.
+Oct 16 20:03:11 <UndeadLeech>	It took me a bit too, since I had to check PartialEq is implemented!
+Oct 16 20:03:28 <kchibisov>	I mean you can use matches macro here.
+Oct 16 20:03:34 <UndeadLeech>	But you don't want to.
+Oct 16 20:03:34 <kchibisov>	I've cross checked it.
+Oct 16 20:03:38 <kchibisov>	I wonder why>
+Oct 16 20:03:40 <UndeadLeech>	PartialEq > matches!.
+Oct 16 20:03:51 <kchibisov>	Ah.
+Oct 16 20:03:53 <kchibisov>	Ok.
+Oct 16 20:03:54 <UndeadLeech>	But you can use matches! in scenario where you cannot use PartialEq.
+Oct 16 20:05:48 <kchibisov>	I just looked at the link to fedora packing crossfont, and it feels like they have very slow process of bringing rust...
+Oct 16 20:05:52 <kchibisov>	I guess they ship it like python.
+Oct 16 20:06:29 <UndeadLeech>	What do you mean by very slow? They have to package every single crate then link dynamically, right?
+Oct 16 20:06:43 <kchibisov>	I'm not sure that they link it dynamically.
+Oct 16 20:07:07 <UndeadLeech>	I'm just wondering why they even bother, when they need to have one version of a crate.
+Oct 16 20:07:12 <kchibisov>	I'm just saying that packaging all our dependencies is like ~200 packages.
+Oct 16 20:07:19 <UndeadLeech>	Because when you get to Alacritty, you'll never get zero duplicates.
+Oct 16 20:07:29 <kchibisov>	UndeadLeech: we have only one :- )
+Oct 16 20:07:46 <UndeadLeech>	One what?
+Oct 16 20:07:49 <kchibisov>	One duplicate.
+Oct 16 20:07:54 <UndeadLeech>	What?
+Oct 16 20:08:02 <kchibisov>	cargo tree -d
+Oct 16 20:08:28 <UndeadLeech>	The new lockfile makes this so difficult.
+Oct 16 20:08:51 <kchibisov>	I guess that's why you have 'cargo tree' now :P
+Oct 16 20:08:54 <UndeadLeech>	How did the mio duplicates get resolved?
+Oct 16 20:09:05 <kchibisov>	We don't use 0.7 anywhere.
+Oct 16 20:09:20 <nixpulvis>	oh cargo tree is backed in now?
+Oct 16 20:09:21 <UndeadLeech>	I thought someone else was though.
+Oct 16 20:09:26 <nixpulvis>	baked* even
+Oct 16 20:09:38 <kchibisov>	UndeadLeech: I'm not sure.
+Oct 16 20:10:01 <kchibisov>	And it seems like the project that uses num-traits 1.x.x just not updating it.
+Oct 16 20:10:06 <kchibisov>	even though it's active.
+Oct 16 20:10:31 <UndeadLeech>	line_drawing you mean?
+Oct 16 20:10:37 <kchibisov>	Yeah.
+Oct 16 20:10:49 <kchibisov>	It's not that active, but last commit 15 Aug.
+Oct 16 20:10:53 <kchibisov>	I'd assume that it's not entirely dead.
+Oct 16 20:10:58 <UndeadLeech>	That should be trivial to update, let me check.
+Oct 16 20:11:27 <UndeadLeech>	I kinda don't believe that we only have one duplicate though.
+Oct 16 20:11:34 <kchibisov>	run cargo tree.
+Oct 16 20:11:40 <UndeadLeech>	I have. I still don't.
+Oct 16 20:12:02 <kchibisov>	I mean I was trying my best to bring things up to date.
+Oct 16 20:12:25 <kchibisov>	Like wayland rework removed like ~20 duplicates.
+Oct 16 20:12:33 <kchibisov>	maybe more.
+Oct 16 20:13:12 <UndeadLeech>	Yeah but the last time I checked we had a couple of duplicate dependencies that were basically unfixable.
+Oct 16 20:13:17 <UndeadLeech>	Completely unrelated to alacritty.
+Oct 16 20:13:38 <UndeadLeech>	Let's see how it goes I guess: https://github.com/expenses/line_drawing/pull/17
+Oct 16 20:13:41 <UndeadLeech>	Seems to be non-breaking.
+Oct 16 20:14:01 <kchibisov>	You've checked that it doesn't break crate?
+Oct 16 20:14:11 <UndeadLeech>	I ran `cargo test`.
+Oct 16 20:14:15 <kchibisov>	fair enough.
+Oct 16 20:16:20 <UndeadLeech>	Maybe someone downgraded their mio or something...
+Oct 16 20:16:36 <kchibisov>	we can look at history for mio.
+Oct 16 20:16:49 <UndeadLeech>	What do you mean by that?
+Oct 16 20:16:57 <kchibisov>	I mean in Cargo.lock.
+Oct 16 20:17:29 <UndeadLeech>	If we actually manage to remove all duplicates for 0.6.0, that would really impress me.
+Oct 16 20:17:45 <UndeadLeech>	I genuinely did not believe that to be possible.
+Oct 16 20:18:10 <kchibisov>	We never had mio 0.7 as part of Cargo.lock.
+Oct 16 20:18:18 <nixpulvis>	that'd be really nice.
+Oct 16 20:18:22 <UndeadLeech>	Huh, maybe I'm mixing things up in my head.
+Oct 16 20:18:29 <kchibisov>	we had 2 nix versions.
+Oct 16 20:18:38 <kchibisov>	For a very long time.
+Oct 16 20:19:31 <UndeadLeech>	I don't remember that being too much of an issue though.
+Oct 16 20:19:43 <UndeadLeech>	Like the biggest problem with duplicates was always that one of them couldn't be upgraded for some strange reason.
+Oct 16 20:21:22 <UndeadLeech>	Hmm, seems like `cargo tree` only lists for the current platform?
+Oct 16 20:26:01 <kchibisov>	I guess, but I don't care about duplicates on anything other than Linux/BSD.
+Oct 16 20:26:46 <UndeadLeech>	Yeah, fair enough.
+Oct 16 20:27:56 <UndeadLeech>	You don't expect any changes to #6 PR of crossfont for 0.6.0 either, right?
+Oct 16 20:28:02 <UndeadLeech>	Because I'd actually cut a new version now I think.
+Oct 16 20:28:10 <kchibisov>	I guess.
+Oct 16 20:28:58 <UndeadLeech>	There have been a few changes like the BGR fix, the FreeType minimum version fix and the dependency bump. So it makes sense to release a new patch version.
+Oct 16 20:29:18 <kchibisov>	I mean, I don't mind.
+Oct 16 20:29:39 <UndeadLeech>	Let me just make sure Alacritty really builds against it without any errors, just to make sure. :P
+Oct 16 20:43:16 <kchibisov>	I think we'll be able to do rc relatively soon.
+Oct 16 20:43:34 <UndeadLeech>	My non_copy_cells PR is getting into shape. But I need to do a ton of cleanup still.
+Oct 16 20:43:42 <UndeadLeech>	But I kinda want to finish it up this weekend.
+Oct 16 21:11:38 <nixpulvis>	did we want to get my little macOS PR into 0.6?
+Oct 16 21:11:48 <kchibisov>	if you finish it, then sure.
+Oct 16 21:12:20 <nixpulvis>	I'm starting to lose faith in the upstream crate's PR ever getting merged, as expected I guess....
+Oct 16 21:12:35 <nixpulvis>	but I *still* really hate the idea of writing all these damn structs.
+Oct 16 21:12:39 <UndeadLeech>	Which macOS PR?
+Oct 16 21:12:42 <kchibisov>	I mean just bindgen it and put in alacritty.
+Oct 16 21:12:49 <kchibisov>	no need to send anything upstream.
+Oct 16 21:12:51 <nixpulvis>	keeping the CWD on new instance.
+Oct 16 21:12:54 <UndeadLeech>	Ah, that one.
+Oct 16 21:13:13 <nixpulvis>	oh you'd'll be ok with bindgen inside alacritty?
+Oct 16 21:13:20 <nixpulvis>	that would make me very happy.
+Oct 16 21:13:22 <UndeadLeech>	I'd expect a RC no earlier than next weekend probably.
+Oct 16 21:13:26 <UndeadLeech>	Where weekend means like thursday.
+Oct 16 21:13:41 <nixpulvis>	cool
+Oct 16 21:13:54 <kchibisov>	nixpulvis: no, you run bindgen, you put a file inside alacritty.
+Oct 16 21:14:02 <nixpulvis>	:(
+Oct 16 21:14:05 <nixpulvis>	why?
+Oct 16 21:14:11 <kchibisov>	And remove crap from it.
+Oct 16 21:14:22 <nixpulvis>	I can tell bindgen in build.rs to filter.
+Oct 16 21:14:23 <UndeadLeech>	I really don't feel like it's gonna generate so much stuff that it would be easier to run bindgen inside of Alacritty.
+Oct 16 21:14:32 <UndeadLeech>	And it will never change.
+Oct 16 21:14:50 <kchibisov>	UndeadLeech: I mean we can remove stuff from bindgen.
+Oct 16 21:14:53 <UndeadLeech>	Generally I'd just like to avoid "write only" files as much as possible.
+Oct 16 21:15:12 <nixpulvis>	it's a compile artifact.
+Oct 16 21:15:22 <UndeadLeech>	It doesn't have to be.
+Oct 16 21:15:37 <nixpulvis>	I don't like committing generated files.
+Oct 16 21:15:50 <UndeadLeech>	Exactly. Which is why it should be post processed and cleaned up.
+Oct 16 21:16:07 <UndeadLeech>	I think the point kchibisov is making is that you can just generate the initial file with bindgen and then work based on that.
+Oct 16 21:16:08 <nixpulvis>	what are the practical concerns? that our builds depend on macOS to make a macOS binary?
+Oct 16 21:16:15 <kchibisov>	UndeadLeech: yes.
+Oct 16 21:16:28 <kchibisov>	You run bindgen and remove things from it unless it compiles.
+Oct 16 21:16:43 <nixpulvis>	I can generate a minimal artifact from bindgen directly tho.
+Oct 16 21:16:47 <UndeadLeech>	nixpulvis: Bindgen is complexity I'd usually like to avoid.
+Oct 16 21:17:12 <UndeadLeech>	Having a module that is "normal" Rust code without any code generation makes things easier to understand.
+Oct 16 21:17:23 <nixpulvis>	but now we own the structures it creates in our codebase.
+Oct 16 21:17:27 <UndeadLeech>	So unless that module is like thousands of lines, I think it's easier to manually write them and make them nice.
+Oct 16 21:17:42 <nixpulvis>	I'd rather depend on a well known tool like bindgen, than take on a bunch of it's structs.
+Oct 16 21:17:43 <kchibisov>	nixpulvis: it doesn't matter you use it anyway.
+Oct 16 21:18:05 <UndeadLeech>	Yeah, one way or another you use that fixed API.
+Oct 16 21:18:24 <nixpulvis>	sure, but that's the interface.
+Oct 16 21:18:46 <kchibisov>	I really don't want to run bindgen in build.rs
+Oct 16 21:19:07 <UndeadLeech>	nixpulvis: What's the interface?
+Oct 16 21:19:08 <kchibisov>	The thing is that the result is so simple that putting it directly in alacritty makes sense.
+Oct 16 21:19:16 <UndeadLeech>	You have to define the interface one way or another.
+Oct 16 21:19:21 <UndeadLeech>	Yeah.
+Oct 16 21:19:39 <nixpulvis>	I still don't see what the problem is, but I guess it's not going to cause serious issues either way.
+Oct 16 21:20:37 <UndeadLeech>	It's simply about "magic generate some stuff" vs "we define the API here as normal Rust code".
+Oct 16 21:20:41 <kchibisov>	The problem is that you bring huge build time dependency for no reason.
+Oct 16 21:20:58 <UndeadLeech>	That too. Build time code generation should be avoided as much as possible imho.
+Oct 16 21:21:13 <UndeadLeech>	It's a trade-off of course.
+Oct 16 21:21:14 <kchibisov>	Certain stuff implies code generation though (e.g. wayland), which is not the case here.
+Oct 16 21:21:38 <nixpulvis>	"Build time code generation" lol what? that's what a compiler is!
+Oct 16 21:21:41 <nixpulvis>	what about macros?
+Oct 16 21:21:42 <UndeadLeech>	Yeah, you gotta find a balance. I'm not defining the entire OpenGL API in our own crate as interface. That doesn't make much sense.
+Oct 16 21:21:56 <UndeadLeech>	nixpulvis: I don't like macros either.
+Oct 16 21:22:05 <nixpulvis>	your crazy
+Oct 16 21:22:11 <nixpulvis>	anyway...
+Oct 16 21:22:18 <UndeadLeech>	Which is why if possible, I will suggest to avoid them to reduce the complexity.
+Oct 16 21:22:32 <UndeadLeech>	That again, is a trade-off.
+Oct 16 21:22:39 <kchibisov>	Yeah, fuck macros.
+Oct 16 21:22:40 <nixpulvis>	should I move `locale.rs` into my new macos.rs module too? I feel like I could make this all grouped together easily.
+Oct 16 21:22:52 <kchibisov>	They just increase build time.
+Oct 16 21:22:54 <UndeadLeech>	It's a useful tool that can be very powerful and get a lot of work done in a little time. But it can also make things significantly harder to understand.
+Oct 16 21:23:12 <nixpulvis>	if you care so much about build time, stop writing Rust, and just write asm.
+Oct 16 21:23:20 <UndeadLeech>	I don't expect anyone to be able to understand our keyboard mapping macros, but with how many keybindings there are to define, that's the most readable option.
+Oct 16 21:23:35 <kchibisov>	nixpulvis: but rust without macros compiles pretty fast.
+Oct 16 21:23:45 <nixpulvis>	not really.
+Oct 16 21:23:53 <UndeadLeech>	Yes really.
+Oct 16 21:23:54 <UndeadLeech>	Seriously.
+Oct 16 21:24:21 <kchibisov>	Have you tried building rust that doesn't overly use
+Oct 16 21:24:23 <nixpulvis>	I was hoping one day our default keybindsings could be described in the same way as in the config file itself, to make it easier for users to copy and modify.
+Oct 16 21:24:23 <UndeadLeech>	Most of the heavy hitters when it comes to compile times are macro stuff. Especially the procedural ones like serde.
+Oct 16 21:24:26 <kchibisov>	macros stuff, etc.
+Oct 16 21:25:00 <UndeadLeech>	nixpulvis: Yeah, you could change things to use a custom file format, maybe CSV-y or just our config itself. But that might increase complexity a bit.
+Oct 16 21:25:04 <nixpulvis>	I guess I haven't played with compile times in a while, my memory is fuzzy.
+Oct 16 21:25:48 <nixpulvis>	still my point stands, you can't beat the build speed of already built.
+Oct 16 21:25:55 <UndeadLeech>	Macros are very significant when it comes to compile-times. I don't think it makes sense to avoid tiny macros to save on compilation usually, but it's certainly true that big procedural macros (especially derives) generate a TON of code.
+Oct 16 21:26:03 <nixpulvis>	shit, just layout the ELF yourself,.
+Oct 16 21:26:15 <UndeadLeech>	But I wouldn't argue that compile time is a big issue here, not for me at least.
+Oct 16 21:26:27 <kchibisov>	UndeadLeech: hide your 24 cores.
+Oct 16 21:26:28 <UndeadLeech>	I care much more about the complexity of things, debugging etc.
+Oct 16 21:26:31 <UndeadLeech>	:)
+Oct 16 21:26:48 <nixpulvis>	I care a lot about reproducability.
+Oct 16 21:27:08 <nixpulvis>	so I'd probably want to at least document *how* I generated the module, no?
+Oct 16 21:27:23 <UndeadLeech>	It doesn't really matter, since writing it by hand is perfectly fine too.
+Oct 16 21:27:30 <UndeadLeech>	Like for your usecase, it would be trivial to write by hand.
+Oct 16 21:27:51 <nixpulvis>	but it's not really ideal. The code is defined by the system's headers.
+Oct 16 21:28:10 <UndeadLeech>	So? That's what I'd be looking at when defining the interface.
+Oct 16 21:28:24 <UndeadLeech>	If a computer program does that for you or you do it by hand doesn't really matter as long as it builds.
+Oct 16 21:29:00 <nixpulvis>	OK, I can't wait to see that I got two fields out of order, and the whole thing randomly crashes.
+Oct 16 21:29:26 <kchibisov>	You can even use that computer program to generate that file and edit it by hand.
+Oct 16 21:29:53 *	nixpulvis smashes `dd` `p` on *accident*.
+Oct 16 21:30:10 <UndeadLeech>	I mean it's up to you how you want to create it. I'd honestly write it by hand because I've never done that and I'd be curious how well that works out with something so trivial, but if you use bindgen that works fine too. All that matters in the end is the output.
+Oct 16 21:30:21 <kchibisov>	nixpulvis: you generate with bingen, then grab that result and edit it unless it compiles, I can do it myself.
+Oct 16 21:30:31 <UndeadLeech>	Since this isn't something that has to be repeated regularly and the output interface is all that matters, it doesn't really matter how you did it.
+Oct 16 21:30:45 <kchibisov>	I doubt system C api will ever change.
+Oct 16 21:30:45 <nixpulvis>	no need. I'm just confused why y'all hate bindgen so much.
+Oct 16 21:31:06 <kchibisov>	bindgen has one specific reason, to build firefox.
+Oct 16 21:31:14 <nixpulvis>	>.<
+Oct 16 21:31:15 <kchibisov>	Since they generate bridges on the fly.
+Oct 16 21:31:33 <kchibisov>	Because of complexity of firefox.
+Oct 16 21:31:49 <nixpulvis>	It saves a lot of people a lot of time.
+Oct 16 21:31:52 <kchibisov>	Like you can't manually do that for their multi million source code base.
+Oct 16 21:32:00 <kchibisov>	nixpulvis: yes, but not for 100 LoC file.
+Oct 16 21:32:10 <nixpulvis>	let's agree to disagree.
+Oct 16 21:32:20 <kchibisov>	I'd rather see what you've added in that file, rather than check how you've setup bindgen.
+Oct 16 21:32:49 <nixpulvis>	inspect the artifact in target :P
+Oct 16 21:33:08 <kchibisov>	I should grab them from our CI though.
+Oct 16 21:33:40 <nixpulvis>	yea, that's part of my issue here... this forces me to spend more time programming on my damn mac
+Oct 16 21:33:41 <kchibisov>	I can't inspect them, I'm on Linux, I don't have libproc.
+Oct 16 21:33:58 <nixpulvis>	I guess I'll just boot up it's sshd... but I'm still not happy about it.
+Oct 16 21:34:42 <kchibisov>	I mean if you don't want I can do that.
+Oct 16 21:34:54 <nixpulvis>	no worries
+Oct 16 21:35:06 <kchibisov>	Like we all happen to have macOS>
+Oct 16 21:35:29 <kchibisov>	And it's not like you can blindly impl that on Linux, you still have to at least run it and see how it goes.
+Oct 16 21:36:05 <nixpulvis>	there's a few bugs on macOS, but generally things work OK.
+Oct 16 21:36:18 <UndeadLeech>	I don't mind bindgen. It's a tool, it has its usecases. But I don't think this is one of them.
+Oct 16 21:36:43 <nixpulvis>	still way better than windows, despite windows trying a little bit these days.
+Oct 16 21:37:33 <UndeadLeech>	Also with how simple this should be, I think it makes far more sense to implement it first and then discuss it. I don't know how the result will look like either, I'm just guessing at that point. Once it's done, it's gonna be much more concrete.
+Oct 16 21:38:06 <kchibisov>	UndeadLeech: I've seen the C header, was like 100 LoC.
+Oct 16 21:38:20 <nixpulvis>	I mean, it's done already using bindgen :P but also a crate, which I completely agree at this point is worth avoiding.
+Oct 16 21:38:50 <UndeadLeech>	Yeah, that's what my estimation is based on. But it's still only an estimation. There's a reason for why I made this suggestion, but that of course doesn't mean that my surface level guess is 100% accurate.
+Oct 16 21:39:51 <UndeadLeech>	I said from the beginning that my primary concern is to avoid the crate. Using bindgen or not both are reasonable, I just think without it is going to give us better results.
+Oct 16 21:40:27 <UndeadLeech>	Also since you asked about locale.rs, I'd be fine with moving it to macos/locale.rs or whatever, but I don't think it would be smart to just make a generic "macos.rs". I feel like that would easily get out of hand.
+Oct 16 21:41:13 <nixpulvis>	agreed
+Oct 16 21:41:13 <kchibisov>	I'd like platform/macOS/locale.rs
+Oct 16 21:41:19 <nixpulvis>	can do
+Oct 16 21:41:28 <kchibisov>	And I'd move wayland_theme there as well.
+Oct 16 21:41:39 <nixpulvis>	oh yea, that was bothing me too.
+Oct 16 21:41:46 <nixpulvis>	bothering even*
+Oct 16 21:41:47 <kchibisov>	I mean into platform/nix/wayland.rs
+Oct 16 21:42:05 <kchibisov>	But I'm not sure tbqh.
+Oct 16 21:42:15 <nixpulvis>	So we all have macs? does that mean we can test #4133. I haven't touched this thing enough to really know how to control the GPUs.
+Oct 16 21:42:16 <kchibisov>	We may be fine with just macOS/locale.rs
+Oct 16 21:42:31 <kchibisov>	nixpulvis: we have macs, but it doesn't mean that we use macs.
+Oct 16 21:42:41 <nixpulvis>	I can give it a look today
+Oct 16 21:43:15 <nixpulvis>	the platform/ file is a winit convention, but we already just have tty/windows/ for example...
+Oct 16 21:43:18 <kchibisov>	I can't test 4133.
+Oct 16 21:43:23 <kchibisov>	I don't have dGPU.
+Oct 16 21:44:09 <kchibisov>	for UndeadLeech it's using dGPU with None.
+Oct 16 21:44:17 <kchibisov>	I mean Some(None)
+Oct 16 21:44:39 <kchibisov>	(or whatever it was when forcing integrated GPU)
+Oct 16 21:44:59 <nixpulvis>	So System Preferences has the checkbox for "Automatic graphics switching" but the "About This Mac" window tells me I have Intel Iris Pro...
+Oct 16 21:45:38 <kchibisov>	nixpulvis: do you have dGPU, right?
+Oct 16 21:45:40 <nixpulvis>	ok good, that's just the active one? how strange.
+Oct 16 21:46:00 <nixpulvis>	it does in fact appear to have a 750M
+Oct 16 21:46:31 <kchibisov>	nixpulvis: how are you testing it?
+Oct 16 21:46:41 <kchibisov>	I doubt any mac had dGPU with 750M.
+Oct 16 21:47:39 <kchibisov>	it's really more like if it's 13.3 inch -> iGPU, 15+ -> dGPU.
+Oct 16 21:47:45 <nixpulvis>	are you saying my sytem report is lying to me?
+Oct 16 21:48:00 <kchibisov>	I mean if it's some ancient mac, maybe.
+Oct 16 21:48:15 <nixpulvis>	"Late 2013"
+Oct 16 21:48:26 <kchibisov>	Maybe it has 1GB or something.
+Oct 16 21:48:36 <kchibisov>	But yeah, that could be true.
+Oct 16 21:48:39 <nixpulvis>	2GB
+Oct 16 21:54:35 <UndeadLeech>	#4133 is for Linux, not macOS.
+Oct 16 21:54:51 <UndeadLeech>	It doesn't work on macOS>
+Oct 16 21:55:28 <kchibisov>	yeah, and the only one who can test it on macOS is someone with bumble bee.
+Oct 16 21:55:42 <nixpulvis>	oh god
+Oct 16 21:55:49 <nixpulvis>	I could put arch on this damn thing.
+Oct 16 21:55:56 <kchibisov>	err, s/macOS/Linux/
+Oct 16 21:56:11 <kchibisov>	nixpulvis: don't you have thinkpad with nvidia?
+Oct 16 21:56:20 <nixpulvis>	nope
+Oct 16 21:56:39 <kchibisov>	I though that you had x1 carbon or something like that.
+Oct 16 21:56:43 <kchibisov>	thoght*
+Oct 16 21:56:55 <nixpulvis>	#4133 saying it's for macOS in the description unless I'm losing my mind.
+Oct 16 21:57:06 <nixpulvis>	I do have an x1 carbon.
+Oct 16 21:57:07 <kchibisov>	nixpulvis: I've told on that PR that it's for Linux.
+Oct 16 21:57:10 <UndeadLeech>	Because I confused myself.
+Oct 16 21:57:12 <UndeadLeech>	I was wrong.
+Oct 16 21:57:15 <kchibisov>	nixpulvis: well, it should have nvidia, right?
+Oct 16 21:57:20 <kchibisov>	or it's intel only somehow?
+Oct 16 21:57:29 <nixpulvis>	oh... I guess I can't trust the description.
+Oct 16 21:57:41 <nixpulvis>	it's a tiny little laptop.
+Oct 16 21:57:49 <nixpulvis>	very thin
+Oct 16 21:57:53 <kchibisov>	nixpulvis: it doesn't matter they should have dGPU.
+Oct 16 21:58:12 <nixpulvis>	I swear I've checked this in the past, but remind me.
+Oct 16 21:58:33 <kchibisov>	Oh, they don't have it...
+Oct 16 21:58:42 <nixpulvis>	lspci | grep VGA lists a single Intel device.
+Oct 16 21:58:57 <kchibisov>	I swear some of them has dGPU.
+Oct 16 21:59:19 <nixpulvis>	strange, vtebench runs in a fraction of the window on macos.
+Oct 16 21:59:30 <kchibisov>	new one?
+Oct 16 21:59:32 <UndeadLeech>	Hm?
+Oct 16 21:59:54 <nixpulvis>	like, it's not printing to the whole thing.
+Oct 16 22:00:45 <kchibisov>	Ah, it's x1 extreme with dGPUs.
+Oct 16 22:00:52 <nixpulvis>	dense grid for example uses only about 1/3 of the top. and the others seem to avoid the right 1/3 of the columns. Unicode takes up the full thing tho.
+Oct 16 22:03:04 <kchibisov>	Could you do 'tput cols'
+Oct 16 22:03:15 <kchibisov>	and 'tput lines'
+Oct 16 22:06:36 <nixpulvis>	yea damn, my mac with energy: Powersave still seems to be using the dGPU.
+Oct 16 22:07:33 <nixpulvis>	tput cols tells me 122 which is correct.
+Oct 16 22:08:05 <UndeadLeech>	Fyi iTerm also doesn't switch between iGPU/dGPU.
+Oct 16 22:08:09 <UndeadLeech>	I'm not sure it's possible.
+Oct 16 22:08:20 <nixpulvis>	>.<
+Oct 16 22:08:26 <nixpulvis>	useless fucking computers.
+Oct 16 22:08:39 <UndeadLeech>	You can edit the Info.plist, but that's hardly graphics switching.
+Oct 16 22:08:45 <UndeadLeech>	But on Linux this should work, if I could test it.
+Oct 16 22:10:39 <kchibisov>	I wonder if that GPU stuff should be in env variable.
+Oct 16 22:10:47 <UndeadLeech>	What do you mean?
+Oct 16 22:10:54 <kchibisov>	I mean, not in config.
+Oct 16 22:10:59 <UndeadLeech>	No.
+Oct 16 22:11:13 <kchibisov>	Like I don't feel like adding an option, that doen't really work into config.
+Oct 16 22:11:15 <UndeadLeech>	Nothing should be in the env.
+Oct 16 22:11:27 <UndeadLeech>	I mean it should work on Linux.
+Oct 16 22:11:34 <kchibisov>	'should'.
+Oct 16 22:11:46 <UndeadLeech>	I mean if it ever gets merged, it is because it does work on Linux.
+Oct 16 22:11:58 <UndeadLeech>	So that's a relatively safe assumption.

@@ -21001,3 +21001,678 @@ Oct 15 22:07:42 <sam_>	yep
 Oct 15 22:08:02 <sam_>	terpri: please share the link if it happens (I hope it does)
 Oct 15 22:08:14 <grym>	the only kickstarter i've backed was Thimbleweed Park 
 Oct 15 22:08:23 <grym>	which i would look to as an example of how to do it right 
+Oct 15 22:08:36 <grym>	but it's a hard row to hoe 
+Oct 15 22:10:03 <laertus>	there are other successful open source funding models too
+Oct 15 22:10:23 <laertus>	ardour, the profession open source audio editor is funded by donations
+Oct 15 22:10:43 <laertus>	iirc, its author lives from the proceeds.. and has been doing so for many, many years
+Oct 15 22:11:00 <johnjay>	wasamasa: that was quite a nice story
+Oct 15 22:11:32 <laertus>	it's a good book
+Oct 15 22:11:53 <wasamasa>	now for comparison, another lisp person story: http://www-formal.stanford.edu/jmc/robotandbaby/robotandbaby.html
+Oct 15 22:12:27 <terpri>	i'll probably use a liberapay/patreon-type thing to start out with, that seems lower-risk than a kickstarter
+Oct 15 22:12:50 <bpalmer>	did gittip shut down?
+Oct 15 22:13:23 <bpalmer>	yep, looks so.
+Oct 15 22:13:32 <terpri>	and it doesn't have to provide a minimal cost-of-living, just enough to supplement/supplant paying contracts on other projects
+Oct 15 22:14:09 <terpri>	(not that i'm aiming low, just considering the failure modes)
+Oct 15 22:14:39 <laertus>	terpri: even if you don't do a kickstarter, i think there could be a lot to be learned from successfull kickstarter campaigns, such as how to pitch your project, keep people updated of progress, etc..
+Oct 15 22:16:39 <laertus>	though i think the most important thing is a solid track record of delivering results
+Oct 15 22:17:09 <grym>	good and honest comms matter a _lot_
+Oct 15 22:17:30 <grym>	unfortunately, this is hard to do and a learned skill and being your own PM and marketing group is a giant pain 
+Oct 15 22:18:34 <laertus>	it doesn't have to be a whole marketing campaign as such... just maybe a brief video laying out who you are, what you've done, and what you want to do
+Oct 15 22:19:08 <grym>	ad copy is hard even at that level if you're not used to it 
+Oct 15 22:19:20 <grym>	(i like, detest writing _cover letters_ )
+Oct 15 22:19:29 <laertus>	he could get help from it
+Oct 15 22:19:45 <laertus>	i found that andy wingo post i linked to earlier pretty persusasive
+Oct 15 22:20:18 <laertus>	also, the audience here is mostly technical people.. so we're good with facts..
+Oct 15 22:20:52 <laertus>	and the straightforward approach would probably be more effective than snazzy marketingspeak
+Oct 15 22:22:29 <grym>	that's the 'honest' above :) 
+Oct 15 22:22:33 <grym>	if you're falling over, _tell me_
+Oct 15 22:22:47 <grym>	not like i've never been there before
+Oct 15 22:23:03 <sam_>	[22:18:11]  <grym> good and honest comms matter a _lot_
+Oct 15 22:23:04 <sam_>	yep
+Oct 15 22:23:16 <laertus>	and, sorry, i meant "they"
+Oct 15 22:23:27 <johnjay>	question for emacs gurus. is there a way of accomplishing keyboard-translate but only for a specific buffer?
+Oct 15 22:23:37 *	terpri taking notes
+Oct 15 22:23:49 <johnjay>	i suppose something like global-set-key a lot?
+Oct 15 22:23:58 <johnjay>	er local-set-key
+Oct 15 22:24:20 <johnjay>	local-set-key affects major modes apparently
+Oct 15 22:25:49 <grym>	terpri: it's like documentation. everyone wants to just code and document/communicate later, and it never works 
+Oct 15 22:25:51 <laertus>	terpri: magit kicskstarter:  https://www.kickstarter.com/projects/1681258897/its-magit-the-magical-git-client  and andrew plotkin on "How I raised $24,000 on Kickstarter" - https://money.cnn.com/2010/11/15/technology/kickstart_plotkin/index.htm
+Oct 15 22:26:02 <grym>	thimbleweed's: https://www.kickstarter.com/projects/thimbleweedpark/thimbleweed-park-a-new-classic-point-and-click-adv/posts 
+Oct 15 22:26:10 <grym>	(also, it's a good game!)
+Oct 15 22:26:35 <laertus>	though with the caveat that both magit and andrew plotkin's games were hugely beloved by the community before they even opened their mouth to ask for money
+Oct 15 22:26:53 <johnjay>	laertus: that's a very different case
+Oct 15 22:26:59 <grym>	right; similarly, thimbleweed was "hey remember monkey island? gang's back, y'all!"
+Oct 15 22:28:11 <grym>	so there was high community name recognition and assumption of good faith 
+Oct 15 22:28:35 <grym>	instead of "who the heck is this and why should i trust them to make a game, games are hard"
+Oct 15 22:28:51 <mplsCorwin>	I'd be happy to help with any kickstarter question, to the extent my scars are useful.  24k is *just* over what we raised.  https://www.kickstarter.com/projects/214684691/create-a-cats-laughing-twenty-year-reunion-event-a?ref=user_menu
+Oct 15 22:28:52 <rudybot>	https://teensy.info/y6SazMSOXE
+Oct 15 22:29:01 <grym>	(not implying that the funding under discussion right now falls into the latter case)
+Oct 15 22:31:05 <mplsCorwin>	FWIW, the best thing we learned is that having some swag to give away via drawings from people who share the campaign worked really well to help spread it around quicly.
+Oct 15 22:31:48 <johnjay>	mplsCorwin: so any successful kickstarter in coding has to start with cute anime girl art. makes sense
+Oct 15 22:31:53 <wasamasa>	lol
+Oct 15 22:32:01 <mplsCorwin>	proven science fact.
+Oct 15 22:32:24 <wasamasa>	you've reminded me that I've got a long way to go with my commissions
+Oct 15 22:32:56 <johnjay>	contribute $5 to help linux-tan and scheme-chan develop this new framework
+Oct 15 22:33:18 <johnjay>	the higher tiers get you higher badges and more clout within the community. this is gamification
+Oct 15 22:37:01 <wasamasa>	I still take advice from people for a proper emacs-tan
+Oct 15 22:37:09 <wasamasa>	and whatever else fancies your interest
+Oct 15 22:38:17 <johnjay>	that's a tough concept. because you already have concepts for linux and what not. so you'd have to differentiate somehow
+Oct 15 22:38:22 <terpri>	i know some good artists and a local screenprinting shop, so swag is doable
+Oct 15 22:38:42 <laertus>	terpri: and here's a non-kickstarter example... ardour:  https://community.ardour.org/community  "October goal US$8100 (US$97.2k/yr)" "Goal reached. Thanks so much!"  "Subscribers 4611 US$11112.00/month"
+Oct 15 22:38:52 <johnjay>	does swag mean prints or like keychains and such as well?
+Oct 15 22:40:24 <mplsCorwin>	swag == stuff we all get, usually t-shirts, posters, yea, keychains.
+Oct 15 22:40:26 <laertus>	but, again, ardour's been around for a long time, and a lot of people have been using it for a long time too.. including professionally, for whom donating to keep their tool working is a business expense
+Oct 15 22:40:27 <terpri>	maybe t-shirts and posters and mugs and the like, but i'm also imagining a pair of stuffed animals representing the guile baby gnu and the gnu-project gnu
+Oct 15 22:41:07 *	wasamasa has flashbacks to RMS on CCC live stream auctioning off a baby gnu plush
+Oct 15 22:41:15 <johnjay>	>gnu plush
+Oct 15 22:41:23 <mplsCorwin>	johnjay: the key thing is that SWAG is collectible but not unique.  Hard to get over time but not at the time.
+Oct 15 22:41:45 <wasamasa>	he made like 50€ off it IIRC
+Oct 15 22:41:46 *	mplsCorwin pulls string  "FREE ME"
+Oct 15 22:41:48 <johnjay>	mplsCorwin: so sort of like a "I was at woodstock" type thing?
+Oct 15 22:41:56 <terpri>	maybe usb sticks, a 3d-printable statue, signed reference manuals (i'm good at calligraphy and developed an interest in bookbinding from that...)
+Oct 15 22:41:57 <mplsCorwin>	johnjay: exactly
+Oct 15 22:42:07 <laertus>	RMS could probably have made a lot of money off gnu and fsf if he wanted to... and really start that church of emacs, or at least of Free Software
+Oct 15 22:42:09 <mplsCorwin>	terpri: sounds perfect
+Oct 15 22:42:39 <johnjay>	i'm not going to say all rich people are evil. because sometimes being rich can help a lot. I think maybe just billionaires are evil. millionaires are fine.
+Oct 15 22:42:43 <pjb>	laertus: perhaps he would have had more success, indeed.
+Oct 15 22:43:18 <pjb>	All the wanabee billionaires would love GPL!
+Oct 15 22:43:51 <laertus>	right.. maybe he could have sold rights to the GPL... :)
+Oct 15 22:44:16 <rpav>	the joke would be on them, of course .. it has only lefts
+Oct 15 22:45:09 <laertus>	left is the new right
+Oct 15 22:45:19 <terpri>	also maybe sponsored commits (in major/minor tiers, obviously a limited supply), a tier where you get a hyperlink from the donor page, that kind of thing
+Oct 15 22:45:38 <terpri>	copy the unicode consortium and sponsor-a-symbol ;)
+Oct 15 22:46:04 <laertus>	terpri: actually, i like the bug bounty idea.. or donate to get a feature implemented.. i think the latter is how the magit kickstarter got funded
+Oct 15 22:46:36 <laertus>	magit's authord had a list of features they promised to implement in a certain timeframe
+Oct 15 22:47:43 <laertus>	and pretty much everyone knew he could do it, because he was already so prolific and already made magit the gold standard in vcs interfaces
+Oct 15 22:48:13 <laertus>	but i don't think you necessarily have to be magit to get some funding
+Oct 15 22:48:37 <mplsCorwin>	A friend is a professional kickstarter organizer and gave us some tips for ours.  One really helpful one was to be very circumspect in planning your stretch goals.  He always lays them all out at the start of the campaign, which I think helps with gamification, "help us unlock".  In some cases they have "mystery" stretch-goals but still they layout the plan to start.
+Oct 15 22:49:25 <terpri>	i think i'm okay on the credentials front with my firefox contributions (i was the primary implementor of bignums in FF), plus the technically-successful GSoCs
+Oct 15 22:49:49 <mplsCorwin>	Seems legit
+Oct 15 22:50:28 <terpri>	yeah, i was thinking of more of a "cathedral" approach rather than just laying out all the long-term stretch goals on day 1
+Oct 15 22:51:48 <terpri>	("cathedral" might be the wrong metaphor, but i've done some hacking on the long-term super-secret stretch goals already, just not publicly)
+Oct 15 22:52:06 <mplsCorwin>	I think that makes sense in terms of "letting the community drive"; just passing on the "professional advice" as making a living running passion projects (my friend) is something of an accomplishment.  
+Oct 15 22:52:55 <mplsCorwin>	Here's his company: https://www.zombieorpheus.com/
+Oct 15 22:56:06 <laertus>	another thing that i think is on your side is that a lot of people involved in emacs and gnu and guile are kind of idealistic, and want to see their favorite open source project succeed, instead of going with some commerical product instead
+Oct 15 22:56:40 <laertus>	and tech people in general tend to be able to afford to help make that happen
+Oct 15 22:56:52 <laertus>	it's just that so often they're not even asked
+Oct 15 22:58:55 <laertus>	if they can see that there's a real person behind this project they care so much about, and that here's what they need to make it to the next level, many are willing to help
+Oct 15 22:59:46 <laertus>	this, i think, is what the magit kickstarter did so well.. here was this guy who had done such great work for the community, was struggling, and needed help to make magit so much better.. people responded to that
+Oct 15 23:00:16 <pottag>	wasamasa: nice new article
+Oct 15 23:00:46 <wasamasa>	thanks
+Oct 15 23:01:08 <buhman>	where's wasamasa's article?
+Oct 15 23:02:53 <aidalgol>	on the darkweb
+Oct 15 23:03:22 <wasamasa>	lol
+Oct 15 23:03:36 <wasamasa>	that would be the ultimate proof of my web stuff not requiring JS
+Oct 15 23:03:55 <wasamasa>	buhman: https://emacsninja.com/posts/worst-reverse-shell-ever.html
+Oct 15 23:05:09 <aidalgol>	not necessarily.  some of the dumbest criminals get caught because they enable JS and even flash while on tor
+Oct 15 23:06:23 <oats>	Omg buhman
+Oct 15 23:06:26 <buhman>	what is this sorcery? I can scroll on wasamasa's website without burning 5 CPU cores at 100% utilization. True wizardy.
+Oct 15 23:06:33 <oats>	there's a nick I haven't seen in a long time
+Oct 15 23:06:52 <wasamasa>	inorite
+Oct 15 23:07:37 <wasamasa>	I still dream of a world where I can just view my content in peace with no cookie notices, paywall nudging or other nonsense
+Oct 15 23:08:05 <bremner>	donate to my kickstarter to make that happen
+Oct 15 23:08:06 <bpalmer>	C-x C-f my-content.txt RET . 
+Oct 15 23:08:14 <mplsCorwin>	wasamasa: are you thinking of golpher?
+Oct 15 23:08:18 <bpalmer>	Now, when it's other people's content that you're reading...
+Oct 15 23:08:25 <technomancy>	lol TIL apt has package-specific workaround hacks in the dependency resolution logic
+Oct 15 23:08:33 <wasamasa>	I mean other people's content, sorry
+Oct 15 23:08:58 <oats>	technomancy, I would be entirely unsurprised to learn apt is made of hacks
+Oct 15 23:09:04 <wasamasa>	today I went on a well-known webcomic and it gave me a cookie notice with like a hundred advertiser consents I'd have to click away manually
+Oct 15 23:09:57 <wasamasa>	its author is making at least 11k$ on patreon
+Oct 15 23:10:05 <wasamasa>	why on earth is this nonsense necessary
+Oct 15 23:10:29 <wasamasa>	I wish this were some bad dream, but nope
+Oct 15 23:11:55 <technomancy>	oats: my theory is that the only reason apt works as well as it does is that it's built on enormous piles of labor
+Oct 15 23:12:30 <johnjay>	And in an age of endless spam, the Sage of the Six Browsing Technologies came forth to save the world and vanquish the tracking.
+Oct 15 23:12:55 <johnjay>	technomancy: the nix idea is to make everything reproducible, that's better isn't it?
+Oct 15 23:13:09 <aidalgol>	wasamasa: Before Patreon's cut and income tax.
+Oct 15 23:13:19 <aidalgol>	Is that annually or per month?
+Oct 15 23:13:35 <wasamasa>	monthly
+Oct 15 23:13:43 <aidalgol>	OK, that's pretty high.
+Oct 15 23:13:56 <aidalgol>	This isn't SMBC or xkcd, is it?
+Oct 15 23:13:59 <wasamasa>	nope
+Oct 15 23:14:19 <wasamasa>	but really, it doesn't matter, far from the only webcomic doing that
+Oct 15 23:14:26 <technomancy>	johnjay: yeah the idea is that a build is a function of its inputs instead of just "lol run a shell script I guess and think very hard about it first"
+Oct 15 23:14:26 <wasamasa>	I've noticed the same pattern with a few more
+Oct 15 23:14:26 <aidalgol>	just wondering
+Oct 15 23:14:56 <johnjay>	laertus: bug bounties and feature req would have to be a big thing
+Oct 15 23:15:11 <wasamasa>	and it makes me wonder whether I should rather use my mad h4xx0r sk1llz to instead free the few sites I care about from that bullshit
+Oct 15 23:15:12 <aidalgol>	technomancy: To be fair, apt is pretty old.  I don't really expect a distribution to rewrite their package manager in FP instead of improving a known quantity.
+Oct 15 23:15:13 <johnjay>	i recall donating one time to a browser extension with a request for a minor feature, got told lol no but thanks for $$$
+Oct 15 23:15:54 <aidalgol>	I don't think I want to live in a world where OSS features go to the highest bidder.
+Oct 15 23:16:27 <johnjay>	i guess not. but i mean it was a small thing imo. on an hourly basis 5 or 10 bucks would mean it would be profitable to do it in 1 hour
+Oct 15 23:16:41 <wasamasa>	anyway, I'm sure someone caring enough will find out because I ranted about this webcomic before, though for a different reason
+Oct 15 23:16:47 <johnjay>	aidalgol: what about multiple bidders crowdsourcing the next tier?
+Oct 15 23:17:13 <technomancy>	aidalgol: no, it's not reasonable to expect them to rewrite it
+Oct 15 23:17:37 <aidalgol>	technomancy: BTW, nix and guix need to flesh out their documentation a bit.
+Oct 15 23:17:45 <technomancy>	aidalgol: it's more that the whole mindset of "run a shell script to install" can't be expected to work at the scale of debian without enormous mountains of manual labor
+Oct 15 23:18:38 <aidalgol>	technomancy: Maintaining a distribution is going to be an enormous mountain of manual labor, and I don't see using FP magically diminishing that.
+Oct 15 23:18:44 <laertus>	aidalgol: would you rather live in a world where the software you care about got the features and bugfixes you wanted maybe, if its author cared about them and had spare time from actually making a living?
+Oct 15 23:19:02 <technomancy>	aidalgol: it depends on the cost of your mistakes
+Oct 15 23:19:25 <laertus>	people getting paid for open source work is kind of close to a utopia for me... only thing better is for no one to need money to survive in the first place
+Oct 15 23:19:37 <aidalgol>	laertus: I'd rather live in a world where we didn't have to worry about money.
+Oct 15 23:19:39 <technomancy>	aidalgol: under apt, mistakes are immensely costly, which forces you to move much more slowly. if you have guaranteed rollback, mistakes tend to be very cheap.
+Oct 15 23:19:59 <aidalgol>	technomancy: True.  I shouldn't have to rely on the root filesystem to be able to easily roll back.
+Oct 15 23:19:59 <laertus>	aidalgol: me too.. but the world doesn't seem to be headed in that direction any time soon
+Oct 15 23:20:16 <technomancy>	"never make a single mistake" takes an enormous amount of work. "sometimes make mistakes, and then roll them back trivially" can be done a lot more easily.
+Oct 15 23:20:17 <hodapp>	nix (and nixpkgs, and nixos) docs are sometimes great, and sometimes they're just fucking horrid
+Oct 15 23:20:32 <aidalgol>	what hodapp siad
+Oct 15 23:20:44 <aidalgol>	hodapp: Hey, you haven't been getting offby1 to throw his dentures at you lately
+Oct 15 23:20:45 <hodapp>	there's a lot of cargo culting I see in nixpkgs because there is just no other way to get an answer on the "right" way to do something
+Oct 15 23:21:00 <hodapp>	so you grep around in nixpkgs and find a way that at least works, and copy it
+Oct 15 23:21:02 <aidalgol>	laertus: But yeah, in the mean time, crowd sourced OSS would be better than what we have now: begging for corporations
+Oct 15 23:21:02 <technomancy>	I'm not saying guix is great; just that they at least have a shot at accomplishing a lot more with a lot less, because their underlying model is superior.
+Oct 15 23:21:36 <aidalgol>	laertus: Let's just temper our enthusiasm so we don't lower our standards.
+Oct 15 23:21:38 <hodapp>	so I love NixOS, but this is a thing I hate about all of it
+Oct 15 23:22:24 <hodapp>	the thing I just ran into is "JACK and PulseAudio can't play nice together and no one has any up-to-date answer on the proper way to solve it, so here is a pile of hacks that might work"
+Oct 15 23:22:37 <technomancy>	that's not specific to nixos
+Oct 15 23:22:48 <johnjay>	i forgot guix and nix are different
+Oct 15 23:23:07 <johnjay>	so guix is the gnu nix ok
+Oct 15 23:23:13 <hodapp>	it's a problem that happens elsewhere, but there seem to be NixOS pecularities to it
+Oct 15 23:23:30 <johnjay>	but there's no guix linux, guix is just a program/system?
+Oct 15 23:23:36 <hodapp>	GuixSD
+Oct 15 23:23:59 <johnjay>	hrm. that seems weird to me. do you need a different distro for this?
+Oct 15 23:24:07 <hodapp>	GuixSD *is* the distro
+Oct 15 23:24:23 <johnjay>	also wait. linux-libre???
+Oct 15 23:24:23 <fsbot>	It is certain!
+Oct 15 23:24:28 <johnjay>	https://en.wikipedia.org/wiki/Linux-libre
+Oct 15 23:25:56 <hodapp>	my other annoyance is how much the Nix language seems to lend itself to errors that occur 18 levels deep in the stack trace
+Oct 15 23:25:59 <grym>	wasamasa: re emacs-tan, what are the restrictions on that image you've shared here a few times
+Oct 15 23:26:00 <hodapp>	because I got a type wrong or something
+Oct 15 23:26:12 <hodapp>	because no one bloody documented it and I was just taking my best gues
+Oct 15 23:26:13 <wasamasa>	grym: not sure what you're talking about
+Oct 15 23:26:44 <grym>	wasamasa: http://x32.be/oc/emacs/rye-emacs-bg.png  or it might've been another regular? 
+Oct 15 23:26:48 <wasamasa>	grym: I commissioned an artist and named a few things that ended up being too vague and too specific at the same time
+Oct 15 23:27:31 <wasamasa>	grym: oh wait, are you telling me I own that picture now and can actually try to enforce rights of its usage?
+Oct 15 23:28:00 <grym>	wasamasa: no i am asking about its provenance
+Oct 15 23:28:10 <grym>	or not provenance, rights
+Oct 15 23:28:12 <wasamasa>	I just told you
+Oct 15 23:28:47 <mplsCorwin>	"Should I pay someone $5 or something if wanna reblog?"  is maybe the question?
+Oct 15 23:28:54 <grym>	^ that's closer, yeah 
+Oct 15 23:28:58 <grym>	sorry if that was vague
+Oct 15 23:29:37 <wasamasa>	ah, so you want to actually reproduce that one?
+Oct 15 23:30:03 <grym>	or just like, feel good about having a copy on my hard drive 
+Oct 15 23:31:00 <wasamasa>	I don't see the harm with that
+Oct 15 23:31:38 <wasamasa>	I've never asked the artist about how licensing plays into this and as long as nobody is reselling that picture or otherwise profiting off it, I don't care
+Oct 15 23:32:00 <wasamasa>	but I don't want to put it explicitly under such a license without having cleared that with the artist, so uh
+Oct 15 23:32:28 <grym>	no smearing it over the blog background 1998 style, got it 
+Oct 15 23:32:50 <wasamasa>	yeah, no "You made this? I made this."
+Oct 15 23:33:34 <terpri>	wasamasa, thanks for updating the emacsninja post. i'm going to poke around and see what's causing the pessimization (parts of guile-elisp are written without any consideration given to optimization, since atm emacs eventually clobbers most of the definitions in practice, but it shouldn't be *that* bad)
+Oct 15 23:37:59 <terpri>	and yes, the primitives are extremely limited, only what was needed to bootstrap emacs $n$ years ago (i'll fix print though; i forgot that it should add newlines on both sides, though given my nick you'd expect me to know the lisp i/o functions by heart ;))
+Oct 15 23:38:26 <wasamasa>	haha
+Oct 15 23:41:02 <laertus>	guile emacs lives!
+Oct 16 00:10:57 <aidalgol>	,sedate laertus 
+Oct 16 00:10:57 *	fsbot clubs laertus on the head. laertus sleeps soundly.
+Oct 16 00:11:30 <laertus>	,botsmack
+Oct 16 00:11:31 *	fsbot evades!
+Oct 16 00:22:37 <johnjay>	ok i'm probably going insane but
+Oct 16 00:22:56 <johnjay>	when i assign fancy-splash-image to the literal image emacs uses for the splash screen, splash.png, it fails to work
+Oct 16 00:23:06 <johnjay>	when i dont' do that it does work. this is 26.3
+Oct 16 00:24:30 <johnjay>	on debian this is "/usr/share/emacs/26.3/etc/images/splash.png"
+Oct 16 00:25:13 <laertus>	can you describe in more detail what happens when it fails to work?
+Oct 16 00:25:41 <terpri>	i saved the last bit of the backlog, so i'll ping those of who expressed interest once there when there is more news in a few weeks (after i'm less busy with $work; in the meantime i'll ruminate (gno pun intended) on the next $n$ Year Plan and try to estimate just how painful rebasing will be this time around). and thanks to everyone who offered advice and constructive critique
+Oct 16 00:25:56 <johnjay>	no. i just don't see the image appear. no error message in echo area
+Oct 16 00:27:16 <johnjay>	been driving me crazy for last 15 minutes, so i give up lol
+Oct 16 00:27:20 <laertus>	terpri: looking forward to it
+Oct 16 00:27:33 <johnjay>	i tried other pngs before this obviously, xpm as well. nothing
+Oct 16 00:27:36 <laertus>	johnjay: you could try an strace of emacs
+Oct 16 00:27:50 <johnjay>	hrm, meaning the library could be failing?
+Oct 16 00:28:02 <laertus>	meaning it might not be looking where you think it's looking
+Oct 16 00:28:09 <laertus>	if it's looking at all
+Oct 16 00:28:12 <johnjay>	oh right
+Oct 16 00:28:19 <laertus>	if it does try to look there, strace should show it
+Oct 16 00:28:54 <laertus>	this is kind of a low-level approach to troubleshooting this.. but i have no idea how emacs does its splash magic, so until someone has a better suggestion...
+Oct 16 00:29:18 <laertus>	another thing you could do is search for that variable name in the code
+Oct 16 00:29:25 <laertus>	see what touches it
+Oct 16 00:29:32 <johnjay>	i don't see the image file mentioned in strace at all
+Oct 16 00:29:42 <johnjay>	not name not png
+Oct 16 00:29:51 <johnjay>	it's in startup.el
+Oct 16 00:29:58 <johnjay>	just search for 'png and you see it
+Oct 16 00:30:02 <laertus>	regarding the strace, you might need to run it with a high numerical value of the -s option
+Oct 16 00:30:15 <laertus>	as by default strace does not show full strings
+Oct 16 00:31:13 <laertus>	if it doesn't show up in strace there, it's likely that emacs isn't even looking for the image for some reason
+Oct 16 00:31:25 <johnjay>	haha it's not loading a png file for the regular splash image either
+Oct 16 00:31:32 <terpri>	johnjay, you could use debug-on-entry whatever function is responsible for inserting the splash image (possibly fancy-startup-screen?)
+Oct 16 00:31:36 <johnjay>	wtf
+Oct 16 00:35:41 <jlf>	johnjay: maybe check ,,dv image-types
+Oct 16 00:35:43 <fsbot>	List of potentially supported image types.
+Oct 16 00:35:43 <fsbot>	Each element of the list is a symbol for an image type, like ‘jpeg’ or ‘png’.
+Oct 16 00:35:43 <fsbot>	To check whether it is really supported, use ‘image-type-available-p’.
+Oct 16 00:35:54 <johnjay>	i think use-fancy-splash-screens-p is always returning nil for some reason
+Oct 16 00:36:01 <johnjay>	yes that returns true for png
+Oct 16 00:38:11 <johnjay>	surely this isnt' a big
+Oct 16 00:38:36 <johnjay>	what happens if you set fancy-splash-image to an absolute path of a png file?
+Oct 16 00:38:46 <johnjay>	in init.el i mean.
+Oct 16 00:38:50 <terpri>	johnjay, or, maybe more simply, jump to the definition of whatever actually inserts the splash image, edebug with C-u C-M-x, kill the "*GNU Emacs*" buffer and then M-: (display-startup-screen) so you can step through the code
+Oct 16 00:39:01 <terpri>	s/simply/usefully/ :)
+Oct 16 00:39:21 <johnjay>	right that fails. but i suspect i'm just doing it wrong
+Oct 16 00:40:38 <buhman>	wasamasa: "Much like with the reverse shell" shouldn't that be "bind shell"?
+Oct 16 00:43:44 <johnjay>	so this line is failing because 9 is not bigger than 28
+Oct 16 00:43:47 <johnjay>	 (> frame-height (+ image-height 19))
+Oct 16 00:43:59 <johnjay>	but 9 should be bigger than 28
+Oct 16 00:45:05 <johnjay>	or wait no it's 24 > 28 that is failing
+Oct 16 00:46:07 <laertus>	so your frame is too small?
+Oct 16 00:48:13 <aidalgol>	Is there some way I can have `compile' cd to a specific directory in the current project before running the command?  Even running some external before a && in the command passed to `compile' that can do this would be fine.
+Oct 16 00:48:49 <aidalgol>	Are there any CLI tools for navigating "projects"?  As in with similar commands to projectile.
+Oct 16 00:48:53 <aidalgol>	But outside Emacs.
+Oct 16 00:48:55 <johnjay>	ok i think i got it. when i shrink the image down to 100x100 it does display
+Oct 16 00:49:07 <johnjay>	it's checking if the frame height is bigger than the image height plus 19 or something weird
+Oct 16 00:49:14 <aidalgol>	Oh wait, there's a projectile compile command...
+Oct 16 00:49:24 <johnjay>	i guess my frame is indeed too small
+Oct 16 00:49:47 <johnjay>	although the fact it fails on also the emacs logo png file itself makes me think this is still a bug of some kind
+Oct 16 00:50:11 <aidalgol>	Some of the docstrings are a bit lacking.
+Oct 16 00:50:36 <aidalgol>	`projectile-compilation-dir': Retrieve the compilation directory for this project.
+Oct 16 00:50:43 <aidalgol>	Yes, thanks, *how*?  How do I configure that?
+Oct 16 00:50:54 <aidalgol>	(Rhetorical question.  I'm reading the source now.)
+Oct 16 00:51:50 <johnjay>	maybe it's because my display is 1024x768 or something
+Oct 16 00:52:09 <johnjay>	i'm not setting frame height or width in my init.el
+Oct 16 00:58:52 *	Disconnected ()
+**** ENDING LOGGING AT Fri Oct 16 00:58:52 2020
+
+**** BEGIN LOGGING AT Fri Oct 16 01:02:09 2020
+
+Oct 16 01:02:09 *	Now talking on #emacs
+Oct 16 01:02:09 *	Topic for #emacs is: Gul Dukat says upgrade to 27.1: https://i.imgflip.com/4hpvlw.jpg | Emacs questions take priority over off-topic chatter, so ask! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+Oct 16 01:02:09 *	Topic for #emacs set by wgreenhouse!wgreenhous@fsf/member/wgreenhouse (Thu Oct  8 00:50:34 2020)
+Oct 16 01:02:09 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Oct 16 01:11:23 <grym>	aidalgol: direnv.net, maybe.  but "having compile cd to a directory" sounds like a makefile target to me 
+Oct 16 08:34:34 *	Disconnected ()
+**** ENDING LOGGING AT Fri Oct 16 08:34:34 2020
+
+**** BEGIN LOGGING AT Fri Oct 16 08:35:00 2020
+
+Oct 16 08:35:00 *	Now talking on #emacs
+Oct 16 08:35:00 *	Topic for #emacs is: Gul Dukat says upgrade to 27.1: https://i.imgflip.com/4hpvlw.jpg | Emacs questions take priority over off-topic chatter, so ask! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+Oct 16 08:35:00 *	Topic for #emacs set by wgreenhouse!wgreenhous@fsf/member/wgreenhouse (Thu Oct  8 00:50:34 2020)
+Oct 16 08:35:00 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Oct 16 08:39:12 <bpalmer>	Let's stack the odds in how the world ends.
+Oct 16 08:42:04 <mplsCorwin>	kudahtor228: I'm giving up, at least for now.  I was able to install tidy but I get some "I'm giving up, at least for now.  I was able to install tidy" which replaces the buffer contents when I run tidy-buffer.   I might try more later but this package may be ded pending more heroic efforts.
+Oct 16 08:42:33 <mplsCorwin>	c/p fail.  The error is   The system cannot find the path specified.
+Oct 16 08:44:58 <bpalmer>	Hmm. 
+Oct 16 09:29:51 <thomasb06>	Hello. When I type M-x diff-mode, my buffer loses coloration and nothing else happens. It takes to revert it to recover the coloration
+Oct 16 09:36:36 <twb>	Is there an open source engine for X-Wing vs. TIE Fighter series?
+Oct 16 09:36:51 <twb>	It came out in the 1990s so you'd think there'd be one by now
+Oct 16 09:38:16 <bpalmer>	thomasb06: what are you trying to do?
+Oct 16 09:39:17 <thomasb06>	bpalmer to diff the file in the buffer with another one
+Oct 16 09:40:38 <thomasb06>	maybe it's M-x diff only?
+Oct 16 09:41:51 <bpalmer>	M-x diff RET  will ask you for two files to diff; see also diff-buffers  and diff-buffer-with-file
+Oct 16 09:42:42 <bpalmer>	there's also ediff-file and ediff-buffers , if you prefer ediff to diff
+Oct 16 09:43:10 <thomasb06>	bpalmer perfect, thank you
+Oct 16 09:48:19 <wasamasa>	buhman: thanks, fixed
+Oct 16 09:50:30 <wasamasa>	johnjay: I still have hopes of emulating CP/M or another simplicistic OS
+Oct 16 09:50:48 <wasamasa>	aidalgol: not sure what you mean, but feel free to give me a run-down
+Oct 16 09:51:06 <wasamasa>	thblt: lol, the newest RMS mail on him hoping MELPA isn't well-known
+Oct 16 09:51:27 <thomasb06>	ediff leaves the highlighting in the buffer after closing one of the two buffer compared
+Oct 16 09:53:22 <wasamasa>	thblt: and yes, I did point that exchange thing out, see https://lists.gnu.org/archive/html/emacs-devel/2020-05/msg03041.html
+Oct 16 09:56:42 <bpalmer>	It does somewhat amuse me that one of the easiest ways to gather evidence about whether a minority of emacs users know about melpa seems to be precluded from asking about it, in rms's mind.
+Oct 16 09:57:10 <mplsCorwin>	"It's a secret to everyone!"
+Oct 16 09:57:10 <wasamasa>	https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg00944.html
+Oct 16 09:57:36 <wasamasa>	it's funny because he gets reinforcement to this theory on emacs-devel a few posts later
+Oct 16 09:57:38 <bpalmer>	Yes, precisely the message I was thinking of.
+Oct 16 09:57:46 <wasamasa>	https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg00956.html
+Oct 16 09:57:51 <mplsCorwin>	I quoted it sometime back.
+Oct 16 09:58:15 <wasamasa>	and then thblt: https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg00961.html
+Oct 16 09:58:52 <mplsCorwin>	which is correct afict
+Oct 16 10:00:05 <bpalmer>	'AFAIK, both Trisquel and Parabola keep out packages that recommend or encourage proprietary software, which seems essential to protect users' freedom' -- in order to save the village, one must destroy it.
+Oct 16 10:01:50 <mplsCorwin>	The secret to freedom is limiting the field so the remaining choices are aways free.  I'm actually a little dizzy trying to make a non-cynical spin for it.
+Oct 16 10:07:12 <wasamasa>	lol, RMS enabling an emacs DoS: https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg00968.html
+Oct 16 10:07:23 <wasamasa>	he had good intentions, I swear
+Oct 16 10:08:11 <wasamasa>	good to see people don't only get chewed out for mentioning the possibility of changing a default
+Oct 16 10:12:43 <codingquark>	May be some people want to live the restrictive FLOSS life, some do not. No need to say the other is wrong
+Oct 16 10:13:56 <thblt>	It's not even that.  Melpa isn't more or less “free” than ELPA, it just isn't vetted by the FSF.
+Oct 16 10:14:07 <codingquark>	"I want to distro that forbids me from installing the software that does not align with my ideology" is equally okay as "I want a distro that comes with the software that does align with my ideology, but sometimes I cheat"
+Oct 16 10:14:32 <thblt>	The thing that makes mailing lists unsufferable is that points need to be made again and again, because they keep getting ignored.
+Oct 16 10:14:46 <codingquark>	Now, as a distro maker, one has to decide which path they want to take.
+Oct 16 10:15:24 <codingquark>	Hmm, one would think mailing lists are great because people take a lot of time in writing their long messages /s
+Oct 16 10:16:56 <thblt>	https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg00881.html [On forking Melpa as non-gnu ELPA] “Rather, we would need to each package to decide whether to import it, and whether and
+Oct 16 10:16:56 <thblt>	how change it.”
+Oct 16 10:18:05 <bpalmer>	well, there's an issue with threaded discussion where messages are read and replied to asynchronously. This is arguably one argument for gmail-like "conversation" threads; you known precisely what messages someone is supposed to be aware of by where they are in the conversation (and what they quoted in their invariable top-posting)
+Oct 16 10:25:47 <laertus>	i've been surfing through the emacs stackexchange recently, and am kind of getting the impression that drew adams almost singlehandedly answers all the questions on there
+Oct 16 10:26:18 <laertus>	virtually every answer i find on there is by drew
+Oct 16 10:26:19 <mplsCorwin>	I see Lars sometimes too.
+Oct 16 10:27:55 <bpalmer>	Let's collect all the points to keep the area child-safe.
+Oct 16 10:37:25 <laertus>	speaking of children... i wonder what the record for the youngest emacs user is
+Oct 16 10:39:01 <laertus>	probably pretty young these days... lucky kids...
+Oct 16 10:40:02 <laertus>	one day i'm going to hear "i've been using emacs since i was 2 years old.."
+Oct 16 10:41:51 <aidalgol>	I started in high school...
+Oct 16 10:42:56 <DuClare>	and ended in low school..
+Oct 16 10:45:47 <laertus>	kids will be getting in to fights over vim vs emacs on the playground
+Oct 16 10:46:13 <laertus>	and growing up in families where everybody uses emacs..
+Oct 16 10:46:57 <laertus>	starting in high school is pretty good
+Oct 16 10:47:09 <thblt>	Two editors, both alike in dignity, in the kindergarten where we lay our scene.
+Oct 16 10:47:54 <snan>	I was 18 or 19 when I started using emacs T_T probably pretty common age for that
+Oct 16 10:48:27 <thblt>	Wow I was looking for Act I scene 1 to continue my stupidity and I found this annotated version https://myshakespeare.com/romeo-and-juliet/act-1-scene-1
+Oct 16 10:48:42 <thblt>	It's even better than parallel texts.
+Oct 16 10:48:49 <thblt>	Where do I put my money?
+Oct 16 10:51:05 <twb>	OK so I have a science question
+Oct 16 10:51:12 <twb>	you know how fruits are basically plant genitals
+Oct 16 10:51:26 <twb>	and they trick animals into eating the fruit because then they walk around and shit out the seed somewhere
+Oct 16 10:51:30 <twb>	SO.
+Oct 16 10:51:37 <twb>	Mangos are quite big, and the seed is quite big
+Oct 16 10:51:50 <twb>	Are there animals big enough to eat a whole mango and shit out the seed?
+Oct 16 10:52:00 <twb>	The only thing I can think of that big is a hippo or an elephant
+Oct 16 10:52:14 <aidalgol>	How does this work with bananas?
+Oct 16 10:52:27 <twb>	aidalgol: same
+Oct 16 10:52:31 <twb>	banana seeds are also quite large
+Oct 16 10:52:50 <twb>	(if you only eat whitefella bananas, those are all sterile clones with no/broken seeds)
+Oct 16 10:58:29 <laertus>	maybe mango seeds were spread around in prehistoric times by dinosaurs
+Oct 16 11:01:54 <wawrek>	is there a way of creating a few emacs profiles? I need it to edit text files and to code. So, I would like to have 2 separate profiles with different init.el files
+Oct 16 11:07:23 <snan>	wawrek:  emacs -ql profileb.el
+Oct 16 11:08:06 <snan>	Emacs also has "modes" so you can use one mode (like text-mode) to write text files, and javascript-mode or whatever language you like to code
+Oct 16 11:08:22 <snan>	Instead of using separate init.el files
+Oct 16 11:08:31 <zmagii>	twb: Monkeys tend to walk around with mangos and then drop them somewhere, but also, not convinced that pre-domestication mangos are that large.
+Oct 16 11:08:41 <wawrek>	snan: I have modes - I enable all of them in the init.el file 
+Oct 16 11:09:19 <snan>	That's great. So when editing text just use text mode and when coding just use coding modes♥
+Oct 16 11:09:21 <snan>	Worx great♥
+Oct 16 11:09:29 <wawrek>	I have python mode that loads when I open a py file; text mode loads when I open a txt file
+Oct 16 11:10:02 <wawrek>	lots of them need to be loaded for coding - that is why they are in init.el
+Oct 16 11:15:00 <laertus>	what is the problem you're trying to solve by having a separate profile for editing text vs code?
+Oct 16 11:15:52 <laertus>	wawrek: ^
+Oct 16 11:16:41 <bremner>	wawrek: the idiomatic solution is to autoload modes when you need them
+Oct 16 11:18:50 <twb>	zmagii: sensible
+Oct 16 11:19:01 <twb>	zmagii: looking at cultivars I notied some next to SD cards
+Oct 16 11:21:34 <wasamasa>	laertus: I used to answer a lot more questions, but now most stuff does have answers when I get to it
+Oct 16 11:21:41 <wasamasa>	laertus: the only tag I can answer properly is evil
+Oct 16 11:21:50 <wasamasa>	laertus: that's where drew isn't entirely sure :D
+Oct 16 11:22:13 <laertus>	yeah, i've seen you on there a lot too
+Oct 16 11:22:33 <wasamasa>	I still low-key want to reach 20k and then leave the account alone
+Oct 16 11:23:50 <laertus>	one thing i've always been worried about is what if the company that owns stackexchange ever dies or decides not to host them anymore, or just screws it up somehow
+Oct 16 11:24:00 <laertus>	there's a lot of super useful information on there
+Oct 16 11:24:27 <laertus>	it'd be a tragedy if it was ever lost or made inaccessible
+Oct 16 11:27:07 <edgar-rft>	rudybot: let's sing an emacs gosp.el
+Oct 16 11:27:15 <rudybot>	edgar-rft: I was going to say I figured you'd be contractually obligated to sing praise for all of El Goog's creations. :P
+Oct 16 11:43:40 <zmagii>	My Python setup in Emacs breaks over to the following line at 80 chars, but the error check wants it at 79. So all of my indents say "E501 line too long 80 > 79".
+Oct 16 12:38:08 <thomasb06>	Hello. Ediff keeps the highlighting on after closing one of the two files, how to turn it off?
+Oct 16 13:15:31 <refusenick>	Anyone know if there's a reason why the pgtk nativecomp branch shouldn't work with EXWM?
+Oct 16 19:39:46 *	Disconnected ()
+**** ENDING LOGGING AT Fri Oct 16 19:39:46 2020
+
+**** BEGIN LOGGING AT Fri Oct 16 19:40:17 2020
+
+Oct 16 19:40:17 *	Now talking on #emacs
+Oct 16 19:40:17 *	Topic for #emacs is: Gul Dukat says upgrade to 27.1: https://i.imgflip.com/4hpvlw.jpg | Emacs questions take priority over off-topic chatter, so ask! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+Oct 16 19:40:17 *	Topic for #emacs set by wgreenhouse!wgreenhous@fsf/member/wgreenhouse (Thu Oct  8 00:50:34 2020)
+Oct 16 19:40:17 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Oct 16 19:41:18 <kudahtor228>	refusenick: what is pgtk?
+Oct 16 19:42:01 <kudahtor228>	#+NAME: app_main 
+Oct 16 19:42:01 <kudahtor228>	#+BEGIN_SRC :noweb yes :tangle ./src/app/app.component.html 
+Oct 16 19:42:01 <kudahtor228>	<div [class]="theme_main">
+Oct 16 19:42:01 <kudahtor228>	<<toolbar>>
+Oct 16 19:42:11 <kudahtor228>	what's wrong in it? it doesnt embed "toolbar"
+Oct 16 19:42:28 <kudahtor228>	just exports as-is
+Oct 16 19:44:49 <wasamasa>	lol, does savannah seriously have stored xss from project names
+Oct 16 19:44:50 <wasamasa>	seriously
+Oct 16 19:45:08 <wasamasa>	and this guy lectures us how awful github's security must be
+Oct 16 19:45:21 <wasamasa>	what a joke
+Oct 16 19:46:29 <wasamasa>	this makes me want to quote the old testament
+Oct 16 19:46:59 <grym>	on a scale of 0 to spicy, how hot do you want it 
+Oct 16 19:47:05 <sbilik>	Is there a good emacs package that can do something like what workspaces does in tiling window managers?? i.e. put erc buffers in one workspace, code in another, shells in another, etc. All easily swappable with a key combination?
+Oct 16 19:48:58 <kudahtor228>	sbilik: yes tabs have arrived in version 27
+Oct 16 19:49:02 <kudahtor228>	M-x tab-bar
+Oct 16 19:49:23 <kudahtor228>	also, there are frames. F10-> new frame
+Oct 16 19:49:46 <sbilik>	Yep, saw that. Are the tabs akin to buffers or frames?
+Oct 16 19:50:05 <kudahtor228>	frames but not sure
+Oct 16 19:50:32 <kudahtor228>	I also use ace-window to comfortably switch between buffers, and VTERM which doesnt require C-c
+Oct 16 19:50:53 <kudahtor228>	I think frames are there for multiple displays but not sure
+Oct 16 19:52:07 <sbilik>	Thanks. I tried the M-x tab-bar-mode and it seems to do okay keeping different frame setups. I'd thought of it as having individual buffers, not layouts. So... good to know. I've been on Emacs since v18 but hadn't played with this much since it is so new.
+Oct 16 20:00:06 <laertus>	i'm not a fan of the tab-bar
+Oct 16 20:00:17 <laertus>	you can't rearrange the tabs, afaik
+Oct 16 20:00:34 <johnjay>	what
+Oct 16 20:00:37 <wasamasa>	yeah and I'm not in the mood of adding any new functionality to eyebrowse either
+Oct 16 20:00:55 <laertus>	they don't auto-resize based on how many tabs there are and the lengths of their names
+Oct 16 20:01:06 <laertus>	eyebrowse is cool... i still use it
+Oct 16 20:01:13 <parsnip>	is tab-bar fixed in macos?
+Oct 16 20:01:22 <johnjay>	resize is bad. you want it so if you click X to close a tab the next tab X appears under the mouse cursor
+Oct 16 20:01:41 <laertus>	i don't click
+Oct 16 20:01:53 <laertus>	i use emacs in the terminal.. completely mouseless
+Oct 16 20:02:04 <johnjay>	What if I told you... you can use the mouse in the terminal?
+Oct 16 20:02:07 <parsnip>	can't mouse work in some terminal apps?
+Oct 16 20:02:23 <wasamasa>	anyway, should I bother reproducing this undoubtedly super serious vulnerability in savannah and report it properly
+Oct 16 20:02:25 <johnjay>	also Morpheus never said "What if I told you"
+Oct 16 20:02:40 <laertus>	johnjay: i have used the mouse before in the terminal.. i know some apps can recognize it, but i prefer not to.. the most i do with the mouse is select and paste outside of emacs
+Oct 16 20:02:45 <wasamasa>	or should I let it use the same security strategy as emacs and just hope it flies under the radar
+Oct 16 20:03:04 <laertus>	report it :P
+Oct 16 20:03:07 <parsnip>	wasamasa: tell us more 🍿
+Oct 16 20:03:12 <johnjay>	wasamasa: when they've felt enough pain they will change their behavior. this attitude is useful on many occassions
+Oct 16 20:03:43 <wasamasa>	the thing is, this feels too much like work
+Oct 16 20:04:21 <johnjay>	where would you submit the bug anyway? a mail list?
+Oct 16 20:04:26 <wasamasa>	great question
+Oct 16 20:04:41 <laertus>	email rms
+Oct 16 20:04:42 <wasamasa>	normally I'd have to play security theater and find a dedicated contact address
+Oct 16 20:04:52 <parsnip>	send one email to mailing list, and then don't ever respond
+Oct 16 20:04:58 <wasamasa>	but it's too late
+Oct 16 20:05:14 <wasamasa>	anyone who takes a look at their html knows it's screwed up beyond repair
+Oct 16 20:05:33 <wasamasa>	there is nothing to responsibly disclose
+Oct 16 20:06:09 <npostavs>	"stored xss from project names" - meaning you put javascript in the project name?
+Oct 16 20:06:12 <johnjay>	In computer security or elsewhere, responsible disclosure is a vulnerability disclosure model in which a vulnerability or an issue is disclosed only after a period of time that allows for the vulnerability or issue to be patched or mended. This period distinguishes the model from full disclosure
+Oct 16 20:06:43 <wasamasa>	npostavs: it appears that this is possible, yes
+Oct 16 20:06:59 <wasamasa>	npostavs: take a look at this gem: https://savannah.nongnu.org/projects/webxml
+Oct 16 20:07:13 <wasamasa>	npostavs: now take a look at the page source and see if you notice something
+Oct 16 20:08:52 <npostavs>	wasamasa: hah, based on http://savannah.gnu.org/maintenance/HowToGetYourProjectApprovedQuickly/ you need a human to approve your project name, so putting in any significant amount of javascript doesn't seem viable, but it's funny that they let that through...
+Oct 16 20:09:10 <wasamasa>	that is indeed funny
+Oct 16 20:09:19 <wasamasa>	anyway, I bet this is far from the only one
+Oct 16 20:10:37 <bandali>	wasamasa, please write to savannah-hackers-private@gnu.org
+Oct 16 20:11:04 <bandali>	and indeed, projects require manual on savannah
+Oct 16 20:11:15 <wasamasa>	no need, the stringent review will catch everything (or so someone particularly irritating on emacs-devel claims)
+Oct 16 20:11:15 <bandali>	s/manual/manual approval/
+Oct 16 20:11:45 <wasamasa>	I'll treat this as a false positive and give the project a more thorough look later
+Oct 16 20:11:50 <bandali>	i haven't been able to emacs-devel for a few weeks now so idk
+Oct 16 20:11:56 <bandali>	able to follow
+Oct 16 20:12:03 <bandali>	jesus fuck i can't think or write today
+Oct 16 20:12:17 <wasamasa>	worry not, I've got you: https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg01015.html
+Oct 16 20:12:57 <bandali>	oh it's jean louis
+Oct 16 20:14:03 <tromey>	meh
+Oct 16 20:15:59 <yates>	is there an elisp function or package which "urlifies" a string" so that e.g. "my string" gets converted to "my%20string"?
+Oct 16 20:16:30 <wasamasa>	several I bet
+Oct 16 20:16:40 <wasamasa>	I found such code in files.el, lol
+Oct 16 20:16:58 <yates>	actually my immediate problem is converting "c++" to "c%2B%2B"
+Oct 16 20:17:01 <wasamasa>	and browse-url.el
+Oct 16 20:17:23 <wasamasa>	and mailclient.el
+Oct 16 20:17:29 <yates>	browse-url does not 
+Oct 16 20:17:33 <wasamasa>	and gnus-util.el
+Oct 16 20:17:36 <yates>	(at least not by default)
+Oct 16 20:17:45 <npostavs>	url-hexify-string is an autoloaded compiled Lisp function in ‘url-util.el’.
+Oct 16 20:18:00 <wasamasa>	that's the one
+Oct 16 20:18:09 <wasamasa>	the rest should really be adapted to use that instead
+Oct 16 20:18:42 <yates>	+1
+Oct 16 20:18:49 <yates>	thanks people
+Oct 16 20:19:40 <wasamasa>	> So, next time somebody thinks of proprietary software, just remember, we are watching... slap on fingers.
+Oct 16 20:20:06 <wasamasa>	reminds me of Dave Chapelle
+Oct 16 20:20:40 <wasamasa>	rudybot: what did the proprietary thought police say to the fingers? slap!
+Oct 16 20:20:51 <rudybot>	wasamasa: > So, next time somebody thinks of proprietary software, just remember, we are watching... slap on fingers.
+Oct 16 20:24:59 <dale>	What does it mean when rudybot replies but puts a * next to your nick?  I think I've only seen this done for offby1, is that because offby1 has special rudybot privileges or something?
+Oct 16 20:27:21 <edgar-rft>	offby1 *is* rudybot :-)
+Oct 16 20:27:48 <edgar-rft>	...or at least its creator
+Oct 16 20:27:50 <dale>	He's very fast at coming up with these responses, then.
+Oct 16 20:27:55 <dale>	Seems like he should automate it.
+Oct 16 20:28:05 <dale>	Right, that's what I was referring to when I said "special privileges".
+Oct 16 20:28:43 <physikoi>	Hello #emacs. I'm trying to use emacs in tmux, but common tmux prefixes of C-a and C-b obviously conflict highly with emacs bindings. I can't seem to unbind C-a as prefix. Halp? https://www.dropbox.com/s/ody3sa2mwbmpzfo/Screen%20Shot%202020-10-16%20at%203.27.28%20PM.png?dl=0
+Oct 16 20:28:52 <dale>	I just found it odd that the bot should need to acknowledge this in every response.  I used to think it happened when the rudybot replied with something you  yourself previously said, but it didn't do it just now with wasamasa.
+Oct 16 20:29:26 <johnjay>	wasamasa: oh noes, emacs is not crisply organized into an STL like python
+Oct 16 20:29:35 <wasamasa>	STL?
+Oct 16 20:29:35 <fsbot>	STL: [0] Standard Template Library, originally the name of a non-ANSI library published by SGI, now most commonly used to refer to the templates in the standard C++ library
+Oct 16 20:29:36 <fsbot>	[1] Mostly an outdated term for "the C++ standard library" for when this library sucked and wasn't part of C++.
+Oct 16 20:29:36 <johnjay>	i guess this is why we do not speak of the ESL. or EML
+Oct 16 20:29:42 <parsnip>	yeah my logs have "rudybot\t\*"
+Oct 16 20:30:04 <johnjay>	haha it's an outdated term? damn
+Oct 16 20:30:05 <parsnip>	*yeah my logs have "\trudybot\t\*offby1: "
+Oct 16 20:30:23 <yates>	https://missing.csail.mit.edu/2019/files/editor-learning-curves.jpg
+Oct 16 20:30:26 <grym>	johnjay: "crisp" is a kind way to say it 
+Oct 16 20:30:28 <johnjay>	i think python is ,,PIL
+Oct 16 20:30:30 <fsbot>	[TMDM] True Editor's curse be upon the infidels!  Evil is that for which they have bartered away their souls.  To deny True Editor's own revelation, grudging that He should reveal His bounty to whom He chooses from among His servants!  They have incurred True Editor's most inexorable wrath.  An ignominious punishment awaits the unbelievers.
+Oct 16 20:30:46 <johnjay>	grym: i had a crisp apple for breakfast so maybe that's why
+Oct 16 20:31:21 <dale>	physikoi: This seems to be all I need to change the prefix: https://github.com/dsedivec/dotfiles/blob/master/common/.tmux.conf#L90-L91
+Oct 16 20:31:45 <dale>	physikoi: But I would try writing "C-\\" instead of C-'\'
+Oct 16 20:32:06 <physikoi>	dale i'll try out those things. brb
+Oct 16 20:32:08 <parsnip>	,\
+Oct 16 20:32:08 <fsbot>	(V7.88) GZ/0W/pt/F/xz/bX/Lp/P/k/l/lD q-(**) 4+++ i 4' l+ g5 A++++ VQ++
+Oct 16 20:32:20 <parsnip>	wat
+Oct 16 20:32:30 <edgar-rft>	dat!
+Oct 16 20:32:50 <parsnip>	it's pronounced date!
+Oct 16 20:33:15 <edgar-rft>	no, date is the answer to wate
+Oct 16 20:33:52 <parsnip>	consistently wrong
+Oct 16 20:34:09 <edgar-rft>	yes, like emacs
+Oct 16 20:34:35 <parsnip>	,off
+Oct 16 20:34:37 <fsbot>	[TMDM] Don't hit me!!  I'm in the Twilight Zone!!!
+Oct 16 20:35:42 <parsnip>	wow, found what i was looking for first try: "comic strip with clown alien"
+Oct 16 20:36:03 <parsnip>	sometimes fsbot reminds me of zippy the pinhead
+Oct 16 20:36:34 <physikoi>	dale: accent grave. nice choice. to fix the issue, turns out i needed `set -gu prefix2`. don't know what that is, but it worked :)
+Oct 16 20:37:49 <dale>	parsnip: Aren't some of fsbot's responses actual Zippy quotes?
+Oct 16 20:37:58 <parsnip>	oooohhhh
+Oct 16 20:38:12 <dale>	Via something like lisp/obsolete/yow.el perhaps.
+Oct 16 20:38:42 <jlf>	,yow
+Oct 16 20:38:43 <fsbot>	What GOOD is a CARDBOARD suitcase ANYWAY?
+Oct 16 20:38:53 <dale>	Or maybe there's just a quote database in there.
+Oct 16 20:39:13 <jlf>	,yow.lines
+Oct 16 20:39:21 <fsbot>	jlf: yow.lines are [0] http://cvs.savannah.gnu.org/viewvc/emacs/emacs/etc/yow.lines?hideattic=0&revision=1.10
+Oct 16 20:39:21 <fsbot>	[1] see also personal-homie-yow
+Oct 16 20:39:37 <yates>	is this funny? https://xkcd.com/378/
+Oct 16 20:40:01 <edgar-rft>	no, it's an https link
+Oct 16 20:40:30 <dale>	https://debbugs.gnu.org/cgi/bugreport.cgi?bug=9384
+Oct 16 20:41:00 <parsnip>	i mean, i lost it at "3"
+Oct 16 20:41:16 <pjb>	yates: it's funny when you actually do M-x butterfly RET
+Oct 16 20:41:44 <pjb>	The C-x M-c prefix is idiotic.
+Oct 16 20:42:29 <parsnip>	let's debug M-x butterfly
+Oct 16 20:43:34 <dale>	Heh, so yow.lines "was emptied several years ago for legal reasons", but you can still just get it out of version control, that's funny.
+Oct 16 20:43:41 <pjb>	yates: to wow your vim friends, you can advise this function to do something nice (say, give a command to Alexa or Siri, or send an htcpcp command).
+Oct 16 20:43:47 <grym>	dale: i in fact did this a few days ago 
+Oct 16 20:44:25 <wgreenhouse>	,homie-yow
+Oct 16 20:44:26 <fsbot>	oh my got you ate a few mins ago
+Oct 16 20:44:26 <fsbot>	lol
+Oct 16 20:52:51 <johnjay>	physikoi: you can change the tux prefixes with a config file no?
+Oct 16 20:54:29 <laertus>	how can i display a glyph for a unicode code point i have represented as an integer?
+Oct 16 20:54:39 <laertus>	i tried:  (string (read-from-string (concat "?" (number-to-string 9654))))
+Oct 16 20:55:05 <laertus>	but got an error:  string: Invalid read syntax: "?"
+Oct 16 20:55:28 <yates>	pjb: insane!
+Oct 16 20:56:12 <npostavs>	laertus: Perhaps (string 9654)
+Oct 16 20:56:46 <johnjay>	strip-leading-spaces skips spaces, tabs, and newlines
+Oct 16 20:56:55 <bpalmer>	(insert (make-char 'unicode 00 37 182))
+Oct 16 20:56:55 <johnjay>	i feel this is not compatible with UTF-8 somehow
+Oct 16 20:56:58 <pjb>	yates: hey vim user friend, here is the power of emacs programmers. I'll invoke butterflies to make be a hot pot of tea, look: M-x butterfly RET 
+Oct 16 20:57:26 <pjb>	yates: and hear him tell you yeah? where's the pot of tea? until 2 mn later ding! and there you have it! :-)
+Oct 16 20:57:27 <bpalmer>	(9654 is 0x25b6)
+Oct 16 20:58:18 <pjb>	(make-string 3 ?▶) --> "▶▶▶"
+Oct 16 20:58:18 <bpalmer>	that said, the internal code points for emacs since, hmm, 23 or so are based on unicode, so (insert 9654) also would work.
+Oct 16 20:58:22 <laertus>	ok.. this seemed to work:  (format "%s" (car (read-from-string (string 9654))))
+Oct 16 20:58:39 <bpalmer>	laertus: (format "%c" 9654)
+Oct 16 20:58:50 <laertus>	oh, nice :)
+Oct 16 20:58:54 <pjb>	laertus: (insert 9654) --> ▶
+Oct 16 20:58:56 <bpalmer>	In emacs's elisp, characters are just numbers
+Oct 16 20:59:08 <npostavs>	,(string 9654)
+Oct 16 20:59:09 <fsbot>	▶
+Oct 16 20:59:17 <johnjay>	can i use a pictograph as a loop variable?
+Oct 16 20:59:20 <laertus>	there's always a better way to do it :)
+Oct 16 20:59:20 <pjb>	,?▶
+Oct 16 20:59:22 <fsbot>	Many changes of mind and mood; do not hesitate too long.
+Oct 16 20:59:25 <bpalmer>	But, I would favor the make-char approach, in general.
+Oct 16 20:59:27 <yates>	,(string 5033)
+Oct 16 20:59:27 <fsbot>	Ꭹ
+Oct 16 20:59:34 <yates>	,(string 10033)
+Oct 16 20:59:34 <fsbot>	✱
+Oct 16 20:59:38 <yates>	oh wow!
+Oct 16 20:59:40 <yates>	how cute!
+Oct 16 20:59:47 <roxlu>	hi! I've got two PCs with the same init.el and I'm using ivy/counsel for my find-file list; but on one pc, when I type the exact name of the file it's selected but not on the other... is there a way to figure out why this other emacs behaves differenly?
+Oct 16 20:59:51 <pjb>	there are a lot of nice characters in unicode…
+Oct 16 21:00:06 <alex11>	why do i have both .emacs and .emacs~?
+Oct 16 21:00:08 <yates>	,(string 10000033)
+Oct 16 21:00:09 <fsbot>	err..Wrong type argument: characterp, 10000033
+Oct 16 21:00:11 <johnjay>	apparently you can.
+Oct 16 21:00:23 <yates>	alex11: that's a backup file
+Oct 16 21:00:25 <johnjay>	(setq ▶ 0)
+Oct 16 21:00:28 <johnjay>	(while (< ▶ 3) (setq ▶ (1+ ▶)) (print ▶))
+Oct 16 21:00:34 <wgreenhouse>	alex11: .emacs~ is a "backup file"
+Oct 16 21:00:40 <wgreenhouse>	,backup
+Oct 16 21:00:41 <pjb>	alex11: files ending in ~ are backup files.
+Oct 16 21:00:41 <fsbot>	backup: [0/4] (info "(emacs)Backup")
+Oct 16 21:00:41 <fsbot>	[1] (setq backup-directory-alist '(("." . ".~"))) to keep backups out of the way in a .~/ directory
+Oct 16 21:00:41 <fsbot>	[2] (setq make-backup-files nil) to stop backups from being made
+Oct 16 21:00:41 <fsbot>	[3] For wiki page on having emacs and xemacs backup to a directory, see http://www.emacswiki.org/cgi-bin/wiki/BackupDirectory ;;[ ,more / ,dump]
+Oct 16 21:01:22 <npostavs>	,(identity ?▶)
+Oct 16 21:01:22 <fsbot>	9654  ..(integer)
+Oct 16 21:02:36 <yates>	alex11: i find running 'find . -name "*~" -exec rm {} \"' in a directory . before you git/hg/svn add a folder is nice to clean up
+Oct 16 21:03:03 <bpalmer>	And, of course, emacs supports hex literals as of some time or other, so (make-char 'unicode #x00 #x25 #xb6)
+Oct 16 21:04:27 <bpalmer>	I believe both hg and git ignore files ending in ~ by default, so you may be better off doin any such cleanup *after* you have commited the tree.
+Oct 16 21:04:36 <bpalmer>	In case you fumble the pattern.
+Oct 16 21:05:21 <yates>	,(string 1024)
+Oct 16 21:05:22 <fsbot>	Ѐ
+Oct 16 21:05:31 <pjb>	yates: and you find it smart to delete your backups?
+Oct 16 21:06:08 <yates>	pjb: yeah, in a version-controlled environment of course.
+Oct 16 21:06:51 <yates>	pjb: in a version-controlled environment: of course.
+Oct 16 21:07:03 <pjb>	backup files are saved at a smaller granularity than commis…
+Oct 16 21:07:04 <pjb>	t
+Oct 16 21:08:04 <yates>	i don't delete them _regularly_. did i say _regularly_?  only when I'm about to add some folders and subfolders. 
+Oct 16 21:08:11 <yates>	otherwise i leave'em be
+Oct 16 21:08:38 <yates>	it was just a tip. of course you could set that in the ignre filter too
+Oct 16 21:11:08 <yates>	i just often find that i added folders/subfolders, edited files there so that there are a bunch of extraneous "*~", and to manually clean them up is stupid tedious. 
+Oct 16 21:11:41 <yates>	maybe i should rethink the ignore filter approach. 
+Oct 16 21:16:02 <yates>	.hgrc?
+Oct 16 21:21:15 <wasamasa>	I wonder who that could be: https://github.com/melpa/melpa/issues/7185
+Oct 16 21:21:20 <wasamasa>	subscribed regardless
+Oct 16 21:22:38 <grym>	ooo TIL helm-lastpass
+Oct 16 21:22:56 <wasamasa>	damnit, another poor soul lost
+Oct 16 21:24:08 <wrycode>	it's almost as if emacs is important enough to have russia creating troll accounts
+Oct 16 21:24:12 <wrycode>	alas
+Oct 16 21:24:14 <wasamasa>	I really do wonder whether there's a language barrier as the answer do dgutov's concern about needless in-fighting is "Well, here's an issue, let's see how they reply"
+Oct 16 21:24:16 <wrycode>	they're real
+Oct 16 21:24:30 <wasamasa>	that doesn't help with the in-fighting, it strengthens it
+Oct 16 21:24:57 <grym>	i have a corporate lastpass, but i don't actually want to bolt it into my editor 
+Oct 16 21:29:02 <johnw>	I like password-store.el
+Oct 16 21:29:44 <wasamasa>	I wrote a few lines of code for pass
+Oct 16 21:29:51 <johnw>	then I appreciate it :)
+Oct 16 21:29:52 <grym>	ooOO https://github.com/ifosch/keepass-mode 
+Oct 16 21:30:10 <wasamasa>	(car (process-lines "pass" "foo/bar/baz"))
+Oct 16 21:37:42 <johnjay>	wasamasa: i feel like writing a few lines of code for emacs is impossible
+Oct 16 21:37:58 <johnjay>	because you'd have to go through the bother of getting copyright assignment etc
+Oct 16 21:38:03 <johnjay>	so you may as well just put something on melpa.
+Oct 16 21:38:08 <johnjay>	like that url thing you mentioned
+Oct 16 21:38:09 <wasamasa>	I meant my init file, lol
+Oct 16 21:38:26 <wasamasa>	copyright assignment is mostly a waiting game
+Oct 16 21:38:29 <johnw>	johnjay: you can sign a blanket assignment
+Oct 16 21:38:42 <wasamasa>	the real kicker is figuring out how the commit message is supposed to look like
+Oct 16 21:39:09 <johnjay>	speaking of lines. i should finish that macro chapter you linked
+Oct 16 21:39:17 <johnjay>	i wanted to write macros doline, dofile, and dodir
+Oct 16 21:39:27 <johnjay>	the utility of which hopefully is apparent from the name
+Oct 16 21:39:54 <wasamasa>	not exactly
+Oct 16 21:40:00 <bpalmer>	johnjay: I agree it's a huge limiting factor, but note that emacs allows up to 15 lines without any assignment.
+Oct 16 21:40:20 <johnjay>	or is there a way to do this with mapcar?
+Oct 16 21:40:37 <pjb>	there are mapfiles mapdirectories and dolines in pjb-emacs.el…
+Oct 16 21:40:47 <johnjay>	say you want to put ABC at the start of each line. then you'd write something like (dolines (x) (setq x (concat "ABC" x)))
+Oct 16 21:40:55 <pjb>	johnjay: ^ and http://github.com/informatimago/emacs
+Oct 16 21:41:00 <johnjay>	pjb:!
+Oct 16 21:41:15 <wasamasa>	hm, that doesn't exactly seem emacsy
+Oct 16 21:41:37 <johnjay>	(defmacro* dolines (start-end &body body)
+Oct 16 21:41:40 <johnjay>	  "Executes the body with start-var and end-var bound to the start and the end of each lines of the current buffer in turn."
+Oct 16 21:42:11 <johnjay>	no it's a perlism
+Oct 16 21:42:24 <pjb>	what can be more emacsy than that? Working directly in the buffer!
+Oct 16 21:42:34 <pjb>	And it's written in emacs lisp!
+Oct 16 21:42:44 <johnjay>	perl automatically wraps your input in a while(<>) loop so it goes the whole file
+Oct 16 21:43:00 <wasamasa>	http://ix.io/2AXJ
+Oct 16 21:43:36 <wasamasa>	or maybe drop the save-excursion, it doesn't make much sense anyway once you start editing the buffer
+Oct 16 21:43:43 <bpalmer>	johnjay: note that requires certain command-line flags.
+Oct 16 21:44:00 <johnjay>	right
+Oct 16 21:44:21 <wasamasa>	here's what happens when a freedom-denying person denies your freedom via MELPA: https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg01048.html
+Oct 16 21:44:26 <wasamasa>	- Hey brother... I made here one spectacular Emacs package.
+Oct 16 21:44:30 <bpalmer>	wasamasa: I don't see why not, although you might be better off using an (let ((p (point-marker))) (unwind-protect (progn ...) (goto-char p)))
+Oct 16 21:44:53 <johnjay>	yes that's the version I wrote as well
+Oct 16 21:45:53 <wasamasa>	the closest I've seen to that scenario was someone recommending the tabnine package to someone asking how to auto-complete sentences
+Oct 16 21:46:34 <bpalmer>	I've never thought to put on a trenchcoat and hang out in alleys offering my emacs warez 
+Oct 16 21:46:45 <johnjay>	probably because you wouldn't make money doing that
+Oct 16 21:47:25 <wgreenhouse>	wasamasa: someone should turn those last few lines of that email into a comic
+Oct 16 21:47:33 <bpalmer>	I'll lure people in and then hook them on my proprietary substances.
+Oct 16 21:48:02 <bpalmer>	at any rate. 
+Oct 16 21:50:04 <wasamasa>	lol: https://github.com/codota/TabNine/issues/4
+Oct 16 21:50:30 <grym>	"personal hate promotion" is it 
+Oct 16 21:51:09 <bpalmer>	but before I go, I'd suggest rather than a setq approach, if you do write such a macro to iterate over and mutate, that it be something like (defmacro* dolines (line-sym &optional replace-sym) ...) so that you can do (dolines (x replace-line) (replace-line (concat "abc: " x))) , where replace-sym defaults to something like replace-line
+Oct 16 21:51:47 <bpalmer>	It strikes me as a very unusual interface to treat mutating x as a sign to flush it out; almost ORM-like in hidden behavior.
+Oct 16 21:52:59 <wasamasa>	wgreenhouse: too bad I can only badly imitate existing art
+Oct 16 21:53:18 <bpalmer>	although allowing it to be a random symbol means that you might need a codewalker. Hmm.
+Oct 16 21:53:22 <wasamasa>	wgreenhouse: though, maybe we could convince sachac to do it
+Oct 16 21:53:45 <bpalmer>	It might be better to just always locally bind replace-line to a function; that way elisp's normal semantics/reader apply.
+Oct 16 21:54:04 <pjb>	johnjay: granted, a maplines could be a better idea.  (defun* maplines (fun &optional (buffer (current-buffer))) (let ((result '())) (with-current-buffer buffer (dolines (start end) (push (funcall fun (buffer-substring start end)) result))) result))  (reduce 'max (maplines 'length (current-buffer)) :initial-value 0)  --> 493
+Oct 16 21:55:56 <pjb>	bpalmer: but dolines let you use the usual buffer mutation operators.  (dolines (start end)  (goto-char start) (insert "{") (goto-char end) (insert "}")) ; start and end are markers.
+Oct 16 21:56:23 <bpalmer>	pjb: I haven't looked at your code, simply johnjay's proposed interface above.
+Oct 16 22:05:06 <bpalmer>	And I guess the functional route would be to pass a callback function 
+Oct 16 22:07:42 <johnjay>	>I have noticed that some packages like lastpass or helm-lastpass guide users to non-free or proprietary software, thousands of such packages have been downloaded thus putting MELPA users at greater risks.
+Oct 16 22:08:33 <johnjay>	pjb: hrm you can't use the buffer functions in a callback with maplines?
+Oct 16 22:17:56 <pjb>	johnjay: you could pass start and end as additionnal parameters to the fun.
+Oct 16 22:18:32 <wrycode>	IME tabnine provides no major advantage over well-configured dabbrev, capf, etc.
+Oct 16 22:19:04 <pjb>	johnjay: my dolines macro leaves the point at the end-of-line, but it doesn't offer this guarantee. You have to use the start and end markers. 

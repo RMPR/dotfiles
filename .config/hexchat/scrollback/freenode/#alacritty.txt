@@ -3576,3 +3576,318 @@ T 1602793074 18<24UndeadLeech18>	You just end up constantly dealing wit
 T 1602793085 18<24UndeadLeech18>	Such a massive waste of time.
 T 1602793107 18<24UndeadLeech18>	And the benefit basically doesn't exist at all.
 T 1602793132 18<22nixpulvis18>	I just don't know what about a cow page is differant from a cow?
+T 1602806332 20*	Disconnected (20)
+T 1602806394 20*	Disconnected (20Remote host closed socket)
+T 1602806454 20*	Disconnected (20Remote host closed socket)
+T 1602806503 20*	Disconnected (20Remote host closed socket)
+T 1602806528 19*	Now talking on 22#alacritty
+T 1602806528 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.5.0 - https://github.com/alacritty/alacritty/releases/latest
+T 1602806528 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sat Aug  1 00:45:32 2020)
+T 1602833674 20*	Disconnected (20)
+T 1602833700 19*	Now talking on 22#alacritty
+T 1602833700 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.5.0 - https://github.com/alacritty/alacritty/releases/latest
+T 1602833700 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sat Aug  1 00:45:32 2020)
+T 1602850199 18<19Skaface8218>	hey
+T 1602850273 18<29kchibisov18>	Hello.
+T 1602850284 18<19Skaface8218>	I have an interesting situation.. it seems that durng a several hour long rsync, alacritty overheated and blew up my video card
+T 1602850309 18<29kchibisov18>	what kind of video card is that?
+T 1602850319 18<29kchibisov18>	nvidia?
+T 1602850332 18<19Skaface8218>	a geforce 720 i think it was
+T 1602850337 18<29kchibisov18>	We don't draw unless something is happening, and our GPU usage is very low even under a full load.
+T 1602850353 18<29kchibisov18>	Like 2-3%.
+T 1602850357 18<19Skaface8218>	im only assuming that is what happened
+T 1602850381 18<29kchibisov18>	Well, you'd have better luck with software that can profile GPU usage.
+T 1602850413 18<29kchibisov18>	If you know that alacritty uses 100% of GPU, then it's likely our fault, but you can't say that, since your display server is using your GPU as well.
+T 1602850466 18<19Skaface8218>	oh yeah, sorry im not trying to blame anyone, I just thought it was worth mentioning in case it has happened to anyone else :)
+T 1602850475 18<29kchibisov18>	I doubt it was.
+T 1602850505 18<29kchibisov18>	But anyway, if OpenGL application can crash your entire system there's something wrong with the systeme already.
+T 1602850511 18<29kchibisov18>	I
+T 1602850515 18<29kchibisov18>	I mean in a way you say that.
+T 1602850689 18<19Skaface8218>	it was probably just a coincidence
+T 1602873586 20*	Disconnected (20)
+T 1602873615 19*	Now talking on 22#alacritty
+T 1602873615 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.5.0 - https://github.com/alacritty/alacritty/releases/latest
+T 1602873615 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sat Aug  1 00:45:32 2020)
+T 1602874869 18<29kchibisov18>	damn, I lost.
+T 1602874934 18<24UndeadLeech18>	lol
+T 1602874977 18<29kchibisov18>	But I was slow, since I was checking for matches! macro.
+T 1602874991 18<24UndeadLeech18>	It took me a bit too, since I had to check PartialEq is implemented!
+T 1602875008 18<29kchibisov18>	I mean you can use matches macro here.
+T 1602875014 18<24UndeadLeech18>	But you don't want to.
+T 1602875014 18<29kchibisov18>	I've cross checked it.
+T 1602875018 18<29kchibisov18>	I wonder why>
+T 1602875020 18<24UndeadLeech18>	PartialEq > matches!.
+T 1602875031 18<29kchibisov18>	Ah.
+T 1602875033 18<29kchibisov18>	Ok.
+T 1602875034 18<24UndeadLeech18>	But you can use matches! in scenario where you cannot use PartialEq.
+T 1602875148 18<29kchibisov18>	I just looked at the link to fedora packing crossfont, and it feels like they have very slow process of bringing rust...
+T 1602875152 18<29kchibisov18>	I guess they ship it like python.
+T 1602875189 18<24UndeadLeech18>	What do you mean by very slow? They have to package every single crate then link dynamically, right?
+T 1602875203 18<29kchibisov18>	I'm not sure that they link it dynamically.
+T 1602875227 18<24UndeadLeech18>	I'm just wondering why they even bother, when they need to have one version of a crate.
+T 1602875232 18<29kchibisov18>	I'm just saying that packaging all our dependencies is like ~200 packages.
+T 1602875239 18<24UndeadLeech18>	Because when you get to Alacritty, you'll never get zero duplicates.
+T 1602875249 18<29kchibisov18>	UndeadLeech: we have only one :- )
+T 1602875266 18<24UndeadLeech18>	One what?
+T 1602875269 18<29kchibisov18>	One duplicate.
+T 1602875274 18<24UndeadLeech18>	What?
+T 1602875282 18<29kchibisov18>	cargo tree -d
+T 1602875308 18<24UndeadLeech18>	The new lockfile makes this so difficult.
+T 1602875331 18<29kchibisov18>	I guess that's why you have 'cargo tree' now :P
+T 1602875334 18<24UndeadLeech18>	How did the mio duplicates get resolved?
+T 1602875345 18<29kchibisov18>	We don't use 0.7 anywhere.
+T 1602875360 18<22nixpulvis18>	oh cargo tree is backed in now?
+T 1602875361 18<24UndeadLeech18>	I thought someone else was though.
+T 1602875366 18<22nixpulvis18>	baked* even
+T 1602875378 18<29kchibisov18>	UndeadLeech: I'm not sure.
+T 1602875401 18<29kchibisov18>	And it seems like the project that uses num-traits 1.x.x just not updating it.
+T 1602875406 18<29kchibisov18>	even though it's active.
+T 1602875431 18<24UndeadLeech18>	line_drawing you mean?
+T 1602875437 18<29kchibisov18>	Yeah.
+T 1602875449 18<29kchibisov18>	It's not that active, but last commit 15 Aug.
+T 1602875453 18<29kchibisov18>	I'd assume that it's not entirely dead.
+T 1602875458 18<24UndeadLeech18>	That should be trivial to update, let me check.
+T 1602875487 18<24UndeadLeech18>	I kinda don't believe that we only have one duplicate though.
+T 1602875494 18<29kchibisov18>	run cargo tree.
+T 1602875500 18<24UndeadLeech18>	I have. I still don't.
+T 1602875522 18<29kchibisov18>	I mean I was trying my best to bring things up to date.
+T 1602875545 18<29kchibisov18>	Like wayland rework removed like ~20 duplicates.
+T 1602875553 18<29kchibisov18>	maybe more.
+T 1602875592 18<24UndeadLeech18>	Yeah but the last time I checked we had a couple of duplicate dependencies that were basically unfixable.
+T 1602875597 18<24UndeadLeech18>	Completely unrelated to alacritty.
+T 1602875618 18<24UndeadLeech18>	Let's see how it goes I guess: https://github.com/expenses/line_drawing/pull/17
+T 1602875621 18<24UndeadLeech18>	Seems to be non-breaking.
+T 1602875641 18<29kchibisov18>	You've checked that it doesn't break crate?
+T 1602875651 18<24UndeadLeech18>	I ran `cargo test`.
+T 1602875655 18<29kchibisov18>	fair enough.
+T 1602875780 18<24UndeadLeech18>	Maybe someone downgraded their mio or something...
+T 1602875796 18<29kchibisov18>	we can look at history for mio.
+T 1602875809 18<24UndeadLeech18>	What do you mean by that?
+T 1602875817 18<29kchibisov18>	I mean in Cargo.lock.
+T 1602875849 18<24UndeadLeech18>	If we actually manage to remove all duplicates for 0.6.0, that would really impress me.
+T 1602875865 18<24UndeadLeech18>	I genuinely did not believe that to be possible.
+T 1602875890 18<29kchibisov18>	We never had mio 0.7 as part of Cargo.lock.
+T 1602875898 18<22nixpulvis18>	that'd be really nice.
+T 1602875902 18<24UndeadLeech18>	Huh, maybe I'm mixing things up in my head.
+T 1602875909 18<29kchibisov18>	we had 2 nix versions.
+T 1602875918 18<29kchibisov18>	For a very long time.
+T 1602875971 18<24UndeadLeech18>	I don't remember that being too much of an issue though.
+T 1602875983 18<24UndeadLeech18>	Like the biggest problem with duplicates was always that one of them couldn't be upgraded for some strange reason.
+T 1602876082 18<24UndeadLeech18>	Hmm, seems like `cargo tree` only lists for the current platform?
+T 1602876361 18<29kchibisov18>	I guess, but I don't care about duplicates on anything other than Linux/BSD.
+T 1602876406 18<24UndeadLeech18>	Yeah, fair enough.
+T 1602876476 18<24UndeadLeech18>	You don't expect any changes to #6 PR of crossfont for 0.6.0 either, right?
+T 1602876482 18<24UndeadLeech18>	Because I'd actually cut a new version now I think.
+T 1602876490 18<29kchibisov18>	I guess.
+T 1602876538 18<24UndeadLeech18>	There have been a few changes like the BGR fix, the FreeType minimum version fix and the dependency bump. So it makes sense to release a new patch version.
+T 1602876558 18<29kchibisov18>	I mean, I don't mind.
+T 1602876579 18<24UndeadLeech18>	Let me just make sure Alacritty really builds against it without any errors, just to make sure. :P
+T 1602877396 18<29kchibisov18>	I think we'll be able to do rc relatively soon.
+T 1602877414 18<24UndeadLeech18>	My non_copy_cells PR is getting into shape. But I need to do a ton of cleanup still.
+T 1602877422 18<24UndeadLeech18>	But I kinda want to finish it up this weekend.
+T 1602879098 18<22nixpulvis18>	did we want to get my little macOS PR into 0.6?
+T 1602879108 18<29kchibisov18>	if you finish it, then sure.
+T 1602879140 18<22nixpulvis18>	I'm starting to lose faith in the upstream crate's PR ever getting merged, as expected I guess....
+T 1602879155 18<22nixpulvis18>	but I *still* really hate the idea of writing all these damn structs.
+T 1602879159 18<24UndeadLeech18>	Which macOS PR?
+T 1602879162 18<29kchibisov18>	I mean just bindgen it and put in alacritty.
+T 1602879169 18<29kchibisov18>	no need to send anything upstream.
+T 1602879171 18<22nixpulvis18>	keeping the CWD on new instance.
+T 1602879174 18<24UndeadLeech18>	Ah, that one.
+T 1602879193 18<22nixpulvis18>	oh you'd'll be ok with bindgen inside alacritty?
+T 1602879200 18<22nixpulvis18>	that would make me very happy.
+T 1602879202 18<24UndeadLeech18>	I'd expect a RC no earlier than next weekend probably.
+T 1602879206 18<24UndeadLeech18>	Where weekend means like thursday.
+T 1602879221 18<22nixpulvis18>	cool
+T 1602879234 18<29kchibisov18>	nixpulvis: no, you run bindgen, you put a file inside alacritty.
+T 1602879242 18<22nixpulvis18>	:(
+T 1602879245 18<22nixpulvis18>	why?
+T 1602879251 18<29kchibisov18>	And remove crap from it.
+T 1602879262 18<22nixpulvis18>	I can tell bindgen in build.rs to filter.
+T 1602879263 18<24UndeadLeech18>	I really don't feel like it's gonna generate so much stuff that it would be easier to run bindgen inside of Alacritty.
+T 1602879272 18<24UndeadLeech18>	And it will never change.
+T 1602879290 18<29kchibisov18>	UndeadLeech: I mean we can remove stuff from bindgen.
+T 1602879293 18<24UndeadLeech18>	Generally I'd just like to avoid "write only" files as much as possible.
+T 1602879312 18<22nixpulvis18>	it's a compile artifact.
+T 1602879322 18<24UndeadLeech18>	It doesn't have to be.
+T 1602879337 18<22nixpulvis18>	I don't like committing generated files.
+T 1602879350 18<24UndeadLeech18>	Exactly. Which is why it should be post processed and cleaned up.
+T 1602879367 18<24UndeadLeech18>	I think the point kchibisov is making is that you can just generate the initial file with bindgen and then work based on that.
+T 1602879368 18<22nixpulvis18>	what are the practical concerns? that our builds depend on macOS to make a macOS binary?
+T 1602879375 18<29kchibisov18>	UndeadLeech: yes.
+T 1602879388 18<29kchibisov18>	You run bindgen and remove things from it unless it compiles.
+T 1602879403 18<22nixpulvis18>	I can generate a minimal artifact from bindgen directly tho.
+T 1602879407 18<24UndeadLeech18>	nixpulvis: Bindgen is complexity I'd usually like to avoid.
+T 1602879432 18<24UndeadLeech18>	Having a module that is "normal" Rust code without any code generation makes things easier to understand.
+T 1602879443 18<22nixpulvis18>	but now we own the structures it creates in our codebase.
+T 1602879447 18<24UndeadLeech18>	So unless that module is like thousands of lines, I think it's easier to manually write them and make them nice.
+T 1602879462 18<22nixpulvis18>	I'd rather depend on a well known tool like bindgen, than take on a bunch of it's structs.
+T 1602879463 18<29kchibisov18>	nixpulvis: it doesn't matter you use it anyway.
+T 1602879485 18<24UndeadLeech18>	Yeah, one way or another you use that fixed API.
+T 1602879504 18<22nixpulvis18>	sure, but that's the interface.
+T 1602879526 18<29kchibisov18>	I really don't want to run bindgen in build.rs
+T 1602879547 18<24UndeadLeech18>	nixpulvis: What's the interface?
+T 1602879548 18<29kchibisov18>	The thing is that the result is so simple that putting it directly in alacritty makes sense.
+T 1602879556 18<24UndeadLeech18>	You have to define the interface one way or another.
+T 1602879561 18<24UndeadLeech18>	Yeah.
+T 1602879579 18<22nixpulvis18>	I still don't see what the problem is, but I guess it's not going to cause serious issues either way.
+T 1602879637 18<24UndeadLeech18>	It's simply about "magic generate some stuff" vs "we define the API here as normal Rust code".
+T 1602879641 18<29kchibisov18>	The problem is that you bring huge build time dependency for no reason.
+T 1602879658 18<24UndeadLeech18>	That too. Build time code generation should be avoided as much as possible imho.
+T 1602879673 18<24UndeadLeech18>	It's a trade-off of course.
+T 1602879674 18<29kchibisov18>	Certain stuff implies code generation though (e.g. wayland), which is not the case here.
+T 1602879698 18<22nixpulvis18>	"Build time code generation" lol what? that's what a compiler is!
+T 1602879701 18<22nixpulvis18>	what about macros?
+T 1602879702 18<24UndeadLeech18>	Yeah, you gotta find a balance. I'm not defining the entire OpenGL API in our own crate as interface. That doesn't make much sense.
+T 1602879716 18<24UndeadLeech18>	nixpulvis: I don't like macros either.
+T 1602879725 18<22nixpulvis18>	your crazy
+T 1602879731 18<22nixpulvis18>	anyway...
+T 1602879738 18<24UndeadLeech18>	Which is why if possible, I will suggest to avoid them to reduce the complexity.
+T 1602879752 18<24UndeadLeech18>	That again, is a trade-off.
+T 1602879759 18<29kchibisov18>	Yeah, fuck macros.
+T 1602879760 18<22nixpulvis18>	should I move `locale.rs` into my new macos.rs module too? I feel like I could make this all grouped together easily.
+T 1602879772 18<29kchibisov18>	They just increase build time.
+T 1602879774 18<24UndeadLeech18>	It's a useful tool that can be very powerful and get a lot of work done in a little time. But it can also make things significantly harder to understand.
+T 1602879792 18<22nixpulvis18>	if you care so much about build time, stop writing Rust, and just write asm.
+T 1602879800 18<24UndeadLeech18>	I don't expect anyone to be able to understand our keyboard mapping macros, but with how many keybindings there are to define, that's the most readable option.
+T 1602879815 18<29kchibisov18>	nixpulvis: but rust without macros compiles pretty fast.
+T 1602879825 18<22nixpulvis18>	not really.
+T 1602879833 18<24UndeadLeech18>	Yes really.
+T 1602879834 18<24UndeadLeech18>	Seriously.
+T 1602879861 18<29kchibisov18>	Have you tried building rust that doesn't overly use
+T 1602879863 18<22nixpulvis18>	I was hoping one day our default keybindsings could be described in the same way as in the config file itself, to make it easier for users to copy and modify.
+T 1602879863 18<24UndeadLeech18>	Most of the heavy hitters when it comes to compile times are macro stuff. Especially the procedural ones like serde.
+T 1602879866 18<29kchibisov18>	macros stuff, etc.
+T 1602879900 18<24UndeadLeech18>	nixpulvis: Yeah, you could change things to use a custom file format, maybe CSV-y or just our config itself. But that might increase complexity a bit.
+T 1602879904 18<22nixpulvis18>	I guess I haven't played with compile times in a while, my memory is fuzzy.
+T 1602879948 18<22nixpulvis18>	still my point stands, you can't beat the build speed of already built.
+T 1602879955 18<24UndeadLeech18>	Macros are very significant when it comes to compile-times. I don't think it makes sense to avoid tiny macros to save on compilation usually, but it's certainly true that big procedural macros (especially derives) generate a TON of code.
+T 1602879963 18<22nixpulvis18>	shit, just layout the ELF yourself,.
+T 1602879975 18<24UndeadLeech18>	But I wouldn't argue that compile time is a big issue here, not for me at least.
+T 1602879987 18<29kchibisov18>	UndeadLeech: hide your 24 cores.
+T 1602879988 18<24UndeadLeech18>	I care much more about the complexity of things, debugging etc.
+T 1602879991 18<24UndeadLeech18>	:)
+T 1602880008 18<22nixpulvis18>	I care a lot about reproducability.
+T 1602880028 18<22nixpulvis18>	so I'd probably want to at least document *how* I generated the module, no?
+T 1602880043 18<24UndeadLeech18>	It doesn't really matter, since writing it by hand is perfectly fine too.
+T 1602880050 18<24UndeadLeech18>	Like for your usecase, it would be trivial to write by hand.
+T 1602880071 18<22nixpulvis18>	but it's not really ideal. The code is defined by the system's headers.
+T 1602880090 18<24UndeadLeech18>	So? That's what I'd be looking at when defining the interface.
+T 1602880104 18<24UndeadLeech18>	If a computer program does that for you or you do it by hand doesn't really matter as long as it builds.
+T 1602880140 18<22nixpulvis18>	OK, I can't wait to see that I got two fields out of order, and the whole thing randomly crashes.
+T 1602880166 18<29kchibisov18>	You can even use that computer program to generate that file and edit it by hand.
+T 1602880193 18*	22nixpulvis smashes `dd` `p` on *accident*.
+T 1602880210 18<24UndeadLeech18>	I mean it's up to you how you want to create it. I'd honestly write it by hand because I've never done that and I'd be curious how well that works out with something so trivial, but if you use bindgen that works fine too. All that matters in the end is the output.
+T 1602880221 18<29kchibisov18>	nixpulvis: you generate with bingen, then grab that result and edit it unless it compiles, I can do it myself.
+T 1602880231 18<24UndeadLeech18>	Since this isn't something that has to be repeated regularly and the output interface is all that matters, it doesn't really matter how you did it.
+T 1602880245 18<29kchibisov18>	I doubt system C api will ever change.
+T 1602880245 18<22nixpulvis18>	no need. I'm just confused why y'all hate bindgen so much.
+T 1602880266 18<29kchibisov18>	bindgen has one specific reason, to build firefox.
+T 1602880274 18<22nixpulvis18>	>.<
+T 1602880275 18<29kchibisov18>	Since they generate bridges on the fly.
+T 1602880293 18<29kchibisov18>	Because of complexity of firefox.
+T 1602880309 18<22nixpulvis18>	It saves a lot of people a lot of time.
+T 1602880312 18<29kchibisov18>	Like you can't manually do that for their multi million source code base.
+T 1602880320 18<29kchibisov18>	nixpulvis: yes, but not for 100 LoC file.
+T 1602880330 18<22nixpulvis18>	let's agree to disagree.
+T 1602880340 18<29kchibisov18>	I'd rather see what you've added in that file, rather than check how you've setup bindgen.
+T 1602880369 18<22nixpulvis18>	inspect the artifact in target :P
+T 1602880388 18<29kchibisov18>	I should grab them from our CI though.
+T 1602880420 18<22nixpulvis18>	yea, that's part of my issue here... this forces me to spend more time programming on my damn mac
+T 1602880421 18<29kchibisov18>	I can't inspect them, I'm on Linux, I don't have libproc.
+T 1602880438 18<22nixpulvis18>	I guess I'll just boot up it's sshd... but I'm still not happy about it.
+T 1602880482 18<29kchibisov18>	I mean if you don't want I can do that.
+T 1602880494 18<22nixpulvis18>	no worries
+T 1602880506 18<29kchibisov18>	Like we all happen to have macOS>
+T 1602880529 18<29kchibisov18>	And it's not like you can blindly impl that on Linux, you still have to at least run it and see how it goes.
+T 1602880565 18<22nixpulvis18>	there's a few bugs on macOS, but generally things work OK.
+T 1602880578 18<24UndeadLeech18>	I don't mind bindgen. It's a tool, it has its usecases. But I don't think this is one of them.
+T 1602880603 18<22nixpulvis18>	still way better than windows, despite windows trying a little bit these days.
+T 1602880653 18<24UndeadLeech18>	Also with how simple this should be, I think it makes far more sense to implement it first and then discuss it. I don't know how the result will look like either, I'm just guessing at that point. Once it's done, it's gonna be much more concrete.
+T 1602880686 18<29kchibisov18>	UndeadLeech: I've seen the C header, was like 100 LoC.
+T 1602880700 18<22nixpulvis18>	I mean, it's done already using bindgen :P but also a crate, which I completely agree at this point is worth avoiding.
+T 1602880730 18<24UndeadLeech18>	Yeah, that's what my estimation is based on. But it's still only an estimation. There's a reason for why I made this suggestion, but that of course doesn't mean that my surface level guess is 100% accurate.
+T 1602880791 18<24UndeadLeech18>	I said from the beginning that my primary concern is to avoid the crate. Using bindgen or not both are reasonable, I just think without it is going to give us better results.
+T 1602880827 18<24UndeadLeech18>	Also since you asked about locale.rs, I'd be fine with moving it to macos/locale.rs or whatever, but I don't think it would be smart to just make a generic "macos.rs". I feel like that would easily get out of hand.
+T 1602880873 18<22nixpulvis18>	agreed
+T 1602880873 18<29kchibisov18>	I'd like platform/macOS/locale.rs
+T 1602880879 18<22nixpulvis18>	can do
+T 1602880888 18<29kchibisov18>	And I'd move wayland_theme there as well.
+T 1602880899 18<22nixpulvis18>	oh yea, that was bothing me too.
+T 1602880906 18<22nixpulvis18>	bothering even*
+T 1602880907 18<29kchibisov18>	I mean into platform/nix/wayland.rs
+T 1602880925 18<29kchibisov18>	But I'm not sure tbqh.
+T 1602880935 18<22nixpulvis18>	So we all have macs? does that mean we can test #4133. I haven't touched this thing enough to really know how to control the GPUs.
+T 1602880936 18<29kchibisov18>	We may be fine with just macOS/locale.rs
+T 1602880951 18<29kchibisov18>	nixpulvis: we have macs, but it doesn't mean that we use macs.
+T 1602880961 18<22nixpulvis18>	I can give it a look today
+T 1602880995 18<22nixpulvis18>	the platform/ file is a winit convention, but we already just have tty/windows/ for example...
+T 1602880998 18<29kchibisov18>	I can't test 4133.
+T 1602881003 18<29kchibisov18>	I don't have dGPU.
+T 1602881049 18<29kchibisov18>	for UndeadLeech it's using dGPU with None.
+T 1602881057 18<29kchibisov18>	I mean Some(None)
+T 1602881079 18<29kchibisov18>	(or whatever it was when forcing integrated GPU)
+T 1602881099 18<22nixpulvis18>	So System Preferences has the checkbox for "Automatic graphics switching" but the "About This Mac" window tells me I have Intel Iris Pro...
+T 1602881138 18<29kchibisov18>	nixpulvis: do you have dGPU, right?
+T 1602881140 18<22nixpulvis18>	ok good, that's just the active one? how strange.
+T 1602881160 18<22nixpulvis18>	it does in fact appear to have a 750M
+T 1602881191 18<29kchibisov18>	nixpulvis: how are you testing it?
+T 1602881201 18<29kchibisov18>	I doubt any mac had dGPU with 750M.
+T 1602881259 18<29kchibisov18>	it's really more like if it's 13.3 inch -> iGPU, 15+ -> dGPU.
+T 1602881265 18<22nixpulvis18>	are you saying my sytem report is lying to me?
+T 1602881280 18<29kchibisov18>	I mean if it's some ancient mac, maybe.
+T 1602881295 18<22nixpulvis18>	"Late 2013"
+T 1602881306 18<29kchibisov18>	Maybe it has 1GB or something.
+T 1602881316 18<29kchibisov18>	But yeah, that could be true.
+T 1602881319 18<22nixpulvis18>	2GB
+T 1602881675 18<24UndeadLeech18>	#4133 is for Linux, not macOS.
+T 1602881691 18<24UndeadLeech18>	It doesn't work on macOS>
+T 1602881728 18<29kchibisov18>	yeah, and the only one who can test it on macOS is someone with bumble bee.
+T 1602881742 18<22nixpulvis18>	oh god
+T 1602881749 18<22nixpulvis18>	I could put arch on this damn thing.
+T 1602881756 18<29kchibisov18>	err, s/macOS/Linux/
+T 1602881771 18<29kchibisov18>	nixpulvis: don't you have thinkpad with nvidia?
+T 1602881780 18<22nixpulvis18>	nope
+T 1602881799 18<29kchibisov18>	I though that you had x1 carbon or something like that.
+T 1602881803 18<29kchibisov18>	thoght*
+T 1602881815 18<22nixpulvis18>	#4133 saying it's for macOS in the description unless I'm losing my mind.
+T 1602881826 18<22nixpulvis18>	I do have an x1 carbon.
+T 1602881827 18<29kchibisov18>	nixpulvis: I've told on that PR that it's for Linux.
+T 1602881830 18<24UndeadLeech18>	Because I confused myself.
+T 1602881832 18<24UndeadLeech18>	I was wrong.
+T 1602881835 18<29kchibisov18>	nixpulvis: well, it should have nvidia, right?
+T 1602881840 18<29kchibisov18>	or it's intel only somehow?
+T 1602881849 18<22nixpulvis18>	oh... I guess I can't trust the description.
+T 1602881861 18<22nixpulvis18>	it's a tiny little laptop.
+T 1602881869 18<22nixpulvis18>	very thin
+T 1602881873 18<29kchibisov18>	nixpulvis: it doesn't matter they should have dGPU.
+T 1602881892 18<22nixpulvis18>	I swear I've checked this in the past, but remind me.
+T 1602881913 18<29kchibisov18>	Oh, they don't have it...
+T 1602881922 18<22nixpulvis18>	lspci | grep VGA lists a single Intel device.
+T 1602881937 18<29kchibisov18>	I swear some of them has dGPU.
+T 1602881959 18<22nixpulvis18>	strange, vtebench runs in a fraction of the window on macos.
+T 1602881970 18<29kchibisov18>	new one?
+T 1602881972 18<24UndeadLeech18>	Hm?
+T 1602881994 18<22nixpulvis18>	like, it's not printing to the whole thing.
+T 1602882045 18<29kchibisov18>	Ah, it's x1 extreme with dGPUs.
+T 1602882052 18<22nixpulvis18>	dense grid for example uses only about 1/3 of the top. and the others seem to avoid the right 1/3 of the columns. Unicode takes up the full thing tho.
+T 1602882184 18<29kchibisov18>	Could you do 'tput cols'
+T 1602882195 18<29kchibisov18>	and 'tput lines'
+T 1602882396 18<22nixpulvis18>	yea damn, my mac with energy: Powersave still seems to be using the dGPU.
+T 1602882453 18<22nixpulvis18>	tput cols tells me 122 which is correct.
+T 1602882485 18<24UndeadLeech18>	Fyi iTerm also doesn't switch between iGPU/dGPU.
+T 1602882489 18<24UndeadLeech18>	I'm not sure it's possible.
+T 1602882500 18<22nixpulvis18>	>.<
+T 1602882506 18<22nixpulvis18>	useless fucking computers.
+T 1602882519 18<24UndeadLeech18>	You can edit the Info.plist, but that's hardly graphics switching.
+T 1602882525 18<24UndeadLeech18>	But on Linux this should work, if I could test it.
+T 1602882639 18<29kchibisov18>	I wonder if that GPU stuff should be in env variable.
+T 1602882647 18<24UndeadLeech18>	What do you mean?
+T 1602882654 18<29kchibisov18>	I mean, not in config.
+T 1602882659 18<24UndeadLeech18>	No.
+T 1602882673 18<29kchibisov18>	Like I don't feel like adding an option, that doen't really work into config.
+T 1602882675 18<24UndeadLeech18>	Nothing should be in the env.
+T 1602882687 18<24UndeadLeech18>	I mean it should work on Linux.
+T 1602882694 18<29kchibisov18>	'should'.
+T 1602882706 18<24UndeadLeech18>	I mean if it ever gets merged, it is because it does work on Linux.
+T 1602882718 18<24UndeadLeech18>	So that's a relatively safe assumption.

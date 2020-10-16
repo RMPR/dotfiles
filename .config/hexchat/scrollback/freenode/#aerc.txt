@@ -1529,3 +1529,41 @@ T 1587737509 20*	Disconnected (20)
 T 1602784599 19*	Now talking on 22#aerc
 T 1602784599 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
 T 1602784599 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1602806332 20*	Disconnected (20)
+T 1602806394 20*	Disconnected (20Remote host closed socket)
+T 1602806454 20*	Disconnected (20Remote host closed socket)
+T 1602806503 20*	Disconnected (20Remote host closed socket)
+T 1602806529 19*	Now talking on 22#aerc
+T 1602806529 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1602806529 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1602833674 20*	Disconnected (20)
+T 1602833700 19*	Now talking on 22#aerc
+T 1602833700 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1602833700 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1602851965 18<29pixy18>	hey! i've set up an account with maildir connected to a server of mine, i would like to be able to manually synchronize the maildir from the interface, but putting `s = :term mbsync ~/.config/mbsync/mbsyncrc -a<Enter>" doesn't seem to cut it for some reason
+T 1602851979 18<29pixy18>	do any of you have an idea of how i could bind 's' to synchronizing the maildir?
+T 1602852022 18<29pixy18>	(i missed the words 'in binds.conf' there but i'm betting the idea is still clear :P)
+T 1602852193 18<28bookworm18>	pixy: what's the error you observe?
+T 1602852232 18<29pixy18>	no obvious error - when i depress 's' the interface flickers for a frame or two and then nothing
+T 1602852237 18<29pixy18>	the mailbox isn't synchronized
+T 1602852245 18<28bookworm18>	pretty sure you are calling it wrong
+T 1602852254 18<28bookworm18>	you need to add -c for starters
+T 1602852267 18<29pixy18>	to `:term"?
+T 1602852270 18<29pixy18>	i'll give that a shot
+T 1602852272 18<28bookworm18>	to mbsync
+T 1602852278 18<28bookworm18>	term doesn't have a -c flag
+T 1602852294 18<29pixy18>	ah
+T 1602852310 18<28bookworm18>	mbsync -c ~/.config/mbsync/mbsyncrc -a
+T 1602852319 18<29pixy18>	ah yes that was just at typo
+T 1602852324 18<29pixy18>	that's in there of course
+T 1602852350 18<28bookworm18>	what happens if you run the command manually in the term?
+T 1602852352 18<29pixy18>	i was, in fact, about to say that running the command in another terminal while aerc is running causes the desired effect, namely both the maildir and interface updating
+T 1602852362 18<28bookworm18>	meaning, do :term<Enter> then add the mbsync command
+T 1602873586 20*	Disconnected (20)
+T 1602873609 22*	26RMPR sets mode 24+Z on 22RMPR
+T 1602873609 22*	26RMPR sets mode 24+i on 22RMPR
+T 1602873610 -18freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
+T 1602873610 24*	Received a CTCP 24VERSION from 18freenode-connect
+T 1602873616 19*	Now talking on 22#aerc
+T 1602873616 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1602873616 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
