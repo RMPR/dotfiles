@@ -1986,3 +1986,42 @@ Oct 16 19:39:46 *	Disconnected ()
 Oct 16 19:40:16 *	Now talking on #wireshark
 Oct 16 19:40:16 *	Topic for #wireshark is: Welcome to #wireshark The new name for the most popular network protocol analyser! | http://www.wireshark.org | Questions? Ask them! (and be patient for a response)
 Oct 16 19:40:16 *	Topic for #wireshark set by Ober (Mon Apr 16 16:39:59 2007)
+Oct 17 00:20:21 <sarbes>	Hi there! I'm trying to write a Profibus (LINKTYPE_PROFIBUS_DL) dissector, but I'm struggling to create the handle. I'm unsure what to put in as protocol when associating the handle.
+Oct 17 00:28:34 <sarbes>	So far, I can inspect the bus in Sigrok via a custom RS485 adapter. From there, I've written a basic Python decoder which does some basic checks and dumps the packets as a pcap file.
+Oct 17 00:32:24 <sarbes>	The tutorials for C/Lua dissectors seem to be based on already preprocessed frames.
+Oct 17 00:33:01 <sarbes>	At least all those I could find.
+Oct 17 00:46:51 <sarbes>	NVM, I guess I found my answer: https://www.wireshark.org/docs/wsdg_html_chunked/ChapterCapture.html
+Oct 17 01:01:16 *	Disconnected ()
+**** ENDING LOGGING AT Sat Oct 17 01:01:16 2020
+
+**** BEGIN LOGGING AT Sat Oct 17 01:07:42 2020
+
+Oct 17 01:07:42 *	Now talking on #wireshark
+Oct 17 01:07:42 *	Topic for #wireshark is: Welcome to #wireshark The new name for the most popular network protocol analyser! | http://www.wireshark.org | Questions? Ask them! (and be patient for a response)
+Oct 17 01:07:42 *	Topic for #wireshark set by Ober (Mon Apr 16 16:39:59 2007)
+Oct 17 02:02:36 <sarbes>	Yeah, this was what I needed. After adding a new encapsulation (WTAP_ENCAP_PROFIBUS_DL), my dissector can be started.
+Oct 17 13:40:16 *	Disconnected ()
+**** ENDING LOGGING AT Sat Oct 17 13:40:16 2020
+
+**** BEGIN LOGGING AT Sat Oct 17 13:41:32 2020
+
+Oct 17 13:41:32 *	Now talking on #wireshark
+Oct 17 13:41:32 *	Topic for #wireshark is: Welcome to #wireshark The new name for the most popular network protocol analyser! | http://www.wireshark.org | Questions? Ask them! (and be patient for a response)
+Oct 17 13:41:32 *	Topic for #wireshark set by Ober (Mon Apr 16 16:39:59 2007)
+Oct 18 03:39:11 *	ChanServ gives voice to Butterfly^
+Oct 18 19:44:27 *	Disconnected ()
+**** ENDING LOGGING AT Sun Oct 18 19:44:27 2020
+
+**** BEGIN LOGGING AT Sun Oct 18 19:44:54 2020
+
+Oct 18 19:44:54 *	Now talking on #wireshark
+Oct 18 19:44:54 *	Topic for #wireshark is: Welcome to #wireshark The new name for the most popular network protocol analyser! | http://www.wireshark.org | Questions? Ask them! (and be patient for a response)
+Oct 18 19:44:54 *	Topic for #wireshark set by Ober (Mon Apr 16 16:39:59 2007)
+Oct 18 20:32:27 *	Disconnected ()
+**** ENDING LOGGING AT Sun Oct 18 20:32:27 2020
+
+**** BEGIN LOGGING AT Sun Oct 18 20:36:35 2020
+
+Oct 18 20:36:35 *	Now talking on #wireshark
+Oct 18 20:36:35 *	Topic for #wireshark is: Welcome to #wireshark The new name for the most popular network protocol analyser! | http://www.wireshark.org | Questions? Ask them! (and be patient for a response)
+Oct 18 20:36:35 *	Topic for #wireshark set by Ober (Mon Apr 16 16:39:59 2007)

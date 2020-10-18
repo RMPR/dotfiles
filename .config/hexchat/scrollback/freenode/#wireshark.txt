@@ -1601,3 +1601,29 @@ T 1602873586 20*	Disconnected (20)
 T 1602873616 19*	Now talking on 22#wireshark
 T 1602873616 22*	Topic for 22#wireshark is: Welcome to #wireshark The new name for the most popular network protocol analyser! | http://www.wireshark.org | Questions? Ask them! (and be patient for a response)
 T 1602873616 22*	Topic for 22#wireshark set by 26Ober (24Mon Apr 16 16:39:59 2007)
+T 1602890421 18<20sarbes18>	Hi there! I'm trying to write a Profibus (LINKTYPE_PROFIBUS_DL) dissector, but I'm struggling to create the handle. I'm unsure what to put in as protocol when associating the handle.
+T 1602890914 18<20sarbes18>	So far, I can inspect the bus in Sigrok via a custom RS485 adapter. From there, I've written a basic Python decoder which does some basic checks and dumps the packets as a pcap file.
+T 1602891144 18<20sarbes18>	The tutorials for C/Lua dissectors seem to be based on already preprocessed frames.
+T 1602891181 18<20sarbes18>	At least all those I could find.
+T 1602892011 18<20sarbes18>	NVM, I guess I found my answer: https://www.wireshark.org/docs/wsdg_html_chunked/ChapterCapture.html
+T 1602892876 20*	Disconnected (20)
+T 1602893262 19*	Now talking on 22#wireshark
+T 1602893262 22*	Topic for 22#wireshark is: Welcome to #wireshark The new name for the most popular network protocol analyser! | http://www.wireshark.org | Questions? Ask them! (and be patient for a response)
+T 1602893262 22*	Topic for 22#wireshark set by 26Ober (24Mon Apr 16 16:39:59 2007)
+T 1602896556 18<20sarbes18>	Yeah, this was what I needed. After adding a new encapsulation (WTAP_ENCAP_PROFIBUS_DL), my dissector can be started.
+T 1602938416 20*	Disconnected (20)
+T 1602938492 19*	Now talking on 22#wireshark
+T 1602938492 22*	Topic for 22#wireshark is: Welcome to #wireshark The new name for the most popular network protocol analyser! | http://www.wireshark.org | Questions? Ask them! (and be patient for a response)
+T 1602938492 22*	Topic for 22#wireshark set by 26Ober (24Mon Apr 16 16:39:59 2007)
+T 1602988751 22*	26ChanServ gives voice to 18Butterfly^
+T 1603046667 20*	Disconnected (20)
+T 1603046694 19*	Now talking on 22#wireshark
+T 1603046694 22*	Topic for 22#wireshark is: Welcome to #wireshark The new name for the most popular network protocol analyser! | http://www.wireshark.org | Questions? Ask them! (and be patient for a response)
+T 1603046694 22*	Topic for 22#wireshark set by 26Ober (24Mon Apr 16 16:39:59 2007)
+T 1603049547 20*	Disconnected (20)
+T 1603049622 20*	Disconnected (20Remote host closed socket)
+T 1603049691 20*	Disconnected (20Remote host closed socket)
+T 1603049760 20*	Disconnected (20Remote host closed socket)
+T 1603049795 19*	Now talking on 22#wireshark
+T 1603049795 22*	Topic for 22#wireshark is: Welcome to #wireshark The new name for the most popular network protocol analyser! | http://www.wireshark.org | Questions? Ask them! (and be patient for a response)
+T 1603049795 22*	Topic for 22#wireshark set by 26Ober (24Mon Apr 16 16:39:59 2007)

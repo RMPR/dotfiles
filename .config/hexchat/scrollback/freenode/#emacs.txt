@@ -6236,3 +6236,1544 @@ T 1602882513 18<29johnjay18>	pjb: hrm you can't use the buffer functions
 T 1602883076 18<20pjb18>	johnjay: you could pass start and end as additionnal parameters to the fun.
 T 1602883112 18<19wrycode18>	IME tabnine provides no major advantage over well-configured dabbrev, capf, etc.
 T 1602883144 18<20pjb18>	johnjay: my dolines macro leaves the point at the end-of-line, but it doesn't offer this guarantee. You have to use the start and end markers. 
+T 1602885623 18<28winny18>	hmm seems like occur i missing some nice binds like navigating between entries while not switching buffers or navigating with simply n and p
+T 1602886392 18<29johnjay18>	winny: i thought you could navigate in it, try C-n and C-p?
+T 1602886437 18<28winny18>	indeed
+T 1602886449 18<28winny18>	wondering if anybody recommended a minor mode or alternate occur
+T 1602886518 18<29johnjay18>	ouch
+T 1602886660 18<29johnjay18>	weird apparently C-x ` is the command to go to next entry
+T 1602886732 18<29johnjay18>	i'm not sure why next-error works with occur
+T 1602886807 18<20shafox18>	I am using (vanilla emacs) lsp-mode with lsp-jedi, how do I know which python it is using for running jedi ? 
+T 1602886897 18<29johnjay18>	usually python shows its version when you run it. is it running behind the scenes?
+T 1602886917 18<29johnjay18>	if it's an ongoing process you can do ps -e maybe to find which one
+T 1602886970 18<24laertus18>	you could probably lsof it too
+T 1602887028 18<24laertus18>	but probably better than all of these is to find out how lsp-mode or lsp-jedi are calling python.. so then you know how to change that configuration
+T 1602887076 18<24laertus18>	you may need to search through their docs, configs, or source for that..
+T 1602887081 18<20shafox18>	johnjay, its running as background process.
+T 1602887097 18<24laertus18>	oh yeah, something else that might help is M-x list-processes
+T 1602887681 18<29mplsCorwin18>	Dmitry Gutov.  Nuff said.
+T 1602888056 18<29mplsCorwin18>	Ok.  Totally *not* crazy.  If you look at the email to the ML one hour back from Drew Adams you will see the super-short fill length I was talking about.
+T 1602888090 18<24laertus18>	link?
+T 1602888112 18<24laertus18>	also, i believe you.. i was just saying that i didn't see it in my own correspondence with him
+T 1602888115 18<29mplsCorwin18>	If I'd had the link handy I woudn't have given the topic name and time frame instead?
+T 1602888122 18<29mplsCorwin18>	lol nw
+T 1602888155 18<29mplsCorwin18>	I'll find a link in a little if you are still looking.  Power was down a bunch and it's working out to be a bad hair day for tech.
+T 1602888186 18<24laertus18>	i was just curious
+T 1602888199 18<24laertus18>	not worth troubling yourself over it
+T 1602888255 18<29mplsCorwin18>	laertus: thanks.  sorry about that.  wierd nerves today.  Found it, anyway: https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg01058.html
+T 1602888342 18<24laertus18>	that's not 15 columns
+T 1602888344 18<24laertus18>	looks like 52
+T 1602888357 18<24laertus18>	(not including the text he quoted
+T 1602888378 18<29mplsCorwin18>	I'll grant I was being dramaitc
+T 1602888388 18<24laertus18>	and if i had to guess, he was probably using 52 to try to be compatible with people who have trouble reading wider text
+T 1602888403 18<24laertus18>	probably a holdover from older days when some such might have actually existed
+T 1602888458 18<25bandali18>	using shorter fill lengths can be pretty fun :-p https://lists.gnu.org/r/emacsconf-discuss/2019-11/msg00002.html
+T 1602888489 18<25bandali18>	that was 47
+T 1602888498 18<25bandali18>	these days i mostly use the standard 72 tho
+T 1602888512 18<24laertus18>	i need to post a message all in one column
+T 1602888552 18<24laertus18>	though it'd probably break some mail readers..
+T 1602888580 18<29mplsCorwin18>	THe ML forcing things to plan text creates an imporant use-case for filling in email since MX will essencially fill the text if we don't this lets us control the display more effectively
+T 1602888617 18<29mplsCorwin18>	counterpoint being that this is something of a self-created purpose as allowing HTML mails would mean the context would wrap to people's displays.
+T 1602888657 18<29mplsCorwin18>	Anyway, like I said last night - it's doesn't really bug me, it's just odd.
+T 1602888705 18<24laertus18>	this reminds me of "format flowed" emails
+T 1602888727 18<24laertus18>	https://joeclark.org/ffaq.html
+T 1602889192 18<19bbuccianti18>	how do you read atom feeds?
+T 1602889240 18<24laertus18>	with an rss reader
+T 1602889282 18<24laertus18>	i personally use a non-emacs rss reader called newsboat
+T 1602889327 18<24laertus18>	i've been tempted to try el-feed, but from what i can tell it made some design decisions that i don't like, and i'm not sure how easy it would be to change it to my liking
+T 1602889358 18<24laertus18>	but a lot of people are very happy with it, so you might want to give it a go
+T 1602889380 18<19bbuccianti18>	sure thing
+T 1602890569 18<24laertus18>	in the customize gui, is there any way to get the symbol of the variable at point that's being customized?
+T 1602890667 18<22loganlee18>	hi
+T 1602892801 18<20shafox18>	To setup the venvPath in pyright lsp, there is a variable, lsp-pyright-venv-path, I am using poetry to manage env. the path to venv is the result of this "poetry env list --path", how do I set the variable value which is the result of that command  ?
+T 1602892876 20*	Disconnected (20)
+T 1602893262 19*	Now talking on 22#emacs
+T 1602893262 22*	Topic for 22#emacs is: Gul Dukat says upgrade to 27.1: https://i.imgflip.com/4hpvlw.jpg | Emacs questions take priority over off-topic chatter, so ask! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1602893262 22*	Topic for 22#emacs set by 26wgreenhouse!wgreenhous@fsf/member/wgreenhouse (24Thu Oct  8 00:50:34 2020)
+T 1602893262 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1602893356 18<20slondr18>	Hmm, this is a good poem 
+T 1602894488 18<19refusenick18>	ryouma: poetry is life-saving
+T 1602894500 18<19refusenick18>	also pyenv and pipx
+T 1602894506 18<27grym18>	slondr: do you know The One Rude TS Poem 
+T 1602894623 18<24ryouma18>	so that poem is basically the nerd in the breakfast club who did all the work and did not do any of the interesting stuff the couples did?
+T 1602894689 18<27grym18>	https://genius.com/Ts-eliot-the-triumph-of-bullshit-annotated 
+T 1602894697 18<27grym18>	at least he knew what he was :) 
+T 1602894713 18<27grym18>	(i'm very fond of some of his other works, but this one really humanizes him a bunch)
+T 1602895433 18<20bpalmer18>	Let's mine metadata for gold
+T 1602895474 18<29mplsCorwin18>	rudybot: what are my odds of finding a golden ticket inside my copy of GNU Emacs?
+T 1602895480 18<24rudybot18>	mplsCorwin: Yeah, what are the odds.  :p
+T 1602895495 18*	29mplsCorwin *slow clap*
+T 1602895615 18<20bpalmer18>	Is it time for a heartwarming film about a ruthless industrialist wreaking his revenge on children and industrial spies?
+T 1602895696 18<29mplsCorwin18>	oh shit.
+T 1602895738 18<29mplsCorwin18>	I just realized what it is that the whole fiasco with the ML is reminding me of so much.  And it perfectly explains why it is so under my skin and I can't let it go.
+T 1602895828 18<20bpalmer18>	oh?
+T 1602895840 18<29mplsCorwin18>	It is left-wing US politics.  fighting for issue dominance because identity puritanism 
+T 1602895899 18<29mplsCorwin18>	There's no clear way forward on the actual issues (in our case corp. dominance of key platform spaces), so we just fight over issues of purity.
+T 1602895932 18<29mplsCorwin18>	I'm done. That was my epiphany, such as it was. #fin 
+T 1602895975 18<24ryouma18>	what fiasco?
+T 1602895978 18<27grym18>	mplsCorwin: per earlier conversation: yes, of course, it's the same people. 
+T 1602895980 18<24ryouma18>	a mailing list?
+T 1602896008 18<29mplsCorwin18>	grym: that seems true.
+T 1602896015 18<27grym18>	mplsCorwin: also, "in the tolkein, not endriconological, sense, Randy was a dwarf ... " is evergreen 
+T 1602896022 18<27grym18>	s/i/e/
+T 1602896029 18<24ryouma18>	something on emacs-devel?
+T 1602896048 18<29mplsCorwin18>	ryouma: are you seriously asking?  There are a dozen links shared and conversations had in channel -- yes, about emacs-devel -- daily.
+T 1602896087 18<29mplsCorwin18>	ryouma: sorry for tone there.  Not quite sure what's been up with me today.  I do believe I should log for a bit.
+T 1602896092 18<24ryouma18>	i am most of the time out of the loop
+T 1602896104 18<24ryouma18>	i logged into channel just recently
+T 1602896128 18<27grym18>	mplsCorwin: can i interest you in this fine pamphlet about "bicycling until the internet stops mattering for a minute"
+T 1602896129 18<29mplsCorwin18>	ryouma: I already think of u as a regular tho :)
+T 1602896155 18<29mplsCorwin18>	grym: do you have an audiobook of that?  I gotta do a thing..
+T 1602896171 18<27grym18>	mplsCorwin: it is, sadly, a fictitious pamphlet 
+T 1602896185 18<29mplsCorwin18>	iknowiknow
+T 1602896187 18<27grym18>	the audiobook version of cryptonomicon, though, is very good 
+T 1602896198 18<24ryouma18>	mplsCorwin: i frequently log into the channel but do not always stay lgged in or log in
+T 1602896216 18<20bpalmer18>	ryouma: there is a current thread in emacs-devel , with original subject "Proposal for an Emacs User Survey", which has gotten a fair amount of attention in the channel, particularly with regards to whether any such survey should acknowledge the existence of MELPA
+T 1602896234 18<27grym18>	"bikeshedding, with _knives_"
+T 1602896241 18<20bpalmer18>	ryouma: And, if it does acknowledge it, whether it should be denounced.
+T 1602896248 18<24ryouma18>	ah thanks for overview
+T 1602896257 18<27grym18>	(is my halfassed tl;dr as at this point i now i think actively want to never be on that mailing list)
+T 1602896300 18<29mplsCorwin18>	Today's installment feature various messages discussing the disregard in which redditers at large are ascribed for RMS.
+T 1602896304 18<20slondr18>	grym: I hadn't seen that, hahah
+T 1602896327 18<20bpalmer18>	grym: is it , though? I tried getting through The Fall, which is a sequel of sorts of Cryptonomicon, and I think I'm steadily growing less enchanted with Stephenson's more technothriller/literary works
+T 1602896335 18<29mplsCorwin18>	ok.  I really am logging.  I can grammar longer not.
+T 1602896347 18<25bandali18>	mplsCorwin, on emacs-devel?
+T 1602896349 18<24ryouma18>	i stopped partway throuhgh the system of the world
+T 1602896353 18<29mplsCorwin18>	bandali: yes.
+T 1602896377 18<25bandali18>	i plan to (try to, at least) catch up with my ~2k backlog of it this weekend :-p
+T 1602896377 18<24ryouma18>	so this is worse than the `' thread?
+T 1602896400 18<20bpalmer18>	oh, the smart quotes one. That, too, was "fun."
+T 1602896404 18<24ryouma18>	i guess i shouldn't have asked that.  that probably wasn't acrimonous.
+T 1602896445 18<29mplsCorwin18>	bandali: it would absolutely nuts for you to try to catch up on the ML now.
+T 1602896453 18<29mplsCorwin18>	bandali: and I say that with love.
+T 1602896499 18<25bandali18>	mplsCorwin, ahaha :-p
+T 1602896503 18<25bandali18>	i mean i kinda agree
+T 1602896504 18<27grym18>	bpalmer: seveneves and the fall were kind of meh 
+T 1602896510 18<25bandali18>	i'm not gonna be reading every single message
+T 1602896520 18<25bandali18>	mostly skimming / breezing through them with the help of gnus
+T 1602896527 18<25bandali18>	and only read through (some of) the most interesting ones
+T 1602896532 18<25bandali18>	and flagging a bunch for later
+T 1602896542 18<29mplsCorwin18>	bandali: I've been racking my brains how to use all the energy around this in some positive way for Emacsconf.  Frank conversation, roundtable sort of thing.  Everything I can think seems like it quite likely would be terrible
+T 1602896568 18<27grym18>	mplsCorwin: zoom boffers just don't work 
+T 1602896625 18<25bandali18>	mplsCorwin, ha! if you have any ideas, please, don't hesitate to write to emacsconf-discuss and/or emacsconf-org, or even better, add them to https://emacsconf.org/2020/ideas/ or https://emacsconf.org/2020/planning/
+T 1602896630 18<25bandali18>	i'd very much appreciate that
+T 1602896634 18<20bpalmer18>	grym: seveneves I'm torn on. First, it was two different stories: a novel followed by a novella. I threw the book aside when it got to the novella at the end.
+T 1602896651 18<29mplsCorwin18>	bandali: *two thumbs up*
+T 1602896660 18<20bpalmer18>	grym: But the novel had some absolutely fantastic parts and it still drifts into my mind every few months.
+T 1602896672 18<27grym18>	bpalmer: i finished it, but i kept waiting for jad to show up 
+T 1602896680 18<20bpalmer18>	jad?
+T 1602896680 18<22fsbot18>	jad is the fast Java decompiler at http://www.kpdus.com/jad.html
+T 1602896689 18<27grym18>	bpalmer: the thousander from Anathem 
+T 1602896706 18<20bpalmer18>	Ah. I liked Anathem, but very little of it has stuck with me.
+T 1602896729 18<27grym18>	bpalmer: it's way high up on my list. 
+T 1602896754 18<27grym18>	the fall was getting a bit close to heinlein writing himself into his own multiverse
+T 1602896791 18<27grym18>	bpalmer: you do have to give the novella section the benefit of the most absurd Stephenson Name, which is a high accomplishment 
+T 1602896803 18<20bpalmer18>	oh, what is it?
+T 1602896808 18<27grym18>	Sonar Taxlaw
+T 1602896818 18<20bpalmer18>	...
+T 1602896834 18<27grym18>	she's named after the piece of the encyclopedia her family line was entrusted with memorizing! :) 
+T 1602896895 18<20bpalmer18>	That's something, all right.
+T 1602896913 18<27grym18>	i am at least somewhat convinced he has that plotline there just for the name 
+T 1602896979 18<20bpalmer18>	Maybe I'll be able to dip in and read that section now; at the time I was just so angry that he'd splice a story in like that.
+T 1602897087 18<27grym18>	i have a real thin background in grownup physics, so i was able to read the first bits easily in the sense that i wasn't fretting about errors.  but i know the biotech side of things reasonably well, and so the epigenetics mechanic is harder to read seriously 
+T 1602897123 18<27grym18>	it makes sense because he did that research in 2006-7, and extrapolated fine, its just that in the time it took to get the book published the science didn't bear that trajectory out 
+T 1602897646 18<20aidalgol18>	Moooom! The reactionaries are leaking into my YouTube recommendations again!
+T 1602897660 18<20aidalgol18>	"The Karen's, The SJW's, the posers, the political provocateur's, and their doormen Bad Robot all want a piece of Lord of the Rings on Prime and with all this come some rumors that aren't surprising leaving us with questions."
+T 1602897661 18<20aidalgol18>	wut?
+T 1602897722 18<20bpalmer18>	What is the entity possessed by Karens? Is it the same as that possessed by the provocateurs?
+T 1602897781 18<20aidalgol18>	Um...  Can I phone a friend?
+T 1602897788 18<20aidalgol18>	No, wait, ask the audience!
+T 1602897804 18<27grym18>	,yow
+T 1602897805 18<22fsbot18>	I'm RELIGIOUS!!  I love a man with a HAIRPIECE!!  Equip me with MISSILES!!
+T 1602897816 18<27grym18>	let's do what the madman says
+T 1602897984 18<20bpalmer18>	rudybot: missiles are outdated when rocks can be dropped from orbital platforms.
+T 1602897987 18<24rudybot18>	bpalmer: "Orbital fucking missiles?!!"
+T 1602898003 18<27grym18>	bpalmer: into volcanoes
+T 1602898025 18<20bpalmer18>	hold on, here. LOTR would be very different if you had that sort of intercontinental ballistic capability.
+T 1602898066 18<20aidalgol18>	bpalmer: That was the main plot device in one of the Call of Duty games.
+T 1602898083 18<27grym18>	bpalmer: i meant anathem,
+T 1602898460 18<20bpalmer18>	rudybot: has anybody established how many knots a giant eagle can do with a top gun nazgul on its tail?
+T 1602898466 18<24rudybot18>	bpalmer: Quando c'era Sauron, i Nazgul partivano in orario.
+T 1602898603 18<20bpalmer18>	rudybot: I assume the ainur could teach top-notch dog-fighting skills at the academy, and hand out lenses to those Tellurians deserving of one.
+T 1602898606 18<24rudybot18>	bpalmer: The ainur were literally created to be musicians. I am doubtful of this chronology
+T 1602898610 18<24ryouma18>	mm you can add advice to a function before that function is loaded, without getting any warnings or errors.  i /think/ that is good.
+T 1602898639 18<20bpalmer18>	grym: clearly, I need to re-read.
+T 1602898673 18<20bpalmer18>	I'll put it at the bottom of my pile, so I'll get to it in. hmm. This is supposed to be a finite collection, isn't it?
+T 1602898714 18<27grym18>	bpalmer: much more than some other authors i can name, at least the man doesn't write neverending series
+T 1602898745 18<27grym18>	cough cough grrm sanderson jordan rothfuss
+T 1602898763 18<20bpalmer18>	rothfuss's series has rather ended, it seems.
+T 1602898772 18<27grym18>	a shame.  good magic system 
+T 1602898813 18<20bpalmer18>	And Sanderson ... well, he's actually quite prolific. If he weren't intent on this terrible, terrible interlinked world system, I'd actually cite him as a counterexample.
+T 1602898820 18<27grym18>	speaking of good magic systems and trilogies, the audiobook versions of the garth nix books are done by tim curry :) 
+T 1602898830 18<20bpalmer18>	wow.
+T 1602898845 18<20bpalmer18>	(There are 4 books in the Sabriel series now, btw)
+T 1602898849 18<27grym18>	he does a mean mogget
+T 1602898857 18<27grym18>	5, i think 
+T 1602898862 18<20bpalmer18>	5
+T 1602898864 18<20bpalmer18>	You're right.
+T 1602898874 18<27grym18>	but the core 3 are enough for me.  clariel was good though
+T 1602898916 18<20bpalmer18>	I wasn't a big fan of Goldenhand.
+T 1602898923 18<20bpalmer18>	Definitely felt extra.
+T 1602898947 18<27grym18>	yeah that's what i heard; i haven't bothered to read it as a result 
+T 1602898998 18<20bpalmer18>	As for Rothfuss: while he may yet write his third book, the time it has taken has let me re-read the other books in the world, and allowed me to see some truly self-indulgent bits.
+T 1602899025 18<27grym18>	yeah.  i feel that way a lot about scott lynch 
+T 1602899032 18<27grym18>	who i found about the same time as rothfuss
+T 1602899155 18<19wrycode18>	mbrumlow: heads up I think your ssl certs are old
+T 1602899184 18<27grym18>	the first book was good, the second was okay, and by book three it was pretty clear that we were in "scott lynch is processing his divorce by writing a book"
+T 1602899234 18<27grym18>	or do i have this completely wrong? i expect to be schooled by someone else here in short order :P
+T 1602899263 18<27grym18>	ah, no, i was right
+T 1602899285 18<20bpalmer18>	I don't know much about Lynch's background. I have only read books 1 and 3 and thought each were good with something a litle lacking, so they weren't quite as good as I would have expected.
+T 1602899320 18<20bpalmer18>	I think it was mostly tied to structural elements of the flashback and ongoing plot.
+T 1602899432 18<20bpalmer18>	But the Dresden Files, that seems to be the consensus for how some aspects of the book series are done: Jim Butcher apparently talked about getting into weightlifting, and all of a sudden workouts started showing up 
+T 1602899484 18<27grym18>	hah
+T 1602899492 18<27grym18>	i read the first ~4 or so 
+T 1602899502 18<27grym18>	apparently there's a lot now 
+T 1602899574 18<20bpalmer18>	Yes. 17 books in the series; a definite mixed bag where some are good and many are uneven.
+T 1602899925 18<27grym18>	that's a bunch, yep 
+T 1602900175 18<20bpalmer18>	I just bought a humble bundle of books by R.A. Salvatore last week; apparently the multiple series featuring his character Drizzt Do'Urden is up to the 30s now
+T 1602900278 18<27grym18>	i was always more forgotten realms than dragonlance
+T 1602900285 18<27grym18>	friggin' mopey emo mages
+T 1602900323 18<20bpalmer18>	Drizzt is set in the Forgotten Realms
+T 1602900359 18<27grym18>	yep
+T 1602900367 18<27grym18>	i read a few of them, long ago 
+T 1602900731 18<19wrycode18>	I used to love the legend of drizzt
+T 1602900755 18<19wrycode18>	30 books? jesus
+T 1602900777 18<27grym18>	those scimitars just can't get enough 
+T 1602901002 18<20bpalmer18>	rudybot: once you start your campaign, you may discover you're locked in for life.
+T 1602901006 18<24rudybot18>	bpalmer: is pleasantly surprised to discover (accidentally) that some of the Bernie Sanders campaign organization's bespoke software is AGPLed
+T 1602903354 18<22dannylee18>	thor might be Jesus real father
+T 1602903392 18<22dannylee18>	i'm just out of emacs question
+T 1602904240 18<20bpalmer18>	rudybot: i'm here to chew bubblegum and walk, and I can't do both at the same time.
+T 1602904244 18<24rudybot18>	bpalmer: stupid babies... can't even walk and chew bubblegum at the same time
+T 1602904735 18<19elisper18>	Anyone know how I can change my slime-completion so that it makes a drop-down, instead of a new buffer, the way it does here? https://github.com/anwyn/slime-company/blob/master/slime-company.png
+T 1602905619 18<24laertus18>	from elisp, how do i open an info buffer to an info topic that's *not* part of the emacs nor elisp info manual?
+T 1602905669 18<24ryouma18>	laertus: you make sure those are on your system or you set the info path
+T 1602905675 18<24ryouma18>	the top level is info manuals
+T 1602905677 18<24ryouma18>	c-h i
+T 1602905692 18<24laertus18>	they are in my info manuals
+T 1602905702 18<24laertus18>	but i'm looking to get to a particular one from elisp
+T 1602905717 18<24laertus18>	not through interactive use of emacs
+T 1602905768 18<24laertus18>	i can already get to it through interactive use, so i know emacs has access to it
+T 1602905770 18<24ryouma18>	(info "Bash")
+T 1602905775 18<24laertus18>	ok, thanks
+T 1602905942 18<24laertus18>	and for something a bit tricker...
+T 1602905973 18<24laertus18>	any way to check for the existence and acessibility to emacs of a particular info manual?
+T 1602905989 18<24laertus18>	i'd like to do something like (infop "Bash")
+T 1602906057 18<24ryouma18>	,utsl
+T 1602906058 18<24laertus18>	hmm.. i guess i could wrap a condition-case around (info "Bash")
+T 1602906058 18<22fsbot18>	UTSL is [0] an abbreviation for Use The Source, Luke!
+T 1602906059 18<22fsbot18>	[1] an alternative to rtfm when there is no fm to r.
+T 1602906059 18<22fsbot18>	[2] "When I want to understand what is happening today or try to decide what will happen tomorrow, I look at the source code." -- Omar Khayyám
+T 1602906086 18<24ryouma18>	that is what i did to answer your question
+T 1602906119 18<24ryouma18>	it surely looks for it so it will have code that looks for it so you can find that code so you will have your answer
+T 1602906136 18*	24laertus nods
+T 1602906139 18<24laertus18>	thanks
+T 1602908815 18<20bpalmer18>	rudybot: the clock draws near to midnight; are you prepared to repent before it's too late?
+T 1602908830 18<24rudybot18>	bpalmer: I call upon rudybot to repent
+T 1602909600 18<20aidalgol18>	What are the downsides to wildcart SSL certs?
+T 1602909616 18<22sam_18>	expensive
+T 1602909623 18<20aidalgol18>	sam_: how?
+T 1602909624 18<22sam_18>	you could argue it's "eggs in one basket"
+T 1602909639 18<22sam_18>	I mean, practically, at least last time I checked, you had to pay a ridiculous amount to a CA for one
+T 1602909645 18<22sam_18>	maybe LE offers them now
+T 1602909651 18<22sam_18>	they're not technically expensive
+T 1602909660 18<20aidalgol18>	ah
+T 1602909666 18<20aidalgol18>	I mean aside from economics.
+T 1602910992 18<20pjb18>	hi! So, with (emacs-version) --> "GNU Emacs 27.1 (build 1, x86_64-apple-darwin18.7.0, NS appkit-1671.60 Version 10.14.6 (Build 18G95)) of 2020-08-12", when I try to use a customization variable, eg. erc-autojoin-channels-alist  with eval-last-sexp, it gives (mapcar 'erc-join-channel (cdr (assoc "freenode.org" erc-autojoin-channels-alist))) -> Lisp error: (void-variable erc-autojoin-channels-alist)
+T 1602910998 18<20pjb18>	how do we access customization variables now?
+T 1602911005 18<20pjb18>	Why this incompatible change?
+T 1602911080 18<29mplsCorwin18>	Hrm.  I didn't have to update erc-autojoin-channel-alist conf when I went fromn 26.3 to 27.1, that I recall..
+T 1602911173 18<29mplsCorwin18>	pjb: what happens when you M-x customize-variable RET erc-autojoin-channels-alist RET ?
+T 1602911187 18<20bpalmer18>	pjb: sounds like you haven't loaded the library that defvars/defcustoms it.
+T 1602911242 18<20bpalmer18>	pjb: or, what is the top-level form you're trying to eval ?
+T 1602911250 18<20bpalmer18>	custom-set-variable?
+T 1602911260 18<20bpalmer18>	customize-set-variable, rather, or custom-set-variables ?
+T 1602911270 18<20pjb18>	Yes, I set it with custom-set-variables
+T 1602911283 18<20pjb18>	(and a ton of others. I'd have to require a lot of files…)
+T 1602911348 18<20bpalmer18>	pjb: you don't need to require them if you set the variable absolutely without trying to read it.
+T 1602911357 18<20pjb18>	So how we have to require stuff in each buffer where we use a custom variable…
+T 1602911369 18<20bpalmer18>	no, only if you try to *read* the variable, when it's not set.
+T 1602911374 18<20pjb18>	This wil break a lot of commands.
+T 1602911389 18<20pjb18>	It's set, since I customize it in my rc files.
+T 1602911400 18<20pjb18>	And also I try to evaluate it in a erc-mode buffer…
+T 1602911412 18<20bpalmer18>	pjb: is erc-autojoin in the erc-modules list?
+T 1602911453 18<20bpalmer18>	but, unless there's some very serious bug, i suspect something is failing to set it and the module is also not being loaded.
+T 1602911468 18<20pjb18>	No, I removed it, because I want to autojoin manually…
+T 1602911511 18<20bpalmer18>	pjb: you need to load the library to have the variables it defines; having it in the erc-modules list has a side effect of loading it as well as activating it.
+T 1602911521 18<20pjb18>	So I guess I have to load erc-autojoin, without adding it to erc-modules so that autojoin is not done, but I can access it. Ok. Thanks.
+T 1602911569 18<20pjb18>	Let's see if it works.
+T 1602912236 18<20pjb18>	Didn't work. Well, after all I don't want to autojoin, so I will use my own variable. There's no reason to use that erc customization variable…
+T 1602912341 18<29mplsCorwin18>	I wonder if this is a case for eval-after-load, as in (eval-after-load 'erc-autojoin-mode (setq ...))
+T 1602912677 18<20pjb18>	When I try to follow a doc link to C sources of emacs, it asks me for the directory of emacs sources, but I have set source-directory in my rc file. with (setq source-directory (format "/usr/local/src/emacs-%s/src" emacs-version))
+T 1602914413 18<26buhman18>	I just started reading LFN and my mind is completely blown away by this black magic: https://gist.github.com/buhman/a856392c5b772564797d8585961d45dc (a lisp-1 interpreter written in lisp-1, with trivial glue to in turn port the interpreter to scheme)
+T 1602914882 18<20pjb18>	buhman: don't worry, Dijkstra ever could understand lisp either.  
+T 1602914889 18<20pjb18>	buhman: but this xeval is the core of lisp.
+T 1602914902 18<20pjb18>	buhman: lisp is defined by an evaluation function written in lisp itself.
+T 1602914934 18<20pjb18>	buhman: this means that introspection and reflexivity is built in the core of lisp.
+T 1602914955 18<20pjb18>	externally, this shows by the fact that lisp programs are not written as code, but as data.
+T 1602914973 18<20pjb18>	buhman: the syntax of sexp, is a syntax for DATA. Symbolic Expressions are data.
+T 1602915009 18<20pjb18>	buhman: so this xeval function can take some data, a sexp, that represents a lisp form, some code. But since it's data, it can process it and interpret it.
+T 1602915028 18<20pjb18>	buhman: now the thing is that this xeval is expressed as a sexp too in this file!
+T 1602915040 18<20pjb18>	buhman: so we need something to bootstrap the system.
+T 1602915072 18<26buhman18>	yeah, quite cool there's no parsing involved; xeval is effectivenly being passed a pre-parsed ast.
+T 1602915073 18<20pjb18>	buhman: Russel, a student of McCarthy showed that it could be written as a "simple" 7090 assembler program. It was LISP 1.
+T 1602915087 18<20pjb18>	buhman: but of course, you can also use a lisp (scheme) to bootstrap it too.
+T 1602915089 18<26buhman18>	super excited to read the rest of this, for the bootstrapping stuff too
+T 1602915104 18<20pjb18>	buhman: well, it's not exactly an AST, but close enough.
+T 1602915136 18<20pjb18>	buhman: there's sometimes some "syntax" inside the sexps, that can be "parsed".
+T 1602915163 18<26buhman18>	you mean, if the interpreter implemented macros?
+T 1602915175 18<20pjb18>	For example.
+T 1602915215 18<20pjb18>	This is because we write data that we need this QUOTE operator, to tell xeval that we have here a sexp literal, instead of a sexp that represents code to be interpreted.
+T 1602915265 18<20pjb18>	McCarthy originally planed to have M-expressions for the code.  car([A,B,C]) -> A  instead of (CAR (QUOTE (A B C))).
+T 1602915282 18<20pjb18>	Have a look at http://informatimago.com/develop/lisp/com/informatimago/small-cl-pgms/m-expression/index.html
+T 1602915331 18<20pjb18>	This didn't add anything. Using sexps was simplier, and once we have macros (invented in 1964), (and before that there was already fexprs), it locked in the sexps.
+T 1602916765 18<29johnjay18>	pjb: but what about that old thing from lisp machines where it used proper names
+T 1602916777 18<29johnjay18>	like instead of this-is-a-function it was M-x This Is A Function <RET>
+T 1602916788 18<29johnjay18>	i'm sure i saw that in a video demo
+T 1602916950 18<29mplsCorwin18>	could be done just with an overlay in M-:, I'd think
+T 1602916956 18<29mplsCorwin18>	oops, M-x
+T 1602916993 18<20pjb18>	johnjay: this is something you can do in emacs too. (all emacsen I know too).
+T 1602917051 18<20pjb18>	johnjay: but indeed, early sexps used the comma to separate atoms, not the space, Hence in my example, car[(A,B,C)] (I interchanged () with []).
+T 1602917067 18<20pjb18>	Because it was (ONE SYMBOL,ANOTHER SYMBOL,A THIRD SYMBOL)
+T 1602917096 18<20pjb18>	But in the first implementation of LISP, it was already  (ONE-SYMBOL ANOTHER-SYMBOL A-THIRD-SYMBOL)
+T 1602917140 18<20pjb18>	I don't know if the possibility to enter commands with spaces in emacsen comes from that, I doubt it. It probably come from the same ergonomic and user-friendly reasons.
+T 1602917191 18<20pjb18>	That said if you type a space in M-x it actually just completes the text, and inserts dashes, instead of a space.
+T 1602917210 18<20pjb18>	but Zwei and Hemlock explicitely define commands using strings with spaces.
+T 1602917219 18<29mplsCorwin18>	I wonder if there's already an option to give "Friendly Caps" and hide the spaces, e.g. with an overlay.
+T 1602917256 18<20pjb18>	mplsCorwin: M-x whitespace-mode RET ?
+T 1602917389 18<29johnjay18>	oh yeah it was zweo
+T 1602917391 18<29mplsCorwin18>	Sorta the exact opposite of that? ;)
+T 1602917395 18<29johnjay18>	er zwei
+T 1602917566 18<20pjb18>	mplsCorwin: C-- M-x whitespace-mode RET ?
+T 1602917581 18<20pjb18>	Or C-u - M-x whitespace-mode RET 
+T 1602917743 18<29mplsCorwin18>	pjb: :)  I'm good to toggle the mode.  I was thinking that it might be interesting to have M-x *show* Camel Case with hyphens presented as space.
+T 1602917776 18<20pjb18>	Oh, I see. 
+T 1602917785 18<20pjb18>	Yes, you could do that with compose-region.
+T 1602917797 18<20pjb18>	and font-lock-keywords.
+T 1602917809 18<29mplsCorwin18>	could you, then ;)
+T 1602917836 18<29mplsCorwin18>	In fact, we could change the prompt from the cryptic M-x to "Enter Command:".
+T 1602917889 18<29mplsCorwin18>	No idea if that's actually less intimating for anyone.
+T 1602917976 18<29mplsCorwin18>	pjb: if you seriously think that's easy, and also think some people would want it, would you be interested to try making a POC patch or something?
+T 1602917991 18<29mplsCorwin18>	GO screw yourself is a perfectly fair answer :)
+T 1602918235 18<26kudahtor22818>	are there any devops channels?
+T 1602918280 18<19wasamasa18>	/msg alis list devops
+T 1602918333 18<26kudahtor22818>	thanks
+T 1602918391 18<19wasamasa18>	I guess MELPA isn't interested in becoming spokespeople for GNU and their free software policies
+T 1602918412 18<29mplsCorwin18>	Are you quoting Jean, by chance?
+T 1602918435 18<19wasamasa18>	Jean is involved: https://github.com/melpa/melpa/issues/7185
+T 1602918457 18<19wasamasa18>	played out exactly as I've expected
+T 1602918500 18<29mplsCorwin18>	There's really nothing about that which isn't dissapointing.
+T 1602918516 18<19wasamasa18>	"This would be infighting" - "Let's see whether they change for the sake of the greater good" - "Great, you've intensified the infighting!" - "If they're truly good, they'll change for our sake"
+T 1602918523 18<19wasamasa18>	surprise, they won't
+T 1602918546 18<29mplsCorwin18>	> To be clear, it seems that @gnusupport is "Jean Louis," a frequent, strongly opinionated poster on the Emacs mailing list
+T 1602918563 18<19wasamasa18>	I was surprised to learn though that it's supposed to be support.gnu which makes a lot more sense
+T 1602918599 18<29mplsCorwin18>	yeah, that'd read quite a bit better.
+T 1602918664 18<20pjb18>	mplsCorwin: it's easy enough. It may be costly because you have to build a character/composition rule vector for each symbol, but the composition rules allow the juxtaposition of characters, so possible…
+T 1602918702 18<19wasamasa18>	later Jean conflates freedom and security which is, wow
+T 1602918729 18<19wasamasa18>	and doesn't like #emacs either :D
+T 1602918734 18<29mplsCorwin18>	pjb: it strikes me that should be acceptable given this is implicitly a interactive, user-attention demanding thing, and probably said user's fingers the bottlenecks. wdyt?
+T 1602918754 18<29mplsCorwin18>	wasamasa: this is the point I've been stewing on, yes.
+T 1602918911 18<29mplsCorwin18>	"please assume good faith"
+T 1602918954 18<19wasamasa18>	at least this made RMS spell out what exactly MELPA needs to do to be mentionable in surveys without denunciation: https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg01074.html
+T 1602918976 18<19wasamasa18>	I don't see that happen either though
+T 1602919006 18<19wasamasa18>	if they won't delete packages wrapping software considered unethical, they won't do away with github's preferred workflow either
+T 1602919017 18<26buhman18>	"why we must not inform people about MELPA" ... wat
+T 1602919029 18<19wasamasa18>	he hopes it's not widely known
+T 1602919040 18<19wasamasa18>	but just in case it is, https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg01083.html
+T 1602919050 18<29mplsCorwin18>	Maybe it's too bad Jean didn't let things play out.
+T 1602919066 18<26buhman18>	uhh, I thought everyone used melpa
+T 1602919081 18<19wasamasa18>	freedom-abiding citizens wouldn't
+T 1602919097 18<29mplsCorwin18>	buhman: true, and papa ain't happy.
+T 1602919099 18<19wasamasa18>	just as they won't use debian because it has the audacity of coming with a non-free repository and instructions how to use it
+T 1602919127 18<19wasamasa18>	to the effect of "If you're having wifi issues, consider installing firmware from the non-free repo as follows"
+T 1602919141 18<19wasamasa18>	this is considered inacceptable by true GNU adherents
+T 1602919166 18<29mplsCorwin18>	"Please use less of your computer while volunteers reverse engineer an ever growing amarda of hardware" doesn't feel like a real plan to win the hearts and minds.
+T 1602919181 18<29mplsCorwin18>	armada*
+T 1602919184 18<26buhman18>	doesn't torvalds/linux include "something something nonfree firmware" somewhere in /Documentation ?
+T 1602919196 18<26buhman18>	why does linux get a pass?
+T 1602919201 18<19wasamasa18>	doesn't matter if it's excised by FSF-endorsed distros
+T 1602919232 18<19wasamasa18>	you see, as long as you remove parts threatening your freedoms while loudly denunciating them, you're in the clear
+T 1602919250 18<20pjb18>	mplsCorwin: however, editing a buffer full of multi-letter composition is difficult.  It would be better to write a reader macro to read whitespaced camel-case symbols as lisp symbols.
+T 1602919322 18<29mplsCorwin18>	pjb: what about completion? Wouldn't that become somewhat brittle?
+T 1602919347 18<20pjb18>	Of course it could have wide repercutions.
+T 1602919368 18<19wasamasa18>	buhman: anyway, the point is there's freedom (you can do whatever you want and share it for whatever reason) and freedom (you must bring freedom to as many as possible while ensuring it cannot be subverted by someone else, yourself not included)
+T 1602919369 18<20pjb18>	But why would you want it anyways, everybody knows that camel-case is horrible and the right way is the lisp-case.
+T 1602919391 18<29mplsCorwin18>	that is an exceptionally valid point
+T 1602919427 18<19wasamasa18>	perhaps libredom is the better term for the latter (libre, domination)
+T 1602919443 18<26buhman18>	"If we KNEW that almost all users of Emacs did know about Melpa, that would change our policy towards it." what does this even mean?
+T 1602919459 18<19wasamasa18>	if a non-free thing is mostly unknown, ignore it
+T 1602919469 18<19wasamasa18>	if a non-free thing is widely known, mention it casually
+T 1602919507 18<26buhman18>	oh, I didn't realize "policy" referred to "the policy for under what circumstances we publicly denounce something".
+T 1602919508 18<19wasamasa18>	the problem with that approach is being unaware of your surroundings until you fall into a hole because you didn't pay attention to them
+T 1602919558 18<26buhman18>	I thought "policy" meant "the policy to decide whether a given sitation is blessed by The Church"
+T 1602919579 18<19wasamasa18>	see https://www.gnu.org/prep/standards/html_node/References.html#References for a treatise
+T 1602919590 18<19wasamasa18>	> If a non-free program or system is obscure in your program’s domain, your program should not mention or support it at all, since doing so would tend to popularize the non-free program more than it popularizes your program.
+T 1602919601 18<19wasamasa18>	> When a non-free program or system is well known, you can mention it in passing—that is harmless, since users who might want to use it probably already know about it.
+T 1602919672 18<19wasamasa18>	anyway, not all is bad about emacs-devel
+T 1602919682 18<19wasamasa18>	for example there's this fun demo: https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg01086.html
+T 1602919689 18<29mplsCorwin18>	We are in such a hole.  Proprietary platforms dominate except in the consumer spaces that are dominated by corporate.  This is particularly true in the case of mobile, where our entire tool-chain (the one where we rightly expect to know what's going on within the device) runs the risk of being, basically, a toy running in a VM.
+T 1602919758 18<29mplsCorwin18>	Worse, we are at a cross-roads in terms of civilly and faithfully carrying on the conversation, as evidenced by AP basically calling J out on those grounds.
+T 1602919860 18<29mplsCorwin18>	But I think there's some good news, too.  Free software is pretty well known to be at the forefront of our pulling of a major coup of surviving a mass-migration to work-from-home.  We're not zoom, but all nerds talk about open source even if they don't appreciate FLOSS.
+T 1602919878 18<29mplsCorwin18>	And I think a plurality do appreciate FLOSS.
+T 1602919901 18<29mplsCorwin18>	But probably not enough to get radically less done during our precious lives.
+T 1602919906 18<19wasamasa18>	I appreciate FLOSS, but I don't appreciate the infighting
+T 1602919919 18<29mplsCorwin18>	100%
+T 1602919930 18<29mplsCorwin18>	We fail to face that, we are screwed.
+T 1602919939 18<26kudahtor22818>	You can simplify it to "more good practices applied >> finer you do"
+T 1602919944 18<19wasamasa18>	and honestly, I wouldn't be surprised if the result of this is something like debian happening in response
+T 1602920029 18<29mplsCorwin18>	./insert-shrug
+T 1602920051 18<29mplsCorwin18>	not uncaring, I just haven't the foggiest.  I can't seem past the moment.
+T 1602920063 18<29mplsCorwin18>	s/eem/ee
+T 1602920152 18<24ryouma18>	rt.live has its sources on github fwiw
+T 1602920248 18<19wasamasa18>	actually, my emacs-devel org file has a previous statement on RMS not believing MELPA is popular: https://lists.gnu.org/archive/html/emacs-devel/2014-09/msg00526.html
+T 1602920261 18<19wasamasa18>	would be fun if I could find enough of them to complete the grief cycle
+T 1602920381 18<29mplsCorwin18>	┏━┓┏━┓┏━┓ ︵ /(^.^/)
+T 1602920460 18<29mplsCorwin18>	le sigh.  I got nuthin.  But I've been writing about this so eventually I shall have *lots* of nothing to say about this.
+T 1602920484 18<24ryouma18>	is the discussion on a specific decision that makes a huge difference?  or is the problem that it is disappointing regardless of what it is on?
+T 1602920524 18<29mplsCorwin18>	So today's development in the on-going saga of trash talking MELPA on E-D, vs trashing talking E-D/RMS on Reddit, here, is..
+T 1602920548 18<29mplsCorwin18>	<wasamasa> Jean is involved: https://github.com/melpa/melpa/issues/7185
+T 1602920577 18<29mplsCorwin18>	The homework for which was this: https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg01015.html
+T 1602920595 18<29mplsCorwin18>	But honestly, screw all that.  Read this: https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg01041.html
+T 1602920669 18<29mplsCorwin18>	And then we've been around the room on that the problem is (a) epic (b) about behavior as much as anything
+T 1602920739 18<29mplsCorwin18>	Full disclosure.  Poor spelling, that's me.  I'ma sack.  Thanks all. Night wasamasa 
+T 1602920984 18<19wasamasa18>	good night
+T 1602921000 18<19wasamasa18>	time to break some eggs and play CTF
+T 1602922423 18<26buhman18>	yeah, why does emacs have Windows and OSX support anyway? isn't that sacrilege?
+T 1602922529 18<20pjb18>	buhman: because it's free software, so users were free to patch it to make it work on those platforms.
+T 1602922587 18<26buhman18>	doesn't the source code of emacs as distributed on gnu.org contain that code though?
+T 1602922607 18<20pjb18>	this has been done a long time ago.
+T 1602922690 18<26buhman18>	seems like according to the arguments on this thread, emacs itself is in violation of fsf policies.
+T 1602922836 18<20aidalgol18>	mplsCorwin: As I've been saying for years, the thing e-d is best at is tarpitting itself.
+T 1602923168 18<19wasamasa18>	buhman: read the references page again, they explain this
+T 1602923202 18<19wasamasa18>	buhman: it's all about promoting free software ultimately, so as long as you don't go overboard with support of a non-free platform by implementing exclusive things there that don't work on free platforms, it's all good
+T 1602923223 18<19wasamasa18>	buhman: which happened with color emoji on macos some time ago
+T 1602923232 18<19wasamasa18>	buhman: as soon as that worked on linux, it got reenabled
+T 1602923430 18<20aidalgol18>	buhman: Real FSF policy is to stroke certain egos
+T 1602923520 18<19wasamasa18>	if this reminds you of a specific monty python sketch, you're not alone
+T 1602924892 18<20zeroed18>	 /w 11
+T 1602924972 18<19wasamasa18>	could someone with a twitter account please tell https://twitter.com/holocronweaver that the wikemacs certificate has expired more than a year ago?
+T 1602924972 18*	20zeroed apologies for typing random characters
+T 1602924985 18<19wasamasa18>	I mean, I doubt anyone gives a shit really, but it's linked rather prominently on r/emacs
+T 1602926231 18<24ksynwa18>	Not entirely related to emacs but I have a bunch of essays as *.org file. The files are hard wrapped. If I want to search for a term like "The Selfish Gene", how can I take into account the fact that it might occur as "The Selfish\nGene" at some places? Any tools like grep, ripgrep, etc. suggestions are fine too.
+T 1602926639 18<22thblt18>	ksynwa: In my Emacs, C-s works accross line breaks in org for some reason.
+T 1602926682 18<24ksynwa18>	thblt: What is C-s mapped to? Just wondering if it's something different in your setup.
+T 1602926700 18<19wasamasa18>	there's a whitespace folding flag in isearch for that purpose
+T 1602926701 18<20aidalgol18>	wasamasa: Which sketch?
+T 1602926704 18<22thblt18>	ksynwa: isearch-forward
+T 1602926716 18<19wasamasa18>	aidalgol: judean people's front
+T 1602926734 18<20pjb18>	ksynwa: (re-search-forward "\\<The\\W+Selfish\\W+Gene\\>" nil t)
+T 1602926745 18<22thblt18>	But it may be something in my config indeed.
+T 1602926754 18<24ksynwa18>	Thanks a lot thblt and pjb 
+T 1602926778 18<22thblt18>	No, not my config, it works from -q
+T 1602926782 18<22thblt18>	ksynwa: ^
+T 1602926790 18<20pjb18>	ksynwa: interactively, you can use search-forward-regexp C-c C-s and type \<The\W+Selfish\W+Gene\>
+T 1602926803 18<24ksynwa18>	Noted. Thanks again. :)
+T 1602926815 18<24ksynwa18>	What does \< denote pjb ?
+T 1602926827 18<20pjb18>	ksynwa: you can also use M-x occur RET \<The\W+Selfish\W+Gene\> RET
+T 1602926827 18<22thblt18>	word delimiter
+T 1602926832 18<20pjb18>	\< is begin of word. 
+T 1602926842 18<20pjb18>	\W is any non-word character. 
+T 1602926858 18<24ksynwa18>	Got it. Thanks. That is very cool. I will read up more on this regex.
+T 1602926860 18<22thblt18>	pjb: don't C-s the selfish gene RET works for you?
+T 1602926861 18<20pjb18>	so it also match the,selfish: gene  etc…
+T 1602926873 18<22thblt18>	Ho OK, your solution is broader.
+T 1602926882 18<20pjb18>	thblt: nope, not if it's spread over several lines.
+T 1602926891 18<22thblt18>	pjb: weird, it's the default for me.
+T 1602926901 18<20pjb18>	Perhaps there's a global option for that.
+T 1602926910 18<20pjb18>	or perhaps it depends on the mode of the buffer.
+T 1602926917 18<20pjb18>	I've not tested in org buffers.
+T 1602926928 18<20pjb18>	ksynwa: you may like M-x occur
+T 1602926930 18<20aidalgol18>	wasamasa: Ah, I never remember that film very well.
+T 1602926933 18<22thblt18>	I tried emacs -q, create an org buffer, Typed: "Hello I love\nyou won't you\ntell me your name", C-s you tell me RET it finds lines 2-3 immediately.
+T 1602926966 18<22thblt18>	On 27.1
+T 1602926977 18<20pjb18>	interesting.
+T 1602927005 18<20pjb18>	indeed, in org mode, C-s uses isearch and matches across lines.
+T 1602927056 18<24ksynwa18>	yeah that's very handy. just tried it myself.
+T 1602927084 18<24ksynwa18>	case insensitive too by default so that's good for me too
+T 1602927116 18<22thblt18>	Default is case-smart (or something like that) I think: if you use uppercase it becomes case-sensitive.
+T 1602927974 18<24rwhoops18>	TRAMP is included natively in emacs, right? 
+T 1602927998 18<19wasamasa18>	yes
+T 1602928003 18<24rwhoops18>	cool ty! 
+T 1602929110 18<20aidalgol18>	Hmm, tramp could be used to connect to servers running non-free software.
+T 1602929268 18<22thblt18>	aidalgol: let's write a free license that forbids it.
+T 1602929481 18<20aidalgol18>	No, we should implement a LibreJS-like extension to the SSH protocol, and only connect to servers advertising that they do not use or steer users towards non-free software.
+T 1602929593 18<25ldlework18>	wierd that the dash doc sets for javascript include a bunch of nonsense at the top
+T 1602929657 18<22thblt18>	conversion bug?
+T 1602929704 18<22thblt18>	rms has fascinating workflows https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg01077.html
+T 1602929773 18<25ldlework18>	darn both devdocs packages on melpa are busted too
+T 1602929776 18<25ldlework18>	fooey
+T 1602929877 18<22thblt18>	ldlework: looks good in zeal
+T 1602930105 18<25ldlework18>	what's zeal
+T 1602930124 18<25ldlework18>	i see
+T 1602930132 18*	25ldlework nix-env -i zeal
+T 1602930288 18<25ldlework18>	thblt: yeah, i guess it's just that in eww all that crud at the top takes up a lot more space
+T 1602930480 18<22thblt18>	ldlework: also you can try it first with `nix run nixpkgs.zeal` :)
+T 1602930500 18<25ldlework18>	oh i didn't realize that was possible
+T 1602930512 18<25ldlework18>	nix-shell is obvious, but that's even cooler
+T 1602930539 18<25ldlework18>	it's so nice that nix is becoming so popular
+T 1602930545 18<25ldlework18>	picking up tips in #emacs ;P
+T 1602930593 18<19Pickchea18>	Hello people, I have a question about electric-pair-mode. When combined with org-mode (and only then) it pairs < with > and I really don't want that. Neither electric-pair-pairs nor electric-pair-text-pairs contains < and >. How can I turn this off? #org-mode couldn't help ATM.
+T 1602930636 18<22thblt18>	ldlework: another quick tip, lookup in nix is expensive, nix-env -iA will often be a lot faster than -i
+T 1602930657 18<22thblt18>	(with full path to derivation of course: nix-env -iA nixos.zeal)
+T 1602930760 18<22thblt18>	eg with zeal: -iA 0.731s total -i 8.304s
+T 1602935602 18<29wgreenhouse18>	ldlework: re "nonsense at the top," try tapping R in eww
+T 1602937720 18<20jlf18>	,shit#emacssays is also we should implement a LibreJS-like extension to the SSH protocol, and only connect to servers advertising that they do not use or steer users towards non-free software.
+T 1602937723 18<22fsbot18>	Added note [227] for term "shit#emacssays"
+T 1602938416 20*	Disconnected (20)
+T 1602938492 19*	Now talking on 22#emacs
+T 1602938492 22*	Topic for 22#emacs is: Gul Dukat says upgrade to 27.1: https://i.imgflip.com/4hpvlw.jpg | Emacs questions take priority over off-topic chatter, so ask! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1602938492 22*	Topic for 22#emacs set by 26wgreenhouse!wgreenhous@fsf/member/wgreenhouse (24Thu Oct  8 00:50:34 2020)
+T 1602938492 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1602938807 18<29atw18>	does dto's cell-mode support formulas? has anyone tried integrating it with calc?
+T 1602940059 18<29wgreenhouse18>	,channel-wisdom
+T 1602940061 18<22fsbot18>	gah I can't by the life of me figure out how to add two pointers in c
+T 1602942499 18<19bremner18>	rudybot: you'd think a bot would know about nasal demons
+T 1602942509 18<24rudybot18>	bremner: Accursed nasal demons...
+T 1602942655 18<25Demosthenex18>	is there a way for mu4e to alert if there isn't an email at a scheduled time?
+T 1602946341 18<26Wafficus18>	Hi there, question about my Emacs config https://termbin.com/yn6l2
+T 1602946362 18<26Wafficus18>	I have it stored within ~/.emacs.d/config.org
+T 1602946384 18<26Wafficus18>	if I wanted to activate that and make it become actually part of my config from converting the .org file to a config, how do I go about doing that?
+T 1602947802 18<26Wafficus18>	I updated my .init.org file here: https://termbin.com/35vx2
+T 1602947822 18<26Wafficus18>	I'm wondering though, if I'm going to go for a literal config like this, do I store this in ~/.emacs.d
+T 1602947839 18<26Wafficus18>	but have the output file be ~/.emacs ?
+T 1602947877 18<26Wafficus18>	I ask because this is kind of the first time I'm doing any modifications to my config, so I'm a bit lost on how the organization of this should actually be using this org mode to config conversion method
+T 1602947987 18<29johnjay18>	Wafficus: the best i've been able to figure out is .emacs overrides init.el
+T 1602947999 18<29johnjay18>	so typically you would have a call in .emacs to load .emacs.d/init.el
+T 1602948018 18<27grym18>	Wafficus: org-based configs have to be tangled into .el files 
+T 1602948024 18<26Wafficus18>	hmm
+T 1602948024 18<29johnjay18>	^
+T 1602948027 18<26Wafficus18>	so its a ping pong effect
+T 1602948031 18<26Wafficus18>	interesting
+T 1602948035 18<26Wafficus18>	I KIND of get it
+T 1602948038 18<19wasamasa18>	or loaded from a cleverly written .el file
+T 1602948041 18<19wasamasa18>	your choice
+T 1602948045 18<26Wafficus18>	but that's my noobish op right now
+T 1602948051 18<26Wafficus18>	I think I should just seek out another couple of vids
+T 1602948058 18<26Wafficus18>	the reason why I was gonna mess around with doing this
+T 1602948066 18<26Wafficus18>	is that I wanted a single config across three separate machines
+T 1602948081 18<26Wafficus18>	and more so, because I checked out a video on Hydras, and Helm, to the point where I've been blown away
+T 1602948090 18<26Wafficus18>	and I'd like to start configin' it up ;)
+T 1602948103 18<29johnjay18>	is one of those files config.org?
+T 1602948108 18<29johnjay18>	or is config.org a huge file
+T 1602948112 18<26Wafficus18>	well
+T 1602948119 18<26Wafficus18>	I renamed it
+T 1602948121 18<26Wafficus18>	one sec
+T 1602948129 18<26Wafficus18>	I renamed it to ~/.emacs.d/init.org
+T 1602948133 18<26Wafficus18>	however
+T 1602948134 18<29johnjay18>	well there's a table of contents but i don't see anything else
+T 1602948144 18<26Wafficus18>	now I'm confused, maybe I should rename it to ~/.emacs.d/.emacs.org
+T 1602948146 18<26Wafficus18>	lol
+T 1602948150 18<29johnjay18>	like you say treemacs, treemacs-projectile, hydra, dashboard
+T 1602948160 18<26Wafficus18>	right that's more of what I plan on adding later
+T 1602948169 18<26Wafficus18>	the "initialization" part at the top
+T 1602948174 18<29johnjay18>	ok well if that's all you have then you don't have to do anything
+T 1602948176 18<26Wafficus18>	that's where I'm trying to figure out directories on output
+T 1602948184 18<29johnjay18>	just transfer that block of code to .emacs or init.el as you want
+T 1602948197 18<26Wafficus18>	interesting
+T 1602948200 18<26Wafficus18>	so they're in tandem then?
+T 1602948211 18<29johnjay18>	no .emacs overrides init.el
+T 1602948214 18<26Wafficus18>	I thought you could literally have everything in the same .org file
+T 1602948225 18<29johnjay18>	so you need a call to (load "/home/blah/.emacs.d/init.el) in your .emacs
+T 1602948243 18<29johnjay18>	or skip .emacs and just have init.el
+T 1602948258 18<29johnjay18>	it doesn't matter how you do it. emacs just tries each thing in order trying to find your init file
+T 1602948284 18<26Wafficus18>	well, I understand your point in terms of the .emacs config overriding everything
+T 1602948295 18<26Wafficus18>	that makes sense because my current config setup is literally just ~/.emacs right now
+T 1602948305 18<26Wafficus18>	anyway, to make it less confusing
+T 1602948315 18<26Wafficus18>	I renamed it to: ~/.emacs.d/emacs.org
+T 1602948326 18<26Wafficus18>	because eventually I would want the emacs.org file to become ~/.emacs
+T 1602948328 18<26Wafficus18>	upon startup of Emacs
+T 1602948422 18<29johnjay18>	well. i don't really understand your problem.
+T 1602948431 18<29johnjay18>	you just have a small file with a few lines of code
+T 1602948445 18<29johnjay18>	just put it in ~/.emacs.d/init.el and presto you have a literal setup
+T 1602948494 18<29johnjay18>	or by literal you mean literate lol?
+T 1602948508 18<29johnjay18>	then i suppose you would write init.el to call org mode to process your "literate" .org files
+T 1602948561 18<20jlf18>	Wafficus: https://harryrschwartz.com/2016/02/15/switching-to-a-literate-emacs-configuration
+T 1602948977 18<26Wafficus18>	jlf: ah yes, that dude is based
+T 1602948983 18<26Wafficus18>	his Org Mode talk is what got me into Emacs
+T 1602949001 18<26Wafficus18>	perfect, thanks for that reference
+T 1602949004 18<26Wafficus18>	cool stuff mate
+T 1602949024 18<20jlf18>	np
+T 1602951051 18<25BerndP18>	shit#emacssays
+T 1602951193 18<29johnjay18>	hrm how does org mode enable literate programming?
+T 1602951225 18<29johnjay18>	i thought in a literate program you could like add chunks anywhere
+T 1602951225 18<27hodapp18>	babel.
+T 1602951228 18<29johnjay18>	maybe that's wrong
+T 1602951237 18<29johnjay18>	like you could say "insert the following block of code at line 27"
+T 1602951257 18<27hodapp18>	you can use named blocks of code that are tangled/woven as needed
+T 1602951293 18<29johnjay18>	although most literate programs look like this i guess
+T 1602951301 18<29johnjay18>	https://www-cs-faculty.stanford.edu/~knuth/programs/ulam.w
+T 1602951328 18<29johnjay18>	essentially a C file with lines such as   @<Set up the |decode| table@>; which are references to later blocks of code
+T 1602951354 18<29johnjay18>	hrm i guess that makes sense.
+T 1602951382 18<29johnjay18>	maybe I was thinking more of "append this code to chunk XYZ" as well
+T 1602951411 18<27grym18>	johnjay: http://howardism.org/Technical/Emacs/literate-devops.html e.g.
+T 1602951422 18<29johnjay18>	so you could have #include<stdio.h> int main() { <<my code>>; return 0;} and then just append things to the start or end of <<my code>>
+T 1602951438 18<27grym18>	everything from "write a bash snippet, C-c C-c that thing, oh hey it runs" to "tangle the whole thing and run it"
+T 1602951514 18<29johnjay18>	right. i'm just talking about the structure of the file itself and how you specify chunks or whatever knuth called th em
+T 1602951554 18<27grym18>	<s TAB
+T 1602951555 18<27grym18>	:) 
+T 1602951561 18<29johnjay18>	also how is that guy creating virtual machines so easily. I struggle with command lin qemu just to get a ubuntu machine up and running
+T 1602951629 18<29johnjay18>	>Since version 1.6, Vagrant natively supports Docker containers, which in some cases can serve as a substitute for a fully virtualized operating system.[9]
+T 1602951658 18<29johnjay18>	sudo apt-getting it right now
+T 1602951862 18<29mplsCorwin18>	sudo apt-get lsit
+T 1602951895 18<29mplsCorwin18>	s/lsit/lost # I shoulda finished my coffee before making jokes
+T 1602952988 18*	29johnjay walks into coffee shop, says sudo apt-get latte
+T 1602953010 18<26kudahtor22818>	xDD
+T 1602953011 18<29johnjay18>	make sure to type it capital letters in case your terminal didn't hear it the first time too
+T 1602953074 18<26kudahtor22818>	after year+ of emacs I started to look like this https://cdna.artstation.com/p/assets/images/images/005/092/982/large/itteki-nakama-55121449-p0-master1200.jpg?1488405866
+T 1602953075 18<24rudybot18>	https://teensy.info/UrwtP1mJT5
+T 1602953187 18<20edgar-rft18>	kudahtor228: and this will be your favourite emacs theme -> https://www.emacswiki.org/emacs/PinkBliss
+T 1602953227 18<26kudahtor22818>	sure but it's gotta have dark-grey background and more neutral saturation
+T 1602953241 18<26kudahtor22818>	nyan theme would also do
+T 1602953311 18<26kudahtor22818>	ye dark-grey background
+T 1602953978 18<29johnjay18>	any ideas how I would fiddle with the mode line?
+T 1602953991 18<29johnjay18>	I want to highlight the line count in red if it is over a certain number
+T 1602954013 18<26kudahtor22818>	what's the point?
+T 1602954017 18<29mplsCorwin18>	johnjay: probably by screwing with mode-line-format
+T 1602954021 18<29johnjay18>	well i want to do other things to
+T 1602954035 18<29johnjay18>	because the brain processes color independently and earlier than words
+T 1602954048 18<29johnjay18>	so if you can encode as many things as possible with color or shading without having to read something you're good
+T 1602954062 18<29johnjay18>	mplsCorwin: ah right that's what it is
+T 1602954064 18<29johnjay18>	thanks
+T 1602954091 18<29johnjay18>	for example i have a color highlighting command which looks at all functions defined in the current obarray and highlights them orange
+T 1602954103 18<29johnjay18>	that way i can tell immediately if i've typed an emacs builtin correctly or not
+T 1602954163 18<26kudahtor22818>	you can use auto-complete mode to be sure in that specific thing
+T 1602954177 18<29johnjay18>	something called hdefd highlight mode
+T 1602954200 18<29johnjay18>	i suppose but then you'd have to do it before finishing typing it
+T 1602954226 18<29johnjay18>	auto complete has a place i'm just not sure how to use it
+T 1602954253 18<29mplsCorwin18>	johnjay: I gotta get into that also, as I want to put the currently selected tool, line weight, color, and fill color into the model line for sketch.el
+T 1602954285 18<29mplsCorwin18>	s.model.mode
+T 1602954367 18<29johnjay18>	ah flyspell mode works, that's comforting
+T 1602954397 18<29mplsCorwin18>	are you mocking me ;)
+T 1602954441 18<26kudahtor22818>	I just remembered pink floyd's "any colour you like" song
+T 1602954452 18<29johnjay18>	flyspell is smarter than I thought. it's not highlighting a word that's not a dictionary word but occurs a lot
+T 1602954476 18<29mplsCorwin18>	For whatever reason I can't launch erc-spelling-mode when ERC starts.  I have to remember to enable it manually, although ERC comes up *thinking* it's enabled.
+T 1602954557 18<26kudahtor22818>	oh dont u use rcirc
+T 1602954593 18<26kudahtor22818>	I'm on it once and for all
+T 1602954597 18<26kudahtor22818>	RCIRC
+T 1602954793 18<26kudahtor22818>	johnjay: thats not smart lol
+T 1602954817 18<26kudahtor22818>	I think thats configurable
+T 1602954967 18<26kudahtor22818>	xDD "*** normalperson JOIN"
+T 1602954978 18<26kudahtor22818>	whoever a normalperson is, he is not welcome
+T 1602954989 18<28normalperson18>	normalemacsperson
+T 1602954997 18<29mplsCorwin18>	welcome!
+T 1602955014 18<28normalperson18>	mplsCorwin: thank you! :D
+T 1602955019 18<28normalperson18>	elisp is hard
+T 1602955035 18<29mplsCorwin18>	facts.
+T 1602955038 18<28normalperson18>	but little by little, a loop here, a symbol there, I guess one will catch on eventually
+T 1602955074 18<29mplsCorwin18>	I've been using emacs decades but really only elisp a year or so.  It gets more natural and once that happens it cascades quickly.
+T 1602955098 18<22alex1118>	there's a guy who posted his .emacs file online going back decades and it's basically thesis length
+T 1602955099 18<28normalperson18>	right the tipping point
+T 1602955107 18<22alex1118>	which is fun
+T 1602955126 18<28normalperson18>	lol
+T 1602955172 18<22alex1118>	https://www.red-bean.com/kfogel/ see "my .emacs file"
+T 1602955213 18<25bandali18>	kudahtor228, keep the trolling to a minimum, please
+T 1602955235 18<28normalperson18>	alex11: not very modular ;P
+T 1602955256 18<28normalperson18>	I use doom-emacs, spacemacs helped me a lot with getting started, butsettling for doom-emacs
+T 1602955261 18<29mplsCorwin18>	"In this dissertation we demonstrate that is possible to get color-emoji completed from a custom completion framework defined within my .emacs file."
+T 1602955302 18<22thblt18>	mplsCorwin: You really shouldn't say those things in public, someone may think it's a good idea.
+T 1602955306 18<29mplsCorwin18>	Doom and spacemacs are wildly popular afaict
+T 1602955309 18<22alex1118>	when i put in serious effort into learning emacs and stop being lazy (read: never) i'd like to do it with normal emacs and not derivatives
+T 1602955320 18<29mplsCorwin18>	thblt: point.
+T 1602955371 18<28normalperson18>	mplsCorwin: I had no idea what emacs can do until I found them
+T 1602955393 18<28normalperson18>	that's probably the case for most people, so they never bother getting into emacs properly
+T 1602955419 18<20jlf18>	mplsCorwin: standard ido could do that, just needs a list of name->emoji mappings
+T 1602955450 18<29mplsCorwin18>	jlf: I wasn't so much after the feature as riffing on, e.g. https://wiki.p2pfoundation.net/Social_Construction_of_Freedom_in_Free_and_Open_Source_Software
+T 1602955492 18<29mplsCorwin18>	normalperson: I rolled my eyes seeing emoji in Emacs and now I'm hooked ¯\_(ツ)_/¯
+T 1602955510 18<20jlf18>	ah ok
+T 1602955555 18<20jlf18>	haha, the site allegedly hosting the abstract doesn't resolve
+T 1602955557 18<29mplsCorwin18>	literally someone's dissertation sources from the 8k sloc .emacs alex11 linked
+T 1602955697 18<29mplsCorwin18>	jlf: seems that waybackmachine has us: https://web.archive.org/web/20160405071132/http://healthhacker.org/biella/coleman-abstract.pdf
+T 1602955773 18<29mplsCorwin18>	Hrm.  Or maybe not.  Anyone actually get the PDF down?
+T 1602955804 18<26kudahtor22818>	the link is broken
+T 1602955819 18<29mplsCorwin18>	Gotcha!   https://web.archive.org/web/20060905011624/http://healthhacker.org/biella/coleman-abstract.pdf
+T 1602955874 18<26kudahtor22818>	hackers hackers everywhere
+T 1602955890 18<22thblt18>	7.5k non-comment slocs indeed. I wonder if it's an exception; I'd assume most `init.el`s tend to *decrease* in length after a certain point, because people 1) may revert some settings to their defaults once they understand Emacs better 2) will convert their main changes to standalone packages.
+T 1602955944 18<29mplsCorwin18>	thblt: that's been my experience.  My .email is shrinking, mostly.
+T 1602955950 18<29mplsCorwin18>	.emacs
+T 1602955964 18*	29mplsCorwin stares warningly at their fingers
+T 1602955983 18<27grym18>	fing
+T 1602956046 18<29mplsCorwin18>	o/ grym :)
+T 1602956548 18<26kudahtor22818>	It'ss quite enjoying to read emacs guide while drunk
+T 1602956559 18<26kudahtor22818>	reminds a fairy tale with chapters and stuff
+T 1602956790 18<19bbuccianti18>	I think I understand git-rebase finally
+T 1602956798 18<19bbuccianti18>	:D
+T 1602957210 18<29mplsCorwin18>	"Woah."  "How do you feel?"  "I know git-rebase."  "Show me."
+T 1602957467 18<19bbuccianti18>	I feel stupid
+T 1602957469 18<19bbuccianti18>	hahaha
+T 1602957537 18<22thblt18>	bbuccianti: what was your issue?
+T 1602957578 18<19bbuccianti18>	I always wanted to apply my commits on top of another branch
+T 1602957588 18<22thblt18>	rebase's the tool for that.
+T 1602957591 18<22thblt18>	indeed.
+T 1602957595 18<19bbuccianti18>	but never understand (until now) that you just need to be in that branch
+T 1602957602 18<19bbuccianti18>	and call git rebase master
+T 1602957604 18<19bbuccianti18>	for example
+T 1602957606 18<19bbuccianti18>	and that's it
+T 1602957621 18<22thblt18>	I see.  Yeah, git cli has its quirks
+T 1602957675 18<19bbuccianti18>	but was a lot of git-rebase interactively painful editing history
+T 1602957702 18<22thblt18>	Try magit :)
+T 1602957725 18<19bbuccianti18>	today I understand that git log shows you the history from newest at the top to oldest at the bottom
+T 1602957733 18<19bbuccianti18>	and git rebase -i shows the opposite
+T 1602957745 18<19bbuccianti18>	first it's the oldest commit, bottom is the newest
+T 1602957860 18<19bbuccianti18>	yeah, I think magit contributed to the confusion
+T 1602958530 18<19bremner18>	so, pythonistas. Which priority queue implementation should I use
+T 1602958554 18<19bremner18>	and why the heck isn't there an adequate one in the standard library
+T 1602958631 18<28oats18>	bremner, the html parser took up all the rest of the space. No more room in the standard library
+T 1602958746 18<24manu151118>	does emacs default theme selected line color only look weird to me?
+T 1602958757 18<19bremner18>	,m8b
+T 1602958757 18<22fsbot18>	Cannot predict now
+T 1602958786 18<24manu151118>	it is too dark
+T 1602958818 18<24manu151118>	https://i.imgur.com/1r79f4C.png
+T 1602958836 18<25spikemaster18>	is making giant comment section headers considered "literate" programming? or do you need to do something special like use org mode or something.
+T 1602958853 18<19bremner18>	more the latter I'd say
+T 1602958854 18<29mplsCorwin18>	yeah, it's an org-mode thing, mostly.
+T 1602958874 18<19bremner18>	or historically things like "WEB"
+T 1602958879 18<24manu151118>	spikemaster: it is quite common to do this in php
+T 1602958938 18<22thblt18>	strictly speaking, literate programming is not just comments without markers, it's also the possibility of naming blocks and inserting it in a different order, reusing them, and so on.
+T 1602958942 18<22thblt18>	Org provides all that.
+T 1602958971 18<22thblt18>	Most “literale” emacs configs just use org as a code outliner, and there are easier ways to do that.
+T 1602959020 18<29mplsCorwin18>	I think literate programing goes beyond documenting your code, or even interweaving of documentation.  It's wrapping the code into a documentation so that the human becomes the first tier consumer of the file (vs the elisp interpreter or whathaveyou)
+T 1602959048 18<29mplsCorwin18>	org is our main technique for this.
+T 1602959054 18<29mplsCorwin18>	erm.  tool.
+T 1602959110 18<19bremner18>	speaking of org-mode, can it create directories to tangle into
+T 1602959131 18<22thblt18>	This is why reordering matters, because the order in which you explain something is not necessarily the right order for the compiler. 
+T 1602959156 18<19bremner18>	I use literate-programming for lectures, and only show the important bits of code
+T 1602959171 18<19bremner18>	also, :mkdirp yes
+T 1602959319 18<22thblt18>	(as Aristotle said)
+T 1602960378 18<29mplsCorwin18>	RE native-comp, Eli is pushing for the about screen to show information about native comp, which makes sense to me.  I'm thinking it might be nice to show also whether we are using eln or elc (or el?) for individual packages.  Does that seem useful to anyone else?
+T 1602960561 18<25spikemaster18>	knowing if something is using el, elc, eln sounds useful to me. i vote yes
+T 1602960592 18<22thblt18>	yes yes yes.
+T 1602960630 18<29mplsCorwin18>	Thank you, spikemaster, thblt.  If anyone here is in a position to try sending a patch along with this suggestion I'd happily defer, otherwise I'll send the idea off in few hours if I don't see it appear.
+T 1602960718 18<29mplsCorwin18>	I like.  I think I see that Eli is still up and doing email so I'll send something quick off now.  Thanks again.
+T 1602960724 18<29mplsCorwin18>	s/like/lie
+T 1602960812 18<22thblt18>	mplsCorwin: It's this discussion https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg01132.html, right?
+T 1602960823 18<29mplsCorwin18>	yes
+T 1602960831 18<29mplsCorwin18>	wait
+T 1602960833 18<22thblt18>	Cool. I'm syncing my repo to have a look.
+T 1602960843 18<22thblt18>	Wait no?
+T 1602960845 18<29mplsCorwin18>	OK, I'm holding off then thblt.
+T 1602960854 18<29mplsCorwin18>	I'm double checking, one moment please.
+T 1602960879 18<22thblt18>	Don't hold off I'm all for the idea :)
+T 1602960905 18<29mplsCorwin18>	ok!  Let me finish making sure we're on the same thread and I'll press send.
+T 1602960995 18<29mplsCorwin18>	thblt: the subject line I'm looking at is "feature/native-comp] provide a user feedback on Emacs being native compiled"
+T 1602961038 18<29mplsCorwin18>	thblt: here's where I planned to reply in: https://lists.gnu.org/archive/html/bug-gnu-emacs/2020-10/msg01335.html
+T 1602961055 18<29mplsCorwin18>	(I have *got* to migrate to gnus)
+T 1602961104 18<22thblt18>	mplsCorwin: that's a great idea. I'm not sure there's any con to this.
+T 1602961352 18<22thblt18>	reading the debbugs thread: the performance gain is impressive and the cost seems ridiculous.
+T 1602961388 18<29mplsCorwin18>	thblt: this is going to be the most exciting feature since color's in -nw ;)
+T 1602961396 18<29mplsCorwin18>	s/\'//
+T 1602961400 18<22thblt18>	(Except for [N|Gu]ix users whose Emacs recompiles every time there's a minor change far down in the dependency chain)
+T 1602961424 18<22thblt18>	And until we get rid of -nw for a new display engine :D /s
+T 1602961431 18<29mplsCorwin18>	hahaha
+T 1602962686 18<25bandali18>	mplsCorwin, what MUA do you use now?
+T 1602962843 18<29mplsCorwin18>	can't remember.  def not gmail.
+T 1602962859 18<29mplsCorwin18>	wait.  check that.  Gmail.
+T 1602962907 18<19parsnip18>	lol
+T 1602962956 18<25bandali18>	oh lol
+T 1602962991 18<22thblt18>	https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg01140.html Can you freeze Emacs forever by making it use a font that doesn't have A-F0-9?
+T 1602963018 18<22thblt18>	I'm referring to “No, Emacs doesn't create any glyphs dynamically for tofus, it simply uses a smaller font in a box it itself draws.”
+T 1602963051 18<22thblt18>	If it cannot draw hex numbers, it will draw another box in the box, and so on recursively until the end of time or more probably stack overflow.
+T 1602963090 18<29mplsCorwin18>	yeah, I'm seeing it. Pretty good question from my limited understanding.
+T 1602963121 18<22thblt18>	I may give it a try if I find the time.
+T 1602963277 18<29mplsCorwin18>	That would be cool.  It would be a good time to raise such an issue as it seems we are shining lights into that particular darkness just now.
+T 1602963734 18<26ecbrown18>	i'd like to give the feedback:  native-comp is outstanding, and i can't envision ever going back to anything but
+T 1602963927 18<19bremner18>	cool.
+T 1602964126 18<29mplsCorwin18>	RE native-comp, Here's the suggestion from earlier: https://lists.gnu.org/archive/html/bug-gnu-emacs/2020-10/msg01361.html
+T 1602964451 18<26ecbrown18>	good suggestion, i couldn't tell you whether my modules are ???-compiled
+T 1602964525 18<26ecbrown18>	i just know they're not elc's, because i whack them before each startup
+T 1602964599 18<29mplsCorwin18>	huh, why?
+T 1602964627 18<26ecbrown18>	some bizarro combination of macos, native-comp, straight, and org not loading org correctly
+T 1602964664 18<26ecbrown18>	(and, org-contrib, i need one package from there org-contacts)
+T 1602964677 18<29mplsCorwin18>	I've got a few that I have to remember not to compile but so far things are stable compiling *most* of my init.
+T 1602964708 18<26ecbrown18>	whenever i fail to nuke the elc's, org-version returns N/A
+T 1602964728 18<26ecbrown18>	and that wreaks havoc elsewhere, being not a number
+T 1602964733 18<29mplsCorwin18>	Let me check but I think init-org.el is one of the ones I can't byte-compile.
+T 1602964816 18<29mplsCorwin18>	Hmmm, no I guess I have an init-org.elc not using org-contrib at present tho)
+T 1602965848 18<20jlf18>	ecbrown: maybe check ,,df list-load-path-shadows
+T 1602965848 18<22fsbot18>	list-load-path-shadows is an interactive autoloaded compiled Lisp
+T 1602965848 18<22fsbot18>	function in ‘shadow.el’.
+T 1602965848 18<22fsbot18>	(list-load-path-shadows &optional STRINGP)
+T 1602965848 18<22fsbot18>	Display a list of Emacs Lisp files that shadow other files. ;;[ ,more / ,dump]
+T 1602966077 18<20pjb18>	it's misnamed!!!  It doesn't return a list, it returns a string such as: (list-load-path-shadows) -> "
+T 1602966078 18<20pjb18>	72 Emacs Lisp load-path shadowings were found"
+T 1602966093 18<20pjb18>	somebody report a bug!
+T 1602966667 18<24laertus18>	how do i paste the contents of the most recent entry in the kill ring in to a calc-mode buffer?
+T 1602966699 18<24laertus18>	nevermind.. it's just control-y for me.. :P
+T 1602967514 18<19parsnip18>	hmm, i'm using ubuntu 20.04 and `sudo apt-cache search taskd` comes up empty
+T 1602967528 18<19parsnip18>	even though it appears here: http://manpages.ubuntu.com/manpages/focal/man1/taskd.1.html
+T 1602967697 18<19parsnip18>	asked on #ubuntu
+T 1602967904 18<19wasamasa18>	hm, my ELPA feed thing failed several times in a row
+T 1602967910 18<19wasamasa18>	let's hope this is GNU ELPA being funny
+T 1602967931 18<19wasamasa18>	nope, marmalade
+T 1602967942 18<19wasamasa18>	is it completely dead now?
+T 1602967947 18<19wasamasa18>	502 :<
+T 1602967980 18<19parsnip18>	lol, marmalade
+T 1602968056 18<19wasamasa18>	I'm more annoyed the traceback is long enough to not contain the specific archive it fails for
+T 1602968127 18<19wasamasa18>	anyway, this morning I asked for someone with a twitter account for a favor
+T 1602968144 18<19wasamasa18>	maybe now such a person is online willing to send a friendly DM to a similarly neglected emacs service
+T 1602968190 18<19wasamasa18>	https://nitter.net/Holocronweaver apparently runs wikemacs these days and should really renew the certificate
+T 1602968197 18<19wasamasa18>	or consider using let's encrypt
+T 1602968597 18<26frdg18>	what are your top 3 favorite minor modes? I'm looking to try some new stuff out. 
+T 1602968712 18<19wasamasa18>	oh and if someone's up to twittering, nicferrier could also be notified about marmalade
+T 1602968837 18<29mplsCorwin18>	neither of these folks follow me or accept messages from those they don't follow.  would it be helpful just tweeting @ them, do you think?
+T 1602968923 18<19wasamasa18>	you mean publicly mentioning them? absolutely
+T 1602969010 18<19wasamasa18>	for nic I guess I could try sending an email to their git address
+T 1602969143 18<29mplsCorwin18>	Those who wish could find my SO to Jesse on twitter, here: https://twitter.com/mplscorwin/status/1317574108431962122
+T 1602969217 18<29mplsCorwin18>	wasamasa: left nic alone on twitter per your last.
+T 1602969244 18<28davidl18>	Im getting this old bug thing: gui-get-selection: (error "Timed out waiting for reply from selection owner") - https://emacs.stackexchange.com/questions/5703/has-anyone-else-encountered-gui-get-selection-error-timed-out-bug using emacs 27.1
+T 1602969245 18<24rudybot18>	https://teensy.info/lc7UCQtBUJ
+T 1602969270 18<28davidl18>	any suggestions how to fix that?
+T 1602969381 18<29mplsCorwin18>	one thing to research this could be to take the list of bug reports from this SO and plug them into debugs and see what may have happened with each.  https://debbugs.gnu.org/cgi/bugreport.cgi?bug=<ID>
+T 1602969484 18<29mplsCorwin18>	Understanding that might get this down to where someone, here, or on the Emacs-Devel@lists.gnu.org Mailing List could propose a simple patch or work-around to move this forward or close whatever remaining problem you are finding.
+T 1602969670 18<20dale18>	I think my music streaming service has decided I like only Contemporary Christian and... this sounds like Japanese Dubstep or something.
+T 1602969723 18<20dale18>	I dojn
+T 1602969730 18<19wasamasa18>	mplsCorwin: hm, I don't really see it hurting, in case his email turns out to be the wrong place
+T 1602969740 18<20dale18>	Er, I don't like either of those, to be clear.  Well, I don't know, if this Japanese Dubstep is a thing I might be able to get on board, let me hear more.
+T 1602969753 18<19wasamasa18>	do you have examples of that?
+T 1602969756 18<19wasamasa18>	is it like babymetal?
+T 1602969765 18<29mplsCorwin18>	wasamasa: no problem.
+T 1602969831 18<20dale18>	I'm not sure what this is actually.  Maybe this awful link works for non-subscribers? https://music.youtube.com/playlist?list=OLAK5uy_kRHcQp6OzhBbIcX0_qstMZfGjSa6vcXbE
+T 1602969875 18<20dale18>	I think the artist is called "yu" and the album is named "Baby Doc".
+T 1602969946 18<19wasamasa18>	what exactly about this does make you think dubstep?
+T 1602969988 18<19wasamasa18>	oh, the track after the intro
+T 1602970180 18<19wasamasa18>	not on discogs either
+T 1602970312 18<20dale18>	Yeah, I did not find much info on it.
+T 1602970364 18<19wasamasa18>	I'm not a fan
+T 1602970437 18<19wasamasa18>	the things I associate with dubstep is slow pace and dragging drums, ideally on a ridiculously overpriced gold-laced vinyl record
+T 1602970465 18<19wasamasa18>	https://www.discogs.com/Massive-Attack-vs-Burial-Four-Walls-Paradise-Circus/master/611553
+T 1602970470 18<19wasamasa18>	> Somebody payed 89 euro for the sleeve only ! ! !
+T 1602970622 18<29mplsCorwin18>	finally poked nic on twitter: https://twitter.com/mplscorwin/status/1317580399036477441
+T 1602970624 18<20dale18>	I know Burial is supposed to be dubstep, but it seems so different from other dubstep.
+T 1602970649 18<20dale18>	Ha, I see Wikipedia calls Skrillex "brostep".  I can get on board with that.
+T 1602970663 18<19wasamasa18>	mplsCorwin: thanks
+T 1602970719 18<19wasamasa18>	dale: there's a few other of the more ambient kind, I enjoyed Ital Tek
+T 1602970732 18<20dale18>	wasamasa: Thanks, I will check it out.
+T 1602970853 18<19wasamasa18>	https://www.youtube.com/watch?v=N3tUUPiDcAc
+T 1602971312 18<20dale18>	Yeah, I'm liking this.  Listening to "Cobra" off Hollowed now too.
+T 1602971355 18<19wasamasa18>	the newer releases seem a bit more regular beat
+T 1602971360 18<19wasamasa18>	still nice
+T 1602971379 18<19wasamasa18>	if you up the speed, you get drum and bass
+T 1602971464 18<29mplsCorwin18>	"nice" - wasamasa plz lock the post /s https://bru.st/i/firefox_sR51Nv2T58.png
+T 1602971482 18<19wasamasa18>	uh
+T 1602971535 18<29mplsCorwin18>	"How many up-votes did that reddit post about dungeon-mode get?"  "69." "Nice."
+T 1602972489 18<29mplsCorwin18>	Andreas replied on the suggesting of native comp including telling which of elc/eln/el is being used: https://lists.gnu.org/archive/html/bug-gnu-emacs/2020-10/msg01370.html
+T 1602972508 18<29mplsCorwin18>	s/ing/ion
+T 1602973192 18<24ryouma18>	this fails to rebind DEL (translated from <backspace>).  shouldn't it absolutely do so?
+T 1602973195 18<24ryouma18>	(define-key global-map [remap backward-delete-char-untabify] #'my-backward-delete-char-untabify)
+T 1602973230 18<24ryouma18>	in sh-mode where backward-delete-char-untabify is bound to del/<backspace>
+T 1602973265 18<24ryouma18>	i also tried   (define-key sh-mode-map [remap backward-delete-char-untabify] #'my-backward-delete-char-untabify)
+T 1602973374 18<20dale18>	ryouma: Not sure about global-map if it's bound in sh-mode-map, but doing it in sh-mode-map should work I'd think.
+T 1602973399 18<20dale18>	ryouma: And you're testing this by hitting the key and not by evaluating a call to backward-delete-char-untabify, right?
+T 1602973426 18<20dale18>	ryouma: Like for example (call-interactively 'backward-delete-char-untabify) will not pay attention to command remapping, IIRC.  Likewise M-x ignores command remapping.
+T 1602973578 18<20dale18>	ryouma: Hm, I just tried this and C-h k DEL even says that I have remapped the command, but it doesn't seem to... work.
+T 1602973636 18<20dale18>	I can rebind newline just fine in sh-mode-map.
+T 1602973752 18<20dale18>	ryouma: In sh-mode-map turns out you need to remap delete-backward-char instead of backward-delete-char-untabify.
+T 1602973828 18<20dale18>	ryouma: I guess this is because sh-mode-map already remaps delete-backward-char to backward-delete-char-untabify.
+T 1602973869 18<20dale18>	I would have expected C-h k to tell me this.  I guess I was also hoping that command remapping would "chain", so if X is mapped to Y, and Y is remapped to Z, Emacs would follow X → Y → Z, but apparently that is not the case?
+T 1602974619 18<24ryouma18>	yes to this, meaning that i expected the remap to make the key call the my- version --- 15:23 <dale> ryouma: And you're testing this by hitting the key and not by evaluating a call to backward-delete-char-untabify, right?
+T 1602974646 18<24ryouma18>	also c-h c is giving the old command which imo is wrong
+T 1602974681 18<19parsnip18>	how do i learn how handshake works in a case as general as taskwarrior+taskserver?
+T 1602974694 18<19parsnip18>	i've got a self signed ca.cert.pem, i guess
+T 1602974715 18<19parsnip18>	hmm, maybe i should practice in a language easier than dart
+T 1602974719 18<19parsnip18>	like python or something
+T 1602974742 18<19parsnip18>	the prototype is in c++, and i can't read it
+T 1602974792 18<28jfb418>	why use dart 
+T 1602974829 18<24ryouma18>	ah.  i agree it should be recursive (unless there is some reason i am not thinking of.  however, i am also doing (define-key global-map [remap delete-backward-char] #'alpha-delete-backward-char).  perhaps i need to try that in sh-mode-map also. --- 15:30 <dale> ryouma: I guess this is because sh-mode-map already remaps delete-backward-char to backward-delete-char-untabify.
+T 1602975098 18<24ryouma18>	also is it calling the alias backward-delete-char?
+T 1602975153 18<24ryouma18>	it isn't
+T 1602975177 18<24ryouma18>	shell-script-mode is alias for sh-mode and the file is named sh-script...  not exactly  consistent are we?
+T 1602975376 18<24ryouma18>	not fixable by just remapping all the emacs commands apparently
+T 1602975394 18<24ryouma18>	it just won't remap
+T 1602975512 18<24ryouma18>	no tools here for fixing it (info "(elisp) Remapping Commands")
+T 1602975567 18<24ryouma18>	i don't know why this is not remapping the original.  maybe i have to remap to nil then remap?
+T 1602975636 18<20dale18>	ryouma: You probably need to remap delete-backward-char in sh-mode-map.
+T 1602975665 18<24ryouma18>	i tried that :/
+T 1602975670 18<20dale18>	ryouma: I closed the emacs -Q I had open where I was trying it, but something like (define-key sh-mode-map [remap delete-backward-char] (lambda () (interactive) (message "test"))) worked for me.
+T 1602975721 18<24ryouma18>	for me del remains bound to backward-delete-char-untabify
+T 1602975849 18<24ryouma18>	a single invocation of (define-key sh-mode-map [remap delete-backward-char] nil) with no further remapping... guess what occurs... actually did the remapping to my command.  weird.
+T 1602975857 18<20dale18>	ryouma: https://www.dropbox.com/s/fsugqcb7em1n3x4/Screen%20Shot%202020-10-17%20at%2018.02.52.png?dl=0 FWIW, this is just after pressing backspace in the sh-mode buffer, notice echo area.
+T 1602976037 18<28jfb418>	mplsCorwin: thanks for the link on native-comp.  I wonder how close we will get to the performance of Common Lisp in elisp.
+T 1602976143 18<24ryouma18>	dale: thanks
+T 1602976169 18<24ryouma18>	now to see if it all works properly
+T 1602976324 18<24ryouma18>	ah, looks like i will have to do eval-after-load and rely on the feature that my remapping works even if it is done /before/ unremapping... but that will be brittle as sh-mode might change that remapping.  then i guess i have to load sh-mode really really early... don't want to do that... don't want to remap late either... can't think of a good solution.  but it will at least remap.
+T 1602976462 18<20jlf18>	rudybot: quote
+T 1602976462 18<24rudybot18>	jlf: Let's reserve our future selves for present use.
+T 1602976516 18<24ryouma18>	probably the unremap after feature works because it is a different map
+T 1602976575 18<20bpalmer18>	ryouma: why are you remapping things if all that you want is DEL to run a different command?
+T 1602976601 18<24ryouma18>	because i want everything that runs those commands interactively to do what i want
+T 1602976636 18<24ryouma18>	the emacs thing i am fixing is connected to those commands, rather than the key bindings, so accordingly i operate at the command level and not the key binding level
+T 1602976641 18<20bpalmer18>	OK. Does that work? I assumed the remapping is only when key binds are involved. I should test.
+T 1602976650 18<24ryouma18>	no, it is
+T 1602976684 18<24ryouma18>	i want all key bindings bound to the relevant commands to do what i want.  but suppose those change.  i don't want my commands to run on the old keybinding.  for example.
+T 1602976695 18<20jlf18>	bpalmer: iirc that's how visual-line-mode remaps C-e and friends
+T 1602976712 18<24ryouma18>	s/those change/the bindings change in emacs or some mode
+T 1602976762 18<24ryouma18>	i could instead defadvice the commands, but then i wouol dhave to do my behavior if and only if it was callled interactively.  that feels less transparent to me.
+T 1602976835 18<24ryouma18>	in that i'd be c-h c'ing the bindings and wondering why they weren't working if anything changed underneath my fixes)
+T 1602976858 18<20bpalmer18>	jlf: I just don't see why (call-interactively 'foo)  would look at the keymaps for any foo remappings.
+T 1602976861 18<24ryouma18>	if i do this, then i see whehter the bindings are my commands
+T 1602976879 18<24ryouma18>	it wouldn't
+T 1602976907 18<24ryouma18>	which is ok in this case
+T 1602976921 18<24ryouma18>	remapping actually changes the bindings themselves
+T 1602977067 18<24ryouma18>	anyway i have fixed it by the with-eval-after-load thing
+T 1602977076 18<24ryouma18>	followed by unremapping sh-mode-map
+T 1602977107 18<24ryouma18>	so it will be brittle to changes in sh-script.el but it works
+T 1602977204 18<19rpav18>	gah isn't there a way to prevent surrogate minibuffers or whatever
+T 1602977235 18<24ryouma18>	that is an interesting idea though bpalmer.  a facility that could change only the interactively called versions of commands.  but then it would have to be only direct calls.  and i'd want that documented in the help buffer just as dale hoped would occur for sh-mode's (sh-script's) remapping.
+T 1602977276 18<20jlf18>	bpalmer: you're right, i don't think it does - visual-line-mode-map contains entries like (define-key map [remap move-end-of-line]  'end-of-visual-line) , but  M-: (end-of-line)  invokes the standard e-o-l function
+T 1602977309 18<24ryouma18>	(i guess there isn't much of such a thing as non-interactively called commands if you do not restrict it to direct calls -- except timers and such)
+T 1602977324 18<20bpalmer18>	Aha. Thanks for doing that test, jlf. 
+T 1602977355 18<24ryouma18>	such a facility would be more robust to keymap changes, which would be a boon
+T 1602977361 18<24ryouma18>	as long as help says what it is doing
+T 1602977487 18<20bpalmer18>	ryouma: I am left not understanding the remap position, but I will blame it on needing to hydrate. But for what you're describing now, advice would work, and would show up in the help buffer.
+T 1602977516 18<20bpalmer18>	your advice would just need to check called-interactively-p and change behavior.
+T 1602977521 18<24ryouma18>	right
+T 1602977525 18<24ryouma18>	that would work
+T 1602977542 18<24ryouma18>	but it feels better to do the remapping for some reason
+T 1602977558 18<20bpalmer18>	and with that, I'm off to the watering trough.
+T 1602977563 18<24ryouma18>	if i run into trouble i will do the advice
+T 1602977672 18<24ryouma18>	i used to use advice for this, on a different command that is pretty much only called interactively
+T 1602978162 18<20bpalmer18>	Let's offer beads to buy property in New York City.
+T 1602978634 18<29cluck18>	sex workers already do, stop trying disrupt their market 
+T 1602978761 18<20jlf18>	cluck says something creepy, everybody take a shot
+T 1602978862 18<19parsnip18>	how do you read c++
+T 1602978865 18<19parsnip18>	hold your breath?
+T 1602978881 18<19parsnip18>	hit your weak hand with a hammer?
+T 1602978911 18<20bpalmer18>	if your hand is weak, cut it off.
+T 1602978960 18<19parsnip18>	it is a little dry...
+T 1602978989 18<20bpalmer18>	It's important to not repeat yourself in C++, except for where you really want to repeat yourself so the compiler knows what you're trying to do.
+T 1602979066 18<20bpalmer18>	Amusingly, the override specifier in C++ was added just to avoid programmers having to sprinkle virtual everywhere.
+T 1602979083 18<19parsnip18>	why would a client pass a credential with a server cert?
+T 1602979103 18<19parsnip18>	in other words, what does credential mean there?
+T 1602979104 18<20bpalmer18>	But, it's not actually a keyword. It just has special meaning when used after a member function declaration.
+T 1602979400 18<29cluck18>	jlf: you're a monster, we need all that alcohol to disinfect hands and PPE now, you bourgeois social drinker
+T 1602979434 18<27grym18>	only if it's above 140 proof 
+T 1602979478 18<29cluck18>	found the undistilled pleb
+T 1602979511 18<29cluck18>	rudybot: in mother russia..
+T 1602979515 18<24rudybot18>	cluck: in mother russia...
+T 1602979539 18<29cluck18>	*mic drop*
+T 1602979845 18<29mplsCorwin18>	jfb4: mp; no way to know but there's reason for optimism given they are mainlining gccjit improvements
+T 1602981088 18<28offby118>	cluck: he added a .   That's sure sign of sentience
+T 1602981095 18<28offby118>	rudybot: in Soviet Russia
+T 1602981099 18<24rudybot18>	*offby1: Only in Soviet Russia
+T 1602981103 18<28offby118>	rudybot: in Soviet Union
+T 1602981104 18<24rudybot18>	*offby1: well, see, the thing there is, just because the soviet union went away does not mean that russia did, and both they and we seem to be seeing some value in kindling a new, albeit mostly nominal rather than real, rivalry
+T 1602981147 18<19parsnip18>	rudybot: i'll kindling you in a minute
+T 1602981165 18<24rudybot18>	parsnip: but I do, they are the perfect size for keeping a study burn on a cooking fire, somethin bigger than kindling, but not yet a log.
+T 1602981169 18<20bpalmer18>	rudybot: what if Russia did go away? Can you prove that northern "Asia" even exists? 
+T 1602981179 18<24rudybot18>	bpalmer: continental asia/russia? japan! western europe/northern africa/middle east? portugal! antarctica? australia! south america? panama! australia? UK!
+T 1602981196 18<29cluck18>	offby1: knowing when to stop is a skill your potus doesn't have so maybe rudybot really is smarter and sentient
+T 1602981216 18<19parsnip18>	rudybot: okay, let's handshake, then you upgrade to websocket, okay?
+T 1602981227 18<24rudybot18>	parsnip: It's just taken from the docs. I just want to skip the handshake. I'm doing a hackathon right now and I don't have time for this secure websocket business.
+T 1602981248 18<19parsnip18>	lol
+T 1602981260 18<19parsnip18>	upgrade complete
+T 1602981270 18<29cluck18>	we don't need no websocket puppet
+T 1602981295 18<29cluck18>	hey teacher leave our bot alone
+T 1602981654 18<28offby118>	rudybot: a man, a plan, a canal ... Van Halen!
+T 1602981655 18<24rudybot18>	*offby1: wow, rms's rider is longer than van halen's
+T 1602981881 18<20bpalmer18>	sadly, van halen is passed.
+T 1602982547 18<20bpalmer18>	looks like some people on emacs-devel are tiring of the drama.
+T 1602983153 18<24ryouma18>	rider?
+T 1602983454 18<26ecbrown18>	rms has a speaker's "rider" which outline his preferences. not uncommon among people who frequently speak on the lecture circuit
+T 1602983476 18<28offby118>	rudybot: black ash from the foundry hangs like a hood
+T 1602983482 18<19bremner18>	but somewhat less common among speakers at free software events
+T 1602983486 18<24rudybot18>	*offby1: xos4 is the foundry ("vendor", if you will) 
+T 1602983511 18*	26ecbrown wonders who else is frequently asked to speak about free software
+T 1602983562 18<26ecbrown18>	(not that it matters, just being argumentative)
+T 1602983670 18<24ryouma18>	 ecbrown there is an anthropologist who studies free software
+T 1602983679 18<24ryouma18>	she has been at it since late 1990s
+T 1602983722 18<26ecbrown18>	interesting topic.  if you know her name, i would like to look her up some time
+T 1602983786 18*	26ecbrown is still hunting for usenet archives surrounding lucid/gnu schism
+T 1602983853 18<24ryouma18>	if it is the same anthropologist i am thinking of, she gave a ted talk in the past few y i think
+T 1602983889 18<19bremner18>	that would be Biella Coleman, probably
+T 1602983896 18<19bremner18>	currently at McGill, afaik
+T 1602983957 18<24ryouma18>	name doesn't ring a bell but it could be.  i remmber her more than her name.
+T 1602983965 18<19bremner18>	although I'm a bit unclear why its anthropology and not sociology
+T 1602983969 18<24ryouma18>	i vaguely recall some kind of carribean connection
+T 1602983979 18<19bremner18>	yes, PR
+T 1602984003 18<24ryouma18>	really?  then probably it is she.  her accent is standard american english however.
+T 1602984010 18<24ryouma18>	different set of tools perhaps
+T 1602984027 18<24ryouma18>	she really puts on a speakers tone, i.e. takes lecturing seriously
+T 1602984039 18<20jlf18>	mplsCorwin linked this earlier - https://web.archive.org/web/20110726143735/http://healthhacker.org/biella/coleman-abstract.pdf
+T 1602984056 18<26ecbrown18>	bremner: thanks, checking out her page now
+T 1602984056 18<20bpalmer18>	"standard american english" ?
+T 1602984062 18<20jlf18>	ryouma: americans don't have accents, silly
+T 1602984077 18<24ryouma18>	?
+T 1602984083 18<19bremner18>	bpalmer: mexican english, obviously
+T 1602984142 18<24ryouma18>	a specific named accent.  code switching often switches TO it.  academics and others often use it.  i was not being precise -- her normal accent is certainly close to sae but could be different.  --- 18:21 <bpalmer> "standard american english" ?
+T 1602984157 18<24ryouma18>	nationwide tv announcers use it.  etc.
+T 1602984170 18<24ryouma18>	often*
+T 1602984183 18<19bremner18>	oh, so you mean Canadian English
+T 1602984188 18<29cluck18>	bremner: antropology because <insert fossils joke>
+T 1602984204 18<20bpalmer18>	Hmm. I hadn't run into it named as such before. 'The idea that there is one accent that is the most neutrally American has been around for a long time, and it is usually called "General American." The term was coined in 1925 by the descriptive linguist George Philip Krapp as a way to describe the accent he thought was becoming the norm in the United States.'
+T 1602984212 18<24ryouma18>	https://www.pbs.org/speak/seatosea/standardamerican/
+T 1602984236 18<20bpalmer18>	Taken from https://www.babbel.com/en/magazine/united-states-of-accents-general-american/
+T 1602984239 18<24ryouma18>	(i merely meant that she did not have a carribean seeming accent in her normal speech)
+T 1602984244 18<20jlf18>	i thought https://en.wikipedia.org/wiki/Mid-Atlantic_accent was regarded as more or less standard
+T 1602984282 18<24ryouma18>	canadian english is close to sae i think
+T 1602984306 18<24ryouma18>	well, the canadian english i have heard, and i am excluding the canadian accent that sounds like french
+T 1602984325 18<20bpalmer18>	I associate mid-atlantic with 1950s and 1960s "standard"
+T 1602984337 18<24ryouma18>	mid atlantic is probably a bit different but close
+T 1602984341 18<29cluck18>	bpalmer: the de facto standard is the trans atlantic american, you can thank hollywood for that 
+T 1602984342 18<20bpalmer18>	or maybe 1940s
+T 1602984393 18<24ryouma18>	oh, no midatlantic soudns different
+T 1602984434 18<24ryouma18>	so california adopted the atlantic?
+T 1602984446 18<19bremner18>	north america is a torus
+T 1602984494 18<19bremner18>	or maybe a Ford Taurus
+T 1602984595 18<20bpalmer18>	Hey, mercury rises into taurus 
+T 1602984677 18<20bpalmer18>	Interestingly, I have never particularly associated Puerto Rican accents with other Caribbean accents. 
+T 1602984749 18<24ryouma18>	she did not capitalize the the in the atlantic
+T 1602984767 18<24ryouma18>	hmm neither have i really.  not like zombomacs.
+T 1602984798 18<24ryouma18>	what does trans atlantic american mean?
+T 1602984902 18<24ryouma18>	she also misspelled chaos :)
+T 1602985011 18<20bpalmer18>	chaos is a word that should probably not have a fixed spelling
+T 1602985108 18<29cluck18>	ryouma: https://en.wikipedia.org/wiki/Mid-Atlantic_accent
+T 1602985140 18<27grym18>	bpalmer: but very fixed yogurt delivery times
+T 1602985306 18<20bpalmer18>	when's the best time for yogurt to arrive?
+T 1602985411 18<27grym18>	in ankh moropork, exactly 07:00 
+T 1602985451 18<27grym18>	suspiciously, all customers get theirs then by the same deliveryman 
+T 1602985467 18<27grym18>	(and he spells chaos with a 'k')
+T 1602985906 18<20bpalmer18>	I think I missed that entry
+T 1602985934 18<27grym18>	ah.  Thief of Time 
+T 1602985964 18<27grym18>	a personal favorite.  history monks, mostly standalone 
+T 1602986245 18<29johnjay18>	my mind is blown right now. apparently in medieval england they didn't have the concept of swear words
+T 1602986262 18<29johnjay18>	like defined words that were offensive no matter what context they were used in
+T 1602986336 18<27grym18>	i hope you brought recipts 
+T 1602986351 18<27grym18>	because we have friggin' scads of words that exists So That You Did Not Say The Bad Ones
+T 1602986370 18<29johnjay18>	instead if you wanted to offend someone you'd wish ill on them or maybe invoke the body part of god
+T 1602986380 18<29johnjay18>	like, By God's Pinky You Suck SIr
+T 1602986395 18<29johnjay18>	or "Get Stuffed" perhaps
+T 1602986403 18<20bpalmer18>	on the other hand , earlier folks did: 'proto-Germanic tribes replaced their original word for bear - arkto - with this euphemistic expression out of fear that speaking the animal's true name might cause it to appear'
+T 1602986413 18<27grym18>	that's less giving offense than it is literally praying for someone to come to grief
+T 1602986442 18<27grym18>	bpalmer: yeah, i was just going to mention that one 
+T 1602986446 18<29johnjay18>	yes to modern ears. but to a medieval person they would interpret that as if you said something very naughty.
+T 1602986455 18<27grym18>	johnjay: i mean.  you did 
+T 1602986469 18<27grym18>	'i hope you die' is pretty naughty!
+T 1602986493 18<29johnjay18>	yeah but it doesn't sound as harsh as saying naughty words like get effed you *** 
+T 1602986502 18<29johnjay18>	i hope you die is more like, i don't like you, you're ugly
+T 1602986504 18<27grym18>	¯\_(ツ)_/¯
+T 1602986516 18<20bpalmer18>	I hope you start an inexpressibly amazing eternal life free from suffering soon!
+T 1602986523 18<27grym18>	go back far enough and people living in britain assuredly did understand profanity 
+T 1602986524 18<29cluck18>	during the war of roses that's like.. what else're you gonna hope..
+T 1602986526 18<29johnjay18>	but yes it's interesting how some of those forms do have staying power
+T 1602986535 18<27grym18>	c.f. our boy catullus 
+T 1602986543 18<29johnjay18>	in particular "Get ***ed" would probably still work as profanity in medieval time period
+T 1602986554 18<27grym18>	johnjay: what's that time period, to you 
+T 1602986569 18<20bpalmer18>	it's somewhat a lost cause, but there are distinctions to be drawn among profanity, vulgarity, and obscenity
+T 1602986580 18<29johnjay18>	if you're a conneticut yankee in king arthur's court you may need to know this
+T 1602986580 18<27grym18>	indeed. 
+T 1602986595 18<29johnjay18>	yes apparently medieval people had almost no concept of vulgarity or obscenity
+T 1602986603 18<29johnjay18>	there are even street signs with naughty words on them
+T 1602986605 18<29cluck18>	bpalmer: i did not take you for a transhumanist waiting to be diditized..
+T 1602986616 18<20bpalmer18>	cluck: why wait?
+T 1602986623 18<27grym18>	johnjay: then again, we have records of a man whose name was recorded as 'john le fucker' and 'roger fuckbythenavele'
+T 1602986638 18<27grym18>	"so stupid he doesn't know where his dick goes"
+T 1602986641 18<29johnjay18>	exactly, same thing. it wasn't the word itself that was offensive
+T 1602986649 18<27grym18>	i mean.  is it ever
+T 1602986652 18<27grym18>	(no)
+T 1602986658 18<20bpalmer18>	johnjay: it might be better to think in terms of, if they had offensive concepts, they don't match what is commonly *nowadays* considered offensive
+T 1602986670 18<29johnjay18>	it would be as if you don't get offended if your doctor asks for a stool sample. but you would if he asked for a s**t sample
+T 1602986682 18<27grym18>	‘There may be some truth to the old joke that in Los Angeles, people say “Have a nice day” and mean “Fuck off,” while in New York, people say “Fuck off” and mean “Have a nice day.”’
+T 1602986686 18<29johnjay18>	they had offensive concepts yes,  just not individual "offense words"
+T 1602986714 18*	20bpalmer hums skeptically.
+T 1602986730 18<27grym18>	^ 
+T 1602986771 18<27grym18>	tangentially, my first real relationship was with a bilingual english/spanish speaker
+T 1602986786 18<27grym18>	she had no problems swearing like a sailor in english, but flatly refused to use spanish profanity 
+T 1602986793 18<27grym18>	as it was "too mean"
+T 1602986799 18<29johnjay18>	that's funny
+T 1602986813 18<29cluck18>	rudybot: they are about to have their minds blown by realizing puss in boots was a pet caffe before coffee was known in those shores
+T 1602986820 18<24rudybot18>	cluck: Btw, why is Puss in Boots Spanish in the latest movie?
+T 1602986822 18<29johnjay18>	maybe spanish is more medieval being a romance language in that it is less about the word than the concept. not sure
+T 1602986825 18<20jlf18>	rudybot: ¿profanity o profundity?
+T 1602986826 18<24rudybot18>	jlf: pretty small edit distance between profanity and profundity.. coincidence??
+T 1602986829 18<27grym18>	where english starts at 'hey fuck you', her colombian spanish started at "go fuck your grandmother"
+T 1602986843 18<27grym18>	and like, escalated from there
+T 1602986850 18*	26ecbrown thinks its about time to raise complaints about #emacs
+T 1602986856 18<26ecbrown18>	really
+T 1602986859 18<20jlf18>	rudybot: i feel like you really _get_ me, you know?
+T 1602986862 18<24rudybot18>	jlf: y it's a great channel, i just get lost in all the details i have to keep in order to think in haskell... it does interest me though, so i know i'll check it out again in more detail. i just feel like htdp is really giving me a great grounding on the absolute fundamentals
+T 1602986863 18<26ecbrown18>	take this stuff to emacs-offtopic
+T 1602986876 18<27grym18>	but, i'm there already :) 
+T 1602986877 18<27grym18>	it's here!
+T 1602986924 18<27grym18>	noone's said anything on topic in like 3 hours 
+T 1602986924 18<29johnjay18>	grym: the video i watched didn't address specifically those phrases. but i guess they would probably just confuse a medieval person
+T 1602986933 18<26ecbrown18>	grym: so leave the channel idle
+T 1602986938 18<26ecbrown18>	better than this dreck
+T 1602986940 18<29johnjay18>	like if you said "go kiss your cat!!!"
+T 1602986944 18<27grym18>	ecbrown: tune out!
+T 1602986954 18<26ecbrown18>	come on
+T 1602986976 18<27grym18>	ecbrown: this channel historically is excellent at shutting up fast when people have actual things to talk about 
+T 1602986979 18<27grym18>	i'm very happy about that 
+T 1602986985 18*	20jlf yawns pointedly
+T 1602986986 18<27grym18>	and certainly try to play along. 
+T 1602986996 18<26ecbrown18>	grym: no, it doesn't. people get drowned out all the time
+T 1602987007 18<26ecbrown18>	and why you insist, is beyond me
+T 1602987026 18<26ecbrown18>	*persist
+T 1602987079 18<27grym18>	so strict for a saturday night 
+T 1602987127 18<26ecbrown18>	it's the official gnu emacs channel, not a bordello
+T 1602987143 18<20jlf18>	let's drop this, please
+T 1602987149 18<26ecbrown18>	you are an op, enforce the rules
+T 1602987161 18<20jlf18>	be careful what you ask for
+T 1602987197 18<29cluck18>	grym: people often lose/recalibrate the emotional load relating to words/expressions when learning new languages
+T 1602987361 18<29cluck18>	it's GNU/bordello and we insist you avoid pointing out our cow faced hosts as they are free
+T 1602987377 18<26ecbrown18>	jlf: i already asked for it.  if you take action against me for insisting on basic decorum, i will escalate
+T 1602987395 18<27grym18>	rudybot: let's investigate normative discrepancies
+T 1602987396 18<24rudybot18>	grym: More and more discrepancies are appearing within implementations.  For example, is a macro call in the body of DEFINE-SYNTAX recognized or not?
+T 1602987401 18<20jlf18>	you seem to have escalated some time ago
+T 1602987402 18<27grym18>	very profound
+T 1602987737 18<29johnjay18>	or profane
+T 1602987835 18<27grym18>	i don't have religious opinions on macro calls
+T 1602988426 18<20terpri_18>	,emacs-related multilingual profanity
+T 1602988426 18<22fsbot18>	It may not be that obvious for the layman, but multilingual profanity is indeed emacs-related, terpri_.
+T 1602988757 18<20terpri_18>	(doctor.el has lists of "foul" words, insults, etc., but the emacs doctor only speaks english and elisp)
+T 1602988804 18<27grym18>	i would go so far as to sign the hoop-jumping forms to add a list of fowl words 
+T 1602988815 18<27grym18>	terpri_: does it even try to avoid scunthorpe issues
+T 1602988874 18<20jlf18>	sure you're not chicken?
+T 1602988892 18<19parsnip18>	,chicken
+T 1602988893 18<22fsbot18>	chicken is [0] a Scheme to C compiler. http://call-with-current-continuation.org
+T 1602988894 18<22fsbot18>	[1] http://isotropic.org/papers/chicken.pdf
+T 1602988894 18<22fsbot18>	[2] https://www.youtube.com/watch?v=yL_-1d9OSdk
+T 1602988949 18<27grym18>	one aspires to corvidae 
+T 1602989158 18<29cluck18>	i can't wait until we have foul neural net lists 
+T 1602989189 18<29cluck18>	rudybot: censor my onions facebook style 
+T 1602989191 18<24rudybot18>	cluck: And I also enjoy olives and cocktail onions that appear in martinis.
+T 1602989216 18<25wheats18>	yay. onion... cocktails?
+T 1602989260 18<20terpri_18>	grym, yes, in that it "parses" input at the word level and has a fixed set of known words
+T 1602989268 18<27grym18>	lest we forget that GOFAI still kiiind of exists :)
+T 1602989276 18<27grym18>	which i suppose applies to onions and doctor.el 
+T 1602989301 18<27grym18>	terpri_: ok.  that is better than really stupid regex, at least 
+T 1602989316 18<27grym18>	or the computer vision equivalent thereof
+T 1602989472 18<20aidalgol18>	https://www.reddit.com/r/WTF/comments/jcfamz/i_made_beef_fizz_see_the_imgur_gallery_for/
+T 1602989527 18<20jlf18>	,order-drink beef-fizz aidalgol
+T 1602989527 18*	22fsbot slides a beef-fizz over to aidalgol
+T 1602989562 18<20terpri_18>	why doesn't emacs come with SHRDLU? with svg, it could even render the block-world!
+T 1602989577 18<27grym18>	aidalgol: so as a child reading james herriott stories i thought _for sure_ that Bovril must be some form of hot chocolate or something 
+T 1602989639 18<27grym18>	terpri_: ah, not the one with molten lead 
+T 1602989724 18<20terpri_18>	nah, we already have preview-latex for that
+T 1602989820 18<27grym18>	(the documentary is really something) 
+T 1602991723 18<26Viking66718>	whoops, just compiling, wondering if I should have made "make clean" first, directly after a ./configure?
+T 1602991769 18<26ecbrown18>	if it is a clean source tree, not necessary
+T 1602991794 18<26ecbrown18>	if you have a "significant" change, then always good to make distclean
+T 1602991801 18<26Viking66718>	it's not, though a lot of .o files got made anyhow.
+T 1602991823 18<26Viking66718>	What's temacs?
+T 1602991824 18<22fsbot18>	temacs is (info "(elisp) Building Emacs")
+T 1602991830 18<26ecbrown18>	well, unless you're actively developing on the source, where it would be an inconvenience to recompile the whole thing, then just make distclean
+T 1602991835 18<27grym18>	whatever god-emperor cmake requires 
+T 1602991849 18<26Viking66718>	uh, there's no cmake being used here.
+T 1602991857 18<27grym18>	probably for the best 
+T 1602991868 18<26Viking66718>	... or at least, I'm not using it. I just used "./configure" followed by "make"
+T 1602991881 18<27grym18>	i make clean when i've previously tried and failed to build something and suspect i have cruft 
+T 1602992014 18<26ecbrown18>	Viking667: should be good, unless you have installed other software that might trigger a feature (e.g. libotf, mailutils, etc)
+T 1602992037 18<26ecbrown18>	(there are a bazillion scenarios)
+T 1602992103 18<26Viking66718>	I only installed librsvg2-devel, which is why I reran configure (after a git pull)
+T 1602992115 18<26ecbrown18>	yes, so play it safe and make distclean
+T 1602992127 18<26Viking66718>	hm. Means I'll have to junk this compile then.
+T 1602992162 18<26ecbrown18>	sometimes it's for the best -- rather than getting further into compile and discovering some weird error
+T 1602992164 18<26Viking66718>	Ouch. It got rid of the configu
+T 1602992178 18<26Viking66718>	time to regen config.cache
+T 1602992179 18<26ecbrown18>	sure
+T 1602992184 18<26ecbrown18>	definitely
+T 1602992246 18<26Viking66718>	Only reason for rsvg2 is because I tried a file and got invalid image format for svg, turns out I never had devel headers, so compiled emacs never had support. Ah well.
+T 1602992269 18<26Viking66718>	I was trying svg tags in org mode, which is what was failing.
+T 1602992290 18<26ecbrown18>	yeah, some day you may wish to figure out how to get a "kitchen sink" emacs  --   as many yes's as possible in configure
+T 1602992328 18<26ecbrown18>	modules, mailutils, otf, etc.   (not always possible on macos, i've noticed since a lot of those features are subsumbed by native libraries)
+T 1602992352 18<26ecbrown18>	to coin a phrase: "loaded for bearmacs"
+T 1602992411 18<26Viking66718>	heh. I think I'd rather put in what I know I'm going to use.
+T 1602992457 18<26Viking66718>	After all, why bother putting in VT502 support when I don't have one? (Not for emacs, for something else instead)
+T 1602992483 18<26ecbrown18>	bragging rights
+T 1602992489 18<26Viking66718>	(yawn)
+T 1602992504 18<26Viking66718>	actually, (is-yawn-mode t)
+T 1602992519 18<24edrx18>	I am trying to locate the blogs and youtube channels of people who publish videos about emacs... sachac used to mention some of them in Emacs News, but I didn't pay much attention...
+T 1602992539 18<26Viking66718>	she's made a lot of blog posts, you could try there.
+T 1602992552 18<24edrx18>	anyone remembers any channels/blogs that host local copies of the videos?
+T 1602992561 18<26Viking66718>	Aside from youtube?
+T 1602992576 18<20jlf18>	edrx: ,,emacsrocks
+T 1602992577 18<22fsbot18>	emacsrocks are an emacs tricks and tips screencast series by magnars: http://emacsrocks.com
+T 1602992577 18<24edrx18>	yes - ideally local MP4s
+T 1602992593 18<29sachac18>	edrx: Do you want to go through https://github.com/sachac/emacs-news and maybe filter index.org for youtube mentions?
+T 1602992607 18<29sachac18>	edrx: You might be able to pass them through youtube-dl
+T 1602992610 18<26Viking66718>	Oh wow, I didn't know she was on github.
+T 1602992611 18<27grym18>	edrx: no, but there's always youtube-dl 
+T 1602992623 18<26Viking66718>	hi sachac
+T 1602992630 18<24edrx18>	hi sachac!
+T 1602992637 18<29sachac18>	Viking667: I keep forgetting to commit and push the Org file I use to generate emacs-news. =)
+T 1602992640 18<26Viking66718>	remember me from Undernet days?
+T 1602992647 18<29sachac18>	Viking667: #linuxhelp ! =)
+T 1602992650 18<26Viking66718>	Yeah!
+T 1602992664 18<26Viking66718>	Those were good days.
+T 1602992740 18<26Viking66718>	and youtube-dl has a -F switch you can use, that'll list what formats youtube can deliver you. i.e. youtube-dl -F https://some.youtube.url/watch?v=thisvideo
+T 1602992769 18<26Viking66718>	You might need ffmpeg to glue bits together 
+T 1602992773 18<27grym18>	you will 
+T 1602992777 18<27grym18>	it's a very nice little tool, though 
+T 1602992784 18<26Viking66718>	Yes.
+T 1602992790 18<24edrx18>	sachac: I just implemented a better way to create elisp hyperlinks to videos, and I guess that some people - especially beginners - will prefer to download videos with wget rather than with youtube-dl... I was trying to see if I could find other people who make their mp4s available besides me
+T 1602992793 18<27grym18>	ffmpeg and imagemagick lurk at the bottom of many stacks
+T 1602992817 18<29sachac18>	edrx: Neat!
+T 1602992838 18<24edrx18>	Viking667: thanks! I use youtube-dl a lot, usually with -f 18...
+T 1602992844 18<26Viking66718>	edrx: the problem I have with simply wgetting, is that you have ta parse three files before you get to a URL that a media player can get
+T 1602992856 18<29sachac18>	edrx: Hmm... there are two .mp4 links in index.org: http://portfolio.cooper.stevenson.name/latex/spacemacs_latex_demo.mp4 and https://video.fosdem.org/2020/UD2.119/emacsthoughts.mp4
+T 1602992863 18<26Viking66718>	And I normally use -f 251 for music files, as I don't generally need the video
+T 1602992865 18<19refusenick18>	I can make EXWM neither automatically create a new frame/workspace for the 2nd monitor nor size the 2nd frame correctly
+T 1602992875 18<24edrx18>	sachac: great!!! thanks!!! =)
+T 1602992876 18<19refusenick18>	(screen is 1920x1080, but EXWM exceeds its borders, as did LXQt)(screen is 1920x1080, but EXWM exceeds its borders, as did LXQt)
+T 1602992880 18<29sachac18>	edrx: https://emacsnyc.org/videos.html has a whole bunch, too
+T 1602992943 18<24edrx18>	sachac: btw, the example that I will show in the end of my presentation at the emacsconf this year will be about Emacs New / emacs-tangents!
+T 1602992962 18<24edrx18>	News
+T 1602993062 18<29sachac18>	edrx: I feel like I'm kinda harsh in trying to get you to squish the eev talk down to 10 minutes. ;) Do you think you can rise to the challenge?
+T 1602993111 18<29sachac18>	edrx: It's just that the schedule is super packed and I want to see if we can fit all the talks in. I'm checking with bandali to see if we can figure out a way to let interested people jump in for Q&A or extended interaction even if the livestream's showing the next talk.
+T 1602993136 18<24edrx18>	no, I can't... I started to write an e-mail explaining why but I haven't finished it yet. I can try to make it fit in 40 minutes, though
+T 1602993199 18<29sachac18>	True, you want to cover a lot.
+T 1602993217 18<24edrx18>	but I'm preparing my e-scripts/slides and I think I'll be able to start rehearsing some parts of it tomorrow
+T 1602993229 18<24ryouma18>	,eev
+T 1602993230 18<22fsbot18>	eev: [0] a "tool to automate almost everything"; it lets us create executable logs of what we do, in a reasonably readable form, and lets us "play them back" step by step later in any order. A video about how it controls shell-like programs: https://www.youtube.com/watch?v=Lj_zKC5BR64&t=16s
+T 1602993230 18<22fsbot18>	[1] a tutorial including installation instructions: http://angg.twu.net/eev-intros/find-eev-quick-intro.html ;;[ ,more / ,dump]
+T 1602993245 18<24edrx18>	ryouma: http://angg.twu.net/#eev
+T 1602993248 18<24ryouma18>	,emacs new
+T 1602993249 18<22fsbot18>	Try:  emacs-news emacs-tab-behavior-for-newbs EmacsNewbie EmacsNewbieHelpReference EmacsNewbieKeyReference EmacsNewbieMouseReference EmacsNewbieWithIcicles EmacsNewsgroups
+T 1602993291 18<26Viking66718>	wooo..... I thought you'd been doing emacsynewsystuff for longer? Your .org only starts in March 2016
+T 1602993331 18<24edrx18>	ryouma: https://lists.gnu.org/archive/html/emacs-tangents/2020-10/
+T 1602993340 18<24edrx18>	ryouma: https://sachachua.com/blog/2020/10/
+T 1602993341 18<29sachac18>	Viking667: https://sachachua.com/blog/category/emacs-news/?order=asc
+T 1602993361 18<24ryouma18>	edrx: thank you.  i am still none the wiser.  but it is my brain.  and the fact that i did not read carefully.
+T 1602993504 18*	24ryouma marks dowen sachac's noes on japanese
+T 1602993515 18*	24ryouma discovers the cloud bookmark site she used is 404
+T 1602993603 18<26Viking66718>	makes me wonder how much of sacha's stuff has suffered bitrot?
+T 1602993608 18<26Viking66718>	I hope not much.
+T 1602993643 18*	24ryouma sees rsync ftp.monash.edu::nihongo/edict edict and thinks maybe this is going to be useful
+T 1602993690 18<29sachac18>	Viking667: A ton!
+T 1602993699 18<26Viking66718>	sigh. It's always the way.
+T 1602993700 18<29sachac18>	ryouma: Yeah, that does suck
+T 1602993745 18<22loganlee18>	hello
+T 1602993790 18<26Viking66718>	Incidentally, I found Org mode was blimming marvelous (along with some macros I wrote) for getting extra stuff into religious texts, such as putting a list of headings and book names into a bible version that doesn't already have them.
+T 1602993797 18<24ryouma18>	i need to convert coding or something but got a file in presumably a format that i can use with a debiasn dict command of somt type: ���� [����] /(adj-t,adv-to) (1) (obsc) relaxed and enjoyable/(adj-t,adv-to) (2) (obsc) spacious/vast/(adj-t,adv-to) (3) (obsc) heavily trafficked/bustling/busy/
+T 1602993835 18<24ryouma18>	Viking667: what did you do specifically to annotate?
+T 1602993857 18<24ryouma18>	ohhhhhhh you orgified non-org text.  nm.
+T 1602993989 18<29johnjay18>	sweet. bookmark+ lets you use emacs bookmarks on webpages
+T 1602994001 18<24ryouma18>	(Viking667: i was thinking you had external text and then used org to magically annotate, but i am guessing you took the whole file and added .org to it)
+T 1602994003 18<26Viking66718>	I don't know the term in this context, but I have source texts in osis.xml format. I had a keyboard macro that I used to pull items from an Org list, and put the relevant one in at my point in the text.
+T 1602994015 18<29johnjay18>	the chorus sings hallelujah. hallelujahhhhh
+T 1602994016 18<26Viking66718>	so no, I didn't orgify the source text.
+T 1602994019 18<24ryouma18>	oh
+T 1602994059 18<26Viking66718>	For example, Headings.org contains .... ahh well, I can put the file itself up on pastebin, you can take a look for yourselves.
+T 1602994065 18<26Viking66718>	Give me a few...
+T 1602994077 18<24ryouma18>	(not that i can read teh kanji if that is what it is... i wonder if any dict software adds ruby text)
+T 1602994083 18<19refusenick18>	a Christian Viking?
+T 1602994092 18<24ryouma18>	xml makes my brain go haywire, no need
+T 1602994128 18<24ryouma18>	well he'
+T 1602994138 18<24ryouma18>	nm
+T 1602994245 18<26Viking66718>	https://pastebin.com/sb6V4Cbt
+T 1602994247 18<29sachac18>	edrx: just talking to bandali at the moment
+T 1602994261 18<24ryouma18>	i sorely need some resource for ja to en and en to ja of various types
+T 1602994269 18<24ryouma18>	s/need/want
+T 1602994390 18<24ryouma18>	(and ja resources in general i guess -- i should at least nail down conditionals and tenses)
+T 1602994401 18<26Viking66718>	https://pastebin.com/ZkQp7j54    <-- that's a fragment of the NKJV xml docs. The previous link was my Headings.org
+T 1602994421 18<26Viking66718>	I've included the keyboard macro I used to copy text between two windows.
+T 1602994470 18<24ryouma18>	i see (didn't click but i get the idea i think)
+T 1602994472 18<26Viking66718>	Anyhow, I thought it was a good way to (ab)use Org mode.
+T 1602994478 18<24ryouma18>	good idea to use kb macros
+T 1602994491 18<26Viking66718>	Couldn't do it any other way.
+T 1602994503 18<26Viking66718>	Well, I couldn't, anyhow. I don't know how.
+T 1602994520 18<24ryouma18>	there is a kb macro to elisp interactive command converter someplace
+T 1602994535 18<26Viking66718>	heh. I had to go in the other direction
+T 1602994548 18<24ryouma18>	oh?
+T 1602994564 18<24ryouma18>	oh using commands
+T 1602994591 18<26Viking66718>	I had a sequence of commands. Not elisp commands as such, just simple stuff. I then turned it into a kb macro, then turned THAT into something I could include in my .emacs
+T 1602994602 18<24ryouma18>	ah
+T 1602994634 18<24ryouma18>	that last step has a packagte someplace
+T 1602994721 18<26Viking66718>	Probably does, I ended up with (fset 'TopicPaste (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([1 right right .....])))))
+T 1602994722 18<26Viking66718>	 
+T 1602994724 18<29wgreenhouse18>	refusenick: "exceed borders" smells like an underscan problem
+T 1602994751 18<26Viking66718>	dunno. If he can't move his mouse off the screen, that doesn't indicate underscan
+T 1602994811 18<29wgreenhouse18>	they don't say either way afaict. and I suspect the monitor is a TV (it's described as 1920x1080)
+T 1602994954 18<19refusenick18>	Viking667: I'm able to move the mouse off the screen
+T 1602994963 18<19refusenick18>	(in all directions, unfortunately)
+T 1602994969 18<29wgreenhouse18>	yeah then it's underscan
+T 1602994981 18<19refusenick18>	wgreenhouse: thanks, will look up a fix
+T 1602995008 18<29wgreenhouse18>	the exact knob to turn depends on your gpu/driver
+T 1602995438 18<26Viking66718>	You could also look at the tv/monitor settings
+T 1602995451 18<26Viking66718>	my Viewsonic has an overscan setting in its menu.
+T 1603046667 20*	Disconnected (20)
+T 1603046694 19*	Now talking on 22#emacs
+T 1603046694 22*	Topic for 22#emacs is: Gul Dukat says upgrade to 27.1: https://i.imgflip.com/4hpvlw.jpg | Emacs questions take priority over off-topic chatter, so ask! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1603046694 22*	Topic for 22#emacs set by 26wgreenhouse!wgreenhous@fsf/member/wgreenhouse (24Thu Oct  8 00:50:34 2020)
+T 1603046695 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1603046725 18<19achilles18>	this works, i am using mouse-2 for smex already without problem
+T 1603046763 18<29mplsCorwin18>	So you want 'execute-extended-command (e.g. non-smex) on a different button?  Should be the same approach..
+T 1603046838 18<19achilles18>	no, not M-x.
+T 1603046887 18<19achilles18>	I want to set C-x to the left mouse button which is the mouse-1.
+T 1603046889 18<29mplsCorwin18>	Ahhhhhhh, finally I grok. You want to hit mouse-1 and then have next input taken against the C-x map.
+T 1603046919 18<19achilles18>	exactly
+T 1603046933 18<29mplsCorwin18>	So C-x C-v becomes (kbd "<mouse-1> C-v")
+T 1603046941 18<19achilles18>	yes
+T 1603046965 18<29mplsCorwin18>	Yeah, I have no idea how to do that, lol :)  *Someone* here likely has ideas, tho and now the problem is *quite* clear :)
+T 1603047017 18<29mplsCorwin18>	Alternately, this could be a good question for the emacs-help@lists.gnu.org mailing list.
+T 1603047110 18<19wasamasa18>	there's a translation map for such purposes
+T 1603047120 18<25bandali18>	mplsCorwin, did you perhaps mean help-gnu-emacs@gnu.org  ?
+T 1603047138 18<19wasamasa18>	which is mostly used for mouse stuff, lol
+T 1603047142 18<19achilles18>	mplsCorwin: thanks.
+T 1603047143 18<19wasamasa18>	so that might explain the behavior
+T 1603047152 18<29mplsCorwin18>	bandali: yes.  Yes I absolutely did.
+T 1603047155 18<19wasamasa18>	mouse-1 is translated to mouse--click-1-maybe-follows-link here
+T 1603047155 18<25bandali18>	:-)
+T 1603047173 18<19achilles18>	wasamasa: i remember like i tried already but let me try again.
+T 1603047211 18<29mplsCorwin18>	wasamasa: does that mean we would (bind-key *that-map* [mouse-1] 'fun) vs using global-set-key ?
+T 1603047212 18<19wasamasa18>	you should be able to translate mouse-1 to (kbd "C-x") there
+T 1603047415 18<19achilles18>	wasamasa: yes, works like a charm. thank you.
+T 1603047420 18<19achilles18>	(define-key key-translation-map [mouse-1] (kbd "C-x"))
+T 1603047437 18<19wasamasa18>	fun
+T 1603047444 18<29mplsCorwin18>	Thanks for sharing back your solution achilles!
+T 1603047476 18<29mplsCorwin18>	,key-translation-map
+T 1603047478 18<22fsbot18>	remap is like (define-key key-translation-map (kbd ":") (kbd "M-x"))
+T 1603047484 18<29mplsCorwin18>	lol
+T 1603047516 18<29mplsCorwin18>	,key-translation-map is also useful for mouse, e.g. (define-key key-translation-map [mouse-1] (kbd "C-x"))
+T 1603047517 18<22fsbot18>	ERROR: [set-also] But there’s no such term: key-translation-map
+T 1603047532 18<29mplsCorwin18>	,key-translation-map is useful for mouse, e.g. (define-key key-translation-map [mouse-1] (kbd "C-x"))
+T 1603047534 18<22fsbot18>	Created new note for "key-translation-map"
+T 1603047629 18<19achilles18>	mplsCorwin: of course. i am not sure how it'd work with regular mouse but with a legacy thinkpad touchpad, should be very amazing i hope.
+T 1603047667 18<29mplsCorwin18>	Indeed.  I was just musing how to make mouse-4 swap out such bindings to create easy swapping around this.
+T 1603047748 18<19achilles18>	still need to work on C-x C-x though because it returns C-x double-mouse-1
+T 1603047771 18<29mplsCorwin18>	I'm writing a game sort of thing, this is making me think about having a "right-hand-on-mouse" set of bindings that could make mouse cord replace things that are on the right side of the keyboard and so hard to reach with hands in "gaming position".
+T 1603047816 18<29mplsCorwin18>	Yeah, I guess that makes sense.  C-h v last-command RET maybe
+T 1603047849 18<29mplsCorwin18>	You are probably on your way to your own interactive function to handled C-x would be my sense but perhaps wasamasa has more ideas :)
+T 1603047874 18<20bpalmer18>	pity those who use wireless mice.
+T 1603047882 18<19wasamasa18>	well, for that this map offers to use a function
+T 1603047914 18<19wasamasa18>	that function can look up what key to return instead
+T 1603047925 18<19wasamasa18>	though, nah
+T 1603047933 18<19wasamasa18>	maybe not
+T 1603047940 18<19achilles18>	and also mouse needs to stay on the middle.
+T 1603047963 18<19wasamasa18>	instead of C-x C-x, wouldn't you click twice?
+T 1603047981 18<19wasamasa18>	or maybe that's what you could check with a helper function bound to mouse-1
+T 1603048036 18<19achilles18>	maybe i can translate double-mouse-1 to C-x C-x same way
+T 1603048081 18<19achilles18>	yeah, it worked.
+T 1603048114 18<19wasamasa18>	ah, a more elegant solution
+T 1603048204 18<19achilles18>	i should also define same like this
+T 1603048243 18<19achilles18>	(define-key key-translation-map [mode-line mouse-1] (kbd "C-x"))
+T 1603048253 18<19achilles18>	so i wouldn't need to keep mouse on the middle
+T 1603048275 18<19achilles18>	now it requires a function i guess. ¯\_(ツ)_/¯
+T 1603048302 18<29mplsCorwin18>	double-mouse-1 to C-x C-x seems useful in an of it self.
+T 1603049115 18<24laertus18>	how can i get the most recent kill on the kill ring, without properties, in to a variable?
+T 1603049150 18<20bpalmer18>	(setq x (substring-no-properties (car kill-ring)))
+T 1603049168 18<20bpalmer18>	insert error checking to suit.
+T 1603049188 18<24laertus18>	thank you
+T 1603049547 20*	Disconnected (20)
+T 1603049622 20*	Disconnected (20Remote host closed socket)
+T 1603049691 20*	Disconnected (20Remote host closed socket)
+T 1603049760 20*	Disconnected (20Remote host closed socket)
+T 1603049796 19*	Now talking on 22#emacs
+T 1603049796 22*	Topic for 22#emacs is: Gul Dukat says upgrade to 27.1: https://i.imgflip.com/4hpvlw.jpg | Emacs questions take priority over off-topic chatter, so ask! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1603049796 22*	Topic for 22#emacs set by 26wgreenhouse!wgreenhous@fsf/member/wgreenhouse (24Thu Oct  8 00:50:34 2020)
+T 1603049796 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1603050276 18<29johnjay18>	which programming language does it take the highest IQ to really maximize results in?
+T 1603050306 18<19achilles18>	machine language
+T 1603050310 18<19wasamasa18>	haskell would be an obvious candidate
+T 1603050320 18<29johnjay18>	i was going to make a haskell joke but yeah
+T 1603050358 18<24lil-lambda18>	idris
+T 1603050367 18<24laertus18>	would anyone happen to know how to choose a directory using ivy or counsel?
+T 1603050385 18<20bpalmer18>	actually, I'm working on a new language IQL  : each statement is preceded by an IQ test, the score of which probabilistically affects whether the statement is executed or skipped over.
+T 1603050386 18<19achilles18>	translating mouse-1 to C-x, one needs to cover at least 20 different cases.
+T 1603050411 18<20bpalmer18>	Runtime is disappointing; it turns out that humans are very slow at finishing iq tests.
+T 1603050435 18<19achilles18>	laertus: c-g c-x d
+T 1603050437 18<19parsnip18>	lol, a taskwarrior client implemented in python, uses an email package to construct what to send over the socket
+T 1603050445 18<19parsnip18>	tf
+T 1603050446 18<20bpalmer18>	But it does serve a fine purpose of not trying to use the badly defined notion of IQ except as regards to IQ tests, a nicely tautological position.
+T 1603050459 18*	20edgar-rft is working on some new language where it's sufficient to have an IQ of 1 or 0
+T 1603050472 18<24laertus18>	achilles: sorry, i mean from elisp.. and i don't want to open the directory, just get it back as a string
+T 1603050552 18<19achilles18>	laertus: difficult to tell without seeing the code you're working on.
+T 1603050555 18<27hodapp18>	I wrote a language once that only smart people could work in but then for some reason I wasn't able to really use it.
+T 1603050560 18<20bpalmer18>	you can always force it with ivy-completing-read, using directory-files and a file-directory-p predicate
+T 1603050565 18<27hodapp18>	wasn't my fault though.
+T 1603050574 18<24laertus18>	bpalmer: thanks, i'll look in to that
+T 1603050592 18<24laertus18>	by the way, what is the difference between ivy-completing-read and ivy-read?
+T 1603050595 18<20bpalmer18>	(may be a better way; I don't use it)
+T 1603050605 18<24laertus18>	ivy-read does completion too...
+T 1603050628 18<20bpalmer18>	laertus: different function signatures
+T 1603050633 18<20edgar-rft18>	the first one has a longer name
+T 1603050638 18<20bpalmer18>	ivy-completing-read is a drop-in replacement for completing-read
+T 1603050850 18<24laertus18>	in hydra, if i use the ?x? hint (where "x" is any head, not the literal character "x"), hydra will display extra hints along the bottom of the hydra
+T 1603050867 18<24laertus18>	is there any way of forcing hydra not to display those extra hints?
+T 1603051874 18<28perrier-jouet18>	hi all
+T 1603051880 18<29mplsCorwin18>	o/
+T 1603051920 18<28perrier-jouet18>	does exisit a whiteboard for emacs ? a collaborative white board with math and physiscs engine that evaluates the writing ???
+T 1603051921 18<22fsbot18>	Ask yourself, do you really want to know?
+T 1603052144 18<27DigDug18>	hi perrier-jouet 
+T 1603052155 18<27DigDug18>	i don't know the answer to your question, but that is a cool idea!
+T 1603052166 18<29mplsCorwin18>	There's discussion the ML recently about a new collaborative editing mode that already handles multi-party editing of such as org-docs including cooling folding sync.  I'm working on a "sketch" app right now, so there's hope in this direction.  Not sure of anything great that's a fully baked solution for whiteboarding in Emacs.
+T 1603052738 18<19wasamasa18>	if your sketchboard is a buffer and your pen is self-insert-key, you're set
+T 1603052743 18<19wasamasa18>	play some multiplayer notepad
+T 1603052750 18<19wasamasa18>	use calc
+T 1603052792 18<19wasamasa18>	emacs is not a GUI-first application
+T 1603052810 18<19wasamasa18>	graphics are a big hack and so is anything related to them
+T 1603052824 18<19wasamasa18>	if you pull something like this off, it's going to be notable for the hack value, not its quality
+T 1603052873 18<19wasamasa18>	besides, we talked about it before and I offered some pointers towards a solution done in a proper lisp
+T 1603052889 18<19wasamasa18>	compare that with emacs and you have your answer
+T 1603052970 18<19wasamasa18>	I wouldn't be surprised if there's a comparable thing in CL, maybe even scheme
+T 1603052981 18<19wasamasa18>	check out cliki for the former
+T 1603052994 18<19wasamasa18>	there's lots of interesting real-world projects there
+T 1603052998 18<27DigDug18>	CL?
+T 1603052999 18<22fsbot18>	CL is [0] Common Lisp, a general-purpose multi-paradigm programming language. Ask me about: <pcl>, <cl.el> ;;[ ,more / ,dump]
+T 1603053005 18<27DigDug18>	thanks fsbot 
+T 1603053005 18<22fsbot18>	DigDug, no problem
+T 1603053230 18<24laertus18>	there has been talk in emacs circles of using CRDT (Conflict-free replicated data type) for collaborative editing, as CRDT is supposed to guarantee consistency
+T 1603053273 18<24laertus18>	but i was reading this HN thread on "Why CRDT didn't work out as well for collaborative editing xi-editor" - https://news.ycombinator.com/item?id=19886883
+T 1603053307 18<24laertus18>	and there someone mentioned that "Yes, CRDTs will guarantee that clients converge to an identical, mathematically "consistent" state eventually, but there's no guarantee whether or not that mathematically "consistent" state would make any sense to the application business logic that needs to consume that state, or to the human that needs to reason about the rendered result."
+T 1603053347 18<24laertus18>	the proof is in the pudding, though
+T 1603053368 18<24laertus18>	if someone can make it work (and CRDT is supposedly used on sites like google docs), then that's all that matters
+T 1603053643 18<24Allos18>	After `M-x toggle-debug-on-error`, the error message stops showing. What  should I do?
+T 1603053666 18<24Allos18>	Oh, I also get an empty *Backtrace* buffer.
+T 1603053755 18<24laertus18>	aha
+T 1603053771 18<24laertus18>	i've also had issues with an empty *Backtrace* buffer, and the backtrace actually being dumped in my current buffer
+T 1603053775 18<24laertus18>	i see i'm not the only one
+T 1603053785 18<24laertus18>	Allos: are you also on emacs 27.1 ?
+T 1603053796 18<24Allos18>	Yeah
+T 1603053800 18*	24laertus nods
+T 1603053812 18<24laertus18>	it started happening to me after i upgraded from 26.1 to 27.1
+T 1603053830 18<24Allos18>	No error message with debug-on-error, or empty backtrace?
+T 1603053872 18<24laertus18>	well, in only one case did toggle-debug-on-error not actually start debugging for me.. in all other cases it's worked (though with the issues i describe above)
+T 1603053912 18<24laertus18>	i can't remember when the debugging didn't work, unfortunately
+T 1603053916 18<24laertus18>	but usually it does
+T 1603053940 18<24laertus18>	and i'm afraid i don't know the cause of these issues, nor how to troubleshoot them further
+T 1603053948 18<24laertus18>	the internals of debugging is black magic to me..
+T 1603053982 18<24Allos18>	Okay
+T 1603054021 18<24laertus18>	might i ask what you were trying to debug?
+T 1603054046 18<24Allos18>	`(add-hook 'activate-mark-hook 'spacemacs/toggle-automatic-symbol-highlight-on)`
+T 1603054075 18<24Allos18>	Turning on mark for the second time in the mini-buffer, shows an error.
+T 1603054076 18<19wasamasa18>	laertus: currently they're discussing how IMEs factor into that
+T 1603054084 18<19wasamasa18>	laertus: there's bound to be a lot more problems of that kind
+T 1603054104 18<24laertus18>	what are IMEs again?
+T 1603054108 18<19wasamasa18>	input methods
+T 1603054112 18<24laertus18>	oh
+T 1603054120 18<24laertus18>	another part of emacs i haven't delved in to...
+T 1603054125 18<19wasamasa18>	it's weird
+T 1603054140 18<24laertus18>	Allos: what error do you get?
+T 1603054145 18<19wasamasa18>	I've tried to apply some trivial changes to evil to play better with them and it broke tests mysteriously
+T 1603054170 18<19wasamasa18>	for no apparent reason of course, so there's some deceptively simple looking PRs on the issue tracker :D
+T 1603054206 18<24Allos18>	laertus: `Error running timer ‘ahs-idle-function’: (wrong-type-argument number-or-marker-p nil)`
+T 1603054256 18<24Allos18>	If I instrument that functions, the debugger constantly breaks on it, even when I am not in the mini-buffer.
+T 1603054265 18<24Allos18>	It does not break, only when the error occurs.
+T 1603054283 18<24Allos18>	break = debugger break/stop on a line of code.
+T 1603054350 18<24Allos18>	It breaks on that function even when the error does not occur, if I just instrument that function.
+T 1603054660 18<26Viking66718>	dale: thanks for the memoserv tip
+T 1603054670 18<26Viking66718>	,seen edrx
+T 1603054670 18<22fsbot18>	I'm blind, you insensitive clod!
+T 1603054768 18<19twb18>	rudybot: seen edrx
+T 1603054769 18<24rudybot18>	twb: edrx was seen joining in #emacs six hours ago, and then edrx was seen leaving the channel in #emacs two hours ago, saying ""Killed buffer""
+T 1603054798 18<19twb18>	rudybot: che cosa?
+T 1603054798 18<24rudybot18>	twb: for a similar situation, see how portuguese and spanish got to have "coisa/cosa" for "thing" from the latin "causa res" or something like that
+T 1603054843 18<26Viking66718>	back to the text and timestamping
+T 1603054947 18<24laertus18>	Allos: you could look at spacemacs' source and try to figure out what's calling that function.. it's likely that whatever it is (or its parent) is what's erroring out
+T 1603055124 18<24Allos18>	Called by `(run-with-idle-timer ahs-idle-interval t 'ahs-idle-function)`
+T 1603055575 18<24laertus18>	not by anything else?
+T 1603055700 18<24Allos18>	no
+T 1603056830 18<20dale18>	laertus: I think Google Docs actually uses operational transformation rather than CRDT, or so I've read.
+T 1603056923 18<24laertus18>	dale: not sure what that is
+T 1603056947 18<20dale18>	laertus: Me neither.
+T 1603056979 18<20edgar-rft18>	I hope that no surgeon uses operational transformation
+T 1603056989 18<20dale18>	laertus: That's what people are referring to when they  say "OT" in that HN thread, though, I believe.
+T 1603056999 18<24laertus18>	ah
+T 1603057015 18<20dale18>	Assuming they didn't go off onto a tangent about Scientology.
+T 1603057348 18<28offby118>	with 0 context, OT to me means "Off-Topic"
+T 1603057535 18<29mplsCorwin18>	"Osprey Tango"
+T 1603057535 18<29mplsCorwin18>	 
+T 1603057561 18<29mplsCorwin18>	No idea how I managed that.  I wonder if `erc-yank' is buggy :/
+T 1603057620 18<29johnjay18>	i didn't know CRDT was an acrynum
+T 1603057628 18<29johnjay18>	er acronym. it's used by google docs?
+T 1603057702 18<20edgar-rft18>	you thought is's a real word?
+T 1603057715 18<20jlf18>	it's not an acronym :) 
+T 1603057718 18<25bandali18>	mplsCorwin, looks like your yanked message had a newline in the end?
+T 1603057722 18<25bandali18>	like this
+T 1603057723 18<25bandali18>	 
+T 1603057766 18<25bandali18>	maybe erc should strip/trim that..
+T 1603058281 18<19refusenick18>	It seems like the JVM and CLR ecosystems offer a lot of the same features. If I were to invest in learning one, which should it be in 2020?
+T 1603058289 18<29johnjay18>	> The xi-editor project is an attempt to build a high quality text editor, using modern software engineering techniques. It is initially built for macOS, using Cocoa for the user interface. 
+T 1603058344 18<19refusenick18>	dale: Aren't the memory costs of existing CRDTs prohibitive for text editing due to the proliferation of tombstones?
+T 1603058351 18<20aidalgol18>	refusenick: Depends on the work you want to do.
+T 1603058351 18<29johnjay18>	i like how not crashing is listed as a requirement
+T 1603058429 18<20aidalgol18>	johnjay: linkie?
+T 1603058444 18<19wasamasa18>	johnjay: there's also a writeup on how xi failed
+T 1603058463 18<19wasamasa18>	johnjay: which is far more interesting than the self-congratulating parts :P
+T 1603058464 18<20aidalgol18>	refusenick: As in which jobs on the market appeal to you more.
+T 1603058479 18<29johnjay18>	https://github.com/xi-editor/xi-editor/issues/1187#issuecomment-491473599
+T 1603058492 18<20aidalgol18>	wasamasa: Whatever happened to xiki?
+T 1603058497 18<19wasamasa18>	unrelated
+T 1603058507 18<19wasamasa18>	and I don't remember either
+T 1603058523 18<20aidalgol18>	don't try to reign in my tangents, wasamasa :D
+T 1603058535 18<20aidalgol18>	"Note: This repo contains only the editor core, which is not usable on its own. For editors based on it, check out the list in Frontends."
+T 1603058536 18<20aidalgol18>	oh god...
+T 1603058553 18*	20aidalgol runs screaming
+T 1603058559 18<29johnjay18>	> I still believe it would be possible to build a high quality editor based on the original design. But I also believe that this would be quite a complex system, and require significantly more work than necessary.
+T 1603058593 18<19refusenick18>	aidalgol: Technically, that's closer to Emacs than other software. You choose the frontend at compile time.
+T 1603058605 18<19refusenick18>	If I understand correctly
+T 1603058633 18<28sgc_18>	what's the difference between 'foobar and #'foobar in elisp?
+T 1603058669 18<20aidalgol18>	sgc_: #' is `function'.  ' is `quote'.
+T 1603058675 18<29johnjay18>	sgc_: none technically. it's just a convenience for the programmer
+T 1603058685 18<29johnjay18>	i could be wrong but that's what i think
+T 1603058701 18<20aidalgol18>	johnjay: Not according to the docstring for `function'.
+T 1603058768 18*	26ecbrown wonders what Xi will do to a text document, that makes it somehow look different than "a throwback from the '80s or '90s"
+T 1603058788 18<19refusenick18>	ecbrown: I'm betting emojification
+T 1603058801 18<26ecbrown18>	perhaps its antinews will have  no informative and featureful modeline anymore
+T 1603058807 18<20aidalgol18>	ecbrown: Make the default typeface Helvetica.
+T 1603058808 18<26ecbrown18>	(or something)
+T 1603058819 18<26ecbrown18>	:-)
+T 1603058822 18<20aidalgol18>	Or is that too '90s?
+T 1603058822 18<19bremner18>	Comic Sans or GTFO
+T 1603058830 18<27grym18>	papyrus 
+T 1603058846 18<27grym18>	and courier for monospace, of course 
+T 1603058867 18<20aidalgol18>	There's a Spanish game company that used Papyrus for the subtitles in their games for some unholy reason.
+T 1603058873 18<20aidalgol18>	grym: Way too '90s.
+T 1603058877 18<19refusenick18>	Word 2003 with Times New Roman is my childhood
+T 1603058887 18<20aidalgol18>	Oh, I know: Roboto.  Duh...
+T 1603058904 18<20aidalgol18>	Can't get more modern than that.
+T 1603059124 18<29johnjay18>	> There are only a few data structures suitable for representation of text in a text editor. I would enumerate them as: contiguous string, gapped buffer, array of lines, piece table, and rope.
+T 1603059159 18*	20aidalgol misread "piece table, and rope" as "piece of tape and rope"
+T 1603059165 18<29johnjay18>	i'm having a tough time grokking this article. was it a bad idea to Rust?
+T 1603059204 18<29johnjay18>	er use Rust
+T 1603059209 18<20aidalgol18>	Rust In Pieces, johnjay
+T 1603059318 18<29johnjay18>	Real programmers code in Megadeths
+T 1603059360 18<27hodapp18>	real programmers don't program
+T 1603059366 18<26Viking66718>	they copy
+T 1603059390 18<20jlf18>	rudybot: mr. programmer
+T 1603059390 18<24rudybot18>	jlf: ♫ ♩ mr. programmer / i got my hammer / gonna smash my radio ♫ ♩
+T 1603059433 18*	20aidalgol reimplements jlf on an FPGA, obsoleting the flesh jlf.
+T 1603059445 18<20jlf18>	sweet!
+T 1603059470 18*	20jlf was getting tired of obsolescing
+T 1603059478 18<20aidalgol18>	But you're now written in VHDL.
+T 1603059502 18<27hodapp18>	make him into an ASIC next!
+T 1603059534 18<19bremner18>	too expensive
+T 1603059541 18<20jlf18>	brb doping
+T 1603059544 18<20aidalgol18>	yeah, jlf isn't worth that much
+T 1603059548 18<20aidalgol18>	doping?
+T 1603059568 18<20aidalgol18>	Is he just going to get high, or was that a nerd joke that went over my head?
+T 1603059577 18<19bremner18>	yes
+T 1603059586 18<20aidalgol18>	sweet!  *hits bong*
+T 1603059658 18<19bremner18>	is cannibis legal in NZ yet?
+T 1603059696 18<20aidalgol18>	We'll get results in December.
+T 1603059697 18<28offby118>	aidalgol: I am disappoint.
+T 1603059714 18<28offby118>	https://en.wikipedia.org/wiki/Doping_(semiconductor)
+T 1603059716 18*	20aidalgol blows smoke up offby1's ass
+T 1603059723 18<28offby118>	oooh tee hee oh you
+T 1603059730 18<20aidalgol18>	offby1: See, there are good reasons I didn't do engineering.
+T 1603059738 18<28offby118>	I didn't either!!
+T 1603059773 18<28offby118>	how long have you been hanging out here?  You need to realize that everything jlf says should be run through the "could this possibly somehow be a pun" filter
+T 1603059783 18<28offby118>	and he's NOT the ONLY one
+T 1603059789 18*	28offby1 glares around indiscriminately
+T 1603059802 18*	28offby1 focuses his glare on far-away Cambridge, UK, at one flying mouse
+T 1603059814 18<20jlf18>	that offby1, always ready with an inciteful comment
+T 1603059823 18<28offby118>	I know, I'm a riot
+T 1603059832 18<20aidalgol18>	Until someone publishes a pun dictionary, I will have to resort to playing dumb and hoping someone takes pity on me and explains the pun.
+T 1603059837 18<26Viking66718>	aidalgol: I thought the referendums were being done Nov 6th?
+T 1603059842 18<28offby118>	aidalgol: that's an honorable tactic
+T 1603059878 18<20jlf18>	aidalgol: https://en.wikipedia.org/wiki/Doping_(semiconductor)
+T 1603059946 18<26Viking66718>	I seriously wonder if anything's ever fully implemented NLS. I know there are webpages about some modern invocations, but none of them seem to have entirely lived up to the Mother of All Demos.
+T 1603059958 18<28offby118>	where have I seen that link before
+T 1603059963 18<26Viking66718>	Yet some others have gone far far further.
+T 1603059986 18<27hodapp18>	rudybot: Ted Nelson invented the real World Wide Web.
+T 1603059994 18<24rudybot18>	hodapp: the hyperlink was invented by Ted Nelson, dumbo.
+T 1603059999 18<28offby118>	woo hoo
+T 1603060014 18<28offby118>	rudybot: and Ted Nelson's mother was ... ?
+T 1603060018 18<26Viking66718>	I'm guessing that's an American joke...
+T 1603060021 18<24rudybot18>	*offby1: personally I find it very sad people seldom (or never?) credit Ted Nelson for hypertext
+T 1603060023 18<26Viking66718>	his sister
+T 1603060037 18<28offby118>	his sister _and_ his daughter.  Understand? Or is it too tough for you?
+T 1603060047 18<27hodapp18>	wut
+T 1603060051 18<28offby118>	rudybot: Celeste Holm.  C'mon dude
+T 1603060053 18<24rudybot18>	*offby1: i was surprised to learn that celeste holm is related to ted h. nelson
+T 1603060063 18<28offby118>	well, you learn something new every day
+T 1603060064 18<26Viking66718>	that makes him an impossible man

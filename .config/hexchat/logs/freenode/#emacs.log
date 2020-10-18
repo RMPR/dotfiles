@@ -21676,3 +21676,1557 @@ Oct 16 22:08:33 <johnjay>	pjb: hrm you can't use the buffer functions in a callb
 Oct 16 22:17:56 <pjb>	johnjay: you could pass start and end as additionnal parameters to the fun.
 Oct 16 22:18:32 <wrycode>	IME tabnine provides no major advantage over well-configured dabbrev, capf, etc.
 Oct 16 22:19:04 <pjb>	johnjay: my dolines macro leaves the point at the end-of-line, but it doesn't offer this guarantee. You have to use the start and end markers. 
+Oct 16 23:00:23 <winny>	hmm seems like occur i missing some nice binds like navigating between entries while not switching buffers or navigating with simply n and p
+Oct 16 23:13:12 <johnjay>	winny: i thought you could navigate in it, try C-n and C-p?
+Oct 16 23:13:57 <winny>	indeed
+Oct 16 23:14:09 <winny>	wondering if anybody recommended a minor mode or alternate occur
+Oct 16 23:15:18 <johnjay>	ouch
+Oct 16 23:17:40 <johnjay>	weird apparently C-x ` is the command to go to next entry
+Oct 16 23:18:52 <johnjay>	i'm not sure why next-error works with occur
+Oct 16 23:20:07 <shafox>	I am using (vanilla emacs) lsp-mode with lsp-jedi, how do I know which python it is using for running jedi ? 
+Oct 16 23:21:37 <johnjay>	usually python shows its version when you run it. is it running behind the scenes?
+Oct 16 23:21:57 <johnjay>	if it's an ongoing process you can do ps -e maybe to find which one
+Oct 16 23:22:50 <laertus>	you could probably lsof it too
+Oct 16 23:23:48 <laertus>	but probably better than all of these is to find out how lsp-mode or lsp-jedi are calling python.. so then you know how to change that configuration
+Oct 16 23:24:36 <laertus>	you may need to search through their docs, configs, or source for that..
+Oct 16 23:24:41 <shafox>	johnjay, its running as background process.
+Oct 16 23:24:57 <laertus>	oh yeah, something else that might help is M-x list-processes
+Oct 16 23:34:41 <mplsCorwin>	Dmitry Gutov.  Nuff said.
+Oct 16 23:40:56 <mplsCorwin>	Ok.  Totally *not* crazy.  If you look at the email to the ML one hour back from Drew Adams you will see the super-short fill length I was talking about.
+Oct 16 23:41:30 <laertus>	link?
+Oct 16 23:41:52 <laertus>	also, i believe you.. i was just saying that i didn't see it in my own correspondence with him
+Oct 16 23:41:55 <mplsCorwin>	If I'd had the link handy I woudn't have given the topic name and time frame instead?
+Oct 16 23:42:02 <mplsCorwin>	lol nw
+Oct 16 23:42:35 <mplsCorwin>	I'll find a link in a little if you are still looking.  Power was down a bunch and it's working out to be a bad hair day for tech.
+Oct 16 23:43:06 <laertus>	i was just curious
+Oct 16 23:43:19 <laertus>	not worth troubling yourself over it
+Oct 16 23:44:15 <mplsCorwin>	laertus: thanks.  sorry about that.  wierd nerves today.  Found it, anyway: https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg01058.html
+Oct 16 23:45:42 <laertus>	that's not 15 columns
+Oct 16 23:45:44 <laertus>	looks like 52
+Oct 16 23:45:57 <laertus>	(not including the text he quoted
+Oct 16 23:46:18 <mplsCorwin>	I'll grant I was being dramaitc
+Oct 16 23:46:28 <laertus>	and if i had to guess, he was probably using 52 to try to be compatible with people who have trouble reading wider text
+Oct 16 23:46:43 <laertus>	probably a holdover from older days when some such might have actually existed
+Oct 16 23:47:38 <bandali>	using shorter fill lengths can be pretty fun :-p https://lists.gnu.org/r/emacsconf-discuss/2019-11/msg00002.html
+Oct 16 23:48:09 <bandali>	that was 47
+Oct 16 23:48:18 <bandali>	these days i mostly use the standard 72 tho
+Oct 16 23:48:32 <laertus>	i need to post a message all in one column
+Oct 16 23:49:12 <laertus>	though it'd probably break some mail readers..
+Oct 16 23:49:40 <mplsCorwin>	THe ML forcing things to plan text creates an imporant use-case for filling in email since MX will essencially fill the text if we don't this lets us control the display more effectively
+Oct 16 23:50:17 <mplsCorwin>	counterpoint being that this is something of a self-created purpose as allowing HTML mails would mean the context would wrap to people's displays.
+Oct 16 23:50:57 <mplsCorwin>	Anyway, like I said last night - it's doesn't really bug me, it's just odd.
+Oct 16 23:51:45 <laertus>	this reminds me of "format flowed" emails
+Oct 16 23:52:07 <laertus>	https://joeclark.org/ffaq.html
+Oct 16 23:59:52 <bbuccianti>	how do you read atom feeds?
+Oct 17 00:00:40 <laertus>	with an rss reader
+Oct 17 00:01:22 <laertus>	i personally use a non-emacs rss reader called newsboat
+Oct 17 00:02:07 <laertus>	i've been tempted to try el-feed, but from what i can tell it made some design decisions that i don't like, and i'm not sure how easy it would be to change it to my liking
+Oct 17 00:02:38 <laertus>	but a lot of people are very happy with it, so you might want to give it a go
+Oct 17 00:03:00 <bbuccianti>	sure thing
+Oct 17 00:22:49 <laertus>	in the customize gui, is there any way to get the symbol of the variable at point that's being customized?
+Oct 17 00:24:27 <loganlee>	hi
+Oct 17 01:00:01 <shafox>	To setup the venvPath in pyright lsp, there is a variable, lsp-pyright-venv-path, I am using poetry to manage env. the path to venv is the result of this "poetry env list --path", how do I set the variable value which is the result of that command  ?
+Oct 17 01:01:16 *	Disconnected ()
+**** ENDING LOGGING AT Sat Oct 17 01:01:16 2020
+
+**** BEGIN LOGGING AT Sat Oct 17 01:07:42 2020
+
+Oct 17 01:07:42 *	Now talking on #emacs
+Oct 17 01:07:42 *	Topic for #emacs is: Gul Dukat says upgrade to 27.1: https://i.imgflip.com/4hpvlw.jpg | Emacs questions take priority over off-topic chatter, so ask! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+Oct 17 01:07:42 *	Topic for #emacs set by wgreenhouse!wgreenhous@fsf/member/wgreenhouse (Thu Oct  8 00:50:34 2020)
+Oct 17 01:07:42 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Oct 17 01:09:16 <slondr>	Hmm, this is a good poem 
+Oct 17 01:28:08 <refusenick>	ryouma: poetry is life-saving
+Oct 17 01:28:20 <refusenick>	also pyenv and pipx
+Oct 17 01:28:26 <grym>	slondr: do you know The One Rude TS Poem 
+Oct 17 01:30:23 <ryouma>	so that poem is basically the nerd in the breakfast club who did all the work and did not do any of the interesting stuff the couples did?
+Oct 17 01:31:29 <grym>	https://genius.com/Ts-eliot-the-triumph-of-bullshit-annotated 
+Oct 17 01:31:37 <grym>	at least he knew what he was :) 
+Oct 17 01:31:53 <grym>	(i'm very fond of some of his other works, but this one really humanizes him a bunch)
+Oct 17 01:43:53 <bpalmer>	Let's mine metadata for gold
+Oct 17 01:44:34 <mplsCorwin>	rudybot: what are my odds of finding a golden ticket inside my copy of GNU Emacs?
+Oct 17 01:44:40 <rudybot>	mplsCorwin: Yeah, what are the odds.  :p
+Oct 17 01:44:55 *	mplsCorwin *slow clap*
+Oct 17 01:46:55 <bpalmer>	Is it time for a heartwarming film about a ruthless industrialist wreaking his revenge on children and industrial spies?
+Oct 17 01:48:16 <mplsCorwin>	oh shit.
+Oct 17 01:48:58 <mplsCorwin>	I just realized what it is that the whole fiasco with the ML is reminding me of so much.  And it perfectly explains why it is so under my skin and I can't let it go.
+Oct 17 01:50:28 <bpalmer>	oh?
+Oct 17 01:50:40 <mplsCorwin>	It is left-wing US politics.  fighting for issue dominance because identity puritanism 
+Oct 17 01:51:39 <mplsCorwin>	There's no clear way forward on the actual issues (in our case corp. dominance of key platform spaces), so we just fight over issues of purity.
+Oct 17 01:52:12 <mplsCorwin>	I'm done. That was my epiphany, such as it was. #fin 
+Oct 17 01:52:55 <ryouma>	what fiasco?
+Oct 17 01:52:58 <grym>	mplsCorwin: per earlier conversation: yes, of course, it's the same people. 
+Oct 17 01:53:00 <ryouma>	a mailing list?
+Oct 17 01:53:28 <mplsCorwin>	grym: that seems true.
+Oct 17 01:53:35 <grym>	mplsCorwin: also, "in the tolkein, not endriconological, sense, Randy was a dwarf ... " is evergreen 
+Oct 17 01:53:42 <grym>	s/i/e/
+Oct 17 01:53:49 <ryouma>	something on emacs-devel?
+Oct 17 01:54:08 <mplsCorwin>	ryouma: are you seriously asking?  There are a dozen links shared and conversations had in channel -- yes, about emacs-devel -- daily.
+Oct 17 01:54:47 <mplsCorwin>	ryouma: sorry for tone there.  Not quite sure what's been up with me today.  I do believe I should log for a bit.
+Oct 17 01:54:52 <ryouma>	i am most of the time out of the loop
+Oct 17 01:55:04 <ryouma>	i logged into channel just recently
+Oct 17 01:55:28 <grym>	mplsCorwin: can i interest you in this fine pamphlet about "bicycling until the internet stops mattering for a minute"
+Oct 17 01:55:29 <mplsCorwin>	ryouma: I already think of u as a regular tho :)
+Oct 17 01:55:55 <mplsCorwin>	grym: do you have an audiobook of that?  I gotta do a thing..
+Oct 17 01:56:11 <grym>	mplsCorwin: it is, sadly, a fictitious pamphlet 
+Oct 17 01:56:25 <mplsCorwin>	iknowiknow
+Oct 17 01:56:27 <grym>	the audiobook version of cryptonomicon, though, is very good 
+Oct 17 01:56:38 <ryouma>	mplsCorwin: i frequently log into the channel but do not always stay lgged in or log in
+Oct 17 01:56:56 <bpalmer>	ryouma: there is a current thread in emacs-devel , with original subject "Proposal for an Emacs User Survey", which has gotten a fair amount of attention in the channel, particularly with regards to whether any such survey should acknowledge the existence of MELPA
+Oct 17 01:57:14 <grym>	"bikeshedding, with _knives_"
+Oct 17 01:57:21 <bpalmer>	ryouma: And, if it does acknowledge it, whether it should be denounced.
+Oct 17 01:57:28 <ryouma>	ah thanks for overview
+Oct 17 01:57:37 <grym>	(is my halfassed tl;dr as at this point i now i think actively want to never be on that mailing list)
+Oct 17 01:58:20 <mplsCorwin>	Today's installment feature various messages discussing the disregard in which redditers at large are ascribed for RMS.
+Oct 17 01:58:24 <slondr>	grym: I hadn't seen that, hahah
+Oct 17 01:58:47 <bpalmer>	grym: is it , though? I tried getting through The Fall, which is a sequel of sorts of Cryptonomicon, and I think I'm steadily growing less enchanted with Stephenson's more technothriller/literary works
+Oct 17 01:58:55 <mplsCorwin>	ok.  I really am logging.  I can grammar longer not.
+Oct 17 01:59:07 <bandali>	mplsCorwin, on emacs-devel?
+Oct 17 01:59:09 <ryouma>	i stopped partway throuhgh the system of the world
+Oct 17 01:59:13 <mplsCorwin>	bandali: yes.
+Oct 17 01:59:37 <bandali>	i plan to (try to, at least) catch up with my ~2k backlog of it this weekend :-p
+Oct 17 01:59:37 <ryouma>	so this is worse than the `' thread?
+Oct 17 02:00:00 <bpalmer>	oh, the smart quotes one. That, too, was "fun."
+Oct 17 02:00:04 <ryouma>	i guess i shouldn't have asked that.  that probably wasn't acrimonous.
+Oct 17 02:00:45 <mplsCorwin>	bandali: it would absolutely nuts for you to try to catch up on the ML now.
+Oct 17 02:00:53 <mplsCorwin>	bandali: and I say that with love.
+Oct 17 02:01:39 <bandali>	mplsCorwin, ahaha :-p
+Oct 17 02:01:43 <bandali>	i mean i kinda agree
+Oct 17 02:01:44 <grym>	bpalmer: seveneves and the fall were kind of meh 
+Oct 17 02:01:50 <bandali>	i'm not gonna be reading every single message
+Oct 17 02:02:00 <bandali>	mostly skimming / breezing through them with the help of gnus
+Oct 17 02:02:07 <bandali>	and only read through (some of) the most interesting ones
+Oct 17 02:02:12 <bandali>	and flagging a bunch for later
+Oct 17 02:02:22 <mplsCorwin>	bandali: I've been racking my brains how to use all the energy around this in some positive way for Emacsconf.  Frank conversation, roundtable sort of thing.  Everything I can think seems like it quite likely would be terrible
+Oct 17 02:02:48 <grym>	mplsCorwin: zoom boffers just don't work 
+Oct 17 02:03:45 <bandali>	mplsCorwin, ha! if you have any ideas, please, don't hesitate to write to emacsconf-discuss and/or emacsconf-org, or even better, add them to https://emacsconf.org/2020/ideas/ or https://emacsconf.org/2020/planning/
+Oct 17 02:03:50 <bandali>	i'd very much appreciate that
+Oct 17 02:03:54 <bpalmer>	grym: seveneves I'm torn on. First, it was two different stories: a novel followed by a novella. I threw the book aside when it got to the novella at the end.
+Oct 17 02:04:11 <mplsCorwin>	bandali: *two thumbs up*
+Oct 17 02:04:20 <bpalmer>	grym: But the novel had some absolutely fantastic parts and it still drifts into my mind every few months.
+Oct 17 02:04:32 <grym>	bpalmer: i finished it, but i kept waiting for jad to show up 
+Oct 17 02:04:40 <bpalmer>	jad?
+Oct 17 02:04:40 <fsbot>	jad is the fast Java decompiler at http://www.kpdus.com/jad.html
+Oct 17 02:04:49 <grym>	bpalmer: the thousander from Anathem 
+Oct 17 02:05:06 <bpalmer>	Ah. I liked Anathem, but very little of it has stuck with me.
+Oct 17 02:05:29 <grym>	bpalmer: it's way high up on my list. 
+Oct 17 02:05:54 <grym>	the fall was getting a bit close to heinlein writing himself into his own multiverse
+Oct 17 02:06:31 <grym>	bpalmer: you do have to give the novella section the benefit of the most absurd Stephenson Name, which is a high accomplishment 
+Oct 17 02:06:43 <bpalmer>	oh, what is it?
+Oct 17 02:06:48 <grym>	Sonar Taxlaw
+Oct 17 02:06:58 <bpalmer>	...
+Oct 17 02:07:14 <grym>	she's named after the piece of the encyclopedia her family line was entrusted with memorizing! :) 
+Oct 17 02:08:15 <bpalmer>	That's something, all right.
+Oct 17 02:08:33 <grym>	i am at least somewhat convinced he has that plotline there just for the name 
+Oct 17 02:09:39 <bpalmer>	Maybe I'll be able to dip in and read that section now; at the time I was just so angry that he'd splice a story in like that.
+Oct 17 02:11:27 <grym>	i have a real thin background in grownup physics, so i was able to read the first bits easily in the sense that i wasn't fretting about errors.  but i know the biotech side of things reasonably well, and so the epigenetics mechanic is harder to read seriously 
+Oct 17 02:12:03 <grym>	it makes sense because he did that research in 2006-7, and extrapolated fine, its just that in the time it took to get the book published the science didn't bear that trajectory out 
+Oct 17 02:20:46 <aidalgol>	Moooom! The reactionaries are leaking into my YouTube recommendations again!
+Oct 17 02:21:00 <aidalgol>	"The Karen's, The SJW's, the posers, the political provocateur's, and their doormen Bad Robot all want a piece of Lord of the Rings on Prime and with all this come some rumors that aren't surprising leaving us with questions."
+Oct 17 02:21:01 <aidalgol>	wut?
+Oct 17 02:22:02 <bpalmer>	What is the entity possessed by Karens? Is it the same as that possessed by the provocateurs?
+Oct 17 02:23:01 <aidalgol>	Um...  Can I phone a friend?
+Oct 17 02:23:08 <aidalgol>	No, wait, ask the audience!
+Oct 17 02:23:24 <grym>	,yow
+Oct 17 02:23:25 <fsbot>	I'm RELIGIOUS!!  I love a man with a HAIRPIECE!!  Equip me with MISSILES!!
+Oct 17 02:23:36 <grym>	let's do what the madman says
+Oct 17 02:26:24 <bpalmer>	rudybot: missiles are outdated when rocks can be dropped from orbital platforms.
+Oct 17 02:26:27 <rudybot>	bpalmer: "Orbital fucking missiles?!!"
+Oct 17 02:26:43 <grym>	bpalmer: into volcanoes
+Oct 17 02:27:05 <bpalmer>	hold on, here. LOTR would be very different if you had that sort of intercontinental ballistic capability.
+Oct 17 02:27:46 <aidalgol>	bpalmer: That was the main plot device in one of the Call of Duty games.
+Oct 17 02:28:03 <grym>	bpalmer: i meant anathem,
+Oct 17 02:34:20 <bpalmer>	rudybot: has anybody established how many knots a giant eagle can do with a top gun nazgul on its tail?
+Oct 17 02:34:26 <rudybot>	bpalmer: Quando c'era Sauron, i Nazgul partivano in orario.
+Oct 17 02:36:43 <bpalmer>	rudybot: I assume the ainur could teach top-notch dog-fighting skills at the academy, and hand out lenses to those Tellurians deserving of one.
+Oct 17 02:36:46 <rudybot>	bpalmer: The ainur were literally created to be musicians. I am doubtful of this chronology
+Oct 17 02:36:50 <ryouma>	mm you can add advice to a function before that function is loaded, without getting any warnings or errors.  i /think/ that is good.
+Oct 17 02:37:19 <bpalmer>	grym: clearly, I need to re-read.
+Oct 17 02:37:53 <bpalmer>	I'll put it at the bottom of my pile, so I'll get to it in. hmm. This is supposed to be a finite collection, isn't it?
+Oct 17 02:38:34 <grym>	bpalmer: much more than some other authors i can name, at least the man doesn't write neverending series
+Oct 17 02:39:05 <grym>	cough cough grrm sanderson jordan rothfuss
+Oct 17 02:39:23 <bpalmer>	rothfuss's series has rather ended, it seems.
+Oct 17 02:39:32 <grym>	a shame.  good magic system 
+Oct 17 02:40:13 <bpalmer>	And Sanderson ... well, he's actually quite prolific. If he weren't intent on this terrible, terrible interlinked world system, I'd actually cite him as a counterexample.
+Oct 17 02:40:20 <grym>	speaking of good magic systems and trilogies, the audiobook versions of the garth nix books are done by tim curry :) 
+Oct 17 02:40:30 <bpalmer>	wow.
+Oct 17 02:40:45 <bpalmer>	(There are 4 books in the Sabriel series now, btw)
+Oct 17 02:40:49 <grym>	he does a mean mogget
+Oct 17 02:40:57 <grym>	5, i think 
+Oct 17 02:41:02 <bpalmer>	5
+Oct 17 02:41:04 <bpalmer>	You're right.
+Oct 17 02:41:14 <grym>	but the core 3 are enough for me.  clariel was good though
+Oct 17 02:41:56 <bpalmer>	I wasn't a big fan of Goldenhand.
+Oct 17 02:42:03 <bpalmer>	Definitely felt extra.
+Oct 17 02:42:27 <grym>	yeah that's what i heard; i haven't bothered to read it as a result 
+Oct 17 02:43:18 <bpalmer>	As for Rothfuss: while he may yet write his third book, the time it has taken has let me re-read the other books in the world, and allowed me to see some truly self-indulgent bits.
+Oct 17 02:43:45 <grym>	yeah.  i feel that way a lot about scott lynch 
+Oct 17 02:43:52 <grym>	who i found about the same time as rothfuss
+Oct 17 02:45:55 <wrycode>	mbrumlow: heads up I think your ssl certs are old
+Oct 17 02:46:24 <grym>	the first book was good, the second was okay, and by book three it was pretty clear that we were in "scott lynch is processing his divorce by writing a book"
+Oct 17 02:47:14 <grym>	or do i have this completely wrong? i expect to be schooled by someone else here in short order :P
+Oct 17 02:47:43 <grym>	ah, no, i was right
+Oct 17 02:48:05 <bpalmer>	I don't know much about Lynch's background. I have only read books 1 and 3 and thought each were good with something a litle lacking, so they weren't quite as good as I would have expected.
+Oct 17 02:48:40 <bpalmer>	I think it was mostly tied to structural elements of the flashback and ongoing plot.
+Oct 17 02:50:32 <bpalmer>	But the Dresden Files, that seems to be the consensus for how some aspects of the book series are done: Jim Butcher apparently talked about getting into weightlifting, and all of a sudden workouts started showing up 
+Oct 17 02:51:24 <grym>	hah
+Oct 17 02:51:32 <grym>	i read the first ~4 or so 
+Oct 17 02:51:42 <grym>	apparently there's a lot now 
+Oct 17 02:52:54 <bpalmer>	Yes. 17 books in the series; a definite mixed bag where some are good and many are uneven.
+Oct 17 02:58:45 <grym>	that's a bunch, yep 
+Oct 17 03:02:55 <bpalmer>	I just bought a humble bundle of books by R.A. Salvatore last week; apparently the multiple series featuring his character Drizzt Do'Urden is up to the 30s now
+Oct 17 03:04:38 <grym>	i was always more forgotten realms than dragonlance
+Oct 17 03:04:45 <grym>	friggin' mopey emo mages
+Oct 17 03:05:23 <bpalmer>	Drizzt is set in the Forgotten Realms
+Oct 17 03:05:59 <grym>	yep
+Oct 17 03:06:07 <grym>	i read a few of them, long ago 
+Oct 17 03:12:11 <wrycode>	I used to love the legend of drizzt
+Oct 17 03:12:35 <wrycode>	30 books? jesus
+Oct 17 03:12:57 <grym>	those scimitars just can't get enough 
+Oct 17 03:16:42 <bpalmer>	rudybot: once you start your campaign, you may discover you're locked in for life.
+Oct 17 03:16:46 <rudybot>	bpalmer: is pleasantly surprised to discover (accidentally) that some of the Bernie Sanders campaign organization's bespoke software is AGPLed
+Oct 17 03:55:54 <dannylee>	thor might be Jesus real father
+Oct 17 03:56:32 <dannylee>	i'm just out of emacs question
+Oct 17 04:10:40 <bpalmer>	rudybot: i'm here to chew bubblegum and walk, and I can't do both at the same time.
+Oct 17 04:10:44 <rudybot>	bpalmer: stupid babies... can't even walk and chew bubblegum at the same time
+Oct 17 04:18:55 <elisper>	Anyone know how I can change my slime-completion so that it makes a drop-down, instead of a new buffer, the way it does here? https://github.com/anwyn/slime-company/blob/master/slime-company.png
+Oct 17 04:33:39 <laertus>	from elisp, how do i open an info buffer to an info topic that's *not* part of the emacs nor elisp info manual?
+Oct 17 04:34:29 <ryouma>	laertus: you make sure those are on your system or you set the info path
+Oct 17 04:34:35 <ryouma>	the top level is info manuals
+Oct 17 04:34:37 <ryouma>	c-h i
+Oct 17 04:34:52 <laertus>	they are in my info manuals
+Oct 17 04:35:02 <laertus>	but i'm looking to get to a particular one from elisp
+Oct 17 04:35:17 <laertus>	not through interactive use of emacs
+Oct 17 04:36:08 <laertus>	i can already get to it through interactive use, so i know emacs has access to it
+Oct 17 04:36:10 <ryouma>	(info "Bash")
+Oct 17 04:36:15 <laertus>	ok, thanks
+Oct 17 04:39:02 <laertus>	and for something a bit tricker...
+Oct 17 04:39:33 <laertus>	any way to check for the existence and acessibility to emacs of a particular info manual?
+Oct 17 04:39:49 <laertus>	i'd like to do something like (infop "Bash")
+Oct 17 04:40:57 <ryouma>	,utsl
+Oct 17 04:40:58 <laertus>	hmm.. i guess i could wrap a condition-case around (info "Bash")
+Oct 17 04:40:58 <fsbot>	UTSL is [0] an abbreviation for Use The Source, Luke!
+Oct 17 04:40:59 <fsbot>	[1] an alternative to rtfm when there is no fm to r.
+Oct 17 04:40:59 <fsbot>	[2] "When I want to understand what is happening today or try to decide what will happen tomorrow, I look at the source code." -- Omar Khayyám
+Oct 17 04:41:26 <ryouma>	that is what i did to answer your question
+Oct 17 04:41:59 <ryouma>	it surely looks for it so it will have code that looks for it so you can find that code so you will have your answer
+Oct 17 04:42:16 *	laertus nods
+Oct 17 04:42:19 <laertus>	thanks
+Oct 17 05:26:55 <bpalmer>	rudybot: the clock draws near to midnight; are you prepared to repent before it's too late?
+Oct 17 05:27:10 <rudybot>	bpalmer: I call upon rudybot to repent
+Oct 17 05:40:00 <aidalgol>	What are the downsides to wildcart SSL certs?
+Oct 17 05:40:16 <sam_>	expensive
+Oct 17 05:40:23 <aidalgol>	sam_: how?
+Oct 17 05:40:24 <sam_>	you could argue it's "eggs in one basket"
+Oct 17 05:40:39 <sam_>	I mean, practically, at least last time I checked, you had to pay a ridiculous amount to a CA for one
+Oct 17 05:40:45 <sam_>	maybe LE offers them now
+Oct 17 05:40:51 <sam_>	they're not technically expensive
+Oct 17 05:41:00 <aidalgol>	ah
+Oct 17 05:41:06 <aidalgol>	I mean aside from economics.
+Oct 17 06:03:12 <pjb>	hi! So, with (emacs-version) --> "GNU Emacs 27.1 (build 1, x86_64-apple-darwin18.7.0, NS appkit-1671.60 Version 10.14.6 (Build 18G95)) of 2020-08-12", when I try to use a customization variable, eg. erc-autojoin-channels-alist  with eval-last-sexp, it gives (mapcar 'erc-join-channel (cdr (assoc "freenode.org" erc-autojoin-channels-alist))) -> Lisp error: (void-variable erc-autojoin-channels-alist)
+Oct 17 06:03:18 <pjb>	how do we access customization variables now?
+Oct 17 06:03:25 <pjb>	Why this incompatible change?
+Oct 17 06:04:40 <mplsCorwin>	Hrm.  I didn't have to update erc-autojoin-channel-alist conf when I went fromn 26.3 to 27.1, that I recall..
+Oct 17 06:06:13 <mplsCorwin>	pjb: what happens when you M-x customize-variable RET erc-autojoin-channels-alist RET ?
+Oct 17 06:06:27 <bpalmer>	pjb: sounds like you haven't loaded the library that defvars/defcustoms it.
+Oct 17 06:07:22 <bpalmer>	pjb: or, what is the top-level form you're trying to eval ?
+Oct 17 06:07:30 <bpalmer>	custom-set-variable?
+Oct 17 06:07:40 <bpalmer>	customize-set-variable, rather, or custom-set-variables ?
+Oct 17 06:07:50 <pjb>	Yes, I set it with custom-set-variables
+Oct 17 06:08:03 <pjb>	(and a ton of others. I'd have to require a lot of files…)
+Oct 17 06:09:08 <bpalmer>	pjb: you don't need to require them if you set the variable absolutely without trying to read it.
+Oct 17 06:09:17 <pjb>	So how we have to require stuff in each buffer where we use a custom variable…
+Oct 17 06:09:29 <bpalmer>	no, only if you try to *read* the variable, when it's not set.
+Oct 17 06:09:34 <pjb>	This wil break a lot of commands.
+Oct 17 06:09:49 <pjb>	It's set, since I customize it in my rc files.
+Oct 17 06:10:00 <pjb>	And also I try to evaluate it in a erc-mode buffer…
+Oct 17 06:10:12 <bpalmer>	pjb: is erc-autojoin in the erc-modules list?
+Oct 17 06:10:53 <bpalmer>	but, unless there's some very serious bug, i suspect something is failing to set it and the module is also not being loaded.
+Oct 17 06:11:08 <pjb>	No, I removed it, because I want to autojoin manually…
+Oct 17 06:11:51 <bpalmer>	pjb: you need to load the library to have the variables it defines; having it in the erc-modules list has a side effect of loading it as well as activating it.
+Oct 17 06:12:01 <pjb>	So I guess I have to load erc-autojoin, without adding it to erc-modules so that autojoin is not done, but I can access it. Ok. Thanks.
+Oct 17 06:12:49 <pjb>	Let's see if it works.
+Oct 17 06:23:56 <pjb>	Didn't work. Well, after all I don't want to autojoin, so I will use my own variable. There's no reason to use that erc customization variable…
+Oct 17 06:25:41 <mplsCorwin>	I wonder if this is a case for eval-after-load, as in (eval-after-load 'erc-autojoin-mode (setq ...))
+Oct 17 06:31:17 <pjb>	When I try to follow a doc link to C sources of emacs, it asks me for the directory of emacs sources, but I have set source-directory in my rc file. with (setq source-directory (format "/usr/local/src/emacs-%s/src" emacs-version))
+Oct 17 07:00:13 <buhman>	I just started reading LFN and my mind is completely blown away by this black magic: https://gist.github.com/buhman/a856392c5b772564797d8585961d45dc (a lisp-1 interpreter written in lisp-1, with trivial glue to in turn port the interpreter to scheme)
+Oct 17 07:08:02 <pjb>	buhman: don't worry, Dijkstra ever could understand lisp either.  
+Oct 17 07:08:09 <pjb>	buhman: but this xeval is the core of lisp.
+Oct 17 07:08:22 <pjb>	buhman: lisp is defined by an evaluation function written in lisp itself.
+Oct 17 07:08:54 <pjb>	buhman: this means that introspection and reflexivity is built in the core of lisp.
+Oct 17 07:09:15 <pjb>	externally, this shows by the fact that lisp programs are not written as code, but as data.
+Oct 17 07:09:33 <pjb>	buhman: the syntax of sexp, is a syntax for DATA. Symbolic Expressions are data.
+Oct 17 07:10:09 <pjb>	buhman: so this xeval function can take some data, a sexp, that represents a lisp form, some code. But since it's data, it can process it and interpret it.
+Oct 17 07:10:28 <pjb>	buhman: now the thing is that this xeval is expressed as a sexp too in this file!
+Oct 17 07:10:40 <pjb>	buhman: so we need something to bootstrap the system.
+Oct 17 07:11:12 <buhman>	yeah, quite cool there's no parsing involved; xeval is effectivenly being passed a pre-parsed ast.
+Oct 17 07:11:13 <pjb>	buhman: Russel, a student of McCarthy showed that it could be written as a "simple" 7090 assembler program. It was LISP 1.
+Oct 17 07:11:27 <pjb>	buhman: but of course, you can also use a lisp (scheme) to bootstrap it too.
+Oct 17 07:11:29 <buhman>	super excited to read the rest of this, for the bootstrapping stuff too
+Oct 17 07:11:44 <pjb>	buhman: well, it's not exactly an AST, but close enough.
+Oct 17 07:12:16 <pjb>	buhman: there's sometimes some "syntax" inside the sexps, that can be "parsed".
+Oct 17 07:12:43 <buhman>	you mean, if the interpreter implemented macros?
+Oct 17 07:12:55 <pjb>	For example.
+Oct 17 07:13:35 <pjb>	This is because we write data that we need this QUOTE operator, to tell xeval that we have here a sexp literal, instead of a sexp that represents code to be interpreted.
+Oct 17 07:14:25 <pjb>	McCarthy originally planed to have M-expressions for the code.  car([A,B,C]) -> A  instead of (CAR (QUOTE (A B C))).
+Oct 17 07:14:42 <pjb>	Have a look at http://informatimago.com/develop/lisp/com/informatimago/small-cl-pgms/m-expression/index.html
+Oct 17 07:15:31 <pjb>	This didn't add anything. Using sexps was simplier, and once we have macros (invented in 1964), (and before that there was already fexprs), it locked in the sexps.
+Oct 17 07:39:25 <johnjay>	pjb: but what about that old thing from lisp machines where it used proper names
+Oct 17 07:39:37 <johnjay>	like instead of this-is-a-function it was M-x This Is A Function <RET>
+Oct 17 07:39:48 <johnjay>	i'm sure i saw that in a video demo
+Oct 17 07:42:30 <mplsCorwin>	could be done just with an overlay in M-:, I'd think
+Oct 17 07:42:36 <mplsCorwin>	oops, M-x
+Oct 17 07:43:13 <pjb>	johnjay: this is something you can do in emacs too. (all emacsen I know too).
+Oct 17 07:44:11 <pjb>	johnjay: but indeed, early sexps used the comma to separate atoms, not the space, Hence in my example, car[(A,B,C)] (I interchanged () with []).
+Oct 17 07:44:27 <pjb>	Because it was (ONE SYMBOL,ANOTHER SYMBOL,A THIRD SYMBOL)
+Oct 17 07:44:56 <pjb>	But in the first implementation of LISP, it was already  (ONE-SYMBOL ANOTHER-SYMBOL A-THIRD-SYMBOL)
+Oct 17 07:45:40 <pjb>	I don't know if the possibility to enter commands with spaces in emacsen comes from that, I doubt it. It probably come from the same ergonomic and user-friendly reasons.
+Oct 17 07:46:31 <pjb>	That said if you type a space in M-x it actually just completes the text, and inserts dashes, instead of a space.
+Oct 17 07:46:50 <pjb>	but Zwei and Hemlock explicitely define commands using strings with spaces.
+Oct 17 07:46:59 <mplsCorwin>	I wonder if there's already an option to give "Friendly Caps" and hide the spaces, e.g. with an overlay.
+Oct 17 07:47:36 <pjb>	mplsCorwin: M-x whitespace-mode RET ?
+Oct 17 07:49:49 <johnjay>	oh yeah it was zweo
+Oct 17 07:49:51 <mplsCorwin>	Sorta the exact opposite of that? ;)
+Oct 17 07:49:55 <johnjay>	er zwei
+Oct 17 07:52:46 <pjb>	mplsCorwin: C-- M-x whitespace-mode RET ?
+Oct 17 07:53:01 <pjb>	Or C-u - M-x whitespace-mode RET 
+Oct 17 07:55:43 <mplsCorwin>	pjb: :)  I'm good to toggle the mode.  I was thinking that it might be interesting to have M-x *show* Camel Case with hyphens presented as space.
+Oct 17 07:56:16 <pjb>	Oh, I see. 
+Oct 17 07:56:25 <pjb>	Yes, you could do that with compose-region.
+Oct 17 07:56:37 <pjb>	and font-lock-keywords.
+Oct 17 07:56:49 <mplsCorwin>	could you, then ;)
+Oct 17 07:57:16 <mplsCorwin>	In fact, we could change the prompt from the cryptic M-x to "Enter Command:".
+Oct 17 07:58:09 <mplsCorwin>	No idea if that's actually less intimating for anyone.
+Oct 17 07:59:36 <mplsCorwin>	pjb: if you seriously think that's easy, and also think some people would want it, would you be interested to try making a POC patch or something?
+Oct 17 07:59:51 <mplsCorwin>	GO screw yourself is a perfectly fair answer :)
+Oct 17 08:03:55 <kudahtor228>	are there any devops channels?
+Oct 17 08:04:40 <wasamasa>	/msg alis list devops
+Oct 17 08:05:33 <kudahtor228>	thanks
+Oct 17 08:06:31 <wasamasa>	I guess MELPA isn't interested in becoming spokespeople for GNU and their free software policies
+Oct 17 08:06:52 <mplsCorwin>	Are you quoting Jean, by chance?
+Oct 17 08:07:15 <wasamasa>	Jean is involved: https://github.com/melpa/melpa/issues/7185
+Oct 17 08:07:37 <wasamasa>	played out exactly as I've expected
+Oct 17 08:08:20 <mplsCorwin>	There's really nothing about that which isn't dissapointing.
+Oct 17 08:08:36 <wasamasa>	"This would be infighting" - "Let's see whether they change for the sake of the greater good" - "Great, you've intensified the infighting!" - "If they're truly good, they'll change for our sake"
+Oct 17 08:08:43 <wasamasa>	surprise, they won't
+Oct 17 08:09:06 <mplsCorwin>	> To be clear, it seems that @gnusupport is "Jean Louis," a frequent, strongly opinionated poster on the Emacs mailing list
+Oct 17 08:09:23 <wasamasa>	I was surprised to learn though that it's supposed to be support.gnu which makes a lot more sense
+Oct 17 08:09:59 <mplsCorwin>	yeah, that'd read quite a bit better.
+Oct 17 08:11:04 <pjb>	mplsCorwin: it's easy enough. It may be costly because you have to build a character/composition rule vector for each symbol, but the composition rules allow the juxtaposition of characters, so possible…
+Oct 17 08:11:42 <wasamasa>	later Jean conflates freedom and security which is, wow
+Oct 17 08:12:09 <wasamasa>	and doesn't like #emacs either :D
+Oct 17 08:12:14 <mplsCorwin>	pjb: it strikes me that should be acceptable given this is implicitly a interactive, user-attention demanding thing, and probably said user's fingers the bottlenecks. wdyt?
+Oct 17 08:12:34 <mplsCorwin>	wasamasa: this is the point I've been stewing on, yes.
+Oct 17 08:15:11 <mplsCorwin>	"please assume good faith"
+Oct 17 08:15:54 <wasamasa>	at least this made RMS spell out what exactly MELPA needs to do to be mentionable in surveys without denunciation: https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg01074.html
+Oct 17 08:16:16 <wasamasa>	I don't see that happen either though
+Oct 17 08:16:46 <wasamasa>	if they won't delete packages wrapping software considered unethical, they won't do away with github's preferred workflow either
+Oct 17 08:16:57 <buhman>	"why we must not inform people about MELPA" ... wat
+Oct 17 08:17:09 <wasamasa>	he hopes it's not widely known
+Oct 17 08:17:20 <wasamasa>	but just in case it is, https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg01083.html
+Oct 17 08:17:30 <mplsCorwin>	Maybe it's too bad Jean didn't let things play out.
+Oct 17 08:17:46 <buhman>	uhh, I thought everyone used melpa
+Oct 17 08:18:01 <wasamasa>	freedom-abiding citizens wouldn't
+Oct 17 08:18:17 <mplsCorwin>	buhman: true, and papa ain't happy.
+Oct 17 08:18:19 <wasamasa>	just as they won't use debian because it has the audacity of coming with a non-free repository and instructions how to use it
+Oct 17 08:18:47 <wasamasa>	to the effect of "If you're having wifi issues, consider installing firmware from the non-free repo as follows"
+Oct 17 08:19:01 <wasamasa>	this is considered inacceptable by true GNU adherents
+Oct 17 08:19:26 <mplsCorwin>	"Please use less of your computer while volunteers reverse engineer an ever growing amarda of hardware" doesn't feel like a real plan to win the hearts and minds.
+Oct 17 08:19:41 <mplsCorwin>	armada*
+Oct 17 08:19:44 <buhman>	doesn't torvalds/linux include "something something nonfree firmware" somewhere in /Documentation ?
+Oct 17 08:19:56 <buhman>	why does linux get a pass?
+Oct 17 08:20:01 <wasamasa>	doesn't matter if it's excised by FSF-endorsed distros
+Oct 17 08:20:32 <wasamasa>	you see, as long as you remove parts threatening your freedoms while loudly denunciating them, you're in the clear
+Oct 17 08:20:50 <pjb>	mplsCorwin: however, editing a buffer full of multi-letter composition is difficult.  It would be better to write a reader macro to read whitespaced camel-case symbols as lisp symbols.
+Oct 17 08:22:02 <mplsCorwin>	pjb: what about completion? Wouldn't that become somewhat brittle?
+Oct 17 08:22:27 <pjb>	Of course it could have wide repercutions.
+Oct 17 08:22:48 <wasamasa>	buhman: anyway, the point is there's freedom (you can do whatever you want and share it for whatever reason) and freedom (you must bring freedom to as many as possible while ensuring it cannot be subverted by someone else, yourself not included)
+Oct 17 08:22:49 <pjb>	But why would you want it anyways, everybody knows that camel-case is horrible and the right way is the lisp-case.
+Oct 17 08:23:11 <mplsCorwin>	that is an exceptionally valid point
+Oct 17 08:23:47 <wasamasa>	perhaps libredom is the better term for the latter (libre, domination)
+Oct 17 08:24:03 <buhman>	"If we KNEW that almost all users of Emacs did know about Melpa, that would change our policy towards it." what does this even mean?
+Oct 17 08:24:19 <wasamasa>	if a non-free thing is mostly unknown, ignore it
+Oct 17 08:24:29 <wasamasa>	if a non-free thing is widely known, mention it casually
+Oct 17 08:25:07 <buhman>	oh, I didn't realize "policy" referred to "the policy for under what circumstances we publicly denounce something".
+Oct 17 08:25:08 <wasamasa>	the problem with that approach is being unaware of your surroundings until you fall into a hole because you didn't pay attention to them
+Oct 17 08:25:58 <buhman>	I thought "policy" meant "the policy to decide whether a given sitation is blessed by The Church"
+Oct 17 08:26:19 <wasamasa>	see https://www.gnu.org/prep/standards/html_node/References.html#References for a treatise
+Oct 17 08:26:30 <wasamasa>	> If a non-free program or system is obscure in your program’s domain, your program should not mention or support it at all, since doing so would tend to popularize the non-free program more than it popularizes your program.
+Oct 17 08:26:41 <wasamasa>	> When a non-free program or system is well known, you can mention it in passing—that is harmless, since users who might want to use it probably already know about it.
+Oct 17 08:27:52 <wasamasa>	anyway, not all is bad about emacs-devel
+Oct 17 08:28:02 <wasamasa>	for example there's this fun demo: https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg01086.html
+Oct 17 08:28:09 <mplsCorwin>	We are in such a hole.  Proprietary platforms dominate except in the consumer spaces that are dominated by corporate.  This is particularly true in the case of mobile, where our entire tool-chain (the one where we rightly expect to know what's going on within the device) runs the risk of being, basically, a toy running in a VM.
+Oct 17 08:29:18 <mplsCorwin>	Worse, we are at a cross-roads in terms of civilly and faithfully carrying on the conversation, as evidenced by AP basically calling J out on those grounds.
+Oct 17 08:31:00 <mplsCorwin>	But I think there's some good news, too.  Free software is pretty well known to be at the forefront of our pulling of a major coup of surviving a mass-migration to work-from-home.  We're not zoom, but all nerds talk about open source even if they don't appreciate FLOSS.
+Oct 17 08:31:18 <mplsCorwin>	And I think a plurality do appreciate FLOSS.
+Oct 17 08:31:41 <mplsCorwin>	But probably not enough to get radically less done during our precious lives.
+Oct 17 08:31:46 <wasamasa>	I appreciate FLOSS, but I don't appreciate the infighting
+Oct 17 08:31:59 <mplsCorwin>	100%
+Oct 17 08:32:10 <mplsCorwin>	We fail to face that, we are screwed.
+Oct 17 08:32:19 <kudahtor228>	You can simplify it to "more good practices applied >> finer you do"
+Oct 17 08:32:24 <wasamasa>	and honestly, I wouldn't be surprised if the result of this is something like debian happening in response
+Oct 17 08:33:49 <mplsCorwin>	./insert-shrug
+Oct 17 08:34:11 <mplsCorwin>	not uncaring, I just haven't the foggiest.  I can't seem past the moment.
+Oct 17 08:34:23 <mplsCorwin>	s/eem/ee
+Oct 17 08:35:52 <ryouma>	rt.live has its sources on github fwiw
+Oct 17 08:37:28 <wasamasa>	actually, my emacs-devel org file has a previous statement on RMS not believing MELPA is popular: https://lists.gnu.org/archive/html/emacs-devel/2014-09/msg00526.html
+Oct 17 08:37:41 <wasamasa>	would be fun if I could find enough of them to complete the grief cycle
+Oct 17 08:39:41 <mplsCorwin>	┏━┓┏━┓┏━┓ ︵ /(^.^/)
+Oct 17 08:41:00 <mplsCorwin>	le sigh.  I got nuthin.  But I've been writing about this so eventually I shall have *lots* of nothing to say about this.
+Oct 17 08:41:24 <ryouma>	is the discussion on a specific decision that makes a huge difference?  or is the problem that it is disappointing regardless of what it is on?
+Oct 17 08:42:04 <mplsCorwin>	So today's development in the on-going saga of trash talking MELPA on E-D, vs trashing talking E-D/RMS on Reddit, here, is..
+Oct 17 08:42:28 <mplsCorwin>	<wasamasa> Jean is involved: https://github.com/melpa/melpa/issues/7185
+Oct 17 08:42:57 <mplsCorwin>	The homework for which was this: https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg01015.html
+Oct 17 08:43:15 <mplsCorwin>	But honestly, screw all that.  Read this: https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg01041.html
+Oct 17 08:44:29 <mplsCorwin>	And then we've been around the room on that the problem is (a) epic (b) about behavior as much as anything
+Oct 17 08:45:39 <mplsCorwin>	Full disclosure.  Poor spelling, that's me.  I'ma sack.  Thanks all. Night wasamasa 
+Oct 17 08:49:44 <wasamasa>	good night
+Oct 17 08:50:00 <wasamasa>	time to break some eggs and play CTF
+Oct 17 09:13:43 <buhman>	yeah, why does emacs have Windows and OSX support anyway? isn't that sacrilege?
+Oct 17 09:15:29 <pjb>	buhman: because it's free software, so users were free to patch it to make it work on those platforms.
+Oct 17 09:16:27 <buhman>	doesn't the source code of emacs as distributed on gnu.org contain that code though?
+Oct 17 09:16:47 <pjb>	this has been done a long time ago.
+Oct 17 09:18:10 <buhman>	seems like according to the arguments on this thread, emacs itself is in violation of fsf policies.
+Oct 17 09:20:36 <aidalgol>	mplsCorwin: As I've been saying for years, the thing e-d is best at is tarpitting itself.
+Oct 17 09:26:08 <wasamasa>	buhman: read the references page again, they explain this
+Oct 17 09:26:42 <wasamasa>	buhman: it's all about promoting free software ultimately, so as long as you don't go overboard with support of a non-free platform by implementing exclusive things there that don't work on free platforms, it's all good
+Oct 17 09:27:03 <wasamasa>	buhman: which happened with color emoji on macos some time ago
+Oct 17 09:27:12 <wasamasa>	buhman: as soon as that worked on linux, it got reenabled
+Oct 17 09:30:30 <aidalgol>	buhman: Real FSF policy is to stroke certain egos
+Oct 17 09:32:00 <wasamasa>	if this reminds you of a specific monty python sketch, you're not alone
+Oct 17 09:54:52 <zeroed>	 /w 11
+Oct 17 09:56:12 <wasamasa>	could someone with a twitter account please tell https://twitter.com/holocronweaver that the wikemacs certificate has expired more than a year ago?
+Oct 17 09:56:12 *	zeroed apologies for typing random characters
+Oct 17 09:56:25 <wasamasa>	I mean, I doubt anyone gives a shit really, but it's linked rather prominently on r/emacs
+Oct 17 10:17:11 <ksynwa>	Not entirely related to emacs but I have a bunch of essays as *.org file. The files are hard wrapped. If I want to search for a term like "The Selfish Gene", how can I take into account the fact that it might occur as "The Selfish\nGene" at some places? Any tools like grep, ripgrep, etc. suggestions are fine too.
+Oct 17 10:23:59 <thblt>	ksynwa: In my Emacs, C-s works accross line breaks in org for some reason.
+Oct 17 10:24:42 <ksynwa>	thblt: What is C-s mapped to? Just wondering if it's something different in your setup.
+Oct 17 10:25:00 <wasamasa>	there's a whitespace folding flag in isearch for that purpose
+Oct 17 10:25:01 <aidalgol>	wasamasa: Which sketch?
+Oct 17 10:25:04 <thblt>	ksynwa: isearch-forward
+Oct 17 10:25:16 <wasamasa>	aidalgol: judean people's front
+Oct 17 10:25:34 <pjb>	ksynwa: (re-search-forward "\\<The\\W+Selfish\\W+Gene\\>" nil t)
+Oct 17 10:25:45 <thblt>	But it may be something in my config indeed.
+Oct 17 10:25:54 <ksynwa>	Thanks a lot thblt and pjb 
+Oct 17 10:26:18 <thblt>	No, not my config, it works from -q
+Oct 17 10:26:22 <thblt>	ksynwa: ^
+Oct 17 10:26:30 <pjb>	ksynwa: interactively, you can use search-forward-regexp C-c C-s and type \<The\W+Selfish\W+Gene\>
+Oct 17 10:26:43 <ksynwa>	Noted. Thanks again. :)
+Oct 17 10:26:55 <ksynwa>	What does \< denote pjb ?
+Oct 17 10:27:07 <pjb>	ksynwa: you can also use M-x occur RET \<The\W+Selfish\W+Gene\> RET
+Oct 17 10:27:07 <thblt>	word delimiter
+Oct 17 10:27:12 <pjb>	\< is begin of word. 
+Oct 17 10:27:22 <pjb>	\W is any non-word character. 
+Oct 17 10:27:38 <ksynwa>	Got it. Thanks. That is very cool. I will read up more on this regex.
+Oct 17 10:27:40 <thblt>	pjb: don't C-s the selfish gene RET works for you?
+Oct 17 10:27:41 <pjb>	so it also match the,selfish: gene  etc…
+Oct 17 10:27:53 <thblt>	Ho OK, your solution is broader.
+Oct 17 10:28:02 <pjb>	thblt: nope, not if it's spread over several lines.
+Oct 17 10:28:11 <thblt>	pjb: weird, it's the default for me.
+Oct 17 10:28:21 <pjb>	Perhaps there's a global option for that.
+Oct 17 10:28:30 <pjb>	or perhaps it depends on the mode of the buffer.
+Oct 17 10:28:37 <pjb>	I've not tested in org buffers.
+Oct 17 10:28:48 <pjb>	ksynwa: you may like M-x occur
+Oct 17 10:28:50 <aidalgol>	wasamasa: Ah, I never remember that film very well.
+Oct 17 10:28:53 <thblt>	I tried emacs -q, create an org buffer, Typed: "Hello I love\nyou won't you\ntell me your name", C-s you tell me RET it finds lines 2-3 immediately.
+Oct 17 10:29:26 <thblt>	On 27.1
+Oct 17 10:29:37 <pjb>	interesting.
+Oct 17 10:30:05 <pjb>	indeed, in org mode, C-s uses isearch and matches across lines.
+Oct 17 10:30:56 <ksynwa>	yeah that's very handy. just tried it myself.
+Oct 17 10:31:24 <ksynwa>	case insensitive too by default so that's good for me too
+Oct 17 10:31:56 <thblt>	Default is case-smart (or something like that) I think: if you use uppercase it becomes case-sensitive.
+Oct 17 10:46:14 <rwhoops>	TRAMP is included natively in emacs, right? 
+Oct 17 10:46:38 <wasamasa>	yes
+Oct 17 10:46:43 <rwhoops>	cool ty! 
+Oct 17 11:05:10 <aidalgol>	Hmm, tramp could be used to connect to servers running non-free software.
+Oct 17 11:07:48 <thblt>	aidalgol: let's write a free license that forbids it.
+Oct 17 11:11:21 <aidalgol>	No, we should implement a LibreJS-like extension to the SSH protocol, and only connect to servers advertising that they do not use or steer users towards non-free software.
+Oct 17 11:13:13 <ldlework>	wierd that the dash doc sets for javascript include a bunch of nonsense at the top
+Oct 17 11:14:17 <thblt>	conversion bug?
+Oct 17 11:15:04 <thblt>	rms has fascinating workflows https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg01077.html
+Oct 17 11:16:13 <ldlework>	darn both devdocs packages on melpa are busted too
+Oct 17 11:16:16 <ldlework>	fooey
+Oct 17 11:17:57 <thblt>	ldlework: looks good in zeal
+Oct 17 11:21:45 <ldlework>	what's zeal
+Oct 17 11:22:04 <ldlework>	i see
+Oct 17 11:22:12 *	ldlework nix-env -i zeal
+Oct 17 11:24:48 <ldlework>	thblt: yeah, i guess it's just that in eww all that crud at the top takes up a lot more space
+Oct 17 11:28:00 <thblt>	ldlework: also you can try it first with `nix run nixpkgs.zeal` :)
+Oct 17 11:28:20 <ldlework>	oh i didn't realize that was possible
+Oct 17 11:28:32 <ldlework>	nix-shell is obvious, but that's even cooler
+Oct 17 11:28:59 <ldlework>	it's so nice that nix is becoming so popular
+Oct 17 11:29:05 <ldlework>	picking up tips in #emacs ;P
+Oct 17 11:29:53 <Pickchea>	Hello people, I have a question about electric-pair-mode. When combined with org-mode (and only then) it pairs < with > and I really don't want that. Neither electric-pair-pairs nor electric-pair-text-pairs contains < and >. How can I turn this off? #org-mode couldn't help ATM.
+Oct 17 11:30:36 <thblt>	ldlework: another quick tip, lookup in nix is expensive, nix-env -iA will often be a lot faster than -i
+Oct 17 11:30:57 <thblt>	(with full path to derivation of course: nix-env -iA nixos.zeal)
+Oct 17 11:32:40 <thblt>	eg with zeal: -iA 0.731s total -i 8.304s
+Oct 17 12:53:22 <wgreenhouse>	ldlework: re "nonsense at the top," try tapping R in eww
+Oct 17 13:28:40 <jlf>	,shit#emacssays is also we should implement a LibreJS-like extension to the SSH protocol, and only connect to servers advertising that they do not use or steer users towards non-free software.
+Oct 17 13:28:43 <fsbot>	Added note [227] for term "shit#emacssays"
+Oct 17 13:40:16 *	Disconnected ()
+**** ENDING LOGGING AT Sat Oct 17 13:40:16 2020
+
+**** BEGIN LOGGING AT Sat Oct 17 13:41:32 2020
+
+Oct 17 13:41:32 *	Now talking on #emacs
+Oct 17 13:41:32 *	Topic for #emacs is: Gul Dukat says upgrade to 27.1: https://i.imgflip.com/4hpvlw.jpg | Emacs questions take priority over off-topic chatter, so ask! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+Oct 17 13:41:32 *	Topic for #emacs set by wgreenhouse!wgreenhous@fsf/member/wgreenhouse (Thu Oct  8 00:50:34 2020)
+Oct 17 13:41:32 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Oct 17 13:46:47 <atw>	does dto's cell-mode support formulas? has anyone tried integrating it with calc?
+Oct 17 14:07:39 <wgreenhouse>	,channel-wisdom
+Oct 17 14:07:41 <fsbot>	gah I can't by the life of me figure out how to add two pointers in c
+Oct 17 14:48:19 <bremner>	rudybot: you'd think a bot would know about nasal demons
+Oct 17 14:48:29 <rudybot>	bremner: Accursed nasal demons...
+Oct 17 14:50:55 <Demosthenex>	is there a way for mu4e to alert if there isn't an email at a scheduled time?
+Oct 17 15:52:21 <Wafficus>	Hi there, question about my Emacs config https://termbin.com/yn6l2
+Oct 17 15:52:42 <Wafficus>	I have it stored within ~/.emacs.d/config.org
+Oct 17 15:53:04 <Wafficus>	if I wanted to activate that and make it become actually part of my config from converting the .org file to a config, how do I go about doing that?
+Oct 17 16:16:42 <Wafficus>	I updated my .init.org file here: https://termbin.com/35vx2
+Oct 17 16:17:02 <Wafficus>	I'm wondering though, if I'm going to go for a literal config like this, do I store this in ~/.emacs.d
+Oct 17 16:17:19 <Wafficus>	but have the output file be ~/.emacs ?
+Oct 17 16:17:57 <Wafficus>	I ask because this is kind of the first time I'm doing any modifications to my config, so I'm a bit lost on how the organization of this should actually be using this org mode to config conversion method
+Oct 17 16:19:47 <johnjay>	Wafficus: the best i've been able to figure out is .emacs overrides init.el
+Oct 17 16:19:59 <johnjay>	so typically you would have a call in .emacs to load .emacs.d/init.el
+Oct 17 16:20:18 <grym>	Wafficus: org-based configs have to be tangled into .el files 
+Oct 17 16:20:24 <Wafficus>	hmm
+Oct 17 16:20:24 <johnjay>	^
+Oct 17 16:20:27 <Wafficus>	so its a ping pong effect
+Oct 17 16:20:31 <Wafficus>	interesting
+Oct 17 16:20:35 <Wafficus>	I KIND of get it
+Oct 17 16:20:38 <wasamasa>	or loaded from a cleverly written .el file
+Oct 17 16:20:41 <wasamasa>	your choice
+Oct 17 16:20:45 <Wafficus>	but that's my noobish op right now
+Oct 17 16:20:51 <Wafficus>	I think I should just seek out another couple of vids
+Oct 17 16:20:58 <Wafficus>	the reason why I was gonna mess around with doing this
+Oct 17 16:21:06 <Wafficus>	is that I wanted a single config across three separate machines
+Oct 17 16:21:21 <Wafficus>	and more so, because I checked out a video on Hydras, and Helm, to the point where I've been blown away
+Oct 17 16:21:30 <Wafficus>	and I'd like to start configin' it up ;)
+Oct 17 16:21:43 <johnjay>	is one of those files config.org?
+Oct 17 16:21:48 <johnjay>	or is config.org a huge file
+Oct 17 16:21:52 <Wafficus>	well
+Oct 17 16:21:59 <Wafficus>	I renamed it
+Oct 17 16:22:01 <Wafficus>	one sec
+Oct 17 16:22:09 <Wafficus>	I renamed it to ~/.emacs.d/init.org
+Oct 17 16:22:13 <Wafficus>	however
+Oct 17 16:22:14 <johnjay>	well there's a table of contents but i don't see anything else
+Oct 17 16:22:24 <Wafficus>	now I'm confused, maybe I should rename it to ~/.emacs.d/.emacs.org
+Oct 17 16:22:26 <Wafficus>	lol
+Oct 17 16:22:30 <johnjay>	like you say treemacs, treemacs-projectile, hydra, dashboard
+Oct 17 16:22:40 <Wafficus>	right that's more of what I plan on adding later
+Oct 17 16:22:49 <Wafficus>	the "initialization" part at the top
+Oct 17 16:22:54 <johnjay>	ok well if that's all you have then you don't have to do anything
+Oct 17 16:22:56 <Wafficus>	that's where I'm trying to figure out directories on output
+Oct 17 16:23:04 <johnjay>	just transfer that block of code to .emacs or init.el as you want
+Oct 17 16:23:17 <Wafficus>	interesting
+Oct 17 16:23:20 <Wafficus>	so they're in tandem then?
+Oct 17 16:23:31 <johnjay>	no .emacs overrides init.el
+Oct 17 16:23:34 <Wafficus>	I thought you could literally have everything in the same .org file
+Oct 17 16:23:45 <johnjay>	so you need a call to (load "/home/blah/.emacs.d/init.el) in your .emacs
+Oct 17 16:24:03 <johnjay>	or skip .emacs and just have init.el
+Oct 17 16:24:18 <johnjay>	it doesn't matter how you do it. emacs just tries each thing in order trying to find your init file
+Oct 17 16:24:44 <Wafficus>	well, I understand your point in terms of the .emacs config overriding everything
+Oct 17 16:24:55 <Wafficus>	that makes sense because my current config setup is literally just ~/.emacs right now
+Oct 17 16:25:05 <Wafficus>	anyway, to make it less confusing
+Oct 17 16:25:15 <Wafficus>	I renamed it to: ~/.emacs.d/emacs.org
+Oct 17 16:25:26 <Wafficus>	because eventually I would want the emacs.org file to become ~/.emacs
+Oct 17 16:25:28 <Wafficus>	upon startup of Emacs
+Oct 17 16:27:02 <johnjay>	well. i don't really understand your problem.
+Oct 17 16:27:11 <johnjay>	you just have a small file with a few lines of code
+Oct 17 16:27:25 <johnjay>	just put it in ~/.emacs.d/init.el and presto you have a literal setup
+Oct 17 16:28:14 <johnjay>	or by literal you mean literate lol?
+Oct 17 16:28:28 <johnjay>	then i suppose you would write init.el to call org mode to process your "literate" .org files
+Oct 17 16:29:21 <jlf>	Wafficus: https://harryrschwartz.com/2016/02/15/switching-to-a-literate-emacs-configuration
+Oct 17 16:36:17 <Wafficus>	jlf: ah yes, that dude is based
+Oct 17 16:36:23 <Wafficus>	his Org Mode talk is what got me into Emacs
+Oct 17 16:36:41 <Wafficus>	perfect, thanks for that reference
+Oct 17 16:36:44 <Wafficus>	cool stuff mate
+Oct 17 16:37:04 <jlf>	np
+Oct 17 17:10:51 <BerndP>	shit#emacssays
+Oct 17 17:13:13 <johnjay>	hrm how does org mode enable literate programming?
+Oct 17 17:13:45 <johnjay>	i thought in a literate program you could like add chunks anywhere
+Oct 17 17:13:45 <hodapp>	babel.
+Oct 17 17:13:48 <johnjay>	maybe that's wrong
+Oct 17 17:13:57 <johnjay>	like you could say "insert the following block of code at line 27"
+Oct 17 17:14:17 <hodapp>	you can use named blocks of code that are tangled/woven as needed
+Oct 17 17:14:53 <johnjay>	although most literate programs look like this i guess
+Oct 17 17:15:01 <johnjay>	https://www-cs-faculty.stanford.edu/~knuth/programs/ulam.w
+Oct 17 17:15:28 <johnjay>	essentially a C file with lines such as   @<Set up the |decode| table@>; which are references to later blocks of code
+Oct 17 17:15:54 <johnjay>	hrm i guess that makes sense.
+Oct 17 17:16:22 <johnjay>	maybe I was thinking more of "append this code to chunk XYZ" as well
+Oct 17 17:16:51 <grym>	johnjay: http://howardism.org/Technical/Emacs/literate-devops.html e.g.
+Oct 17 17:17:02 <johnjay>	so you could have #include<stdio.h> int main() { <<my code>>; return 0;} and then just append things to the start or end of <<my code>>
+Oct 17 17:17:18 <grym>	everything from "write a bash snippet, C-c C-c that thing, oh hey it runs" to "tangle the whole thing and run it"
+Oct 17 17:18:34 <johnjay>	right. i'm just talking about the structure of the file itself and how you specify chunks or whatever knuth called th em
+Oct 17 17:19:14 <grym>	<s TAB
+Oct 17 17:19:15 <grym>	:) 
+Oct 17 17:19:21 <johnjay>	also how is that guy creating virtual machines so easily. I struggle with command lin qemu just to get a ubuntu machine up and running
+Oct 17 17:20:29 <johnjay>	>Since version 1.6, Vagrant natively supports Docker containers, which in some cases can serve as a substitute for a fully virtualized operating system.[9]
+Oct 17 17:20:58 <johnjay>	sudo apt-getting it right now
+Oct 17 17:24:22 <mplsCorwin>	sudo apt-get lsit
+Oct 17 17:24:55 <mplsCorwin>	s/lsit/lost # I shoulda finished my coffee before making jokes
+Oct 17 17:43:08 *	johnjay walks into coffee shop, says sudo apt-get latte
+Oct 17 17:43:30 <kudahtor228>	xDD
+Oct 17 17:43:31 <johnjay>	make sure to type it capital letters in case your terminal didn't hear it the first time too
+Oct 17 17:44:34 <kudahtor228>	after year+ of emacs I started to look like this https://cdna.artstation.com/p/assets/images/images/005/092/982/large/itteki-nakama-55121449-p0-master1200.jpg?1488405866
+Oct 17 17:44:35 <rudybot>	https://teensy.info/UrwtP1mJT5
+Oct 17 17:46:27 <edgar-rft>	kudahtor228: and this will be your favourite emacs theme -> https://www.emacswiki.org/emacs/PinkBliss
+Oct 17 17:47:07 <kudahtor228>	sure but it's gotta have dark-grey background and more neutral saturation
+Oct 17 17:47:21 <kudahtor228>	nyan theme would also do
+Oct 17 17:48:31 <kudahtor228>	ye dark-grey background
+Oct 17 17:59:38 <johnjay>	any ideas how I would fiddle with the mode line?
+Oct 17 17:59:51 <johnjay>	I want to highlight the line count in red if it is over a certain number
+Oct 17 18:00:13 <kudahtor228>	what's the point?
+Oct 17 18:00:17 <mplsCorwin>	johnjay: probably by screwing with mode-line-format
+Oct 17 18:00:21 <johnjay>	well i want to do other things to
+Oct 17 18:00:35 <johnjay>	because the brain processes color independently and earlier than words
+Oct 17 18:00:48 <johnjay>	so if you can encode as many things as possible with color or shading without having to read something you're good
+Oct 17 18:01:02 <johnjay>	mplsCorwin: ah right that's what it is
+Oct 17 18:01:04 <johnjay>	thanks
+Oct 17 18:01:31 <johnjay>	for example i have a color highlighting command which looks at all functions defined in the current obarray and highlights them orange
+Oct 17 18:01:43 <johnjay>	that way i can tell immediately if i've typed an emacs builtin correctly or not
+Oct 17 18:02:43 <kudahtor228>	you can use auto-complete mode to be sure in that specific thing
+Oct 17 18:02:57 <johnjay>	something called hdefd highlight mode
+Oct 17 18:03:20 <johnjay>	i suppose but then you'd have to do it before finishing typing it
+Oct 17 18:03:46 <johnjay>	auto complete has a place i'm just not sure how to use it
+Oct 17 18:04:13 <mplsCorwin>	johnjay: I gotta get into that also, as I want to put the currently selected tool, line weight, color, and fill color into the model line for sketch.el
+Oct 17 18:04:45 <mplsCorwin>	s.model.mode
+Oct 17 18:06:07 <johnjay>	ah flyspell mode works, that's comforting
+Oct 17 18:06:37 <mplsCorwin>	are you mocking me ;)
+Oct 17 18:07:21 <kudahtor228>	I just remembered pink floyd's "any colour you like" song
+Oct 17 18:07:32 <johnjay>	flyspell is smarter than I thought. it's not highlighting a word that's not a dictionary word but occurs a lot
+Oct 17 18:07:56 <mplsCorwin>	For whatever reason I can't launch erc-spelling-mode when ERC starts.  I have to remember to enable it manually, although ERC comes up *thinking* it's enabled.
+Oct 17 18:09:17 <kudahtor228>	oh dont u use rcirc
+Oct 17 18:09:53 <kudahtor228>	I'm on it once and for all
+Oct 17 18:09:57 <kudahtor228>	RCIRC
+Oct 17 18:13:13 <kudahtor228>	johnjay: thats not smart lol
+Oct 17 18:13:37 <kudahtor228>	I think thats configurable
+Oct 17 18:16:07 <kudahtor228>	xDD "*** normalperson JOIN"
+Oct 17 18:16:18 <kudahtor228>	whoever a normalperson is, he is not welcome
+Oct 17 18:16:29 <normalperson>	normalemacsperson
+Oct 17 18:16:37 <mplsCorwin>	welcome!
+Oct 17 18:16:54 <normalperson>	mplsCorwin: thank you! :D
+Oct 17 18:16:59 <normalperson>	elisp is hard
+Oct 17 18:17:15 <mplsCorwin>	facts.
+Oct 17 18:17:18 <normalperson>	but little by little, a loop here, a symbol there, I guess one will catch on eventually
+Oct 17 18:17:54 <mplsCorwin>	I've been using emacs decades but really only elisp a year or so.  It gets more natural and once that happens it cascades quickly.
+Oct 17 18:18:18 <alex11>	there's a guy who posted his .emacs file online going back decades and it's basically thesis length
+Oct 17 18:18:19 <normalperson>	right the tipping point
+Oct 17 18:18:27 <alex11>	which is fun
+Oct 17 18:18:46 <normalperson>	lol
+Oct 17 18:19:32 <alex11>	https://www.red-bean.com/kfogel/ see "my .emacs file"
+Oct 17 18:20:13 <bandali>	kudahtor228, keep the trolling to a minimum, please
+Oct 17 18:20:35 <normalperson>	alex11: not very modular ;P
+Oct 17 18:20:56 <normalperson>	I use doom-emacs, spacemacs helped me a lot with getting started, butsettling for doom-emacs
+Oct 17 18:21:01 <mplsCorwin>	"In this dissertation we demonstrate that is possible to get color-emoji completed from a custom completion framework defined within my .emacs file."
+Oct 17 18:21:42 <thblt>	mplsCorwin: You really shouldn't say those things in public, someone may think it's a good idea.
+Oct 17 18:21:46 <mplsCorwin>	Doom and spacemacs are wildly popular afaict
+Oct 17 18:21:49 <alex11>	when i put in serious effort into learning emacs and stop being lazy (read: never) i'd like to do it with normal emacs and not derivatives
+Oct 17 18:22:00 <mplsCorwin>	thblt: point.
+Oct 17 18:22:51 <normalperson>	mplsCorwin: I had no idea what emacs can do until I found them
+Oct 17 18:23:13 <normalperson>	that's probably the case for most people, so they never bother getting into emacs properly
+Oct 17 18:23:39 <jlf>	mplsCorwin: standard ido could do that, just needs a list of name->emoji mappings
+Oct 17 18:24:10 <mplsCorwin>	jlf: I wasn't so much after the feature as riffing on, e.g. https://wiki.p2pfoundation.net/Social_Construction_of_Freedom_in_Free_and_Open_Source_Software
+Oct 17 18:24:52 <mplsCorwin>	normalperson: I rolled my eyes seeing emoji in Emacs and now I'm hooked ¯\_(ツ)_/¯
+Oct 17 18:25:10 <jlf>	ah ok
+Oct 17 18:25:55 <jlf>	haha, the site allegedly hosting the abstract doesn't resolve
+Oct 17 18:25:57 <mplsCorwin>	literally someone's dissertation sources from the 8k sloc .emacs alex11 linked
+Oct 17 18:28:17 <mplsCorwin>	jlf: seems that waybackmachine has us: https://web.archive.org/web/20160405071132/http://healthhacker.org/biella/coleman-abstract.pdf
+Oct 17 18:29:33 <mplsCorwin>	Hrm.  Or maybe not.  Anyone actually get the PDF down?
+Oct 17 18:30:04 <kudahtor228>	the link is broken
+Oct 17 18:30:19 <mplsCorwin>	Gotcha!   https://web.archive.org/web/20060905011624/http://healthhacker.org/biella/coleman-abstract.pdf
+Oct 17 18:31:14 <kudahtor228>	hackers hackers everywhere
+Oct 17 18:31:30 <thblt>	7.5k non-comment slocs indeed. I wonder if it's an exception; I'd assume most `init.el`s tend to *decrease* in length after a certain point, because people 1) may revert some settings to their defaults once they understand Emacs better 2) will convert their main changes to standalone packages.
+Oct 17 18:32:24 <mplsCorwin>	thblt: that's been my experience.  My .email is shrinking, mostly.
+Oct 17 18:32:30 <mplsCorwin>	.emacs
+Oct 17 18:32:44 *	mplsCorwin stares warningly at their fingers
+Oct 17 18:33:03 <grym>	fing
+Oct 17 18:34:06 <mplsCorwin>	o/ grym :)
+Oct 17 18:42:28 <kudahtor228>	It'ss quite enjoying to read emacs guide while drunk
+Oct 17 18:42:39 <kudahtor228>	reminds a fairy tale with chapters and stuff
+Oct 17 18:46:30 <bbuccianti>	I think I understand git-rebase finally
+Oct 17 18:46:38 <bbuccianti>	:D
+Oct 17 18:53:30 <mplsCorwin>	"Woah."  "How do you feel?"  "I know git-rebase."  "Show me."
+Oct 17 18:57:47 <bbuccianti>	I feel stupid
+Oct 17 18:57:49 <bbuccianti>	hahaha
+Oct 17 18:58:57 <thblt>	bbuccianti: what was your issue?
+Oct 17 18:59:38 <bbuccianti>	I always wanted to apply my commits on top of another branch
+Oct 17 18:59:48 <thblt>	rebase's the tool for that.
+Oct 17 18:59:51 <thblt>	indeed.
+Oct 17 18:59:55 <bbuccianti>	but never understand (until now) that you just need to be in that branch
+Oct 17 19:00:02 <bbuccianti>	and call git rebase master
+Oct 17 19:00:04 <bbuccianti>	for example
+Oct 17 19:00:06 <bbuccianti>	and that's it
+Oct 17 19:00:21 <thblt>	I see.  Yeah, git cli has its quirks
+Oct 17 19:01:15 <bbuccianti>	but was a lot of git-rebase interactively painful editing history
+Oct 17 19:01:42 <thblt>	Try magit :)
+Oct 17 19:02:05 <bbuccianti>	today I understand that git log shows you the history from newest at the top to oldest at the bottom
+Oct 17 19:02:13 <bbuccianti>	and git rebase -i shows the opposite
+Oct 17 19:02:25 <bbuccianti>	first it's the oldest commit, bottom is the newest
+Oct 17 19:04:20 <bbuccianti>	yeah, I think magit contributed to the confusion
+Oct 17 19:15:30 <bremner>	so, pythonistas. Which priority queue implementation should I use
+Oct 17 19:15:54 <bremner>	and why the heck isn't there an adequate one in the standard library
+Oct 17 19:17:11 <oats>	bremner, the html parser took up all the rest of the space. No more room in the standard library
+Oct 17 19:19:06 <manu1511>	does emacs default theme selected line color only look weird to me?
+Oct 17 19:19:17 <bremner>	,m8b
+Oct 17 19:19:17 <fsbot>	Cannot predict now
+Oct 17 19:19:46 <manu1511>	it is too dark
+Oct 17 19:20:18 <manu1511>	https://i.imgur.com/1r79f4C.png
+Oct 17 19:20:36 <spikemaster>	is making giant comment section headers considered "literate" programming? or do you need to do something special like use org mode or something.
+Oct 17 19:20:53 <bremner>	more the latter I'd say
+Oct 17 19:20:54 <mplsCorwin>	yeah, it's an org-mode thing, mostly.
+Oct 17 19:21:14 <bremner>	or historically things like "WEB"
+Oct 17 19:21:19 <manu1511>	spikemaster: it is quite common to do this in php
+Oct 17 19:22:18 <thblt>	strictly speaking, literate programming is not just comments without markers, it's also the possibility of naming blocks and inserting it in a different order, reusing them, and so on.
+Oct 17 19:22:22 <thblt>	Org provides all that.
+Oct 17 19:22:51 <thblt>	Most “literale” emacs configs just use org as a code outliner, and there are easier ways to do that.
+Oct 17 19:23:40 <mplsCorwin>	I think literate programing goes beyond documenting your code, or even interweaving of documentation.  It's wrapping the code into a documentation so that the human becomes the first tier consumer of the file (vs the elisp interpreter or whathaveyou)
+Oct 17 19:24:08 <mplsCorwin>	org is our main technique for this.
+Oct 17 19:24:14 <mplsCorwin>	erm.  tool.
+Oct 17 19:25:10 <bremner>	speaking of org-mode, can it create directories to tangle into
+Oct 17 19:25:31 <thblt>	This is why reordering matters, because the order in which you explain something is not necessarily the right order for the compiler. 
+Oct 17 19:25:56 <bremner>	I use literate-programming for lectures, and only show the important bits of code
+Oct 17 19:26:11 <bremner>	also, :mkdirp yes
+Oct 17 19:28:39 <thblt>	(as Aristotle said)
+Oct 17 19:46:18 <mplsCorwin>	RE native-comp, Eli is pushing for the about screen to show information about native comp, which makes sense to me.  I'm thinking it might be nice to show also whether we are using eln or elc (or el?) for individual packages.  Does that seem useful to anyone else?
+Oct 17 19:49:21 <spikemaster>	knowing if something is using el, elc, eln sounds useful to me. i vote yes
+Oct 17 19:49:52 <thblt>	yes yes yes.
+Oct 17 19:50:30 <mplsCorwin>	Thank you, spikemaster, thblt.  If anyone here is in a position to try sending a patch along with this suggestion I'd happily defer, otherwise I'll send the idea off in few hours if I don't see it appear.
+Oct 17 19:51:58 <mplsCorwin>	I like.  I think I see that Eli is still up and doing email so I'll send something quick off now.  Thanks again.
+Oct 17 19:52:04 <mplsCorwin>	s/like/lie
+Oct 17 19:53:32 <thblt>	mplsCorwin: It's this discussion https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg01132.html, right?
+Oct 17 19:53:43 <mplsCorwin>	yes
+Oct 17 19:53:51 <mplsCorwin>	wait
+Oct 17 19:53:53 <thblt>	Cool. I'm syncing my repo to have a look.
+Oct 17 19:54:03 <thblt>	Wait no?
+Oct 17 19:54:05 <mplsCorwin>	OK, I'm holding off then thblt.
+Oct 17 19:54:14 <mplsCorwin>	I'm double checking, one moment please.
+Oct 17 19:54:39 <thblt>	Don't hold off I'm all for the idea :)
+Oct 17 19:55:05 <mplsCorwin>	ok!  Let me finish making sure we're on the same thread and I'll press send.
+Oct 17 19:56:35 <mplsCorwin>	thblt: the subject line I'm looking at is "feature/native-comp] provide a user feedback on Emacs being native compiled"
+Oct 17 19:57:18 <mplsCorwin>	thblt: here's where I planned to reply in: https://lists.gnu.org/archive/html/bug-gnu-emacs/2020-10/msg01335.html
+Oct 17 19:57:35 <mplsCorwin>	(I have *got* to migrate to gnus)
+Oct 17 19:58:24 <thblt>	mplsCorwin: that's a great idea. I'm not sure there's any con to this.
+Oct 17 20:02:32 <thblt>	reading the debbugs thread: the performance gain is impressive and the cost seems ridiculous.
+Oct 17 20:03:08 <mplsCorwin>	thblt: this is going to be the most exciting feature since color's in -nw ;)
+Oct 17 20:03:16 <mplsCorwin>	s/\'//
+Oct 17 20:03:20 <thblt>	(Except for [N|Gu]ix users whose Emacs recompiles every time there's a minor change far down in the dependency chain)
+Oct 17 20:03:44 <thblt>	And until we get rid of -nw for a new display engine :D /s
+Oct 17 20:03:51 <mplsCorwin>	hahaha
+Oct 17 20:24:46 <bandali>	mplsCorwin, what MUA do you use now?
+Oct 17 20:27:23 <mplsCorwin>	can't remember.  def not gmail.
+Oct 17 20:27:39 <mplsCorwin>	wait.  check that.  Gmail.
+Oct 17 20:28:27 <parsnip>	lol
+Oct 17 20:29:16 <bandali>	oh lol
+Oct 17 20:29:51 <thblt>	https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg01140.html Can you freeze Emacs forever by making it use a font that doesn't have A-F0-9?
+Oct 17 20:30:18 <thblt>	I'm referring to “No, Emacs doesn't create any glyphs dynamically for tofus, it simply uses a smaller font in a box it itself draws.”
+Oct 17 20:30:51 <thblt>	If it cannot draw hex numbers, it will draw another box in the box, and so on recursively until the end of time or more probably stack overflow.
+Oct 17 20:31:30 <mplsCorwin>	yeah, I'm seeing it. Pretty good question from my limited understanding.
+Oct 17 20:32:01 <thblt>	I may give it a try if I find the time.
+Oct 17 20:34:37 <mplsCorwin>	That would be cool.  It would be a good time to raise such an issue as it seems we are shining lights into that particular darkness just now.
+Oct 17 20:42:14 <ecbrown>	i'd like to give the feedback:  native-comp is outstanding, and i can't envision ever going back to anything but
+Oct 17 20:45:27 <bremner>	cool.
+Oct 17 20:48:46 <mplsCorwin>	RE native-comp, Here's the suggestion from earlier: https://lists.gnu.org/archive/html/bug-gnu-emacs/2020-10/msg01361.html
+Oct 17 20:54:11 <ecbrown>	good suggestion, i couldn't tell you whether my modules are ???-compiled
+Oct 17 20:55:25 <ecbrown>	i just know they're not elc's, because i whack them before each startup
+Oct 17 20:56:39 <mplsCorwin>	huh, why?
+Oct 17 20:57:07 <ecbrown>	some bizarro combination of macos, native-comp, straight, and org not loading org correctly
+Oct 17 20:57:44 <ecbrown>	(and, org-contrib, i need one package from there org-contacts)
+Oct 17 20:57:57 <mplsCorwin>	I've got a few that I have to remember not to compile but so far things are stable compiling *most* of my init.
+Oct 17 20:58:28 <ecbrown>	whenever i fail to nuke the elc's, org-version returns N/A
+Oct 17 20:58:48 <ecbrown>	and that wreaks havoc elsewhere, being not a number
+Oct 17 20:58:53 <mplsCorwin>	Let me check but I think init-org.el is one of the ones I can't byte-compile.
+Oct 17 21:00:16 <mplsCorwin>	Hmmm, no I guess I have an init-org.elc not using org-contrib at present tho)
+Oct 17 21:17:28 <jlf>	ecbrown: maybe check ,,df list-load-path-shadows
+Oct 17 21:17:28 <fsbot>	list-load-path-shadows is an interactive autoloaded compiled Lisp
+Oct 17 21:17:28 <fsbot>	function in ‘shadow.el’.
+Oct 17 21:17:28 <fsbot>	(list-load-path-shadows &optional STRINGP)
+Oct 17 21:17:28 <fsbot>	Display a list of Emacs Lisp files that shadow other files. ;;[ ,more / ,dump]
+Oct 17 21:21:17 <pjb>	it's misnamed!!!  It doesn't return a list, it returns a string such as: (list-load-path-shadows) -> "
+Oct 17 21:21:18 <pjb>	72 Emacs Lisp load-path shadowings were found"
+Oct 17 21:21:33 <pjb>	somebody report a bug!
+Oct 17 21:31:07 <laertus>	how do i paste the contents of the most recent entry in the kill ring in to a calc-mode buffer?
+Oct 17 21:31:39 <laertus>	nevermind.. it's just control-y for me.. :P
+Oct 17 21:45:14 <parsnip>	hmm, i'm using ubuntu 20.04 and `sudo apt-cache search taskd` comes up empty
+Oct 17 21:45:28 <parsnip>	even though it appears here: http://manpages.ubuntu.com/manpages/focal/man1/taskd.1.html
+Oct 17 21:48:17 <parsnip>	asked on #ubuntu
+Oct 17 21:51:44 <wasamasa>	hm, my ELPA feed thing failed several times in a row
+Oct 17 21:51:50 <wasamasa>	let's hope this is GNU ELPA being funny
+Oct 17 21:52:11 <wasamasa>	nope, marmalade
+Oct 17 21:52:22 <wasamasa>	is it completely dead now?
+Oct 17 21:52:27 <wasamasa>	502 :<
+Oct 17 21:53:00 <parsnip>	lol, marmalade
+Oct 17 21:54:16 <wasamasa>	I'm more annoyed the traceback is long enough to not contain the specific archive it fails for
+Oct 17 21:55:27 <wasamasa>	anyway, this morning I asked for someone with a twitter account for a favor
+Oct 17 21:55:44 <wasamasa>	maybe now such a person is online willing to send a friendly DM to a similarly neglected emacs service
+Oct 17 21:56:30 <wasamasa>	https://nitter.net/Holocronweaver apparently runs wikemacs these days and should really renew the certificate
+Oct 17 21:56:37 <wasamasa>	or consider using let's encrypt
+Oct 17 22:03:17 <frdg>	what are your top 3 favorite minor modes? I'm looking to try some new stuff out. 
+Oct 17 22:05:12 <wasamasa>	oh and if someone's up to twittering, nicferrier could also be notified about marmalade
+Oct 17 22:07:17 <mplsCorwin>	neither of these folks follow me or accept messages from those they don't follow.  would it be helpful just tweeting @ them, do you think?
+Oct 17 22:08:43 <wasamasa>	you mean publicly mentioning them? absolutely
+Oct 17 22:10:10 <wasamasa>	for nic I guess I could try sending an email to their git address
+Oct 17 22:12:23 <mplsCorwin>	Those who wish could find my SO to Jesse on twitter, here: https://twitter.com/mplscorwin/status/1317574108431962122
+Oct 17 22:13:37 <mplsCorwin>	wasamasa: left nic alone on twitter per your last.
+Oct 17 22:14:04 <davidl>	Im getting this old bug thing: gui-get-selection: (error "Timed out waiting for reply from selection owner") - https://emacs.stackexchange.com/questions/5703/has-anyone-else-encountered-gui-get-selection-error-timed-out-bug using emacs 27.1
+Oct 17 22:14:05 <rudybot>	https://teensy.info/lc7UCQtBUJ
+Oct 17 22:14:30 <davidl>	any suggestions how to fix that?
+Oct 17 22:16:21 <mplsCorwin>	one thing to research this could be to take the list of bug reports from this SO and plug them into debugs and see what may have happened with each.  https://debbugs.gnu.org/cgi/bugreport.cgi?bug=<ID>
+Oct 17 22:18:04 <mplsCorwin>	Understanding that might get this down to where someone, here, or on the Emacs-Devel@lists.gnu.org Mailing List could propose a simple patch or work-around to move this forward or close whatever remaining problem you are finding.
+Oct 17 22:21:10 <dale>	I think my music streaming service has decided I like only Contemporary Christian and... this sounds like Japanese Dubstep or something.
+Oct 17 22:22:03 <dale>	I dojn
+Oct 17 22:22:10 <wasamasa>	mplsCorwin: hm, I don't really see it hurting, in case his email turns out to be the wrong place
+Oct 17 22:22:20 <dale>	Er, I don't like either of those, to be clear.  Well, I don't know, if this Japanese Dubstep is a thing I might be able to get on board, let me hear more.
+Oct 17 22:22:33 <wasamasa>	do you have examples of that?
+Oct 17 22:22:36 <wasamasa>	is it like babymetal?
+Oct 17 22:22:45 <mplsCorwin>	wasamasa: no problem.
+Oct 17 22:23:51 <dale>	I'm not sure what this is actually.  Maybe this awful link works for non-subscribers? https://music.youtube.com/playlist?list=OLAK5uy_kRHcQp6OzhBbIcX0_qstMZfGjSa6vcXbE
+Oct 17 22:24:35 <dale>	I think the artist is called "yu" and the album is named "Baby Doc".
+Oct 17 22:25:46 <wasamasa>	what exactly about this does make you think dubstep?
+Oct 17 22:26:28 <wasamasa>	oh, the track after the intro
+Oct 17 22:29:40 <wasamasa>	not on discogs either
+Oct 17 22:31:52 <dale>	Yeah, I did not find much info on it.
+Oct 17 22:32:44 <wasamasa>	I'm not a fan
+Oct 17 22:33:57 <wasamasa>	the things I associate with dubstep is slow pace and dragging drums, ideally on a ridiculously overpriced gold-laced vinyl record
+Oct 17 22:34:25 <wasamasa>	https://www.discogs.com/Massive-Attack-vs-Burial-Four-Walls-Paradise-Circus/master/611553
+Oct 17 22:34:30 <wasamasa>	> Somebody payed 89 euro for the sleeve only ! ! !
+Oct 17 22:37:02 <mplsCorwin>	finally poked nic on twitter: https://twitter.com/mplscorwin/status/1317580399036477441
+Oct 17 22:37:04 <dale>	I know Burial is supposed to be dubstep, but it seems so different from other dubstep.
+Oct 17 22:37:29 <dale>	Ha, I see Wikipedia calls Skrillex "brostep".  I can get on board with that.
+Oct 17 22:37:43 <wasamasa>	mplsCorwin: thanks
+Oct 17 22:38:39 <wasamasa>	dale: there's a few other of the more ambient kind, I enjoyed Ital Tek
+Oct 17 22:38:52 <dale>	wasamasa: Thanks, I will check it out.
+Oct 17 22:40:53 <wasamasa>	https://www.youtube.com/watch?v=N3tUUPiDcAc
+Oct 17 22:48:32 <dale>	Yeah, I'm liking this.  Listening to "Cobra" off Hollowed now too.
+Oct 17 22:49:15 <wasamasa>	the newer releases seem a bit more regular beat
+Oct 17 22:49:20 <wasamasa>	still nice
+Oct 17 22:49:39 <wasamasa>	if you up the speed, you get drum and bass
+Oct 17 22:51:04 <mplsCorwin>	"nice" - wasamasa plz lock the post /s https://bru.st/i/firefox_sR51Nv2T58.png
+Oct 17 22:51:22 <wasamasa>	uh
+Oct 17 22:52:15 <mplsCorwin>	"How many up-votes did that reddit post about dungeon-mode get?"  "69." "Nice."
+Oct 17 23:08:09 <mplsCorwin>	Andreas replied on the suggesting of native comp including telling which of elc/eln/el is being used: https://lists.gnu.org/archive/html/bug-gnu-emacs/2020-10/msg01370.html
+Oct 17 23:08:28 <mplsCorwin>	s/ing/ion
+Oct 17 23:19:52 <ryouma>	this fails to rebind DEL (translated from <backspace>).  shouldn't it absolutely do so?
+Oct 17 23:19:55 <ryouma>	(define-key global-map [remap backward-delete-char-untabify] #'my-backward-delete-char-untabify)
+Oct 17 23:20:30 <ryouma>	in sh-mode where backward-delete-char-untabify is bound to del/<backspace>
+Oct 17 23:21:05 <ryouma>	i also tried   (define-key sh-mode-map [remap backward-delete-char-untabify] #'my-backward-delete-char-untabify)
+Oct 17 23:22:54 <dale>	ryouma: Not sure about global-map if it's bound in sh-mode-map, but doing it in sh-mode-map should work I'd think.
+Oct 17 23:23:19 <dale>	ryouma: And you're testing this by hitting the key and not by evaluating a call to backward-delete-char-untabify, right?
+Oct 17 23:23:46 <dale>	ryouma: Like for example (call-interactively 'backward-delete-char-untabify) will not pay attention to command remapping, IIRC.  Likewise M-x ignores command remapping.
+Oct 17 23:26:18 <dale>	ryouma: Hm, I just tried this and C-h k DEL even says that I have remapped the command, but it doesn't seem to... work.
+Oct 17 23:27:16 <dale>	I can rebind newline just fine in sh-mode-map.
+Oct 17 23:29:12 <dale>	ryouma: In sh-mode-map turns out you need to remap delete-backward-char instead of backward-delete-char-untabify.
+Oct 17 23:30:28 <dale>	ryouma: I guess this is because sh-mode-map already remaps delete-backward-char to backward-delete-char-untabify.
+Oct 17 23:31:09 <dale>	I would have expected C-h k to tell me this.  I guess I was also hoping that command remapping would "chain", so if X is mapped to Y, and Y is remapped to Z, Emacs would follow X → Y → Z, but apparently that is not the case?
+Oct 17 23:43:39 <ryouma>	yes to this, meaning that i expected the remap to make the key call the my- version --- 15:23 <dale> ryouma: And you're testing this by hitting the key and not by evaluating a call to backward-delete-char-untabify, right?
+Oct 17 23:44:06 <ryouma>	also c-h c is giving the old command which imo is wrong
+Oct 17 23:44:41 <parsnip>	how do i learn how handshake works in a case as general as taskwarrior+taskserver?
+Oct 17 23:44:54 <parsnip>	i've got a self signed ca.cert.pem, i guess
+Oct 17 23:45:15 <parsnip>	hmm, maybe i should practice in a language easier than dart
+Oct 17 23:45:19 <parsnip>	like python or something
+Oct 17 23:45:42 <parsnip>	the prototype is in c++, and i can't read it
+Oct 17 23:46:32 <jfb4>	why use dart 
+Oct 17 23:47:09 <ryouma>	ah.  i agree it should be recursive (unless there is some reason i am not thinking of.  however, i am also doing (define-key global-map [remap delete-backward-char] #'alpha-delete-backward-char).  perhaps i need to try that in sh-mode-map also. --- 15:30 <dale> ryouma: I guess this is because sh-mode-map already remaps delete-backward-char to backward-delete-char-untabify.
+Oct 17 23:51:38 <ryouma>	also is it calling the alias backward-delete-char?
+Oct 17 23:52:33 <ryouma>	it isn't
+Oct 17 23:52:57 <ryouma>	shell-script-mode is alias for sh-mode and the file is named sh-script...  not exactly  consistent are we?
+Oct 17 23:56:16 <ryouma>	not fixable by just remapping all the emacs commands apparently
+Oct 17 23:56:34 <ryouma>	it just won't remap
+Oct 17 23:58:32 <ryouma>	no tools here for fixing it (info "(elisp) Remapping Commands")
+Oct 17 23:59:27 <ryouma>	i don't know why this is not remapping the original.  maybe i have to remap to nil then remap?
+Oct 18 00:00:36 <dale>	ryouma: You probably need to remap delete-backward-char in sh-mode-map.
+Oct 18 00:01:05 <ryouma>	i tried that :/
+Oct 18 00:01:10 <dale>	ryouma: I closed the emacs -Q I had open where I was trying it, but something like (define-key sh-mode-map [remap delete-backward-char] (lambda () (interactive) (message "test"))) worked for me.
+Oct 18 00:02:01 <ryouma>	for me del remains bound to backward-delete-char-untabify
+Oct 18 00:04:09 <ryouma>	a single invocation of (define-key sh-mode-map [remap delete-backward-char] nil) with no further remapping... guess what occurs... actually did the remapping to my command.  weird.
+Oct 18 00:04:17 <dale>	ryouma: https://www.dropbox.com/s/fsugqcb7em1n3x4/Screen%20Shot%202020-10-17%20at%2018.02.52.png?dl=0 FWIW, this is just after pressing backspace in the sh-mode buffer, notice echo area.
+Oct 18 00:07:17 <jfb4>	mplsCorwin: thanks for the link on native-comp.  I wonder how close we will get to the performance of Common Lisp in elisp.
+Oct 18 00:09:03 <ryouma>	dale: thanks
+Oct 18 00:09:29 <ryouma>	now to see if it all works properly
+Oct 18 00:12:04 <ryouma>	ah, looks like i will have to do eval-after-load and rely on the feature that my remapping works even if it is done /before/ unremapping... but that will be brittle as sh-mode might change that remapping.  then i guess i have to load sh-mode really really early... don't want to do that... don't want to remap late either... can't think of a good solution.  but it will at least remap.
+Oct 18 00:14:22 <jlf>	rudybot: quote
+Oct 18 00:14:22 <rudybot>	jlf: Let's reserve our future selves for present use.
+Oct 18 00:15:16 <ryouma>	probably the unremap after feature works because it is a different map
+Oct 18 00:16:15 <bpalmer>	ryouma: why are you remapping things if all that you want is DEL to run a different command?
+Oct 18 00:16:41 <ryouma>	because i want everything that runs those commands interactively to do what i want
+Oct 18 00:17:16 <ryouma>	the emacs thing i am fixing is connected to those commands, rather than the key bindings, so accordingly i operate at the command level and not the key binding level
+Oct 18 00:17:21 <bpalmer>	OK. Does that work? I assumed the remapping is only when key binds are involved. I should test.
+Oct 18 00:17:30 <ryouma>	no, it is
+Oct 18 00:18:04 <ryouma>	i want all key bindings bound to the relevant commands to do what i want.  but suppose those change.  i don't want my commands to run on the old keybinding.  for example.
+Oct 18 00:18:15 <jlf>	bpalmer: iirc that's how visual-line-mode remaps C-e and friends
+Oct 18 00:18:32 <ryouma>	s/those change/the bindings change in emacs or some mode
+Oct 18 00:19:22 <ryouma>	i could instead defadvice the commands, but then i wouol dhave to do my behavior if and only if it was callled interactively.  that feels less transparent to me.
+Oct 18 00:20:35 <ryouma>	in that i'd be c-h c'ing the bindings and wondering why they weren't working if anything changed underneath my fixes)
+Oct 18 00:20:58 <bpalmer>	jlf: I just don't see why (call-interactively 'foo)  would look at the keymaps for any foo remappings.
+Oct 18 00:21:01 <ryouma>	if i do this, then i see whehter the bindings are my commands
+Oct 18 00:21:19 <ryouma>	it wouldn't
+Oct 18 00:21:47 <ryouma>	which is ok in this case
+Oct 18 00:22:01 <ryouma>	remapping actually changes the bindings themselves
+Oct 18 00:24:27 <ryouma>	anyway i have fixed it by the with-eval-after-load thing
+Oct 18 00:24:36 <ryouma>	followed by unremapping sh-mode-map
+Oct 18 00:25:07 <ryouma>	so it will be brittle to changes in sh-script.el but it works
+Oct 18 00:26:44 <rpav>	gah isn't there a way to prevent surrogate minibuffers or whatever
+Oct 18 00:27:15 <ryouma>	that is an interesting idea though bpalmer.  a facility that could change only the interactively called versions of commands.  but then it would have to be only direct calls.  and i'd want that documented in the help buffer just as dale hoped would occur for sh-mode's (sh-script's) remapping.
+Oct 18 00:27:56 <jlf>	bpalmer: you're right, i don't think it does - visual-line-mode-map contains entries like (define-key map [remap move-end-of-line]  'end-of-visual-line) , but  M-: (end-of-line)  invokes the standard e-o-l function
+Oct 18 00:28:29 <ryouma>	(i guess there isn't much of such a thing as non-interactively called commands if you do not restrict it to direct calls -- except timers and such)
+Oct 18 00:28:44 <bpalmer>	Aha. Thanks for doing that test, jlf. 
+Oct 18 00:29:15 <ryouma>	such a facility would be more robust to keymap changes, which would be a boon
+Oct 18 00:29:21 <ryouma>	as long as help says what it is doing
+Oct 18 00:31:27 <bpalmer>	ryouma: I am left not understanding the remap position, but I will blame it on needing to hydrate. But for what you're describing now, advice would work, and would show up in the help buffer.
+Oct 18 00:31:56 <bpalmer>	your advice would just need to check called-interactively-p and change behavior.
+Oct 18 00:32:01 <ryouma>	right
+Oct 18 00:32:05 <ryouma>	that would work
+Oct 18 00:32:22 <ryouma>	but it feels better to do the remapping for some reason
+Oct 18 00:32:38 <bpalmer>	and with that, I'm off to the watering trough.
+Oct 18 00:32:43 <ryouma>	if i run into trouble i will do the advice
+Oct 18 00:34:32 <ryouma>	i used to use advice for this, on a different command that is pretty much only called interactively
+Oct 18 00:42:42 <bpalmer>	Let's offer beads to buy property in New York City.
+Oct 18 00:50:34 <cluck>	sex workers already do, stop trying disrupt their market 
+Oct 18 00:52:41 <jlf>	cluck says something creepy, everybody take a shot
+Oct 18 00:54:22 <parsnip>	how do you read c++
+Oct 18 00:54:25 <parsnip>	hold your breath?
+Oct 18 00:54:41 <parsnip>	hit your weak hand with a hammer?
+Oct 18 00:55:11 <bpalmer>	if your hand is weak, cut it off.
+Oct 18 00:56:00 <parsnip>	it is a little dry...
+Oct 18 00:56:29 <bpalmer>	It's important to not repeat yourself in C++, except for where you really want to repeat yourself so the compiler knows what you're trying to do.
+Oct 18 00:57:46 <bpalmer>	Amusingly, the override specifier in C++ was added just to avoid programmers having to sprinkle virtual everywhere.
+Oct 18 00:58:03 <parsnip>	why would a client pass a credential with a server cert?
+Oct 18 00:58:23 <parsnip>	in other words, what does credential mean there?
+Oct 18 00:58:24 <bpalmer>	But, it's not actually a keyword. It just has special meaning when used after a member function declaration.
+Oct 18 01:03:20 <cluck>	jlf: you're a monster, we need all that alcohol to disinfect hands and PPE now, you bourgeois social drinker
+Oct 18 01:03:54 <grym>	only if it's above 140 proof 
+Oct 18 01:04:38 <cluck>	found the undistilled pleb
+Oct 18 01:05:11 <cluck>	rudybot: in mother russia..
+Oct 18 01:05:15 <rudybot>	cluck: in mother russia...
+Oct 18 01:05:39 <cluck>	*mic drop*
+Oct 18 01:10:45 <mplsCorwin>	jfb4: mp; no way to know but there's reason for optimism given they are mainlining gccjit improvements
+Oct 18 01:31:28 <offby1>	cluck: he added a .   That's sure sign of sentience
+Oct 18 01:31:35 <offby1>	rudybot: in Soviet Russia
+Oct 18 01:31:39 <rudybot>	*offby1: Only in Soviet Russia
+Oct 18 01:31:43 <offby1>	rudybot: in Soviet Union
+Oct 18 01:31:44 <rudybot>	*offby1: well, see, the thing there is, just because the soviet union went away does not mean that russia did, and both they and we seem to be seeing some value in kindling a new, albeit mostly nominal rather than real, rivalry
+Oct 18 01:32:27 <parsnip>	rudybot: i'll kindling you in a minute
+Oct 18 01:32:45 <rudybot>	parsnip: but I do, they are the perfect size for keeping a study burn on a cooking fire, somethin bigger than kindling, but not yet a log.
+Oct 18 01:32:49 <bpalmer>	rudybot: what if Russia did go away? Can you prove that northern "Asia" even exists? 
+Oct 18 01:32:59 <rudybot>	bpalmer: continental asia/russia? japan! western europe/northern africa/middle east? portugal! antarctica? australia! south america? panama! australia? UK!
+Oct 18 01:33:16 <cluck>	offby1: knowing when to stop is a skill your potus doesn't have so maybe rudybot really is smarter and sentient
+Oct 18 01:33:36 <parsnip>	rudybot: okay, let's handshake, then you upgrade to websocket, okay?
+Oct 18 01:33:47 <rudybot>	parsnip: It's just taken from the docs. I just want to skip the handshake. I'm doing a hackathon right now and I don't have time for this secure websocket business.
+Oct 18 01:34:08 <parsnip>	lol
+Oct 18 01:34:20 <parsnip>	upgrade complete
+Oct 18 01:34:30 <cluck>	we don't need no websocket puppet
+Oct 18 01:34:55 <cluck>	hey teacher leave our bot alone
+Oct 18 01:40:54 <offby1>	rudybot: a man, a plan, a canal ... Van Halen!
+Oct 18 01:40:55 <rudybot>	*offby1: wow, rms's rider is longer than van halen's
+Oct 18 01:44:41 <bpalmer>	sadly, van halen is passed.
+Oct 18 01:55:47 <bpalmer>	looks like some people on emacs-devel are tiring of the drama.
+Oct 18 02:05:53 <ryouma>	rider?
+Oct 18 02:10:54 <ecbrown>	rms has a speaker's "rider" which outline his preferences. not uncommon among people who frequently speak on the lecture circuit
+Oct 18 02:11:16 <offby1>	rudybot: black ash from the foundry hangs like a hood
+Oct 18 02:11:22 <bremner>	but somewhat less common among speakers at free software events
+Oct 18 02:11:26 <rudybot>	*offby1: xos4 is the foundry ("vendor", if you will) 
+Oct 18 02:11:51 *	ecbrown wonders who else is frequently asked to speak about free software
+Oct 18 02:12:42 <ecbrown>	(not that it matters, just being argumentative)
+Oct 18 02:14:30 <ryouma>	 ecbrown there is an anthropologist who studies free software
+Oct 18 02:14:39 <ryouma>	she has been at it since late 1990s
+Oct 18 02:15:22 <ecbrown>	interesting topic.  if you know her name, i would like to look her up some time
+Oct 18 02:16:26 *	ecbrown is still hunting for usenet archives surrounding lucid/gnu schism
+Oct 18 02:17:33 <ryouma>	if it is the same anthropologist i am thinking of, she gave a ted talk in the past few y i think
+Oct 18 02:18:09 <bremner>	that would be Biella Coleman, probably
+Oct 18 02:18:16 <bremner>	currently at McGill, afaik
+Oct 18 02:19:17 <ryouma>	name doesn't ring a bell but it could be.  i remmber her more than her name.
+Oct 18 02:19:25 <bremner>	although I'm a bit unclear why its anthropology and not sociology
+Oct 18 02:19:29 <ryouma>	i vaguely recall some kind of carribean connection
+Oct 18 02:19:39 <bremner>	yes, PR
+Oct 18 02:20:03 <ryouma>	really?  then probably it is she.  her accent is standard american english however.
+Oct 18 02:20:10 <ryouma>	different set of tools perhaps
+Oct 18 02:20:27 <ryouma>	she really puts on a speakers tone, i.e. takes lecturing seriously
+Oct 18 02:20:39 <jlf>	mplsCorwin linked this earlier - https://web.archive.org/web/20110726143735/http://healthhacker.org/biella/coleman-abstract.pdf
+Oct 18 02:20:56 <ecbrown>	bremner: thanks, checking out her page now
+Oct 18 02:20:56 <bpalmer>	"standard american english" ?
+Oct 18 02:21:02 <jlf>	ryouma: americans don't have accents, silly
+Oct 18 02:21:17 <ryouma>	?
+Oct 18 02:21:23 <bremner>	bpalmer: mexican english, obviously
+Oct 18 02:22:22 <ryouma>	a specific named accent.  code switching often switches TO it.  academics and others often use it.  i was not being precise -- her normal accent is certainly close to sae but could be different.  --- 18:21 <bpalmer> "standard american english" ?
+Oct 18 02:22:37 <ryouma>	nationwide tv announcers use it.  etc.
+Oct 18 02:22:50 <ryouma>	often*
+Oct 18 02:23:03 <bremner>	oh, so you mean Canadian English
+Oct 18 02:23:08 <cluck>	bremner: antropology because <insert fossils joke>
+Oct 18 02:23:24 <bpalmer>	Hmm. I hadn't run into it named as such before. 'The idea that there is one accent that is the most neutrally American has been around for a long time, and it is usually called "General American." The term was coined in 1925 by the descriptive linguist George Philip Krapp as a way to describe the accent he thought was becoming the norm in the United States.'
+Oct 18 02:23:32 <ryouma>	https://www.pbs.org/speak/seatosea/standardamerican/
+Oct 18 02:23:56 <bpalmer>	Taken from https://www.babbel.com/en/magazine/united-states-of-accents-general-american/
+Oct 18 02:23:59 <ryouma>	(i merely meant that she did not have a carribean seeming accent in her normal speech)
+Oct 18 02:24:04 <jlf>	i thought https://en.wikipedia.org/wiki/Mid-Atlantic_accent was regarded as more or less standard
+Oct 18 02:24:42 <ryouma>	canadian english is close to sae i think
+Oct 18 02:25:06 <ryouma>	well, the canadian english i have heard, and i am excluding the canadian accent that sounds like french
+Oct 18 02:25:25 <bpalmer>	I associate mid-atlantic with 1950s and 1960s "standard"
+Oct 18 02:25:37 <ryouma>	mid atlantic is probably a bit different but close
+Oct 18 02:25:41 <cluck>	bpalmer: the de facto standard is the trans atlantic american, you can thank hollywood for that 
+Oct 18 02:25:42 <bpalmer>	or maybe 1940s
+Oct 18 02:26:33 <ryouma>	oh, no midatlantic soudns different
+Oct 18 02:27:14 <ryouma>	so california adopted the atlantic?
+Oct 18 02:27:26 <bremner>	north america is a torus
+Oct 18 02:28:14 <bremner>	or maybe a Ford Taurus
+Oct 18 02:29:55 <bpalmer>	Hey, mercury rises into taurus 
+Oct 18 02:31:17 <bpalmer>	Interestingly, I have never particularly associated Puerto Rican accents with other Caribbean accents. 
+Oct 18 02:32:29 <ryouma>	she did not capitalize the the in the atlantic
+Oct 18 02:32:47 <ryouma>	hmm neither have i really.  not like zombomacs.
+Oct 18 02:33:18 <ryouma>	what does trans atlantic american mean?
+Oct 18 02:35:02 <ryouma>	she also misspelled chaos :)
+Oct 18 02:36:51 <bpalmer>	chaos is a word that should probably not have a fixed spelling
+Oct 18 02:38:28 <cluck>	ryouma: https://en.wikipedia.org/wiki/Mid-Atlantic_accent
+Oct 18 02:39:00 <grym>	bpalmer: but very fixed yogurt delivery times
+Oct 18 02:41:46 <bpalmer>	when's the best time for yogurt to arrive?
+Oct 18 02:43:31 <grym>	in ankh moropork, exactly 07:00 
+Oct 18 02:44:11 <grym>	suspiciously, all customers get theirs then by the same deliveryman 
+Oct 18 02:44:27 <grym>	(and he spells chaos with a 'k')
+Oct 18 02:51:46 <bpalmer>	I think I missed that entry
+Oct 18 02:52:14 <grym>	ah.  Thief of Time 
+Oct 18 02:52:44 <grym>	a personal favorite.  history monks, mostly standalone 
+Oct 18 02:57:25 <johnjay>	my mind is blown right now. apparently in medieval england they didn't have the concept of swear words
+Oct 18 02:57:42 <johnjay>	like defined words that were offensive no matter what context they were used in
+Oct 18 02:58:56 <grym>	i hope you brought recipts 
+Oct 18 02:59:11 <grym>	because we have friggin' scads of words that exists So That You Did Not Say The Bad Ones
+Oct 18 02:59:30 <johnjay>	instead if you wanted to offend someone you'd wish ill on them or maybe invoke the body part of god
+Oct 18 02:59:40 <johnjay>	like, By God's Pinky You Suck SIr
+Oct 18 02:59:55 <johnjay>	or "Get Stuffed" perhaps
+Oct 18 03:00:03 <bpalmer>	on the other hand , earlier folks did: 'proto-Germanic tribes replaced their original word for bear - arkto - with this euphemistic expression out of fear that speaking the animal's true name might cause it to appear'
+Oct 18 03:00:13 <grym>	that's less giving offense than it is literally praying for someone to come to grief
+Oct 18 03:00:42 <grym>	bpalmer: yeah, i was just going to mention that one 
+Oct 18 03:00:46 <johnjay>	yes to modern ears. but to a medieval person they would interpret that as if you said something very naughty.
+Oct 18 03:00:55 <grym>	johnjay: i mean.  you did 
+Oct 18 03:01:09 <grym>	'i hope you die' is pretty naughty!
+Oct 18 03:01:33 <johnjay>	yeah but it doesn't sound as harsh as saying naughty words like get effed you *** 
+Oct 18 03:01:42 <johnjay>	i hope you die is more like, i don't like you, you're ugly
+Oct 18 03:01:44 <grym>	¯\_(ツ)_/¯
+Oct 18 03:01:56 <bpalmer>	I hope you start an inexpressibly amazing eternal life free from suffering soon!
+Oct 18 03:02:03 <grym>	go back far enough and people living in britain assuredly did understand profanity 
+Oct 18 03:02:04 <cluck>	during the war of roses that's like.. what else're you gonna hope..
+Oct 18 03:02:06 <johnjay>	but yes it's interesting how some of those forms do have staying power
+Oct 18 03:02:15 <grym>	c.f. our boy catullus 
+Oct 18 03:02:23 <johnjay>	in particular "Get ***ed" would probably still work as profanity in medieval time period
+Oct 18 03:02:34 <grym>	johnjay: what's that time period, to you 
+Oct 18 03:02:49 <bpalmer>	it's somewhat a lost cause, but there are distinctions to be drawn among profanity, vulgarity, and obscenity
+Oct 18 03:03:00 <johnjay>	if you're a conneticut yankee in king arthur's court you may need to know this
+Oct 18 03:03:00 <grym>	indeed. 
+Oct 18 03:03:15 <johnjay>	yes apparently medieval people had almost no concept of vulgarity or obscenity
+Oct 18 03:03:23 <johnjay>	there are even street signs with naughty words on them
+Oct 18 03:03:25 <cluck>	bpalmer: i did not take you for a transhumanist waiting to be diditized..
+Oct 18 03:03:36 <bpalmer>	cluck: why wait?
+Oct 18 03:03:43 <grym>	johnjay: then again, we have records of a man whose name was recorded as 'john le fucker' and 'roger fuckbythenavele'
+Oct 18 03:03:58 <grym>	"so stupid he doesn't know where his dick goes"
+Oct 18 03:04:01 <johnjay>	exactly, same thing. it wasn't the word itself that was offensive
+Oct 18 03:04:09 <grym>	i mean.  is it ever
+Oct 18 03:04:12 <grym>	(no)
+Oct 18 03:04:18 <bpalmer>	johnjay: it might be better to think in terms of, if they had offensive concepts, they don't match what is commonly *nowadays* considered offensive
+Oct 18 03:04:30 <johnjay>	it would be as if you don't get offended if your doctor asks for a stool sample. but you would if he asked for a s**t sample
+Oct 18 03:04:42 <grym>	‘There may be some truth to the old joke that in Los Angeles, people say “Have a nice day” and mean “Fuck off,” while in New York, people say “Fuck off” and mean “Have a nice day.”’
+Oct 18 03:04:46 <johnjay>	they had offensive concepts yes,  just not individual "offense words"
+Oct 18 03:05:14 *	bpalmer hums skeptically.
+Oct 18 03:05:30 <grym>	^ 
+Oct 18 03:06:11 <grym>	tangentially, my first real relationship was with a bilingual english/spanish speaker
+Oct 18 03:06:26 <grym>	she had no problems swearing like a sailor in english, but flatly refused to use spanish profanity 
+Oct 18 03:06:33 <grym>	as it was "too mean"
+Oct 18 03:06:39 <johnjay>	that's funny
+Oct 18 03:06:53 <cluck>	rudybot: they are about to have their minds blown by realizing puss in boots was a pet caffe before coffee was known in those shores
+Oct 18 03:07:00 <rudybot>	cluck: Btw, why is Puss in Boots Spanish in the latest movie?
+Oct 18 03:07:02 <johnjay>	maybe spanish is more medieval being a romance language in that it is less about the word than the concept. not sure
+Oct 18 03:07:05 <jlf>	rudybot: ¿profanity o profundity?
+Oct 18 03:07:06 <rudybot>	jlf: pretty small edit distance between profanity and profundity.. coincidence??
+Oct 18 03:07:09 <grym>	where english starts at 'hey fuck you', her colombian spanish started at "go fuck your grandmother"
+Oct 18 03:07:23 <grym>	and like, escalated from there
+Oct 18 03:07:30 *	ecbrown thinks its about time to raise complaints about #emacs
+Oct 18 03:07:36 <ecbrown>	really
+Oct 18 03:07:39 <jlf>	rudybot: i feel like you really _get_ me, you know?
+Oct 18 03:07:42 <rudybot>	jlf: y it's a great channel, i just get lost in all the details i have to keep in order to think in haskell... it does interest me though, so i know i'll check it out again in more detail. i just feel like htdp is really giving me a great grounding on the absolute fundamentals
+Oct 18 03:07:43 <ecbrown>	take this stuff to emacs-offtopic
+Oct 18 03:07:56 <grym>	but, i'm there already :) 
+Oct 18 03:07:57 <grym>	it's here!
+Oct 18 03:08:44 <grym>	noone's said anything on topic in like 3 hours 
+Oct 18 03:08:44 <johnjay>	grym: the video i watched didn't address specifically those phrases. but i guess they would probably just confuse a medieval person
+Oct 18 03:08:53 <ecbrown>	grym: so leave the channel idle
+Oct 18 03:08:58 <ecbrown>	better than this dreck
+Oct 18 03:09:00 <johnjay>	like if you said "go kiss your cat!!!"
+Oct 18 03:09:04 <grym>	ecbrown: tune out!
+Oct 18 03:09:14 <ecbrown>	come on
+Oct 18 03:09:36 <grym>	ecbrown: this channel historically is excellent at shutting up fast when people have actual things to talk about 
+Oct 18 03:09:39 <grym>	i'm very happy about that 
+Oct 18 03:09:45 *	jlf yawns pointedly
+Oct 18 03:09:46 <grym>	and certainly try to play along. 
+Oct 18 03:09:56 <ecbrown>	grym: no, it doesn't. people get drowned out all the time
+Oct 18 03:10:07 <ecbrown>	and why you insist, is beyond me
+Oct 18 03:10:26 <ecbrown>	*persist
+Oct 18 03:11:19 <grym>	so strict for a saturday night 
+Oct 18 03:12:07 <ecbrown>	it's the official gnu emacs channel, not a bordello
+Oct 18 03:12:23 <jlf>	let's drop this, please
+Oct 18 03:12:29 <ecbrown>	you are an op, enforce the rules
+Oct 18 03:12:41 <jlf>	be careful what you ask for
+Oct 18 03:13:17 <cluck>	grym: people often lose/recalibrate the emotional load relating to words/expressions when learning new languages
+Oct 18 03:16:01 <cluck>	it's GNU/bordello and we insist you avoid pointing out our cow faced hosts as they are free
+Oct 18 03:16:17 <ecbrown>	jlf: i already asked for it.  if you take action against me for insisting on basic decorum, i will escalate
+Oct 18 03:16:35 <grym>	rudybot: let's investigate normative discrepancies
+Oct 18 03:16:36 <rudybot>	grym: More and more discrepancies are appearing within implementations.  For example, is a macro call in the body of DEFINE-SYNTAX recognized or not?
+Oct 18 03:16:41 <jlf>	you seem to have escalated some time ago
+Oct 18 03:16:42 <grym>	very profound
+Oct 18 03:22:17 <johnjay>	or profane
+Oct 18 03:23:55 <grym>	i don't have religious opinions on macro calls
+Oct 18 03:33:46 <terpri_>	,emacs-related multilingual profanity
+Oct 18 03:33:46 <fsbot>	It may not be that obvious for the layman, but multilingual profanity is indeed emacs-related, terpri_.
+Oct 18 03:39:17 <terpri_>	(doctor.el has lists of "foul" words, insults, etc., but the emacs doctor only speaks english and elisp)
+Oct 18 03:40:04 <grym>	i would go so far as to sign the hoop-jumping forms to add a list of fowl words 
+Oct 18 03:40:15 <grym>	terpri_: does it even try to avoid scunthorpe issues
+Oct 18 03:41:14 <jlf>	sure you're not chicken?
+Oct 18 03:41:32 <parsnip>	,chicken
+Oct 18 03:41:33 <fsbot>	chicken is [0] a Scheme to C compiler. http://call-with-current-continuation.org
+Oct 18 03:41:34 <fsbot>	[1] http://isotropic.org/papers/chicken.pdf
+Oct 18 03:41:34 <fsbot>	[2] https://www.youtube.com/watch?v=yL_-1d9OSdk
+Oct 18 03:42:29 <grym>	one aspires to corvidae 
+Oct 18 03:45:58 <cluck>	i can't wait until we have foul neural net lists 
+Oct 18 03:46:29 <cluck>	rudybot: censor my onions facebook style 
+Oct 18 03:46:31 <rudybot>	cluck: And I also enjoy olives and cocktail onions that appear in martinis.
+Oct 18 03:46:56 <wheats>	yay. onion... cocktails?
+Oct 18 03:47:40 <terpri_>	grym, yes, in that it "parses" input at the word level and has a fixed set of known words
+Oct 18 03:47:48 <grym>	lest we forget that GOFAI still kiiind of exists :)
+Oct 18 03:47:56 <grym>	which i suppose applies to onions and doctor.el 
+Oct 18 03:48:21 <grym>	terpri_: ok.  that is better than really stupid regex, at least 
+Oct 18 03:48:36 <grym>	or the computer vision equivalent thereof
+Oct 18 03:51:12 <aidalgol>	https://www.reddit.com/r/WTF/comments/jcfamz/i_made_beef_fizz_see_the_imgur_gallery_for/
+Oct 18 03:52:07 <jlf>	,order-drink beef-fizz aidalgol
+Oct 18 03:52:07 *	fsbot slides a beef-fizz over to aidalgol
+Oct 18 03:52:42 <terpri_>	why doesn't emacs come with SHRDLU? with svg, it could even render the block-world!
+Oct 18 03:52:57 <grym>	aidalgol: so as a child reading james herriott stories i thought _for sure_ that Bovril must be some form of hot chocolate or something 
+Oct 18 03:53:59 <grym>	terpri_: ah, not the one with molten lead 
+Oct 18 03:55:24 <terpri_>	nah, we already have preview-latex for that
+Oct 18 03:57:00 <grym>	(the documentary is really something) 
+Oct 18 04:28:43 <Viking667>	whoops, just compiling, wondering if I should have made "make clean" first, directly after a ./configure?
+Oct 18 04:29:29 <ecbrown>	if it is a clean source tree, not necessary
+Oct 18 04:29:54 <ecbrown>	if you have a "significant" change, then always good to make distclean
+Oct 18 04:30:01 <Viking667>	it's not, though a lot of .o files got made anyhow.
+Oct 18 04:30:23 <Viking667>	What's temacs?
+Oct 18 04:30:24 <fsbot>	temacs is (info "(elisp) Building Emacs")
+Oct 18 04:30:30 <ecbrown>	well, unless you're actively developing on the source, where it would be an inconvenience to recompile the whole thing, then just make distclean
+Oct 18 04:30:35 <grym>	whatever god-emperor cmake requires 
+Oct 18 04:30:49 <Viking667>	uh, there's no cmake being used here.
+Oct 18 04:30:57 <grym>	probably for the best 
+Oct 18 04:31:08 <Viking667>	... or at least, I'm not using it. I just used "./configure" followed by "make"
+Oct 18 04:31:21 <grym>	i make clean when i've previously tried and failed to build something and suspect i have cruft 
+Oct 18 04:33:34 <ecbrown>	Viking667: should be good, unless you have installed other software that might trigger a feature (e.g. libotf, mailutils, etc)
+Oct 18 04:33:57 <ecbrown>	(there are a bazillion scenarios)
+Oct 18 04:35:03 <Viking667>	I only installed librsvg2-devel, which is why I reran configure (after a git pull)
+Oct 18 04:35:15 <ecbrown>	yes, so play it safe and make distclean
+Oct 18 04:35:27 <Viking667>	hm. Means I'll have to junk this compile then.
+Oct 18 04:36:02 <ecbrown>	sometimes it's for the best -- rather than getting further into compile and discovering some weird error
+Oct 18 04:36:04 <Viking667>	Ouch. It got rid of the configu
+Oct 18 04:36:18 <Viking667>	time to regen config.cache
+Oct 18 04:36:19 <ecbrown>	sure
+Oct 18 04:36:24 <ecbrown>	definitely
+Oct 18 04:37:26 <Viking667>	Only reason for rsvg2 is because I tried a file and got invalid image format for svg, turns out I never had devel headers, so compiled emacs never had support. Ah well.
+Oct 18 04:37:49 <Viking667>	I was trying svg tags in org mode, which is what was failing.
+Oct 18 04:38:10 <ecbrown>	yeah, some day you may wish to figure out how to get a "kitchen sink" emacs  --   as many yes's as possible in configure
+Oct 18 04:38:48 <ecbrown>	modules, mailutils, otf, etc.   (not always possible on macos, i've noticed since a lot of those features are subsumbed by native libraries)
+Oct 18 04:39:12 <ecbrown>	to coin a phrase: "loaded for bearmacs"
+Oct 18 04:40:11 <Viking667>	heh. I think I'd rather put in what I know I'm going to use.
+Oct 18 04:40:57 <Viking667>	After all, why bother putting in VT502 support when I don't have one? (Not for emacs, for something else instead)
+Oct 18 04:41:23 <ecbrown>	bragging rights
+Oct 18 04:41:29 <Viking667>	(yawn)
+Oct 18 04:41:44 <Viking667>	actually, (is-yawn-mode t)
+Oct 18 04:41:59 <edrx>	I am trying to locate the blogs and youtube channels of people who publish videos about emacs... sachac used to mention some of them in Emacs News, but I didn't pay much attention...
+Oct 18 04:42:19 <Viking667>	she's made a lot of blog posts, you could try there.
+Oct 18 04:42:32 <edrx>	anyone remembers any channels/blogs that host local copies of the videos?
+Oct 18 04:42:41 <Viking667>	Aside from youtube?
+Oct 18 04:42:56 <jlf>	edrx: ,,emacsrocks
+Oct 18 04:42:57 <fsbot>	emacsrocks are an emacs tricks and tips screencast series by magnars: http://emacsrocks.com
+Oct 18 04:42:57 <edrx>	yes - ideally local MP4s
+Oct 18 04:43:13 <sachac>	edrx: Do you want to go through https://github.com/sachac/emacs-news and maybe filter index.org for youtube mentions?
+Oct 18 04:43:27 <sachac>	edrx: You might be able to pass them through youtube-dl
+Oct 18 04:43:30 <Viking667>	Oh wow, I didn't know she was on github.
+Oct 18 04:43:31 <grym>	edrx: no, but there's always youtube-dl 
+Oct 18 04:43:43 <Viking667>	hi sachac
+Oct 18 04:43:50 <edrx>	hi sachac!
+Oct 18 04:43:57 <sachac>	Viking667: I keep forgetting to commit and push the Org file I use to generate emacs-news. =)
+Oct 18 04:44:00 <Viking667>	remember me from Undernet days?
+Oct 18 04:44:07 <sachac>	Viking667: #linuxhelp ! =)
+Oct 18 04:44:10 <Viking667>	Yeah!
+Oct 18 04:44:24 <Viking667>	Those were good days.
+Oct 18 04:45:40 <Viking667>	and youtube-dl has a -F switch you can use, that'll list what formats youtube can deliver you. i.e. youtube-dl -F https://some.youtube.url/watch?v=thisvideo
+Oct 18 04:46:09 <Viking667>	You might need ffmpeg to glue bits together 
+Oct 18 04:46:13 <grym>	you will 
+Oct 18 04:46:17 <grym>	it's a very nice little tool, though 
+Oct 18 04:46:24 <Viking667>	Yes.
+Oct 18 04:46:30 <edrx>	sachac: I just implemented a better way to create elisp hyperlinks to videos, and I guess that some people - especially beginners - will prefer to download videos with wget rather than with youtube-dl... I was trying to see if I could find other people who make their mp4s available besides me
+Oct 18 04:46:33 <grym>	ffmpeg and imagemagick lurk at the bottom of many stacks
+Oct 18 04:46:57 <sachac>	edrx: Neat!
+Oct 18 04:47:18 <edrx>	Viking667: thanks! I use youtube-dl a lot, usually with -f 18...
+Oct 18 04:47:24 <Viking667>	edrx: the problem I have with simply wgetting, is that you have ta parse three files before you get to a URL that a media player can get
+Oct 18 04:47:36 <sachac>	edrx: Hmm... there are two .mp4 links in index.org: http://portfolio.cooper.stevenson.name/latex/spacemacs_latex_demo.mp4 and https://video.fosdem.org/2020/UD2.119/emacsthoughts.mp4
+Oct 18 04:47:43 <Viking667>	And I normally use -f 251 for music files, as I don't generally need the video
+Oct 18 04:47:45 <refusenick>	I can make EXWM neither automatically create a new frame/workspace for the 2nd monitor nor size the 2nd frame correctly
+Oct 18 04:47:55 <edrx>	sachac: great!!! thanks!!! =)
+Oct 18 04:47:56 <refusenick>	(screen is 1920x1080, but EXWM exceeds its borders, as did LXQt)(screen is 1920x1080, but EXWM exceeds its borders, as did LXQt)
+Oct 18 04:48:00 <sachac>	edrx: https://emacsnyc.org/videos.html has a whole bunch, too
+Oct 18 04:49:03 <edrx>	sachac: btw, the example that I will show in the end of my presentation at the emacsconf this year will be about Emacs New / emacs-tangents!
+Oct 18 04:49:22 <edrx>	News
+Oct 18 04:51:02 <sachac>	edrx: I feel like I'm kinda harsh in trying to get you to squish the eev talk down to 10 minutes. ;) Do you think you can rise to the challenge?
+Oct 18 04:51:51 <sachac>	edrx: It's just that the schedule is super packed and I want to see if we can fit all the talks in. I'm checking with bandali to see if we can figure out a way to let interested people jump in for Q&A or extended interaction even if the livestream's showing the next talk.
+Oct 18 04:52:16 <edrx>	no, I can't... I started to write an e-mail explaining why but I haven't finished it yet. I can try to make it fit in 40 minutes, though
+Oct 18 04:53:19 <sachac>	True, you want to cover a lot.
+Oct 18 04:53:37 <edrx>	but I'm preparing my e-scripts/slides and I think I'll be able to start rehearsing some parts of it tomorrow
+Oct 18 04:53:49 <ryouma>	,eev
+Oct 18 04:53:50 <fsbot>	eev: [0] a "tool to automate almost everything"; it lets us create executable logs of what we do, in a reasonably readable form, and lets us "play them back" step by step later in any order. A video about how it controls shell-like programs: https://www.youtube.com/watch?v=Lj_zKC5BR64&t=16s
+Oct 18 04:53:50 <fsbot>	[1] a tutorial including installation instructions: http://angg.twu.net/eev-intros/find-eev-quick-intro.html ;;[ ,more / ,dump]
+Oct 18 04:54:05 <edrx>	ryouma: http://angg.twu.net/#eev
+Oct 18 04:54:08 <ryouma>	,emacs new
+Oct 18 04:54:09 <fsbot>	Try:  emacs-news emacs-tab-behavior-for-newbs EmacsNewbie EmacsNewbieHelpReference EmacsNewbieKeyReference EmacsNewbieMouseReference EmacsNewbieWithIcicles EmacsNewsgroups
+Oct 18 04:54:51 <Viking667>	wooo..... I thought you'd been doing emacsynewsystuff for longer? Your .org only starts in March 2016
+Oct 18 04:55:31 <edrx>	ryouma: https://lists.gnu.org/archive/html/emacs-tangents/2020-10/
+Oct 18 04:55:40 <edrx>	ryouma: https://sachachua.com/blog/2020/10/
+Oct 18 04:55:41 <sachac>	Viking667: https://sachachua.com/blog/category/emacs-news/?order=asc
+Oct 18 04:56:01 <ryouma>	edrx: thank you.  i am still none the wiser.  but it is my brain.  and the fact that i did not read carefully.
+Oct 18 04:58:24 *	ryouma marks dowen sachac's noes on japanese
+Oct 18 04:58:35 *	ryouma discovers the cloud bookmark site she used is 404
+Oct 18 05:00:03 <Viking667>	makes me wonder how much of sacha's stuff has suffered bitrot?
+Oct 18 05:00:08 <Viking667>	I hope not much.
+Oct 18 05:00:43 *	ryouma sees rsync ftp.monash.edu::nihongo/edict edict and thinks maybe this is going to be useful
+Oct 18 05:01:30 <sachac>	Viking667: A ton!
+Oct 18 05:01:39 <Viking667>	sigh. It's always the way.
+Oct 18 05:01:40 <sachac>	ryouma: Yeah, that does suck
+Oct 18 05:02:25 <loganlee>	hello
+Oct 18 05:03:10 <Viking667>	Incidentally, I found Org mode was blimming marvelous (along with some macros I wrote) for getting extra stuff into religious texts, such as putting a list of headings and book names into a bible version that doesn't already have them.
+Oct 18 05:03:17 <ryouma>	i need to convert coding or something but got a file in presumably a format that i can use with a debiasn dict command of somt type: ���� [����] /(adj-t,adv-to) (1) (obsc) relaxed and enjoyable/(adj-t,adv-to) (2) (obsc) spacious/vast/(adj-t,adv-to) (3) (obsc) heavily trafficked/bustling/busy/
+Oct 18 05:03:55 <ryouma>	Viking667: what did you do specifically to annotate?
+Oct 18 05:04:17 <ryouma>	ohhhhhhh you orgified non-org text.  nm.
+Oct 18 05:06:29 <johnjay>	sweet. bookmark+ lets you use emacs bookmarks on webpages
+Oct 18 05:06:41 <ryouma>	(Viking667: i was thinking you had external text and then used org to magically annotate, but i am guessing you took the whole file and added .org to it)
+Oct 18 05:06:43 <Viking667>	I don't know the term in this context, but I have source texts in osis.xml format. I had a keyboard macro that I used to pull items from an Org list, and put the relevant one in at my point in the text.
+Oct 18 05:06:55 <johnjay>	the chorus sings hallelujah. hallelujahhhhh
+Oct 18 05:06:56 <Viking667>	so no, I didn't orgify the source text.
+Oct 18 05:06:59 <ryouma>	oh
+Oct 18 05:07:39 <Viking667>	For example, Headings.org contains .... ahh well, I can put the file itself up on pastebin, you can take a look for yourselves.
+Oct 18 05:07:45 <Viking667>	Give me a few...
+Oct 18 05:07:57 <ryouma>	(not that i can read teh kanji if that is what it is... i wonder if any dict software adds ruby text)
+Oct 18 05:08:03 <refusenick>	a Christian Viking?
+Oct 18 05:08:12 <ryouma>	xml makes my brain go haywire, no need
+Oct 18 05:08:48 <ryouma>	well he'
+Oct 18 05:08:58 <ryouma>	nm
+Oct 18 05:10:45 <Viking667>	https://pastebin.com/sb6V4Cbt
+Oct 18 05:10:47 <sachac>	edrx: just talking to bandali at the moment
+Oct 18 05:11:01 <ryouma>	i sorely need some resource for ja to en and en to ja of various types
+Oct 18 05:11:09 <ryouma>	s/need/want
+Oct 18 05:13:10 <ryouma>	(and ja resources in general i guess -- i should at least nail down conditionals and tenses)
+Oct 18 05:13:21 <Viking667>	https://pastebin.com/ZkQp7j54    <-- that's a fragment of the NKJV xml docs. The previous link was my Headings.org
+Oct 18 05:13:41 <Viking667>	I've included the keyboard macro I used to copy text between two windows.
+Oct 18 05:14:30 <ryouma>	i see (didn't click but i get the idea i think)
+Oct 18 05:14:32 <Viking667>	Anyhow, I thought it was a good way to (ab)use Org mode.
+Oct 18 05:14:38 <ryouma>	good idea to use kb macros
+Oct 18 05:14:51 <Viking667>	Couldn't do it any other way.
+Oct 18 05:15:03 <Viking667>	Well, I couldn't, anyhow. I don't know how.
+Oct 18 05:15:20 <ryouma>	there is a kb macro to elisp interactive command converter someplace
+Oct 18 05:15:35 <Viking667>	heh. I had to go in the other direction
+Oct 18 05:15:48 <ryouma>	oh?
+Oct 18 05:16:04 <ryouma>	oh using commands
+Oct 18 05:16:31 <Viking667>	I had a sequence of commands. Not elisp commands as such, just simple stuff. I then turned it into a kb macro, then turned THAT into something I could include in my .emacs
+Oct 18 05:16:42 <ryouma>	ah
+Oct 18 05:17:14 <ryouma>	that last step has a packagte someplace
+Oct 18 05:18:41 <Viking667>	Probably does, I ended up with (fset 'TopicPaste (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([1 right right .....])))))
+Oct 18 05:18:42 <Viking667>	 
+Oct 18 05:18:44 <wgreenhouse>	refusenick: "exceed borders" smells like an underscan problem
+Oct 18 05:19:11 <Viking667>	dunno. If he can't move his mouse off the screen, that doesn't indicate underscan
+Oct 18 05:20:11 <wgreenhouse>	they don't say either way afaict. and I suspect the monitor is a TV (it's described as 1920x1080)
+Oct 18 05:22:34 <refusenick>	Viking667: I'm able to move the mouse off the screen
+Oct 18 05:22:43 <refusenick>	(in all directions, unfortunately)
+Oct 18 05:22:49 <wgreenhouse>	yeah then it's underscan
+Oct 18 05:23:01 <refusenick>	wgreenhouse: thanks, will look up a fix
+Oct 18 05:23:28 <wgreenhouse>	the exact knob to turn depends on your gpu/driver
+Oct 18 05:30:38 <Viking667>	You could also look at the tv/monitor settings
+Oct 18 05:30:51 <Viking667>	my Viewsonic has an overscan setting in its menu.
+Oct 18 19:44:27 *	Disconnected ()
+**** ENDING LOGGING AT Sun Oct 18 19:44:27 2020
+
+**** BEGIN LOGGING AT Sun Oct 18 19:44:54 2020
+
+Oct 18 19:44:54 *	Now talking on #emacs
+Oct 18 19:44:54 *	Topic for #emacs is: Gul Dukat says upgrade to 27.1: https://i.imgflip.com/4hpvlw.jpg | Emacs questions take priority over off-topic chatter, so ask! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+Oct 18 19:44:54 *	Topic for #emacs set by wgreenhouse!wgreenhous@fsf/member/wgreenhouse (Thu Oct  8 00:50:34 2020)
+Oct 18 19:44:55 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Oct 18 19:45:25 <achilles>	this works, i am using mouse-2 for smex already without problem
+Oct 18 19:46:03 <mplsCorwin>	So you want 'execute-extended-command (e.g. non-smex) on a different button?  Should be the same approach..
+Oct 18 19:47:18 <achilles>	no, not M-x.
+Oct 18 19:48:07 <achilles>	I want to set C-x to the left mouse button which is the mouse-1.
+Oct 18 19:48:09 <mplsCorwin>	Ahhhhhhh, finally I grok. You want to hit mouse-1 and then have next input taken against the C-x map.
+Oct 18 19:48:39 <achilles>	exactly
+Oct 18 19:48:53 <mplsCorwin>	So C-x C-v becomes (kbd "<mouse-1> C-v")
+Oct 18 19:49:01 <achilles>	yes
+Oct 18 19:49:25 <mplsCorwin>	Yeah, I have no idea how to do that, lol :)  *Someone* here likely has ideas, tho and now the problem is *quite* clear :)
+Oct 18 19:50:17 <mplsCorwin>	Alternately, this could be a good question for the emacs-help@lists.gnu.org mailing list.
+Oct 18 19:51:50 <wasamasa>	there's a translation map for such purposes
+Oct 18 19:52:00 <bandali>	mplsCorwin, did you perhaps mean help-gnu-emacs@gnu.org  ?
+Oct 18 19:52:18 <wasamasa>	which is mostly used for mouse stuff, lol
+Oct 18 19:52:22 <achilles>	mplsCorwin: thanks.
+Oct 18 19:52:23 <wasamasa>	so that might explain the behavior
+Oct 18 19:52:32 <mplsCorwin>	bandali: yes.  Yes I absolutely did.
+Oct 18 19:52:35 <wasamasa>	mouse-1 is translated to mouse--click-1-maybe-follows-link here
+Oct 18 19:52:35 <bandali>	:-)
+Oct 18 19:52:53 <achilles>	wasamasa: i remember like i tried already but let me try again.
+Oct 18 19:53:31 <mplsCorwin>	wasamasa: does that mean we would (bind-key *that-map* [mouse-1] 'fun) vs using global-set-key ?
+Oct 18 19:53:32 <wasamasa>	you should be able to translate mouse-1 to (kbd "C-x") there
+Oct 18 19:56:55 <achilles>	wasamasa: yes, works like a charm. thank you.
+Oct 18 19:57:00 <achilles>	(define-key key-translation-map [mouse-1] (kbd "C-x"))
+Oct 18 19:57:17 <wasamasa>	fun
+Oct 18 19:57:24 <mplsCorwin>	Thanks for sharing back your solution achilles!
+Oct 18 19:57:56 <mplsCorwin>	,key-translation-map
+Oct 18 19:57:58 <fsbot>	remap is like (define-key key-translation-map (kbd ":") (kbd "M-x"))
+Oct 18 19:58:04 <mplsCorwin>	lol
+Oct 18 19:58:36 <mplsCorwin>	,key-translation-map is also useful for mouse, e.g. (define-key key-translation-map [mouse-1] (kbd "C-x"))
+Oct 18 19:58:37 <fsbot>	ERROR: [set-also] But there’s no such term: key-translation-map
+Oct 18 19:58:52 <mplsCorwin>	,key-translation-map is useful for mouse, e.g. (define-key key-translation-map [mouse-1] (kbd "C-x"))
+Oct 18 19:58:54 <fsbot>	Created new note for "key-translation-map"
+Oct 18 20:00:29 <achilles>	mplsCorwin: of course. i am not sure how it'd work with regular mouse but with a legacy thinkpad touchpad, should be very amazing i hope.
+Oct 18 20:01:07 <mplsCorwin>	Indeed.  I was just musing how to make mouse-4 swap out such bindings to create easy swapping around this.
+Oct 18 20:02:28 <achilles>	still need to work on C-x C-x though because it returns C-x double-mouse-1
+Oct 18 20:02:51 <mplsCorwin>	I'm writing a game sort of thing, this is making me think about having a "right-hand-on-mouse" set of bindings that could make mouse cord replace things that are on the right side of the keyboard and so hard to reach with hands in "gaming position".
+Oct 18 20:03:36 <mplsCorwin>	Yeah, I guess that makes sense.  C-h v last-command RET maybe
+Oct 18 20:04:09 <mplsCorwin>	You are probably on your way to your own interactive function to handled C-x would be my sense but perhaps wasamasa has more ideas :)
+Oct 18 20:04:34 <bpalmer>	pity those who use wireless mice.
+Oct 18 20:04:42 <wasamasa>	well, for that this map offers to use a function
+Oct 18 20:05:14 <wasamasa>	that function can look up what key to return instead
+Oct 18 20:05:25 <wasamasa>	though, nah
+Oct 18 20:05:33 <wasamasa>	maybe not
+Oct 18 20:05:40 <achilles>	and also mouse needs to stay on the middle.
+Oct 18 20:06:03 <wasamasa>	instead of C-x C-x, wouldn't you click twice?
+Oct 18 20:06:21 <wasamasa>	or maybe that's what you could check with a helper function bound to mouse-1
+Oct 18 20:07:16 <achilles>	maybe i can translate double-mouse-1 to C-x C-x same way
+Oct 18 20:08:01 <achilles>	yeah, it worked.
+Oct 18 20:08:34 <wasamasa>	ah, a more elegant solution
+Oct 18 20:10:04 <achilles>	i should also define same like this
+Oct 18 20:10:43 <achilles>	(define-key key-translation-map [mode-line mouse-1] (kbd "C-x"))
+Oct 18 20:10:53 <achilles>	so i wouldn't need to keep mouse on the middle
+Oct 18 20:11:15 <achilles>	now it requires a function i guess. ¯\_(ツ)_/¯
+Oct 18 20:11:42 <mplsCorwin>	double-mouse-1 to C-x C-x seems useful in an of it self.
+Oct 18 20:25:15 <laertus>	how can i get the most recent kill on the kill ring, without properties, in to a variable?
+Oct 18 20:25:50 <bpalmer>	(setq x (substring-no-properties (car kill-ring)))
+Oct 18 20:26:08 <bpalmer>	insert error checking to suit.
+Oct 18 20:26:28 <laertus>	thank you
+Oct 18 20:32:27 *	Disconnected ()
+**** ENDING LOGGING AT Sun Oct 18 20:32:27 2020
+
+**** BEGIN LOGGING AT Sun Oct 18 20:36:36 2020
+
+Oct 18 20:36:36 *	Now talking on #emacs
+Oct 18 20:36:36 *	Topic for #emacs is: Gul Dukat says upgrade to 27.1: https://i.imgflip.com/4hpvlw.jpg | Emacs questions take priority over off-topic chatter, so ask! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+Oct 18 20:36:36 *	Topic for #emacs set by wgreenhouse!wgreenhous@fsf/member/wgreenhouse (Thu Oct  8 00:50:34 2020)
+Oct 18 20:36:36 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Oct 18 20:44:36 <johnjay>	which programming language does it take the highest IQ to really maximize results in?
+Oct 18 20:45:06 <achilles>	machine language
+Oct 18 20:45:10 <wasamasa>	haskell would be an obvious candidate
+Oct 18 20:45:20 <johnjay>	i was going to make a haskell joke but yeah
+Oct 18 20:45:58 <lil-lambda>	idris
+Oct 18 20:46:07 <laertus>	would anyone happen to know how to choose a directory using ivy or counsel?
+Oct 18 20:46:25 <bpalmer>	actually, I'm working on a new language IQL  : each statement is preceded by an IQ test, the score of which probabilistically affects whether the statement is executed or skipped over.
+Oct 18 20:46:26 <achilles>	translating mouse-1 to C-x, one needs to cover at least 20 different cases.
+Oct 18 20:46:51 <bpalmer>	Runtime is disappointing; it turns out that humans are very slow at finishing iq tests.
+Oct 18 20:47:15 <achilles>	laertus: c-g c-x d
+Oct 18 20:47:17 <parsnip>	lol, a taskwarrior client implemented in python, uses an email package to construct what to send over the socket
+Oct 18 20:47:25 <parsnip>	tf
+Oct 18 20:47:26 <bpalmer>	But it does serve a fine purpose of not trying to use the badly defined notion of IQ except as regards to IQ tests, a nicely tautological position.
+Oct 18 20:47:39 *	edgar-rft is working on some new language where it's sufficient to have an IQ of 1 or 0
+Oct 18 20:47:52 <laertus>	achilles: sorry, i mean from elisp.. and i don't want to open the directory, just get it back as a string
+Oct 18 20:49:12 <achilles>	laertus: difficult to tell without seeing the code you're working on.
+Oct 18 20:49:15 <hodapp>	I wrote a language once that only smart people could work in but then for some reason I wasn't able to really use it.
+Oct 18 20:49:20 <bpalmer>	you can always force it with ivy-completing-read, using directory-files and a file-directory-p predicate
+Oct 18 20:49:25 <hodapp>	wasn't my fault though.
+Oct 18 20:49:34 <laertus>	bpalmer: thanks, i'll look in to that
+Oct 18 20:49:52 <laertus>	by the way, what is the difference between ivy-completing-read and ivy-read?
+Oct 18 20:49:55 <bpalmer>	(may be a better way; I don't use it)
+Oct 18 20:50:05 <laertus>	ivy-read does completion too...
+Oct 18 20:50:28 <bpalmer>	laertus: different function signatures
+Oct 18 20:50:33 <edgar-rft>	the first one has a longer name
+Oct 18 20:50:38 <bpalmer>	ivy-completing-read is a drop-in replacement for completing-read
+Oct 18 20:54:10 <laertus>	in hydra, if i use the ?x? hint (where "x" is any head, not the literal character "x"), hydra will display extra hints along the bottom of the hydra
+Oct 18 20:54:27 <laertus>	is there any way of forcing hydra not to display those extra hints?
+Oct 18 21:11:14 <perrier-jouet>	hi all
+Oct 18 21:11:20 <mplsCorwin>	o/
+Oct 18 21:12:00 <perrier-jouet>	does exisit a whiteboard for emacs ? a collaborative white board with math and physiscs engine that evaluates the writing ???
+Oct 18 21:12:01 <fsbot>	Ask yourself, do you really want to know?
+Oct 18 21:15:44 <DigDug>	hi perrier-jouet 
+Oct 18 21:15:55 <DigDug>	i don't know the answer to your question, but that is a cool idea!
+Oct 18 21:16:06 <mplsCorwin>	There's discussion the ML recently about a new collaborative editing mode that already handles multi-party editing of such as org-docs including cooling folding sync.  I'm working on a "sketch" app right now, so there's hope in this direction.  Not sure of anything great that's a fully baked solution for whiteboarding in Emacs.
+Oct 18 21:25:38 <wasamasa>	if your sketchboard is a buffer and your pen is self-insert-key, you're set
+Oct 18 21:25:43 <wasamasa>	play some multiplayer notepad
+Oct 18 21:25:50 <wasamasa>	use calc
+Oct 18 21:26:32 <wasamasa>	emacs is not a GUI-first application
+Oct 18 21:26:50 <wasamasa>	graphics are a big hack and so is anything related to them
+Oct 18 21:27:04 <wasamasa>	if you pull something like this off, it's going to be notable for the hack value, not its quality
+Oct 18 21:27:53 <wasamasa>	besides, we talked about it before and I offered some pointers towards a solution done in a proper lisp
+Oct 18 21:28:09 <wasamasa>	compare that with emacs and you have your answer
+Oct 18 21:29:30 <wasamasa>	I wouldn't be surprised if there's a comparable thing in CL, maybe even scheme
+Oct 18 21:29:41 <wasamasa>	check out cliki for the former
+Oct 18 21:29:54 <wasamasa>	there's lots of interesting real-world projects there
+Oct 18 21:29:58 <DigDug>	CL?
+Oct 18 21:29:59 <fsbot>	CL is [0] Common Lisp, a general-purpose multi-paradigm programming language. Ask me about: <pcl>, <cl.el> ;;[ ,more / ,dump]
+Oct 18 21:30:05 <DigDug>	thanks fsbot 
+Oct 18 21:30:05 <fsbot>	DigDug, no problem
+Oct 18 21:33:50 <laertus>	there has been talk in emacs circles of using CRDT (Conflict-free replicated data type) for collaborative editing, as CRDT is supposed to guarantee consistency
+Oct 18 21:34:33 <laertus>	but i was reading this HN thread on "Why CRDT didn't work out as well for collaborative editing xi-editor" - https://news.ycombinator.com/item?id=19886883
+Oct 18 21:35:07 <laertus>	and there someone mentioned that "Yes, CRDTs will guarantee that clients converge to an identical, mathematically "consistent" state eventually, but there's no guarantee whether or not that mathematically "consistent" state would make any sense to the application business logic that needs to consume that state, or to the human that needs to reason about the rendered result."
+Oct 18 21:35:47 <laertus>	the proof is in the pudding, though
+Oct 18 21:36:08 <laertus>	if someone can make it work (and CRDT is supposedly used on sites like google docs), then that's all that matters
+Oct 18 21:40:43 <Allos>	After `M-x toggle-debug-on-error`, the error message stops showing. What  should I do?
+Oct 18 21:41:06 <Allos>	Oh, I also get an empty *Backtrace* buffer.
+Oct 18 21:42:35 <laertus>	aha
+Oct 18 21:42:51 <laertus>	i've also had issues with an empty *Backtrace* buffer, and the backtrace actually being dumped in my current buffer
+Oct 18 21:42:55 <laertus>	i see i'm not the only one
+Oct 18 21:43:05 <laertus>	Allos: are you also on emacs 27.1 ?
+Oct 18 21:43:16 <Allos>	Yeah
+Oct 18 21:43:20 *	laertus nods
+Oct 18 21:43:32 <laertus>	it started happening to me after i upgraded from 26.1 to 27.1
+Oct 18 21:43:50 <Allos>	No error message with debug-on-error, or empty backtrace?
+Oct 18 21:44:32 <laertus>	well, in only one case did toggle-debug-on-error not actually start debugging for me.. in all other cases it's worked (though with the issues i describe above)
+Oct 18 21:45:12 <laertus>	i can't remember when the debugging didn't work, unfortunately
+Oct 18 21:45:16 <laertus>	but usually it does
+Oct 18 21:45:40 <laertus>	and i'm afraid i don't know the cause of these issues, nor how to troubleshoot them further
+Oct 18 21:45:48 <laertus>	the internals of debugging is black magic to me..
+Oct 18 21:46:22 <Allos>	Okay
+Oct 18 21:47:01 <laertus>	might i ask what you were trying to debug?
+Oct 18 21:47:26 <Allos>	`(add-hook 'activate-mark-hook 'spacemacs/toggle-automatic-symbol-highlight-on)`
+Oct 18 21:47:55 <Allos>	Turning on mark for the second time in the mini-buffer, shows an error.
+Oct 18 21:47:56 <wasamasa>	laertus: currently they're discussing how IMEs factor into that
+Oct 18 21:48:04 <wasamasa>	laertus: there's bound to be a lot more problems of that kind
+Oct 18 21:48:24 <laertus>	what are IMEs again?
+Oct 18 21:48:28 <wasamasa>	input methods
+Oct 18 21:48:32 <laertus>	oh
+Oct 18 21:48:40 <laertus>	another part of emacs i haven't delved in to...
+Oct 18 21:48:45 <wasamasa>	it's weird
+Oct 18 21:49:00 <laertus>	Allos: what error do you get?
+Oct 18 21:49:05 <wasamasa>	I've tried to apply some trivial changes to evil to play better with them and it broke tests mysteriously
+Oct 18 21:49:30 <wasamasa>	for no apparent reason of course, so there's some deceptively simple looking PRs on the issue tracker :D
+Oct 18 21:50:06 <Allos>	laertus: `Error running timer ‘ahs-idle-function’: (wrong-type-argument number-or-marker-p nil)`
+Oct 18 21:50:56 <Allos>	If I instrument that functions, the debugger constantly breaks on it, even when I am not in the mini-buffer.
+Oct 18 21:51:05 <Allos>	It does not break, only when the error occurs.
+Oct 18 21:51:23 <Allos>	break = debugger break/stop on a line of code.
+Oct 18 21:52:30 <Allos>	It breaks on that function even when the error does not occur, if I just instrument that function.
+Oct 18 21:57:40 <Viking667>	dale: thanks for the memoserv tip
+Oct 18 21:57:50 <Viking667>	,seen edrx
+Oct 18 21:57:50 <fsbot>	I'm blind, you insensitive clod!
+Oct 18 21:59:28 <twb>	rudybot: seen edrx
+Oct 18 21:59:29 <rudybot>	twb: edrx was seen joining in #emacs six hours ago, and then edrx was seen leaving the channel in #emacs two hours ago, saying ""Killed buffer""
+Oct 18 21:59:58 <twb>	rudybot: che cosa?
+Oct 18 21:59:58 <rudybot>	twb: for a similar situation, see how portuguese and spanish got to have "coisa/cosa" for "thing" from the latin "causa res" or something like that
+Oct 18 22:00:43 <Viking667>	back to the text and timestamping
+Oct 18 22:02:27 <laertus>	Allos: you could look at spacemacs' source and try to figure out what's calling that function.. it's likely that whatever it is (or its parent) is what's erroring out
+Oct 18 22:05:24 <Allos>	Called by `(run-with-idle-timer ahs-idle-interval t 'ahs-idle-function)`
+Oct 18 22:12:55 <laertus>	not by anything else?
+Oct 18 22:15:00 <Allos>	no
+Oct 18 22:33:50 <dale>	laertus: I think Google Docs actually uses operational transformation rather than CRDT, or so I've read.
+Oct 18 22:35:23 <laertus>	dale: not sure what that is
+Oct 18 22:35:47 <dale>	laertus: Me neither.
+Oct 18 22:36:19 <edgar-rft>	I hope that no surgeon uses operational transformation
+Oct 18 22:36:29 <dale>	laertus: That's what people are referring to when they  say "OT" in that HN thread, though, I believe.
+Oct 18 22:36:39 <laertus>	ah
+Oct 18 22:36:55 <dale>	Assuming they didn't go off onto a tangent about Scientology.
+Oct 18 22:42:28 <offby1>	with 0 context, OT to me means "Off-Topic"
+Oct 18 22:45:35 <mplsCorwin>	"Osprey Tango"
+Oct 18 22:45:35 <mplsCorwin>	 
+Oct 18 22:46:01 <mplsCorwin>	No idea how I managed that.  I wonder if `erc-yank' is buggy :/
+Oct 18 22:47:00 <johnjay>	i didn't know CRDT was an acrynum
+Oct 18 22:47:08 <johnjay>	er acronym. it's used by google docs?
+Oct 18 22:48:22 <edgar-rft>	you thought is's a real word?
+Oct 18 22:48:35 <jlf>	it's not an acronym :) 
+Oct 18 22:48:38 <bandali>	mplsCorwin, looks like your yanked message had a newline in the end?
+Oct 18 22:48:42 <bandali>	like this
+Oct 18 22:48:43 <bandali>	 
+Oct 18 22:49:26 <bandali>	maybe erc should strip/trim that..
+Oct 18 22:58:01 <refusenick>	It seems like the JVM and CLR ecosystems offer a lot of the same features. If I were to invest in learning one, which should it be in 2020?
+Oct 18 22:58:09 <johnjay>	> The xi-editor project is an attempt to build a high quality text editor, using modern software engineering techniques. It is initially built for macOS, using Cocoa for the user interface. 
+Oct 18 22:59:04 <refusenick>	dale: Aren't the memory costs of existing CRDTs prohibitive for text editing due to the proliferation of tombstones?
+Oct 18 22:59:11 <aidalgol>	refusenick: Depends on the work you want to do.
+Oct 18 22:59:11 <johnjay>	i like how not crashing is listed as a requirement
+Oct 18 23:00:29 <aidalgol>	johnjay: linkie?
+Oct 18 23:00:44 <wasamasa>	johnjay: there's also a writeup on how xi failed
+Oct 18 23:01:03 <wasamasa>	johnjay: which is far more interesting than the self-congratulating parts :P
+Oct 18 23:01:04 <aidalgol>	refusenick: As in which jobs on the market appeal to you more.
+Oct 18 23:01:19 <johnjay>	https://github.com/xi-editor/xi-editor/issues/1187#issuecomment-491473599
+Oct 18 23:01:32 <aidalgol>	wasamasa: Whatever happened to xiki?
+Oct 18 23:01:37 <wasamasa>	unrelated
+Oct 18 23:01:47 <wasamasa>	and I don't remember either
+Oct 18 23:02:03 <aidalgol>	don't try to reign in my tangents, wasamasa :D
+Oct 18 23:02:15 <aidalgol>	"Note: This repo contains only the editor core, which is not usable on its own. For editors based on it, check out the list in Frontends."
+Oct 18 23:02:16 <aidalgol>	oh god...
+Oct 18 23:02:33 *	aidalgol runs screaming
+Oct 18 23:02:39 <johnjay>	> I still believe it would be possible to build a high quality editor based on the original design. But I also believe that this would be quite a complex system, and require significantly more work than necessary.
+Oct 18 23:03:13 <refusenick>	aidalgol: Technically, that's closer to Emacs than other software. You choose the frontend at compile time.
+Oct 18 23:03:25 <refusenick>	If I understand correctly
+Oct 18 23:03:53 <sgc_>	what's the difference between 'foobar and #'foobar in elisp?
+Oct 18 23:04:29 <aidalgol>	sgc_: #' is `function'.  ' is `quote'.
+Oct 18 23:04:35 <johnjay>	sgc_: none technically. it's just a convenience for the programmer
+Oct 18 23:04:45 <johnjay>	i could be wrong but that's what i think
+Oct 18 23:05:01 <aidalgol>	johnjay: Not according to the docstring for `function'.
+Oct 18 23:06:08 *	ecbrown wonders what Xi will do to a text document, that makes it somehow look different than "a throwback from the '80s or '90s"
+Oct 18 23:06:28 <refusenick>	ecbrown: I'm betting emojification
+Oct 18 23:06:41 <ecbrown>	perhaps its antinews will have  no informative and featureful modeline anymore
+Oct 18 23:06:47 <aidalgol>	ecbrown: Make the default typeface Helvetica.
+Oct 18 23:06:48 <ecbrown>	(or something)
+Oct 18 23:06:59 <ecbrown>	:-)
+Oct 18 23:07:02 <aidalgol>	Or is that too '90s?
+Oct 18 23:07:02 <bremner>	Comic Sans or GTFO
+Oct 18 23:07:10 <grym>	papyrus 
+Oct 18 23:07:26 <grym>	and courier for monospace, of course 
+Oct 18 23:07:47 <aidalgol>	There's a Spanish game company that used Papyrus for the subtitles in their games for some unholy reason.
+Oct 18 23:07:53 <aidalgol>	grym: Way too '90s.
+Oct 18 23:07:57 <refusenick>	Word 2003 with Times New Roman is my childhood
+Oct 18 23:08:07 <aidalgol>	Oh, I know: Roboto.  Duh...
+Oct 18 23:08:24 <aidalgol>	Can't get more modern than that.
+Oct 18 23:12:04 <johnjay>	> There are only a few data structures suitable for representation of text in a text editor. I would enumerate them as: contiguous string, gapped buffer, array of lines, piece table, and rope.
+Oct 18 23:12:39 *	aidalgol misread "piece table, and rope" as "piece of tape and rope"
+Oct 18 23:12:45 <johnjay>	i'm having a tough time grokking this article. was it a bad idea to Rust?
+Oct 18 23:13:24 <johnjay>	er use Rust
+Oct 18 23:13:29 <aidalgol>	Rust In Pieces, johnjay
+Oct 18 23:15:18 <johnjay>	Real programmers code in Megadeths
+Oct 18 23:16:00 <hodapp>	real programmers don't program
+Oct 18 23:16:06 <Viking667>	they copy
+Oct 18 23:16:30 <jlf>	rudybot: mr. programmer
+Oct 18 23:16:30 <rudybot>	jlf: ♫ ♩ mr. programmer / i got my hammer / gonna smash my radio ♫ ♩
+Oct 18 23:17:13 *	aidalgol reimplements jlf on an FPGA, obsoleting the flesh jlf.
+Oct 18 23:17:25 <jlf>	sweet!
+Oct 18 23:17:50 *	jlf was getting tired of obsolescing
+Oct 18 23:17:58 <aidalgol>	But you're now written in VHDL.
+Oct 18 23:18:22 <hodapp>	make him into an ASIC next!
+Oct 18 23:18:54 <bremner>	too expensive
+Oct 18 23:19:01 <jlf>	brb doping
+Oct 18 23:19:04 <aidalgol>	yeah, jlf isn't worth that much
+Oct 18 23:19:08 <aidalgol>	doping?
+Oct 18 23:19:28 <aidalgol>	Is he just going to get high, or was that a nerd joke that went over my head?
+Oct 18 23:19:37 <bremner>	yes
+Oct 18 23:19:46 <aidalgol>	sweet!  *hits bong*
+Oct 18 23:20:58 <bremner>	is cannibis legal in NZ yet?
+Oct 18 23:21:36 <aidalgol>	We'll get results in December.
+Oct 18 23:21:37 <offby1>	aidalgol: I am disappoint.
+Oct 18 23:21:54 <offby1>	https://en.wikipedia.org/wiki/Doping_(semiconductor)
+Oct 18 23:21:56 *	aidalgol blows smoke up offby1's ass
+Oct 18 23:22:03 <offby1>	oooh tee hee oh you
+Oct 18 23:22:10 <aidalgol>	offby1: See, there are good reasons I didn't do engineering.
+Oct 18 23:22:18 <offby1>	I didn't either!!
+Oct 18 23:22:53 <offby1>	how long have you been hanging out here?  You need to realize that everything jlf says should be run through the "could this possibly somehow be a pun" filter
+Oct 18 23:23:03 <offby1>	and he's NOT the ONLY one
+Oct 18 23:23:09 *	offby1 glares around indiscriminately
+Oct 18 23:23:22 *	offby1 focuses his glare on far-away Cambridge, UK, at one flying mouse
+Oct 18 23:23:34 <jlf>	that offby1, always ready with an inciteful comment
+Oct 18 23:23:43 <offby1>	I know, I'm a riot
+Oct 18 23:23:52 <aidalgol>	Until someone publishes a pun dictionary, I will have to resort to playing dumb and hoping someone takes pity on me and explains the pun.
+Oct 18 23:23:57 <Viking667>	aidalgol: I thought the referendums were being done Nov 6th?
+Oct 18 23:24:02 <offby1>	aidalgol: that's an honorable tactic
+Oct 18 23:24:38 <jlf>	aidalgol: https://en.wikipedia.org/wiki/Doping_(semiconductor)
+Oct 18 23:25:46 <Viking667>	I seriously wonder if anything's ever fully implemented NLS. I know there are webpages about some modern invocations, but none of them seem to have entirely lived up to the Mother of All Demos.
+Oct 18 23:25:58 <offby1>	where have I seen that link before
+Oct 18 23:26:03 <Viking667>	Yet some others have gone far far further.
+Oct 18 23:26:26 <hodapp>	rudybot: Ted Nelson invented the real World Wide Web.
+Oct 18 23:26:34 <rudybot>	hodapp: the hyperlink was invented by Ted Nelson, dumbo.
+Oct 18 23:26:39 <offby1>	woo hoo
+Oct 18 23:26:54 <offby1>	rudybot: and Ted Nelson's mother was ... ?
+Oct 18 23:26:58 <Viking667>	I'm guessing that's an American joke...
+Oct 18 23:27:01 <rudybot>	*offby1: personally I find it very sad people seldom (or never?) credit Ted Nelson for hypertext
+Oct 18 23:27:03 <Viking667>	his sister
+Oct 18 23:27:17 <offby1>	his sister _and_ his daughter.  Understand? Or is it too tough for you?
+Oct 18 23:27:27 <hodapp>	wut
+Oct 18 23:27:31 <offby1>	rudybot: Celeste Holm.  C'mon dude
+Oct 18 23:27:33 <rudybot>	*offby1: i was surprised to learn that celeste holm is related to ted h. nelson
+Oct 18 23:27:43 <offby1>	well, you learn something new every day
+Oct 18 23:27:44 <Viking667>	that makes him an impossible man

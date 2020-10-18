@@ -6032,3 +6032,364 @@ Oct 16 22:07:06 <Caterpillar>	it's suggested in https://forums.developer.nvidia.
 Oct 16 22:07:14 <Caterpillar>	the login manager is sddm
 Oct 16 22:15:33 <kwizart>	Caterpillar, well, run "startx -- -logverbose 6"
 Oct 16 22:15:54 <kwizart>	eventually before systemctl isolate multi-user
+Oct 16 22:32:33 <Caterpillar>	kwizart: mmh ok
+Oct 16 22:34:20 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 16 23:16:59 <x033gg>	hey guys i am trying to watch a few mist videos for education
+Oct 16 23:17:22 <x033gg>	i am using two browsers on fedora chrome and fedora but unable to watch the videos, it just shows 0 percent.
+Oct 16 23:17:42 <x033gg>	what plugin would i be missing to be able to watch some video that was working on my work laptop :P
+Oct 16 23:17:47 <x033gg>	I just do not use winblows @ home
+Oct 16 23:19:20 <x033gg>	 Gatzzzbeee
+Oct 16 23:19:34 <daniel-wtd>	x033gg: for fedora you will need the rpm-fusion repo and the package ffmpeg-libs
+Oct 16 23:19:49 <x033gg>	thanks
+Oct 16 23:19:51 <daniel-wtd>	afterwards restart firefox and it will play almost everything
+Oct 16 23:19:58 <daniel-wtd>	even netflix
+Oct 16 23:20:06 <x033gg>	wow you are the man of the night
+Oct 16 23:20:45 <daniel-wtd>	sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+Oct 16 23:21:02 <daniel-wtd>	sudo dnf install ffmpeg-libs -y
+Oct 16 23:21:08 <daniel-wtd>	should do the trick
+Oct 16 23:23:48 <x033gg>	iget No match for argument: ffmpeg-libs
+Oct 16 23:24:00 <x033gg>	oh wait i didnt see the whole thing
+Oct 16 23:30:45 <x033gg>	if this works you are the man because at work they keep blocking me from education lmao :P
+Oct 16 23:32:13 <x033gg>	yes!
+Oct 16 23:32:19 <x033gg>	you guys are awesome!
+Oct 16 23:33:53 <daniel-wtd>	;)
+Oct 16 23:33:57 <daniel-wtd>	have fuin
+Oct 16 23:33:59 <daniel-wtd>	*fun
+Oct 16 23:34:17 <x033gg>	need the education :D
+Oct 16 23:34:22 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 17 00:06:45 <Arc>	Khaytsus: So back to the question, how do I get it on fedora?
+Oct 17 00:07:03 <Arc>	if manual compilation is required the answer becomes "switch distros"
+Oct 17 00:07:12 <Arc>	so I'm looking for an alternate RPM source
+Oct 17 00:09:59 <Arc>	to repeat the question; I'm on Fedora 32 and I can't figure out how to find the package that includes the postgis_sfcgal postgresql extension. I'm looking for an alternate RPM source for gdal and sfcgal
+Oct 17 00:12:06 <cmurf>	or build it in copr
+Oct 17 00:12:26 <Arc>	if I'm manually building, I'm switching to gentoo.
+Oct 17 00:12:39 <cmurf>	it's not manually building
+Oct 17 00:12:46 <cmurf>	it's automatic, your own repo
+Oct 17 00:13:53 <cmurf>	maybe someone's already done it, worth searching
+Oct 17 00:14:00 <cmurf>	not sure how commont this extension is
+Oct 17 00:15:21 <Arc>	within the GIS community its very common. But this is the problem using binary distros, someone else made a choice to limit what everyone else can do with it
+Oct 17 00:16:58 <Arc>	everyone I'm working with is running arch, gentoo, or ubuntu. Within the GIS community Fedora is no bueno
+Oct 17 00:22:37 <Dan39>	Arc: "GIS community"?
+Oct 17 00:23:02 <Arc>	developers that work with GIS data
+Oct 17 00:23:11 <Dan39>	lol
+Oct 17 00:23:22 <Dan39>	nevemrind, bye
+Oct 17 00:33:41 <Arc>	And that's why I keep switching to Gentoo. I don't know why I keep making the mistake of installing Fedora.
+Oct 17 00:34:25 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 17 01:01:16 *	Disconnected ()
+**** ENDING LOGGING AT Sat Oct 17 01:01:16 2020
+
+**** BEGIN LOGGING AT Sat Oct 17 01:07:42 2020
+
+Oct 17 01:07:42 *	Now talking on #fedora
+Oct 17 01:07:42 *	Topic for #fedora is: #Fedora F31, F32, F33 Beta end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/f31commonbugs https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F32 Live isos: https://tinyurl.com/Live-respins ||
+Oct 17 01:07:42 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Sep 29 15:18:38 2020)
+Oct 17 01:07:42 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Oct 17 01:34:27 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 17 01:35:49 <tidux>	Is F33 or F34 going to get Wireguard integration in GNOME yet?
+Oct 17 01:36:33 <tidux>	I'm rolling out Wireguard to replace an old OpenVPN setup and it'd be easier for my users if there was just a graphical process to set up.
+Oct 17 01:49:13 *	ChanServ gives channel operator status to fedbot
+Oct 17 02:34:29 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 17 03:34:31 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 17 03:34:55 <grinchier>	hello all is there a usb wifi card I can buy that will work with secure boot?
+Oct 17 03:36:15 <grinchier>	https://www.modio.se/installing-realtek-8821ce-driver-on-system-with-secureboot-enabled.html  trying to follow these instructions here but i must be doing something wrong
+Oct 17 03:36:34 <grinchier>	I would just disable secure boot,  but on this hp laptop it magically re-enables itself after a week or two.
+Oct 17 03:46:36 <terriblemistake>	guys, i need help. i added an nvme device to lvm. i created a lvm partition on it ("gpt"), created a pv, added it to the vm and extended the lv and the fs. everything worked until i rebooted.
+Oct 17 03:47:24 <terriblemistake>	running lvm_scan in the recovery shell, i get "couldnt find device with uuid NNNN (last written to /dev/nvme0n1p1)
+Oct 17 03:47:58 <der_Alte>	did you rerun dracut?đ
+Oct 17 03:48:07 <terriblemistake>	i guess something went wrong with fedora reading the nvme device? someone could give me a light, please?
+Oct 17 03:48:26 <terriblemistake>	no, i did not
+Oct 17 03:49:29 <terriblemistake>	der_Alte, from here do you believe there's how to recover my OS?
+Oct 17 03:50:34 <der_Alte>	well, yes, but you will need the recovery environment
+Oct 17 03:50:58 <der_Alte>	adn make sure that nvme driver is loaded
+Oct 17 03:51:04 <terriblemistake>	der_Alte oh sure, i am logged to the recovery shell atm
+Oct 17 03:51:55 <der_Alte>	can you modprobe nvme ?
+Oct 17 03:52:39 <terriblemistake>	this recovery shell doesn't have fdisk, lsblsk or cfdisk. i am checking dmesg now, looking for clues
+Oct 17 03:52:45 <terriblemistake>	i will try
+Oct 17 03:53:21 <der_Alte>	boot into recovery environment if you extended / FS
+Oct 17 03:53:42 <der_Alte>	obviously that means eiher a DVD or USB key
+Oct 17 03:54:05 <der_Alte>	or PXE if you have that on your local net
+Oct 17 03:55:01 <terriblemistake>	der_Alte, i've just rebooted, and selected the rescue option, i see everything here
+Oct 17 03:55:03 <terriblemistake>	my files, etc
+Oct 17 03:55:45 <terriblemistake>	like, my root partition, everything is here. lvm is fine here
+Oct 17 03:57:22 <der_Alte>	mount the root fs
+Oct 17 03:58:08 <der_Alte>	and then rebuild initramfs with dracut for *the version of the kernel* that is in grub2 menu
+Oct 17 03:59:14 <terriblemistake>	der_Alte root fs is mounted, everything seems fine in this rescue mode
+Oct 17 03:59:29 <terriblemistake>	ok, will do. i am doing a last time backup first
+Oct 17 03:59:59 <der_Alte>	check devices with lsblk
+Oct 17 04:00:31 <terriblemistake>	all devices are here, everything is really fine here in this rescue mode
+Oct 17 04:02:57 <tidux>	terriblemistake: sounds like you just forgot to add a driver to your initramfs with dracut
+Oct 17 04:06:17 <terriblemistake>	right. so basically, i should run dracut --regenerate-all 5.8.15 ?
+Oct 17 04:08:23 <terriblemistake>	tidux, i guess so. i didn't know i would need to deal with dracut
+Oct 17 04:09:19 <terriblemistake>	it's weird though that the rescue mode found everything. after i typed in the root passwd, i got logged in with everything mounted and all
+Oct 17 04:11:00 <terriblemistake>	actually, i think it's dracut --regenerate-all --kver 5.8.15-101.fc31.x86_64
+Oct 17 04:11:22 <der_Alte>	because it has the nvme driver in initramfs
+Oct 17 04:11:49 <terriblemistake>	der_Alte sound good? just asking to ensure i won't make it worse
+Oct 17 04:12:17 <der_Alte>	make sure that you include the nvme driver
+Oct 17 04:13:06 <der_Alte>	man dracut
+Oct 17 04:13:30 <terriblemistake>	k
+Oct 17 04:17:49 <terriblemistake>	works, der_Alte, thanks a lot
+Oct 17 04:18:09 <terriblemistake>	der_Alte++
+Oct 17 04:34:32 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 17 05:34:34 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 17 06:34:37 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 17 07:00:44 <zhou>	help me
+Oct 17 07:00:46 <zhou>	passwd: Authentication token manipulation error
+Oct 17 07:01:45 <zhou>	[root@localhost-live /]# echo "zhou:zhou" | chpasswd -c SHA512
+Oct 17 07:34:40 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 17 08:34:42 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 17 09:34:56 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 17 09:49:50 <Water_27300935_>	Hi, how to disable 'Web console' ?
+Oct 17 10:34:58 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 17 11:09:47 <kevr>	for some reason, ssh isn't accepting my pubkey auth in one specific user i created named `borg`.
+Oct 17 11:09:54 <kevr>	home directory is at /data/borg
+Oct 17 11:10:23 <kevr>	with root and another user located in /home/user, the pubkey auth works fine
+Oct 17 11:12:30 <kevr>	yeah, for users with home dirs in /data it seems broken
+Oct 17 11:21:19 <bkircher>	kevr: with SELinux is enabled
+Oct 17 11:21:25 <kevr>	how do i fix it up?
+Oct 17 11:22:09 <bkircher>	sorry, wanted to write "With SELinux enabled?"
+Oct 17 11:23:01 <kevr>	ah, yes.
+Oct 17 11:23:10 <kevr>	i googled up regarding selinux, found https://blog.tinned-software.net/ssh-key-authentication-is-not-working-selinux/
+Oct 17 11:23:16 <kevr>	worked out. thanks!
+Oct 17 11:30:15 <bkircher>	np
+Oct 17 11:35:00 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 17 11:37:52 <stmuk>	hi
+Oct 17 12:35:03 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 17 13:27:50 <OnlyHuman>	got rawhide created iso to boot yesterday, though some personal configs never stuck, but its useable  :)
+Oct 17 13:28:13 <OnlyHuman>	http://www.enlightenment.org/ss/e-5f8a0f17c3b612.78880493.jpg
+Oct 17 13:35:05 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 17 13:40:16 *	Disconnected ()
+**** ENDING LOGGING AT Sat Oct 17 13:40:16 2020
+
+**** BEGIN LOGGING AT Sat Oct 17 13:41:32 2020
+
+Oct 17 13:41:32 *	Now talking on #fedora
+Oct 17 13:41:32 *	Topic for #fedora is: #Fedora F31, F32, F33 Beta end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/f31commonbugs https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F32 Live isos: https://tinyurl.com/Live-respins ||
+Oct 17 13:41:32 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Sep 29 15:18:38 2020)
+Oct 17 13:41:32 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Oct 17 14:35:08 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 17 15:00:14 <Ilgaz>	I have firefox video functionality broken on intel 5500 gpu wayland/another distro. Should I alert the person who made this acceleration possible or wait for him to spot the issue?
+Oct 17 15:35:10 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 17 16:35:12 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 17 17:15:19 <Khaytsus>	uuuuuuuuggghhhhhhhhhh something has gone wrong with audio, PA is suspended, all the time...  nothing will play.
+Oct 17 17:24:49 <Khaytsus>	And no idea what I did and it works..  gah
+Oct 17 17:35:15 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 17 17:59:06 <cornyst>	Khaytsus: Had same problem a month ago. Re-installing and rebooting resolved issue for me
+Oct 17 18:20:44 <Khaytsus>	cornyst: Reinstalling what?  Sadly I don't think I did anything, so I'm sure this will come back.  I'm not sure what's going on
+Oct 17 18:35:17 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 17 18:37:42 <sdgathman>	rsyslogd[847]: imjournal from <elissa:psi-notify>: begin to drop messages due to rate-limiting
+Oct 17 18:37:52 <sdgathman>	rsyslog is really bogging the system down
+Oct 17 18:38:00 <sdgathman>	That is in the journalctl
+Oct 17 18:38:39 <Khaytsus>	Seriously doubt rsyslog is bogging anything down
+Oct 17 18:38:39 <sdgathman>	I turned off rsyslog service.  Hope it's not essential
+Oct 17 18:38:58 <sdgathman>	It was absolutely rsyslogd
+Oct 17 18:39:03 <Khaytsus>	..k
+Oct 17 18:39:11 <Khaytsus>	Anyway, no, rsyslog has been optional for several releases
+Oct 17 18:39:26 <sdgathman>	Now, it might be something trying to send it a %^&$ ton of messages ...
+Oct 17 18:39:48 <sdgathman>	Anyway, back to normal after stopping it.
+Oct 17 18:39:57 <sdgathman>	I might disable it if not really needed.
+Oct 17 18:40:27 <sdgathman>	rsyslogd[847]: imjournal: ignoring invalid state file /var/lib/rsyslog/imjournal.state [v8.2008.0]
+Oct 17 18:41:16 <sdgathman>	Another error it got that might be triggering the problem
+Oct 17 18:44:21 <cornyst>	Khaytsus: Sorry! When you stated PA suspended, I probably incorrectly assuned you meant pulseaudio!
+Oct 17 18:44:40 <cornyst>	Assumed
+Oct 17 18:45:56 <Khaytsus>	cornyst: yep, that' what I meant, pulseaudio
+Oct 17 18:47:49 <Khaytsus>	cornyst: I very rarely have any issues with PA, this one was an odd one.  Still confused what was going on, I'll have to reboot later to see if it recurrs but right now I need audio
+Oct 17 18:48:21 <cmurf>	best guess is if rsyslog enabled, then you probably want journald conf storage set to volatile
+Oct 17 18:49:42 <cmurf>	or you can set storage=none
+Oct 17 18:50:08 <cmurf>	syslog socket still works when storage=none
+Oct 17 18:51:52 <Khaytsus>	Yeah I think he's fixed a symptom not a problem, but anywho
+Oct 17 19:02:07 <sdgathman>	I'm on a job, so I can't dig into the actual problem.  Stopping rsyslogd let's me continue working...
+Oct 17 19:02:37 <sdgathman>	Upgrading a client from c5 (!) to c8 ...
+Oct 17 19:03:09 <sdgathman>	Also dead disk on the raid array.
+Oct 17 19:03:19 <cmurf>	eek
+Oct 17 19:04:45 <sdgathman>	It's not that bad, fresh install of c8, copy stuff over from remaining good disk.
+Oct 17 19:06:01 <cmurf>	i'm not super familiar with rsyslog so i'm not sure why it would become busy
+Oct 17 19:06:28 <cmurf>	if anything it receives less information on the syslog socket and should have as much stuff to write out
+Oct 17 19:09:37 <cmurf>	should ^not have
+Oct 17 19:25:57 <Khaytsus>	Let me guess, you're doing some insane in-place upgrade using some method you came up with
+Oct 17 19:29:34 <cmurf>	he said fresh install and copy over so i don't think it's in-place
+Oct 17 19:30:14 <cmurf>	perf top -p PID might reveal some clue why
+Oct 17 19:32:14 <cmurf>	bcc-tools has some neat tools for narrowing down various sources of latency
+Oct 17 19:35:19 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 17 19:36:28 <Khaytsus>	Never know with that one ;)
+Oct 17 20:08:26 <ryszard>	what screen recording do you use on gnome/wayland?
+Oct 17 20:25:12 <akik>	getting this error when installing kernel-core-5.8.15-101.fc31.x86_64 on f31, root on btrfs: dracut-install: ERROR: installing 'btrfs'
+Oct 17 20:25:15 <akik>	dracut: FAILED:  /usr/lib/dracut/dracut-install -D /var/tmp/dracut.w9aRaK/initramfs --kerneldir /lib/modules/5.8.15-101.fc31.x86_64/ -m btrfs
+Oct 17 20:35:21 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 17 21:35:22 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 17 22:35:24 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 17 22:58:10 <cmurf>	akik: maybe more verbose output would help
+Oct 17 22:58:27 <cmurf>	or possibly there's a malformed drop-in config in /etc ?
+Oct 17 23:04:35 <akik>	cmurf: do you mean i should try to re-create the initramfs with dracut? i removed 5.18.15 packages for now
+Oct 17 23:04:47 <cmurf>	it's a new error?
+Oct 17 23:04:56 <cmurf>	just 5.18.15?
+Oct 17 23:04:58 <akik>	the kernel updates so fast i don't mind skipping a version
+Oct 17 23:05:03 <akik>	cmurf: yes new error
+Oct 17 23:06:43 <cmurf>	hmm weird
+Oct 17 23:07:09 <cmurf>	it's either a location configuration triggering it or it's a bug (or both)
+Oct 17 23:07:29 <cmurf>	anything unique about the installation?
+Oct 17 23:07:36 <akik>	cmurf: i can run that dracut-install command manually
+Oct 17 23:07:58 <cmurf>	yeah but why '-m btrfs'
+Oct 17 23:08:00 <akik>	i mean in a minute
+Oct 17 23:08:41 <akik>	cmurf: this system has /boot on ext3 and / and /home on btrfs
+Oct 17 23:09:05 <cmurf>	maybe dracut sees / on btrfs and adds -m btrfs
+Oct 17 23:09:20 <cmurf>	but why would it fail
+Oct 17 23:10:32 <cmurf>	can you post the entire journal somewhere?
+Oct 17 23:10:57 <akik>	cmurf: yes just a minute, it's installing now
+Oct 17 23:10:59 <cmurf>	journalctl -b --no-hostname -o short-monotonic
+Oct 17 23:12:40 <cmurf>	i don't see anything btrfs related in the 5.8.15 kernel commits for fc31
+Oct 17 23:12:42 <cmurf>	https://src.fedoraproject.org/rpms/kernel/c/67f15457dbf3534ecfebd1216752dc88e172642b?branch=f31
+Oct 17 23:13:26 <cmurf>	dracut on fc31 was last update in May so that's probably not the cause
+Oct 17 23:15:57 <akik>	the journalctl -b 0 outputs 30k lines
+Oct 17 23:16:05 <akik>	are you sure you need that?
+Oct 17 23:23:55 <akik>	cmurf: ok i get the same error with: dracut -f /boot/initramfs-5.8.15-101.fc31.x86_64.img 5.8.15-101.fc31.x86_64
+Oct 17 23:24:55 <cmurf>	hmmmm
+Oct 17 23:25:48 <cmurf>	can you add --debug
+Oct 17 23:25:55 <cmurf>	and then post the output somewhere
+Oct 17 23:26:30 <akik>	cmurf: the error comes after this line: Oct 18 01:23:36 ac dracut[200478]: *** Including modules done ***
+Oct 17 23:26:38 <akik>	sure
+Oct 17 23:30:58 <akik>	cmurf: here's the logfile for dracut --debug: https://transfer.sh/aBDp3/dracut.log
+Oct 17 23:35:05 <cmurf>	what's the most recent successful kernel you've tried?
+Oct 17 23:35:27 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 17 23:35:50 <akik>	cmurf: i'm on 5.18.13 now
+Oct 17 23:36:27 <akik>	cmurf: i can try re-installing 5.18.13 to see if i missed that error
+Oct 17 23:36:51 <cmurf>	any difference in the /boot/config file for 5.18.13 and 5.18.15? i.e. grep BTRFS /config/config...
+Oct 17 23:37:01 <cmurf>	good idea
+Oct 17 23:37:39 <akik>	cmurf: no, just two lines with the kernel versions
+Oct 17 23:37:44 <akik>	differences that is
+Oct 17 23:38:38 <cmurf>	do the configs show btrfs is a module or built-in
+Oct 17 23:40:29 <akik>	CONFIG_BTRFS_FS=y
+Oct 17 23:40:47 <cmurf>	hmm
+Oct 17 23:40:48 <cmurf>	for both?
+Oct 17 23:40:55 <cmurf>	13 and 15
+Oct 17 23:41:10 <cmurf>	but yeah good idea to see if the error happens with dracut -f for .13
+Oct 17 23:41:14 <cmurf>	no debug needed
+Oct 17 23:44:17 <akik>	cmurf: yes =y for both
+Oct 17 23:44:28 <cmurf>	interesting
+Oct 17 23:47:06 <cmurf>	so i think you're going to see the same error for 5.8.13
+Oct 17 23:47:09 <cmurf>	but it's non-fatal
+Oct 17 23:47:16 <cmurf>	there is not btrfs modue
+Oct 17 23:47:26 <cmurf>	i think that version of dracut isn't expecting btrfs to be built-in
+Oct 17 23:48:18 <cmurf>	5.8 series was the first to have it set to built-in instead of as a module
+Oct 17 23:48:53 <akik>	cmurf: ok i'm getting the same error on 5.8.13 too
+Oct 17 23:49:14 <cmurf>	yeah i think it's not fatal based on your debug log
+Oct 17 23:49:49 <akik>	ok thanks
+Oct 17 23:49:51 <cmurf>	it is technically a bug i think
+Oct 17 23:50:06 <cmurf>	if you want to file a bug against dracut you can so others find it
+Oct 17 23:52:16 <Time-Warp>	looking for matthew miller
+Oct 17 23:58:31 <cmurf>	but fc32 has the same version of dracut
+Oct 17 23:58:37 <cmurf>	so why doesn't this problem  happen there?
+Oct 18 00:35:29 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 18 00:36:06 <rakee>	Just installed fedora on my host and I am using it to stream video from nfs using vlc, but it seems to consume disc space for some reason (nothing else is running). /{home,opt,root,run,srv,sys,tmp,usr,var} are all constant according to du -sh ... any idea why this occurs? thanks!
+Oct 18 00:42:16 <kk4ewt>	it has to download it into something to play it
+Oct 18 00:42:32 <kk4ewt>	usually into var
+Oct 18 00:42:37 <kk4ewt>	or tmp
+Oct 18 00:42:55 <rakee>	kk4ewt, yes, so I thought, but both are constant in size
+Oct 18 00:45:06 <kk4ewt>	ram or swap
+Oct 18 00:47:28 <rakee>	kk4ewt, it makes df -h / output grow smaller, swap shouldn't do that now should it?
+Oct 18 01:00:13 <kk4ewt>	what is growing smaller
+Oct 18 01:00:37 <kk4ewt>	root yes becasue tmp comes out of /
+Oct 18 01:00:37 <rakee>	kk4ewt, /
+Oct 18 01:01:08 <rakee>	kk4ewt, isn't /tmp a tmpfs so it shouldn't show up, now should it
+Oct 18 01:01:29 <kk4ewt>	it is still part of /
+Oct 18 01:01:33 <rakee>	anyway on my system it's tmpfs and it's completely empty
+Oct 18 01:01:54 <kk4ewt>	you are fine, your system is fine
+Oct 18 01:02:05 <rakee>	so what? df -h shows filesystems not paths
+Oct 18 01:02:22 <kk4ewt>	yes
+Oct 18 01:03:36 <rakee>	kk4ewt, well why is / fs getting populated then? proportionally to video stream
+Oct 18 01:04:12 <rakee>	du -sh  /{home,opt,root,run,srv,sys,tmp,usr,var} is constant on all accounts
+Oct 18 01:04:45 <rakee>	and du -sh /mnt (where nfs is mounted) seems pointless
+Oct 18 01:05:42 <kk4ewt>	df -h |fpaste
+Oct 18 01:05:42 <kk4ewt>	mount |fpaste
+Oct 18 01:13:12 <rakee>	kk4ewt, https://paste.centos.org/view/a2b8ed0d https://paste.centos.org/view/d44eb080
+Oct 18 01:18:55 <rakee>	https://paste.centos.org/view/a2b8ed0d https://paste.centos.org/view/d44eb080
+Oct 18 01:19:12 <rakee>	just in case you didn't get it
+Oct 18 01:25:20 <cmurf>	rakee: the only think a bit out of the ordinary is /dev/shm seems high to me
+Oct 18 01:25:24 <cmurf>	tmpfs           5.9G     0  5.9G   0% /dev/shm
+Oct 18 01:25:26 <cmurf>	that's what i get
+Oct 18 01:26:14 <rakee>	cmurf, shm started to be filled after root partition went to 0
+Oct 18 01:27:11 <cmurf>	hmm
+Oct 18 01:27:34 <cmurf>	oh yeah missed that :P
+Oct 18 01:27:37 <cmurf>	/dev/mapper/fedora_localhost--live-root   40G   38G  916K 100% /
+Oct 18 01:27:40 <cmurf>	that's odd
+Oct 18 01:28:27 <cmurf>	what do you get for swapon
+Oct 18 01:29:30 <cmurf>	tell you what though, you might do a kind of "emergency" delete of some things you can spare to avoid running out of space on /
+Oct 18 01:29:36 <cmurf>	otherwise it'll get cranky
+Oct 18 01:30:07 <rakee>	cmurf, don't have swap
+Oct 18 01:30:10 <cmurf>	one of the things  you can do without in the short term is /var/cache/dnf/
+Oct 18 01:30:37 <cmurf>	you can just rm -rf that, it'll free up maybe 30MB
+Oct 18 01:30:53 <rakee>	already deleted some files a day or so ago, but that only postpones it
+Oct 18 01:30:56 <cmurf>	another one is /var/cache/PackageKit/ - maybe 100MB or so
+Oct 18 01:31:27 <cmurf>	yeah but 916K is basically zero, this is just to give you breathing room right now so you can find the real problem
+Oct 18 01:31:49 <rakee>	moved close to 10G to the nfs, went down real fast after streaming from the nfs again
+Oct 18 01:31:58 <rakee>	good call, yeah
+Oct 18 01:32:10 <cmurf>	i don't know why streaming would affect space on /
+Oct 18 01:32:42 <cmurf>	i don't see /home
+Oct 18 01:32:45 <cmurf>	is it on / ?
+Oct 18 01:32:52 <rakee>	yup
+Oct 18 01:33:00 <rakee>	it's a single purpose machine really, just for streaming
+Oct 18 01:33:04 <cmurf>	ok so maybe the real issue is going on in /home
+Oct 18 01:33:07 <cmurf>	oh
+Oct 18 01:33:08 <cmurf>	i see
+Oct 18 01:33:28 <rakee>	according to du -sh, /home remained constant throughout all this
+Oct 18 01:33:35 <cmurf>	ok
+Oct 18 01:33:46 <cmurf>	du -sh /var
+Oct 18 01:33:48 <cmurf>	what's that look like
+Oct 18 01:34:08 <rakee>	1.8G
+Oct 18 01:34:34 <cmurf>	yeah not bad, mines 23G
+Oct 18 01:34:43 <cmurf>	haha wait why is it 23G?!
+Oct 18 01:34:48 <cmurf>	oh VM's nevermind
+Oct 18 01:34:51 <rakee>	 /var/cache is taking up close to 700, spool another 500
+Oct 18 01:35:07 <cmurf>	spool contains an abrt dir, could be coredumps in there
+Oct 18 01:35:32 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 18 01:35:55 <cmurf>	but also not sure where your free space normally is before the current situation
+Oct 18 01:36:04 <cmurf>	anyway it's process of elimination to find out what's eating the space
+Oct 18 01:36:21 <cmurf>	fatrace might be useful if you're looking for a heavy writer of something
+Oct 18 01:38:41 <rakee>	don't know that one, but what would I trace? vlc? that'd have to be in /home ... not sure how to trace the nfs ecosystem
+Oct 18 01:38:57 <rakee>	oh, it's systemwide
+Oct 18 01:41:29 <cmurf>	you can trace whatever you want with -c
+Oct 18 01:41:42 <rakee>	cmurf, brace yourself, it was a user zombie process (simplescreenrecorder) that apparently kept 29G somewhere on the drive
+Oct 18 01:41:56 <cmurf>	just cd to the dir of the fs you want and then use -c and it'll only trace that fs
+Oct 18 01:42:05 <cmurf>	but it shows everything happening on it
+Oct 18 01:42:12 <cmurf>	haha!
+Oct 18 01:42:22 <rakee>	thanks for your help though, I will look into fatrace ... looks interesting
+Oct 18 01:43:53 <cmurf>	file access trace :)
+Oct 18 01:55:40 <cmurf>	akik: well i'm stuck, no changes in dracut and yet this error doesn't happen on f33 where btrfs is also built-in
+Oct 18 01:55:56 <cmurf>	this is what i sometimes call goofy cakes
+Oct 18 02:12:30 <KE0VVT>	Is there a way to put EVERYTHING in “~/.local/bin/” in my “$PATH”? Some of my programs are in subdirectories.
+Oct 18 02:15:14 <Khaytsus>	pip dumps junk in there, what else does?
+Oct 18 02:30:44 <rwaltr>	Howdy Yall, I am trying to deploy k8s from Fedora's repo, and I am having an issue with both K8s with Moby-engine and Cri-o where the kubelet fails with the error mesage `...server.go:156] unknown flag: --allow-privledged` even when I remove it from /etc/kubernetes/config, Any advice, this is kubelet v1.15.8-beta.0
+Oct 18 02:32:11 <rwaltr>	it seems realated to the issue posted on minikube https://github.com/kubernetes/minikube/issues/4371 but that was version 1.15.1
+Oct 18 02:35:34 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 18 02:37:28 <sonnyjitsu>	Hello
+Oct 18 03:13:53 <cmurf>	akik: i can't reproduce the problem with a clean install of f31
+Oct 18 03:16:48 <cmurf>	what do you get for 'ls -l /etc/dracut.conf.d/ | fpaste' ?
+Oct 18 03:33:45 <sonnyjitsu>	New to Hexchat and IRC, can someone tell me why my username shows up twice in the list? Once has [m] next to it.
+Oct 18 03:35:36 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 18 03:36:40 <rwaltr>	[m] is the tag from the Matrix bridge
+Oct 18 03:37:27 <sonnyjitsu>	THanks
+Oct 18 04:04:28 <Subsentient>	How's Fedora 33 coming along? Expected release date? Figure it's better to ask instead of trusting the wiki.
+Oct 18 04:17:55 <nb>	@f33release
+Oct 18 04:17:55 <fedbot>	Fedora 33 is planned for release on 2020-10-27, which was 1 week, 2 days, 3 hours, 41 minutes, and 52 seconds from now
+Oct 18 04:35:38 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 18 19:44:27 *	Disconnected ()
+**** ENDING LOGGING AT Sun Oct 18 19:44:27 2020
+
+**** BEGIN LOGGING AT Sun Oct 18 19:44:54 2020
+
+Oct 18 19:44:54 *	Now talking on #fedora
+Oct 18 19:44:54 *	Topic for #fedora is: #Fedora F31, F32, F33 Beta end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/f31commonbugs https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F32 Live isos: https://tinyurl.com/Live-respins ||
+Oct 18 19:44:54 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Sep 29 15:18:38 2020)
+Oct 18 19:44:55 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Oct 18 20:12:06 <gonification>	Is the documentation on Rawhide still accurate? For example, I don't see any mention of package "gating"?
+Oct 18 20:32:27 *	Disconnected ()
+**** ENDING LOGGING AT Sun Oct 18 20:32:27 2020
+
+**** BEGIN LOGGING AT Sun Oct 18 20:36:34 2020
+
+Oct 18 20:36:34 *	Now talking on #fedora
+Oct 18 20:36:34 *	Topic for #fedora is: #Fedora F31, F32, F33 Beta end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/f31commonbugs https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F32 Live isos: https://tinyurl.com/Live-respins ||
+Oct 18 20:36:34 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Sep 29 15:18:38 2020)
+Oct 18 20:36:36 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Oct 18 21:36:19 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 18 22:36:20 <fedbot>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Oct 18 22:39:13 <fedora_sec>	I love what my fedora system looks like now

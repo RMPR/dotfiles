@@ -3891,3 +3891,276 @@ T 1602882687 18<24UndeadLeech18>	I mean it should work on Linux.
 T 1602882694 18<29kchibisov18>	'should'.
 T 1602882706 18<24UndeadLeech18>	I mean if it ever gets merged, it is because it does work on Linux.
 T 1602882718 18<24UndeadLeech18>	So that's a relatively safe assumption.
+T 1602883996 18<19Skaface8218>	kchibisov: I come back in shame, I suggested the possibility of my video card dieing while scrolling heaps of text for hours in alacrity, turns out after swapping video cards and messing around I realised that my cat pressed the input switch button on my monitor :D
+T 1602884020 18<24UndeadLeech18>	:)
+T 1602884037 18<29kchibisov18>	(╭ರ_•́)
+T 1602888253 18<29kchibisov18>	UndeadLeech: you've check that crossfont#13 works with alacritty, right?
+T 1602888275 18<29kchibisov18>	I know that it does, just asking, since you've explicitly mentioned that at some point.
+T 1602888411 18<24UndeadLeech18>	Yep.
+T 1602888453 18<24UndeadLeech18>	Oh wow, the scrolling_top benchmarks yesterday had a massive performance change.
+T 1602888458 18<24UndeadLeech18>	Probably due to 1.47.0 update.
+T 1602888625 18<24UndeadLeech18>	Oh, kchibisov did you publish it?
+T 1602888671 18<29kchibisov18>	Yeah, I've done everything.
+T 1602888684 18<24UndeadLeech18>	Pfft, taking all the credit for yourself, huh? :D
+T 1602888716 18<29kchibisov18>	I mean if you've pushed a tag faster than me somehow :P
+T 1602892876 20*	Disconnected (20)
+T 1602893262 19*	Now talking on 22#alacritty
+T 1602893262 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.5.0 - https://github.com/alacritty/alacritty/releases/latest
+T 1602893262 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sat Aug  1 00:45:32 2020)
+T 1602894912 18<22nixpulvis18>	what happened in 1.47.0?
+T 1602894926 18<24UndeadLeech18>	Dunno.
+T 1602894928 18<24UndeadLeech18>	Changes probably.
+T 1602894940 18<22nixpulvis18>	classic, fucking changes.
+T 1602895023 18<22nixpulvis18>	what crate is 1.47 on anyway?
+T 1602895082 18<24UndeadLeech18>	What do you mean?
+T 1602895088 18<24UndeadLeech18>	I'm talking about Rust.
+T 1602895096 18<22nixpulvis18>	lolol oh
+T 1602895107 18<24UndeadLeech18>	They updated LLVM, so it might be related to that. Some optimizations maybe.
+T 1602895177 18<22nixpulvis18>	i guess I've been using 1.48 anyway...
+T 1602895237 18<24UndeadLeech18>	Beta you mean?
+T 1602895273 18<29kchibisov18>	UndeadLeech: it's just strange how fast it is.
+T 1602895298 18<24UndeadLeech18>	I find it strange that my branch's performance has degraded since yesterday.
+T 1602895306 18<24UndeadLeech18>	As long as it's faster, that's fine by me.
+T 1602895317 18<29kchibisov18>	roted a bit.
+T 1602895336 18<29kchibisov18>	UndeadLeech: it could mean that llvm was guessing something oddly.
+T 1602895354 18<24UndeadLeech18>	Previously you mean? Yeah.
+T 1602895362 18<24UndeadLeech18>	Though it's still worse than bottom, which makes sense.
+T 1602895407 18<24UndeadLeech18>	I think the last remaining issue with the non_copy_cell stuff is the performance of Row::new. Since that involves a lot of stuff.
+T 1602895415 18<29kchibisov18>	but it's ~2x improvement.
+T 1602895417 18<24UndeadLeech18>	And unfortunately our benchmarks are a bit short.
+T 1602895456 18<24UndeadLeech18>	I'm not too concerned with the top benchmarks at all tbh.
+T 1602895485 18<29kchibisov18>	I am concerned, since looking at 2x speedups on amd64 is strange.
+T 1602895489 18<29kchibisov18>	from a compiler bump.
+T 1602895499 18<24UndeadLeech18>	Is it though?
+T 1602895509 18<29kchibisov18>	Yeah.
+T 1602895521 18<24UndeadLeech18>	I've had 2x performance differences just by switching around two statements in my non_copy_cells stuff.
+T 1602895525 18<24UndeadLeech18>	It wouldn't surprise me.
+T 1602895538 18<29kchibisov18>	I mean from optimizations.
+T 1602895552 18<24UndeadLeech18>	Knowing what you're allowed to switch around is an optimization.
+T 1602895559 18<29kchibisov18>	Like whatever you switch around doesn't matter, since you're writing that code.
+T 1602895574 18<24UndeadLeech18>	I have to switch that stuff around to influence code generation though.
+T 1602895578 18<29kchibisov18>	UndeadLeech: well, that's true, but you can't really switch around sometimes.
+T 1602895592 18<29kchibisov18>	But I guess.
+T 1602895607 18<29kchibisov18>	I forgot that you can switch around though.
+T 1602895610 18<24UndeadLeech18>	Stuff like auto vectorization can also make a massive difference.
+T 1602895617 18<29kchibisov18>	I was writing for arch where you can't do that.
+T 1602895645 18<29kchibisov18>	I mean writing optimizations in llvm.
+T 1602895681 18<24UndeadLeech18>	I mean you're much more familiar with LLVM than I am. But this is just hottish code where small changes can easily make big differences. Especially since this part of the code isn't optimized well.
+T 1602895701 18<29kchibisov18>	Like you know, I'm expecting that amd64 is very polished just by looking at the amount of things it has for amd64.
+T 1602895706 18<24UndeadLeech18>	But of course I haven't verified at all that this result is consistent, I might have just been doing something strange yesterday at 2am.
+T 1602895721 18<24UndeadLeech18>	I'm currently constantly running benchmarks for non_copy_cells.
+T 1602895744 18<29kchibisov18>	Though, maybe llvm changed something on higher level with ir passes.
+T 1602895755 18<24UndeadLeech18>	Could have also been a Rust change.
+T 1602895765 18<29kchibisov18>	Or a change from both sides.
+T 1602895774 18<24UndeadLeech18>	Could also be completely unrelated to all of that and just be random fluctuation.
+T 1602895785 18<24UndeadLeech18>	I just know that I updated 1.47.0, so that's the most likely cause I'd say.
+T 1602895792 18<29kchibisov18>	Like llvm is a bit C-ish.
+T 1602895819 18<24UndeadLeech18>	Isn't that kinda the point of C++? :P
+T 1602895830 18<29kchibisov18>	UndeadLeech: I mean in terms of IR and passes.
+T 1602895866 18<29kchibisov18>	Like I'm not talking about API of llvm.
+T 1602895897 18<24UndeadLeech18>	God damn it, I don't remember what made this work yesterday.
+T 1602895913 18<29kchibisov18>	UndeadLeech: try previos rust?
+T 1602895923 18<29kchibisov18>	Maybe that what broke things for you.
+T 1602895931 18<24UndeadLeech18>	Tried it already.
+T 1602895940 18<24UndeadLeech18>	Though I could try again, I made some changes.
+T 1602895947 18<24UndeadLeech18>	Just always so many factors.
+T 1602895955 18<24UndeadLeech18>	I think I ran with 1.47.0 yesterday too though.
+T 1602895985 18<29kchibisov18>	Though, rust overcomes llvm limitations with their mir.
+T 1602896001 18<29kchibisov18>	limitations -> missing optimizations.
+T 1602896043 18<29kchibisov18>	But a lot of modern kinda safe languages on top of llvm having their own internal language.
+T 1602897039 18<22nixpulvis18>	rust has the ability to do some additional transforms that LLVM can't because the types are weaker.
+T 1602897075 18<29kchibisov18>	nixpulvis: the point are not types most of the time.
+T 1602897077 18<24UndeadLeech18>	Weak<ER>
+T 1602897088 18<29kchibisov18>	the point is thta you can't do constant propagation properly in llvm.
+T 1602897111 18<29kchibisov18>	I mean you can, but not for all things that you may be interested in.
+T 1602897197 18<29kchibisov18>	And in fact rust added it in mir in like 2019.
+T 1602897233 18<29kchibisov18>	(I still don't get why rust called their ir as mir, since llvm also has mir)
+T 1602897572 18<24UndeadLeech18>	Because it's between the HIR and the LLVM IR?
+T 1602897653 18<29kchibisov18>	yeah, and then you have mir after LLVM IR...
+T 1602897674 18<29kchibisov18>	it's like HIR -> MIR -> LLVM IR -> MIR(from llvm) ->
+T 1602897714 18<29kchibisov18>	And no, llvm's thing is machiine ir, and rust's one is mid-level ir.
+T 1602897718 18<29kchibisov18>	¯\_(ツ)_/¯
+T 1602897866 18<22nixpulvis18>	should have called it Myrrh
+T 1602897959 18<29kchibisov18>	I'd call HIR as OIR and MIR as AOIR.
+T 1602897993 18<22nixpulvis18>	O? A?
+T 1602898029 18<29kchibisov18>	Well, A is for another.
+T 1602898034 18<22nixpulvis18>	figured
+T 1602898037 18<29kchibisov18>	And O could be literally anything.
+T 1602898052 18<22nixpulvis18>	well damn that's useless
+T 1602898064 18<29kchibisov18>	Could be our, could be other.
+T 1602898081 18<22nixpulvis18>	another other ....
+T 1602898082 18<29kchibisov18>	clearly shows that you've reached a point that you have too many irs to care about.
+T 1602898123 18<29kchibisov18>	I'd use our though.
+T 1602898130 18<22nixpulvis18>	yes, everything should be some ideal dependent LLVM MIR
+T 1602898181 18<22nixpulvis18>	funny you mention const prop tho. Since I'm trying to think about information flow atm.
+T 1602898199 18<29kchibisov18>	data flow?
+T 1602898205 18<22nixpulvis18>	sure
+T 1602898300 18<29kchibisov18>	The thing is that the amount of layers of different passes on different intermidiate represenations is getting bigger an bigger.
+T 1602898342 18<22nixpulvis18>	why?
+T 1602898352 18<29kchibisov18>	The good thing that all transformations are deterministic and once you've got a math it works.
+T 1602898365 18<29kchibisov18>	nixpulvis: I mean they try to run code faster?
+T 1602898384 18<29kchibisov18>	And most of the time some IR is lacking something.
+T 1602898400 18<22nixpulvis18>	just make my curcuits small.
+T 1602898401 18<29kchibisov18>	or some phase of transforming IR is lacking something.
+T 1602898546 18<22nixpulvis18>	but yea, sometimes it takes a custom data structure to do some algorithm properly.
+T 1602898599 18<22nixpulvis18>	stupid question: can LLVM reason about 1 + 1 = 2?
+T 1602898620 18<29kchibisov18>	that's called constant evoluation.
+T 1602898624 18<22nixpulvis18>	i know
+T 1602898627 18<29kchibisov18>	it can do that for sure.
+T 1602898630 18<22nixpulvis18>	so I assume yes
+T 1602898632 18<22nixpulvis18>	good
+T 1602898642 18<22nixpulvis18>	where does that stop working?
+T 1602898644 18<29kchibisov18>	The point with constant propagation is a bit different.
+T 1602898654 18<29kchibisov18>	CE != CP
+T 1602898675 18<29kchibisov18>	CE is easier to do than CP.
+T 1602898679 18<22nixpulvis18>	they're related tho.
+T 1602898683 18<22nixpulvis18>	oh?
+T 1602898699 18<29kchibisov18>	Yes, they are.
+T 1602898711 18<29kchibisov18>	But the point is that you don't need CE in rust.
+T 1602898715 18<29kchibisov18>	But you could need CP in rust.
+T 1602898725 18<24UndeadLeech18>	Do you guys think it's even worth it to bother optimizing the grid initialization to the last %?
+T 1602898752 18<24UndeadLeech18>	I'm wondering if we should change our benchmarks to fill the grid before every run. Like write 100k lines outside of the benchmark.
+T 1602898754 18<29kchibisov18>	UndeadLeech: depends, but grid initialization should be relatively fast?
+T 1602898763 18<29kchibisov18>	I mean that you don't initialize it a lot.
+T 1602898769 18<29kchibisov18>	s/fast/rare/
+T 1602898775 18<24UndeadLeech18>	I mean define "relatively fast".
+T 1602898821 18<24UndeadLeech18>	This is what I'm currently working with: https://paste.rs/CTf.png
+T 1602898823 18<22nixpulvis18>	I'd at least make one new benchmark tracking that spesifically...
+T 1602898834 18<24UndeadLeech18>	On my 6700k the gap is significantly bigger than my computer.
+T 1602898835 18<22nixpulvis18>	I do open new terminals quite frequently.
+T 1602898845 18<29kchibisov18>	I really don't care about scrolling that much.
+T 1602898855 18<24UndeadLeech18>	nixpulvis: Yeah, but we're talking like a few milliseconds.
+T 1602898858 18<29kchibisov18>	Like if it's due to init that's likely fine.
+T 1602898884 18<22nixpulvis18>	I doubt it's a big problem... but what's the issue if you don't care enough to track it?
+T 1602898929 18<29kchibisov18>	The point is that scrolling sucking a bit due to grid initialization isn't a bit of a deal, since 'yes' is pretty artificial benchmark.
+T 1602898963 18<22nixpulvis18>	kchibisov: wikipedia's example of CP uses CE directly in making it's case... I'm not sure how far you get with CP alone.
+T 1602899002 18<24UndeadLeech18>	I mean even in a 'yes' benchmark scenario, you're not going to notice a difference of 10ms.
+T 1602899028 18<29kchibisov18>	UndeadLeech: you need to test with more payload.
+T 1602899034 18<22nixpulvis18>	how would you implement this? just warm up with a bunch of text pushed? How will other terminals act?
+T 1602899049 18<29kchibisov18>	s/more/bigger/
+T 1602899061 18<24UndeadLeech18>	kchibisov: I know, that's why I have suggested to change the payload size of vtebench.
+T 1602899072 18<29kchibisov18>	You mean default?
+T 1602899078 18<24UndeadLeech18>	Yeah.
+T 1602899084 18<29kchibisov18>	I guess you can bump it.
+T 1602899088 18<24UndeadLeech18>	Or alternatively initializing scrollback.
+T 1602899115 18<29kchibisov18>	nixpulvis: the thing is that you can propage constants in rust and then lower llvm's CE will do the thing.
+T 1602899118 18<24UndeadLeech18>	I'm just not entirely sure if your benchmarks aren't too tiny at the moment.
+T 1602899123 18<29kchibisov18>	propagate*
+T 1602899132 18<29kchibisov18>	I'm not saying that you can do only CP.
+T 1602899141 18<29kchibisov18>	I'm saying that CP is harder to do in llvm ir in some cases.
+T 1602899148 18<29kchibisov18>	But whoever will do CE doesn't matter.
+T 1602899165 18<29kchibisov18>	And llvm will do its own CP as well.
+T 1602899180 18<22nixpulvis18>	I see. Yea CP needs to deal with reaching variable stuff
+T 1602899201 18<24UndeadLeech18>	Ooooh, constant propagation.
+T 1602899253 18<29kchibisov18>	though, knowing that rust can do CE, I guess it can run it as well.
+T 1602899265 18<29kchibisov18>	And do a multipass CP -> CE..
+T 1602899281 18<22nixpulvis18>	CP is something rust's type system seems very well suited for.
+T 1602899284 18<29kchibisov18>	I mean it can do CE on language level, I bet they have infra already.
+T 1602899298 18<29kchibisov18>	nixpulvis: yeah, I guess that's why you have it there.
+T 1602899311 18<29kchibisov18>	since llvm's one lacks const info in some cases.
+T 1602899327 18<29kchibisov18>	And it can't speculate with how pointers are working in rust.
+T 1602899347 18<22nixpulvis18>	it can speculate ;)
+T 1602899362 18<22nixpulvis18>	nothing good ever comes from speculative execution tho.
+T 1602899369 18<24UndeadLeech18>	lol
+T 1602899380 18<24UndeadLeech18>	I bet AMD disagrees with you.
+T 1602899383 18<29kchibisov18>	nixpulvis: I mean speculate in terms of make some assumptions about pointer usage.
+T 1602899416 18<29kchibisov18>	And how it could be used accross module boundaries.
+T 1602899555 18<29kchibisov18>	That's a good example of C-ish in llvm https://github.com/rust-lang/rust/issues/54878
+T 1602899572 18<29kchibisov18>	Since I bet you don't have that many noalias things in C.
+T 1602938416 20*	Disconnected (20)
+T 1602938492 19*	Now talking on 22#alacritty
+T 1602938492 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.5.0 - https://github.com/alacritty/alacritty/releases/latest
+T 1602938492 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sat Aug  1 00:45:32 2020)
+T 1602953051 18<22nixpulvis18>	oh look at that, I got a response in heim-rs/darwin-libproc. I don't really think this changes anything tho.
+T 1602953075 18<29kchibisov18>	it doesn't, we're not adding one more crate for one file.
+T 1602953119 18<22nixpulvis18>	I find it kinda funny that the maintainer doesn't have macOS on hand either.
+T 1602953248 18<24UndeadLeech18>	lol
+T 1602953621 18*	29kchibisov just found out that he forgot to close some old issue that is kind of obsolete.
+T 1602961167 18<24prion18>	when i run alacritty with -o i get this error
+T 1602961187 18<24prion18>	Found argument '-o' which wasn't expected, or isn't valid in this context
+T 1602961203 18<29kchibisov18>	Could you give the entire command line?
+T 1602961238 18<24prion18>	alacritty -o font.size=10
+T 1602961255 18<29kchibisov18>	What's the output of alacritty --version?
+T 1602961262 18<24prion18>	0.5.0
+T 1602961273 18<29kchibisov18>	-o isn't supported on 0.5.0
+T 1602961293 18<24prion18>	then why does 0.5.0 come with a man page that documents -o
+T 1602961293 18<29kchibisov18>	you should build master branch.
+T 1602961333 18<24UndeadLeech18>	prion: 0.5.0 doesn't come with a man page that documents -o.
+T 1602961344 18<29kchibisov18>	prion: there's no -o in a man page https://github.com/alacritty/alacritty/blob/v0.5.0/extra/alacritty.man
+T 1602961346 18<29kchibisov18>	for 0.5.0
+T 1602961365 18<29kchibisov18>	if someone provided you a manpage with -o it's not our fault.
+T 1602961373 18<24prion18>	ok then i'm confused... how did i end up in this state
+T 1602961388 18<24prion18>	i cloned the repo and built from source
+T 1602961389 18<29kchibisov18>	idk, maybe you have a man page from master branch somewhere.
+T 1602961395 18<29kchibisov18>	Ok.
+T 1602961398 18<24prion18>	on Oct 8
+T 1602961405 18<29kchibisov18>	yes, it's master branch.
+T 1602961409 18<29kchibisov18>	And it has -o.
+T 1602961428 18<29kchibisov18>	where did you install the alacritty?
+T 1602961438 18<29kchibisov18>	And check that 'which' resolved to it.
+T 1602961506 18<24prion18>	it's in ~/.cargo/bin/alacritty... but now that i think of it, maybe i did "cargo install alacritty" before i built from source
+T 1602961525 18<24prion18>	ok i also have /usr/local/bin/alacritty which is 0.6.0-dev
+T 1602961537 18<29kchibisov18>	And .cargo/bin/alacritty is likely 0.5.0.
+T 1602961598 18<24prion18>	yep
+T 1602961620 18<22nixpulvis18>	also depends where you were loading the man page from...
+T 1602961658 18<24prion18>	cargo uninstall alacritty fixed everything
+T 1602961662 18<24prion18>	sorry for the confusion
+T 1603046667 20*	Disconnected (20)
+T 1603046694 19*	Now talking on 22#alacritty
+T 1603046694 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.5.0 - https://github.com/alacritty/alacritty/releases/latest
+T 1603046694 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sat Aug  1 00:45:32 2020)
+T 1603049547 20*	Disconnected (20)
+T 1603049622 20*	Disconnected (20Remote host closed socket)
+T 1603049691 20*	Disconnected (20Remote host closed socket)
+T 1603049760 20*	Disconnected (20Remote host closed socket)
+T 1603049794 19*	Now talking on 22#alacritty
+T 1603049794 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.5.0 - https://github.com/alacritty/alacritty/releases/latest
+T 1603049794 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sat Aug  1 00:45:32 2020)
+T 1603052411 18<29kchibisov18>	How ppl can even defend terminal that prints 90KB of text in 1.1 seconds....
+T 1603052413 18<29kchibisov18>	Like how.
+T 1603052984 18<24UndeadLeech18>	Which one is that?
+T 1603053001 18<29kchibisov18>	https://github.com/91861/wayst
+T 1603053033 18<29kchibisov18>	I mean, if you put 'st' in a terminal name you already marked your software as shit.
+T 1603053050 18<29kchibisov18>	In a way that it refers to 'st'.
+T 1603053053 18<24UndeadLeech18>	I mean it's literally called waste, sooo...
+T 1603053064 18<29kchibisov18>	good one.
+T 1603053079 18<24UndeadLeech18>	But that seems extremely slow.
+T 1603053095 18<29kchibisov18>	I mean it reaches 5fps on first benchmark on vtebench
+T 1603053116 18<29kchibisov18>	And I'm not sure that it was able to finish 2nd dense cells.
+T 1603053142 18<29kchibisov18>	And I crashed it like twice in a raw from completely different things.
+T 1603053176 18<29kchibisov18>	I mean, I don't think that I can expect much from 3 month old C software.
+T 1603053213 18<29kchibisov18>	But before you add all your features, I think it makes sense to make your shit a bit stable in first.
+T 1603053469 18<29kchibisov18>	I've noticed that 1s for 90KB, because it was priniting dmesg in 300ms, which was 30KB.
+T 1603053488 18<29kchibisov18>	And it was the first time I was waiting for dmesg to print.
+T 1603054240 18<24UndeadLeech18>	That sounds pretty bad, yeah. And generally you should have a good foundation in place before building up on it. Usually terminals don't get faster over time after more features are added.
+T 1603054250 18<24UndeadLeech18>	At that point why even bother with C?
+T 1603054467 18<29kchibisov18>	To use  -ffast-math in CFLAGS.
+T 1603054486 18<28leibniz[m]18>	http://i.imgur.com/bq22ZOf.png
+T 1603054487 18<28leibniz[m]18>	Just a temporary question, why emojis are messed up again? I've added the fall back noto emoji color to my configs and it worked with non nerd font variants.
+T 1603054487 18<28leibniz[m]18>	(I'm gonna revert to the non-nerd for other reasons)
+T 1603054489 18<29kchibisov18>	They force it by default in clags.
+T 1603054502 18<29kchibisov18>	leibniz[m]: it's some other font showing them.
+T 1603054516 18<29kchibisov18>	alacritty can only render them, but it doesn't prefer any particular font for them.
+T 1603054655 18<28leibniz[m]18>	kchibisov: Can I detect which font? It must be that nerd font has this black and white emojis because otherwise alacritty was using noto emoji color
+T 1603054964 18<29kchibisov18>	leibniz[m]: you may try fc-match -s 'YOUR_FONT'.
+T 1603054977 18<29kchibisov18>	Will show the order of fonts we're picking.
+T 1603055165 18<29kchibisov18>	Something like 'DejaVu Sans Mono' has those monochrome things most of the time.
+T 1603055245 18<28leibniz[m]18>	kchibisov: yeah it's weird. when I fc-match -s Inconsolata, the noto color comes second.But for the nerd font variant it doesn't even come anywher
+T 1603055264 18<29kchibisov18>	Are you using Inconsolate in config?
+T 1603055275 18<29kchibisov18>	or InconsolateLGC Nerd Font?
+T 1603055283 18<28leibniz[m]18>	kchibisov: InconsolateLGC Nerd Font
+T 1603055306 18<29kchibisov18>	So you do'fc-match -s "InconsolateLGC Nerd Font"
+T 1603055365 18<28leibniz[m]18>	kchibisov: got a match for "Inconsolata LGC Nerd Font Mono"...confusing names.
+T 1603055371 18<28leibniz[m]18>	why noto color is last?
+T 1603055378 18<29kchibisov18>	leibniz[m]: ¯\_(ツ)_/¯
+T 1603055385 18<28leibniz[m]18>	for regular inconsolara notocolor is second
+T 1603055388 18<29kchibisov18>	Do you have a fontconfig rules for Inconsolate?
+T 1603055468 18<28leibniz[m]18>	kchibisov: no . but for monospace:     <alias> <family>monospace</family><prefer><family>DejaVu Sans Mono</family><family>Noto Color Emoji</family></prefer></alias>
+T 1603055504 18<29kchibisov18>	it's your own config? Not the system one?
+T 1603055557 18<28leibniz[m]18>	kchibisov: /.config/fontconfig/fonts.conf..its mine.
+T 1603055576 18<28leibniz[m]18>	https://github.com/alacritty/alacritty/issues/153#issuecomment-630636358
+T 1603055586 18<28leibniz[m]18>	added due to this issue
+T 1603055606 18<29kchibisov18>	Ok. you can try replacing DejaVu Sans Mono in that file with Inconsolata LGC Nerd Font Mono.
+T 1603055635 18<29kchibisov18>	And then 'fc-cache -srvf' and use 'monospace' in alacritty.yml.
+T 1603055649 18<29kchibisov18>	You can try doing fc-match -s "monospace" afterwards.
+T 1603055835 18<28leibniz[m]18>	kchibisov: thanks. :)

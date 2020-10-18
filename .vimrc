@@ -12,6 +12,8 @@ if has("autocmd")
   filetype indent plugin on
 endif
 
+set spelllang=en_us,fr
+set spell
 set history=2000
 set nocompatible
 set relativenumber

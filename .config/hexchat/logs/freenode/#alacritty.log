@@ -4368,3 +4368,289 @@ Oct 16 22:11:27 <UndeadLeech>	I mean it should work on Linux.
 Oct 16 22:11:34 <kchibisov>	'should'.
 Oct 16 22:11:46 <UndeadLeech>	I mean if it ever gets merged, it is because it does work on Linux.
 Oct 16 22:11:58 <UndeadLeech>	So that's a relatively safe assumption.
+Oct 16 22:33:16 <Skaface82>	kchibisov: I come back in shame, I suggested the possibility of my video card dieing while scrolling heaps of text for hours in alacrity, turns out after swapping video cards and messing around I realised that my cat pressed the input switch button on my monitor :D
+Oct 16 22:33:40 <UndeadLeech>	:)
+Oct 16 22:33:57 <kchibisov>	(╭ರ_•́)
+Oct 16 23:44:13 <kchibisov>	UndeadLeech: you've check that crossfont#13 works with alacritty, right?
+Oct 16 23:44:35 <kchibisov>	I know that it does, just asking, since you've explicitly mentioned that at some point.
+Oct 16 23:46:51 <UndeadLeech>	Yep.
+Oct 16 23:47:33 <UndeadLeech>	Oh wow, the scrolling_top benchmarks yesterday had a massive performance change.
+Oct 16 23:47:38 <UndeadLeech>	Probably due to 1.47.0 update.
+Oct 16 23:50:25 <UndeadLeech>	Oh, kchibisov did you publish it?
+Oct 16 23:51:11 <kchibisov>	Yeah, I've done everything.
+Oct 16 23:51:24 <UndeadLeech>	Pfft, taking all the credit for yourself, huh? :D
+Oct 16 23:51:56 <kchibisov>	I mean if you've pushed a tag faster than me somehow :P
+Oct 17 01:01:16 *	Disconnected ()
+**** ENDING LOGGING AT Sat Oct 17 01:01:16 2020
+
+**** BEGIN LOGGING AT Sat Oct 17 01:07:42 2020
+
+Oct 17 01:07:42 *	Now talking on #alacritty
+Oct 17 01:07:42 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.5.0 - https://github.com/alacritty/alacritty/releases/latest
+Oct 17 01:07:42 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sat Aug  1 00:45:32 2020)
+Oct 17 01:35:12 <nixpulvis>	what happened in 1.47.0?
+Oct 17 01:35:26 <UndeadLeech>	Dunno.
+Oct 17 01:35:28 <UndeadLeech>	Changes probably.
+Oct 17 01:35:40 <nixpulvis>	classic, fucking changes.
+Oct 17 01:37:03 <nixpulvis>	what crate is 1.47 on anyway?
+Oct 17 01:38:02 <UndeadLeech>	What do you mean?
+Oct 17 01:38:08 <UndeadLeech>	I'm talking about Rust.
+Oct 17 01:38:16 <nixpulvis>	lolol oh
+Oct 17 01:38:27 <UndeadLeech>	They updated LLVM, so it might be related to that. Some optimizations maybe.
+Oct 17 01:39:37 <nixpulvis>	i guess I've been using 1.48 anyway...
+Oct 17 01:40:37 <UndeadLeech>	Beta you mean?
+Oct 17 01:41:13 <kchibisov>	UndeadLeech: it's just strange how fast it is.
+Oct 17 01:41:38 <UndeadLeech>	I find it strange that my branch's performance has degraded since yesterday.
+Oct 17 01:41:46 <UndeadLeech>	As long as it's faster, that's fine by me.
+Oct 17 01:41:57 <kchibisov>	roted a bit.
+Oct 17 01:42:16 <kchibisov>	UndeadLeech: it could mean that llvm was guessing something oddly.
+Oct 17 01:42:34 <UndeadLeech>	Previously you mean? Yeah.
+Oct 17 01:42:42 <UndeadLeech>	Though it's still worse than bottom, which makes sense.
+Oct 17 01:43:27 <UndeadLeech>	I think the last remaining issue with the non_copy_cell stuff is the performance of Row::new. Since that involves a lot of stuff.
+Oct 17 01:43:35 <kchibisov>	but it's ~2x improvement.
+Oct 17 01:43:37 <UndeadLeech>	And unfortunately our benchmarks are a bit short.
+Oct 17 01:44:16 <UndeadLeech>	I'm not too concerned with the top benchmarks at all tbh.
+Oct 17 01:44:45 <kchibisov>	I am concerned, since looking at 2x speedups on amd64 is strange.
+Oct 17 01:44:49 <kchibisov>	from a compiler bump.
+Oct 17 01:44:59 <UndeadLeech>	Is it though?
+Oct 17 01:45:09 <kchibisov>	Yeah.
+Oct 17 01:45:21 <UndeadLeech>	I've had 2x performance differences just by switching around two statements in my non_copy_cells stuff.
+Oct 17 01:45:25 <UndeadLeech>	It wouldn't surprise me.
+Oct 17 01:45:38 <kchibisov>	I mean from optimizations.
+Oct 17 01:45:52 <UndeadLeech>	Knowing what you're allowed to switch around is an optimization.
+Oct 17 01:45:59 <kchibisov>	Like whatever you switch around doesn't matter, since you're writing that code.
+Oct 17 01:46:14 <UndeadLeech>	I have to switch that stuff around to influence code generation though.
+Oct 17 01:46:18 <kchibisov>	UndeadLeech: well, that's true, but you can't really switch around sometimes.
+Oct 17 01:46:32 <kchibisov>	But I guess.
+Oct 17 01:46:47 <kchibisov>	I forgot that you can switch around though.
+Oct 17 01:46:50 <UndeadLeech>	Stuff like auto vectorization can also make a massive difference.
+Oct 17 01:46:57 <kchibisov>	I was writing for arch where you can't do that.
+Oct 17 01:47:25 <kchibisov>	I mean writing optimizations in llvm.
+Oct 17 01:48:01 <UndeadLeech>	I mean you're much more familiar with LLVM than I am. But this is just hottish code where small changes can easily make big differences. Especially since this part of the code isn't optimized well.
+Oct 17 01:48:21 <kchibisov>	Like you know, I'm expecting that amd64 is very polished just by looking at the amount of things it has for amd64.
+Oct 17 01:48:26 <UndeadLeech>	But of course I haven't verified at all that this result is consistent, I might have just been doing something strange yesterday at 2am.
+Oct 17 01:48:41 <UndeadLeech>	I'm currently constantly running benchmarks for non_copy_cells.
+Oct 17 01:49:04 <kchibisov>	Though, maybe llvm changed something on higher level with ir passes.
+Oct 17 01:49:15 <UndeadLeech>	Could have also been a Rust change.
+Oct 17 01:49:25 <kchibisov>	Or a change from both sides.
+Oct 17 01:49:34 <UndeadLeech>	Could also be completely unrelated to all of that and just be random fluctuation.
+Oct 17 01:49:45 <UndeadLeech>	I just know that I updated 1.47.0, so that's the most likely cause I'd say.
+Oct 17 01:49:52 <kchibisov>	Like llvm is a bit C-ish.
+Oct 17 01:50:19 <UndeadLeech>	Isn't that kinda the point of C++? :P
+Oct 17 01:50:30 <kchibisov>	UndeadLeech: I mean in terms of IR and passes.
+Oct 17 01:51:06 <kchibisov>	Like I'm not talking about API of llvm.
+Oct 17 01:51:37 <UndeadLeech>	God damn it, I don't remember what made this work yesterday.
+Oct 17 01:51:53 <kchibisov>	UndeadLeech: try previos rust?
+Oct 17 01:52:03 <kchibisov>	Maybe that what broke things for you.
+Oct 17 01:52:11 <UndeadLeech>	Tried it already.
+Oct 17 01:52:20 <UndeadLeech>	Though I could try again, I made some changes.
+Oct 17 01:52:27 <UndeadLeech>	Just always so many factors.
+Oct 17 01:52:35 <UndeadLeech>	I think I ran with 1.47.0 yesterday too though.
+Oct 17 01:53:05 <kchibisov>	Though, rust overcomes llvm limitations with their mir.
+Oct 17 01:53:21 <kchibisov>	limitations -> missing optimizations.
+Oct 17 01:54:03 <kchibisov>	But a lot of modern kinda safe languages on top of llvm having their own internal language.
+Oct 17 02:10:39 <nixpulvis>	rust has the ability to do some additional transforms that LLVM can't because the types are weaker.
+Oct 17 02:11:15 <kchibisov>	nixpulvis: the point are not types most of the time.
+Oct 17 02:11:17 <UndeadLeech>	Weak<ER>
+Oct 17 02:11:28 <kchibisov>	the point is thta you can't do constant propagation properly in llvm.
+Oct 17 02:11:51 <kchibisov>	I mean you can, but not for all things that you may be interested in.
+Oct 17 02:13:17 <kchibisov>	And in fact rust added it in mir in like 2019.
+Oct 17 02:13:53 <kchibisov>	(I still don't get why rust called their ir as mir, since llvm also has mir)
+Oct 17 02:19:32 <UndeadLeech>	Because it's between the HIR and the LLVM IR?
+Oct 17 02:20:53 <kchibisov>	yeah, and then you have mir after LLVM IR...
+Oct 17 02:21:14 <kchibisov>	it's like HIR -> MIR -> LLVM IR -> MIR(from llvm) ->
+Oct 17 02:21:54 <kchibisov>	And no, llvm's thing is machiine ir, and rust's one is mid-level ir.
+Oct 17 02:21:58 <kchibisov>	¯\_(ツ)_/¯
+Oct 17 02:24:26 <nixpulvis>	should have called it Myrrh
+Oct 17 02:25:59 <kchibisov>	I'd call HIR as OIR and MIR as AOIR.
+Oct 17 02:26:33 <nixpulvis>	O? A?
+Oct 17 02:27:09 <kchibisov>	Well, A is for another.
+Oct 17 02:27:14 <nixpulvis>	figured
+Oct 17 02:27:17 <kchibisov>	And O could be literally anything.
+Oct 17 02:27:32 <nixpulvis>	well damn that's useless
+Oct 17 02:27:44 <kchibisov>	Could be our, could be other.
+Oct 17 02:28:01 <nixpulvis>	another other ....
+Oct 17 02:28:02 <kchibisov>	clearly shows that you've reached a point that you have too many irs to care about.
+Oct 17 02:28:43 <kchibisov>	I'd use our though.
+Oct 17 02:28:50 <nixpulvis>	yes, everything should be some ideal dependent LLVM MIR
+Oct 17 02:29:41 <nixpulvis>	funny you mention const prop tho. Since I'm trying to think about information flow atm.
+Oct 17 02:29:59 <kchibisov>	data flow?
+Oct 17 02:30:05 <nixpulvis>	sure
+Oct 17 02:31:40 <kchibisov>	The thing is that the amount of layers of different passes on different intermidiate represenations is getting bigger an bigger.
+Oct 17 02:32:22 <nixpulvis>	why?
+Oct 17 02:32:32 <kchibisov>	The good thing that all transformations are deterministic and once you've got a math it works.
+Oct 17 02:32:45 <kchibisov>	nixpulvis: I mean they try to run code faster?
+Oct 17 02:33:04 <kchibisov>	And most of the time some IR is lacking something.
+Oct 17 02:33:20 <nixpulvis>	just make my curcuits small.
+Oct 17 02:33:21 <kchibisov>	or some phase of transforming IR is lacking something.
+Oct 17 02:35:46 <nixpulvis>	but yea, sometimes it takes a custom data structure to do some algorithm properly.
+Oct 17 02:36:39 <nixpulvis>	stupid question: can LLVM reason about 1 + 1 = 2?
+Oct 17 02:37:00 <kchibisov>	that's called constant evoluation.
+Oct 17 02:37:04 <nixpulvis>	i know
+Oct 17 02:37:07 <kchibisov>	it can do that for sure.
+Oct 17 02:37:10 <nixpulvis>	so I assume yes
+Oct 17 02:37:12 <nixpulvis>	good
+Oct 17 02:37:22 <nixpulvis>	where does that stop working?
+Oct 17 02:37:24 <kchibisov>	The point with constant propagation is a bit different.
+Oct 17 02:37:34 <kchibisov>	CE != CP
+Oct 17 02:37:55 <kchibisov>	CE is easier to do than CP.
+Oct 17 02:37:59 <nixpulvis>	they're related tho.
+Oct 17 02:38:03 <nixpulvis>	oh?
+Oct 17 02:38:19 <kchibisov>	Yes, they are.
+Oct 17 02:38:31 <kchibisov>	But the point is that you don't need CE in rust.
+Oct 17 02:38:35 <kchibisov>	But you could need CP in rust.
+Oct 17 02:38:45 <UndeadLeech>	Do you guys think it's even worth it to bother optimizing the grid initialization to the last %?
+Oct 17 02:39:12 <UndeadLeech>	I'm wondering if we should change our benchmarks to fill the grid before every run. Like write 100k lines outside of the benchmark.
+Oct 17 02:39:14 <kchibisov>	UndeadLeech: depends, but grid initialization should be relatively fast?
+Oct 17 02:39:23 <kchibisov>	I mean that you don't initialize it a lot.
+Oct 17 02:39:29 <kchibisov>	s/fast/rare/
+Oct 17 02:39:35 <UndeadLeech>	I mean define "relatively fast".
+Oct 17 02:40:21 <UndeadLeech>	This is what I'm currently working with: https://paste.rs/CTf.png
+Oct 17 02:40:23 <nixpulvis>	I'd at least make one new benchmark tracking that spesifically...
+Oct 17 02:40:34 <UndeadLeech>	On my 6700k the gap is significantly bigger than my computer.
+Oct 17 02:40:35 <nixpulvis>	I do open new terminals quite frequently.
+Oct 17 02:40:45 <kchibisov>	I really don't care about scrolling that much.
+Oct 17 02:40:55 <UndeadLeech>	nixpulvis: Yeah, but we're talking like a few milliseconds.
+Oct 17 02:40:58 <kchibisov>	Like if it's due to init that's likely fine.
+Oct 17 02:41:24 <nixpulvis>	I doubt it's a big problem... but what's the issue if you don't care enough to track it?
+Oct 17 02:42:09 <kchibisov>	The point is that scrolling sucking a bit due to grid initialization isn't a bit of a deal, since 'yes' is pretty artificial benchmark.
+Oct 17 02:42:43 <nixpulvis>	kchibisov: wikipedia's example of CP uses CE directly in making it's case... I'm not sure how far you get with CP alone.
+Oct 17 02:43:22 <UndeadLeech>	I mean even in a 'yes' benchmark scenario, you're not going to notice a difference of 10ms.
+Oct 17 02:43:48 <kchibisov>	UndeadLeech: you need to test with more payload.
+Oct 17 02:43:54 <nixpulvis>	how would you implement this? just warm up with a bunch of text pushed? How will other terminals act?
+Oct 17 02:44:09 <kchibisov>	s/more/bigger/
+Oct 17 02:44:21 <UndeadLeech>	kchibisov: I know, that's why I have suggested to change the payload size of vtebench.
+Oct 17 02:44:32 <kchibisov>	You mean default?
+Oct 17 02:44:38 <UndeadLeech>	Yeah.
+Oct 17 02:44:44 <kchibisov>	I guess you can bump it.
+Oct 17 02:44:48 <UndeadLeech>	Or alternatively initializing scrollback.
+Oct 17 02:45:15 <kchibisov>	nixpulvis: the thing is that you can propage constants in rust and then lower llvm's CE will do the thing.
+Oct 17 02:45:18 <UndeadLeech>	I'm just not entirely sure if your benchmarks aren't too tiny at the moment.
+Oct 17 02:45:23 <kchibisov>	propagate*
+Oct 17 02:45:32 <kchibisov>	I'm not saying that you can do only CP.
+Oct 17 02:45:41 <kchibisov>	I'm saying that CP is harder to do in llvm ir in some cases.
+Oct 17 02:45:48 <kchibisov>	But whoever will do CE doesn't matter.
+Oct 17 02:46:05 <kchibisov>	And llvm will do its own CP as well.
+Oct 17 02:46:20 <nixpulvis>	I see. Yea CP needs to deal with reaching variable stuff
+Oct 17 02:46:41 <UndeadLeech>	Ooooh, constant propagation.
+Oct 17 02:47:33 <kchibisov>	though, knowing that rust can do CE, I guess it can run it as well.
+Oct 17 02:47:45 <kchibisov>	And do a multipass CP -> CE..
+Oct 17 02:48:01 <nixpulvis>	CP is something rust's type system seems very well suited for.
+Oct 17 02:48:04 <kchibisov>	I mean it can do CE on language level, I bet they have infra already.
+Oct 17 02:48:18 <kchibisov>	nixpulvis: yeah, I guess that's why you have it there.
+Oct 17 02:48:31 <kchibisov>	since llvm's one lacks const info in some cases.
+Oct 17 02:48:47 <kchibisov>	And it can't speculate with how pointers are working in rust.
+Oct 17 02:49:07 <nixpulvis>	it can speculate ;)
+Oct 17 02:49:22 <nixpulvis>	nothing good ever comes from speculative execution tho.
+Oct 17 02:49:29 <UndeadLeech>	lol
+Oct 17 02:49:40 <UndeadLeech>	I bet AMD disagrees with you.
+Oct 17 02:49:43 <kchibisov>	nixpulvis: I mean speculate in terms of make some assumptions about pointer usage.
+Oct 17 02:50:16 <kchibisov>	And how it could be used accross module boundaries.
+Oct 17 02:52:35 <kchibisov>	That's a good example of C-ish in llvm https://github.com/rust-lang/rust/issues/54878
+Oct 17 02:52:52 <kchibisov>	Since I bet you don't have that many noalias things in C.
+Oct 17 13:40:16 *	Disconnected ()
+**** ENDING LOGGING AT Sat Oct 17 13:40:16 2020
+
+**** BEGIN LOGGING AT Sat Oct 17 13:41:32 2020
+
+Oct 17 13:41:32 *	Now talking on #alacritty
+Oct 17 13:41:32 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.5.0 - https://github.com/alacritty/alacritty/releases/latest
+Oct 17 13:41:32 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sat Aug  1 00:45:32 2020)
+Oct 17 17:44:11 <nixpulvis>	oh look at that, I got a response in heim-rs/darwin-libproc. I don't really think this changes anything tho.
+Oct 17 17:44:35 <kchibisov>	it doesn't, we're not adding one more crate for one file.
+Oct 17 17:45:19 <nixpulvis>	I find it kinda funny that the maintainer doesn't have macOS on hand either.
+Oct 17 17:47:28 <UndeadLeech>	lol
+Oct 17 17:53:41 *	kchibisov just found out that he forgot to close some old issue that is kind of obsolete.
+Oct 17 19:59:27 <prion>	when i run alacritty with -o i get this error
+Oct 17 19:59:47 <prion>	Found argument '-o' which wasn't expected, or isn't valid in this context
+Oct 17 20:00:03 <kchibisov>	Could you give the entire command line?
+Oct 17 20:00:38 <prion>	alacritty -o font.size=10
+Oct 17 20:00:55 <kchibisov>	What's the output of alacritty --version?
+Oct 17 20:01:02 <prion>	0.5.0
+Oct 17 20:01:13 <kchibisov>	-o isn't supported on 0.5.0
+Oct 17 20:01:33 <prion>	then why does 0.5.0 come with a man page that documents -o
+Oct 17 20:01:33 <kchibisov>	you should build master branch.
+Oct 17 20:02:13 <UndeadLeech>	prion: 0.5.0 doesn't come with a man page that documents -o.
+Oct 17 20:02:24 <kchibisov>	prion: there's no -o in a man page https://github.com/alacritty/alacritty/blob/v0.5.0/extra/alacritty.man
+Oct 17 20:02:26 <kchibisov>	for 0.5.0
+Oct 17 20:02:45 <kchibisov>	if someone provided you a manpage with -o it's not our fault.
+Oct 17 20:02:53 <prion>	ok then i'm confused... how did i end up in this state
+Oct 17 20:03:08 <prion>	i cloned the repo and built from source
+Oct 17 20:03:09 <kchibisov>	idk, maybe you have a man page from master branch somewhere.
+Oct 17 20:03:15 <kchibisov>	Ok.
+Oct 17 20:03:18 <prion>	on Oct 8
+Oct 17 20:03:25 <kchibisov>	yes, it's master branch.
+Oct 17 20:03:29 <kchibisov>	And it has -o.
+Oct 17 20:03:48 <kchibisov>	where did you install the alacritty?
+Oct 17 20:03:58 <kchibisov>	And check that 'which' resolved to it.
+Oct 17 20:05:06 <prion>	it's in ~/.cargo/bin/alacritty... but now that i think of it, maybe i did "cargo install alacritty" before i built from source
+Oct 17 20:05:25 <prion>	ok i also have /usr/local/bin/alacritty which is 0.6.0-dev
+Oct 17 20:05:37 <kchibisov>	And .cargo/bin/alacritty is likely 0.5.0.
+Oct 17 20:06:38 <prion>	yep
+Oct 17 20:07:00 <nixpulvis>	also depends where you were loading the man page from...
+Oct 17 20:07:38 <prion>	cargo uninstall alacritty fixed everything
+Oct 17 20:07:42 <prion>	sorry for the confusion
+Oct 18 19:44:27 *	Disconnected ()
+**** ENDING LOGGING AT Sun Oct 18 19:44:27 2020
+
+**** BEGIN LOGGING AT Sun Oct 18 19:44:54 2020
+
+Oct 18 19:44:54 *	Now talking on #alacritty
+Oct 18 19:44:54 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.5.0 - https://github.com/alacritty/alacritty/releases/latest
+Oct 18 19:44:54 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sat Aug  1 00:45:32 2020)
+Oct 18 20:32:27 *	Disconnected ()
+**** ENDING LOGGING AT Sun Oct 18 20:32:27 2020
+
+**** BEGIN LOGGING AT Sun Oct 18 20:36:34 2020
+
+Oct 18 20:36:34 *	Now talking on #alacritty
+Oct 18 20:36:34 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.5.0 - https://github.com/alacritty/alacritty/releases/latest
+Oct 18 20:36:34 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sat Aug  1 00:45:32 2020)
+Oct 18 21:20:11 <kchibisov>	How ppl can even defend terminal that prints 90KB of text in 1.1 seconds....
+Oct 18 21:20:13 <kchibisov>	Like how.
+Oct 18 21:29:44 <UndeadLeech>	Which one is that?
+Oct 18 21:30:01 <kchibisov>	https://github.com/91861/wayst
+Oct 18 21:30:33 <kchibisov>	I mean, if you put 'st' in a terminal name you already marked your software as shit.
+Oct 18 21:30:50 <kchibisov>	In a way that it refers to 'st'.
+Oct 18 21:30:53 <UndeadLeech>	I mean it's literally called waste, sooo...
+Oct 18 21:31:04 <kchibisov>	good one.
+Oct 18 21:31:19 <UndeadLeech>	But that seems extremely slow.
+Oct 18 21:31:35 <kchibisov>	I mean it reaches 5fps on first benchmark on vtebench
+Oct 18 21:31:56 <kchibisov>	And I'm not sure that it was able to finish 2nd dense cells.
+Oct 18 21:32:22 <kchibisov>	And I crashed it like twice in a raw from completely different things.
+Oct 18 21:32:56 <kchibisov>	I mean, I don't think that I can expect much from 3 month old C software.
+Oct 18 21:33:33 <kchibisov>	But before you add all your features, I think it makes sense to make your shit a bit stable in first.
+Oct 18 21:37:49 <kchibisov>	I've noticed that 1s for 90KB, because it was priniting dmesg in 300ms, which was 30KB.
+Oct 18 21:38:08 <kchibisov>	And it was the first time I was waiting for dmesg to print.
+Oct 18 21:50:40 <UndeadLeech>	That sounds pretty bad, yeah. And generally you should have a good foundation in place before building up on it. Usually terminals don't get faster over time after more features are added.
+Oct 18 21:50:50 <UndeadLeech>	At that point why even bother with C?
+Oct 18 21:54:27 <kchibisov>	To use  -ffast-math in CFLAGS.
+Oct 18 21:54:46 <leibniz[m]>	http://i.imgur.com/bq22ZOf.png
+Oct 18 21:54:47 <leibniz[m]>	Just a temporary question, why emojis are messed up again? I've added the fall back noto emoji color to my configs and it worked with non nerd font variants.
+Oct 18 21:54:47 <leibniz[m]>	(I'm gonna revert to the non-nerd for other reasons)
+Oct 18 21:54:49 <kchibisov>	They force it by default in clags.
+Oct 18 21:55:02 <kchibisov>	leibniz[m]: it's some other font showing them.
+Oct 18 21:55:16 <kchibisov>	alacritty can only render them, but it doesn't prefer any particular font for them.
+Oct 18 21:57:35 <leibniz[m]>	kchibisov: Can I detect which font? It must be that nerd font has this black and white emojis because otherwise alacritty was using noto emoji color
+Oct 18 22:02:44 <kchibisov>	leibniz[m]: you may try fc-match -s 'YOUR_FONT'.
+Oct 18 22:02:57 <kchibisov>	Will show the order of fonts we're picking.
+Oct 18 22:06:05 <kchibisov>	Something like 'DejaVu Sans Mono' has those monochrome things most of the time.
+Oct 18 22:07:25 <leibniz[m]>	kchibisov: yeah it's weird. when I fc-match -s Inconsolata, the noto color comes second.But for the nerd font variant it doesn't even come anywher
+Oct 18 22:07:44 <kchibisov>	Are you using Inconsolate in config?
+Oct 18 22:07:55 <kchibisov>	or InconsolateLGC Nerd Font?
+Oct 18 22:08:03 <leibniz[m]>	kchibisov: InconsolateLGC Nerd Font
+Oct 18 22:08:26 <kchibisov>	So you do'fc-match -s "InconsolateLGC Nerd Font"
+Oct 18 22:09:25 <leibniz[m]>	kchibisov: got a match for "Inconsolata LGC Nerd Font Mono"...confusing names.
+Oct 18 22:09:31 <leibniz[m]>	why noto color is last?
+Oct 18 22:09:38 <kchibisov>	leibniz[m]: ¯\_(ツ)_/¯
+Oct 18 22:09:45 <leibniz[m]>	for regular inconsolara notocolor is second
+Oct 18 22:09:48 <kchibisov>	Do you have a fontconfig rules for Inconsolate?
+Oct 18 22:11:08 <leibniz[m]>	kchibisov: no . but for monospace:     <alias> <family>monospace</family><prefer><family>DejaVu Sans Mono</family><family>Noto Color Emoji</family></prefer></alias>
+Oct 18 22:11:44 <kchibisov>	it's your own config? Not the system one?
+Oct 18 22:12:37 <leibniz[m]>	kchibisov: /.config/fontconfig/fonts.conf..its mine.
+Oct 18 22:12:56 <leibniz[m]>	https://github.com/alacritty/alacritty/issues/153#issuecomment-630636358
+Oct 18 22:13:06 <leibniz[m]>	added due to this issue
+Oct 18 22:13:26 <kchibisov>	Ok. you can try replacing DejaVu Sans Mono in that file with Inconsolata LGC Nerd Font Mono.
+Oct 18 22:13:55 <kchibisov>	And then 'fc-cache -srvf' and use 'monospace' in alacritty.yml.
+Oct 18 22:14:09 <kchibisov>	You can try doing fc-match -s "monospace" afterwards.
+Oct 18 22:17:15 <leibniz[m]>	kchibisov: thanks. :)
