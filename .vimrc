@@ -93,12 +93,6 @@ set path +=$PWD/
 " display all matching files
 set wildmenu
 
-" Make the terminal behave like a normal split
-tnoremap <C-w>h <C-\><C-n><C-w>h
-tnoremap <C-w>j <C-\><C-n><C-w>j
-tnoremap <C-w>k <C-\><C-n><C-w>k
-tnoremap <C-w>l <C-\><C-n><C-w>l
-
 " Move more easily between splits
 map <C-h> <C-w>h
 map <C-j> <C-w>j
