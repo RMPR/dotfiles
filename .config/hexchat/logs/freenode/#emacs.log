@@ -23230,3 +23230,904 @@ Oct 18 23:27:31 <offby1>	rudybot: Celeste Holm.  C'mon dude
 Oct 18 23:27:33 <rudybot>	*offby1: i was surprised to learn that celeste holm is related to ted h. nelson
 Oct 18 23:27:43 <offby1>	well, you learn something new every day
 Oct 18 23:27:44 <Viking667>	that makes him an impossible man
+Oct 18 23:28:14 <aidalgol>	offby1: Have I shown you the retractable seal gif?
+Oct 18 23:28:43 <edgar-rft>	american genealogy is meta-circular
+Oct 18 23:29:29 <aidalgol>	https://i.kym-cdn.com/photos/images/original/001/417/563/9d9.gif
+Oct 18 23:29:31 <offby1>	aidalgol: I dunno
+Oct 18 23:29:38 <offby1>	Viking667: https://youtu.be/Wr3edVsHkj0?t=76
+Oct 18 23:29:54 <aidalgol>	also https://i.kym-cdn.com/photos/images/newsfeed/001/900/371/4a4.jpg
+Oct 18 23:29:56 <offby1>	aidalgol: ha!  That one is going straight to Mrs Offby1
+Oct 18 23:31:20 <grym>	did someone summon The Freelance Police
+Oct 18 23:32:19 *	offby1 looks at his feet
+Oct 18 23:33:17 <edgar-rft>	how do your feet look like?
+Oct 18 23:35:59 <edrx>	Viking667: hi!
+Oct 18 23:39:48 <twb>	Lets refer to memes as me-mes
+Oct 18 23:40:07 <bremner>	no-no
+Oct 18 23:40:45 <grym>	how about semiotes 
+Oct 18 23:41:02 <grym>	semiot? 
+Oct 18 23:41:07 <bremner>	itym monads
+Oct 18 23:41:21 <terpri_>	one of these days i'm going to get udanax gold working (the smalltalk-based version of xanadu)
+Oct 18 23:41:29 <grym>	no no those are the nice things herr liebniz keeps going on about 
+Oct 18 23:41:51 <bremner>	those are indeed the monads I was thinking of
+Oct 18 23:42:10 <bremner>	not that I have the faintest idea what Herr Prof. Dr. L was on about
+Oct 18 23:42:33 <terpri_>	it's almost a normal smalltalk source dump...except there are a bunch of nonstandard annotations for translation to c++, and there were some modifications to the underlying ST runtime they couldn't publish
+Oct 18 23:44:52 <terpri_>	dunno if it'll be any more interesting than the udanax green demo, but it appears to contain all their work on enfilades, the ent, etc.
+Oct 18 23:45:37 <johnjay>	i guess the thing about the xi editor i didn't get was all the references to teams of developers working for years to solve the problems
+Oct 18 23:45:52 <johnjay>	rms made emacs mostly himself right
+Oct 18 23:51:22 <hodapp>	terpri_: is source code (whatever 'source' is seemingly there for smalltalk) of both of those available?
+Oct 18 23:56:27 *	Disconnected ()
+**** ENDING LOGGING AT Sun Oct 18 23:56:27 2020
+
+**** BEGIN LOGGING AT Mon Oct 19 00:00:41 2020
+
+Oct 19 00:00:41 *	Now talking on #emacs
+Oct 19 00:00:41 *	Topic for #emacs is: Gul Dukat says upgrade to 27.1: https://i.imgflip.com/4hpvlw.jpg | Emacs questions take priority over off-topic chatter, so ask! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+Oct 19 00:00:41 *	Topic for #emacs set by wgreenhouse!wgreenhous@fsf/member/wgreenhouse (Thu Oct  8 00:50:34 2020)
+Oct 19 00:00:41 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Oct 19 00:04:37 <hodapp>	terpri_: I'm curious if anyone else has attempted an undertaking like this
+Oct 19 00:06:41 <Viking667>	edrx: I'll have an update to that pastebin for you, I've got up to about 3m50s, but I'll have to go out somewhat soon.
+Oct 19 00:08:36 <Viking667>	https://pastebin.com/cq5Fx0yh  is the new update, at least for now.
+Oct 19 00:10:02 <Viking667>	And please don't wipe out your original notes, paste sections from that pastebin into it.
+Oct 19 00:10:26 <edrx>	Viking667: fantastic! and ok! =)
+Oct 19 00:11:26 <Viking667>	Is that roughly what you wanted?
+Oct 19 00:11:32 <edrx>	Viking667: if you'd like to learn how to use the hyperlinks to positions in video files just say!
+Oct 19 00:11:45 <Viking667>	And, how were you going to paste those into youtube studio?
+Oct 19 00:11:51 <edrx>	yes, it's perfect!!!
+Oct 19 00:11:56 <edrx>	line by line
+Oct 19 00:12:40 <Viking667>	I'm assuming that ECSQ is a macro that takes the following timestamp, searches for that, then paste the rest of the line in at that place?
+Oct 19 00:13:06 <Viking667>	Ah, I see. It's further up the file.
+Oct 19 00:14:07 <Viking667>	I'll be going out in an hour, and I won't be back for another uhm... three hours or so. I should be able to get working on more of the file after that.
+Oct 19 00:14:20 <Viking667>	You don't have this file in a git repo, do you?
+Oct 19 00:14:27 <edrx>	it produces a link to the video at youtube, with a "#t=..." argument to make it open the video at that point.
+Oct 19 00:14:30 <edrx>	no, not that one
+Oct 19 00:15:22 <edrx>	ah
+Oct 19 00:15:24 <Viking667>	hm, wasn't quite what I was meaning. with that, you'll get a list of URLs with text at two-ish second intervals.
+Oct 19 00:15:43 <Viking667>	I was meaning, how would you get that text into Youtube Studio's subtitle editor?
+Oct 19 00:16:08 <Viking667>	I'm assuming emacs doesn't quite know how to drive firefox in that manner?
+Oct 19 00:16:43 <edrx>	more about those timestamps: if I run M-p on a line with a timestamp eev runs mpv to open the default video file at that timestamp
+Oct 19 00:17:11 <Viking667>	Yes, but those are all external to the video itself. 
+Oct 19 00:17:44 <Viking667>	They're great for your list of things, but until they reach the subtitles, they're of no real use to anyone else not accessing this document.
+Oct 19 00:18:08 <edrx>	Viking667: I'll have to transfer lines from Emacs to the youtube subtitle editor one by one, but I think that this is ok
+Oct 19 00:18:23 <edrx>	Viking667: did you see this? http://angg.twu.net/emacsconf2019.html
+Oct 19 00:18:48 <edrx>	in the HTML the timestamps become links
+Oct 19 00:22:14 <Viking667>	Yes, I'm aware of that, I've seen those quite a few times.
+Oct 19 00:22:43 <Viking667>	It was the "transfer lines from Emacs to the youtube subtitle editor one by one" that I was meaning.
+Oct 19 00:22:59 <edrx>	ah, ok, sorry. I did not understand your "they're of no real use to anyone else not accessing this document"
+Oct 19 00:23:13 <Viking667>	edrx: that's the document I used as a model for the one you're now looking at in the pastebin.
+Oct 19 00:23:45 <terpri_>	hodapp, i've attempted to modify squeak to ignore the {}-enclosed bits but have forgotten how to actually use squeak; there are also (relatively minor) differences between ParcPlace smalltalk and squeak so it would need some squeak hacking beyond that (though probably not all that much, i'd guess just simple api shims)
+Oct 19 00:24:07 <Viking667>	okay, if you put the notes into your document, that's great, but for those people who don't go to your document, they're going to be left with the shitty subtitling that youtube does. Your pasting of lines into the subtitler should cure that problem.
+Oct 19 00:25:07 <terpri_>	(n.b. i spent just a day or two on it when i was bored, rather than making a concerted effort of any kind)
+Oct 19 00:25:28 <clmg>	Google's "People also search for" popup is the most obnoxious change they've ever made to search.
+Oct 19 00:25:38 <edrx>	terpri_: do you know how to make squeak, or any other smalltalk, do some action when it receives a SIGUSR2?
+Oct 19 00:26:29 <terpri_>	there was also an attempt to translate the smalltalk source to java...like 15 years ago (named abora, only *real* samuel taylor coleridge fans will know why)
+Oct 19 00:31:56 <terpri_>	edrx, no, but it'd probably be fairly easy to add to gnu smalltalk, as large parts are written in C and it doesn't seem to use SIGUSR2 for anything atm
+Oct 19 00:32:26 <edrx>	terpri_: ok!
+Oct 19 00:35:15 <Viking667>	regarding udanax, could they be filed into an old-school Smalltalk-80?
+Oct 19 00:35:28 <Viking667>	Or would we have trouble interfacing it?
+Oct 19 00:36:22 <hodapp>	from the little I know it doesn't sound like that gets us any closer
+Oct 19 00:36:49 <Viking667>	any closer to ... what? I'm missing the earlier part of the conversation.
+Oct 19 00:37:18 <johnjay>	Viking667: something about smalltalk and java and gnu small talk
+Oct 19 00:37:54 <johnjay>	i didn't know there was a gnu smalltalk
+Oct 19 00:39:06 <brettgilio>	Hey all, just wanted to share my post on EmacsConf 2020 for those who arent in #emacsconf https://brettgilio.com/posts/2020-10-18-emacsconf-2020.html
+Oct 19 00:44:57 <terpri_>	edrx, and squeak's OSProcess package could probably be hacked for custom SIGUSR2 handling as well (via UnixOSProcessAccessor's forwardSigUsr2 method that returns a semaphore)
+Oct 19 00:45:48 <Viking667>	mrrrright. Looks like I'll have to shut down now... I'll be back another time.
+Oct 19 00:46:21 <Viking667>	I'll have another update for edrx later on, I'm not quite sure when.
+Oct 19 00:46:23 *	Viking667 disapparates
+Oct 19 00:47:12 <ryouma>	this is a physical conference?
+Oct 19 00:48:26 <twb>	Hrmm, does anyone sell those doctor bird-beak masks that are actually medically rated?
+Oct 19 00:48:32 <bremner>	ryouma: notzmv 
+Oct 19 00:48:34 <bremner>	oops
+Oct 19 00:48:49 <bremner>	no. sorry about the over-eager tab completion
+Oct 19 00:49:41 <terpri_>	re old-school smalltalk-80, squeak already has implements it iiuc
+Oct 19 00:50:27 <terpri_>	aww, i missed the CFP for emacsconf
+Oct 19 00:51:09 <terpri_>	should be fun though...back-to-back guix and emacs conferences! (november 22 and 28/29, resp.)
+Oct 19 00:52:08 <brettgilio>	ryouma: It is online
+Oct 19 00:52:22 <ryouma>	thanks
+Oct 19 00:52:25 <ryouma>	good
+Oct 19 00:52:27 <brettgilio>	bandali: Has the details.
+Oct 19 00:52:32 <brettgilio>	and emacsconf.org
+Oct 19 00:52:35 <terpri_>	(http://guix.gnu.org/en/blog/2020/online-guix-day-announce-1/ is the virtual guix conference)
+Oct 19 00:52:37 <ryouma>	that's all i needed to know
+Oct 19 00:53:02 *	terpri_ marks their calendar
+Oct 19 00:53:04 <brettgilio>	terpri_: I have that pinned on my homepage :)
+Oct 19 00:59:15 <johnjay>	guix is the future?
+Oct 19 01:03:05 <aidalgol>	twb: Probably not, as that's obsolete tech.
+Oct 19 01:03:34 <aidalgol>	twb: You'd probably have to make one to fit over a respirator.
+Oct 19 01:05:39 <twb>	sensible
+Oct 19 01:05:51 <twb>	I asked because eatliver.com had a picture of a guy wearing on on the L
+Oct 19 01:05:54 <twb>	*one on
+Oct 19 01:07:46 <aidalgol>	The what?
+Oct 19 01:08:02 <TRS-80>	johnjay: I read what I thought were some really good criticisms of it, from perspective of a long time Debian packager.  If you are interested, I could try and dig it up.
+Oct 19 01:08:46 <johnjay>	yeah. it sounds like an interesting project to make a "modern" text editor, I'm curious about why it failed
+Oct 19 01:08:55 <johnjay>	and why it keep talking about concurrency so much
+Oct 19 01:09:39 <twb>	aidalgol: the L is the metro rail network in... chicago?  I forget.
+Oct 19 01:09:49 <twb>	aidalgol: I think it's short for "elevated"
+Oct 19 01:10:08 <twb>	codingquark: did you know curl has MQTT built in
+Oct 19 01:10:28 <TRS-80>	johnjay: I was referring to the package manager / OS?
+Oct 19 01:10:41 <johnjay>	er right that too
+Oct 19 01:14:11 <homerj>	emacs is a modern editor
+Oct 19 01:14:17 <homerj>	I just installed a new version a bit ago
+Oct 19 01:14:40 <johnjay>	that's why i put it in quotes. it's not clear exactly what a "modern" editor is
+Oct 19 01:14:46 <johnjay>	one that runs on a phone? idk
+Oct 19 01:14:59 <homerj>	using it to write a recent paper on rural culture and its impact on health outcomes 
+Oct 19 01:15:14 *	TRS-80 mostly has only disdain for things that are referred to as "modern"
+Oct 19 01:16:48 <TRS-80>	Similar.  I came to my Emacs usage through writing and note taking, by way of one of the two main gateway drugs (Orgmode).
+Oct 19 01:17:29 <homerj>	emacs works on my tablet
+Oct 19 01:18:07 <homerj>	and if those bastards at Samsung will ever send me my keyboard I can use it
+Oct 19 01:18:57 *	TRS-80 was seriouslt looking at small backlit mechanical bluetooth keyboards recently
+Oct 19 01:19:20 <homerj>	One of the major risk factors for chronic disease is smoking\citep{smoking. However alcohol use is also higher in rural areas as well\citep{alcohol}. Lobbying in Pennsylvania by such groups as the Pennsylvania Licensed Beerage and Tavern Association has hampered efforts to ban smoking in all taverns in the state\citep{smoking2}.
+Oct 19 01:19:31 <homerj>	see, am I writing that paper
+Oct 19 01:20:13 <homerj>	note I don't believe in spellcheck
+Oct 19 01:21:16 <twb>	homerj: in rural areas surely petrol sniffing is the biggest problem
+Oct 19 01:21:30 <twb>	homerj: only really rich people can afford alcohol
+Oct 19 01:22:01 <homerj>	Coke-bottle meth is another chapter
+Oct 19 01:32:09 <aidalgol>	twb: Have you seen the cheap shit bogans will buy?
+Oct 19 01:32:41 <aidalgol>	fags and beesies all 'round in dees here pards
+Oct 19 01:34:16 <parsnip>	do you think we can prove whether or not spelling exists?
+Oct 19 01:35:14 <homerj>	oh, I just flyspell the buffer
+Oct 19 01:36:27 <homerj>	I have US and Med dictionaries attached to it so it doesn't keep bitching about something like "dexamethasone" 
+Oct 19 01:37:15 <aidalgol>	I bet you refer to the DSM, too.
+Oct 19 01:37:39 <homerj>	no
+Oct 19 01:37:58 <aidalgol>	oh...
+Oct 19 01:38:19 <homerj>	@book{alcohol,
+Oct 19 01:38:19 <homerj>	author = "{Substance Abuse and Mental Health Services Administration}",
+Oct 19 01:38:20 <homerj>	title = {2019 National survey on Drug Use and Health},
+Oct 19 01:38:20 <homerj>	year = {2019},
+Oct 19 01:38:20 <homerj>	},
+Oct 19 01:38:34 <aidalgol>	,flay homerj 
+Oct 19 01:38:35 <fsbot>	homerj: when the humans take over, you will be first against the wall
+Oct 19 01:52:44 <twb>	Can python FFI to a rust library?
+Oct 19 01:52:58 <twb>	Do rust libraries "look like" C libraries to high-level languages?
+Oct 19 01:53:04 <twb>	I guess librsvg works that way so it must
+Oct 19 01:53:35 <grym>	twb: cffi doesn't speak rust
+Oct 19 01:53:52 <grym>	or, uh, i'm totally wrong 
+Oct 19 01:53:54 <grym>	https://gist.github.com/seanjensengrey/f5d73bbdf22cfa1ad463 ?? 
+Oct 19 01:53:54 <fsbot>	Ask again later
+Oct 19 01:53:56 <twb>	The specific library I'm looking at is "quiche", an HTTP/3 client
+Oct 19 01:55:02 <homerj>	I don't even know wtf a quiche is, outside watching a sitcom and the husband coming home and going "honey, what's for dinner" and she goes "quiche" and he goes "meh, we're going out tonight!"
+Oct 19 01:55:19 <grym>	homerj: tasty
+Oct 19 01:55:22 <twb>	homerj: quiche is basically an egg pie
+Oct 19 01:55:38 <twb>	homerj: it is historically seen as effeminate or effete
+Oct 19 01:55:54 <twb>	as opposed to, say, blood sausage
+Oct 19 01:56:05 <homerj>	or as the kids would say "that's a little sus"
+Oct 19 01:56:12 <grym>	well.  in the US, in the reagan 80s 
+Oct 19 01:56:28 <grym>	there was a satirical book entitled 'real men don't eat quiche'
+Oct 19 01:56:50 <grym>	which set some cultural knowledge 
+Oct 19 01:57:25 <grym>	i dunno, i grew up eating it a few times a month as a kid in the US
+Oct 19 01:57:48 <grym>	eggs cheese sausage spinach pie. what's not to like 
+Oct 19 02:00:07 <grym>	which reminds me, i should make some more pies
+Oct 19 02:00:32 <aidalgol>	twb: Isn't the ABI the same?
+Oct 19 02:00:49 <aidalgol>	I mean, doesn't it kind of *have* to be the same to work with existing tools?
+Oct 19 02:00:58 <grym>	aidalgol: yeah, looks like cffi will play nice at least somewhat 
+Oct 19 02:03:51 <aidalgol>	A-SIM-IL-ATE!!
+Oct 19 02:15:01 <twb>	aidalgol: dunno
+Oct 19 02:15:08 <twb>	aidalgol: I *think* so
+Oct 19 02:19:24 <dale>	Let's see if I can make a nativecomp build that doesn't segfault.
+Oct 19 02:19:37 <Aurora_v_kosmose>	Quiche is basically just a more complicated omelette. I don't see what's wrong with it.
+Oct 19 02:19:53 <grym>	Aurora_v_kosmose: with a pie, let's not forget!
+Oct 19 02:20:01 *	Aurora_v_kosmose shrugs
+Oct 19 02:20:13 <twb>	Aurora_v_kosmose: I speculate the logic is: meat = manly; non-meat = non-manly
+Oct 19 02:20:14 <grym>	Aurora_v_kosmose: or did you mean frittata
+Oct 19 02:20:40 <Aurora_v_kosmose>	https://centslessdeals.com/wp-content/uploads/2018/06/Spinach-Quiche-Recipe-4.jpg
+Oct 19 02:20:55 <grym>	twb: probably "ah.  french.  femme!"
+Oct 19 02:21:16 <twb>	I love that the military initial thought all camouflage was "gay" because painting = gay
+Oct 19 02:21:16 <grym>	twb: or "ah, upper class.  femme!"
+Oct 19 02:21:20 <Aurora_v_kosmose>	https://www.yellowblissroad.com/wp-content/uploads/2019/09/Ham-and-Cheese-Quiche-SQUARE.jpg Those two images sum-up my experience with it.
+Oct 19 02:21:38 <grym>	Aurora_v_kosmose: that sure is quiche 
+Oct 19 02:22:11 <grym>	frittata is ~that without the crust, so more omelette-y
+Oct 19 02:22:19 <Aurora_v_kosmose>	Oh I see
+Oct 19 02:22:26 <aidalgol>	From watching American TV, quiche seems to be seen as this weird thing that only hoity toity women make and eat at their gossipy lunches.
+Oct 19 02:22:34 <aidalgol>	I have *no* fucking clue where that came from, though.
+Oct 19 02:22:40 <Aurora_v_kosmose>	Huh.
+Oct 19 02:22:49 <Aurora_v_kosmose>	We ate it as a cheap "anything goes" kind of meal.
+Oct 19 02:23:05 <Aurora_v_kosmose>	(Or basically like omelettes)
+Oct 19 02:23:06 <grym>	aidalgol: because of the ascendant social-climber middle class french cuisine invasion of the late 50s
+Oct 19 02:23:16 <grym>	aidalgol: and then sitcom as the infection vector
+Oct 19 02:23:17 <aidalgol>	I at least know where the identity politics around the Toyota Prius and meat came from.
+Oct 19 02:23:32 <aidalgol>	grym: Oh... I have *always* seen it as easy cafe fare.
+Oct 19 02:23:43 <grym>	aidalgol: yeah, that's what it *is* 
+Oct 19 02:23:52 <aidalgol>	"Oh, a quiche.  Good protien.  I need protein now."
+Oct 19 02:24:07 <grym>	but, well.  american white upper middle class food of the postwar era was deeply weird 
+Oct 19 02:24:18 <twb>	hahaha wtf even.  At a senate inquiry about lack of diversity in Australian legislature, one of the senators asked each witness that looked chinese to personally condemn the communist party of china.
+Oct 19 02:24:21 <grym>	rather more aspic than one would expect in the oddest dishes
+Oct 19 02:24:24 <aidalgol>	grym: This seems to be something the Americans are really good: making a sports game out of EVERYTHING.
+Oct 19 02:24:45 <grym>	aidalgol: it's a knack. 
+Oct 19 02:24:47 <aidalgol>	twb: Isn't that... kinda political suicide in there?
+Oct 19 02:25:00 <Aurora_v_kosmose>	Not just political.
+Oct 19 02:25:02 <twb>	Apparently everyone has basically said "you fucking McCarthyist idiot"
+Oct 19 02:25:20 <twb>	https://www.theguardian.com/australia-news/2020/oct/16/eric-abetz-refuses-to-apologise-for-demanding-chinese-australians-denounce-communist-party
+Oct 19 02:25:21 <rudybot>	https://teensy.info/vlCfB1irFD
+Oct 19 02:25:24 <aidalgol>	grym: I'm still waiting for a political figure to advocate breathing so that "the other side" holds their breath out of spite.
+Oct 19 02:25:37 <grym>	aidalgol: "hey, joe, do i have the ad campaign for you!"
+Oct 19 02:25:52 <aidalgol>	(I stole that one from my dad, I confess.)
+Oct 19 02:26:16 <grym>	and here we thought spite-driven development is a novel programming discovery :P
+Oct 19 02:26:50 <aidalgol>	Staying alive out of spite can be useful as a temporary coping mechanism. :P
+Oct 19 02:27:16 <twb>	aidalgol: "and the vile multinationals have monopolized the oxygen / so it's As Easy As Breathing! for us all to participate"
+Oct 19 02:27:19 <aidalgol>	"I'm not going to fall into a funk and fling myself from a high rise.  I won't give them the satisfaction!"
+Oct 19 02:27:42 <aidalgol>	twb: Have you considered writing dystopian black comedies?
+Oct 19 02:27:51 <twb>	aidalgol: that's froma song
+Oct 19 02:27:52 <parsnip>	isn't that the plot of Total Recall
+Oct 19 02:28:46 <grym>	aidalgol: it's old news, though.  in "around the world in 80 days", there's a joke chapter about the crew coming into a frontier american town in the middle of a riot -- which turns out to be an election campaign for town dog-catcher
+Oct 19 02:30:21 <aidalgol>	Now I want to read that book just for that bit.
+Oct 19 02:30:54 <aidalgol>	twb: You're right about Heart of Darkness not being a very good as a story on its own, and I would probably be both lost and bored were I not reading an annotated edition.
+Oct 19 02:36:49 <twb>	Let's go into a diner and order a BLM.
+Oct 19 02:37:53 <aidalgol>	Bacon Lettuce... Mutton?
+Oct 19 02:38:13 <grym>	bureau of land management, of course!
+Oct 19 02:38:32 <grym>	it's been interesting having to specifically disambiguate them this summer... 
+Oct 19 02:39:30 <aidalgol>	For the longest time, I misheard the line from The Princess Bride where Miracle Max is saying an MLT is a *mud*, lettuce, and tomato sandwich, not mutton.
+Oct 19 02:39:47 <aidalgol>	Which I thought was to show that he was a bit crazy.
+Oct 19 02:40:24 <grym>	the sam vimes BLT is pretty okay 
+Oct 19 02:40:30 <aidalgol>	grym: We even have BLM posters around town down here, with names of various murdered black people up there.
+Oct 19 02:40:33 <aidalgol>	grym: Which is that?
+Oct 19 02:40:46 <aidalgol>	Bacon Lard and... something else?
+Oct 19 02:40:50 <grym>	Vimes carefully lifted the top of the bacon, lettuce and tomato sandwich and smiled inwardly. Good old Cheery. She knew what a Vimes BLT was all about. It was about having to lift up quite a lot of crispy bacon before you found the miserable skulking vegetables. You might never notice them at all.
+Oct 19 02:41:32 <aidalgol>	Which book is that from?  I may not have got up to that one yet, or my memory is just shit.
+Oct 19 02:41:47 <grym>	aidalgol: the lesser BLM that is a section of our government is currenlty in the hot seat because their leader was illegally appointed and 18 months of policy decisions are void now 
+Oct 19 02:41:52 <grym>	it's delightful
+Oct 19 02:41:56 <grym>	uh, that's from Thud i think 
+Oct 19 02:42:03 <grym>	fairly far on in the guards cycle
+Oct 19 02:42:15 <grym>	it's the koom vallye one 
+Oct 19 02:42:18 <aidalgol>	ah, I'm pretty far back
+Oct 19 02:42:59 <aidalgol>	grym: Void, huh?  Don't you just need a crooked politician to stonewall any action on that and they go on as if all was legit?
+Oct 19 02:44:19 <grym>	aidalgol: well.  probably void pending the inevitable decade of lawsuit 
+Oct 19 02:44:39 <grym>	but "you were never actually in charge so the decisions you made weren't even decicions" is ... going to be fun to untanble 
+Oct 19 02:44:51 <aidalgol>	Now apply that at the federal level!
+Oct 19 02:45:04 <grym>	they're a federal agency
+Oct 19 02:45:07 <grym>	so this would do that
+Oct 19 02:45:11 <aidalgol>	I mean to the white house.
+Oct 19 02:45:24 <grym>	oh.  you probably don't actually want that, but EOs are trivial to reverse
+Oct 19 02:45:41 <grym>	and most of them are hot air 
+Oct 19 02:45:48 <aidalgol>	Oh, I meant declare all SC appointments void.
+Oct 19 02:45:52 <aidalgol>	But I'm just fantasising.
+Oct 19 02:45:55 <aidalgol>	I really hope Rod Serling doesn't get signed on to write another season of reality.
+Oct 19 02:46:16 <aidalgol>	I also hope that when he finally steps down, we don't get any of Stephen King, Edgar Allan Poe, Franz Kafka, or Harlan Ellison.
+Oct 19 02:46:19 <grym>	aidalgol: the denouement of the town that goes bugfuck insane and then the sun comes up is at least semi-hopeful!
+Oct 19 02:46:31 <aidalgol>	grym: Come again?
+Oct 19 02:47:06 <grym>	aidalgol: there's a twilight zone where there's a town that goes full on nuts about The Horror or something and bad things happen and then the day comes and there was no horror at all 
+Oct 19 02:47:41 <aidalgol>	Ah, that one.
+Oct 19 02:48:04 <grym>	it blurs, in 2020 eerily, with the town run by the id of the 7 year old kid 
+Oct 19 02:48:14 <aidalgol>	Was that the one where it turns out that aliens *were* messing with them just to make them turn on each other?
+Oct 19 02:50:08 <grym>	i don't recall 
+Oct 19 02:51:16 <Aurora_v_kosmose>	I'm surprised. I'd have thought indexing a few dozen thousand files with EMMS would rapidly bloat memory into swapping hell but... it's actually barely growing.
+Oct 19 02:51:26 <aidalgol>	Ugh, why do some webapps split assets across multiple domains for no apparent reason?  (And *please* don't turn this into a circlejerk about how the web is absolute shit and we should go back to gopher or HTML 1 or whatever.)
+Oct 19 02:51:39 <aidalgol>	Aurora_v_kosmose: Isn't that because it's done with an external tool?
+Oct 19 02:51:58 <Aurora_v_kosmose>	aidalgol: Most of the work yes, except that it (I think) keeps a hashmap into memory with all the info too.
+Oct 19 02:52:07 <Aurora_v_kosmose>	That latter part is what I expected to bloat massively.
+Oct 19 02:52:30 <aidalgol>	ah
+Oct 19 02:52:44 <aidalgol>	I mean, the hashes would be pretty small overall.
+Oct 19 02:52:59 <aidalgol>	OOC, can you check the size of an elisp object from elisp?
+Oct 19 02:53:10 <aidalgol>	i.e. without having Emacs running under gdb.
+Oct 19 02:53:47 <Aurora_v_kosmose>	I'm not sure.
+Oct 19 02:54:04 <Aurora_v_kosmose>	That Emacs instance is going to be unresponsive for the next hour or two anyway.
+Oct 19 02:54:21 <aidalgol>	lol
+Oct 19 02:54:31 <aidalgol>	How do you know it's not stuck in an infinite loop?
+Oct 19 02:54:40 <Aurora_v_kosmose>	I tested it with much smaller loads.
+Oct 19 02:54:47 <hodapp>	if only we had a program that could just... look at the code something is running and figure this out automatically
+Oct 19 02:54:50 <hodapp>	how hard could that even be?
+Oct 19 02:55:58 <Aurora_v_kosmose>	aidalgol: It takes 0.3~0.7 second per entry with the extractor I made because I need to call the program several times.
+Oct 19 02:56:30 <Aurora_v_kosmose>	What I should do is patch it for elisp or json output formatting but unfortunately all the output formats it has at the moment are unduly ambiguous.
+Oct 19 03:01:16 <Aurora_v_kosmose>	It also doesn't help that not all media formats it supports use the same field names for common values like say... ARTIST
+Oct 19 03:01:30 <Aurora_v_kosmose>	mkv and mp3 don't store metadata the same way.
+Oct 19 03:02:20 <twb>	Let's make a fighting game where all the fighters are Renaissance Men
+Oct 19 03:02:39 <twb>	Who would win in a fight between Newton and Tesla?  Find out!
+Oct 19 03:02:59 <bpalmer>	aidalgol: http/1 had no ability to multiplex connections across multiple requests, and browsers limited how many concurrent requests to the sme domain could be made (typically 2, I believe)
+Oct 19 03:04:04 *	dale gives up on nativecomp/macOS.
+Oct 19 03:04:05 <bpalmer>	aidalgol: in addition, sites may take advantage of CDNs and cookieless domains for faster or lighter requests; CDNs are often on another domain.
+Oct 19 03:04:09 <Aurora_v_kosmose>	example.com & cdn.example.com is also because of shenanigans in the background
+Oct 19 03:05:31 <bpalmer>	aidalgol: the concurrent request limit should not be a significant issue in an era of http/2 and http/3 , but not every server uses them (or they may still be concerned with performance on http/1 clients)
+Oct 19 03:08:01 <bpalmer>	also, Heart of Darkness not a great story? That's , like, weird.
+Oct 19 03:10:57 <Aurora_v_kosmose>	A majority of servers still use http/1.1
+Oct 19 03:12:23 <bpalmer>	rudybot: it's well known that literature can be sorted according to quality; what's less well known is that you can then sort people according to taste by how well their preferences align with the objective quality of the literature.
+Oct 19 03:13:00 <rudybot>	bpalmer: That is interesting, I think I've only sorted out four cases. I would be really interested in hearing all eight, and how they don't make sense. I also realize I'm just a random dude that showed up in a chat, so feel free to point me to relevant literature and say "Come bak when you understand this"
+Oct 19 03:13:37 <bpalmer>	Aurora_v_kosmose: I suspect the ones who care about performance are more likely to support the new protocols.
+Oct 19 03:15:02 <Aurora_v_kosmose>	bpalmer: Partly true, though that also tends to run in conjunction with using unpleasant technologies that simply force them to if they want them to be usable at all.
+Oct 19 03:15:07 <Aurora_v_kosmose>	Like SPAs
+Oct 19 03:20:17 <JordiGH>	Do pids and tids share the same numbering space? Can you pthread bomb instead of fork bomb?
+Oct 19 03:20:51 <bpalmer>	I think tids come from a per-process table.
+Oct 19 03:21:22 <JordiGH>	`ps m -o pid,tid,command` makes it look like tids are assigned sequentially starting from the pid.
+Oct 19 03:21:32 <JordiGH>	And the next pid comes after the next tid.
+Oct 19 03:22:50 <aidalgol>	twb: pls no... there are already too damn many games with Tesla and Lovecraft shoe-horned in to pander to idiots nerds.
+Oct 19 03:23:07 <aidalgol>	hodapp: Have you heard of this little thing called The Halting Problem?
+Oct 19 03:23:17 <twb>	aidalgol: I was actually thinking MUGEN
+Oct 19 03:23:22 <aidalgol>	MUGEN?
+Oct 19 03:23:35 <twb>	you don't know mugen?  *fsbot* doesn't know mugen??
+Oct 19 03:23:36 <fsbot>	Without a doubt!
+Oct 19 03:23:38 <JordiGH>	I feel like I should attempt to thread-bomb my computer.
+Oct 19 03:23:40 <JordiGH>	For science.
+Oct 19 03:23:43 <aidalgol>	JordiGH: What is it about Battletoads that you love so much?  Seriously curious.
+Oct 19 03:23:50 <aidalgol>	JordiGH: How about doing it in a VM?
+Oct 19 03:24:05 <JordiGH>	Science demands realistic experimentation.
+Oct 19 03:24:09 <twb>	fsbot: MUGEN is basically open source Street Fighter 2, except it has every anime character EVER in it.  https://en.wikipedia.org/wiki/M.U.G.E.N
+Oct 19 03:24:11 <fsbot>	Created new note for "MUGEN"
+Oct 19 03:24:29 <parsnip>	til computers and science intersect
+Oct 19 03:24:32 <twb>	"Homer Simpson fighting against Giga Bowser"
+Oct 19 03:24:32 <aidalgol>	JordiGH: This sounds like a line a crooked scientist would use.
+Oct 19 03:24:40 <JordiGH>	parsnip: It's even called something when they intersect.
+Oct 19 03:25:11 <aidalgol>	twb: Was this the same game that some idiot, who was uninvolved with the project, submitted to Steam Greenlight and got heat on the developers?
+Oct 19 03:25:15 <dale>	I need like "pull up all Emacs bugs related to macOS".
+Oct 19 03:25:21 <twb>	aidalgol: no idea
+Oct 19 03:25:38 <aidalgol>	twb: https://www.youtube.com/watch?v=6PIZzcFF7o0
+Oct 19 03:25:58 <aidalgol>	Appears so
+Oct 19 03:26:10 <dale>	OK, never mind, HEAD is crashing on macOS even without nativecomp.
+Oct 19 03:26:20 <JordiGH>	aidalgol: Battletoads has 12 different levels that are all essentially different. They are all difficult and require lots of training and learning on each. I enjoy the reflex-based challenge. And I think the funny punch frogs fighting a barnyard army of mutant punks led by a leather-clad space witch dominatrix is funny.
+Oct 19 03:26:47 <dale>	I guess back to emacs-27 branch.
+Oct 19 03:26:50 <JordiGH>	aidalgol: And playing it multiplayer is even more fun because you gotta do all that.. IN SYNCH. It's like practicing a choreography with a partner.
+Oct 19 03:27:19 <aidalgol>	Multiplayer at least sounds feasible in that one.
+Oct 19 03:27:39 <aidalgol>	I really liked the later Rayman games for that, but multiplayer is just about impossible.
+Oct 19 03:28:07 <JordiGH>	Can a bad co-op partner in Rayman drag the other partner down? In Battletoads, both players have to clear the level. One dies, both start over.
+Oct 19 03:28:25 <aidalgol>	JordiGH: Yes, but not because of death, because it fucks with the camera.
+Oct 19 03:28:27 <JordiGH>	And friendly fire is always on.
+Oct 19 03:28:45 <aidalgol>	If anyone dies, any other player can revive them.
+Oct 19 03:29:19 <aidalgol>	But if anyone is out of sync, the flow is broken, and you just stumble through the level, and will probably barely clear it.
+Oct 19 03:29:19 <JordiGH>	See, that seems helpful and additive instead of subtractive like in Battletoads.
+Oct 19 03:29:48 <aidalgol>	So everyone playing needs to have a similar skill level, or else you'll all want to murder each other.
+Oct 19 03:30:29 <JordiGH>	Ooh, that sounds fun.
+Oct 19 03:30:32 <JordiGH>	Are all Rayman games like that?
+Oct 19 03:30:35 <aidalgol>	Rayman Legends has a fun set of MP minigames.
+Oct 19 03:30:39 <aidalgol>	No, just Origins and Legends.
+Oct 19 03:30:44 <JordiGH>	I was asking about games that are actually harder in multiplayer because players have to synch up.
+Oct 19 03:30:53 <aidalgol>	They are very flow-based platformers.
+Oct 19 03:31:10 <aidalgol>	Too bad they came from such a toxic company, even by the game industry's low standards. :(
+Oct 19 03:31:44 <aidalgol>	JordiGH: Classic Doom is harder in multiplayer, but because it ramps up the difficulty a crazy amount.
+Oct 19 03:31:53 <aidalgol>	Not because of timing requirements.
+Oct 19 03:32:05 <JordiGH>	Hm, there are new enemy spawns in co-op Doom?
+Oct 19 03:32:11 <JordiGH>	Funny how co-op Doom never really became popular.
+Oct 19 03:32:43 <aidalgol>	I played some custom WADs in co-op using Zandronum with one other player, and the difficulty seemed to be locked on the highest setting.
+Oct 19 03:33:34 <homerj>	hell is the Contra waterfall level with a moron, only three lives, and heaven awaits at the top
+Oct 19 03:33:34 <aidalgol>	We're not entirely sure what happens under the hood, but we hypothesised that the WAD author had set enemy spawns for the various difficulty levels, and the engine was (incorrectly) bumping up the difficulty because of being in multiplayer.
+Oct 19 03:33:58 <aidalgol>	Left 4 Dead (1 & 2) require players work together, or else the zombies will overwhelm the whole team.
+Oct 19 03:33:59 <JordiGH>	homerj: Okay, but that is one level.
+Oct 19 03:34:10 <JordiGH>	Most of Contra having another player at worst just steals your lives and powerups.
+Oct 19 03:34:16 <JordiGH>	It doesn't require careful coordination.
+Oct 19 03:34:32 <homerj>	the waterfall
+Oct 19 03:34:41 <aidalgol>	I think homerj is having a flashback episode.
+Oct 19 03:34:52 <homerj>	you can't go up until they do, and all the bullets at the top of things you can't shoot or see
+Oct 19 03:34:56 <JordiGH>	aidalgol: Is Left 4 Dead easier in single player 'cause you don't have to coordinate with idiot friends?
+Oct 19 03:35:11 <aidalgol>	No, it's harder because you're stuck with idiot bots in your team.
+Oct 19 03:35:44 <bpalmer>	when the zombies sweep over the earth, you'll realize your idiot friends were what made life worthwhile.
+Oct 19 03:35:52 <homerj>	man, I miss Left 4 Dead
+Oct 19 03:35:58 <homerj>	no one I know plays it anymore
+Oct 19 03:36:03 <aidalgol>	homerj: L4D2 had a recent content update.
+Oct 19 03:36:05 <aidalgol>	homerj: Also, hello!
+Oct 19 03:36:22 *	aidalgol still plays it occasionally.
+Oct 19 03:36:44 <aidalgol>	Contagion is also pretty good, and even more tense than L4D2, but by god is it a time commitment.
+Oct 19 03:36:48 <homerj>	I kind of suck at FPS games in general
+Oct 19 03:36:54 <aidalgol>	They're insanely long, and you don't get any respawns.
+Oct 19 03:36:57 <homerj>	but it's not like you had to be like some sniper, just not an idiot 
+Oct 19 03:37:33 <aidalgol>	It kinda freaked me and my friend out when one of us turned from infection and we didn't realise that was even a thing in that game.
+Oct 19 03:38:24 <homerj>	idiot in L4D is "oh, there's the witch, let me shoot it with my pistol"
+Oct 19 03:38:30 <aidalgol>	"My screen is going blurry and wobbly.  Is yours?"  "No, it's fine for me."  "OK, that's weir--" *my camera switches to third person and I watch myself turn and let out a roar*  *friend shoots me between the eyes*
+Oct 19 03:38:45 <aidalgol>	"OK, this game has a turning mechanic..."  "I did not know that."
+Oct 19 03:38:57 <aidalgol>	Then I respawn as a zombie to grief him while he tries to survive alone.
+Oct 19 03:41:11 <homerj>	yeah, I'm up for a game of L4D
+Oct 19 03:41:18 <homerj>	I"m assuming we're actually talking about 2
+Oct 19 03:41:22 <aidalgol>	Yeah, 2.
+Oct 19 03:41:46 <aidalgol>	JordiGH: The SNES Kirby games are the easiest co-op games I've played, because the games are already fairly easy, and if player 2 dies, player 1 can just respawn them.
+Oct 19 03:41:59 <aidalgol>	And you share just about all pickups.
+Oct 19 03:42:02 <Aurora_v_kosmose>	aidalgol: Found another way to be sure it isn't stuck in a loop. Looking at the process tree. It's flickering betweeen music files still.
+Oct 19 03:42:36 <aidalgol>	They're the co-op game to pull out when you're looking after your little nephew or whoever.
+Oct 19 03:43:21 <twb>	How does Amazon's TVization of _Tales from the Loop_ compare to Generation Zero?
+Oct 19 03:43:35 <twb>	Is it horribly americanized?
+Oct 19 03:43:46 <aidalgol>	twb: Probably?
+Oct 19 03:43:57 <neeasade>	hi all
+Oct 19 03:44:03 <neeasade>	any flyspell experts(tm) happen to be around
+Oct 19 03:44:16 <aidalgol>	,ask
+Oct 19 03:44:17 <neeasade>	I'm seeing an inconsistency within a temp-buffer context
+Oct 19 03:44:18 <fsbot>	Just ask your question. It's the best way to know if anyone can help.
+Oct 19 03:44:39 <JordiGH>	aidalgol: I have, in fact, played a Kirby game with a little nephew.
+Oct 19 03:44:46 <JordiGH>	he would say MOOCH ME JORDI MOOCH ME
+Oct 19 03:45:01 <JordiGH>	Meaning, smooch me, meaning, give him some of the power-ups in game which apparently are passed mouth-to-mouth.
+Oct 19 03:45:03 <aidalgol>	oh yeah, I remember you telling us about that on twitch.
+Oct 19 03:45:13 <aidalgol>	Yeah, my sister and I always thought that was weird.
+Oct 19 03:45:28 <aidalgol>	In Kirby's Dreamland 3, any pickup is automatically split between both players.
+Oct 19 03:45:29 <neeasade>	ok my question is -- why would overriding `flyspell-generic-check-word-predicate`not work with within `with-temp-buffer`, but would work fine within a "regular" org file
+Oct 19 03:45:42 <twb>	The radio guy is saying it parallels the destruction of the Swedish welfare state, and USA hasn't had welfare since, like, New Deal
+Oct 19 03:45:46 <aidalgol>	neeasade: What do you mean by "not work?"
+Oct 19 03:46:16 <neeasade>	aidalgol: it reports a word as misspelled, wherein the file-associated buffer it's reported as spelled correctly
+Oct 19 03:46:25 <neeasade>	(from the override of flyspell-generic-check-word-predicate)
+Oct 19 03:46:38 <aidalgol>	twb: Has Sweden's welfare system actually been destroyed, or is this just right-wing revisionism?
+Oct 19 03:46:47 <aidalgol>	neeasade: OK, how are you overriding flyspell-generic-check-word-predicate?
+Oct 19 03:46:56 <twb>	aidalgol: compared to when you could walk from .se to .su ?
+Oct 19 03:47:00 <neeasade>	with setq, in an org-mode hook
+Oct 19 03:47:46 <aidalgol>	neeasade: OK, that'll be why.  `with-temp-buffer' doesn't set a mode on the buffer, AIUI.
+Oct 19 03:48:17 <aidalgol>	And `flyspell-generic-check-word-predicate' is buffer-local.
+Oct 19 03:48:21 <aidalgol>	twb: I... don't know?
+Oct 19 03:48:27 <neeasade>	oh, I should have added some more context. I call (org-mode) within my (with-temp-buffer) context
+Oct 19 03:48:40 <neeasade>	yes, the docstring on it mentions it's OK to use setq rather than setq-local on it though
+Oct 19 03:49:02 <aidalgol>	Yeah, the way you're setting it is fine.
+Oct 19 03:49:18 <aidalgol>	Seems that should work, then...
+Oct 19 03:49:43 <aidalgol>	Maybe print the value of `flyspell-generic-check-word-predicate' in your `with-temp-buffer' call to see if it's set?
+Oct 19 03:49:51 <neeasade>	aidalgol: already did :(
+Oct 19 03:49:55 <aidalgol>	And...?
+Oct 19 03:49:59 <neeasade>	it was set correctly
+Oct 19 03:50:03 <aidalgol>	Hmm...
+Oct 19 03:50:20 <aidalgol>	What *exactly* is the thing that's giving an unexpected result?
+Oct 19 03:50:22 <neeasade>	I'll link the code in a sec so there's more context. the real problem I'm solving is I want a "flyspell-string" function that uses my predicate override -- so that I can have a spellcheck guard that is org-aware
+Oct 19 03:51:09 <aidalgol>	I'll have to go soon, I'm afraid.
+Oct 19 03:51:29 <JordiGH>	bremner: This you? https://lobste.rs/s/fr3ght
+Oct 19 03:52:06 <neeasade>	ah, well ok, thanks for your time anyway. The thing that's giving an unexpected result is "flyspell-goto-next-error" -- in my org-mode buffer it reports there are no spelling errors. but in the temp buffer context (with the SAME org contents inserted) it jumps to the first fake spelling error
+Oct 19 03:52:37 <neeasade>	I say fake because it's skipped by my overridding of the flyspell-generic-check-word-predicate function
+Oct 19 03:52:46 <neeasade>	(in "regular" use)
+Oct 19 03:54:36 <mrcow>	Hey
+Oct 19 03:54:50 <mrcow>	:q
+Oct 19 03:54:53 <mrcow>	
+Oct 19 03:54:56 <mrcow>	oops
+Oct 19 03:55:02 <aidalgol>	Actually, why even use flyspell in a temp buffer?  Why not use the ispell.el functions directly?
+Oct 19 03:55:50 <aidalgol>	I suspect you'll run into further problems due to flyspell being written with a visible UI in mind.
+Oct 19 03:56:15 <neeasade>	aidalgol: I'm trying to make a flyspell guard where I'm using emacs in a batch context with some org files
+Oct 19 03:56:33 <aidalgol>	What do you mean by "flyspell guard?"
+Oct 19 03:56:54 <neeasade>	something to stop org-export of a file with a check that says "Hey! there are misspelled things here!"
+Oct 19 03:57:21 <neeasade>	but honestly been stuck at this weird  wall for long enough I'm coming to the conclusion it's not worth it -- these are gonna be long-living articles I may as well do the once-over interactively anyway
+Oct 19 03:58:27 <neeasade>	the code: 
+Oct 19 03:58:28 <neeasade>	org-mode-hook: https://git.io/JT8lB , flyspell-string: https://git.io/JT8lD
+Oct 19 04:00:24 <aidalgol>	OK, yeah, looks like ispell would be no easier.
+Oct 19 04:03:21 <neeasade>	aidalgol: thanks for helping/talking it out anyway
+Oct 19 04:14:18 <Viking667>	hm, I see edrx has disappeared again
+Oct 19 08:42:09 *	Disconnected ()
+**** ENDING LOGGING AT Mon Oct 19 08:42:09 2020
+
+**** BEGIN LOGGING AT Mon Oct 19 08:42:35 2020
+
+Oct 19 08:42:35 *	Now talking on #emacs
+Oct 19 08:42:35 *	Topic for #emacs is: Gul Dukat says upgrade to 27.1: https://i.imgflip.com/4hpvlw.jpg | Emacs questions take priority over off-topic chatter, so ask! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+Oct 19 08:42:35 *	Topic for #emacs set by wgreenhouse!wgreenhous@fsf/member/wgreenhouse (Thu Oct  8 00:50:34 2020)
+Oct 19 08:42:35 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Oct 19 08:45:09 <twb>	Let's encourage the US government to adopt the Playfair cipher.
+Oct 19 08:45:41 <twb>	Let's encourage the US government to adopt the Playfair cipher on the basis that newer ciphers "cannot be explained on a single a beer coaster"
+Oct 19 08:55:40 <twb>	parsnip: https://www.timeout.com/melbourne/shopping/do-melburnians-really-wear-a-lot-of-black-we-asked-an-expert
+Oct 19 08:56:19 <twb>	I found out recently that if you get blood on non-black clothes, it doesn't just go away in the wash, it's there forever
+Oct 19 08:56:28 <parsnip>	twb: i keep buying things in black, because i want to be ignored. now everyone thinks i'm a cop.
+Oct 19 08:56:56 <twb>	parsnip: people used to occasionally come up to me thinking I was retail staff
+Oct 19 08:57:07 <twb>	just because I was loudly lecturing my dad about something in a store
+Oct 19 08:57:32 <parsnip>	oh were you telling your dad about the history of buttons?
+Oct 19 08:57:37 <twb>	I thought about getting all my tshirts with "STAFF" on them just to extra troll people
+Oct 19 08:58:10 <twb>	I do have a hat that says "SWAT" on it but it looks super fakey
+Oct 19 08:58:14 <parsnip>	twb: every teenager thinks of that
+Oct 19 08:58:23 <parsnip>	and some adults
+Oct 19 08:58:44 <twb>	I also had someone try to buy drugs off me once
+Oct 19 08:58:54 <twb>	because I was wearing a beanie in high summer
+Oct 19 08:59:03 <twb>	apparently that is a drug signal?
+Oct 19 08:59:54 <parsnip>	you could reply, "do you have any spare change?"
+Oct 19 09:00:07 <twb>	australia is EFT bro
+Oct 19 09:00:17 <twb>	nobody carries money around
+Oct 19 09:00:32 <parsnip>	escape from tarkov?
+Oct 19 09:00:42 <parsnip>	emotional freedom techniques?
+Oct 19 09:00:53 <twb>	electronic funds transfer
+Oct 19 09:01:18 <twb>	instead of a special piece of paper that says "I am worth ten dollars and definitely NOT fake trust me"
+Oct 19 09:01:23 <parsnip>	do you like it?
+Oct 19 09:01:39 <twb>	we just say "hey bank please give $10 of my money to the grocer"
+Oct 19 09:01:49 <parsnip>	so you guys don't use sheep any more?
+Oct 19 09:02:00 <twb>	no the grocers are human now
+Oct 19 09:02:10 <twb>	since the dreamtime
+Oct 19 09:02:51 <parsnip>	til dreamtime
+Oct 19 09:02:52 <twb>	Escape from Tarkov is private beta, so I haven't played it at all.  It's also multiplayer-only which isn't my thing.
+Oct 19 09:02:55 <twb>	parsnip: wow srsly
+Oct 19 09:03:13 <twb>	dreamtime and rainbow serpent are like the only thing whitefellas know
+Oct 19 09:03:43 <parsnip>	this is all too much knowledge at once
+Oct 19 09:04:29 <parsnip>	i've been playing a bit of metroid
+Oct 19 09:04:48 <twb>	the good ones or the 3d ones
+Oct 19 09:05:05 <parsnip>	the fusion thing for GBA
+Oct 19 09:05:33 <parsnip>	er
+Oct 19 09:05:38 <parsnip>	zero mission
+Oct 19 09:05:52 <twb>	fusion is definitely excellent, probably my favourite
+Oct 19 09:06:13 <twb>	unrelatedly, front mission gun hazard
+Oct 19 09:06:37 <twb>	why can't PCMR have any decent front mission or metroid games
+Oct 19 09:09:04 <parsnip>	socket.write('0000'); ==> s: INFO expecting 808464432 bytes.
+Oct 19 09:10:35 <twb>	"Gibney's documentary plays out more like a true crime or a horror film"
+Oct 19 09:11:21 <twb>	Oh it's the same guy that did Enron
+Oct 19 09:14:56 <twb>	He's cut a documentary about Trump's total fuckup of covid19
+Oct 19 09:16:00 <parsnip>	ah, '\x00\x00\x00\x00' worked a little better
+Oct 19 09:16:29 <parsnip>	==> s: INFO expecting 0 bytes.
+Oct 19 09:20:56 <twb>	"watching a ralley it's like Hitler reborn as a pro wrestler"
+Oct 19 10:19:50 <francisv-local>	Hello, is there a way to refer to local files when sending a remote command using TRAMP in Org mode?  E.g. http://ix.io/2Bev, how do I refer to the path in `-import-path'?  Thank you.
+Oct 19 10:20:56 <francisv-local>	(I just asked also in #org-mode.)
+Oct 19 10:23:24 <roxlu>	hi, i've just installed deft and it will automatically create a .org file with #+TITLE when it can't find a note, but is it also possible to create a new file directly that adds the `#+TITLE` ? 
+Oct 19 10:25:21 <twb>	How do I teach emacs that .ipk packages are .tar.gz files
+Oct 19 10:25:38 <twb>	Hrm they're actually tarballs of tarballs, similar to debs
+Oct 19 10:29:06 <paul424>	Hi , hwy does all project files are named something.cpp something.cpp and for the EditorMode.cpp I get EditorMode.cpp<Opendungeons> in the minibar
+Oct 19 10:30:01 <bremner>	paul424: do you have two files named EditorMode.cpp?
+Oct 19 10:30:24 <bremner>	also, I endorse the use of "minibar" to describe emacs components
+Oct 19 10:30:41 <paul424>	bremner, ahh my fault, indeed there were two of those, thanks
+Oct 19 10:45:17 <rnkn>	where can I learn how to write a proper makefile in plain (i.e. non-GNU) english?
+Oct 19 10:46:26 <thblt>	That's a strange question. What's GNU English?
+Oct 19 10:46:28 <bremner>	I don't understand. Is this some kind of passive aggressive complaint about the GNU Make docs?
+Oct 19 10:46:50 <wasamasa>	there's POSIX specification :D
+Oct 19 10:46:51 <thblt>	But search-engining “how to write makefiles” returns an endless stream of good results.
+Oct 19 10:47:07 <wasamasa>	as non-GNU as it gets
+Oct 19 10:47:12 <bremner>	or do you want to know about non-GNU-Make?
+Oct 19 10:47:31 <wasamasa>	it also helps with not accidentally relying on GNU-specific features
+Oct 19 10:48:14 <thblt>	I've been wanting to play with Shake for some time now https://hackage.haskell.org/package/shake
+Oct 19 10:48:36 <thblt>	A build system that requires a full Haskell toolchain to run is a good build system.
+Oct 19 10:48:37 <francisv-local>	hmm, I searched more in the documentation, I thought `:file' or `:var' would work for that, but no.
+Oct 19 10:48:56 <wasamasa>	https://nullprogram.com/blog/2017/08/20/
+Oct 19 10:49:37 <rnkn>	bremner: passive-aggresive always
+Oct 19 10:50:27 <rnkn>	wasamasa: thanks
+Oct 19 10:51:24 <rnkn>	the GNU make docs are not very well written, no
+Oct 19 10:56:32 <break_point>	rnkn: https://www.gnu.org/software/make/manual/make.html#Introduction
+Oct 19 10:59:07 <pjb>	writing makefiles can be done in so many different ways…
+Oct 19 10:59:12 <rnkn>	break_point: thanks, although that's the difficult writing to which I was referring
+Oct 19 10:59:28 <rnkn>	mine eyes! zee goggles do nothing!
+Oct 19 10:59:36 <pjb>	Depending on the size of the project, on whether you want to reuse the makefiles or not for other projects, on other platforms, etc.
+Oct 19 11:00:01 <wasamasa>	POSIX is difficult in another way
+Oct 19 11:00:21 <pjb>	The best you can do, IMO, is to study how makefiles are used by different projects, from kermit to GNUstep (to cite two extreme but good examples), passing thru very bad applications of makefiles…
+Oct 19 11:01:14 <pjb>	That said, I would use just GNU make.  It's free software, all computers nowadays are connected to the Internet, so you can easily download and compile it everywhere.  So there's no reason not to make it a prerequisite of any project.
+Oct 19 11:01:24 <pjb>	More info in #workingset…
+Oct 19 11:02:00 <bremner>	mac users will complain, but that's a feature :P
+Oct 19 11:02:16 <rnkn>	I'm a mac user
+Oct 19 11:02:32 <bremner>	and you just complained about GNU Make. I rest my case
+Oct 19 11:02:37 <rnkn>	POSIX seems to be doing pretty well so far
+Oct 19 11:03:23 <rnkn>	GNUmake is fine, I just find those particular docs seem to be written by someone who has difficulty explaining something they know to someone who doesn't
+Oct 19 11:03:44 <rnkn>	the old curse of knowledge problem
+Oct 19 11:04:11 <bremner>	I guess there is probably an O'Reilly book
+Oct 19 11:04:31 <rnkn>	the link from wasamasa looks pretty good
+Oct 19 11:04:43 <rnkn>	also I like to learn via youtube videos B)
+Oct 19 11:04:54 <wasamasa>	lol
+Oct 19 11:04:56 <bremner>	well, we are from different tribes
+Oct 19 11:05:08 <wasamasa>	I don't, so I have difficulties getting myself to watch the actually good ones
+Oct 19 11:05:11 <rnkn>	also also, I was half joking
+Oct 19 11:05:40 <rnkn>	I could trudge through the GNU make docs if I had to
+Oct 19 11:07:29 <rnkn>	worthwhile: https://git-man-page-generator.lokaltog.net
+Oct 19 11:11:19 <thblt>	b
+Oct 19 11:11:47 <thblt>	rnkn: this is so realistic it hurts.
+Oct 19 11:33:43 <rnkn>	so I've got emacs to do tabs on macOS, http://ix.io/2BeU/diff
+Oct 19 11:34:00 <rnkn>	wondering if anyone knows how to have the tab bar show in fullscreen
+Oct 19 11:34:03 <rnkn>	* native tabs
+Oct 19 11:38:02 <twb>	aidalgol: have you seen this half life 2 source game: https://youtu.be/-p3zj0YKKYE#t=189
+Oct 19 11:39:05 <thblt>	rnkn: emacs has native tabs?
+Oct 19 11:40:32 <rnkn>	thblt: macOS native tabs
+Oct 19 11:40:45 <rnkn>	they are disabled by default out of spite
+Oct 19 11:42:08 <thblt>	rnkn: do they work just like that? 
+Oct 19 11:42:17 <twb>	https://youtu.be/-p3zj0YKKYE#t=407  (same video)
+Oct 19 11:43:09 <plant_enjoyer>	hi, how do I pass a list as &rest to another function? I tried (values mylist), but it doesn't work as expected
+Oct 19 11:43:38 <plant_enjoyer>	searching for this on the net is surprisingly hard, I feel like I'm missing on terminology
+Oct 19 11:43:52 <rnkn>	thblt: they work perfectly fine, except in fullscreen you need to move the pointer up to the top of the screen
+Oct 19 11:44:28 <thblt>	rnkn: how do they work exactly? Each tab is an emacs frame?
+Oct 19 11:44:40 <rnkn>	yeh
+Oct 19 11:45:10 <rnkn>	the same as tabs in safari or finder or iwork apps
+Oct 19 11:45:25 <thblt>	plant_enjoyer: what's the use case?  
+Oct 19 11:46:20 <rnkn>	plant_enjoyer: (apply 'FUN LIST)
+Oct 19 11:47:09 <thblt>	rnkn: you sure? apply is &rest too
+Oct 19 11:47:28 <rnkn>	I think I misunderstood
+Oct 19 11:48:16 <thblt>	rnkn: they want to pass a list to a function that takes &rest.
+Oct 19 11:48:50 <rnkn>	so there's already ARG1 ARG2 &rest LIST ?
+Oct 19 11:50:22 <thblt>	IIUC the question is how to call (message "%s %s %s" 1 2 3), say, from (let ((args '(1 2 3))) (message "%s %s %s" ????)) without explicit destructuring (assuming the list can be any length)
+Oct 19 11:50:52 <thblt>	A macro could work, but I'm asking about the use case because there may also be an easier way.
+Oct 19 11:51:31 <terpri_>	rnkn, apply is &rest for convenience (so you can supply some fixed intial args without consing them onto the list)
+Oct 19 11:51:45 <terpri_>	docstring: "Call FUNCTION with our remaining args, using our last arg as list of args."
+Oct 19 11:52:48 <thblt>	Indeed: (let ((args '(1 2 3))) (apply 'message "1=%s 2=%s 3=%s" args))
+Oct 19 11:52:51 <thblt>	plant_enjoyer: ^
+Oct 19 11:53:17 <thblt>	thanks terpri_, who'd have thought about reading the docstring? Certainly not me!
+Oct 19 11:53:50 <plant_enjoyer>	thblt: I want to call secrets-create-item like (secrets-create-item "session" "irc" password tags) - tags is a list
+Oct 19 11:57:46 <thblt>	plant_enjoyer: see above, but “tags” is not part of secrets-create-item. Maybe you mean (secrets-create-item "session" "irc" password :tags MYLIST)?
+Oct 19 11:58:26 <plant_enjoyer>	thblt: in the docs the signature is "secrets-create-item collection item password &rest attributes"
+Oct 19 11:58:57 <terpri_>	weirdly, 'values' is just an alias for 'list' in elisp (there's another potential advantage of guile-emacs :) where true multiple values are actually supported)
+Oct 19 11:58:59 <thblt>	plant_enjoyer: yes, attributes isn't tags. If you have a list of attributes, just (apply…)
+Oct 19 11:59:36 <plant_enjoyer>	thblt: (apply 'secrets-create-item "session" "irc" password attributes)?
+Oct 19 12:00:12 <thblt>	looks good
+Oct 19 12:00:48 <nhkays>	anyone know how to setup a separate word list for aspell? i need to put one in that sits outside of the home dir.
+Oct 19 12:01:03 <nhkays>	use on*
+Oct 19 12:02:06 <plant_enjoyer>	thblt: doesn't throw an error now, thanks
+Oct 19 12:02:31 <rnkn>	so turned out it was jsut `(apply 'FUN LIST)'?
+Oct 19 12:03:02 <thblt>	rnkn: (apply FUN ARG1 ARG2 ARG3 REST-LIST)
+Oct 19 12:03:59 <rnkn>	nhkays: M-x customize-group RET ispell
+Oct 19 12:04:12 <rnkn>	looks like the top option could be what u want
+Oct 19 12:04:35 <thblt>	Eg, this will (error): eg (defun my-test (args) (message "I got: %s" args)) (apply 'my-test '(Hello world))
+Oct 19 12:04:54 <thblt>	Correct invocation is (apply 'my-test '(Hello world) nil)
+Oct 19 12:06:03 <nhkays>	thanks
+Oct 19 12:06:14 <plant_enjoyer>	it still doesn't save the password somehow though.. eh
+Oct 19 12:07:32 <thblt>	plant_enjoyer: maybe it won't override an existing item?
+Oct 19 12:09:49 <plant_enjoyer>	thblt: nope, there's no such item there
+Oct 19 12:12:36 <thblt>	plant_enjoyer: have you tried with a basic invocation (secrets-create-item "Test collection" "Test item" "qwertyuiop")
+Oct 19 12:14:15 <thblt>	I can't test myself, I have nothing listening on this dbus name.
+Oct 19 12:16:36 <plant_enjoyer>	thblt: na, I'll give up. thanks for the help though
+Oct 19 12:39:25 <tinga>	Hi. I've got a hook on 'inferior-scheme-mode-hook which runs `(paredit-mode 1)`, *then* runs a series of `(define-key inferior-scheme-mode-map ..)` actions; somehow the later don't have any effect if paredit-mode is turned on, otherwise they work fine.
+Oct 19 12:39:29 <tinga>	Why is this?
+Oct 19 12:40:03 <tinga>	(It seems like using paredit-mode makes inferior-scheme-mode-hook not use inferior-scheme-mode-map. ?)
+Oct 19 12:40:50 <thblt>	tinga: (1) define-key in a hook is weird.
+Oct 19 12:41:19 <thblt>	wdym don't have any effect? Are the  keys unbound, or stolen by paredit?
+Oct 19 12:41:22 <tinga>	(paredit.el recommends using `eval-after-load` but that is only called once after paredit.el is loaded, right? Not each time it's turned on.)
+Oct 19 12:41:38 <tinga>	thblt, stolen by paredit
+Oct 19 12:41:55 <tinga>	i.e. the same as if I didn't use define-key at all
+Oct 19 12:42:31 <thblt>	tinga: yes, but you don't want to bind keys each time it's turned on, you just need to customize the bindings to your liking once.
+Oct 19 12:43:22 <tinga>	The problem is paredit shadows some essential key bindings from inferior-scheme-mode-hook; I prefer to have those over the paredit ones in this context.
+Oct 19 12:43:39 <thblt>	keymaps precedence issues are tricky. If you never use those paredit bindings, you can just remove them.
+Oct 19 12:43:45 <tinga>	Like, M-r to get at history, or C-d
+Oct 19 12:44:04 <tinga>	I do use them in scheme-mode (normal text editing).
+Oct 19 12:44:36 <tinga>	I'm just confused how key maps work, I thought it was 1 key map active at any one time, looks like that's not what happens.
+Oct 19 12:45:24 <thblt>	absolutely not. It's a ton of keymaps active at every single time.
+Oct 19 12:47:14 <tinga>	Or said differently, I thought that inferior-scheme-mode-map is the combined key map that is used while in inferior-scheme-mode (maybe put together from various other key maps, but I thought that inferior-scheme-mode-map is the entry point for key mappings when in inferor-scheme-mode)
+Oct 19 12:47:46 <tinga>	Emacs is like super low level and high level at the same time it seems.
+Oct 19 12:47:58 <thblt>	I *think* the cleanest solution lies somewhere in reordering ,,dv minor-mode-map-alist
+Oct 19 12:47:58 <fsbot>	Alist of keymaps to use for minor modes.
+Oct 19 12:47:59 <fsbot>	Each element looks like (VARIABLE . KEYMAP); KEYMAP is used to read
+Oct 19 12:47:59 <fsbot>	key sequences and look up bindings if VARIABLE’s value is non-nil.
+Oct 19 12:47:59 <fsbot>	If two active keymaps bind the same key, the keymap appearing earlier
+Oct 19 12:47:59 <fsbot>	in the list takes precedence.
+Oct 19 12:48:22 <thblt>	But really you should read about keymaps first.
+Oct 19 12:48:24 <pjb>	It's also a property of lisp.  Lisp primitives are actually low-level. But we have macros to implement a higher level language.
+Oct 19 12:50:06 <tinga>	(Sure (and I'm a long time lisper), but Emacs as an API I sometimes feel I'm working on a really low level, now I'm surprised that key maps are much higher level than I'm used to. I don't have that much Emacs experience, though.)
+Oct 19 12:53:00 <thblt>	Emacs is low level given hardware that doesn't actually exist.
+Oct 19 12:53:07 <pjb>	tinga: indeed. The API is often difficult to use.  It's more like an exportation of the internals, than a well designed and easy to use API.
+Oct 19 12:53:27 <thblt>	Like Haskell is assembly language in an alternative history of computing :)
+Oct 19 12:53:54 <pjb>	I only started learning Haskell, so so far, I only have bad things to say about it… :-/
+Oct 19 12:54:07 <pjb>	It's quite not exactly like the revelation you may have when learning lisp.
+Oct 19 12:57:31 <thblt>	pjb: It's Haskell that has only bad things to say about YOU.
+Oct 19 12:58:02 <thblt>	(I'm joking, of course)
+Oct 19 13:00:13 <pjb>	Indeed, so far.
+Oct 19 13:00:46 <thblt>	pjb: what book/course are you using?
+Oct 19 13:02:47 <tinga>	(I feel that Haskell and Scheme aren't that different, except Haskell replaces the dynamic nature of Lisps with a static one (including using typed AST nodes for Template Haskell over the dynamic s-expr representation of lisps). That's good and bad in some respective ways.)
+Oct 19 13:03:24 <tinga>	(As I sometimes say, Haskell feels like the C++ of functional programming.)
+Oct 19 13:05:27 <thblt>	I feel that the much stronger constraints on mutation have a deep impact of the language.
+Oct 19 13:05:41 <thblt>	You can't hack your way around with a (set) and a shameful comment.
+Oct 19 13:06:17 <tinga>	True, I should have qualified my statement with "aren't that different if you use functional separation in Scheme, too"
+Oct 19 13:06:32 <thblt>	But I've been playing with Haskell, on and off, for… some time, and it hasn't fully clicked yet.  By contrast, it took me… hours, say, to start feeling confident with Rust.
+Oct 19 13:07:08 <tinga>	(Also note that in Haskell you can hack your way via mutation too by using the state monad locally.)
+Oct 19 13:07:38 <thblt>	tinga: of course, but it's already way harder than a (set)
+Oct 19 13:07:46 <tinga>	I'm finding Rust more difficult to tame than Haskell.
+Oct 19 13:07:51 <thblt>	tinga: you need to know the state monad, for a start :)
+Oct 19 13:08:01 <bpalmer>	emacs keymaps are inferior to xemacs keymaps.  opaque structures > lists in terms of presenting an API
+Oct 19 13:08:27 <bpalmer>	not really related to what you were discovering with keymap precedence, though.
+Oct 19 13:08:46 <tinga>	thblt, sure but that's part of dynamic <-> static, so I cover it with the "except" :)
+Oct 19 13:08:58 <thblt>	tinga: it's a matter of taste, I think. Rust looks a lot like C as I like it, with the things I miss in C added :)
+Oct 19 13:09:34 <tinga>	I find Rust boring compared to Haskell except when it comes to life times... then I want to go back to Haskell :)
+Oct 19 13:10:06 <thblt>	The iterator infrastructure is so so cool I was blown away the first time I implicitely converted a list of option  into an option list
+Oct 19 13:39:16 *	Disconnected ()
+**** ENDING LOGGING AT Mon Oct 19 13:39:16 2020
+
+**** BEGIN LOGGING AT Mon Oct 19 13:47:17 2020
+
+Oct 19 13:47:17 *	Now talking on #emacs
+Oct 19 13:47:17 *	Topic for #emacs is: Gul Dukat says upgrade to 27.1: https://i.imgflip.com/4hpvlw.jpg | Emacs questions take priority over off-topic chatter, so ask! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+Oct 19 13:47:17 *	Topic for #emacs set by wgreenhouse!wgreenhous@fsf/member/wgreenhouse (Thu Oct  8 00:50:34 2020)
+Oct 19 13:47:17 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Oct 19 13:58:17 <bpalmer>	rudybot: do you think people will pay extra for self-driving cars to yell at bicyclists for them?
+Oct 19 13:58:34 <rudybot>	bpalmer: student cities are usually full of bicyclists. and I imagine that in denmark it sort of makes sense, as a beer or two with lunch isn't that uncommon
+Oct 19 13:59:23 <bpalmer>	rudybot: three martini lunches weren't that uncommon in the US once.
+Oct 19 13:59:34 <rudybot>	bpalmer: no, go for 4 martini lunches with him
+Oct 19 14:00:10 <bpalmer>	I'm not a drunk; I just take advice from a bot.
+Oct 19 14:31:16 *	Disconnected ()
+**** ENDING LOGGING AT Mon Oct 19 14:31:16 2020
+
+**** BEGIN LOGGING AT Mon Oct 19 16:00:27 2020
+
+Oct 19 16:00:27 *	Now talking on #emacs
+Oct 19 16:00:27 *	Topic for #emacs is: Gul Dukat says upgrade to 27.1: https://i.imgflip.com/4hpvlw.jpg | Emacs questions take priority over off-topic chatter, so ask! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+Oct 19 16:00:27 *	Topic for #emacs set by wgreenhouse!wgreenhous@fsf/member/wgreenhouse (Thu Oct  8 00:50:34 2020)
+Oct 19 16:00:27 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Oct 19 16:03:49 <winny>	M-x delete-monday RET
+Oct 19 16:11:16 <rpav>	winny: the problem with pop is there's still a car
+Oct 19 16:14:52 <grym>	mplsCorwin: https://twitter.com/MediumBuying/status/1318195004578422785 look what you'd be spared if you watched TV >:) 
+Oct 19 16:14:59 <grym>	(he's running out of caaaaaaaash)
+Oct 19 16:16:25 <wgreenhouse>	grym: huh, a "flight" is the mass noun for political ads?
+Oct 19 16:16:46 <wgreenhouse>	like a flight of bombers, similar effect on those so "targeted" I guess
+Oct 19 16:17:10 <bandali>	lol
+Oct 19 16:20:38 <jlf>	grym: possible explanation - https://twitter.com/rgoodlaw/status/1318172539722629121
+Oct 19 16:26:43 <grym>	jlf: yeah.  i'm, uh, not counting any chickens.  But voting at fenway park was very pleasant this weekend!
+Oct 19 16:27:39 <wgreenhouse>	grym: after all, chickens have a habit of running across the road, and/or getting eaten by foxes.
+Oct 19 16:28:05 <grym>	wgreenhouse: something like that
+Oct 19 16:28:12 <wgreenhouse>	moving to a rural place made me realize that "why did the chicken cross the road?" is an actually salient question
+Oct 19 16:28:30 <wgreenhouse>	they do, all the time, especially in whichever direction will cause the keeper the most embarrassment
+Oct 19 16:28:33 <grym>	"because they're kiiiind of idiots"
+Oct 19 16:28:45 <grym>	there are smart birds.  chickens aren't it 
+Oct 19 16:28:50 <wgreenhouse>	our neighbor's chickens always slip out to go lay in the cemetery
+Oct 19 16:29:05 <wgreenhouse>	which is pretty hilarious...for us
+Oct 19 16:29:16 <bremner>	spooky chicken seems like it should be a band
+Oct 19 16:29:25 <bremner>	rudybot: make it so
+Oct 19 16:29:33 <rudybot>	bremner: I'm going to make a mistake which will make it useless, so avoid any problems which require it
+Oct 19 16:30:43 <cvandusen>	rudybot: Don't play the pronoun game 
+Oct 19 16:30:44 <rudybot>	cvandusen: The complexity of verb conjugation has got little to do with whether the language is pro-drop or not. And I know I can't answer your question without a pronoun. However, I can write in my journal "Swam yesterday." as a lede without needing the "I". It's not ungrammatical, it's not even informal, it's written in many places, and software manuals are an entirely appropriate place to write that as well.
+Oct 19 16:31:36 *	cvandusen swims through the DOS manual 
+Oct 19 16:31:48 <mplsCorwin>	grym: we're planning a very Minnesota welcome.  https://bringmethenews.com/minnesota-weather/first-major-snowfall-of-the-year-tuesday-all-eyes-on-storm-that-could-strike-twin-cities
+Oct 19 16:31:49 <rudybot>	https://teensy.info/tdWxiHuqhV
+Oct 19 16:32:21 <grym>	mplsCorwin: hahah yeah i saw you guys got some flurries the other day 
+Oct 19 16:33:18 <mplsCorwin>	"This has been a test of the emergency weather provisioning system"
+Oct 19 16:33:22 <wasamasa>	mplsCorwin: I've asked Jean Louis elsewhere whether he is even interested in technical feedback for his latest inflammatory email
+Oct 19 16:33:30 <wasamasa>	mplsCorwin: because it otherwise feels like a waste of time
+Oct 19 16:34:21 <mplsCorwin>	wasamasa: that was the subject that got me ego surfing them.  I've no indication this person is interested in technical points from anything I've been able to find in the intertubes.  More interested in the politics AFAICT
+Oct 19 16:34:49 <wasamasa>	maybe not a complete waste of time since other people will see they're being contrary for no good reason
+Oct 19 16:35:06 <wasamasa>	but still, why go into the weeds if they're going to ignore it anyway
+Oct 19 16:35:53 <wasamasa>	why help them if they're going to turn that against you
+Oct 19 16:37:13 <wgreenhouse>	mplsCorwin, wasamasa: what is this person's deal on the mailinglist?
+Oct 19 16:37:25 <mplsCorwin>	I'm finding the whole thing very gauling.  It's making it hard to keep up with the mailing list as I have to take a break and come here and rant, nap, install some spyware from Amazon, something, each time I run across one of these.
+Oct 19 16:37:26 <wasamasa>	for example, say that I point out savannah is laughible in terms of overall security, but also mention I did review that codebase, found issues and talked to people in charge
+Oct 19 16:37:55 <wasamasa>	their take-away will be to ignore my first claim and turn the second one into "Now even Savannah is as secure as Github!!!"
+Oct 19 16:38:04 <wgreenhouse>	lel
+Oct 19 16:38:12 <wasamasa>	I'd almost say it's like feeding a troll
+Oct 19 16:38:16 <mplsCorwin>	wgreenhouse: All ideology, all repitition, no awareness of the tactical situation, no concern with technology (if that's even relivant to free software, no sure)
+Oct 19 16:38:21 <wasamasa>	that's how it feels to me
+Oct 19 16:38:33 <mplsCorwin>	^ I validate u
+Oct 19 16:41:17 <Demosthenex>	so, i'm struggling with an issue. i need a single person nagios, maybe to check that routine jobs complete, emails received ,etc. i'm at a loss where to put this, though i'm considering adding it into my org-agenda somehow
+Oct 19 16:41:33 <oats>	why is it possible to have a function and a variable with the same name???
+Oct 19 16:41:34 <fsbot>	Of course not!
+Oct 19 16:41:54 <mplsCorwin>	oats: scope keeps symbol tables minty fresh
+Oct 19 16:42:14 <oats>	huh?
+Oct 19 16:42:14 <wasamasa>	wgreenhouse: https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg01290.html
+Oct 19 16:42:33 <oats>	I feel like I should do a proper elisp tutorial one of these days instead of muddling through, trying to figure out things myself
+Oct 19 16:42:46 <wasamasa>	wgreenhouse: I could do a detailed breakdown on this one or just wait it out until they disappear under a bridge
+Oct 19 16:43:08 <mplsCorwin>	An excellent collection of elisp learning and reference materials just hit RReddit the other day.. lemme dig.
+Oct 19 16:43:41 <grym>	wasamasa: "ask me about magit-forge!"
+Oct 19 16:44:05 <mplsCorwin>	oats: elisp ref collection post on Reddit: https://www.reddit.com/r/emacs/comments/jdcqc9/awesome_elisp_a_list_of_resources_about_emacs_lisp/
+Oct 19 16:44:14 <oats>	oh cool, thanks
+Oct 19 16:44:25 <oats>	but what are symbol tables and why are they so minty fresh :P
+Oct 19 16:44:46 <oats>	is that just like a hash map of symbols to elisp objects?
+Oct 19 16:45:21 <mplsCorwin>	oats: something that elisp doesn't have lol.   Why our elisp always has morning breath.  (And why we need to have seperate slots for function and var, I guess, since we don't have different tables for different packages or anything.)
+Oct 19 16:46:12 <oats>	huh, so they have separate "namespaces"?
+Oct 19 16:46:31 <mplsCorwin>	oats: in other languages each "namespace" has its own symbol table E.g. NS1:.foo would different symbol than NS2.foo, both called foo but stored in a different table.
+Oct 19 16:46:35 <mplsCorwin>	yes, exactly.
+Oct 19 16:47:00 <oats>	that doesn't feel super lispy tbh :P
+Oct 19 16:47:04 <technomancy>	that's why it's called lisp-2; because of 2 main namespaces. (in reality elisp has closer to ... five?)
+Oct 19 16:47:09 <mplsCorwin>	func vs var is as close as we get to namespace right now and even then they are sharing symbol props
+Oct 19 16:47:12 FiSHLiM plugin unloaded
+**** ENDING LOGGING AT Mon Oct 19 16:47:12 2020
+
+**** BEGIN LOGGING AT Tue Oct 20 11:07:18 2020
+
+Oct 20 11:07:18 *	Now talking on #emacs
+Oct 20 11:07:18 *	Topic for #emacs is: Take the Emacs User Survey before 2020-11-30! https://emacssurvey.org/ | Gul Dukat says upgrade to 27.1: https://i.imgflip.com/4hpvlw.jpg | Emacs questions take priority over off-topic chatter, so ask! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+Oct 20 11:07:18 *	Topic for #emacs set by wgreenhouse!wgreenhous@fsf/member/wgreenhouse (Mon Oct 19 21:08:45 2020)
+Oct 20 11:07:19 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Oct 20 11:11:18 <parsnip>	drunk birds are useless
+Oct 20 11:19:15 <pjb>	parsnip: I wouldn't say that. For example, this drunk bird: https://www.youtube.com/watch?v=NPH9-ULaTTc  served to get more than 19k views to the channel. I don't know what it's worth in youtube dollars, but it's something…
+Oct 20 11:24:01 <wasamasa>	do wine and ostrich count?
+Oct 20 11:24:02 <wasamasa>	https://www.youtube.com/watch?v=WCRBKyYSg-U
+Oct 20 11:27:04 <Blukunfando>	Some birds are considered tastier if slaughtered drunk.
+Oct 20 11:35:07 <perrier-jouet>	emacs does not respect anymore my .Xressources setting of Emacs.geometry: 150x50 it's always full screen, I deleted .emacs.d and started a fresh emacs and it's full screen too
+Oct 20 11:35:35 <pjb>	perrier-jouet: perhaps you have something in ~/.emacs that makes it full screen?
+Oct 20 11:35:47 <pjb>	perrier-jouet: or perhaps it's a window manager problem.
+Oct 20 11:36:09 <perrier-jouet>	it was perfect before
+Oct 20 11:36:15 <pjb>	Blukunfando: obviously, alcohol in blood can help.
+Oct 20 11:36:57 <pjb>	ostrich, a big turkey…
+Oct 20 11:52:40 <bpalmer>	hmm, the US presidential debate commission has voted to mute microphones during the next debate
+Oct 20 11:54:48 <perrier-jouet>	anyone ? 
+Oct 20 11:54:49 <fsbot>	Just ask your question. It's the best way to know if anyone can help. https://sol.gfxile.net/dontask.html
+Oct 20 11:54:53 <perrier-jouet>	emacs does not respect anymore my .Xressources setting of Emacs.geometry: 150x50 it's always full screen, I deleted .emacs.d and started a fresh emacs and it's full screen too
+Oct 20 11:55:36 <bpalmer>	perrier-jouet: what is your window manager?
+Oct 20 11:55:57 <bpalmer>	perrier-jouet: this happens with -Q?
+Oct 20 11:57:10 <perrier-jouet>	2bwm
+Oct 20 11:59:15 <pjb>	Also, .Xresources may have been loaded once, but resources may have changed since…
+Oct 20 11:59:31 <bpalmer>	does s-x restore it to your geometry?
+Oct 20 12:00:53 <pjb>	Try: M-x shell RET xrdb -query|grep -i emacs RET # to check
+Oct 20 12:08:04 <_maddy>	I solved the problem with https and melpa, I disabled ipv6 using kernel parameter and it worked
+Oct 20 12:10:32 <bremner>	yikes
+Oct 20 12:11:56 <bpalmer>	rudybot: the next version of IP will solve everything.
+Oct 20 12:12:08 <rudybot>	bpalmer: "We also re-architected the MAC layer to solve the shortcomings of TCP/IP over a wireless link."
+Oct 20 12:24:15 <piyo>	once you pop you cannot cl-pushnew
+Oct 20 12:28:19 <dokma>	Is there any way to force this function to do case insensitive search?
+Oct 20 12:28:20 <dokma>	        https://github.com/coldnew/eshell-autojump/blob/c6a8b81a16576df9875e721fbbfe6690d04e7e43/eshell-autojump.el#L108
+Oct 20 12:28:20 <rudybot>	https://teensy.info/LFsKkmXqAo
+Oct 20 12:29:02 <dokma>	It's taking case-fold-search from eshell-under-windows-p. I am not under Windows but still want to have case insensitive matching for auto-jump.
+Oct 20 12:29:14 <bpalmer>	dokma: without redefining it, one way would to temporarily rebind eshell-under-windows-p
+Oct 20 12:29:50 <bpalmer>	(flet ((eshell-under-windows-p () t)) (eshell/j))   , using the original flet
+Oct 20 12:30:26 <bpalmer>	I think you'd have to use letf rather than cl-flet ; but I always forget how cl-flet changes things from flet.
+Oct 20 12:30:53 <bpalmer>	(you can use flet with (require 'cl) ; cl-flet comes from cl-lib)
+Oct 20 12:31:13 <dokma>	I want to have it permanently in eshell. BTW is there a better way to fuzzy jump folders in eshell?
+Oct 20 12:31:17 <bpalmer>	dokma: or, if you're willing to affect the rest of eshell's functions, you could absolutely redefine it
+Oct 20 12:31:24 <bpalmer>	(defun eshell-under-windows-p () t)
+Oct 20 12:31:56 <dokma>	I tried redefining eshell/j but it's not working for some reason.
+Oct 20 12:33:28 <dokma>	bpalmer: tried this: https://pastebin.com/pxtnC5LY
+Oct 20 12:33:42 <wasamasa>	_maddy: hum, so it's indeed that
+Oct 20 12:33:50 <wasamasa>	_maddy: why only for tls in emacs though
+Oct 20 12:34:04 <dokma>	bpalmer: are you related to Robert Palmer author of Simply Irresistible?
+Oct 20 12:34:24 <bpalmer>	dokma: case-fold-search should be t , not nil, if you want searching to be case insensitive.
+Oct 20 12:34:57 <bpalmer>	if you look for clues, you might find some; I won't tell you any sweet lies
+Oct 20 12:36:31 <dokma>	bpalmer: now works! I was too hasty.
+Oct 20 12:36:59 <dokma>	bpalmer: thanks a bunch?
+Oct 20 12:37:00 <dokma>	!
+Oct 20 12:37:36 <piyo>	(string-collate-lessp a b nil 'ignore-case)
+Oct 20 12:41:13 <bpalmer>	Let's write a survey in bash.
+Oct 20 12:50:41 <b_100205>	wasamasa pls forgive my late response, they are not related, i just thought that it would be nice to read my newspaper in the gnus feature, and a local newspaper im subscribed to, offers epubs to its subscribers vial mail or you can log on to their website to read, and i just thought it would be nice to read their stuff in gnus as well... but maybe a way to have rss is good enough. I didn't mean to criticise anything, i just thought it
+Oct 20 12:50:42 <b_100205>	would be great to be able to read the full news there without having to go to my emails or to go to their website in their browser but being able to use gnus. sorry if i came off us a dick.
+Oct 20 12:57:11 <thblt>	b_100205: if you receive them by mail it's by far the easiest way.
+Oct 20 12:58:52 <_maddy>	wasamasa: I think the problem is affecting other things also, i.e. I am having delays to connecting to other services, and small things like that, but for some reason emacs just doesn't work at all
+Oct 20 13:00:03 <b_100205>	thblt: yes i just get my gnu email system set up and use it that way with the epub feature
+Oct 20 13:00:06 <wasamasa>	_maddy: yeah, I'd expect some other programs to break, like rubygems
+Oct 20 13:01:44 <_maddy>	should I just disable ipv6 permanently for everything? like is that actually needed for anything? alternatively I will just disable it when I need to update emacs packages, which is a good enough workaround
+Oct 20 13:08:48 <thblt>	Well you won't be able to connect to machines that aren't reachable on ipv4
+Oct 20 13:19:44 <piyo>	August 5, 2219 3rd Fleet Earth Orbit
+Oct 20 13:41:20 <wgreenhouse>	_maddy: as the years go on, increasingly many services and websites will be ipv6-only, as the world's supply of ipv4 addresses is used up
+Oct 20 13:41:58 <wgreenhouse>	so unless you have a reason other than this bug to disable ipv6, you should try to figure out the root cause 
+Oct 20 13:47:19 <_maddy>	yeah but I think it's hard to figure out.. I will just disable it whenever I need to update packages
+Oct 20 13:47:39 <_maddy>	really I do that like maybe every 2 months or so
+Oct 20 13:53:14 <oats>	Anybody using circe know why, even if I have (setq circe-use-cycle-completion t), cycle completion isn't being used?
+Oct 20 13:53:54 <oats>	completion-cycle-threshold is also t
+Oct 20 13:55:20 <bremner>	oats: it seems to work here
+Oct 20 13:55:32 <oats>	hrmmm
+Oct 20 14:04:38 <_maddy>	can anyone give me any tips where would I look about fixing this indentation for my major mode? https://paste.rs/QhZ.lisp
+Oct 20 14:04:48 <bkhl>	Anyone know if it's possible to make projectile-find-file only care about files tracked in Git for the current project? It's not working out so sell in my home directory with Git tracked dot-files.
+Oct 20 14:05:27 <_maddy>	I am using lisp-indent-line for my indent-line-function, ideally I could somehow modify that, instead of writing everything from scratch
+Oct 20 14:07:26 <wgreenhouse>	_maddy: if you're lucky, it could be tied to a specific kernel version and you might be able to upgrade or downgrade your way out of it
+Oct 20 14:08:18 <pjb>	_maddy: you should not want that indentation! :-)
+Oct 20 14:09:16 <_maddy>	pjb: why not? I hate when indentation suddenly goes so far to the right, it's really ugly
+Oct 20 14:09:18 <pjb>	_maddy: but otherwise, you have two variables holding indent functions: indent-line-function and indent-region-function.
+Oct 20 14:09:27 <pjb>	that's because of your parentheses!
+Oct 20 14:09:34 <pjb>	Use defun if you want less indentation.
+Oct 20 14:09:58 <pjb>	so you should look at the functions stored in those variables, and see their documentation and how they can be customized.
+Oct 20 14:10:11 <_maddy>	I don't have defun, this is my own custom lisp language :)
+Oct 20 14:10:12 <pjb>	_maddy: alternatively, you can write your own indenting function and store it in those varibles.
+Oct 20 14:12:18 <pjb>	_maddy: the standard lisp-indent-region calls lisp-indent-line (directly, not thru the variable).
+Oct 20 14:14:10 <pjb>	_maddy: if you use those functions eventually lisp-indent-function is called, and it uses properties set to the operator symbol to compute the indentation.
+Oct 20 14:14:42 <pjb>	_maddy: so you could configure a lisp-indent-function property on fn, to ensure a negative indentation.
+Oct 20 14:14:53 <OlCe>	_maddy: Hi. You could use 'indent' declarations for your macros.
+Oct 20 14:15:30 <_maddy>	here is something simple I tried https://paste.rs/BRB with the idea of just increasing the indentation by 2 from previous line, but I get error: indent-line-to: Wrong type argument: number-or-marker-p, nil
+Oct 20 14:15:44 <pjb>	_maddy:  you would have to put your own function here! Because the other options implemented by lisp-indent-function always indent positively.
+Oct 20 14:15:44 <OlCe>	_maddy: You can lookup '(elisp)Declare Form'.
+Oct 20 14:17:04 <OlCe>	_maddy: As you'll see, you can have your own function called by 'lisp-indent-function' for your macros only.
+Oct 20 14:19:46 <_maddy>	OlCe: where would I look that up?
+Oct 20 14:20:19 <pjb>	in lisp-mode.el
+Oct 20 14:20:26 <pjb>	_maddy: type C-h f lisp-indent-function RET
+Oct 20 14:20:32 <pjb>	then: C-x o TAB RET
+Oct 20 14:21:55 <OlCe>	_maddy: In Emacs Lisp's manual.
+Oct 20 14:22:38 <OlCe>	_maddy: E.g., in Emacs, type M-: and then exactly (info "(elisp)Declare Form")
+Oct 20 14:23:23 <OlCe>	_maddy: (there is a single space between Declare and Form, no newlines; beware of filling here)
+Oct 20 14:24:11 <pjb>	Your lisp indent function will have to use the state to find what is the indentation of the (fn sexp, and compute the offset back to the column 2.
+Oct 20 14:26:09 <_maddy>	OlCe: yes, found it, but isn't this about modifying emacs lisp indenting? I have a custom lisp language I am trying to make a major mode for
+Oct 20 14:27:17 <OlCe>	_maddy: Indeed. I thought you were doing some tuned Emacs Lisp.
+Oct 20 14:27:52 <OlCe>	_maddy: But then you can still put the indent directive in the 'lisp-indent-function' property
+Oct 20 14:57:43 *	Disconnected ()
+**** ENDING LOGGING AT Tue Oct 20 14:57:43 2020
+
+**** BEGIN LOGGING AT Tue Oct 20 14:58:16 2020
+
+Oct 20 14:58:16 *	Now talking on #emacs
+Oct 20 14:58:16 *	Topic for #emacs is: Take the Emacs User Survey before 2020-11-30! https://emacssurvey.org/ | Gul Dukat says upgrade to 27.1: https://i.imgflip.com/4hpvlw.jpg | Emacs questions take priority over off-topic chatter, so ask! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+Oct 20 14:58:16 *	Topic for #emacs set by wgreenhouse!wgreenhous@fsf/member/wgreenhouse (Mon Oct 19 21:08:45 2020)
+Oct 20 14:58:17 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Oct 20 15:02:16 <_maddy>	well I managed a minimalistic indent function, it just takes indent from previous line and adds 2 to it :) not usable for anything, but a good start I guess
+Oct 20 15:05:01 <mplsCorwin>	bremner: it *does* access the windows registry but, afaik, only to find the location of a few things that we be in the ENV if Windows was a real os: https://www.gnu.org/software/emacs/manual/html_node/emacs/MS_002dWindows-Registry.html
+Oct 20 15:05:07 <_maddy>	creating a minimal major mode seems somewhat manageable for a newbie, the keymap, syntax table and font-lock keywords were fairly easy to do by looking at examples
+Oct 20 15:05:57 <thblt>	of course a real real os could design its ENV as a structured hierarchy of typed data, a bit like the Windows registry.
+Oct 20 15:05:58 *	thblt out
+Oct 20 15:06:17 <mplsCorwin>	lol, bit of a fair cop there
+Oct 20 15:07:18 *	mplsCorwin waves "Morning ya'll" :)
+Oct 20 15:08:36 <rnkn>	_maddy: (info "(elisp) Derived Modes")
+Oct 20 15:10:03 <wgreenhouse>	environment variables are pretty terrible, tbh
+Oct 20 15:10:09 <wgreenhouse>	so is the registry
+Oct 20 15:10:11 <wgreenhouse>	,everything
+Oct 20 15:10:13 <fsbot>	Everything is broken and nobody is happy.
+Oct 20 15:10:48 <rpav>	both true, but if i had to choose, env is less of a hassle to deal with heh
+Oct 20 15:11:04 <wgreenhouse>	it is until it causes mysterious problems
+Oct 20 15:11:13 <rpav>	not really
+Oct 20 15:11:34 <rpav>	"causes mysterious problems" is the registry's default condition
+Oct 20 15:11:55 <rpav>	so at worst, you're about as bad, but you also know how it works and it's reasonably transparent
+Oct 20 15:12:24 <wgreenhouse>	providing application settings based on process inheritance (which the parent process can change on its own for its children) is a lot more mysterious than a registry you can search and edit from one place, IMO
+Oct 20 15:12:53 <bremner>	s/edit/corrupt/
+Oct 20 15:13:00 <wgreenhouse>	it's fun when you LD_PRELOAD something and then one of the children decides to ,,tableflip,, and unset LD_PRELOAD
+Oct 20 15:13:01 <fsbot>	(╯°□°）╯︵ ┻━┻
+Oct 20 15:13:11 <mplsCorwin>	┏━┓┏━┓┏━┓ ︵ /(^.^/)
+Oct 20 15:13:15 <bremner>	rudybot: no, YOUR A SPOF!
+Oct 20 15:13:18 <wgreenhouse>	also fun that people need hacks like ,,exec-path-from-shell
+Oct 20 15:13:19 <rudybot>	bremner: Then there was the guy who had an office of about ten fbsd workstations.  The last guy was running server daemons (like apache and nfs) on the workstations, on DIFFERENT workstations, to "avoid SPOF"
+Oct 20 15:13:19 <fsbot>	exec-path-from-shell is [0] a hack to set `exec-path' shellishly for Emacsen not launched from a shell, https://github.com/purcell/exec-path-from-shell
+Oct 20 15:13:20 <fsbot>	[1] or you could just stop launching Emacs from the dock
+Oct 20 15:13:29 <rpav>	that's not really how env is used though .. i mean comparing the two is kinda apples and oranges in practical terms anyway
+Oct 20 15:14:00 <rpav>	compare ~/.config or dotfiles or something to the registry
+Oct 20 15:15:01 <rpav>	in windows you have like, "regular" settings in the app folder or the user folder, "mysterious" settings in AppData/whocantell, and "really wtf settings" in the registry, but then you also have the environment 
+Oct 20 15:15:16 <wgreenhouse>	true. a BSDer would want the same options to be in dotfiles as are offered as command line options as are offered as environment variables
+Oct 20 15:15:24 <wgreenhouse>	but in practice few *nix apps are really like that
+Oct 20 15:15:46 <rnkn>	exec-path-from-shell makes sense in macOS context if you don't think of Aqua as analogous to an X session
+Oct 20 15:16:04 <wgreenhouse>	rnkn: it makes sense if you do think of it as analogous to an X session :)
+Oct 20 15:16:15 <wgreenhouse>	it solves exactly the same problem as can arise with linux gui login managers
+Oct 20 15:16:18 <rpav>	the reality is everything ends up working well enough to get today's job done so unless some specific thing doesn't (and you find something to replace it), it doesn't really matter
+Oct 20 15:16:26 <wgreenhouse>	rnkn: those aren't login shells typically
+Oct 20 15:17:03 <rnkn>	yeh what I mean is that an X session is launched from the *nix console, and so inherits the environment
+Oct 20 15:17:19 <mplsCorwin>	rudybot: later tell Viking669 Freenode ops confirmed we should go ahead and patch to chat.freenode.net:  <deadk> if you query irc.freenode.net you'll get the answers for chat.freenode.net and a cname record <deadk> if you query chat.freenode.net you'll just get the answers for chat.freenode.net
+Oct 20 15:17:19 <rudybot>	mplsCorwin: I asked `MemoServ' to forward the message to Viking669.
+Oct 20 15:17:22 <wgreenhouse>	rnkn: exactly. or not. depending :)
+Oct 20 15:17:27 <rnkn>	whereas aqua doesn't
+Oct 20 15:17:44 <wgreenhouse>	an xdm/gdm/slim/whatever started as a service by the init system isn't a login shell
+Oct 20 15:17:53 <wgreenhouse>	and this is a source of confusion here approximately as often as the macos case
+Oct 20 15:17:54 <rnkn>	so apps launched from aqua ought not to inherit the shell env, whereas apps launched within an X session would
+Oct 20 15:18:34 <rpav>	rnkn: no .. X sessions don't have a shell to inherit *from*
+Oct 20 15:18:44 <rnkn>	yeah they do
+Oct 20 15:18:45 <wgreenhouse>	maybe you explicitly spelled out an environment for your X session manager's children, but likely not
+Oct 20 15:18:54 <wgreenhouse>	rnkn: it depends how they're invoked
+Oct 20 15:19:03 <wgreenhouse>	"startx" yes, gui login manager no
+Oct 20 15:19:06 <rpav>	^
+Oct 20 15:19:26 <rpav>	this is slightly confusing in that we're using "X session" to mean something it really isn't
+Oct 20 15:19:48 <rnkn>	right, but that gui login manager is just doing the same steps you'd do if booting into the console and running startx, right?
+Oct 20 15:19:56 <wgreenhouse>	rnkn: nope! :)
+Oct 20 15:20:09 <rpav>	"the thing that runs ~/.xsession" is a login manager, which isn't launched from and doesn't inherit from a shell; if you typed `startx` you'll get whatever that has of course
+Oct 20 15:20:10 <wgreenhouse>	for one thing, it typically bypasses invoking a login shell, and so does not source ~/.profile etc.
+Oct 20 15:20:11 FiSHLiM plugin unloaded
+**** ENDING LOGGING AT Tue Oct 20 15:20:11 2020
+
