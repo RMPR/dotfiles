@@ -1,64 +1,3 @@
-T 1573152014 18<25hjek18>	5.3.8-200.fc30.x86_64
-T 1573152036 18<22Southern_Gentlem18>	and what happens if you dnf install inkscape
-T 1573152145 18<25hjek18>	So, it installs fine. But it's still listed as pending in Gnome Software, and every time I open Gnome Software I get this error popup that the app failed to install because it's "not compatible"...
-T 1573152153 18<19knstn18>	I would also suggest "pkcon repair" && "pkcon refresh"
-T 1573152285 18<25hjek18>	knstn: that fixed it. cool
-T 1573152351 18<25hjek18>	ah, so that's the packagekit CLI..! interesting. didn't know about that one.
-T 1573152393 18<25hjek18>	i'm not going to report this one as a bug unless I can figure out how to reproduce it. not sure how it happened.
-T 1573152425 18<25hjek18>	knstn: No! They came back now, the apps, as "pending"!
-T 1573152577 18<28leden18>	hjek,'killall gnome-software' &  'rm -rf ~/.cache/gnome-software'
-T 1573152747 18<25hjek18>	leden: That's one of the first things I tried. I'll try it again, but the "pending" apps remain.
-T 1573152811 18<25hjek18>	(Maybe I should just upgrade to f31 and see if the issue disappears...)
-T 1573153397 18<28leden18>	hjek, what exactly apps are
-T 1573153459 18<25hjek18>	leden: The apps that are stuck here are: calibre, Modem Manager GUI and Table (Inkscape extension)
-T 1573156020 18<29brejoc18>	Hi folks! Quick question: You have a broken Salt package in Fedora 31 because python3-tornado is too new. Where can I report this?
-T 1573156126 18<28noln18>	brejoc, "point of contact" at https://apps.fedoraproject.org/packages/salt
-T 1573156131 18<28noln18>	brejoc, or channel #fedora-devel
-T 1573156164 18<26Khaytsus18>	Or log a bug?
-T 1573156171 18*	26Khaytsus suggests brejoc try the following URL and let us know if it helps or they need more assistance: http://fedoraproject.org/wiki/BugsAndFeatureRequests
-T 1573156384 18<29brejoc18>	noln: Thanks! Looks like it was already fixed in rawhide. At least the changelog says so.
-T 1573157099 18<28fedbot18>	*** F31-20191105 updated lives available: https://tinyurl.com/Live-respins2  Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1573160214 20*	Disconnected (20)
-T 1573160241 22*	26RMPR sets mode 24+Z on 22RMPR
-T 1573160241 22*	26RMPR sets mode 24+i on 22RMPR
-T 1573160241 -18freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
-T 1573160241 24*	Received a CTCP 24VERSION from 18freenode-connect
-T 1573160247 19*	Now talking on 22#fedora
-T 1573160247 22*	Topic for 22#fedora is: #Fedora F30, F31 end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F30,F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
-T 1573160247 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Thu Nov  7 00:40:03 2019)
-T 1573160247 -18ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
-T 1573166457 Python interface unloaded
-T 1575822788 19*	Now talking on 22#fedora
-T 1575822788 22*	Topic for 22#fedora is: #Fedora F30, F31 end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F30,F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
-T 1575822788 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Thu Nov  7 00:40:03 2019)
-T 1575822788 -18ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
-T 1575826027 18<29latenite18>	Hi folks, why does 'dnf remove' remove sooooo many packages? https://paste.ofcode.org/vrDr6nUsHrjC6pzyTpFuNg
-T 1575826078 18<26Khaytsus18>	Because all those require kf5-kcmutils and then cascades from there
-T 1575826144 18<26Khaytsus18>	Remove the devel package if you want, but removing the other one will remove most KDE stuff.
-T 1575826373 18<29latenite18>	Khaytsus, how do I remove a package without removing the stuff that depends on it?
-T 1575826387 18<26Khaytsus18>	You do not; they depend on it.
-T 1575826393 18<29latenite18>	Like when I want to reinstall, in case I broke files
-T 1575826396 18<26Khaytsus18>	Why would you think you need to remove kf5-kcmutils
-T 1575826411 18<26Khaytsus18>	Why would you have broken files?  What in the world are you doing?  And anyway, dnf has a reinstall option.
-T 1575826418 18<29latenite18>	like when I removed files of the package
-T 1575826421 18<26Khaytsus18>	But yeah, if that's a problem, rethink what you're doing.
-T 1575836190 18<19abdulocracy18>	Hey, after a recent update I've had tearing issues in Firefox
-T 1575836226 18<19abdulocracy18>	Intel UHD 620 graphics
-T 1575836248 18<19abdulocracy18>	I run GNOME on Xorg
-T 1575836267 18<19abdulocracy18>	Previously was fine, happened pretty recently with an update
-T 1575836303 18<19abdulocracy18>	Any ideas?
-T 1575836303 18<28wl_18>	an update of what? Firefox, mesa, the kernel?
-T 1575836326 18<19abdulocracy18>	I don't know, I just do an upgrade once or twice a week
-T 1575836430 18<19dowdle18>	abdulocracy: Tearing on X11 is extremely common.
-T 1575836442 18<19dowdle18>	abdulocracy: If you don't want tearing, maybe run GNOME on Wayland.
-T 1575836478 18<19abdulocracy18>	Well I have a more major graphical issue with Wayland
-T 1575836482 18<19dowdle18>	abdulocracy: Every single system I've ever had for close to 2 decades now, has tearing.
-T 1575836498 18<19abdulocracy18>	https://gitlab.gnome.org/GNOME/gnome-shell/issues/1827
-T 1575836545 18<19dowdle18>	abdulocracy: I have to wonder if that is still the case with all of the updates.
-T 1575836597 18<19dowdle18>	abdulocracy: I'm definitely not claiming that GNOME on Wayland is perfect.
-T 1575836659 18<19dowdle18>	abdulocracy: But generally speaking, Wayland was created to eliminate a lot of layers that are in X11... but GNOME requires accelerated 3D and that doesn't work so well on a wide range of chipsets.
-T 1575836827 18<19abdulocracy18>	dowdle, just logged in to Wayland and the issue is definitely still there, no improvement
-T 1575836874 18<19abdulocracy18>	The weird thing is with F30 it was entirely fine
 T 1575836894 18<19abdulocracy18>	I used Wayland full time
 T 1575836935 18<29Acru18>	Hey, whenever I try to report an error with the error reporting tool, I tells me that the retrace job failed, and the log shows that yum failed with the error `ERROR You need to update rpm to handle...`
 T 1575836940 18<19dowdle18>	abdulocracy: I guess differences with different kernel versions... with Fedora trying to follow upstream as much as possible.
@@ -5058,3 +4997,7 @@ T 1603202636 18<22cberg18>	@f31eol
 T 1603202636 18<28fedbot18>	Fedora 31 will go end of life and no longer supported one month after Fedora 33 is released, sometime around November 2020
 T 1603202686 18<19fedora_sec18>	Nooooooooo
 T 1603202694 18<19fedora_sec18>	Wait, I use fedora 32, never mind
+T 1604184739 19*	Now talking on 22#fedora
+T 1604184739 22*	Topic for 22#fedora is: #Fedora F31, F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/f31commonbugs https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F32 Live isos: https://tinyurl.com/Live-respins ||
+T 1604184739 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Oct 27 14:59:49 2020)
+T 1604184739 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
