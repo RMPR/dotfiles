@@ -24138,3 +24138,17 @@ Oct 31 23:52:19 *	Topic for #emacs is: Take the Emacs User Survey before 2020-11
 Oct 31 23:52:19 *	Topic for #emacs set by bpalmer!~user@unaffiliated/bpalmer (Fri Oct 30 13:48:54 2020)
 Oct 31 23:52:19 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
 Oct 31 23:53:44 <Veracioux>	I was only able to find a way to hide the markers permanently or to configure a shortcut to hide them, but this is not what I want
+Oct 31 23:56:41 <renzhi>	Hi, is there a way to force background color regardless of theme?
+Oct 31 23:57:27 <renzhi>	I tried set-background-color, but putting it in init.el file does not seem to have any effect.
+Oct 31 23:58:07 <jamzattack>	renzhi: you need to use set-background-color after loading the theme that you want
+Oct 31 23:58:41 <renzhi>	I did that, but it does not take effect
+Oct 31 23:59:57 <jamzattack>	try it manually first to see if it works (it does for me): M-x load-theme blah M-x set-background-color blah
+Nov 01 00:00:00 <renzhi>	In my init file, I do (load-theme 'xxx) then (set-background-color "black") but that does not do
+Nov 01 00:00:12 <renzhi>	manually it works
+Nov 01 00:02:05 <jamzattack>	I suspect when you use load-theme in your init file it's actually waiting until the frame's created before loading...  could try using advice
+Nov 01 00:03:09 <wrycode>	Veracioux: I don't think vanilla org has this but I've seen discussion about it in the ML
+Nov 01 00:04:18 <achilles>	emacs -q -> M-x ibuffer -> M-x describe-bindings -> describe-buffer-bindings: Wrong type argument: listp, ibuffer-jump-to-buffer
+Nov 01 00:04:45 <renzhi>	jamzattack: yeah, maybe that's the case
+Nov 01 00:06:34 *	Disconnected ()
+**** ENDING LOGGING AT Sun Nov  1 00:06:34 2020
+

@@ -5002,3 +5002,17 @@ T 1604184739 22*	Topic for 22#emacs is: Take the Emacs User Survey before 20
 T 1604184739 22*	Topic for 22#emacs set by 26bpalmer!~user@unaffiliated/bpalmer (24Fri Oct 30 13:48:54 2020)
 T 1604184739 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
 T 1604184824 18<26Veracioux18>	I was only able to find a way to hide the markers permanently or to configure a shortcut to hide them, but this is not what I want
+T 1604185001 18<29renzhi18>	Hi, is there a way to force background color regardless of theme?
+T 1604185047 18<29renzhi18>	I tried set-background-color, but putting it in init.el file does not seem to have any effect.
+T 1604185087 18<25jamzattack18>	renzhi: you need to use set-background-color after loading the theme that you want
+T 1604185121 18<29renzhi18>	I did that, but it does not take effect
+T 1604185197 18<25jamzattack18>	try it manually first to see if it works (it does for me): M-x load-theme blah M-x set-background-color blah
+T 1604185200 18<29renzhi18>	In my init file, I do (load-theme 'xxx) then (set-background-color "black") but that does not do
+T 1604185212 18<29renzhi18>	manually it works
+T 1604185325 18<25jamzattack18>	I suspect when you use load-theme in your init file it's actually waiting until the frame's created before loading...  could try using advice
+T 1604185389 18<19wrycode18>	Veracioux: I don't think vanilla org has this but I've seen discussion about it in the ML
+T 1604185458 18<19achilles18>	emacs -q -> M-x ibuffer -> M-x describe-bindings -> describe-buffer-bindings: Wrong type argument: listp, ibuffer-jump-to-buffer
+T 1604185485 18<29renzhi18>	jamzattack: yeah, maybe that's the case
+T 1604185594 20*	Disconnected (20)
+T 1604186656 Python interface unloaded
+T 1604186656 FiSHLiM plugin unloaded
