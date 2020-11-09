@@ -324,3 +324,12 @@ exec --no-startup-id /usr/bin/lxpolkit
 ## External screen toggle
 ##
 bindsym $mod+p output HDMI-A-2 toggle
+
+## lock screen after 300 seconds of inactivity, turn off displays after 
+## another 300 seconds, and turn screens back on when resumed.  
+## lock screen before the computer goes to sleep.
+exec swayidle -w \
+         timeout 600 $Locker \
+         timeout 900 'swaymsg "output * dpms off"' \
+              resume 'swaymsg "output * dpms on"' \
+         before-sleep $Locker
