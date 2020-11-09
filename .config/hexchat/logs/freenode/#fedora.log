@@ -6566,3 +6566,92 @@ Oct 31 23:52:19 -ChanServ-	[#fedora] Any advice you read here is provided by ind
 Nov 01 00:06:34 *	Disconnected ()
 **** ENDING LOGGING AT Sun Nov  1 00:06:34 2020
 
+**** BEGIN LOGGING AT Fri Nov  6 21:47:36 2020
+
+Nov 06 21:47:36 *	Now talking on #fedora
+Nov 06 21:47:36 *	Topic for #fedora is: #Fedora F31, F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/f31commonbugs https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F32 Live isos: https://tinyurl.com/Live-respins ||
+Nov 06 21:47:36 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Oct 27 14:59:49 2020)
+Nov 06 21:47:36 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Nov 06 21:52:22 <cmurf>	aarch64 image are made with oz-imagefactory
+Nov 06 21:52:35 <cmurf>	Gaffel: ^^
+Nov 06 21:53:36 <[R]>	oz? but then wouldn't all the bits be upside down?
+Nov 06 21:54:12 <Gaffel>	cmurf, thank you. Doesn't that require a VM that can execute the target architecture ISA?
+Nov 06 21:54:32 <cmurf>	*shrug* not sure
+Nov 06 21:54:47 <cmurf>	it might work in a container
+Nov 06 21:56:05 <cmurf>	oh i see, best to actually comprehend the question
+Nov 06 21:56:15 <akik>	Gaffel: qemu can emulate arm, maybe that's how it's used
+Nov 06 21:57:27 <cmurf>	but my answer is still the same, not sure - but chances are that's not possible in a container
+Nov 06 21:59:06 <cmurf>	hmmm well, there's no compiling happening to build the image, it's basically partition->file system->extract from rpm->copy/move into position->bootloader
+Nov 06 22:02:02 <Gaffel>	oz uses libvirt for installing packages. I might be looking at something old.
+Nov 06 22:06:51 <Han>	Hi there, I installed fedora 33 a few days ago, I've got most stuff working now, but I still can't find how to make touchpad click working with the new touchpad driver. Does anyone have a clue?
+Nov 06 22:07:10 <Southern_Gentlem>	Han, what DE
+Nov 06 22:08:44 <Han>	i3wm
+Nov 06 22:09:09 <ryszard>	I have a funny question, how can I detailed logs of 'dnf upgrade' when it wrote on exit:
+Nov 06 22:09:15 <ryszard>	Complete!
+Nov 06 22:09:15 <ryszard>	Segmentation fault
+Nov 06 22:09:18 <ryszard>	:]
+Nov 06 22:09:49 <tzlil>	dnf segfaults? uh oh
+Nov 06 22:11:48 <Han>	Southern_Gentlem, I might have found it: https://askubuntu.com/questions/999680/libinput-change-touchpad-2-finger-and-3-finger-clicks
+Nov 06 22:13:10 <Han>	yup, great it works, the second reply did the trick. Cheers!
+Nov 06 22:38:48 <fedbot>	*** F32-20201102 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Nov 06 22:55:21 <tete_>	when i create a file on the desktop, i'd like to have it on my right screen (primary), not on the left. can someone tell me how to do that?
+Nov 06 22:55:30 <knstn>	i have configured systemd-resolved with DNSoverTLS & DNSSEC and it feels that the resolution is kinda slow (not much) compared to before. i bet this is normal right? DNSSEC takes its toll?
+Nov 06 23:38:50 <fedbot>	*** F32-20201102 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Nov 07 00:38:52 <fedbot>	*** F32-20201102 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Nov 07 01:38:52 <fedbot>	*** F32-20201102 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Nov 07 09:21:46 *	Disconnected ()
+**** ENDING LOGGING AT Sat Nov  7 09:21:46 2020
+
+**** BEGIN LOGGING AT Sat Nov  7 09:22:10 2020
+
+Nov 07 09:22:10 *	Now talking on #fedora
+Nov 07 09:22:10 *	Topic for #fedora is: #Fedora F31, F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/f31commonbugs https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F32 Live isos: https://tinyurl.com/Live-respins ||
+Nov 07 09:22:10 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Oct 27 14:59:49 2020)
+Nov 07 09:22:10 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Nov 07 11:00:30 *	Disconnected ()
+**** ENDING LOGGING AT Sat Nov  7 11:00:30 2020
+
+**** BEGIN LOGGING AT Sat Nov  7 11:01:10 2020
+
+Nov 07 11:01:10 *	Now talking on #fedora
+Nov 07 11:01:10 *	Topic for #fedora is: #Fedora F31, F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/f31commonbugs https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F32 Live isos: https://tinyurl.com/Live-respins ||
+Nov 07 11:01:10 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Oct 27 14:59:49 2020)
+Nov 07 11:01:12 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Nov 07 11:09:03 <tete_>	i created a ~/.xinitrc with content: "xrandr --output DP-2 --mode 2560x1440 --rate 165.00" but its not executed after login. does anybody know why?
+Nov 07 20:04:16 *	Disconnected ()
+**** ENDING LOGGING AT Sat Nov  7 20:04:16 2020
+
+**** BEGIN LOGGING AT Sat Nov  7 20:06:01 2020
+
+Nov 07 20:06:01 *	Now talking on #fedora
+Nov 07 20:06:01 *	Topic for #fedora is: #Fedora F31, F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/f31commonbugs https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F32 Live isos: https://tinyurl.com/Live-respins ||
+Nov 07 20:06:01 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Oct 27 14:59:49 2020)
+Nov 07 20:06:01 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Nov 07 20:47:15 <RunLevelRobot>	hello everybody
+Nov 07 20:52:09 <RunLevelRobot>	i am so happy to finally be on Fedora 33. This release is nice. :)
+Nov 07 21:47:42 <mershl>	Is it possible to "dnf download mesa" to get every mesa rpm that is usually installed?
+Nov 07 21:50:26 <dowdle>	mershl: dnf download mesa*
+Nov 07 21:54:35 <mershl>	Thanks dowdle!
+Nov 07 22:24:42 <cmurf>	sdgathman: you're having ipp problems out of the box? hmmm there's a test case for this
+Nov 07 22:25:49 <felixi>	i have a totally random question. Why was yum renamed dnf?
+Nov 07 22:26:15 <mershl>	It rolls better of the tongue.
+Nov 07 22:26:27 <cmurf>	Khaytsus: yeah possibly the first indication of an issue with swap on zram could be earlyoom killing off firefox tabs
+Nov 07 22:26:32 <felixi>	yum sounds tasty :]
+Nov 07 22:27:39 <bugs_>	dnf = dandified yum
+Nov 07 22:27:51 <bugs_>	dnf short for dandified
+Nov 07 22:28:00 *	felixi digs dandified from dictionary
+Nov 07 22:28:54 <cmurf>	but earlyoom (workstation 32/33, kde 33) is expected to log it, so something like:
+Nov 07 22:29:07 <cmurf>	journalctl -b | grep 'SIGTERM\|SIGKILL'
+Nov 07 22:29:10 <cmurf>	should show it
+Nov 08 00:39:13 <fedbot>	*** F32-20201102 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Nov 08 01:39:14 <fedbot>	*** F32-20201102 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Nov 08 02:31:29 <poppyschmo>	Just upgraded to fc33, and it was painless as always (except for https://bugzilla.redhat.com/show_bug.cgi?id=1894791 but meh). Thanks for all your hard work!
+Nov 08 07:13:53 *	Disconnected ()
+**** ENDING LOGGING AT Sun Nov  8 07:13:53 2020
+
+**** BEGIN LOGGING AT Sun Nov  8 07:14:20 2020
+
+Nov 08 07:14:20 *	Now talking on #fedora
+Nov 08 07:14:20 *	Topic for #fedora is: #Fedora F31, F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/f31commonbugs https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F32 Live isos: https://tinyurl.com/Live-respins ||
+Nov 08 07:14:20 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Oct 27 14:59:49 2020)
+Nov 08 07:14:20 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.

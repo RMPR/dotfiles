@@ -24152,3 +24152,395 @@ Nov 01 00:04:45 <renzhi>	jamzattack: yeah, maybe that's the case
 Nov 01 00:06:34 *	Disconnected ()
 **** ENDING LOGGING AT Sun Nov  1 00:06:34 2020
 
+**** BEGIN LOGGING AT Fri Nov  6 21:47:33 2020
+
+Nov 06 21:47:33 *	Now talking on #emacs
+Nov 06 21:47:33 *	Topic for #emacs is: Take the Emacs User Survey before 2020-11-30! https://emacssurvey.org/ | Gul Dukat says upgrade to 27.1: https://i.imgflip.com/4hpvlw.jpg | Emacs questions take priority over off-topic chatter, so ask! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery..
+Nov 06 21:47:33 *	Topic for #emacs set by bpalmer!~user@unaffiliated/bpalmer (Fri Oct 30 13:48:54 2020)
+Nov 06 21:47:36 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Nov 06 21:58:05 <johnjay>	hrm
+Nov 06 21:58:18 <johnjay>	how can you have a compatible core among lisps when there are differences like lisp-1/2 etc?
+Nov 06 21:58:38 <wasamasa>	clever tricks
+Nov 06 21:58:44 <pjb>	johnjay: Have a look at (intersection common-lisp emacs-lisp scheme) http://www.informatimago.com/develop/lisp/com/informatimago/small-cl-pgms/intersection-r5rs-common-lisp-emacs-lisp/
+Nov 06 21:58:45 <rudybot>	https://teensy.info/X56wi8kOXh
+Nov 06 21:59:01 <technomancy>	cross-lisp compatibility is like ... trying to make a bilingual pun
+Nov 06 21:59:02 <johnjay>	also this is the first time I heard of EULisp
+Nov 06 21:59:08 <johnjay>	the logo is the lisp lambda in the EU stars
+Nov 06 21:59:55 <aidalgol>	technomancy: I have joined the ranks of HiDPI monitors, and it is glorious.
+Nov 06 22:00:54 <aidalgol>	technomancy: Also, re puns: https://somecleverreference.tumblr.com/post/115622641451
+Nov 06 22:04:21 <technomancy>	hidpi monitors are ageist
+Nov 06 22:04:32 <technomancy>	against people who have bad eyesight
+Nov 06 22:05:03 <technomancy>	lol purgatorio
+Nov 06 22:05:07 <epony>	I like 100 ppi ones, not found any economic reason to move to higher non-even pixel density yet.
+Nov 06 22:05:37 <epony>	the web is still 720p at 50 Mbps
+Nov 06 22:06:12 <epony>	and google is 10 Mbps for mobiles
+Nov 06 22:17:38 <johnjay>	i'm a bit mystified by the emacswiki page on icicles
+Nov 06 22:17:50 <johnjay>	it lists 7 or 8 different ways to obtain all the files
+Nov 06 22:18:01 <johnjay>	... have you heard of tar? Gzip?
+Nov 06 22:18:41 <wgreenhouse>	johnjay: drew adams believes in emacswiki as the primary way of distributing his elisp
+Nov 06 22:18:56 <wgreenhouse>	don't try to change him, you'll only get frustrated
+Nov 06 22:19:08 <johnjay>	sure. but usually when you want to distribute things you try to make it easy for people to get the thing
+Nov 06 22:19:10 <johnjay>	lol
+Nov 06 22:19:34 <wgreenhouse>	some people are seemingly at best indifferent to that consideration :D
+Nov 06 22:20:21 <johnjay>	well people can be odd i suppose. I read somewhere someone had to explain to RMS exactly why a user pressing ESC 3 times was trying to break out of the running task or something
+Nov 06 22:29:21 <jfb4_>	why didn't RMS know 
+Nov 06 22:31:43 <cvandusen>	ignorance?? 
+Nov 06 22:31:44 <fsbot>	Don't count on it
+Nov 06 22:42:41 <technomancy>	project idea: a signal client for computers, but it actually works
+Nov 06 22:43:53 <fiete>	technomancy: are there supported interfaces a free app could use? When I read about that a while ago it sounded like the owners of signal do not want third party apps.
+Nov 06 22:44:07 <technomancy>	fiete: I think that is accurate.
+Nov 06 22:44:13 <fiete>	:-(
+Nov 06 22:44:30 <fiete>	But on my end the signal app does work ok-ish
+Nov 06 22:44:38 <technomancy>	they don't trust anyone else to do it right, so no one is allowed to interoperate, which means all we have is their awful client
+Nov 06 22:44:55 <technomancy>	after leaving it open for over a week it just shows a blue screen
+Nov 06 22:45:03 <fiete>	Is it electron? feels like that
+Nov 06 22:45:04 <technomancy>	usually restarting it fixes it, but now today it's stopped fixing it
+Nov 06 22:45:18 <technomancy>	it's extremely electron; garbage.
+Nov 06 22:45:31 <mplsCorwin>	If the Emacs community can't make room for someone who wants their source maintained on (locked pages) of a Wiki it's hard to say where that person should look for camaraderie.  I don't think it's risky to use his work; until MELPA caved to pressure to remove them Drew's stuff was easy to install.
+Nov 06 22:45:35 <dale>	Yeah, it works pretty good for me on macOS so far.  The iOS app, OTOH, shit itself and needed to be reinstalled this week.
+Nov 06 22:46:05 <technomancy>	ah! now it's working. needed three restarts, not just one. good job electron.
+Nov 06 22:46:32 <technomancy>	mplsCorwin: you have no idea how hard it is for me to resist the urge to vandalize his elisp
+Nov 06 22:46:52 <mplsCorwin>	have you tried?
+Nov 06 22:46:54 <fiete>	technomancy: I'm also confused about that huge loadingtimes
+Nov 06 22:47:03 <technomancy>	mplsCorwin: I don't have the guts for it
+Nov 06 22:47:12 <technomancy>	but I really want someone to do it
+Nov 06 22:47:36 <mplsCorwin>	technomancy: afaik one first needs an MediaWiki exploit to bypass the locked page feature.
+Nov 06 22:47:38 <dale>	"Let's make a secure messaging app!" "Great idea!" "And let's put a full web browser and JS engine without a sandbox in it!" "Ye—wait what"
+Nov 06 22:47:58 <fiete>	dale: :-D
+Nov 06 22:48:01 <technomancy>	mplsCorwin: ah ok; that was not the case when I looked at it initially (years ago)
+Nov 06 22:48:10 <dale>	(I actually think there is some kind of sandbox?  So I was at least 50% going for laughs.)
+Nov 06 22:48:39 <dale>	mplsCorwin: I thought it was MoinMoin or something like that, is it really MediaWiki?
+Nov 06 22:48:50 *	mplsCorwin double checks
+Nov 06 22:48:53 <technomancy>	dale: there is a sandbox because when you first launch it, it's like "hey, I'm not going to launch because you didn't chmod the sandbox in /opt to 4755 so you need to go do that manually you peasant"
+Nov 06 22:49:03 <technomancy>	which like ... what the ever-loving fuck?
+Nov 06 22:49:28 <technomancy>	it's not mediawiki or moinmoin
+Nov 06 22:49:30 <dale>	technomancy: Uh WTF.  I don't get that on macOS.
+Nov 06 22:49:31 <technomancy>	it's a custom perl wiki
+Nov 06 22:49:35 <Viking667>	Is there a quick one-liner for splitting a frame into four?
+Nov 06 22:49:36 <fiete>	technomancy: hmm what distribution? Using the debian package on my debian and did not have that issue
+Nov 06 22:49:44 <technomancy>	fiete: debian here
+Nov 06 22:49:50 <fiete>	same here
+Nov 06 22:50:03 <fiete>	hmm why haven't i experienced that
+Nov 06 22:50:22 <technomancy>	I think it depends on chromium somehow and my chromium is pretty old
+Nov 06 22:50:23 <Viking667>	I can do it in three steps normally; C-x 3, C-x 2, C-x o C-x 2
+Nov 06 22:50:34 <fiete>	ahh ok, that may be possible
+Nov 06 22:50:56 <dale>	Hm, just realized how unfunny "bro give me your phone number so I can send you some cat memes that definitely do not exploit bugs in the underlying image libraries" sounds.
+Nov 06 22:51:04 <mplsCorwin>	dale: "This wiki uses the oddmuse wiki engine" so not MediaWiki, anyway.
+Nov 06 22:51:16 <dale>	mplsCorwin: Oddmuse!  Right.  I  was thinking "muse-something".
+Nov 06 22:51:28 <technomancy>	oddmuse was created by the emacswiki maintainer IIRC
+Nov 06 22:52:17 <mplsCorwin>	this is pretty cool, in fact.  (Not that I know much about the guts of a wiki)
+Nov 06 22:57:01 <mplsCorwin>	Without going really deep, and assuming EW followed the docs, I suspect finding the exploit for locked pages will take at least *some* work.  My guess is one would go after an authorized user in preference to trying to bruteforce EW itself.  It's a wiki so click-jacking seems like low hanging fruit.
+Nov 06 22:57:50 <technomancy>	less work to find an exploit in "some guy's random perl wiki" vs mediawiki tho =)
+Nov 06 22:58:10 <mplsCorwin>	Maybe.
+Nov 06 22:58:42 <technomancy>	altho mediawiki is PHP so who knows
+Nov 06 22:58:48 <mplsCorwin>	:)
+Nov 06 22:58:59 <dale>	Now compare difficulty of exploiting Oddmuse to difficulty of exploiting Drew's machine.
+Nov 06 22:59:18 <markasoftware>	When i autocomplete with lsp-mode and Clangd, the autocompletion includes the arguments to the function
+Nov 06 22:59:43 <technomancy>	wait so the whole point of a wiki is that it's editable
+Nov 06 22:59:53 <markasoftware>	eg, when I try to autocomplete free_ctx, it does not expand into `free_ctx(cursor_here)`, but rather `free_ctx(struct my_struct blah)cursor_here`
+Nov 06 22:59:58 <technomancy>	isn't a locked wiki like ... an inherent contradiction?
+Nov 06 23:00:01 <markasoftware>	how can I make it only autocomplete the function name
+Nov 06 23:00:01 <mplsCorwin>	dale: exactly what I'm thinking.  But Drew probably isn't special in that case, except that we know of a wiki we might "catch" him editing.
+Nov 06 23:00:53 <dale>	markasoftware: I don't use lsp-mode but my recollection is that there is a variable matching the regexp lsp-.*snippet.* that needs to be changed.
+Nov 06 23:01:01 <mplsCorwin>	technomancy: I had a friend who maintained wikis for a living. That always confounded me.
+Nov 06 23:01:18 <dale>	markasoftware: I *think* "snippet" is the word in the setting you're looking for, assuming they haven't changed it since I last looked.
+Nov 06 23:01:39 <technomancy>	mplsCorwin: like they maintained the wiki software, or they kept the pages up-to-date and spam-free?
+Nov 06 23:01:53 <markasoftware>	hmm i see some snippet variables related to lua and kotlin but not c
+Nov 06 23:02:01 <mplsCorwin>	technomancy: The latter.
+Nov 06 23:02:21 <dale>	markasoftware: Well that's disappointing.  I wouldn't have even thought it would be language-specific.
+Nov 06 23:02:35 <technomancy>	mplsCorwin: well, that makes sense to me; wikis naturally degrade over time if they don't have people keeping things updated and consistent.
+Nov 06 23:02:38 <markasoftware>	there's an lsp-enable-snippet but i think it's for autocompleting snippets, eg yasnippet? idk
+Nov 06 23:02:50 <dale>	markasoftware: Try turning that off and see what happens maybe?
+Nov 06 23:03:44 <mplsCorwin>	technomancy: I mean... just have a website and be done with it?  Why pay someone to correct the content?  But I guess the ease of GitHub PRs wasn't a thing then.  (This friend died about 7yrs back)
+Nov 06 23:04:19 <markasoftware>	huh i turned that variable on and off and now it works as i expect?
+Nov 06 23:04:32 <markasoftware>	well thanks Dale, I'll continue looking into these variables
+Nov 06 23:04:37 <mplsCorwin>	technomancy: in fact she said it was a vanity thing; her clients wanted to be able to say their content could be edited by anyone but really they wanted things just so.
+Nov 06 23:04:56 <dale>	markasoftware: NP, happy to have maybe helped.
+Nov 06 23:04:58 <technomancy>	mplsCorwin: ahh, yeah I mean depending on the subject matter it could be weird
+Nov 06 23:05:21 <technomancy>	Let's apply for a job opening as the Memory Alpha wiki maintainer.
+Nov 06 23:06:28 <dale>	technomancy: Is your résumé your name and email address followed by five pages of choice memes?
+Nov 06 23:07:08 <technomancy>	https://p.hagelb.org/spock-yes.gif
+Nov 06 23:07:21 <dale>	Perfect.
+Nov 06 23:07:21 <mplsCorwin>	lol
+Nov 06 23:15:44 <johnjay>	dale: i don't know what circle of hell javascript is from but we're stuck with it
+Nov 06 23:26:59 <markasoftware>	dale: Apparently I have to remove the company-tng frontend
+Nov 06 23:27:15 <markasoftware>	which is weird because i don't remember ever adding it, and it wasn't in my init file...maybe customized at some point
+Nov 07 00:51:53 <Viking667>	Is there a quick one-liner for splitting an emacs frame into four?  I can do it in three (well, four) steps normally; C-x 3, C-x 2, C-x o C-x 2
+Nov 07 00:52:54 <dannylee>	yes i  install about 30 software package  with dnf...ok i love fedora 32...but my web browser konqueror  don't  work...so i just gave up...when i shut down my machine it started to do update on its own...so when i turn on my machine konqueror work great...i think fedora updates gave me A.I ...now i can edit every thing..with konqueror the view source option...what the hell...fedora 32...
+Nov 07 00:52:56 <dannylee>	...workstation is ok with Me.
+Nov 07 00:53:06 <dannylee>	yes i  install about 30 software package  with dnf...ok i love fedora 32...but my web browser konqueror  don't  work...so i just gave up...when i shut down my machine it started to do update on its own...so when i turn on my machine konqueror work great...i think fedora updates gave me A.I ...now i can edit every thing..with konqueror the view source option...what the hell...fedora 32...
+Nov 07 00:53:07 <dannylee>	...workstation is ok with Me.
+Nov 07 00:53:27 <Viking667>	whu?
+Nov 07 00:53:27 <ndegruchy>	what
+Nov 07 00:53:38 <ndegruchy>	Sir, this is a drive through...
+Nov 07 00:54:28 <jamzattack>	Viking667: this is the shortest I could get it https://jamzattack.xyz/tmp/quadruple-split.txt
+Nov 07 00:54:34 <dannylee>	now i can edit with emacs toooo
+Nov 07 00:55:55 <jamzattack>	Viking667: well really, that splits the window into four..  you'd need to put (delete-other-windows) in there to make the name correct I guess
+Nov 07 00:57:51 <pottag>	how do I download a webpage through eww?
+Nov 07 00:58:16 <jamzattack>	pottag: `eww-download' (d in eww-mode-map)
+Nov 07 00:58:26 <pottag>	Thanks!
+Nov 07 00:59:19 <Viking667>	jamzattack: that does exactly what I want, though getting it into one line is a bit adventurous. Thanks for that.
+Nov 07 01:00:03 <Viking667>	I'll go add that to my notes.org
+Nov 07 01:01:53 <parsnip>	anyone tried every vim add-on for firefox?
+Nov 07 01:02:01 <parsnip>	brrrrr
+Nov 07 01:02:13 <frdg>	The different programming language modes I use have their own syntax highlighting variables but they are all ignored for global highlighting colors. Why is this and how can I change it?
+Nov 07 01:03:23 <parsnip>	frdg: i thought the modes use like "function-face" or whatever it's called, and themes just modify that.
+Nov 07 01:03:33 <dale>	frdg: What is "global highlighting"?
+Nov 07 01:03:38 <Viking667>	parsnip: I've tried three of thim, E thenk
+Nov 07 01:03:47 <Viking667>	err, three of them, I think
+Nov 07 01:04:14 <dale>	Viking667: I have to ask what your keyboard layout is that you just swapped E and I for the second half of that sentence? :)
+Nov 07 01:04:36 <Viking667>	dale: sorry, wasn't quite consedratung... dvorak
+Nov 07 01:05:18 <frdg>	by global highlighting I mean when I do `customize face` It has me customize `font-lock-function-name-face` but when I customize this it changes the colors for all my programming languages. If I go to `customize` though I can see that each language has its own variable but when I change them nothing happens.
+Nov 07 01:05:32 <Viking667>	cf;k a; ,dpp G ,a;lqk gl x,dokte  <<< hm. Trying to type dvorak in qwerty keyboard layout really messes things up.
+Nov 07 01:06:08 <Viking667>	A neat (if confusing) way to vaguely obfuscate things.
+Nov 07 01:06:30 <jamzattack>	translated: just as well I wasn't in qwerty.
+Nov 07 01:06:39 <dale>	frdg: Can you give me an example of a language-specific variable that you're changing to no effect?  Preferably one that is built-in to Emacs, if possible.
+Nov 07 01:06:51 <Viking667>	jamzattack: ha. How'd you manage to crowbar that one out that quickly?
+Nov 07 01:06:52 <dale>	Viking667: That's funny.
+Nov 07 01:07:07 <dokma>	The local variables list in ***** contains values that may not be safe --- even after ! exclam marking it permanently safe?
+Nov 07 01:07:18 <dokma>	Comes up on every restart.
+Nov 07 01:07:33 <dokma>	Where is that 'permanently safe' state stored?
+Nov 07 01:07:34 <parsnip>	is that something that goes to custom-file?
+Nov 07 01:07:41 <parsnip>	what is value of custom-file?
+Nov 07 01:07:44 <jamzattack>	Viking667: qwerty keycaps...  took at least a second per character though
+Nov 07 01:07:54 <dale>	parsnip: I believe it is.
+Nov 07 01:07:56 <Viking667>	ah. Right.
+Nov 07 01:08:13 <dale>	parsnip: I think it gets stored in safe-local-variable-values.
+Nov 07 01:08:30 <parsnip>	they could probably add that setting to their "deliberate" config
+Nov 07 01:08:48 <parsnip>	i actually have custom-file set to "/tmp/custom.el"
+Nov 07 01:08:53 <frdg>	sure `prolog builtin face` and `flora-font-lock-arrow-face`. On the other hand the haskell faces work as expected.
+Nov 07 01:09:10 <parsnip>	because i got tired of package.el complaining about not being able to write to /dev/null or something.
+Nov 07 01:09:21 <Viking667>	Cy-o mrp. ugb ircbi yd. ryd.p ,af <<-- qwerty keycaps in dvorak.
+Nov 07 01:09:44 <jamzattack>	Viking667: yeah that's twice as hard to figure out lol
+Nov 07 01:09:57 <parsnip>	ehind-bay im-hay
+Nov 07 01:10:09 <parsnip>	anyone?
+Nov 07 01:10:10 <fsbot>	Just ask your question. It's the best way to know if anyone can help. https://sol.gfxile.net/dontask.html
+Nov 07 01:10:11 <Viking667>	oot adb
+Nov 07 01:10:39 <Viking667>	"behind him"
+Nov 07 01:10:53 <parsnip>	yeah but what movie
+Nov 07 01:11:05 <Viking667>	Oh good grief. I don't know!
+Nov 07 01:11:10 <Viking667>	I don't really watch movies.
+Nov 07 01:11:20 <parsnip>	hint: johnny five alive!
+Nov 07 01:12:10 <parsnip>	they're on the sidewalk and one of the thugs tells the other thugs to go behind johnny-five and hit him... johnny-five doesn't know pig latin
+Nov 07 01:12:23 <SpiderPig>	Just updated to 27. I thought I would have to rework my config with early-init.el for it to work but it still works the same.
+Nov 07 01:12:29 <dale>	frdg: I'm reading prolog.el.  Turns out that it uses font-lock-builtin-face if that face is defined, or prolog-builtin-face otherwise.
+Nov 07 01:12:33 <Viking667>	definitely not The Day the Earth Stood Still
+Nov 07 01:13:18 <frdg>	dale: so if I undefine these font-lcok faces things should work?
+Nov 07 01:13:23 <dale>	frdg: So prolog.el defines the face and then promptly doesn't use it, at least not on any remotely recent Emacs I think.  (Maybe XEmacs is still different or something.)  Solution there may be to just (setq prolog-builtin-face 'prolog-builtin-face) to get prolog-mode to use prolog-builtin-face.
+Nov 07 01:13:36 <jamzattack>	dale, frdg: fwiw prolog-builtin-face is obsolete in 28
+Nov 07 01:13:41 <dale>	frdg: (See variable—not face—prolog-builtin-face.)
+Nov 07 01:14:22 <jamzattack>	"prolog-builtin-face is an alias for the face ‘font-lock-builtin-face’.  This face is obsolete since 28.1; use ‘font-lock-builtin-face’ instead."
+Nov 07 01:14:30 <dale>	jamzattack: Aaaand thank you for alerting me to the face that I'm running a built from emacs-27 instead of master, apparently.
+Nov 07 01:14:49 <Viking667>	hang on, 28.1? 
+Nov 07 01:14:58 <dale>	frdg: I emphatically do NOT recommend undefining font-lock-builtin-face, ever.
+Nov 07 01:15:25 <dale>	Viking667: master just says that in preparation for the day in the (not near AFAIK) future when 28 will be released.
+Nov 07 01:15:48 <Viking667>	I compiled yesterday from master, I get GNU Emacs 28.0.50 (build 1...) from that
+Nov 07 01:15:51 <frdg>	ok this is problematic because I am using another language that I guess also uses `font-lock-builtin-face` though the emacs mode for it was built off of the prolog-mode from what I understand.
+Nov 07 01:16:31 <parsnip>	can't modes be modified, to some extent
+Nov 07 01:16:55 <frdg>	yes I will work through it  now that I understand the problem.
+Nov 07 01:17:03 <dale>	frdg: So https://emacs.stackexchange.com/a/2968 suggests you can set a buffer-local value for the *variable* font-lock-builtin-face to point to another face.
+Nov 07 01:17:14 <parsnip>	like, if modes are mostly indentation and syntax highlighting, they are also pretty easy to modify there, i expect.
+Nov 07 01:17:37 <dale>	frdg: I have never tried this, but perhaps if you customize prolog-builtin-face and then (setq-local font-lock-builtin-face 'prolog-builtin-face) in a function you place in prolog-mode-hook, this might work.
+Nov 07 01:17:53 <frdg>	ok I will try this
+Nov 07 01:17:58 <dale>	frdg: (As jamzattack said, prolog-builtin-face will apparently go away at some point in the future, but you can at least see if it works for you for now and worry about the future in the future.)
+Nov 07 01:18:09 <frdg>	ok
+Nov 07 01:18:26 <SpiderPig>	Is splitting up a config into early-init.el necesary or is it simply a performance boost?
+Nov 07 01:18:48 <parsnip>	why not just make font-lock-function-face buffer local?
+Nov 07 01:19:18 <dale>	parsnip: You can modify font-lock-defaults or font-lock-keywords or whatever in a mode hook, I expect, but font-lock-keywords often has a very complex value, IMHO, and gets hard to modify.  Maybe there are better ways.
+Nov 07 01:19:34 <holomorph>	SpiderPig: it was a compromise/workaround for dealing with how packages are loaded
+Nov 07 01:20:31 <dale>	parsnip: I think that's what I suggested.  Though note that you can't make a *face* buffer local, AFAIK.  I *think* faces are stored either in symbol properties or else somewhere in some C construct, they're not just in a symbol's value slot AFAIK.
+Nov 07 01:21:03 <parsnip>	dale: hmm, seems to be done here: https://www.emacswiki.org/emacs/FacesPerBuffer
+Nov 07 01:21:06 <SpiderPig>	holomorph: yea, it looks like it would be aplicable to my config. I have it setup to  bootstrap use-package via package. But it works the same as in 26
+Nov 07 01:21:15 <parsnip>	oh wait
+Nov 07 01:21:29 <parsnip>	dale: i didn't read that whole link, maybe it is saying the solution for emacs 23+
+Nov 07 01:21:57 <parsnip>	M-x buffer-face-set
+Nov 07 01:22:25 <SpiderPig>	holomorph: I guess I thought it would be aplicable because somewhere I read it is called before package-initialize which is called before init.el
+Nov 07 01:22:43 <dale>	parsnip: From reading this it sounds to me like that will change the face for just one buffer rather than for all buffers in a given major mode, but you could be right.
+Nov 07 01:23:10 <dale>	parsnip: Seems like the hint about face remapping there could also be used.
+Nov 07 01:23:13 <parsnip>	sure so a mode-hook should work, no?
+Nov 07 01:23:27 <dale>	parsnip: Yeah, it should.
+Nov 07 01:23:32 <frdg>	parsnip: `M-x buffer-face-set` is perfect. Ill just set a hook and the problem is solved. Thanks guys
+Nov 07 01:23:46 <dale>	parsnip: It's not clear to me why that's better than the "Prior to Emacs 23" solution, but it should work.  Maybe face remapping is considered better somehow.
+Nov 07 01:23:58 <Viking667>	hm. that brings to mind... one of the first lines in my .emacs is package-initialize, just after (require 'package). Are the two related?
+Nov 07 01:24:43 <parsnip>	dale: magic
+Nov 07 01:25:06 <parsnip>	i don't peak behind the curtain
+Nov 07 01:26:01 <parsnip>	Viking667: i'm guessing require is redundant to initialize
+Nov 07 01:26:36 <Viking667>	hm. 
+Nov 07 01:26:48 <Viking667>	Time to edit my .org then.
+Nov 07 01:27:18 <jamzattack>	Viking667: require, and package-initialize are both redundant.  firstly because all the necessary package functions are autoloaded, secondly because package-enable-at-startup is set to t by default
+Nov 07 01:27:47 <parsnip>	Viking667: i think some redundancy is fine
+Nov 07 01:31:16 <Viking667>	lol. I wasn't aware of that.
+Nov 07 01:31:55 <Viking667>	Okay. Now I have to figure out (remember, actually) how to wrap a region in #+BEGIN_SRC ... #+END_SRC tags.
+Nov 07 01:32:04 <Viking667>	I seem to remember a keybind to that somewhere.
+Nov 07 01:32:14 <parsnip>	(require 'org-tempo) to get the old bindings
+Nov 07 01:32:21 <parsnip>	< s TAB
+Nov 07 01:35:15 <jamzattack>	Viking667: C-c C-, runs the command org-insert-structure-template
+Nov 07 01:36:45 <parsnip>	ah, that's the new binding
+Nov 07 01:36:58 <Viking667>	don't need it, I found C-c C-v d
+Nov 07 01:37:03 <jfb4_>	Viking667: in emacs 27 you don't need package-initialize
+Nov 07 01:37:12 <Viking667>	and in 28?
+Nov 07 01:37:27 <parsnip>	i think they meant 27+
+Nov 07 01:37:59 <Viking667>	jamzattack: would C-c C-, have worked for a region?
+Nov 07 01:38:14 <parsnip>	,tias
+Nov 07 01:38:15 <fsbot>	Try it and see! (then tell us what you saw)
+Nov 07 01:38:18 <Viking667>	lol.
+Nov 07 01:39:23 <Viking667>	figures... the answer is most certainly yes (Copyright (C) 2020 fsbot)
+Nov 07 01:40:03 <Viking667>	but org-babel-demarcate-block asked me what language, then tagged it as I wanted
+Nov 07 01:44:09 <dale>	parsnip: I think you've converted me to the church of (invert-face 'default).
+Nov 07 01:44:21 <parsnip>	yes!
+Nov 07 01:44:33 <dale>	I fixed which-func's face and it's fine in the status bar now.
+Nov 07 01:44:43 <Viking667>	ugh. That'll teach me. tried marking something as c when it was meant to be emacs-lisp. Just as well I didn't write that out.
+Nov 07 01:44:53 <parsnip>	nice. is that a clear upstream issue?
+Nov 07 01:45:34 <dale>	parsnip: Not really, I don't think.  The defaults are probably fine in the default mode line colors, since it appears in the mode line by default.
+Nov 07 09:21:46 *	Disconnected ()
+**** ENDING LOGGING AT Sat Nov  7 09:21:46 2020
+
+**** BEGIN LOGGING AT Sat Nov  7 09:22:10 2020
+
+Nov 07 09:22:10 *	Now talking on #emacs
+Nov 07 09:22:10 *	Topic for #emacs is: Take the Emacs User Survey before 2020-11-30! https://emacssurvey.org/ | Gul Dukat says upgrade to 27.1: https://i.imgflip.com/4hpvlw.jpg | Emacs questions take priority over off-topic chatter, so ask! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery..
+Nov 07 09:22:10 *	Topic for #emacs set by bpalmer!~user@unaffiliated/bpalmer (Fri Oct 30 13:48:54 2020)
+Nov 07 09:22:10 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Nov 07 11:00:30 *	Disconnected ()
+**** ENDING LOGGING AT Sat Nov  7 11:00:30 2020
+
+**** BEGIN LOGGING AT Sat Nov  7 11:01:12 2020
+
+Nov 07 11:01:12 *	Now talking on #emacs
+Nov 07 11:01:12 *	Topic for #emacs is: Take the Emacs User Survey before 2020-11-30! https://emacssurvey.org/ | Gul Dukat says upgrade to 27.1: https://i.imgflip.com/4hpvlw.jpg | Emacs questions take priority over off-topic chatter, so ask! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery..
+Nov 07 11:01:12 *	Topic for #emacs set by bpalmer!~user@unaffiliated/bpalmer (Fri Oct 30 13:48:54 2020)
+Nov 07 11:01:12 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Nov 07 20:04:16 *	Disconnected ()
+**** ENDING LOGGING AT Sat Nov  7 20:04:16 2020
+
+**** BEGIN LOGGING AT Sat Nov  7 20:06:01 2020
+
+Nov 07 20:06:01 *	Now talking on #emacs
+Nov 07 20:06:01 *	Topic for #emacs is: Take the Emacs User Survey before 2020-11-30! https://emacssurvey.org/ | Gul Dukat says upgrade to 27.1: https://i.imgflip.com/4hpvlw.jpg | Emacs questions take priority over off-topic chatter, so ask! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery..
+Nov 07 20:06:01 *	Topic for #emacs set by bpalmer!~user@unaffiliated/bpalmer (Fri Oct 30 13:48:54 2020)
+Nov 07 20:06:01 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Nov 07 20:46:45 <thblt>	,ping
+Nov 07 20:46:51 <fsbot>	␕
+Nov 07 20:56:53 <apteryx>	hello! Is there an option I'm missing with counsel-git-grep to make it defaults to search the word at point?
+Nov 07 20:57:06 <apteryx>	currently I have to type or copy/paste it every time, which gets tiring quickly (especially being used to Helm, which would do that for me).
+Nov 07 20:58:28 <thblt>	apteryx: (interactive) doesn't populate initial-input.  You could write your own wrapper
+Nov 07 21:00:04 <apteryx>	OK
+Nov 07 21:00:14 <apteryx>	seems a common thing to want
+Nov 07 21:01:09 <thblt>	I have no idea to be honest, but if you think so you can just patch the function and contribute your patch!
+Nov 07 21:01:34 <thblt>	Wait
+Nov 07 21:01:45 <thblt>	There'd ivy-initial-inputs-alist
+Nov 07 21:01:51 <thblt>	There's
+Nov 07 21:04:13 <thblt>	Demo: (add-to-list 'ivy-initial-inputs-alist (cons 'counsel-git-grep (lambda nil "Hello!")))
+Nov 07 21:05:30 <apteryx>	oh! that's neat!
+Nov 07 21:05:34 <apteryx>	Thanks for the find
+Nov 07 21:11:16 <thblt>	That Four Seasons Landscaping story is the weird cherry on the top of a very weird election.
+Nov 07 21:29:58 <breadw>	thblt: wait what?
+Nov 07 21:32:53 <thblt>	breadw: the Trump team is doing right now (if I'm not timezone-confused) a press conference at a small Philadelphia landscaper's offices, Four Seasons Landscaping.
+Nov 07 21:33:15 <thblt>	Which is an… interesting choice of location. Best guess is they wanted a conf room at the Four Seasons hotel, made a mistake and went with it.
+Nov 07 21:33:46 <thblt>	https://twitter.com/thatbilloakley/status/1325152158866567168
+Nov 07 21:34:38 <breadw>	oh lol THAT is rich
+Nov 07 21:34:54 <acdw>	you're right, it's a cherry on top of a completely inept administration
+Nov 07 21:35:06 <acdw>	like, of COURSe they'd do that
+Nov 07 21:35:08 <acdw>	..
+Nov 07 21:35:08 <acdw>	anyway, EMACS
+Nov 07 21:35:08 <acdw>	emacs is great
+Nov 07 21:37:37 <thblt>	Except for lanscaping, one could say.
+Nov 07 21:37:49 <thblt>	landscaping.
+Nov 07 21:39:01 <acdw>	HAHAHAAHAH
+Nov 07 21:39:07 <acdw>	and text editing, quoth the haters
+Nov 07 21:46:39 <Viking667>	I've got emacs --daemon running, but I can't figure out how to restore tabs I had saved last night
+Nov 07 21:47:54 <Viking667>	i.e. I had a tab with four windows and I don't know how to pull up a list of defined tabs. 
+Nov 07 21:49:09 <thblt>	Viking667: tabs are a frame parameter. I guess they die with the frame.
+Nov 07 21:49:25 <Viking667>	ewww.
+Nov 07 21:49:42 <thblt>	You could persist them I guess.
+Nov 07 21:49:57 <Viking667>	And that's the bit I don't know (yet) how to do.
+Nov 07 21:50:22 <Viking667>	Info docs are great, but sometimes I need questions asked that they don't have immediately to hand.
+Nov 07 21:50:51 <Viking667>	Ah well. At least the buffers still exist. 
+Nov 07 21:50:55 <thblt>	Hook on frame destruction and save (frame-parameter FRAME 'tabs) to some variable.
+Nov 07 21:51:08 <thblt>	tabs aren't buffer, they're a window configuration iiuc.
+Nov 07 21:51:41 <Viking667>	I might have to start naming my frames then
+Nov 07 21:52:15 <Viking667>	lol. Am I into emacs-juju territory yet?
+Nov 07 21:52:54 <Viking667>	Makes me wonder how many people run emacs in --daemon mode vs how many just run straight emacs
+Nov 07 21:53:28 <thblt>	I guess most users use the daemon.
+Nov 07 21:55:00 <Viking667>	huh. I only discovered the daemon about umm... three months ago.
+Nov 07 22:51:18 <grym>	dale: i don't have any openAPI client generation knowledge, but i kind of want to.
+Nov 07 22:58:21 <grym>	thblt: best yet, said landscaping office is between a crematorium and a sex toy shop, so they can actually FOAD >:)
+Nov 07 23:41:21 <dale>	grym: OK, thanks anyway.
+Nov 07 23:48:29 <grym>	dale: or, if our customers tell us what they're using ... 
+Nov 07 23:48:44 <grym>	dale: i want something that can ingest a jsonschema and emit attrs classes, though i know of no such thing 
+Nov 07 23:49:48 <dale>	grym: I've been working with an API that has a JSON schema but it turns out its OpenAPI definition is lacking.  They just punt for "object" for some of the more complex types, so I didn't know it when I asked you that question, but in this case an OpenAPI client wouldn't have helped me.
+Nov 07 23:50:39 <dale>	grym: I've been trying to use Desert to generate Marshmallow schemas from dataclasses, but I'm now backpedaling on that idea.  I think instead I want to go the other way around and generate dataclasses from Marshmallow schemas.
+Nov 07 23:51:07 <dale>	grym: Oh, I just realized, this API doesn't have a JSON schema either, so never mind that possibility.  I like your idea too, though.
+Nov 08 00:33:30 <dale>	apteryx: Re-reading your thing about counsel-git-grep, have you tried hitting M-n after invoking it?
+Nov 08 00:34:00 <dale>	apteryx: That should insert the symbol at point as input, complete with \_< \_> around it.
+Nov 08 00:35:14 <dale>	apteryx: And this works for most/all Ivy prompts, I think.  (Some will not include \_< \_> and actually I bet counsel-git-grep might be one of those, since I think maybe counsel.el doesn't know how to translate those into regexp specials that git-grep understands.  I see this also with counsel-rg, for example.)
+Nov 08 00:48:35 <thblt>	that's a smart binding reuse.
+Nov 08 01:58:44 <grym>	dale: right, i know how to go from desert to jsonschema; i don't know how to do the reverse (but would love to)
+Nov 08 02:00:27 <dale>	grym: I'm honestly surprised that someone hasn't already done it.  I just googled and nothing obvious came up.
+Nov 08 02:04:05 <grym>	dale: codegen sucks 
+Nov 08 02:04:13 <grym>	(in python anyway)
+Nov 08 02:11:00 <Viking667>	I'm having some real fun with tab-line-mode, I'm not sure how to rearrange the buffers in a window without manually deleting tabs and recreating them in order.
+Nov 08 02:11:42 <Viking667>	i.e. I have a preference for alphabetic sorting, but I don't get that.
+Nov 08 02:23:47 <laertus>	is there a way to do a "git mv foo bar" from magit?
+Nov 08 02:33:29 <parsnip>	laertus: renaming via dired then staging the commits is similar but not sufficient?
+Nov 08 02:33:43 <parsnip>	*staging the changes
+Nov 08 02:34:08 <laertus>	yeah, when i do a "git mv foo bar" it'll be a single renaming change in git, rather than a deletion and addition of a file
+Nov 08 02:34:57 <laertus>	i think it makes more sense when it's shown as a rename rather than the deletion of a file and the addtion of a file, which, for all the reader knows might be two unrelated files
+Nov 08 02:34:59 <dale>	laertus: Git doesn't store renames AFAIK, so move via dired then stage delete and add "new" file should be equivalent AFAIK.
+Nov 08 02:35:10 <laertus>	hmm
+Nov 08 02:35:24 <Viking667>	I have here (from google) magit-rename-file (bound to R in the magit window): https://emacs.stackexchange.com/questions/23917/how-to-move-rename-a-file-within-magit
+Nov 08 02:35:28 <laertus>	well, when i do a "git mv" outside magit, magit shows it as a rename
+Nov 08 02:35:35 <laertus>	but not so if i delete and add a file
+Nov 08 02:35:41 <Viking667>	that's correct.
+Nov 08 02:35:43 <parsnip>	but if you stage the, then yes, no?
+Nov 08 02:35:45 <parsnip>	*them
+Nov 08 02:36:11 <dale>	laertus: That sounds... weird.  What does "git status" show?
+Nov 08 02:36:11 <laertus>	Viking667: i think that maybe what i'm looking for.. thanks!
+Nov 08 02:36:47 <Viking667>	I just used this in momma google: emacs rename file with magit
+Nov 08 02:37:19 <laertus>	papa #emacs is better :)
+Nov 08 02:37:50 <Viking667>	but not necesssarily faster. However, nobody'll snaffle your nick for advertising in #emacs
+Nov 08 02:38:28 <laertus>	it's often faster
+Nov 08 02:38:52 <Viking667>	I must admit though, I looked through the magit info manual first, didn't find what I wanted from the table of contents.
+Nov 08 07:13:53 *	Disconnected ()
+**** ENDING LOGGING AT Sun Nov  8 07:13:53 2020
+
+**** BEGIN LOGGING AT Sun Nov  8 07:14:20 2020
+
+Nov 08 07:14:20 *	Now talking on #emacs
+Nov 08 07:14:20 *	Topic for #emacs is: Take the Emacs User Survey before 2020-11-30! https://emacssurvey.org/ | Gul Dukat says upgrade to 27.1: https://i.imgflip.com/4hpvlw.jpg | Emacs questions take priority over off-topic chatter, so ask! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery..
+Nov 08 07:14:20 *	Topic for #emacs set by bpalmer!~user@unaffiliated/bpalmer (Fri Oct 30 13:48:54 2020)
+Nov 08 07:14:20 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Nov 08 07:15:35 <Viking667>	egads that took a while.
+Nov 08 07:15:57 <Viking667>	And now emacs is spinning its wheels like crazy
+Nov 08 07:17:07 <Viking667>	Ahh, it was eww slowing things up
+Nov 08 07:23:54 <achilles>	is there any way to prevent emacs to create ~/.emacs.d? (w/o hacking the emacs source code)
+Nov 08 07:25:33 <jamzattack>	achilles: (setq user-emacs-directory null-device) maybe?  or if `null-device' doesn't work, just move it somewhere out of the way (/tmp/ probably)
+Nov 08 07:26:22 <achilles>	i did, it doesn't work. even this variables doc says pointless to set this value.
+Nov 08 07:27:06 <achilles>	apropos-value ~/.emacs.d/ returns no result which means there is no variable to change. no, yes?
+Nov 08 07:28:53 <achilles>	i can rm it inside .emacs once emacs starts but it'd be an ugly hack.
+Nov 08 07:29:01 <Qudit314159>	achilles: There could be something that accesses it on startup before you change it (e.g. a package you've installed)
+Nov 08 07:29:36 <achilles>	Qudit314159: no, i put setf u-e-d to the first line.
+Nov 08 07:30:04 <jamzattack>	achilles: er, it isn't pointless -- there's a comment saying "The value does not matter since Emacs sets this at startup." but that's referring to its initial value.  emacs -Q --eval '(setq user-emacs-directory "/tmp/snth")' works fine for me
+Nov 08 07:31:10 <achilles>	jamzattack: did you remove ~/.emacs.d before try that eval?
+Nov 08 07:32:00 <achilles>	because moving it to another location works, but preventing the creation doesn't.
+Nov 08 07:32:48 <Viking667>	You could make .emacs.d a file, and make it unremovable, but you'd need to chattr the file, and that takes root access. i.e. sudo
+Nov 08 07:32:52 <Qudit314159>	achilles: But if you're using package.el, packages are automatically loaded at startup
+Nov 08 07:33:09 <Qudit314159>	You may have better luck with early-init.el
+Nov 08 07:33:49 <Qudit314159>	See https://www.gnu.org/software/emacs/manual/html_node/emacs/Package-Installation.html#Package-Installation
+Nov 08 07:33:54 <achilles>	jamzattack: i tried now, it creates the dir anyway.
+Nov 08 07:35:06 <Qudit314159>	achilles: Try setting emacs-user-directory in early-init.el
+Nov 08 07:35:17 <jamzattack>	achilles: weird, doesn't for me but I'm on 28
+Nov 08 07:35:35 <achilles>	Qudit314159: even without init, with -Q it creates that directory.
+Nov 08 07:35:38 <achilles>	jamzattack: me too.
+Nov 08 07:35:38 <Qudit314159>	huh
+Nov 08 07:36:16 <achilles>	jamzattack: very weird actually, how's this possible?
+Nov 08 07:37:03 <Qudit314159>	I would not have thought it was but I always keep my emacs.d
+Nov 08 07:37:18 <Qudit314159>	It has a lot of stuff in it :-)
+Nov 08 07:38:40 <achilles>	yeah but i have another structure which requires no .emacs.d
+Nov 08 07:39:40 <Qudit314159>	Huh, what is that?  You have me a bit curious
+Nov 08 07:41:35 <achilles>	oh, nothing special, just different taste of directory naming
+Nov 08 07:42:25 <Qudit314159>	The .xyz directories do make a bit of a mess in $HOME
+Nov 08 07:44:14 <achilles>	yes and .emacs and .emacs.d not completion friendly in shell.
+Nov 08 07:59:14 <johnjay>	ok i'm trying to get emacs to read early-init.el
+Nov 08 07:59:18 <johnjay>	but failing
+Nov 08 07:59:38 <johnjay>	shouldn't it show up on strace? i defined early-init.el in ~/.emacs.d and have it do (setq abcd 7)

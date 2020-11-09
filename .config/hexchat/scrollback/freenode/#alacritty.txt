@@ -4196,3 +4196,299 @@ T 1604184739 19*	Now talking on 22#alacritty
 T 1604184739 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.5.0 - https://github.com/alacritty/alacritty/releases/latest
 T 1604184739 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sat Aug  1 00:45:32 2020)
 T 1604185594 20*	Disconnected (20)
+T 1604695656 19*	Now talking on 22#alacritty
+T 1604695656 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.5.0 - https://github.com/alacritty/alacritty/releases/latest
+T 1604695656 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sat Aug  1 00:45:32 2020)
+T 1604695924 18<24UndeadLeech18>	lol
+T 1604695943 18<24UndeadLeech18>	We had it on macOS too, right?
+T 1604695960 18<24UndeadLeech18>	Which literally just stopped accepting data after a certain point.
+T 1604699209 18<29kchibisov18>	Hm, I wonder whether it's worth it to run rustfmt first.
+T 1604703073 18<24UndeadLeech18>	I intentionally structured it this way so less external resources are used. Like rustfmt is fairly quick, but requires installing a new tool.
+T 1604707930 18<24UndeadLeech18>	kchibisov: Can you still repro https://github.com/alacritty/alacritty/issues/3959?
+T 1604707971 18<24UndeadLeech18>	Ah, nvm. That's a different issue.
+T 1604708060 18<24UndeadLeech18>	I'd be curious how you feel about this issue though.
+T 1604708073 18<24UndeadLeech18>	I don't feel like it should be solved the way it's suggested.
+T 1604708079 18<29kchibisov18>	I'll look once I fix Wayland stuff.
+T 1604708085 18<24UndeadLeech18>	Yeah, take your time.
+T 1604708102 18<24UndeadLeech18>	The cursor issue is fixed with the new renderer, right?
+T 1604708145 18<24UndeadLeech18>	Like the cursor being drawn behind underline and stuff.
+T 1604708155 18<29kchibisov18>	I think, anyway I think it's kind of pointless to fix anything with our current renderer, knowing that new-renderer-pr is likely what we'll have.
+T 1604708181 18<29kchibisov18>	I'm not sure whether it's fixed, I'd also like to check new-renderer-pr orderings.
+T 1604708194 18<29kchibisov18>	Since from what I remember it's not really above.
+T 1604708210 18<29kchibisov18>	And there was a reason why it can't be made above, but I don't remember.
+T 1604708220 18<24UndeadLeech18>	Oh interesting, I'll at least leave a note on the issue then.
+T 1604708232 18<29kchibisov18>	Ah, it's due to block cursor.
+T 1604708245 18<29kchibisov18>	since block cursor is a glyph and character should be above it.
+T 1604708256 18<29kchibisov18>	The same for hollow block.
+T 1604708262 18<24UndeadLeech18>	You mean box? Because block cursor shouldn't be a glyph?
+T 1604708272 18<29kchibisov18>	Box.
+T 1604708282 18<29kchibisov18>	Anyway, I think we can tune new-renderer after we want to.
+T 1604708284 18<24UndeadLeech18>	There's no problem with box cursor to be in front.
+T 1604708296 18<29kchibisov18>	I also thought that way.
+T 1604708308 18<29kchibisov18>	But I was trying not to push with fixing such thing there.
+T 1604708321 18<24UndeadLeech18>	Yeah, no worries. Can always be done later.
+T 1604708322 18<29kchibisov18>	Since the goal was to have something working and something we can work with.
+T 1604708348 18<24UndeadLeech18>	Yeah, I'm perfectly fine with having just a MVP merged, as long as that's solid.
+T 1604708368 18<29kchibisov18>	yeah, it fixes perf issues with unicode I was having.
+T 1604708380 18<29kchibisov18>	And should also fixed cropped wide chars.
+T 1604708397 18<24UndeadLeech18>	Nice. We gotta go and hunt down all the issues then.
+T 1604708402 18<24UndeadLeech18>	Aliasing is also fixed, right?
+T 1604708410 18<29kchibisov18>	What aliasing?
+T 1604708414 18<29kchibisov18>	overlapping?
+T 1604708418 18<24UndeadLeech18>	Yeah.
+T 1604708426 18<29kchibisov18>	it's not.
+T 1604708433 18<24UndeadLeech18>	That's a bummer.
+T 1604708440 18<29kchibisov18>	It can be fixed though.
+T 1604708458 18<24UndeadLeech18>	That's one of the very, very few things I really want to see fixed in Alacritty.
+T 1604708474 18<24UndeadLeech18>	Like the last major thing that annoys me personally.
+T 1604708478 18<29kchibisov18>	I guess, it looks better with overlapping though.
+T 1604708488 18<29kchibisov18>	At some point it wasn't overlapping at all.
+T 1604708511 18<29kchibisov18>	But then we have certain fonts that like to draw out of bounds, so you should honor them...
+T 1604708528 18<24UndeadLeech18>	Huh, it seems to render things bolder?
+T 1604708543 18<29kchibisov18>	You mean in general or when it overlaps?
+T 1604708567 18<24UndeadLeech18>	https://paste.rs/kls.png
+T 1604708590 18<24UndeadLeech18>	The subpixel RGB kinda looks wrong. In fact there doesn't seem to be any.
+T 1604708622 18<29kchibisov18>	The strange thing is that '1' and `:` are the same.
+T 1604708635 18<29kchibisov18>	Only vertical lines look different.
+T 1604708650 18<29kchibisov18>	Maybe some math error, since the glyph is tight?
+T 1604708676 18<29kchibisov18>	Like `1` has the same subpixel AA>
+T 1604708677 18<24UndeadLeech18>	It just seemed strangely thick.
+T 1604708702 18<29kchibisov18>	Yeah, I've noticed that as well, but wasn't sure what to expect from such lines.
+T 1604708742 18<29kchibisov18>	You may leave a comment about that I guess, since I've also noticed it, but it was only on specific thin glyphs.
+T 1604708748 18<29kchibisov18>	The rest looks the same, right?>
+T 1604708754 18<24UndeadLeech18>	Yeah I'll at least ask if he knows why this is the case.
+T 1604708759 18<24UndeadLeech18>	I haven't extensively tested this yet.
+T 1604708778 18<29kchibisov18>	I mean, even on a picture `1` has the same red and blue things.
+T 1604708850 18<24UndeadLeech18>	Yeah, it definitely does subpixel RGB.
+T 1604708852 18<29kchibisov18>	Also, subpixel AA blending was the hardest thing on that PR and he explicitly asked to test it.
+T 1604708893 18<29kchibisov18>	Since our master naturally blended everything somehow, however he's certain things manually.
+T 1604709118 18<24UndeadLeech18>	Huh, that sounds strange.
+T 1604709141 18<29kchibisov18>	I mean, it blended due to usage of blending in shaders thing.
+T 1604709147 18<29kchibisov18>	Which is OpenGL 3.3.
+T 1604709183 18<24UndeadLeech18>	Yeah but the blending shouldn't be that difficult? Like you just need to blend a background color with another RGBA color.
+T 1604709196 18<24UndeadLeech18>	That shouldn't just lead to the RGB getting lost.
+T 1604709257 18<29kchibisov18>	it's not lost as you can see.
+T 1604709261 18<29kchibisov18>	it's clearly there.
+T 1604709268 18<29kchibisov18>	Just not for that char for whatever reason.
+T 1604709310 18<24UndeadLeech18>	Yeah exactly, that's why I'm confised.
+T 1604709312 18<24UndeadLeech18>	confused*
+T 1604709326 18<24UndeadLeech18>	I'm not sure how that would be affected by the way you blend. Unless you do some pixel specific stuff.
+T 1604709372 18<29kchibisov18>	let me check atlas
+T 1604709444 18<29kchibisov18>	Oh, they are drawn by some other pass.
+T 1604709459 18<24UndeadLeech18>	What do you mean?
+T 1604709467 18<29kchibisov18>	It has 3 renderers.
+T 1604709471 18<29kchibisov18>	grid, quad, and rects.
+T 1604709487 18<29kchibisov18>	And lines in vim are rendered by something else, since they are not in grid atlas.
+T 1604709500 18<24UndeadLeech18>	Huh? What do you mean?
+T 1604709506 18<24UndeadLeech18>	They're glyphs, are they not?
+T 1604709515 18<29kchibisov18>	yes, but they may went to different atlas.
+T 1604709529 18<29kchibisov18>	err, different renderer.
+T 1604709545 18<29kchibisov18>	Let me check who drawn them
+T 1604709565 18<24UndeadLeech18>	rects is underline and stuff, right? What's the difference between grid and quad? I'd assume one of them renders the atlas'ed glyphs?
+T 1604709694 18<29kchibisov18>	Yeah, lines were drawn by glyphrect shader.
+T 1604709710 18<29kchibisov18>	not the grid one.
+T 1604709719 18<29kchibisov18>	Thus they may blend things differently.
+T 1604709756 18<29kchibisov18>	Not sure why it happened though.
+T 1604709887 18<24UndeadLeech18>	What are these shaders there for? 
+T 1604709908 18<29kchibisov18>	screen.f.glsl draws the entire screen, but works for good glyphs.
+T 1604709926 18<29kchibisov18>	glyphrect.f.glsl draws bad glyphs.
+T 1604709935 18<29kchibisov18>	And rect thing draws rects.
+T 1604737306 20*	Disconnected (20)
+T 1604737330 19*	Now talking on 22#alacritty
+T 1604737330 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.5.0 - https://github.com/alacritty/alacritty/releases/latest
+T 1604737330 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sat Aug  1 00:45:32 2020)
+T 1604743230 20*	Disconnected (20)
+T 1604743269 19*	Now talking on 22#alacritty
+T 1604743269 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.5.0 - https://github.com/alacritty/alacritty/releases/latest
+T 1604743269 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sat Aug  1 00:45:32 2020)
+T 1604775856 20*	Disconnected (20)
+T 1604775961 19*	Now talking on 22#alacritty
+T 1604775961 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.5.0 - https://github.com/alacritty/alacritty/releases/latest
+T 1604775961 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sat Aug  1 00:45:32 2020)
+T 1604783482 18<29kchibisov18>	Also, UndeadLeech , if you will be fine with having builtin font for box drawing for which you can opt-in let me know.
+T 1604783552 18<29kchibisov18>	Assuming that drawing without blending is overly complicated, since you need min/max blending, which is insanity.
+T 1604785391 18<24UndeadLeech18>	Honestly I'm not completely sure anymore.
+T 1604785556 18<29kchibisov18>	About which part? That we need opt-int builtin font?
+T 1604785567 18<29kchibisov18>	Or that it can't be fixed with 'no blend'.
+T 1604785702 18<24UndeadLeech18>	I'm not sure if there's actually any good way to fix this without providing our own font.
+T 1604785737 18<29kchibisov18>	I mean, maybe draw the entire screen's alpha mask into texture with max blending.
+T 1604785767 18<29kchibisov18>	And then get alpha mask from that texture instead of atlas.
+T 1604785814 18<29kchibisov18>	Maybe with colors.
+T 1604785823 18<29kchibisov18>	but I'm not sure if it'll work.
+T 1604785829 18<24UndeadLeech18>	By max blending you mean taking the maximum value at each point?
+T 1604785841 18<29kchibisov18>	yeah, opengl has such mode.
+T 1604785851 18<24UndeadLeech18>	Yeah, that's the only thing I can think of.
+T 1604785871 18<29kchibisov18>	But it should work only on alpha masks without any colors.
+T 1604785887 18<29kchibisov18>	But having a texture of screen size is insane.
+T 1604785896 18<29kchibisov18>	for each frame.
+T 1604785913 18<24UndeadLeech18>	You'd only have one texture at a time, right?
+T 1604785925 18<29kchibisov18>	you create new each time
+T 1604785938 18<29kchibisov18>	Since you should overlap the entire screen.
+T 1604785949 18<24UndeadLeech18>	What do you mean by that?
+T 1604785978 18<24UndeadLeech18>	I mean you'd have to clear it every time, but you wouldn't have to keep old frames around.
+T 1604785990 18<29kchibisov18>	yeah.
+T 1604785995 18<29kchibisov18>	But it's insanity anyway.
+T 1604786050 18<24UndeadLeech18>	~33MB for a 4k screen.
+T 1604786061 18<29kchibisov18>	yeah, insanity.
+T 1604786101 18<29kchibisov18>	And slow.
+T 1604786118 18<29kchibisov18>	And I'm not even sure that it'll work.
+T 1604786132 18<24UndeadLeech18>	Yeah I don't know much about GPU/OpenGL performance, but based on the bandwidth limitations we ran into with instance data that doesn't seem smart.
+T 1604786161 18<29kchibisov18>	The problem is iGPUs.
+T 1604786173 18<29kchibisov18>	also, we may remove instance rendering all together.
+T 1604786241 18<29kchibisov18>	I've talked with w23 about that like yesterday, since quad.rs is way faster than instancing and instancing is very complicated for certain CPUs/drivers.
+T 1604786265 18<29kchibisov18>	Also, it'll use only one pass instead of 2.
+T 1604786425 18<29kchibisov18>	But it'll be on top of master's API.
+T 1604786437 18<24UndeadLeech18>	Also fyi I think Kitty only renders things that are within cell boundaries.
+T 1604786465 18<29kchibisov18>	kitty does a lot of weird tricks.
+T 1604786493 18<29kchibisov18>	Like it repositions glyphs inside cell, etc.
+T 1604786506 18<29kchibisov18>	Just to make them 'fit'.
+T 1604786512 18<24UndeadLeech18>	It does?
+T 1604786527 18<29kchibisov18>	My glyphs look different in kitty with the same font size.
+T 1604786549 18<24UndeadLeech18>	Ah, but you haven't actually looked at the code?
+T 1604786562 18<24UndeadLeech18>	Might just be resizing glyphs, I think it could potentially be doing that.
+T 1604786568 18<29kchibisov18>	But only with some of the fonts.
+T 1604786578 18<29kchibisov18>	I've looked and it seems to have some logic to do so.
+T 1604786609 18<29kchibisov18>	But I can't say more...
+T 1604786631 18<29kchibisov18>	I just know that they are more artificially centered sometimes.
+T 1604786709 18<29kchibisov18>	Anyway, some fonts draw glyphs outside of cell boundaries.
+T 1604786742 18<24UndeadLeech18>	Yeah, but one could certainly argue those fonts are borked in a monospace context.
+T 1604786770 18<29kchibisov18>	I mean they are monospace.
+T 1604786788 18<29kchibisov18>	They are just a bit weird.
+T 1604786792 18<24UndeadLeech18>	I mean they report monospace metrics, but they don't render monospace glyphs.
+T 1604786806 18<24UndeadLeech18>	The glyph size is clearly beyond the monospace cell metrics.
+T 1604786807 18<29kchibisov18>	They render though.
+T 1604786817 18<24UndeadLeech18>	What do you mean?
+T 1604786830 18<24UndeadLeech18>	Fonts don't render anything? Fonts are just fonts.
+T 1604786835 18<29kchibisov18>	They're just slightly bigger.
+T 1604786849 18<24UndeadLeech18>	Exactly?
+T 1604786860 18<24UndeadLeech18>	I mean ultimately the problem is that monospace is a big fucking lie.
+T 1604786863 18<29kchibisov18>	https://paste.rs/zXs.png
+T 1604786875 18<24UndeadLeech18>	Because even if you maybe have a perfectly nice primary font, as soon as you get into font fallback, you're SoL.
+T 1604786886 18<24UndeadLeech18>	kchibisov: What's that?
+T 1604786920 18<29kchibisov18>	An example of drawing slightly above.
+T 1604786926 18<29kchibisov18>	A monospace font.
+T 1604786940 18<29kchibisov18>	And yeah, kitty cuts it.
+T 1604786962 18<29kchibisov18>	Looks just awfully bad.
+T 1604786974 18<24UndeadLeech18>	That just looks like a shitty font.
+T 1604786990 18<29kchibisov18>	I mean, it doesn't matter, why it cuts the glyph.
+T 1604787021 18<29kchibisov18>	You can't just define a list of monospace fonts users can use.
+T 1604787041 18<24UndeadLeech18>	I mean you can absolutely say you don't support fonts that are not behaving properly.
+T 1604787046 18<24UndeadLeech18>	Like proportional fonts.
+T 1604787056 18<29kchibisov18>	Yeah, but this font is clearly a monospace one.
+T 1604787062 18<24UndeadLeech18>	It's not.
+T 1604787066 18<29kchibisov18>	It's.
+T 1604787071 18<24UndeadLeech18>	It claims to be a monospace font.
+T 1604787076 18<24UndeadLeech18>	You can claim whatever you want.
+T 1604787096 18<29kchibisov18>	It just uses as much from the cell as it can.
+T 1604787108 18<24UndeadLeech18>	Only because you report monospace metrics, doesn't mean you have a functional monospace font.
+T 1604787127 18<24UndeadLeech18>	If you render outside of the cell, you use MORE from the cell than you can.
+T 1604787137 18<24UndeadLeech18>	Which is clearly incorrect, because you're reporting incorrect metrics at that point.
+T 1604787144 18<24UndeadLeech18>	Incorrect metrics => your font is broken.
+T 1604787145 18<29kchibisov18>	it's not outside of cell, it's outside of cell you've picked for it.
+T 1604787158 18<29kchibisov18>	monospace font is the one that has the same advance for each char.
+T 1604787159 18<24UndeadLeech18>	That is based on the metrics reported by the font though?
+T 1604787160 18<29kchibisov18>	nothing more.
+T 1604787164 18<29kchibisov18>	there's nothing about fitting into cell.
+T 1604787179 18<29kchibisov18>	It depends what metrics are you using.
+T 1604787189 18<24UndeadLeech18>	I can make you a monospace font that will never work on any computer.
+T 1604787194 18<29kchibisov18>	There's literally a PR on crossfont that makes this font always fit into cell.
+T 1604787195 18<24UndeadLeech18>	That's 100% the fonts fault.
+T 1604787203 18<24UndeadLeech18>	Having the correct advance is not sufficient for a functional font.
+T 1604787218 18<29kchibisov18>	Please, show me a paper that defined functional font.
+T 1604787241 18<24UndeadLeech18>	Why the fuck would some random paper have authority over that?
+T 1604787253 18<29kchibisov18>	I mean, what is functional font?
+T 1604787277 18<29kchibisov18>	And what metrics should define the cell size you'll be using?
+T 1604787302 18<24UndeadLeech18>	I mean feel free to read the freetype documentation.
+T 1604787305 18<29kchibisov18>	And why require monospace fonts to be rendered inside grid.
+T 1604787313 18<29kchibisov18>	I've read, nothing about cell.
+T 1604787330 18<24UndeadLeech18>	That's completely incorrect. The glyph metrics are very well defined.
+T 1604787331 18<29kchibisov18>	And vte terminals are using other metrics.
+T 1604787337 18<24UndeadLeech18>	https://www.freetype.org/freetype2/docs/glyphs/metrics.png
+T 1604787365 18<24UndeadLeech18>	If you report the same metrics for every glyph, but you have content drawn outside those metrics, your font is broken.
+T 1604787385 18<29kchibisov18>	it's not like that, metric is per glyph.
+T 1604787438 18<24UndeadLeech18>	I mean either way this isn't going anywhere. I have zero interest in supporting fonts that are broken.
+T 1604787450 18<24UndeadLeech18>	If you want a font to draw at random heights, use a different terminal.
+T 1604787469 18<29kchibisov18>	How you'll render cjk?
+T 1604787485 18<24UndeadLeech18>	?
+T 1604787497 18<24UndeadLeech18>	Why would cjk pose a problem? That reports correctly as fullwidth.
+T 1604787510 18<29kchibisov18>	Like you should start picking fallback fonts with similar metrics.
+T 1604787545 18<24UndeadLeech18>	I did talk about this problem already.
+T 1604787545 18<29kchibisov18>	In the end you'll have kitty's font rendering stack.
+T 1604787561 18<24UndeadLeech18>	Why does that matter?
+T 1604787563 18<29kchibisov18>	Since the picking nearest my metrics is what they do for sure.
+T 1604787582 18<24UndeadLeech18>	They don't?
+T 1604787585 18<29kchibisov18>	I'm just acknowlading that it's a valid thing to do.
+T 1604787595 18<29kchibisov18>	I swear I saw this logic there.
+T 1604787613 18<29kchibisov18>	recentering -> not sure, picking nearest -> for sure.
+T 1604787616 18<24UndeadLeech18>	I mean when looking at the font fallback for emojis they were delegating the fallback to fontconfig.
+T 1604787631 18<29kchibisov18>	They use fallback from fontconfig.
+T 1604787634 18<24UndeadLeech18>	Just put an 'emoji' in the pattern.
+T 1604787655 18<29kchibisov18>	but then they try varios font sizes until they find nearest for that font.
+T 1604787660 18<29kchibisov18>	that's likely why they don't support bitmap fonts.
+T 1604787675 18<24UndeadLeech18>	Sure.
+T 1604787685 18<24UndeadLeech18>	But they don't skip fonts in fallback that aren't the correct metrics.
+T 1604787702 18<24UndeadLeech18>	Picking font sizes that more closely match your primary font isn't really a bad idea.
+T 1604787702 18<29kchibisov18>	Yes, they just try them unless they match primary font.
+T 1604787718 18<29kchibisov18>	I've told you about that in the past, you said that it's bad idea.
+T 1604787732 18<29kchibisov18>	I was even tempted to implement it at some point iirc.
+T 1604787734 18<24UndeadLeech18>	It's just unnecessarily complicated.
+T 1604787746 18<24UndeadLeech18>	But it makes sense why someone would want to do it.
+T 1604787749 18<29kchibisov18>	Likely when I was touching crossfont a lot.
+T 1604787808 18<29kchibisov18>	Also, if you don't want to support drawing outside of glyph boundaries at all, mention that on 'new renderer' thing.
+T 1604787843 18<29kchibisov18>	It'll make the life so much easier.
+T 1604788043 18<29kchibisov18>	But kitty supports drawing out side of cell boundaries actually.
+T 1604788047 18<29kchibisov18>	But horizontally.
+T 1604788071 18<29kchibisov18>	https://paste.rs/9be.png
+T 1604788359 18<29kchibisov18>	But you may treatf those glyphs as full width when drawing actually, so you'll still crop them, but differently. 
+T 1604788378 18<24UndeadLeech18>	Oh I generally don't think it's a good idea to ban rendering outside of cell boundaries. I'm just spitballing.
+T 1604788429 18<29kchibisov18>	I mean, the easiest solution is to provide opt-in for builtin font.
+T 1604788452 18<29kchibisov18>	even implementing it is easy.
+T 1604788466 18<29kchibisov18>	Just time consuming.
+T 1604788478 18<29kchibisov18>	since we have literally everything for it to work.
+T 1604789085 18<24UndeadLeech18>	Yeah.
+T 1604789090 18<24UndeadLeech18>	Though easiest != best.
+T 1604789095 18<24UndeadLeech18>	Not necessarily at least.
+T 1604789165 18<29kchibisov18>	It depends though, it'll be the best when it'll come to aligning stuff.
+T 1604789175 18<29kchibisov18>	And will work with arbitrary line heigh.
+T 1604789178 18<29kchibisov18>	line height*
+T 1604816033 20*	Disconnected (20)
+T 1604816060 19*	Now talking on 22#alacritty
+T 1604816060 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.5.0 - https://github.com/alacritty/alacritty/releases/latest
+T 1604816060 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sat Aug  1 00:45:32 2020)
+T 1604816074 18<24UndeadLeech18>	At that point you can also return an error, but neither helps with not returning the correct missing glyph symbol.
+T 1604816095 18<29kchibisov18>	No, you return Error(RasterizedGlyph)
+T 1604816104 18<24UndeadLeech18>	What?
+T 1604816123 18<29kchibisov18>	Err, Error::MissingGlyph(RasterizedGlyph)
+T 1604816136 18<29kchibisov18>	And this error is a missing symbol.
+T 1604816147 18<29kchibisov18>	I mean, your missing glyph is right there.
+T 1604816149 18<24UndeadLeech18>	Oh, gotcha. You mean returning the proper rasterized glyph but actually attaching the missing glyph symbol as data.
+T 1604816156 18<29kchibisov18>	Yes.
+T 1604816174 18<24UndeadLeech18>	I mean that API would be a bit annoying to use, but it's an option.
+T 1604816186 18<29kchibisov18>	it won't.
+T 1604816202 18<29kchibisov18>	You're alreadyd using Result there, just chain on unwrap.
+T 1604816206 18<24UndeadLeech18>	How wouldn't it be? Now you have to handle three separate cases and remap them all differently.
+T 1604816263 18<29kchibisov18>	\0 helps, since you can clearly know that if you have \0 in char field for rasterized glyph, it's missing.
+T 1604816270 18<24UndeadLeech18>	No.
+T 1604816289 18<29kchibisov18>	Hm?
+T 1604816309 18<29kchibisov18>	Unless you have a glyph for \0 actually.
+T 1604816312 18<24UndeadLeech18>	You know it's missing when it's an error anyways.
+T 1604816329 18<29kchibisov18>	No, I mean in approach without error.
+T 1604816346 18<29kchibisov18>	Like if glyph is missing you set its char to '\0'.
+T 1604816351 18<24UndeadLeech18>	No way we return \0 as an error in an Ok result.
+T 1604816354 18<24UndeadLeech18>	That's insane.
+T 1604816393 18<29kchibisov18>	I mean I prefer the Error thing more.
+T 1604816435 18<29kchibisov18>	Other than that I don't think there's an option to make it work.
+T 1604816448 18<24UndeadLeech18>	Yeah, but it'll me `get_glyph.unwrap_or_else(|err| match err { Missing(glyph) => glyph, _ => Default::default() })`.
+T 1604816450 18<24UndeadLeech18>	That's messy.
+T 1604816508 18<29kchibisov18>	Well, assuming that you'll use that in one place in your program.
+T 1604816524 18<29kchibisov18>	Also, we can add a helper for that error.
+T 1604816590 18<29kchibisov18>	Though, it won't really help.
+T 1604816656 18<29kchibisov18>	The problem is that you can't identify if the glyph is missing.
+T 1604816670 18<29kchibisov18>	I mean if the glyph you return is missing.
+T 1604816696 18<29kchibisov18>	You may add a bool flag that it's missing glyph, but it'll increase a size of rasterized glyph.
+T 1604816746 18<29kchibisov18>	So as an alternative I've suggest to add a fn is_missing(&self) { self.c == '\0' } and set '\0' for those missing glyphs.
+T 1604816773 18<24UndeadLeech18>	No.
+T 1604816806 18<29kchibisov18>	Exactly, so error approach is the only option that fits.
+T 1604816844 18<24UndeadLeech18>	I mean I haven't looked into this yet and I don't plan to today, but from the ones you've suggested that's the only acceptable one at least.
+T 1604816876 18<29kchibisov18>	I mean, just by judging how freetype backend works.
+T 1604816914 18<29kchibisov18>	And that we should return missing glyph.

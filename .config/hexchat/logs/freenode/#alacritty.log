@@ -4714,3 +4714,317 @@ Oct 31 23:52:19 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.
 Nov 01 00:06:34 *	Disconnected ()
 **** ENDING LOGGING AT Sun Nov  1 00:06:34 2020
 
+**** BEGIN LOGGING AT Fri Nov  6 21:47:36 2020
+
+Nov 06 21:47:36 *	Now talking on #alacritty
+Nov 06 21:47:36 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.5.0 - https://github.com/alacritty/alacritty/releases/latest
+Nov 06 21:47:36 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sat Aug  1 00:45:32 2020)
+Nov 06 21:52:04 <UndeadLeech>	lol
+Nov 06 21:52:23 <UndeadLeech>	We had it on macOS too, right?
+Nov 06 21:52:40 <UndeadLeech>	Which literally just stopped accepting data after a certain point.
+Nov 06 22:46:49 <kchibisov>	Hm, I wonder whether it's worth it to run rustfmt first.
+Nov 06 23:51:13 <UndeadLeech>	I intentionally structured it this way so less external resources are used. Like rustfmt is fairly quick, but requires installing a new tool.
+Nov 07 01:12:10 <UndeadLeech>	kchibisov: Can you still repro https://github.com/alacritty/alacritty/issues/3959?
+Nov 07 01:12:51 <UndeadLeech>	Ah, nvm. That's a different issue.
+Nov 07 01:14:20 <UndeadLeech>	I'd be curious how you feel about this issue though.
+Nov 07 01:14:33 <UndeadLeech>	I don't feel like it should be solved the way it's suggested.
+Nov 07 01:14:39 <kchibisov>	I'll look once I fix Wayland stuff.
+Nov 07 01:14:45 <UndeadLeech>	Yeah, take your time.
+Nov 07 01:15:02 <UndeadLeech>	The cursor issue is fixed with the new renderer, right?
+Nov 07 01:15:45 <UndeadLeech>	Like the cursor being drawn behind underline and stuff.
+Nov 07 01:15:55 <kchibisov>	I think, anyway I think it's kind of pointless to fix anything with our current renderer, knowing that new-renderer-pr is likely what we'll have.
+Nov 07 01:16:21 <kchibisov>	I'm not sure whether it's fixed, I'd also like to check new-renderer-pr orderings.
+Nov 07 01:16:34 <kchibisov>	Since from what I remember it's not really above.
+Nov 07 01:16:50 <kchibisov>	And there was a reason why it can't be made above, but I don't remember.
+Nov 07 01:17:00 <UndeadLeech>	Oh interesting, I'll at least leave a note on the issue then.
+Nov 07 01:17:12 <kchibisov>	Ah, it's due to block cursor.
+Nov 07 01:17:25 <kchibisov>	since block cursor is a glyph and character should be above it.
+Nov 07 01:17:36 <kchibisov>	The same for hollow block.
+Nov 07 01:17:42 <UndeadLeech>	You mean box? Because block cursor shouldn't be a glyph?
+Nov 07 01:17:52 <kchibisov>	Box.
+Nov 07 01:18:02 <kchibisov>	Anyway, I think we can tune new-renderer after we want to.
+Nov 07 01:18:04 <UndeadLeech>	There's no problem with box cursor to be in front.
+Nov 07 01:18:16 <kchibisov>	I also thought that way.
+Nov 07 01:18:28 <kchibisov>	But I was trying not to push with fixing such thing there.
+Nov 07 01:18:41 <UndeadLeech>	Yeah, no worries. Can always be done later.
+Nov 07 01:18:42 <kchibisov>	Since the goal was to have something working and something we can work with.
+Nov 07 01:19:08 <UndeadLeech>	Yeah, I'm perfectly fine with having just a MVP merged, as long as that's solid.
+Nov 07 01:19:28 <kchibisov>	yeah, it fixes perf issues with unicode I was having.
+Nov 07 01:19:40 <kchibisov>	And should also fixed cropped wide chars.
+Nov 07 01:19:57 <UndeadLeech>	Nice. We gotta go and hunt down all the issues then.
+Nov 07 01:20:02 <UndeadLeech>	Aliasing is also fixed, right?
+Nov 07 01:20:10 <kchibisov>	What aliasing?
+Nov 07 01:20:14 <kchibisov>	overlapping?
+Nov 07 01:20:18 <UndeadLeech>	Yeah.
+Nov 07 01:20:26 <kchibisov>	it's not.
+Nov 07 01:20:33 <UndeadLeech>	That's a bummer.
+Nov 07 01:20:40 <kchibisov>	It can be fixed though.
+Nov 07 01:20:58 <UndeadLeech>	That's one of the very, very few things I really want to see fixed in Alacritty.
+Nov 07 01:21:14 <UndeadLeech>	Like the last major thing that annoys me personally.
+Nov 07 01:21:18 <kchibisov>	I guess, it looks better with overlapping though.
+Nov 07 01:21:28 <kchibisov>	At some point it wasn't overlapping at all.
+Nov 07 01:21:51 <kchibisov>	But then we have certain fonts that like to draw out of bounds, so you should honor them...
+Nov 07 01:22:08 <UndeadLeech>	Huh, it seems to render things bolder?
+Nov 07 01:22:23 <kchibisov>	You mean in general or when it overlaps?
+Nov 07 01:22:47 <UndeadLeech>	https://paste.rs/kls.png
+Nov 07 01:23:10 <UndeadLeech>	The subpixel RGB kinda looks wrong. In fact there doesn't seem to be any.
+Nov 07 01:23:42 <kchibisov>	The strange thing is that '1' and `:` are the same.
+Nov 07 01:23:55 <kchibisov>	Only vertical lines look different.
+Nov 07 01:24:10 <kchibisov>	Maybe some math error, since the glyph is tight?
+Nov 07 01:24:36 <kchibisov>	Like `1` has the same subpixel AA>
+Nov 07 01:24:37 <UndeadLeech>	It just seemed strangely thick.
+Nov 07 01:25:02 <kchibisov>	Yeah, I've noticed that as well, but wasn't sure what to expect from such lines.
+Nov 07 01:25:42 <kchibisov>	You may leave a comment about that I guess, since I've also noticed it, but it was only on specific thin glyphs.
+Nov 07 01:25:48 <kchibisov>	The rest looks the same, right?>
+Nov 07 01:25:54 <UndeadLeech>	Yeah I'll at least ask if he knows why this is the case.
+Nov 07 01:25:59 <UndeadLeech>	I haven't extensively tested this yet.
+Nov 07 01:26:18 <kchibisov>	I mean, even on a picture `1` has the same red and blue things.
+Nov 07 01:27:30 <UndeadLeech>	Yeah, it definitely does subpixel RGB.
+Nov 07 01:27:32 <kchibisov>	Also, subpixel AA blending was the hardest thing on that PR and he explicitly asked to test it.
+Nov 07 01:28:13 <kchibisov>	Since our master naturally blended everything somehow, however he's certain things manually.
+Nov 07 01:31:58 <UndeadLeech>	Huh, that sounds strange.
+Nov 07 01:32:21 <kchibisov>	I mean, it blended due to usage of blending in shaders thing.
+Nov 07 01:32:27 <kchibisov>	Which is OpenGL 3.3.
+Nov 07 01:33:03 <UndeadLeech>	Yeah but the blending shouldn't be that difficult? Like you just need to blend a background color with another RGBA color.
+Nov 07 01:33:16 <UndeadLeech>	That shouldn't just lead to the RGB getting lost.
+Nov 07 01:34:17 <kchibisov>	it's not lost as you can see.
+Nov 07 01:34:21 <kchibisov>	it's clearly there.
+Nov 07 01:34:28 <kchibisov>	Just not for that char for whatever reason.
+Nov 07 01:35:10 <UndeadLeech>	Yeah exactly, that's why I'm confised.
+Nov 07 01:35:12 <UndeadLeech>	confused*
+Nov 07 01:35:26 <UndeadLeech>	I'm not sure how that would be affected by the way you blend. Unless you do some pixel specific stuff.
+Nov 07 01:36:12 <kchibisov>	let me check atlas
+Nov 07 01:37:24 <kchibisov>	Oh, they are drawn by some other pass.
+Nov 07 01:37:39 <UndeadLeech>	What do you mean?
+Nov 07 01:37:47 <kchibisov>	It has 3 renderers.
+Nov 07 01:37:51 <kchibisov>	grid, quad, and rects.
+Nov 07 01:38:07 <kchibisov>	And lines in vim are rendered by something else, since they are not in grid atlas.
+Nov 07 01:38:20 <UndeadLeech>	Huh? What do you mean?
+Nov 07 01:38:26 <UndeadLeech>	They're glyphs, are they not?
+Nov 07 01:38:35 <kchibisov>	yes, but they may went to different atlas.
+Nov 07 01:38:49 <kchibisov>	err, different renderer.
+Nov 07 01:39:05 <kchibisov>	Let me check who drawn them
+Nov 07 01:39:25 <UndeadLeech>	rects is underline and stuff, right? What's the difference between grid and quad? I'd assume one of them renders the atlas'ed glyphs?
+Nov 07 01:41:34 <kchibisov>	Yeah, lines were drawn by glyphrect shader.
+Nov 07 01:41:50 <kchibisov>	not the grid one.
+Nov 07 01:41:59 <kchibisov>	Thus they may blend things differently.
+Nov 07 01:42:36 <kchibisov>	Not sure why it happened though.
+Nov 07 01:44:47 <UndeadLeech>	What are these shaders there for? 
+Nov 07 01:45:08 <kchibisov>	screen.f.glsl draws the entire screen, but works for good glyphs.
+Nov 07 01:45:26 <kchibisov>	glyphrect.f.glsl draws bad glyphs.
+Nov 07 01:45:35 <kchibisov>	And rect thing draws rects.
+Nov 07 09:21:46 *	Disconnected ()
+**** ENDING LOGGING AT Sat Nov  7 09:21:46 2020
+
+**** BEGIN LOGGING AT Sat Nov  7 09:22:10 2020
+
+Nov 07 09:22:10 *	Now talking on #alacritty
+Nov 07 09:22:10 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.5.0 - https://github.com/alacritty/alacritty/releases/latest
+Nov 07 09:22:10 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sat Aug  1 00:45:32 2020)
+Nov 07 11:00:30 *	Disconnected ()
+**** ENDING LOGGING AT Sat Nov  7 11:00:30 2020
+
+**** BEGIN LOGGING AT Sat Nov  7 11:01:09 2020
+
+Nov 07 11:01:09 *	Now talking on #alacritty
+Nov 07 11:01:09 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.5.0 - https://github.com/alacritty/alacritty/releases/latest
+Nov 07 11:01:09 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sat Aug  1 00:45:32 2020)
+Nov 07 20:04:16 *	Disconnected ()
+**** ENDING LOGGING AT Sat Nov  7 20:04:16 2020
+
+**** BEGIN LOGGING AT Sat Nov  7 20:06:01 2020
+
+Nov 07 20:06:01 *	Now talking on #alacritty
+Nov 07 20:06:01 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.5.0 - https://github.com/alacritty/alacritty/releases/latest
+Nov 07 20:06:01 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sat Aug  1 00:45:32 2020)
+Nov 07 22:11:22 <kchibisov>	Also, UndeadLeech , if you will be fine with having builtin font for box drawing for which you can opt-in let me know.
+Nov 07 22:12:32 <kchibisov>	Assuming that drawing without blending is overly complicated, since you need min/max blending, which is insanity.
+Nov 07 22:43:11 <UndeadLeech>	Honestly I'm not completely sure anymore.
+Nov 07 22:45:56 <kchibisov>	About which part? That we need opt-int builtin font?
+Nov 07 22:46:07 <kchibisov>	Or that it can't be fixed with 'no blend'.
+Nov 07 22:48:22 <UndeadLeech>	I'm not sure if there's actually any good way to fix this without providing our own font.
+Nov 07 22:48:57 <kchibisov>	I mean, maybe draw the entire screen's alpha mask into texture with max blending.
+Nov 07 22:49:27 <kchibisov>	And then get alpha mask from that texture instead of atlas.
+Nov 07 22:50:14 <kchibisov>	Maybe with colors.
+Nov 07 22:50:23 <kchibisov>	but I'm not sure if it'll work.
+Nov 07 22:50:29 <UndeadLeech>	By max blending you mean taking the maximum value at each point?
+Nov 07 22:50:41 <kchibisov>	yeah, opengl has such mode.
+Nov 07 22:50:51 <UndeadLeech>	Yeah, that's the only thing I can think of.
+Nov 07 22:51:11 <kchibisov>	But it should work only on alpha masks without any colors.
+Nov 07 22:51:27 <kchibisov>	But having a texture of screen size is insane.
+Nov 07 22:51:36 <kchibisov>	for each frame.
+Nov 07 22:51:53 <UndeadLeech>	You'd only have one texture at a time, right?
+Nov 07 22:52:05 <kchibisov>	you create new each time
+Nov 07 22:52:18 <kchibisov>	Since you should overlap the entire screen.
+Nov 07 22:52:29 <UndeadLeech>	What do you mean by that?
+Nov 07 22:52:58 <UndeadLeech>	I mean you'd have to clear it every time, but you wouldn't have to keep old frames around.
+Nov 07 22:53:10 <kchibisov>	yeah.
+Nov 07 22:53:15 <kchibisov>	But it's insanity anyway.
+Nov 07 22:54:10 <UndeadLeech>	~33MB for a 4k screen.
+Nov 07 22:54:21 <kchibisov>	yeah, insanity.
+Nov 07 22:55:01 <kchibisov>	And slow.
+Nov 07 22:55:18 <kchibisov>	And I'm not even sure that it'll work.
+Nov 07 22:55:32 <UndeadLeech>	Yeah I don't know much about GPU/OpenGL performance, but based on the bandwidth limitations we ran into with instance data that doesn't seem smart.
+Nov 07 22:56:01 <kchibisov>	The problem is iGPUs.
+Nov 07 22:56:13 <kchibisov>	also, we may remove instance rendering all together.
+Nov 07 22:57:21 <kchibisov>	I've talked with w23 about that like yesterday, since quad.rs is way faster than instancing and instancing is very complicated for certain CPUs/drivers.
+Nov 07 22:57:45 <kchibisov>	Also, it'll use only one pass instead of 2.
+Nov 07 23:00:25 <kchibisov>	But it'll be on top of master's API.
+Nov 07 23:00:37 <UndeadLeech>	Also fyi I think Kitty only renders things that are within cell boundaries.
+Nov 07 23:01:05 <kchibisov>	kitty does a lot of weird tricks.
+Nov 07 23:01:33 <kchibisov>	Like it repositions glyphs inside cell, etc.
+Nov 07 23:01:46 <kchibisov>	Just to make them 'fit'.
+Nov 07 23:01:52 <UndeadLeech>	It does?
+Nov 07 23:02:07 <kchibisov>	My glyphs look different in kitty with the same font size.
+Nov 07 23:02:29 <UndeadLeech>	Ah, but you haven't actually looked at the code?
+Nov 07 23:02:42 <UndeadLeech>	Might just be resizing glyphs, I think it could potentially be doing that.
+Nov 07 23:02:48 <kchibisov>	But only with some of the fonts.
+Nov 07 23:02:58 <kchibisov>	I've looked and it seems to have some logic to do so.
+Nov 07 23:03:29 <kchibisov>	But I can't say more...
+Nov 07 23:03:51 <kchibisov>	I just know that they are more artificially centered sometimes.
+Nov 07 23:05:09 <kchibisov>	Anyway, some fonts draw glyphs outside of cell boundaries.
+Nov 07 23:05:42 <UndeadLeech>	Yeah, but one could certainly argue those fonts are borked in a monospace context.
+Nov 07 23:06:10 <kchibisov>	I mean they are monospace.
+Nov 07 23:06:28 <kchibisov>	They are just a bit weird.
+Nov 07 23:06:32 <UndeadLeech>	I mean they report monospace metrics, but they don't render monospace glyphs.
+Nov 07 23:06:46 <UndeadLeech>	The glyph size is clearly beyond the monospace cell metrics.
+Nov 07 23:06:47 <kchibisov>	They render though.
+Nov 07 23:06:57 <UndeadLeech>	What do you mean?
+Nov 07 23:07:10 <UndeadLeech>	Fonts don't render anything? Fonts are just fonts.
+Nov 07 23:07:15 <kchibisov>	They're just slightly bigger.
+Nov 07 23:07:29 <UndeadLeech>	Exactly?
+Nov 07 23:07:40 <UndeadLeech>	I mean ultimately the problem is that monospace is a big fucking lie.
+Nov 07 23:07:43 <kchibisov>	https://paste.rs/zXs.png
+Nov 07 23:07:55 <UndeadLeech>	Because even if you maybe have a perfectly nice primary font, as soon as you get into font fallback, you're SoL.
+Nov 07 23:08:06 <UndeadLeech>	kchibisov: What's that?
+Nov 07 23:08:40 <kchibisov>	An example of drawing slightly above.
+Nov 07 23:08:46 <kchibisov>	A monospace font.
+Nov 07 23:09:00 <kchibisov>	And yeah, kitty cuts it.
+Nov 07 23:09:22 <kchibisov>	Looks just awfully bad.
+Nov 07 23:09:34 <UndeadLeech>	That just looks like a shitty font.
+Nov 07 23:09:50 <kchibisov>	I mean, it doesn't matter, why it cuts the glyph.
+Nov 07 23:10:21 <kchibisov>	You can't just define a list of monospace fonts users can use.
+Nov 07 23:10:41 <UndeadLeech>	I mean you can absolutely say you don't support fonts that are not behaving properly.
+Nov 07 23:10:46 <UndeadLeech>	Like proportional fonts.
+Nov 07 23:10:56 <kchibisov>	Yeah, but this font is clearly a monospace one.
+Nov 07 23:11:02 <UndeadLeech>	It's not.
+Nov 07 23:11:06 <kchibisov>	It's.
+Nov 07 23:11:11 <UndeadLeech>	It claims to be a monospace font.
+Nov 07 23:11:16 <UndeadLeech>	You can claim whatever you want.
+Nov 07 23:11:36 <kchibisov>	It just uses as much from the cell as it can.
+Nov 07 23:11:48 <UndeadLeech>	Only because you report monospace metrics, doesn't mean you have a functional monospace font.
+Nov 07 23:12:07 <UndeadLeech>	If you render outside of the cell, you use MORE from the cell than you can.
+Nov 07 23:12:17 <UndeadLeech>	Which is clearly incorrect, because you're reporting incorrect metrics at that point.
+Nov 07 23:12:24 <UndeadLeech>	Incorrect metrics => your font is broken.
+Nov 07 23:12:25 <kchibisov>	it's not outside of cell, it's outside of cell you've picked for it.
+Nov 07 23:12:38 <kchibisov>	monospace font is the one that has the same advance for each char.
+Nov 07 23:12:39 <UndeadLeech>	That is based on the metrics reported by the font though?
+Nov 07 23:12:40 <kchibisov>	nothing more.
+Nov 07 23:12:44 <kchibisov>	there's nothing about fitting into cell.
+Nov 07 23:12:59 <kchibisov>	It depends what metrics are you using.
+Nov 07 23:13:09 <UndeadLeech>	I can make you a monospace font that will never work on any computer.
+Nov 07 23:13:14 <kchibisov>	There's literally a PR on crossfont that makes this font always fit into cell.
+Nov 07 23:13:15 <UndeadLeech>	That's 100% the fonts fault.
+Nov 07 23:13:23 <UndeadLeech>	Having the correct advance is not sufficient for a functional font.
+Nov 07 23:13:38 <kchibisov>	Please, show me a paper that defined functional font.
+Nov 07 23:14:01 <UndeadLeech>	Why the fuck would some random paper have authority over that?
+Nov 07 23:14:13 <kchibisov>	I mean, what is functional font?
+Nov 07 23:14:37 <kchibisov>	And what metrics should define the cell size you'll be using?
+Nov 07 23:15:02 <UndeadLeech>	I mean feel free to read the freetype documentation.
+Nov 07 23:15:05 <kchibisov>	And why require monospace fonts to be rendered inside grid.
+Nov 07 23:15:13 <kchibisov>	I've read, nothing about cell.
+Nov 07 23:15:30 <UndeadLeech>	That's completely incorrect. The glyph metrics are very well defined.
+Nov 07 23:15:31 <kchibisov>	And vte terminals are using other metrics.
+Nov 07 23:15:37 <UndeadLeech>	https://www.freetype.org/freetype2/docs/glyphs/metrics.png
+Nov 07 23:16:05 <UndeadLeech>	If you report the same metrics for every glyph, but you have content drawn outside those metrics, your font is broken.
+Nov 07 23:16:25 <kchibisov>	it's not like that, metric is per glyph.
+Nov 07 23:17:18 <UndeadLeech>	I mean either way this isn't going anywhere. I have zero interest in supporting fonts that are broken.
+Nov 07 23:17:30 <UndeadLeech>	If you want a font to draw at random heights, use a different terminal.
+Nov 07 23:17:49 <kchibisov>	How you'll render cjk?
+Nov 07 23:18:05 <UndeadLeech>	?
+Nov 07 23:18:17 <UndeadLeech>	Why would cjk pose a problem? That reports correctly as fullwidth.
+Nov 07 23:18:30 <kchibisov>	Like you should start picking fallback fonts with similar metrics.
+Nov 07 23:19:05 <UndeadLeech>	I did talk about this problem already.
+Nov 07 23:19:05 <kchibisov>	In the end you'll have kitty's font rendering stack.
+Nov 07 23:19:21 <UndeadLeech>	Why does that matter?
+Nov 07 23:19:23 <kchibisov>	Since the picking nearest my metrics is what they do for sure.
+Nov 07 23:19:42 <UndeadLeech>	They don't?
+Nov 07 23:19:45 <kchibisov>	I'm just acknowlading that it's a valid thing to do.
+Nov 07 23:19:55 <kchibisov>	I swear I saw this logic there.
+Nov 07 23:20:13 <kchibisov>	recentering -> not sure, picking nearest -> for sure.
+Nov 07 23:20:16 <UndeadLeech>	I mean when looking at the font fallback for emojis they were delegating the fallback to fontconfig.
+Nov 07 23:20:31 <kchibisov>	They use fallback from fontconfig.
+Nov 07 23:20:34 <UndeadLeech>	Just put an 'emoji' in the pattern.
+Nov 07 23:20:55 <kchibisov>	but then they try varios font sizes until they find nearest for that font.
+Nov 07 23:21:00 <kchibisov>	that's likely why they don't support bitmap fonts.
+Nov 07 23:21:15 <UndeadLeech>	Sure.
+Nov 07 23:21:25 <UndeadLeech>	But they don't skip fonts in fallback that aren't the correct metrics.
+Nov 07 23:21:42 <UndeadLeech>	Picking font sizes that more closely match your primary font isn't really a bad idea.
+Nov 07 23:21:42 <kchibisov>	Yes, they just try them unless they match primary font.
+Nov 07 23:21:58 <kchibisov>	I've told you about that in the past, you said that it's bad idea.
+Nov 07 23:22:12 <kchibisov>	I was even tempted to implement it at some point iirc.
+Nov 07 23:22:14 <UndeadLeech>	It's just unnecessarily complicated.
+Nov 07 23:22:26 <UndeadLeech>	But it makes sense why someone would want to do it.
+Nov 07 23:22:29 <kchibisov>	Likely when I was touching crossfont a lot.
+Nov 07 23:23:28 <kchibisov>	Also, if you don't want to support drawing outside of glyph boundaries at all, mention that on 'new renderer' thing.
+Nov 07 23:24:03 <kchibisov>	It'll make the life so much easier.
+Nov 07 23:27:23 <kchibisov>	But kitty supports drawing out side of cell boundaries actually.
+Nov 07 23:27:27 <kchibisov>	But horizontally.
+Nov 07 23:27:51 <kchibisov>	https://paste.rs/9be.png
+Nov 07 23:32:39 <kchibisov>	But you may treatf those glyphs as full width when drawing actually, so you'll still crop them, but differently. 
+Nov 07 23:32:58 <UndeadLeech>	Oh I generally don't think it's a good idea to ban rendering outside of cell boundaries. I'm just spitballing.
+Nov 07 23:33:49 <kchibisov>	I mean, the easiest solution is to provide opt-in for builtin font.
+Nov 07 23:34:12 <kchibisov>	even implementing it is easy.
+Nov 07 23:34:26 <kchibisov>	Just time consuming.
+Nov 07 23:34:38 <kchibisov>	since we have literally everything for it to work.
+Nov 07 23:44:45 <UndeadLeech>	Yeah.
+Nov 07 23:44:50 <UndeadLeech>	Though easiest != best.
+Nov 07 23:44:55 <UndeadLeech>	Not necessarily at least.
+Nov 07 23:46:05 <kchibisov>	It depends though, it'll be the best when it'll come to aligning stuff.
+Nov 07 23:46:15 <kchibisov>	And will work with arbitrary line heigh.
+Nov 07 23:46:18 <kchibisov>	line height*
+Nov 08 07:13:53 *	Disconnected ()
+**** ENDING LOGGING AT Sun Nov  8 07:13:53 2020
+
+**** BEGIN LOGGING AT Sun Nov  8 07:14:20 2020
+
+Nov 08 07:14:20 *	Now talking on #alacritty
+Nov 08 07:14:20 *	Topic for #alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.5.0 - https://github.com/alacritty/alacritty/releases/latest
+Nov 08 07:14:20 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@165.227.76.134 (Sat Aug  1 00:45:32 2020)
+Nov 08 07:14:34 <UndeadLeech>	At that point you can also return an error, but neither helps with not returning the correct missing glyph symbol.
+Nov 08 07:14:55 <kchibisov>	No, you return Error(RasterizedGlyph)
+Nov 08 07:15:04 <UndeadLeech>	What?
+Nov 08 07:15:23 <kchibisov>	Err, Error::MissingGlyph(RasterizedGlyph)
+Nov 08 07:15:36 <kchibisov>	And this error is a missing symbol.
+Nov 08 07:15:47 <kchibisov>	I mean, your missing glyph is right there.
+Nov 08 07:15:49 <UndeadLeech>	Oh, gotcha. You mean returning the proper rasterized glyph but actually attaching the missing glyph symbol as data.
+Nov 08 07:15:56 <kchibisov>	Yes.
+Nov 08 07:16:14 <UndeadLeech>	I mean that API would be a bit annoying to use, but it's an option.
+Nov 08 07:16:26 <kchibisov>	it won't.
+Nov 08 07:16:42 <kchibisov>	You're alreadyd using Result there, just chain on unwrap.
+Nov 08 07:16:46 <UndeadLeech>	How wouldn't it be? Now you have to handle three separate cases and remap them all differently.
+Nov 08 07:17:43 <kchibisov>	\0 helps, since you can clearly know that if you have \0 in char field for rasterized glyph, it's missing.
+Nov 08 07:17:50 <UndeadLeech>	No.
+Nov 08 07:18:09 <kchibisov>	Hm?
+Nov 08 07:18:29 <kchibisov>	Unless you have a glyph for \0 actually.
+Nov 08 07:18:32 <UndeadLeech>	You know it's missing when it's an error anyways.
+Nov 08 07:18:49 <kchibisov>	No, I mean in approach without error.
+Nov 08 07:19:06 <kchibisov>	Like if glyph is missing you set its char to '\0'.
+Nov 08 07:19:11 <UndeadLeech>	No way we return \0 as an error in an Ok result.
+Nov 08 07:19:14 <UndeadLeech>	That's insane.
+Nov 08 07:19:53 <kchibisov>	I mean I prefer the Error thing more.
+Nov 08 07:20:35 <kchibisov>	Other than that I don't think there's an option to make it work.
+Nov 08 07:20:48 <UndeadLeech>	Yeah, but it'll me `get_glyph.unwrap_or_else(|err| match err { Missing(glyph) => glyph, _ => Default::default() })`.
+Nov 08 07:20:50 <UndeadLeech>	That's messy.
+Nov 08 07:21:48 <kchibisov>	Well, assuming that you'll use that in one place in your program.
+Nov 08 07:22:04 <kchibisov>	Also, we can add a helper for that error.
+Nov 08 07:23:10 <kchibisov>	Though, it won't really help.
+Nov 08 07:24:16 <kchibisov>	The problem is that you can't identify if the glyph is missing.
+Nov 08 07:24:30 <kchibisov>	I mean if the glyph you return is missing.
+Nov 08 07:24:56 <kchibisov>	You may add a bool flag that it's missing glyph, but it'll increase a size of rasterized glyph.
+Nov 08 07:25:46 <kchibisov>	So as an alternative I've suggest to add a fn is_missing(&self) { self.c == '\0' } and set '\0' for those missing glyphs.
+Nov 08 07:26:13 <UndeadLeech>	No.
+Nov 08 07:26:46 <kchibisov>	Exactly, so error approach is the only option that fits.
+Nov 08 07:27:24 <UndeadLeech>	I mean I haven't looked into this yet and I don't plan to today, but from the ones you've suggested that's the only acceptable one at least.
+Nov 08 07:27:56 <kchibisov>	I mean, just by judging how freetype backend works.
+Nov 08 07:28:34 <kchibisov>	And that we should return missing glyph.
