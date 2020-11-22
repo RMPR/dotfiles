@@ -12,8 +12,8 @@ if has("autocmd")
   filetype indent plugin on
 endif
 
-set spelllang=en_us,fr
-set spell
+"set spelllang=en_us,fr
+"set spell
 set history=2000
 set nocompatible
 set relativenumber
@@ -145,18 +145,10 @@ nnoremap ,md :-1read $HOME/.vim/.skeleton.md<CR>jf"ci"
 " C Programming
 " -------------
 
-if has("cscope")
-    set csprg=/usr/bin/cscope
-    set csto=0
-    set cst
-    set nocsverb
-    " add any database in current directory
-    if filereadable("cscope.out")
-        cs add cscope.out
-    " else add database pointed to by environment
-    elseif $CSCOPE_DB != ""
-        cs add $CSCOPE_DB
-    endif
-    set csverb
-endif
+set cindent shiftwidth=4
+
+" Set Project-specific vimrc
+" --------------------------
+set exrc
+set secure
 
