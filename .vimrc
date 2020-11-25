@@ -21,7 +21,6 @@ set ignorecase
 set smartcase
 syntax on
 set noerrorbells
-set nowrap
 set noswapfile
 set nobackup
 set undodir=~/.vim/undodir
