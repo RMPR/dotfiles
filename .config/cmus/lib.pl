@@ -46,6 +46,7 @@
 /home/rufus/Music/Classical Music/Top 50/Tomaso Albinoni - Adagio for strings and organ in G minor (arr. by Remo Giazotto).mp3
 /home/rufus/Music/Classical Music/Top 50/Wolfgang Amadeus Mozart Piano Concerto No.21 In C Major,K.467-II.Andante.mp3
 /home/rufus/Music/Classical Music/Top 50/Wolfgang Amadeus Mozart- Requiem Mass - Lacrimosa dies illa.mp3
+/home/rufus/Music/Dusk Till Dawn - ZAYN ft. Sia (Lyrics).mp3
 /home/rufus/Music/Instrumental/Alan Walker Faded (instrumental version) 1 Hour.mp3
 /home/rufus/Music/Instrumental/Death Note- Light's Return_Theme EXTENDED.mp3
 /home/rufus/Music/Instrumental/Lawrys_birthday_william.mp3
@@ -61,7 +62,6 @@
 /home/rufus/Music/Asphalt 8/Far Too Loud - Lightbringer - YouTube.mp3
 /home/rufus/Music/Asphalt 8/Martin Garrix - Animals (Official Video) - YouTube.mp3
 /home/rufus/Music/Asphalt 8/MONSTA - Holdin' On (Skrillex & Nero Remix) - YouTube.mp3
-/home/rufus/Music/Asphalt 8/Mutemath - Blood Pressure [Official Music Video] - YouTube.mp3
 /home/rufus/Music/Asphalt 8/Nero - Etude - YouTube.mp3
 /home/rufus/Music/Instrumental/Attack on Titan S3 OST - 0Sk (Extended).mp3
 /home/rufus/Music/Instrumental/Attack on Titan Season 2 opening Full『Linked Horizon - Shinzou wo Sasageyo!』.mp3
@@ -86,8 +86,6 @@
 /home/rufus/Music/Instrumental/How to get away with murder original score (Photek Music).mp3
 /home/rufus/Music/Instrumental/How to Get Away with Murder theme.mp3
 /home/rufus/Music/If Julia Michaels Issues were a Christian song by Beckah Shae LYRICS.mp3
-/home/rufus/Music/Jacob Banks - Chainsmoking.mp3
-/home/rufus/Music/Jacob Banks - Unknown (To You) Official Music Video.mp3
 /home/rufus/Music/La casa de papel - Bella Ciao.mp3
 /home/rufus/Music/Instrumental/Legend of Korra Main Theme - Legend of Korra Sound Track.mp3
 /home/rufus/Music/Instrumental/Legend of Korra The Game Soundtrack (Game Specific Music) HD Soundtrack.mp3
@@ -101,8 +99,6 @@
 /home/rufus/Music/Instrumental/Lindsey Stirling/Shadows - Lindsey Stirling (Original Song).mp3
 /home/rufus/Music/Instrumental/Lindsey Stirling/Spontaneous Me -Lindsey Stirling (original song) - YouTube.mp3
 /home/rufus/Music/Instrumental/Lindsey Stirling/Zelda Medley- Lindsey Stirling.mp3
-/home/rufus/Music/Lorde - Royals (US Version).mp3
-/home/rufus/Music/Lorde - Yellow Flicker Beat (Music Video).mp3
 /home/rufus/Music/Instrumental/Main Opening Theme - Avatar The Last Airbender Soundtrack.mp3
 /home/rufus/Music/Matthew Morgan - Sun Through the Clouds.mp3
 /home/rufus/Music/Michael Nyman - One Moment.mp3
@@ -113,24 +109,11 @@
 /home/rufus/Music/Instrumental/Pirates of the Caribbean (Auckland Symphony Orchestra) 1080p.mp3
 /home/rufus/Music/Instrumental/Pirates of the Caribbean (Auckland Symphony Orchestra) 1080p_big.mp3
 /home/rufus/Music/Instrumental/Pirates Of The Caribbean Theme Song.mp3
-/home/rufus/Music/Sia - Ho Ho Ho (Lyrics).mp3
-/home/rufus/Music/Sia - Im Still Here [Lyric Video] [NEW SONG 2018] - evproductions_.mp3
-/home/rufus/Music/Sia - Suitcase (Music Video) ft. Maddie Ziegler.mp3
-/home/rufus/Music/Sia - Summer Rain (Official Audio).mp3
-/home/rufus/Music/Sia - The Best Songs (2016) [MP3~320Kbps]~[Hunter] [FRG]/Sia - Angel By The Wings (Lyrics).mp3
-/home/rufus/Music/Sia - The Best Songs (2016) [MP3~320Kbps]~[Hunter] [FRG]/Sia - Everyday Is Christmas.mp3
-/home/rufus/Music/Sia - The Best Songs (2016) [MP3~320Kbps]~[Hunter] [FRG]/Sia - House On Fire (Audio).mp3
-/home/rufus/Music/Sia - The Best Songs (2016) [MP3~320Kbps]~[Hunter] [FRG]/Sia - Never Give Up (from the Lion Soundtrack) [Lyric Video].mp3
-/home/rufus/Music/Sia - The Best Songs (2016) [MP3~320Kbps]~[Hunter] [FRG]/Sia - Santas Coming For Us (Lyrics).mp3
-/home/rufus/Music/Sia - The Best Songs (2016) [MP3~320Kbps]~[Hunter] [FRG]/Sia - Snowman.mp3
-/home/rufus/Music/Sia - The Best Songs (2016) [MP3~320Kbps]~[Hunter] [FRG]/Sia - Soon Well Be Found (Letterman).mp3
-/home/rufus/Music/Sia - The Best Songs (2016) [MP3~320Kbps]~[Hunter] [FRG]/Sia - Soon Well Be Found.mp3
 /home/rufus/Music/Instrumental/Star Wars- The Imperial March (Darth Vaders Theme).mp3
-/home/rufus/Music/Stromae - carmen.mp3
 /home/rufus/Music/Instrumental/Super Smash Bros Complete Soundtrack OST Nintendo 64.mp3
 /home/rufus/Music/Instrumental/The big bang theory ending theme.mp3
-/home/rufus/Music/The_Big_Bang_Theory_Intro_Full_Version.mp3
-/home/rufus/Music/The_Big_Bang_Theory_-_Opening_-_HD.mp3
+/home/rufus/Music/Instrumental/The_Big_Bang_Theory_Intro_Full_Version.mp3
+/home/rufus/Music/Instrumental/The_Big_Bang_Theory_-_Opening_-_HD.mp3
 /home/rufus/Music/Instrumental/The Legend of Korra - OST (the game) - Republic City.mp3
 /home/rufus/Music/Instrumental/The Legend of Korra Theme Song (HQ)  Episode Opening Credits  Nick Animation.mp3
 /home/rufus/Music/Tokyo Ghoul - Unravel [Lyrics].mp3
@@ -139,8 +122,6 @@
 /home/rufus/Music/Instrumental/White Collar Theme Song...Best 1.mp3
 /home/rufus/Music/Instrumental/Avatar_The Last Airbender - The Peace Soundtrack (Mp3FB.com).mp3
 /home/rufus/Music/Instrumental/naruto shippuden opening 9 full HD sasuke vs danzo.mp3
-/home/rufus/Music/Adele - Rolling in the Deep.mp3
-/home/rufus/Music/Erza Muqoli - La Bohème (Studio Remastered).mp3
 /home/rufus/Music/Alessia Cara   Here Beckah Shae's Way.mp3
 /home/rufus/Music/Classical Music/The Best Of (Vivaldi, Bethovenn, Mozart, Strauss)-Universal/Vivaldi/02-Concerto In G-Dur.MP3
 /home/rufus/Music/Beckah shae Attention (cover) 8 bit.mp3
@@ -153,10 +134,8 @@
 /home/rufus/Music/Classical Music/The Best Of (Vivaldi, Bethovenn, Mozart, Strauss)-Universal/Beethoven/07-Symphony No. 7 - 2nd Movement.MP3
 /home/rufus/Music/Classical Music/The Best Of (Vivaldi, Bethovenn, Mozart, Strauss)-Universal/Beethoven/01-Symphony No. 5 - 1st Movement.MP3
 /home/rufus/Music/Classical Music/The Best Of (Vivaldi, Bethovenn, Mozart, Strauss)-Universal/Beethoven/09-For Alise.MP3
-/home/rufus/Music/Titanium (feat. Sia).mp3
 /home/rufus/Music/Beckah Shae - Stay (Lyric Video).mp3
 /home/rufus/Music/If Taylor Swift's Look What You Made Me Do were a Christian song by Beckah Shae LYRICS.mp3
-/home/rufus/Music/Imagine Dragons - Believer.mp3
 /home/rufus/Music/Instrumental/klaus_badelt-pirates_of_the_caribbean_the_curse_of_the_black_pearl.mp3
 /home/rufus/Music/Classical Music/Johann Pachelbel/Johann Pachelbel - Canon in D major (Orchestre de chambre Jean-Francois Pai.mp3
 /home/rufus/Music/Instrumental/fat-joe-feat-lil-wayne-make-it-rain-instrumental.mp3
@@ -169,35 +148,9 @@
 /home/rufus/Music/Classical Music/The Best Of (Vivaldi, Bethovenn, Mozart, Strauss)-Universal/Mozart/09-Piano Concerto No. 24.MP3
 /home/rufus/Music/Classical Music/The Best Of (Vivaldi, Bethovenn, Mozart, Strauss)-Universal/Mozart/03-Senerade No. 13 'A Little Night Music'.MP3
 /home/rufus/Music/Classical Music/The Best Of (Vivaldi, Bethovenn, Mozart, Strauss)-Universal/Mozart/08-Horn Concerto No. 4.MP3
-/home/rufus/Music/Pentatonix/04 - Aha!.mp3
-/home/rufus/Music/Pentatonix/01 - Radioactive.mp3
 /home/rufus/Music/Pentatonix/03 - Carol of the Bells.mp3
-/home/rufus/Music/Pentatonix/01 - La La Latch.mp3
-/home/rufus/Music/Pentatonix/19 - Royals.mp3
 /home/rufus/Music/Pentatonix/07. Dance of the Sugar Plum Fairy.mp3
 /home/rufus/Music/Pharrell Williams - Happy.mp3
-/home/rufus/Music/sia-waving-goodbye-lyrics.mp3
-/home/rufus/Music/Sia - The Best Songs (2016) [MP3~320Kbps]~[Hunter] [FRG]/Sia - The Best Songs/Sia - I Go To Sleep .mp3
-/home/rufus/Music/Sia - The Best Songs (2016) [MP3~320Kbps]~[Hunter] [FRG]/Sia - The Best Songs/Sia - Clap Your Hands .mp3
-/home/rufus/Music/Sia - The Best Songs (2016) [MP3~320Kbps]~[Hunter] [FRG]/Sia - The Best Songs/Sia - Big Girls Cry .mp3
-/home/rufus/Music/Sia - The Best Songs (2016) [MP3~320Kbps]~[Hunter] [FRG]/Sia - The Best Songs/Sia - Elastic Heart .mp3
-/home/rufus/Music/Sia - The Best Songs (2016) [MP3~320Kbps]~[Hunter] [FRG]/Sia - The Best Songs/Sia - Fire Meet Gasoline .mp3
-/home/rufus/Music/Sia - The Best Songs (2016) [MP3~320Kbps]~[Hunter] [FRG]/Sia - The Best Songs/Sia - Alive .mp3
-/home/rufus/Music/Sia - The Best Songs (2016) [MP3~320Kbps]~[Hunter] [FRG]/Sia - The Best Songs/Sia - Bird Set Free .mp3
-/home/rufus/Music/Sia - The Best Songs (2016) [MP3~320Kbps]~[Hunter] [FRG]/Sia - The Best Songs/Sia - Chandelier .mp3
-/home/rufus/Music/Sia - The Best Songs (2016) [MP3~320Kbps]~[Hunter] [FRG]/Sia - The Best Songs/Sia - Cheap Thrills .mp3
-/home/rufus/Music/Sia - The Best Songs (2016) [MP3~320Kbps]~[Hunter] [FRG]/Sia - The Best Songs/Sia - One Million Bullets .mp3
-/home/rufus/Music/Sia - The Best Songs (2016) [MP3~320Kbps]~[Hunter] [FRG]/Sia - The Best Songs/Sia - Chandelier (Piano Version) .mp3
-/home/rufus/Music/Sia - The Best Songs (2016) [MP3~320Kbps]~[Hunter] [FRG]/Sia - The Best Songs/Sia - Elastic Heart (Piano Version) .mp3
-/home/rufus/Music/Sia - The Best Songs (2016) [MP3~320Kbps]~[Hunter] [FRG]/Sia - The Best Songs/Sia - California Dreamin' .mp3
-/home/rufus/Music/Sia - The Best Songs (2016) [MP3~320Kbps]~[Hunter] [FRG]/Sia - The Best Songs/Sia - Reaper .mp3
-/home/rufus/Music/Sia - The Best Songs (2016) [MP3~320Kbps]~[Hunter] [FRG]/Sia - The Best Songs/Sia - Breathe Me .mp3
-/home/rufus/Music/Sia - The Best Songs (2016) [MP3~320Kbps]~[Hunter] [FRG]/Sia - The Best Songs/Sia - Move Your Body .mp3
-/home/rufus/Music/Sia - The Best Songs (2016) [MP3~320Kbps]~[Hunter] [FRG]/Sia - The Best Songs/Sia - Unstoppable .mp3
-/home/rufus/Music/Sia - The Best Songs (2016) [MP3~320Kbps]~[Hunter] [FRG]/Sia - The Best Songs/Sia - Footprints .mp3
-/home/rufus/Music/Sia - The Best Songs (2016) [MP3~320Kbps]~[Hunter] [FRG]/Sia - The Best Songs/Sia - Sweet Design .mp3
-/home/rufus/Music/Sia - The Best Songs (2016) [MP3~320Kbps]~[Hunter] [FRG]/Sia - The Best Songs/Sia - Broken Glass .mp3
-/home/rufus/Music/LSD - Thunderclouds (Official Video) ft. Sia, Diplo, Labrinth.mp3
 /home/rufus/Music/Classical Music/The Best Of (Vivaldi, Bethovenn, Mozart, Strauss)-Universal/Strauss/02-Vienna Bonbons Waltz.MP3
 /home/rufus/Music/Classical Music/The Best Of (Vivaldi, Bethovenn, Mozart, Strauss)-Universal/Strauss/01-Emperor Waltz.MP3
 /home/rufus/Music/Classical Music/The Best Of (Vivaldi, Bethovenn, Mozart, Strauss)-Universal/Strauss/05-Tales From The Vienna Woods.MP3

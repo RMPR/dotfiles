@@ -159,6 +159,7 @@ alias docker="podman"
 alias vimrc="$EDITOR ~/.vimrc"
 alias df="df -h"
 alias vimrc="vim ~/.vimrc"
+alias oni="Onivim2-x86_64-master.AppImage"
 
 source ~/.profile
 
