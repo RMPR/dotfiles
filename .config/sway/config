@@ -33,6 +33,10 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec alacritty
 
+# start a terminal in floating mode
+bindsym $mod+T exec alacritty --class floating_terminal
+for_window [app_id="floating_terminal"] floating enable
+
 # kill focused window
 bindsym $mod+Shift+A kill
 
