@@ -14,7 +14,7 @@ endif
 
 "set spelllang=en_us,fr
 "set spell
-set history=20000
+set history=2000
 set nocompatible
 set relativenumber
 set ignorecase
