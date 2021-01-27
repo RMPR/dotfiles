@@ -6682,3 +6682,74 @@ Jan 26 22:49:20 <w00dsman>	if you install gnome-tweaks, then go to the fonts sec
 Jan 26 22:56:58 *	Disconnected ()
 **** ENDING LOGGING AT Tue Jan 26 22:56:58 2021
 
+**** BEGIN LOGGING AT Wed Jan 27 18:40:23 2021
+
+Jan 27 18:40:23 *	Now talking on #fedora
+Jan 27 18:40:23 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Jan 27 18:40:23 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Jan 27 18:40:23 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Jan 27 18:42:17 <_4n0nymous_>	I made a typo with my nickname
+Jan 27 18:43:23 <pgnd>	whack-a-mole :-/
+Jan 27 18:43:53 <_4n0nymous_>	That's NOT `_4n0nynous_`  but I am intended to use `_4n0nymou2_`
+Jan 27 18:43:53 <_4n0nymous_>	@Khaytsus you can kick `_4n0nynoys_` out
+Jan 27 18:44:18 <_4n0nymous_>	* `_4n0nynous_`
+Jan 27 18:44:19 <Khaytsus>	Can we stop discussing this?
+Jan 27 18:44:23 <_4n0nymous_>	Ok
+Jan 27 18:44:25 <_4n0nymous_>	Sorry
+Jan 27 18:44:51 <Mershl[m]>	Guys, 2 years now with Nautilus and I can't love it. Is there an alternative that integrates well with Gnome 3?
+Jan 27 18:45:26 <linuxmodder>	thunar or caja work
+Jan 27 18:46:03 <Khaytsus>	I guess it depends on what you need to do..  but I can't help much here, I have very little use for gui file managers.  Closest I ever get is purely for picutres like with geeque
+Jan 27 18:46:07 <Khaytsus>	geeqie
+Jan 27 18:46:44 <linuxmodder>	Khaytsus,  you a cli + mc kinda user then ?
+Jan 27 18:47:11 <linuxmodder>	or is there some other fancy tui file manager you use
+Jan 27 18:47:12 <Khaytsus>	File managers in general thing, really..
+Jan 27 18:47:25 <linuxmodder>	just not gui ones eh?
+Jan 27 18:47:25 <Khaytsus>	And no, mc can die in nuclear fire
+Jan 27 18:47:47 <linuxmodder>	woah! but of hatred there
+Jan 27 18:47:53 <Khaytsus>	Yeah I guess just in general I have no use for file managers.  I used to one one called gentoo but mostly to assist in cleaning up cluteterd homedirs etc
+Jan 27 18:47:59 <linuxmodder>	so what other fm are there that arent gui
+Jan 27 18:48:20 <Khaytsus>	I messed with one once....  ranger?  but again, never found much use for it
+Jan 27 18:48:21 <Mershl[m]>	I know quite a lot of people that swear on Ranger
+Jan 27 18:48:27 <Mershl[m]>	https://github.com/ranger/ranger
+Jan 27 18:48:37 <Khaytsus>	I mostly swear at file managers
+Jan 27 18:48:42 <linuxmodder>	lol
+Jan 27 18:51:34 <Mershl[m]>	I just can't grasp why Nautilus is not fixing its issues. For the last 5-10 years I seem to see the same problems again and again. Truly unreliable copy to network drives, taking 5 seconds to boot if you have a harddrive mount (async? nope!), sushi (file previewer) has been broken for several months, every compressed file has the Extract here command in a different spot of the context menu, copy's estimates are worse than
+Jan 27 18:51:34 <Mershl[m]>	random...
+Jan 27 18:54:40 <Mershl[m]>	Sorry for the short rant. I had a meeting with "real life" today, my bank needed me to download documents from a web portal. The documents included forms and it was truly horrible. 1.) The web portal blocks Firefox. "Use Chrome" 2.) Switching pages on the pdf in Evince took 10 seconds on an NVME drive. 3.) Saving the forms in Evince corrupted the pdf and the webportal was no longer accepting it.
+Jan 27 18:55:08 <Khaytsus>	I hate PDF forms
+Jan 27 18:55:28 <Mershl[m]>	Me too. But normal people love them.
+Jan 27 18:57:50 <Khaytsus>	Yeah, because adobe's pdf stuff handles it fine I guess
+Jan 27 18:57:51 <Khaytsus>	I wonder if qpdfview would work better..  I have been using it as a viewer for some time now
+Jan 27 18:57:51 <linuxmodder>	qpdfview has been my go to as well
+Jan 27 18:57:51 <Khaytsus>	It does take some odd tweaking to get working 'right' though.. like it default to some SUPER LOW ram usage values, decodes one page at a time, some other stuff..  forget
+Jan 27 18:57:51 <Khaytsus>	Easily tweaked in its prefrences, nothing complicated
+Jan 27 18:59:37 <Khaytsus>	linuxmodder: Besides tweaking it to run more sane, typing it is the worst part ;)
+Jan 27 19:00:02 <linuxmodder>	indeed
+Jan 27 20:56:22 *	ChanServ gives channel operator status to nb
+Jan 27 20:59:51 <Southern_Gentlem>	??
+Jan 27 21:03:04 *	fedbot removes channel operator status from nb
+Jan 27 21:04:56 <Ben_11>	hi everyone ;)
+Jan 27 21:05:55 <Ben_11>	I've upgraded from fedora 31 to fedora 33 using dnf-plugin-system-upgrade.
+Jan 27 21:06:14 <Ben_11>	to get it working I had to remove my nvidia drivers from rpmfusion.
+Jan 27 21:06:42 <Ben_11>	The upgrade succeeded, but I'm not able to install the rpmfusion nvidia packages
+Jan 27 21:06:45 <Southern_Gentlem>	Ben_11,  so f31-f32-f33 or f31-f33
+Jan 27 21:07:03 <Ben_11>	Southern_Gentlem: 31-32-33
+Jan 27 21:07:17 <Southern_Gentlem>	did you clean up after each jump
+Jan 27 21:07:20 <Ben_11>	sudo dnf install dnf-plugin-nvidia produces the following error:   - nothing provides python(abi) = 3.6 needed by dnf-plugin-nvidia-2.0-1.el8.noarch
+Jan 27 21:07:39 <Southern_Gentlem>	well fedora doesnt use el packages
+Jan 27 21:07:59 <Southern_Gentlem>	Ben_11, fpaste --sysinfo
+Jan 27 21:08:29 <Southern_Gentlem>	rather sudo fpaste --sysinfo
+Jan 27 21:09:27 <Ben_11>	Southern_Gentlem: https://paste.centos.org/view/dd934f65 without sudo, don't know whether there is information missing without sudo
+Jan 27 21:10:24 <Southern_Gentlem>	its your  cuda-rhel8-x86_64              cuda-rhel8-x86_64 thats causing the issue
+Jan 27 21:10:30 <Southern_Gentlem>	repo
+Jan 27 21:11:33 <Southern_Gentlem>	there is not dnf-plugin-nvidia in fedora or in rpmfusion
+Jan 27 21:11:51 <Southern_Gentlem>	Ben_11 take a look at " http://rpmfusion.org/Howto/nVidia?highlight=Ben_118CategoryHowtoBen_119 "
+Jan 27 21:12:17 <Southern_Gentlem>	and also read their cuda howto
+**** ENDING LOGGING AT Wed Jan 27 21:18:54 2021
+
+**** BEGIN LOGGING AT Wed Jan 27 21:18:54 2021
+
+**** ENDING LOGGING AT Wed Jan 27 21:19:19 2021
+
+**** BEGIN LOGGING AT Wed Jan 27 21:19:19 2021
+

@@ -24753,3 +24753,302 @@ Jan 26 22:54:48 <nij>	should learn emacs regex too.
 Jan 26 22:56:58 *	Disconnected ()
 **** ENDING LOGGING AT Tue Jan 26 22:56:58 2021
 
+**** BEGIN LOGGING AT Wed Jan 27 18:40:23 2021
+
+Jan 27 18:40:23 *	Now talking on #emacs
+Jan 27 18:40:23 *	Topic for #emacs is: Pretest #1 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.90.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+Jan 27 18:40:23 *	Topic for #emacs set by Pickchea!~private@unaffiliated/pickchea (Tue Jan 19 15:08:31 2021)
+Jan 27 18:40:23 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Jan 27 18:48:08 <remby>	how do you have emacs quit even when processes are running in the background?
+Jan 27 18:48:48 <JordiGH>	You say "yes" when it asks?
+Jan 27 18:48:53 <seabass>	I suppose the Emacs daemon allows you to close all the windows (frames)
+Jan 27 18:48:58 <seabass>	without stopping the daemon
+Jan 27 18:49:24 <remby>	JordiGH: yeah I want to do it without answering the prompt
+Jan 27 18:52:54 <cvandusen>	,dv confirm-kill-emacs
+Jan 27 18:52:54 <fsbot>	How to ask for confirmation when leaving Emacs.
+Jan 27 18:52:55 <fsbot>	If nil, the default, don’t ask at all.  If the value is non-nil, it should
+Jan 27 18:52:55 <fsbot>	be a predicate function; for example ‘yes-or-no-p’.
+Jan 27 18:52:55 <fsbot>	You can customize this variable.
+Jan 27 18:52:55 <fsbot>	Defined in `/usr/share/emacs/26.1/lisp/files.elc'.
+Jan 27 18:52:58 <irek>	remby: you can use M-x kill-emacs interactive function
+Jan 27 18:54:05 <irek>	but in that case you won't be asked about running processes or unsaved files, continue with caution ;d
+Jan 27 18:54:57 <parsnip>	you can use C-x s to check for files to save
+Jan 27 18:55:35 <remby>	thanks
+Jan 27 18:57:12 <seabass>	Hello
+Jan 27 18:57:50 <beep1560>	Eshell users, how do you compare command outputs? In zsh, I would do "$ diff -u <(seq 1 2) <(seq 
+Jan 27 18:57:51 <beep1560>	I'm asknig this because Eshell shows the following when trying that: Eshell does not support input redirection
+Jan 27 18:57:51 <beep1560>	seabass: hello  :)
+Jan 27 18:57:59 <seabass>	beep1560, afternoon
+Jan 27 18:58:09 <seabass>	for me
+Jan 27 18:58:28 <seabass>	evening/morning/afternoon/night please choose which one applies :)
+Jan 27 18:59:16 <natter>	beep1560: redirect to a buffer and then diff buffers
+Jan 27 19:01:00 <seabass>	Why would my .emacs be write-protected?
+Jan 27 19:02:07 <seabass>	It feels a bit ridiculous modifying it with Vim
+Jan 27 19:02:48 <rpav>	it's the new functional-style configuration, everything is immutable
+Jan 27 19:02:58 <seabass>	in emacs?
+Jan 27 19:03:13 <seabass>	ahem leg-pulling alert just went off
+Jan 27 19:03:22 <beep1560>	natter: Is there any lisp function for inserting the content of a command to an specific buffer?
+Jan 27 19:03:23 <rpav>	nah i'm just being ridiculous .. why *is* it write-protected? is this windows?
+Jan 27 19:03:34 <seabass>	rpav, nope it's Fedora
+Jan 27 19:03:41 <seabass>	I saved it with Vim just fine
+Jan 27 19:03:43 <natter>	beep1560: seq 1 2 > #<buffer foo>
+Jan 27 19:03:48 <rpav>	seabass: is the file -w?
+Jan 27 19:03:52 <irek>	seabass: edit Emacs config in Vim :DD funny and tragic
+Jan 27 19:04:03 <JordiGH>	I've had to edit my .emacs in vim when I've broken it so badly that I can't edit it with Emacs :(
+Jan 27 19:04:05 <JordiGH>	I am not proud.
+Jan 27 19:04:11 <rpav>	emacs -Q D:
+Jan 27 19:04:16 <rpav>	or whatever
+Jan 27 19:04:22 <JordiGH>	I guess I could have done emacs -Q ~/.emacs but I honestly forget how to use emacs -Q
+Jan 27 19:04:25 <seabass>	+w?
+Jan 27 19:04:39 <rpav>	JordiGH: fair, i can barely get around in vanilla myself
+Jan 27 19:04:49 <cvandusen>	alias it to `eq'
+Jan 27 19:05:03 <seabass>	what? Now it just works...
+Jan 27 19:05:14 <rpav>	weird
+Jan 27 19:05:44 <seabass>	M-x doctor
+Jan 27 19:05:47 <seabass>	am I seeing things?
+Jan 27 19:06:38 <cvandusen>	,doctor my eyes 
+Jan 27 19:06:38 <fsbot>	Why do you say your eyes? 
+Jan 27 19:07:01 <cvandusen>	jackson browne, duh 
+Jan 27 19:07:20 <srid>	When using `define-derived-mode` (I'm doing this to override `markdown-mode` with some customizations), what is the idiomatic way to bind some keybindings only for this mode? Specifically I want to bind TAB to `complete-symbol`.
+Jan 27 19:07:39 <srid>	I don't think you can use `global-set-key`
+Jan 27 19:07:53 <srid>	Because I want the keybinding to be local to the derived mode
+Jan 27 19:09:43 <srid>	I tried `local-set-key` but doesn't work at all.
+Jan 27 19:10:39 <dale>	srid: If you're deriving a mode, then you probably want to make a new keymap for that derived mode, and set that up as the local map.  You can make the derived mode's keymap inherit from markdown-mode's keymap.
+Jan 27 19:10:44 <srid>	Here's my config: https://pastebin.com/raw/eS1YDUvN
+Jan 27 19:11:10 <dale>	srid: I would suggest looking at a simple minor mode somewhere and how it sets up a keymap.
+Jan 27 19:11:31 <seabass>	How can I set a key to a Lisp function?
+Jan 27 19:11:44 <dale>	srid: Ah, you might also be interested in M-x find-variable RET gfm-mode-map RET.
+Jan 27 19:12:19 <dale>	srid: I *think* gfm-mode is a major mode derived from markdown-mode.  (gfm = GitHub-flavored Markdown)
+Jan 27 19:12:40 <dale>	srid: (And I guess I should have said "I would suggest looking at a simple *major* mode somewhere" above.)
+Jan 27 19:13:22 <dale>	seabass: define-key.  The Elisp function must start with (interactive).  If it doesn't then you should modify it or wrap it.
+Jan 27 19:13:36 <seabass>	dale, so not global-set-key?
+Jan 27 19:13:46 <srid>	Cool, dale , here's another example: https://github.com/felko/neuron-mode/blob/master/neuron-mode.el#L1202
+Jan 27 19:13:48 <dale>	seabass: You can do that if you want to bind the key in global-map.
+Jan 27 19:14:19 <seabass>	what?
+Jan 27 19:14:30 <seabass>	bye bye everyone
+Jan 27 19:14:47 <mplsCorwin>	o_O
+Jan 27 19:14:59 <seabass>	is this a netsplit?
+Jan 27 19:15:14 <seabass>	hmm they're all irccloud connections
+Jan 27 19:15:16 <mplsCorwin>	ah, yeah, probably so.  seen a few today
+Jan 27 19:15:23 <seabass>	anyway, hello mplsCorwin
+Jan 27 19:15:33 <mplsCorwin>	o/ seabass :)   how do?
+Jan 27 19:15:37 <seabass>	great :)
+Jan 27 19:15:39 <seabass>	and you?
+Jan 27 19:16:17 <mplsCorwin>	pretty good! had some struggles to start the year but feeling pretty decent now and starting to approach actual productivity.
+Jan 27 19:16:50 <seabass>	good to hear that. I'm feeling a similar way, what with all the lockdown stuff here
+Jan 27 19:17:13 <seabass>	everything changes every week! </grumble>
+Jan 27 19:17:18 <seabass>	did slondr, bandali and you ever find a solution?
+Jan 27 19:17:51 <mplsCorwin>	sorry, context has fallen out of my brain and become lost in the soup.
+Jan 27 19:17:59 <seabass>	video streaming
+Jan 27 19:18:17 <seabass>	on #video-conferencing-tools
+Jan 27 19:18:52 <mplsCorwin>	ah, ah!  Not sure.  we decided to fold that channel into #fsf or #jami etc.
+Jan 27 19:19:31 <seabass>	mplsCorwin, OK - tell me if you need a guinea pig for testing IceCast or what have you :)
+Jan 27 19:19:55 <mplsCorwin>	absolutely :D
+Jan 27 19:25:46 <seabass>	So I've put, at the end of my .emacs file, global-set-key etc etc
+Jan 27 19:25:57 <seabass>	But I get C-c u is undefined...
+Jan 27 19:26:04 <seabass>	(global-set-key (kbd "C-c u") (subed-mpv-playback-speed 1))
+Jan 27 19:27:17 <dale>	seabass: The second arg to global-set-key should be a command, it doesn't take an arbitrary form to evaluate.
+Jan 27 19:27:29 <dale>	seabass: A command is just a function that has an (interactive) form.
+Jan 27 19:28:18 <dale>	seabass: (defun my-mpv-reset-playback-speed () (interactive) (subed-mpv-playback-speed 1)) (global-set-key (kbd "C-c u") 'my-mpv-reset-playback-speed)
+Jan 27 19:30:01 <johnjay>	i'm a bit surprised emacs doesn't follow the convention of a decimal indicating floating point
+Jan 27 19:30:07 <johnjay>	,(/ 2.0 5)
+Jan 27 19:30:07 <fsbot>	0.4  ..(float)
+Jan 27 19:30:09 <johnjay>	,(/ 2. 5)
+Jan 27 19:30:10 <fsbot>	0  ..(integer)
+Jan 27 19:31:32 <dale>	Huh, me too.
+Jan 27 19:31:51 <dale>	Was floating point always in Emacs, or is it a relatively recent addition?
+Jan 27 19:32:08 <johnjay>	i assume it was always there
+Jan 27 19:32:17 <johnjay>	the convention itself is probably more recent
+Jan 27 19:32:35 <johnjay>	i was playing around in octave and i noticed the code i was reading was inserting the . a lot
+Jan 27 19:32:46 <johnjay>	but it wasn't necessary because octave doesn't do integer division
+Jan 27 19:33:14 <seabass>	dale, you are very helpful :)
+Jan 27 19:33:37 <seabass>	thank you very much. That works now - presumably I'd need to do that for every function that wasn't already interactive
+Jan 27 19:34:13 <dale>	johnjay: I think you're right that it's been in there a very long time, at least.
+Jan 27 19:34:26 <dale>	seabass: Yes, or when you need to provide any arguments.
+Jan 27 19:35:27 <seabass>	Actually, the functions are interactive, so it must have been the latter that was needed
+Jan 27 19:37:11 <seabass>	has anyone here had RSI? I'm... starting to feel something :/
+Jan 27 19:37:30 <rpav>	yeah; start by getting a better keyboard
+Jan 27 19:37:54 <seabass>	A thumb-cluster one would be handy; is that the sort of one you have?
+Jan 27 19:38:06 <seabass>	lol 'handy' :D
+Jan 27 19:38:07 <rpav>	well .. start by having everything position right, not reaching too far for mouse, not twisting your hand/finger for ctrl, etc
+Jan 27 19:38:16 <rpav>	but a good keyboard is probably the 2nd step
+Jan 27 19:38:43 <rpav>	i have a datahand but sadly you can't get those anymore 
+Jan 27 19:38:44 <seabass>	Not twising ones hand for ctrl... how do you do that?
+Jan 27 19:38:52 <grym>	seabass: rebind capslock 
+Jan 27 19:39:04 <seabass>	grym, I'm on Colemak, so that's backspace
+Jan 27 19:39:10 <seabass>	'taken'!
+Jan 27 19:39:13 <grym>	i'm one of the ergodox weirdoes
+Jan 27 19:39:28 <seabass>	ah, sadly this isn't programable at the hardware level
+Jan 27 19:39:28 <rpav>	been looking at the ergodox or moonlander thing but only as potential replacement or alternative, but i want super light touch switches
+Jan 27 19:39:52 <rpav>	seabass: you *can* use an alternate hand, but i remap caps lock to control
+Jan 27 19:40:17 <rpav>	err yeah what grym said .. you can make it work on console etc even
+Jan 27 19:40:38 <grym>	rpav: the keyswitches are hot-swappable, it's very good
+Jan 27 19:40:46 <grym>	you can put many things there
+Jan 27 19:40:50 <natter>	let's all use footpedals
+Jan 27 19:40:56 <seabass>	alright, I'll look into rebinding capslock
+Jan 27 19:41:03 <seabass>	natter, do you play the organ? :)
+Jan 27 19:41:20 <natter>	no but I have browsed the kinesis catalog
+Jan 27 19:41:36 <seabass>	ahah :) Well I can just about play the pedals
+Jan 27 19:41:37 <parsnip>	what's a good way to share a private list of tasks, regarding a github project, ideally with ways to change urgency of a task, or add labels, etc
+Jan 27 19:41:38 <grym>	i'd probably want an ergodox-ez or moonlander over kinesis 
+Jan 27 19:41:44 <grym>	for maintainability if nothing else
+Jan 27 19:41:50 <parsnip>	does microsoft tasks have sharing?
+Jan 27 19:41:59 <parsnip>	s/tasks/todo/
+Jan 27 19:42:07 <grym>	parsnip: what's that self-hosted trello clone? 
+Jan 27 19:42:16 <seabass>	urgh, Microsoft tasks? :P
+Jan 27 19:42:20 <grym>	libreboard?
+Jan 27 19:42:40 <parsnip>	it doesn't have to be anti-spyware, just not public
+Jan 27 19:42:54 <parsnip>	ironically, i would prefer ease of use
+Jan 27 19:42:59 <grym>	oh, wekan now 
+Jan 27 19:43:05 <seabass>	grym, the ergodox is nice; what keycaps might you use? I think it has special shaped ones
+Jan 27 19:43:07 <grym>	parsnip: https://wekan.github.io/ perhaps 
+Jan 27 19:43:11 <parsnip>	ironic because the github project is a taskwarrior mobile app
+Jan 27 19:43:21 <grym>	seabass: i have their default keycaps for now, but i have space cadets on order :) 
+Jan 27 19:43:34 <seabass>	ahah. very retro :)
+Jan 27 19:43:40 *	parsnip looks for demo page
+Jan 27 19:43:44 <seabass>	you'll have an actual super key then?
+Jan 27 19:43:45 <grym>	i'm stoked, they look gorgeous 
+Jan 27 19:43:47 <parsnip>	grym: i think i don't want to self-host
+Jan 27 19:43:54 <parsnip>	everything else about this project is hard enough
+Jan 27 19:43:55 <db48x>	seabass: you're not supposed to try to hit two keys with one hand. keyboards have to control keys for a reason
+Jan 27 19:44:11 <grym>	parsnip: then just use gh projects https://github.com/features/project-management/ 
+Jan 27 19:44:34 <seabass>	db48x, the right control key is very far away
+Jan 27 19:44:42 <seabass>	so I have to leave the home row to reach it
+Jan 27 19:44:43 <parsnip>	can i have complex lists that are not public?
+Jan 27 19:44:45 <grym>	seabass: renders https://geekhack.org/index.php?topic=105375.0 
+Jan 27 19:44:50 <natter>	db48x: tell that to C-M-!
+Jan 27 19:45:05 <parsnip>	oh, maybe a taskwarrior compatible list like trello would be a little funny
+Jan 27 19:45:13 <seabass>	grym, that's lovely
+Jan 27 19:45:23 <db48x>	natter: :)
+Jan 27 19:45:30 <seabass>	looks like the original, but teeny-tiny :)
+Jan 27 19:45:33 <grym>	seabass: yeah! ordered them in april 2020, they'll probably be here july 2021 ..? 
+Jan 27 19:45:38 <parsnip>	i'd have to do like `HOME=~/.trello task` or something
+Jan 27 19:45:48 <grym>	seabass: well, it's just the caps, so they're going on an ergodox
+Jan 27 19:46:24 <seabass>	grym, ah, another victom of industrial^H^H^H^H^H^H^H^H^H^H coronavirus disease, then
+Jan 27 19:46:47 <parsnip>	aha: https://docs.github.com/en/github/managing-your-work-on-github/changing-project-board-visibility
+Jan 27 19:46:51 <seabass>	although I would always prioritise the safety of factory workers over shipping times
+Jan 27 19:46:51 <aidalgol>	seabass: what?
+Jan 27 19:46:52 <grym>	seabass: no, small scale keycap manufacturer runs alllllways take a god's age
+Jan 27 19:47:10 <seabass>	ah, OK grym, so it's nothing unusual if that's the case!
+Jan 27 19:47:10 <grym>	waiting 3 years for a drop is not unheard of at all 
+Jan 27 19:47:18 <seabass>	wow, you have to be patient
+Jan 27 19:47:25 <grym>	seabass: small scale nerd manufacture is like this in any sector you care to name 
+Jan 27 19:47:31 <aidalgol>	massdrop?
+Jan 27 19:47:32 <grym>	i know bicycle makers with a 10 year waitlist
+Jan 27 19:47:32 <seabass>	Amazon would have you believe that one-day delivey is it
+Jan 27 19:47:43 <grym>	which sucks because peter's 67 or so now 
+Jan 27 19:47:48 <parsnip>	rudybot: seen oni-on-ion
+Jan 27 19:47:49 <rudybot>	parsnip: oni-on-ion was seen in #emacs two weeks ago, saying "=)", and then oni-on-ion was seen quitting two weeks ago, saying "Remote host closed the connection"
+Jan 27 19:47:50 <grym>	so getting in line is a *gamble*
+Jan 27 19:47:56 <aidalgol>	grym: Who's peter?
+Jan 27 19:48:02 <grym>	man makes goddamn gorgeous bikes though.  
+Jan 27 19:48:14 <parsnip>	oni-on-ion got the keyboard i just got, a few weeks before
+Jan 27 19:48:19 <grym>	aidalgol: the maker of this bike https://www.renehersecycles.com/j-p-weigle-for-the-concours-de-machines/ 
+Jan 27 19:48:27 <grym>	he doesn't even have a website 
+Jan 27 19:48:30 <aidalgol>	ah
+Jan 27 19:48:31 <grym>	he has a flickr page sometimies 
+Jan 27 19:48:37 <grym>	but you just kind of ... call his house
+Jan 27 19:48:39 <grym>	send him a check?
+Jan 27 19:48:41 <seabass>	grym, you clearly like craft goods
+Jan 27 19:48:41 <grym>	and wait
+Jan 27 19:48:49 <seabass>	It's a very neat bike
+Jan 27 19:48:51 <grym>	seabass: when it's worth it, absolutely 
+Jan 27 19:48:52 <parsnip>	grym: how do i go about making a nice beater/burner bike?
+Jan 27 19:49:09 <aidalgol>	What's better about a bespoke bike over a manufactured bike?
+Jan 27 19:49:26 <seabass>	so his workshop must be filled with cutting and forming tools I imagine
+Jan 27 19:49:31 <aidalgol>	Aside from hipster cred, I mean.
+Jan 27 19:49:47 <parsnip>	i think custom bikes can potentially fit you better
+Jan 27 19:49:54 <grym>	parsnip: find your local bike hippie collective masquerading as a bike shop, get a steel frame from the 80s that has at least JIS square taper cranks, and slap a bigass u-lock on it and replace every single quickrelease with a bolt 
+Jan 27 19:49:57 <parsnip>	and thus be more comfortable and efficient
+Jan 27 19:50:14 <parsnip>	but fitting a bike is probably more expensive than finding someone that knows how to tune gears
+Jan 27 19:50:16 <grym>	a bike that fits you will be always better; it doesn't matter much for short trips
+Jan 27 19:50:23 <grym>	where short is ~50 miles 
+Jan 27 19:50:32 <parsnip>	yeah, it's not currently worth it for me
+Jan 27 19:50:38 <parsnip>	i guess
+Jan 27 19:50:45 <parsnip>	cost/benefit
+Jan 27 19:50:46 <grym>	but if you're gonna go cross country or something, you do want a bike that's the right shape
+Jan 27 19:51:03 <aidalgol>	ah, gotcha
+Jan 27 19:51:18 <parsnip>	i _have_ noticed "man this bike doesn't even feel shaped right"
+Jan 27 19:51:24 <grym>	aidalgol: peter builds his bikes for randonneurs, who are self supported competitive amateur cyclists who travel very long distances
+Jan 27 19:51:25 <parsnip>	like, on my previous bike
+Jan 27 19:51:45 <aidalgol>	grym: Got a question for ya about the AI industry.
+Jan 27 19:51:45 <grym>	parsnip: yeah i rode a tiny-ass mongoose frame for years; i looked a bit like donkey kong 
+Jan 27 19:51:49 <grym>	aidalgol: shoot
+Jan 27 19:52:18 <aidalgol>	grym: You know all those toy apps and websites where you upload your photo and get a silly image generated from it?
+Jan 27 19:52:19 <grym>	parsnip: wound up putting bullhorns on it just so i could get some stretch out.  my current ride fits me quite well 
+Jan 27 19:52:19 <parsnip>	grym: is it A Bad Idea to try to be cheap _and_ start by just buying the frame?
+Jan 27 19:52:30 <aidalgol>	Like faceapp and toonme.
+Jan 27 19:52:40 <grym>	parsnip: frame-up is usually objectively better but it's not where i'd buy a beater bike at.  how tall are you? 
+Jan 27 19:52:45 <grym>	parsnip: and what's your inseam?
+Jan 27 19:52:48 <dale>	grym: Do you have an iPhone?
+Jan 27 19:52:57 <grym>	dale: i do 
+Jan 27 19:53:06 <grym>	aidalgol: sure, i know of them 
+Jan 27 19:53:14 <dale>	grym: Do you take long bike rides in temps of 32°F or lower with your iPhone?
+Jan 27 19:53:32 <aidalgol>	grym: Are they mostly all honeypots for getting training data for facial recognition products?
+Jan 27 19:53:37 <dale>	grym: Let's define "long" as "at least thirty minutes, preferably upwards of fourty-five".
+Jan 27 19:53:38 <grym>	dale: 20-ish miles or so 
+Jan 27 19:53:43 <dale>	forty-five
+Jan 27 19:53:45 <grym>	dale: sure. yes, i've done that a bunch
+Jan 27 19:53:56 <seabass>	I don't know, what would a parsnip riding a bike look like?
+Jan 27 19:54:03 <seabass>	https://x0.at/tN1.png
+Jan 27 19:54:07 <dale>	grym: Do you ever pull your iPhone out and have it shut down very shortly afterwards?
+Jan 27 19:54:18 <parsnip>	lol
+Jan 27 19:54:39 <grym>	aidalgol: afaik no, it's mostly funded by things like snap or instagram and they want user engagement for eyes for ads more than they want facial recognition as such 
+Jan 27 19:54:45 <grym>	aidalgol: but you can't rule it out 
+Jan 27 19:56:17 <grym>	dale: no, i don't see that.  i had that happen when i had navigation on on my phone and it was mounted in direct sun on a hot day
+Jan 27 19:56:35 <grym>	dale: i tend to ride with it tucked up against the small of my back in a jersey pocket, so it stays fairly warm 
+Jan 27 19:56:36 <dale>	grym: I regularly have my 6s die on me when I pull it out during a run in cold weather.  Not sure if this is my phone, or the 6s, or just all iPhones, or just any phone with an Li-ion battery.  Accounts on the Internet run the gamut.
+Jan 27 19:57:00 <dale>	grym: Ah.  I've got mine in a belt pouch on my front.  Sometimes I pull it out to change what I'm listening to.
+Jan 27 19:57:08 <grym>	dale: i notice a faster battery drain while skiing, but i've never figured out if it's "trying and failing to get a signal all the time" or thermal effects
+Jan 27 19:57:13 <aidalgol>	grym: So how does it help those businesses?  Because it makes people share the silly generated images on their platforms?
+Jan 27 19:57:14 <dale>	grym: Thanks for the data point.
+Jan 27 19:57:17 <dale>	grym: #whynotboth
+Jan 27 19:57:32 <grym>	dale: i think it's probably both.  i tend to keep it in airplane mode skiing now 
+Jan 27 19:57:43 <dale>	grym: I will actually lay some blame on YouTube Music, which gets *very* angry when you block doubleclick.net.
+Jan 27 19:59:42 <dale>	As a side note, if anyone knows of a small "hand warmer" sort of heater in a roughly rectangular phone shape, one that won't set my mostly sealed belt pouch on fire, I'd be glad to have a link to it.
+Jan 27 19:59:44 <parsnip>	ugh, i hate the threading in gitter
+Jan 27 20:00:04 <parsnip>	"tepid hand warmer"
+Jan 27 20:00:06 <parsnip>	;)
+Jan 27 20:00:15 <dale>	I jammed a chemical hand warmer in with my phone but it doesn't put out enough heat.
+Jan 27 20:00:50 <dale>	parsnip: I'm mostly worried about putting one of the gas-powered heaters in my pouch.
+Jan 27 20:02:32 <grym>	dale: there's the... yeah, those 
+Jan 27 20:02:38 <grym>	they freak me out a bit too 
+Jan 27 20:03:15 <dale>	I have one or two of the electric heaters, but the ones I have are too bulky and non-rectangular to fit comfortably when jammed against my waist with my phone.
+Jan 27 20:03:27 <dale>	I would love something vaguely credit card sized.
+Jan 27 20:04:06 <dale>	I'm 30% surprised that someone doesn't just make heated phone cases for iPhones.  I ran into some Kickstarter/IndieGoGo things that looked mostly unsuccessful.
+Jan 27 20:04:08 <mplsCorwin>	dale: my son has something like what you describe for track meets and cross-country.  I'll see if I can find out what exactly it is.  It's got some metal things in that you bend then it gets hot.  you boil it to recharge.
+Jan 27 20:04:43 <dale>	mplsCorwin: Huh, OK, thanks!  He actually uses it to warm a phone or similar?
+Jan 27 20:05:56 <mplsCorwin>	it's really for his hands but I think he has the phone in his mitten
+Jan 27 20:06:02 <dale>	I did also get my battery replaced.  It was barely a year old, probably shouldn't have been necessary, but I suspect that also improved the situation for me.  (I'm waiting for it to get super-cold again.)
+Jan 27 20:06:41 <dale>	mplsCorwin: Phone... in mitten...  Now I want to see the mittens. :)
+Jan 27 20:06:51 <dale>	And/or the phone.
+Jan 27 20:08:46 <dale>	Maybe I should try and figure out a better way to keep the phone near my body for warmth.
+Jan 27 20:11:48 <grym>	aidalgol: i think filters and stuff help snap by keeping users engaged, and we all lie to ourselves that this drives ad clicks 
+Jan 27 20:24:49 <natter>	rudybot: what is our engagement like here?
+Jan 27 20:24:59 <rudybot>	natter: Our rules of engagement were extremely strict in both Afghanistan and Iraq, and, speaking for my unit, we followed them to the letter.
+Jan 27 20:25:44 <bremner>	say what you will about killer-robots, they follow the rules
+Jan 27 20:30:08 <frdg>	for some reason `auto-complete-mode` always gives me an option for the completion in all caps. I have no idea why or how it does this. For example the menu will popup with both `config` and `CONFIG` I can't find any settings or documentation about this.
+Jan 27 20:33:42 <mplsCorwin>	dale: they are Hot To Go packs from htglife.com
+Jan 27 20:37:56 <dale>	mplsCorwin: Thanks, I appreciate it!  Even if they don't work for my phone, maybe I should use those instead of the disposable chemical ones I've been using.
+Jan 27 20:39:23 <mplsCorwin>	his tip is "get a bunch, they don't last that long"
+Jan 27 20:40:00 <dale>	Noted
+Jan 27 20:57:40 <aidalgol>	https://www.theverge.com/22251427/reddit-gamestop-stock-short-wallstreetbets-robinhood-wall-street
+Jan 27 20:57:44 <aidalgol>	"Stocks are memes now"
+Jan 27 20:59:26 <tromey>	... they always were
+Jan 27 20:59:26 <grym>	"always has been"
+Jan 27 20:59:29 <tromey>	lol
+Jan 27 20:59:58 <aidalgol>	* grym pulls trigger, shooting tromey in the haid
+Jan 27 20:59:59 <johnjay>	stocks-mode in emacs seems like it could work
+Jan 27 21:00:12 <johnjay>	the problem is i don't know how complicated ncurses layouts get
+Jan 27 21:00:12 <tromey>	haha yeah
+Jan 27 21:00:28 <aidalgol>	johnjay: If you're going to do that and not name it stonks-mode, then... well, I'll just be very disappointed.
+Jan 27 21:00:34 <johnjay>	haha
+Jan 27 21:00:43 <grym>	evil-stonks
+**** ENDING LOGGING AT Wed Jan 27 21:18:54 2021
+
+**** BEGIN LOGGING AT Wed Jan 27 21:18:54 2021
+
+**** ENDING LOGGING AT Wed Jan 27 21:19:19 2021
+
+**** BEGIN LOGGING AT Wed Jan 27 21:19:19 2021
+
