@@ -24544,3 +24544,212 @@ Nov 08 07:44:14 <achilles>	yes and .emacs and .emacs.d not completion friendly i
 Nov 08 07:59:14 <johnjay>	ok i'm trying to get emacs to read early-init.el
 Nov 08 07:59:18 <johnjay>	but failing
 Nov 08 07:59:38 <johnjay>	shouldn't it show up on strace? i defined early-init.el in ~/.emacs.d and have it do (setq abcd 7)
+**** BEGIN LOGGING AT Tue Jan 26 21:14:44 2021
+
+Jan 26 21:14:44 *	Now talking on #emacs
+Jan 26 21:14:44 *	Topic for #emacs is: Pretest #1 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.90.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+Jan 26 21:14:44 *	Topic for #emacs set by Pickchea!~private@unaffiliated/pickchea (Tue Jan 19 15:08:31 2021)
+Jan 26 21:14:44 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Jan 26 21:14:52 <ornxka>	that is a base-10 representation of a single byte, right?
+Jan 26 21:15:04 <grym>	that's a new one on me.. 
+Jan 26 21:15:09 <ornxka>	so the actual character is literally 0x7B
+Jan 26 21:15:21 <dale>	ornxka: Guessing octal
+Jan 26 21:15:48 <dale>	Hm, but that's just S so I don't know why you'd see that escaped.
+Jan 26 21:16:19 <ornxka>	oh, the actual number is 223
+Jan 26 21:16:29 <ornxka>	sorry i should probably not have extrapolated
+Jan 26 21:16:36 <ornxka>	this is from a sjis string
+Jan 26 21:16:43 <dale>	OK, so 0x93, that makes more sense.
+Jan 26 21:16:49 <dale>	See also https://www.gnu.org/software/emacs/manual/html_node/elisp/Non_002dASCII-in-Strings.html
+Jan 26 21:16:51 <aidalgol>	Wow, a CVE in 'sudo'
+Jan 26 21:17:10 <grym>	aidalgol: "in which we're all reminded that it's like, just another program too"
+Jan 26 21:17:21 <aidalgol>	CVE-2021-3156
+Jan 26 21:17:22 <dale>	I just got an email about that one from Red Hat.
+Jan 26 21:17:39 <aidalgol>	grym: Sobering, isn't it?
+Jan 26 21:17:40 <ornxka>	ah there is no x
+Jan 26 21:17:43 <ornxka>	so it must be octal
+Jan 26 21:18:49 <dale>	I'm pretty sure this is far from the first sudo vuln, right?
+Jan 26 21:19:04 <dale>	At a glance I see yet another memory corruption bug.
+Jan 26 21:19:22 <aidalgol>	I mean it's a sobering reminder.
+Jan 26 21:19:56 <dale>	HN joking about "Rust rewrite in 3, 2, 1..." and I get it, but also maybe not the most horrible idea.
+Jan 26 21:20:49 <wasamasa>	maybe not have a super complicated privilege escalation program
+Jan 26 21:21:09 <wasamasa>	I like the idea of doas, but it not even being able to remember the password on anything else than openbsd is terribly
+Jan 26 21:21:12 <wasamasa>	inconvenient
+Jan 26 21:21:52 <JordiGH>	oh no I got boosted by Eugen
+Jan 26 21:21:55 <tromey>	what kind of CVE
+Jan 26 21:22:09 <ldlework>	Anyone know of a thing that will let you change what kind of quoted string you're inside?
+Jan 26 21:22:57 <dale>	ldlework: Maybe https://github.com/cute-jumper/embrace.el is what you had in mind?
+Jan 26 21:24:09 <polezaivsani>	tromey, iirc quite a nasty one - priv esc for anybody with access to sudo
+Jan 26 21:24:21 <tromey>	ouch
+Jan 26 21:24:57 <nullx002>	hi all
+Jan 26 21:25:26 <dale>	wasamasa: If a replacement like doas gets more widely adopted, how long until you think it reaches feature parity with sudo?
+Jan 26 21:25:43 <wasamasa>	it's a slow process, so slow people only notice after years
+Jan 26 21:25:49 <dale>	:)
+Jan 26 21:26:04 <wasamasa>	it shouldn't even be that hard to fix that issue with doas
+Jan 26 21:26:15 <nullx002>	running ecl on termux and slime is working well with Emacs, can I get quicklisp setup on android?
+Jan 26 21:26:28 <wasamasa>	from what I understand it's using an openbsd-exclusive ioctl
+Jan 26 21:26:47 <wasamasa>	I've tried it on freebsd and quickly switched back to sudo :D
+Jan 26 21:27:02 <wasamasa>	however
+Jan 26 21:27:03 <dale>	wasamasa: Does doas bless your session or something with this special API?  AFAIK sudo just creates a ticket file somewhere.
+Jan 26 21:27:16 <wgreenhouse>	nullx002: quicklisp claims support for ecl, so should be fine
+Jan 26 21:27:20 <wasamasa>	consider that to exploit this someone would need to execute code on your machine
+Jan 26 21:27:27 <dale>	Let's just put all our passwords in gpg-agent, surely it's fine.
+Jan 26 21:27:30 <wasamasa>	and if they can do that, there's easier ways of waiting for a valid sudo session
+Jan 26 21:27:52 <wasamasa>	no need to do heap feng-shui
+Jan 26 21:28:06 <wasamasa>	just a stupid shell script that has been already written for you
+Jan 26 21:29:41 <nullx002>	yes, but setup is via quicklisp.lisp or manual, I wonder, as it doesn't say ARM support on quicklisp web.. only nix
+Jan 26 21:30:04 <wgreenhouse>	nullx002: um, if you install from source, why would it matter ARM or not
+Jan 26 21:31:18 <ldlework>	dale: that's pretty handy, thanks
+Jan 26 21:31:49 <wasamasa>	dale: look for AUTH in https://man.openbsd.org/tty.4
+Jan 26 21:32:40 <dale>	ldlework: If you're doing Python, I have a thing to toggle triple-quoted strings: https://github.com/dsedivec/dot-emacs-d/blob/master/recipes/python-toggle-triple-quotes.el
+Jan 26 21:33:31 <dale>	wasamasa: So it's on the TTY, interesting.
+Jan 26 21:33:36 <wasamasa>	yup
+Jan 26 21:34:47 <grym>	dale: dang
+Jan 26 21:36:57 <dale>	grym: ?
+Jan 26 21:37:14 <grym>	dale: embrace
+Jan 26 21:38:18 <dale>	grym: I feel like the implementation may not be the best, if I try to change the wrong surrounding thing (like single quote instead of double quote), I think it searches way way ahead and ends up fucking me up in surprising ways, but I can just undo and try again.
+Jan 26 21:38:33 <dale>	grym: I'm trying really hard not to rewrite it.
+Jan 26 21:39:21 <dale>	bremner: Did you bother setting up local TLS for DavMail?
+Jan 26 21:40:04 <bremner>	dale: I did, but then I realized that my client didn't like self signed certs, so I gave pu
+Jan 26 21:40:09 <bremner>	also gave up
+Jan 26 21:40:54 <dale>	I know I probably should not care that my O365 creds are being sent over localhost in the clear, particularly since I assume DavMail is holding an OAuth token somewhere on disk anyway, but it's kind of bugging me in the back of my head.
+Jan 26 21:41:53 <ldlework>	oh no, embrace doesn't understand `
+Jan 26 21:42:21 <bremner>	dale: maybe your imap fetcher (apple mail?) will tolerate self-signed certs?
+Jan 26 21:42:33 <dale>	bremner: Yes, I can make it tolerate self-signed certs, I feel confident in that.
+Jan 26 21:42:33 <ldlework>	oh you can add new ones
+Jan 26 21:43:06 <bremner>	setting up letsencrypt for this was too much for me
+Jan 26 21:44:19 <dale>	bremner: Wow, yeah, I'm with you on that.  Is your DavMail server running on something that doubles as a web server, letting you use ACME HTTPS to get an LE cert?
+Jan 26 21:47:27 <bremner>	dale: not really. No public IP on most workstations
+Jan 26 21:47:28 <ldlework>	oh god I think I forgot elisp
+Jan 26 21:47:38 <ldlework>	i cannot even think about how to do basic things
+Jan 26 21:47:48 <bremner>	cons, car, cdr
+Jan 26 21:47:52 <ldlework>	lol
+Jan 26 21:47:52 <bremner>	yw
+Jan 26 21:49:43 <beep1560>	Question: I've executed the following (setq ibuffer-display-summary nil) in order to make the "Name" column don't be truncated. However, truncation still occurs. Am I doing something wrong?
+Jan 26 21:50:19 <cvandusen>	That's not the right variable for that.
+Jan 26 21:51:54 <beep1560>	Do you know which variable might help me accomplish that?
+Jan 26 21:51:56 <cvandusen>	ibuffer-formats
+Jan 26 21:52:17 <ldlework>	emacs regex builder: you can checkout, but you can never leave
+Jan 26 21:52:23 <cvandusen>	also, define-ibuffer-column
+Jan 26 21:53:17 <ldlework>	how do you get out of regex builder lol
+Jan 26 21:54:13 <cvandusen>	C-c C-q 
+Jan 26 21:54:53 <cvandusen>	or, M-x kill-emacs. your choice 
+Jan 26 21:56:31 <Wafficus>	is the following correct on how to set "C-c c" to Org-Capture?
+Jan 26 21:56:32 <Wafficus>	   (setq org-capture-templates-contexts
+Jan 26 21:56:33 <Wafficus>	   :bind ("C-c c" . org-capture))
+Jan 26 21:58:00 <cvandusen>	(setq ...) should be its own expression.
+Jan 26 21:58:47 <Wafficus>	cvandusen I'm trying to follow along with Prot's video https://www.youtube.com/watch?v=qCdScs4YO8k
+Jan 26 21:58:48 <beep1560>	cvandusen: Thanks for the information! Apparently, I can't give unlimited width to column names (only fixed width). Do you know how to accomplish that?
+Jan 26 21:58:52 <ldlework>	how do I pass the character " to a function?
+Jan 26 21:58:57 <Wafficus>	7:22 cvandusen
+Jan 26 21:58:57 <ldlework>	I tried ?" but that didn't work
+Jan 26 21:59:05 <dale>	?\" should work
+Jan 26 21:59:13 <ldlework>	thanks
+Jan 26 21:59:48 <DanC>	I'm trying to set tab-width to 4 in a certain directory (and descendant dirs). I made a .dir.locals.el file , but how do I get it to take effect?
+Jan 26 21:59:58 <dale>	beep1560: ISTR buffer name length limits was a major reason I switched to using bs.
+Jan 26 22:00:07 <dale>	DanC: .dir-locals.el?
+Jan 26 22:00:50 <dale>	DanC: I have never heard of .dir.locals.el, so I am doubting that it will be recognized.  Once you have a correct .dir-locals.el file in place, M-x revert-buffer should do the trick (don't forget to save first, if applicable).
+Jan 26 22:01:21 <dale>	DanC: You will have to do that in each buffer you want to see the directory-local variables.
+Jan 26 22:01:24 <DanC>	https://www.gnu.org/software/emacs/manual/html_node/emacs/Directory-Variables.html documents  .dir-locals.el
+Jan 26 22:01:48 <dale>	DanC: Yes, good, you said .dir.locals.el not .dir-locals.el, wanted to make sure you had the file named correctly.
+Jan 26 22:01:55 <beep1560>	Is there any variable which stores the name of all buffers? I want to obtain the buffer with the longest name.
+Jan 26 22:02:16 <DanC>	aha! good catch, dale
+Jan 26 22:02:18 <dale>	beep1560: I think you need to cycle through (buffer-list)
+Jan 26 22:02:34 <beep1560>	Thanks! :D
+Jan 26 22:02:42 <dale>	DanC: Also note that M-x add-dir-local-variable is an easy way to add a new variable to a .dir-locals.el, considering the format can be a bit tough to get right.
+Jan 26 22:02:53 <DanC>	whee! thanks!
+Jan 26 22:03:12 <dale>	beep1560: Something like (max (mapcar #'length (mapcar #'buffer-name (buffer-list)))) I imagine.
+Jan 26 22:03:16 <cvandusen>	Wafficus: You're only seeing part of the use-package invocation. Best to check the whole thing at https://protesilaos.com/dotemacs/#h:4e8347de-415e-4804-b383-d61499e05ca1
+Jan 26 22:05:51 <Wafficus>	cvandusen would it be better to use "(global-set-key "C-c c" 'org-capture)"?
+Jan 26 22:06:25 <DanC>	now... how to manage this .dir-locals.el file... I shouldn't check it into this repo (code is not mine), but I kinda want it to show up whenever I work on this project.
+Jan 26 22:06:43 <DanC>	maybe a symlink
+Jan 26 22:07:29 <cvandusen>	Wafficus: If your using use-package, :bind ("C-c c" . org-capture) is at least consistent.
+Jan 26 22:08:14 <Wafficus>	so I could just do: #+BEGIN_SRC emacs-lisp :bind ("C-c c" . org-capture) #+END_SRC
+Jan 26 22:08:20 <Wafficus>	in my config? cvandusen
+Jan 26 22:08:25 <cvandusen>	Not outside of use-package
+Jan 26 22:08:34 <MrFantastik>	https://github.com/typester/emacs/blob/master/etc/sex.6
+Jan 26 22:08:42 <MrFantastik>	tf was this lol
+Jan 26 22:09:00 <cvandusen>	Wafficus: Are you using use-package to configure packages?
+Jan 26 22:09:01 <ldlework>	What would be the best snippet to ensure there are 2 lines after the last import of a file
+Jan 26 22:09:17 <lamdacore>	hi. I am trying to figure out batch processes on emails. Something like: fwd all messages with a certain tag to an address. Any hints on how I can go about this? I am using notmuch
+Jan 26 22:10:04 <Wafficus>	cvandusen yeah but I don't have a line for use-package for org-capture though :/
+Jan 26 22:10:14 <Wafficus>	cvandusen yes I use use-package for other things
+Jan 26 22:10:59 <Wafficus>	ah I see, he has this wrapped in "(use-package org-mode"
+Jan 26 22:11:05 <cvandusen>	Wafficus: then something like (use-package org-mode :bind ("C-c c" . org-capture)) 
+Jan 26 22:11:07 <cvandusen>	yeah
+Jan 26 22:11:40 <MrFantastik>	https://github.com/typester/emacs/blob/master/etc/spook.lines
+Jan 26 22:12:35 <beep1560>	dale: The following works (max 10 2 3) => 10  while the following doesn't (max '(10 2 3)).
+Jan 26 22:12:54 <beep1560>	How can i retrieve all the elements from a list?
+Jan 26 22:13:00 <bremner>	apply
+Jan 26 22:13:11 <dale>	Oh, huh, my bad.
+Jan 26 22:13:15 <dale>	Too used to Python.
+Jan 26 22:15:08 <brandflake11>	Has anyone on here ever used git with org-mode to edit a document on a team?
+Jan 26 22:15:26 <grym>	technically yes but not really 
+Jan 26 22:15:39 <brandflake11>	Did you ever have any issues with merging changes?
+Jan 26 22:17:17 <ldlework>	is there a command to repeat last M-: evaluation?
+Jan 26 22:17:45 <bremner>	M-: M-p ?
+Jan 26 22:18:18 <DanC>	so... I moved .dir-locals.el and replaced it with a symlink... now emacs doesn't seem to respect changes to it.
+Jan 26 22:20:19 <ldlework>	bremner: so slow :P
+Jan 26 22:20:22 <Wafficus>	I am getting the following error: Invalid capture target specification: (file+heading "~/documents/workFolder2021/Todo List (2021).org" "* Open Tasks")
+Jan 26 22:20:44 <Wafficus>	I have the following in SRC blocks in my config:      (setq org-capture-templates
+Jan 26 22:20:44 <Wafficus>	    '(("o" "OPEN" entry
+Jan 26 22:20:45 <Wafficus>	       (file+heading "~/documents/workFolder2021/Todo List (2021).org" "* Open Tasks")
+Jan 26 22:20:45 <Wafficus>	       "**OPEN [#1] Ticket #%? WITH %? from %?\n***Link:\n%?\n***Status:\n%?\n***Result:")))
+Jan 26 22:21:06 <Wafficus>	the "~/documents/workFolder2021/Todo List (2021).org" file exists, what gives?
+Jan 26 22:22:20 <dale>	ldlework: Does C-x z repeat that?
+Jan 26 22:23:00 <dale>	Maybe you need repeat-complex-command for that.
+Jan 26 22:23:05 <ldlework>	dale it repeats the last command which can be changed by the code you're evaluating
+Jan 26 22:23:07 <DanC>	dale, any clues on how to get emacs to respect changes to .dir-locals.el ?
+Jan 26 22:23:07 <ldlework>	:P
+Jan 26 22:23:22 <dale>	DanC: I do not, assuming your symlink is correct and readable.
+Jan 26 22:23:46 <DanC>	yes... when I start a new emacs, it respects .dir-locals.el
+Jan 26 22:24:06 <dale>	DanC: And you're doing revert-buffer every time after a change to dir-locals?
+Jan 26 22:24:09 <DanC>	but if I then change .dir-locals.el , revert-buffer has no effect
+Jan 26 22:24:28 <dale>	DanC: And you're reverting the buffer that should be using the dir-locals variables, not the .dir-locals.el buffer itself, right?
+Jan 26 22:24:38 <DanC>	correct
+Jan 26 22:28:30 <dale>	DanC: I can reproduce here, I think setting dir-locals-directory-cache to nil fixed it, so I think this implies some mistaken caching perhaps.
+Jan 26 22:28:51 <Wafficus>	do I need to escape the parentheses in the Todo list file name itself?
+Jan 26 22:29:22 <DanC>	dir-locals-directory-cache ... I was hunting for something like that with C-h v but didn't see it...
+Jan 26 22:30:27 <dale>	DanC: What OS are you on?
+Jan 26 22:30:31 <DanC>	linux
+Jan 26 22:30:41 <srid>	Damn, emacs has built-in tab bar? TIL!
+Jan 26 22:30:41 <srid>	https://www.gnu.org/software/emacs/manual/html_node/emacs/Tab-Bars.html
+Jan 26 22:30:59 <technomancy>	it's not evry good
+Jan 26 22:31:06 <technomancy>	hardly emacs's fault
+Jan 26 22:32:08 <DanC>	whew! mystery solved. thanks again, dave
+Jan 26 22:32:25 <technomancy>	it's just that tab bars themselves are inherently not a great idea
+Jan 26 22:34:04 <dale>	DanC: How did you solve it?  Are you just clearing that cache variable every time you need .dir-locals.el reloaded?
+Jan 26 22:34:10 <beep1560>	Can anyone tell me what I'm doing wrong? [ https://pastebin.com/raw/UfT57f8C ] I've defined a function to compute a value in "ibuffer-formats" but "ibuffer" throws an error when calling it.
+Jan 26 22:34:44 <DanC>	yes.
+Jan 26 22:34:59 <dale>	I actually can't see why changes to the linked .dir-locals.el are not being seen.
+Jan 26 22:35:33 <DanC>	https://github.com/dckc/emacs-dev/blob/master/moddable-c-style/.dir-locals.el#L3
+Jan 26 22:35:41 <bad_blue_bull>	good way to conditionally include element into list?  Like (append (when t '(666)) (list 1 2 3)) ?
+Jan 26 22:36:48 <wasamasa>	you discovered it
+Jan 26 22:37:05 <bad_blue_bull>	I didn't know if something better exists
+Jan 26 22:37:11 <wasamasa>	it can be a bit shorter with `(,@(when t '(666)) 1 2 3)
+Jan 26 22:37:22 <bad_blue_bull>	thanks
+Jan 26 22:37:23 <wasamasa>	which does pretty much the same
+Jan 26 22:37:45 <dale>	Oh, there it is, I missed dir-locals-find-file returns a cons, so hack-dir-local-variables uses cached values from dir-locals-class-alist.
+Jan 26 22:38:10 <dale>	DanC: I think you should report a bug that changes to .dir-locals.el are not picked up when .dir-locals.el is a symlink.  Surely it should follow the link.
+Jan 26 22:45:18 <DanC>	ugh... I did M-x report-emacs-bug and wrote it up... now it's prompting me for an SMTP server
+Jan 26 22:45:55 <DanC>	I guess I can copy/paste to my usual mailer...
+Jan 26 22:47:53 <DanC>	sent Tue, 26 Jan 2021 15:47:21 -0600
+Jan 26 22:47:59 <ldlework>	Made me a nice import fixer for Typescript, https://i.imgur.com/HuR0gp4.gif
+Jan 26 22:48:36 <dale>	DanC: Thanks. :)
+Jan 26 22:48:46 <DanC>	least I could do
+Jan 26 22:48:59 <dale>	DanC: Yeah, in any recent Emacs I think there's even a shortcut in that buffer that somehow means "send this email with my normal mailer" or "copy to clipboard for me" or something.
+Jan 26 22:49:36 <dale>	ldlework: Did you actually implement that in a TypeScript LSP server?  It looks like you're invoking something through LSP there.
+Jan 26 22:50:01 <ldlework>	dale: I'm using tide-mode to do most of the work, but I used embrace to unify the import quoting types, and spacing
+Jan 26 22:50:14 <ldlework>	dale: thanks for the tip
+Jan 26 22:52:47 <nij>	Which regex standard does rx follow?
+Jan 26 22:53:03 <wasamasa>	it's no different from what emacs implements
+Jan 26 22:53:09 <wasamasa>	a variation of POSIX regex
+Jan 26 22:53:25 <nij>	"Emacs regex"?
+Jan 26 22:53:36 <wasamasa>	yes, you can use regex without rx, lol
+Jan 26 22:53:54 <nij>	I just want to choose a standard to learn first.
+Jan 26 22:54:04 <nij>	Having bad regex-fu has been a huge problem.
+Jan 26 22:54:10 <wasamasa>	doesn't hurt to learn the POSIX stuff
+Jan 26 22:54:39 <nij>	I also want to use rx at the end.. so
+Jan 26 22:54:48 <nij>	should learn emacs regex too.
+Jan 26 22:56:58 *	Disconnected ()
+**** ENDING LOGGING AT Tue Jan 26 22:56:58 2021
+

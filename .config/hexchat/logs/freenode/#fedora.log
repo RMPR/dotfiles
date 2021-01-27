@@ -6655,3 +6655,30 @@ Nov 08 07:14:20 *	Now talking on #fedora
 Nov 08 07:14:20 *	Topic for #fedora is: #Fedora F31, F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/f31commonbugs https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F32 Live isos: https://tinyurl.com/Live-respins ||
 Nov 08 07:14:20 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Oct 27 14:59:49 2020)
 Nov 08 07:14:20 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+**** BEGIN LOGGING AT Tue Jan 26 21:14:44 2021
+
+Jan 26 21:14:44 *	Now talking on #fedora
+Jan 26 21:14:44 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Jan 26 21:14:44 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Jan 26 21:14:44 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Jan 26 21:42:47 <cmurf>	_AnK: thanks, how big was the file?
+Jan 26 21:42:57 <cmurf>	i wonder if this is raid1 related or if it's the size of the file
+Jan 26 21:43:23 <cmurf>	i'm not sure how system monitor is trying to get file system information, if it's using a gtk or glib or glibc api or what
+Jan 26 21:43:56 <cmurf>	i guess once we find out how system monitor gets this information, we can figure out whose bug it is
+Jan 26 21:56:10 <_AnK>	about 4G - copy of DVD.
+Jan 26 21:56:53 <_AnK>	I guess step number one is to reproduce the problem independently.
+Jan 26 21:57:20 <_AnK>	To confirm the observation and isolate the cause.
+Jan 26 21:59:18 <_AnK>	Wonder if other people observe the same. You mentioned someone, correct?
+Jan 26 22:02:26 <fmlatghor>	d9k: I logged in and out of my account after getting rid of my .zshrc/.zprofile (actually moving it to another folder temporarily), but I still have the problem with gnome-terminal and xterm. I've considered creating a new account, but I'm not sure if it's worth the trouble.
+Jan 26 22:11:24 <Southern_Gentlem>	fmlatghor, about the only way to tell if its your account or the machine
+Jan 26 22:11:48 <fmlatghor>	it is my account
+Jan 26 22:12:03 <fmlatghor>	I created a new account and changed the she -- oh wait
+Jan 26 22:12:12 <fmlatghor>	I didn't try logging in via gdm
+Jan 26 22:16:08 <fmlatghor>	yep it worked for a test account I can say confidently
+Jan 26 22:23:31 <fmlatghor>	I give up on fixing it, I'm just going to run zsh as a custom command and the next time I do an install then I won't have to worry about it.
+Jan 26 22:23:51 <fmlatghor>	I wouldn't have this problem to begin with if I just didn't do stupid things.
+Jan 26 22:46:30 <m0lle767>	Im trying to set a custom font in gnome-terminal but im having trouble understanding why theres only 5 different fonts to choose from in the list, when there are over 100 installed fonts in my system
+Jan 26 22:49:20 <w00dsman>	if you install gnome-tweaks, then go to the fonts section, then change the monospace font to whatever, in gnome-terminal it'll use that
+Jan 26 22:56:58 *	Disconnected ()
+**** ENDING LOGGING AT Tue Jan 26 22:56:58 2021
+

@@ -1,74 +1,3 @@
-T 1575837139 18<29Acru18>	`Linux acr.len 5.3.14-300.fc31.x86_64 #1 SMP Mon Dec 2 15:41:35 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux`
-T 1575837259 18<27tairikuookami18>	when did you last do a 'sudo dnf update' from the command line?
-T 1575837286 18<29Acru18>	a few hours ago
-T 1575837354 18<27tairikuookami18>	what's the application that is failing?  have you tried to just open a bugzilla report on it directly?
-T 1575837490 18<29Acru18>	tairikuookami audacity, gnome-calendar, and fedora media writer
-T 1575837511 18<29Acru18>	tairikuookami on the `Problem Report` bug?
-T 1575837574 18<27tairikuookami18>	well, you could file bugzilla on audacity itself for having a problem in the first place.
-T 1575837691 18<29Acru18>	tairikuookami But wouldnt be that the job of the problem reporting tool?
-T 1575837786 18<27tairikuookami18>	you're using gnome.  the gnome bug reporting tool is garbage.  it's failing.  sure, if it actually *worked* you could expect it to file a bug on your behalf..  it's broken.  so it's up to you to file the bug report on the things that actually matter, which is more audacity and calendar and much less the bug-reporting-tool.
-T 1575838849 18<26Khaytsus18>	the problem is not the 'gnome' bug reporting tool.  First off, it's not gnome. Second, yes, sometimes it wants to install a ton of debug stuff to get more data and it fails.  And yes, if you can reproduce the issue just log it manually.  Rather than it being automatic, with no context.
-T 1575840329 18<29Acru18>	Khaytsus What should I do if I can not reproduce the fault?
-T 1575840797 18<26Khaytsus18>	Acru: I suppose there's not much you can do.  If you know what might have caused it you could look for and log a bug but without some reproduction steps or notion of how to reproduce it, it'd be difficult for someone else to fix anything
-T 1575840820 18<29Acru18>	Khaytsus ok, thank you
-T 1575841773 18<26cflag18>	Greetings, I am attempting to update my grub.cfg and am receiving the error `/usr/sbin/grub2-probe: error: cannot find a GRUB drive for /dev/sda1.  Check your device.map.`, as well as `/dev/sdf: open failed: No medium found` which makes sense as there is no /dev/sdf on my system.
-T 1575841795 18<26cflag18>	Checking /boot I do not seem to have a device.map file at all
-T 1575841824 18<26cflag18>	There is no entry for /dev/sdf in my fstab
-T 1575842006 18<26cflag18>	I only got these errors after upgrading to 31
-T 1575843036 18<19oppiet3018>	What does npgo mean in the file name? firefox-71.0-8.npgo.fc30.x86_64
-T 1575843439 18<19oppiet3018>	What does npgo mean in this file name? firefox-71.0-8.npgo.fc30.x86_64
-T 1575843509 18<26[R]18>	we heard you the first time...
-T 1575843515 18<19oppiet3018>	laughs
-T 1575843573 18<19oppiet3018>	New people joining the channel haven't.
-T 1575843667 18<26[R]18>	so everytime someone joins, you'll ask the same question?
-T 1575843678 18<19oppiet3018>	I could.
-T 1575843766 18<26[R]18>	ROFL
-T 1575843963 18<19CharlesIC18>	hello, i have a new monitor and im wondering if the refresh rate is set low.  how do i see?
-T 1575843965 18<19CharlesIC18>	in fedora 31
-T 1575843994 18<19CharlesIC18>	resolution is 3840x2160 / 16:9
-T 1575844014 18<26[R]18>	xrandr will tell you the refresh rate
-T 1575844075 18<19CharlesIC18>	   3840x2160     30.00*+  59.94    50.00    29.97    25.00    23.98
-T 1575844076 18<19CharlesIC18>	oh i see
-T 1575844080 18<19CharlesIC18>	so it is at 30
-T 1575844090 18<19CharlesIC18>	   1920x1080     60.00    59.94    50.00    29.97    25.00    23.98    60.00
-T 1575844097 18<19CharlesIC18>	does this mean that i need to change it to 1920/1080 to get 60?
-T 1575844111 18<26[R]18>	yes
-T 1575844126 18<19CharlesIC18>	but it says 4096x2160 ... 59.94
-T 1575844132 18<19CharlesIC18>	does that mean i can get arouind 60 for that one?
-T 1575844136 18<26[R]18>	maybe
-T 1575844138 18<26[R]18>	try it and see
-T 1575844166 18<19CharlesIC18>	so i changed it to 4096x2160 9:5
-T 1575844273 18<19CharlesIC18>	but how do i verify my current refresh rate?  https://paste.centos.org/view/353c7be1
-T 1575844283 18<19CharlesIC18>	im on 4096x2160 right now
-T 1575844371 18<19CharlesIC18>	is it for sure 59.94?
-T 1575844376 18<19CharlesIC18>	from that output?
-T 1575844514 18<19CharlesIC18>	oh, it was set at 30
-T 1575844534 18<19CharlesIC18>	how do i change it to a higher one?
-T 1575844547 18<19oppiet3018>	read xrandr man page
-T 1575844565 18<19CharlesIC18>	i mean there is not a gui?
-T 1575844669 18<19oppiet3018>	All's I see is for resolution.
-T 1575844687 18<19CharlesIC18>	xrandr --output HDMI-0 -r 59.94
-T 1575844696 18<19CharlesIC18>	that doesn't seem to do anything
-T 1575844711 18<19CharlesIC18>	 3840x2160     30.00*+  59.94    50.00    29.97    25.00    23.98
-T 1575844716 18<19CharlesIC18>	it is still staying at 30
-T 1575844815 18<19CharlesIC18>	xrandr --output HDMI-0 --mode 3840x2160 --rate 59.94
-T 1575844816 18<19CharlesIC18>	trying this
-T 1575844818 18<19oppiet3018>	randr --output HDMI1 --mode 1280x1024 --rate 75
-T 1575844831 18<19oppiet3018>	randr --output HDMI1 --mode 1280x1024 --rate 60
-T 1575844832 18<19CharlesIC18>	ok the line i just did fixed it
-T 1575844845 18<19CharlesIC18>	3840x2160     30.00 +  59.94*   50.00    29.97    25.00    23.98
-T 1575844854 18<19oppiet3018>	Ok
-T 1575844865 18<19CharlesIC18>	so i guess i need to put this in my .xinitrc
-T 1575844868 18<19CharlesIC18>	xrandr --output HDMI-0 --mode 3840x2160 --rate 59.94
-T 1575844877 18<19oppiet3018>	You should have a file monitors.xml (~/.config/monitors.xml)
-T 1575844883 18<19CharlesIC18>	oh, there is no .xinitrc. does fedora still use that?
-T 1575844899 18<19CharlesIC18>	looking now
-T 1575844900 18<19oppiet3018>	Edit that file.
-T 1575844931 18<19oppiet3018>	https://askubuntu.com/questions/861416/changing-refresh-rate-for-specific-monitor
-T 1575844960 18<19CharlesIC18>	oh i see
-T 1575844961 18<19CharlesIC18>	thank you
-T 1575844971 18<19CharlesIC18>	so should i put 60 or 59.94, as xrandr shows that?
-T 1575844982 18<19oppiet3018>	I don't know.
 T 1575844992 18<19CharlesIC18>	ok, i changed monitors.xml
 T 1575844994 18<19CharlesIC18>	thank you
 T 1575844999 18<19CharlesIC18>	it did make the screen way brighter
@@ -5068,3 +4997,26 @@ T 1604816060 19*	Now talking on 22#fedora
 T 1604816060 22*	Topic for 22#fedora is: #Fedora F31, F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/f31commonbugs https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F32 Live isos: https://tinyurl.com/Live-respins ||
 T 1604816060 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Oct 27 14:59:49 2020)
 T 1604816060 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1611692084 19*	Now talking on 22#fedora
+T 1611692084 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1611692084 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1611692084 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1611693767 18<20cmurf18>	_AnK: thanks, how big was the file?
+T 1611693777 18<20cmurf18>	i wonder if this is raid1 related or if it's the size of the file
+T 1611693803 18<20cmurf18>	i'm not sure how system monitor is trying to get file system information, if it's using a gtk or glib or glibc api or what
+T 1611693836 18<20cmurf18>	i guess once we find out how system monitor gets this information, we can figure out whose bug it is
+T 1611694570 18<24_AnK18>	about 4G - copy of DVD.
+T 1611694613 18<24_AnK18>	I guess step number one is to reproduce the problem independently.
+T 1611694640 18<24_AnK18>	To confirm the observation and isolate the cause.
+T 1611694758 18<24_AnK18>	Wonder if other people observe the same. You mentioned someone, correct?
+T 1611694946 18<20fmlatghor18>	d9k: I logged in and out of my account after getting rid of my .zshrc/.zprofile (actually moving it to another folder temporarily), but I still have the problem with gnome-terminal and xterm. I've considered creating a new account, but I'm not sure if it's worth the trouble.
+T 1611695484 18<22Southern_Gentlem18>	fmlatghor, about the only way to tell if its your account or the machine
+T 1611695508 18<20fmlatghor18>	it is my account
+T 1611695523 18<20fmlatghor18>	I created a new account and changed the she -- oh wait
+T 1611695532 18<20fmlatghor18>	I didn't try logging in via gdm
+T 1611695768 18<20fmlatghor18>	yep it worked for a test account I can say confidently
+T 1611696211 18<20fmlatghor18>	I give up on fixing it, I'm just going to run zsh as a custom command and the next time I do an install then I won't have to worry about it.
+T 1611696231 18<20fmlatghor18>	I wouldn't have this problem to begin with if I just didn't do stupid things.
+T 1611697590 18<29m0lle76718>	Im trying to set a custom font in gnome-terminal but im having trouble understanding why theres only 5 different fonts to choose from in the list, when there are over 100 installed fonts in my system
+T 1611697760 18<29w00dsman18>	if you install gnome-tweaks, then go to the fonts section, then change the monospace font to whatever, in gnome-terminal it'll use that
+T 1611698218 20*	Disconnected (20)

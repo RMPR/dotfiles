@@ -1,69 +1,3 @@
-T 1582117109 18<20watered18>	How is that possible
-T 1582117132 18<20watered18>	I'm scared they are marked for delete on next reboot or will be overwritten during new file transfers
-T 1582117165 18<27vifon18>	Ranger probably started with one of the first directories there and didn't finish.
-T 1582117182 18<27vifon18>	It probably deleted some files, just not all of them.
-T 1582117196 18<27vifon18>	Do you have any backups?
-T 1582117250 18<27vifon18>	If not, shutdown the system NOW, boot up some system from live USB and try tools like PhotoRec.
-T 1582117286 18<20watered18>	vifon: But is it possible for such a thing to happen?
-T 1582117376 18<27vifon18>	watered: Definitely.  Ranger cannot delete everything at once.  It goes file by file.
-T 1582117393 18<20watered18>	vifon: But does it use the rm command?
-T 1582117403 18<27vifon18>	Probably the unlink syscall.
-T 1582117404 18<20watered18>	Everything I want seems to be there
-T 1582117428 18<20watered18>	What is the actual name? 'unlink syscall'?
-T 1582117442 18<20watered18>	is it possible to reverse that without rebooting?
-T 1582117462 18<20watered18>	I'm worried if I reboot it will all go
-T 1582117464 18<27vifon18>	Well, you can think about it as the rm command, yes.
-T 1582117505 18<27vifon18>	watered: Rebooting won't make it worse than it is.
-T 1582117741 18<20watered18>	vifon: I can see the files now and open them...! What if the link is in ram that's why I can still see them?
-T 1582118238 18<27vifon18>	watered: Not possible.
-T 1582118287 18<27vifon18>	The removed files that are still open are no longer visible.
-T 1582118288 18<27vifon18>	The files you can see are fine.
-T 1582119590 20*	Disconnected (20)
-T 1582915861 19*	Now talking on 22#ranger
-T 1582915861 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1582915861 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1582916786 20*	Disconnected (20)
-T 1582917013 19*	Now talking on 22#ranger
-T 1582917013 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1582917013 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1582917551 20*	Disconnected (20)
-T 1582917614 20*	Disconnected (20Remote host closed socket)
-T 1582917679 20*	Disconnected (20Remote host closed socket)
-T 1582917704 19*	Now talking on 22#ranger
-T 1582917704 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1582917704 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1582923232 19*	Now talking on 22#ranger
-T 1582923232 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1582923232 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1582927126 18<19grobi18>	good night, rangers 😲
-T 1582927404 18<22__monty__18>	nn, grobi 
-T 1582928704 18<22__monty__18>	nn, peeps
-T 1582929680 18<29maerwald18>	Since ranger is writte in python... I assume it handles filepaths as utf-8 and not bytestring on unix?
-T 1582929715 18<22__monty__18>	It's messy.
-T 1582929765 18<22__monty__18>	Fwiw I haven't run into issues with that yet though.
-T 1582929783 18<29maerwald18>	Well, the one thing a filemanager should get right is handling filepaths :P
-T 1582929799 18<22__monty__18>	And it does. I'm just always surprised it does.
-T 1582929807 18<29maerwald18>	I was looking at hunter (written in rust), but it seems buggy
-T 1582929827 18<22__monty__18>	You should give ranger a shot before you knock it.
-T 1582929829 18<29maerwald18>	Though rusts OsString should be sorta safe, although it makes no effort to not have developers convert to and from utf-8 randomly
-T 1582929886 18<22__monty__18>	Pretending filenames are utf-8 doesn't really do any harm if it's just for presentation.
-T 1582929908 18<29maerwald18>	yeah, but it's likely they are shoe-horned that way into the syscalls
-T 1582929956 18<22__monty__18>	Not sure what you suspect might go wrong? If you pass the bits unaltered there's no problem.
-T 1582929981 18<22__monty__18>	I dare you to find bugs related to the handling of filenames in ranger.
-T 1582929990 18<29maerwald18>	I mean, once they were converted to utf-8, the information of the original encoding is lost and it is pure luck whether passing it to a syscall does what you think
-T 1582929995 18<22__monty__18>	Either we get a satisfied user or we get a good bug report : )
-T 1582930009 18<22__monty__18>	There's no converting.
-T 1582930023 18<22__monty__18>	You try to read random bytes as if they're utf-8.
-T 1582930026 18<29maerwald18>	that was my question... are they kept as bytes or utf-8
-T 1582930047 18<22__monty__18>	They're kept as strings for the UI.
-T 1582930069 18<22__monty__18>	To date I've only had to fix a single bug because of this and it had nothing to do with syscalls.
-T 1582930096 18<22__monty__18>	Seriously, give it a spin, you might be pleasantly surprised.
-T 1582931194 20*	Disconnected (20)
-T 1582931232 FiSHLiM plugin unloaded
-T 1582962234 19*	Now talking on 22#ranger
-T 1582962234 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1582962234 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1582983807 19*	Now talking on 22#ranger
 T 1582983807 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
 T 1582983807 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
 T 1582985895 18<29maerwald18>	I'm currently using hunter
@@ -5063,3 +4997,68 @@ T 1604816033 20*	Disconnected (20)
 T 1604816060 19*	Now talking on 22#ranger
 T 1604816060 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
 T 1604816060 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1611692084 19*	Now talking on 22#ranger
+T 1611692084 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1611692084 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1611692502 18<19wasamasa18>	I'm glad there's other nerdery going on with seemingly normal people
+T 1611692514 18<19wasamasa18>	learned about the sativa/indica debate today and how much bullshit it is
+T 1611692537 18<26zaeph18>	Oh god, my brothers have been harping on about that one for 2 years.
+T 1611692554 18<19wasamasa18>	it's roughly as confusing as the naming of completion-related emacs packages
+T 1611692562 18<26zaeph18>	Zing.
+T 1611692615 18<19wasamasa18>	there's like two strains, but different historical meaning for them, different effects than what everyone's parroting/cargo-culting and different physiological effects in people
+T 1611693258 18<19wasamasa18>	not to mention the amount of placebo
+T 1611693268 18<19wasamasa18>	double-blind testing would be fun with that
+T 1611693993 18<19wasamasa18>	only 312 points until I reach the next stackexchange privilege level
+T 1611694038 18<26zaeph18>	Yo, SX counts as a social media!
+T 1611694050 18<26zaeph18>	Ditching karma to adopt points is a no-go.
+T 1611694057 18<19wasamasa18>	and 5000 more for analytics
+T 1611694078 18<19wasamasa18>	yeah, true
+T 1611694086 18<19wasamasa18>	I've considered ditching that along with modding r/emacs
+T 1611694125 18<26zaeph18>	I can only encourage you to do so.
+T 1611694151 18<19wasamasa18>	the true power move though would be ditching IRC
+T 1611694166 18<26zaeph18>	Nah, stay aboard until the Singularity.
+T 1611694169 18<26zaeph18>	https://xkcd.com/1782/
+T 1611694170 18<22RoboBob18>	(zaeph) xkcd: Team Chat (6 January 2017)
+T 1611694278 18<19wasamasa18>	I've ditched a bunch of channels already
+T 1611694339 18<22__monty__18>	Could you live with yourself knowing you've cut all your communication channels to *mois* though?
+T 1611694401 18<19wasamasa18>	I'm not sure how honest I should be here
+T 1611695021 18<22__monty__18>	How about brutally? The hurt's already been suffered anyway
+T 1611695026 18<22__monty__18>	D":
+T 1611695049 18<26GermainZ18>	__monty__: glad you're enjoying it :D
+T 1611695138 18<26zaeph18>	🥳🎉 https://einval.eu/pisg/ranger
+T 1611695164 18<26GermainZ18>	?
+T 1611695196 18<26zaeph18>	GermainZ: I've breached 30k.
+T 1611695253 18<26GermainZ18>	vifon should replace half your messages' nicks with "notzaeph" to troll you
+T 1611695294 18<26zaeph18>	Why are all of you so keen on stripping me of the most little joys I have throughout my days?
+T 1611695302 18<22__monty__18>	See, vifon, we all want this?
+T 1611695318 18<22__monty__18>	Is this a democracy or a dictatorial police state?
+T 1611695338 18<19bionicpup64_212118>	zaeph, you're a stripper ^^?
+T 1611695340 18<26zaeph18>	Well, the stats *are* based in Poland.
+T 1611695366 18<26zaeph18>	bionicpup64_2121: I don't answer this question when it's asked by someone I don't know.
+T 1611695370 18<26zaeph18>	…Now, if I did know you…
+T 1611695378 18<26GermainZ18>	You'd give them a lap dance
+T 1611695382 18<26zaeph18>	Probably.
+T 1611695402 18<19bionicpup64_212118>	looking forwarded :)
+T 1611695412 18<26zaeph18>	grobi?
+T 1611695419 18<19bionicpup64_212118>	yes  man#
+T 1611695424 18<26zaeph18>	Hah~.
+T 1611695433 18<26zaeph18>	For you, old man, I'd even make you a price.
+T 1611695436 18<19bionicpup64_212118>	you know me
+T 1611695487 18<19bionicpup64_212118>	thanks accepting me as adult finally..
+T 1611695522 18<26zaeph18>	Oh, fear not: you'll always be boomer-material in my heart.
+T 1611695553 18<19bionicpup64_212118>	(8þ
+T 1611695575 18<19bionicpup64_212118>	see you back  soon, have to reboot
+T 1611695581 18<26zaeph18>	Bye~.
+T 1611695610 18<19bionicpup64_212118>	with an other alias i'm afraid...
+T 1611695665 18<19bionicpup64_212118>	chatting under a fresh puppy is like hanging around in a swinger-club somehow..
+T 1611695695 18<19bionicpup64_212118>	brb
+T 1611696000 18<27vifon18>	wasamasa: https://solmaz.io/thoughts/digital-hygiene-feeds/
+T 1611696006 18<27vifon18>	Worth a read.
+T 1611696030 18<27vifon18>	zaeph: Technically the stats are in Germany.
+T 1611697937 18<22__monty__18>	Ok, the computing apocalypse is now. https://www.openwall.com/lists/oss-security/2021/01/26/3
+T 1611697997 18<22__monty__18>	Privilege escalation from any local (non-sudoer) user account without even having to know their password. o.O
+T 1611698030 18<28Kelsar18>	yeah, that will be a long day tomorrow
+T 1611698058 18<28Kelsar18>	for some hosters this likely is kind of a apocalypse
+T 1611698136 18<26zaeph18>	Welp, time to kill my switch.
+T 1611698218 20*	Disconnected (20)
+T 1611700202 FiSHLiM plugin unloaded
