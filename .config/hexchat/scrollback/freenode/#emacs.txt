@@ -1,465 +1,3 @@
-T 1587662798 18<19wasamasa18>	aside from melpa I do scheme stuff and that one particular community expects release tarballs
-T 1587662805 18<29wgreenhouse18>	wasamasa: surely melpa's coding is general to git and not specific to git_hub_
-T 1587662807 18<19wasamasa18>	so I've hacked up code to generate them
-T 1587662809 18<27CaffeineVaccine18>	Actually `(keyboard-quit)`/`(exit-minibuffer)`/etc. won't even exit the minibuffer when in `minibuffer-inactive-mode`. 
-T 1587662829 18<19wasamasa18>	they do have separate git and github fetchers, something is bound to be different between them
-T 1587662894 18<19wasamasa18>	like the github fetcher getting more github-specific info
-T 1587662948 18<29wgreenhouse18>	melpa-stable "releases" are just git tags, yeah?
-T 1587662973 18<19wasamasa18>	that's my impression of it
-T 1587663001 18<19wasamasa18>	I remember one hitch where they accidentally deleted all their data and didn't repopulate the stable packages
-T 1587663019 18<19wasamasa18>	packages reappeared there only after pushing a new tag
-T 1587663027 18<19wasamasa18>	so for a while you couldn't install evil from melpa-stable :D
-T 1587663068 18<27CaffeineVaccine18>	anyone have any ideas?
-T 1587663163 18<29wgreenhouse18>	CaffeineVaccine: without seeing your library, it kind of sounds like whatever you're trying to do is probably too low-level. if you're using the minibuffer to get user input, something like `read-minibuffer' should get you outta there when it's done
-T 1587663200 18<29wgreenhouse18>	CaffeineVaccine: alternatively, I think a save-window-excursion would get you back home once the user is done interacting with the minibuffer
-T 1587663550 18<27CaffeineVaccine18>	wgreenhouse: very interesting ideas
-T 1587663552 18<27CaffeineVaccine18>	wgreenhouse: thanks
-T 1587663591 18<29wgreenhouse18>	CaffeineVaccine: you're welcome; I think that is the order I would try them in, too, as save-window-excursion is imperfect and sometimes surprising
-T 1587663601 18<29wgreenhouse18>	might revert the emacs window config to a state the user finds unexpected
-T 1587663645 18<20bpalmer18>	Repeating a question in case others are active with more opinions: 'On emacs-devel, RMS says that he only wants to recommend #emacs on gnu.org if it has "a general policy of not promoting nonfree programs (neither applications nor systems) nor helping people use them." My impression is that we have no such policy and that the ops are pretty meh about one. Got strong opinions?
-T 1587663645 18<20bpalmer18>	https://lists.gnu.org/archive/html/emacs-devel/2020-04/msg00740.html '
-T 1587663709 18<19wasamasa18>	it seems like a slippery slope
-T 1587663813 18<20bpalmer18>	some people are always trying to ice skate uphill.
-T 1587663869 18<25cvandusen18>	Is there any faster way to go??
-T 1587663870 18<22fsbot18>	Cannot predict now
-T 1587663986 18<28technomancy18>	lol; this channel is a "site"?
-T 1587664053 18<20bpalmer18>	a site for sore ice
-T 1587664053 18<25bandali18>	he probably saw a link and thought so
-T 1587664065 18<25bandali18>	maybe didn't notice that it's an irc:// one
-T 1587664104 18<29wgreenhouse18>	in fairness we were listed among things that actually are websites
-T 1587664108 18<25cvandusen18>	He's probably concerned that #emacs runs non-free javascript 
-T 1587664146 18<25bandali18>	and #emacs is already listed on https://www.gnu.org/server/irc-rules.html, so i'm hoping we can be thoughtful and not promote nonfree software/systems here
-T 1587664171 18<19wasamasa18>	just define promoting nonfree stuff as being an asshat, bam
-T 1587664173 18<19wasamasa18>	problem solved
-T 1587664197 18<29wgreenhouse18>	bandali: that page also implies that contacting the campaigns manager at FSF will somehow get abuse issues at #emacs resolved, which I think is...optimistic?
-T 1587664223 18<19wasamasa18>	as optimistic as the RMS take on netiquettes
-T 1587664259 18<29wgreenhouse18>	bandali: as bpalmer pointed out, this channel predates any official "blessing" by fsf/gnu of #emacs being on freenode, as well as the requirement that single-# channels be officially sanctioned. but otoh we have the current emacs maintainer as founder and op so that may be a nonissue
-T 1587664292 18<25bandali18>	wgreenhouse, afaik the fsf staff, including the campaigns team, have ops privileges on nearly all fsf/gnu channels, and can intervene if need be. though, i think for gnu-related channels they'd ask gnu people first
-T 1587664318 18<29wgreenhouse18>	bandali: are there any people on fsf staff (except accidentally) who are ops on /chanserv access #emacs list?
-T 1587664322 18<27tromey18>	what is being proposed?
-T 1587664333 18<29wgreenhouse18>	I'm saying I think that page is making a claim that's not necessarily accurate about the status of #emacs
-T 1587664341 18<25bandali18>	wgreenhouse, i think johnsu01 is one
-T 1587664364 18<29wgreenhouse18>	bandali: yeah, he is
-T 1587664380 18<19wasamasa18>	anyway, I see that as a chance to quickly resolve this one
-T 1587664402 18<19wasamasa18>	if #emacs is considered an official GNU promoting channel, surely it can be recommended
-T 1587664408 18<20bpalmer18>	tromey: the proposal, I guess, would be that the channel adopts a general policy of etc etc
-T 1587664412 18<29wgreenhouse18>	I wonder if the participants in that email thread have already looked at that page
-T 1587664456 18<25bandali18>	and in all fairness, in the reply above rms does say:
-T 1587664458 18<25bandali18>	Helping people use Emacs on a nonfree system or with some well known
-T 1587664459 18<25bandali18>	nonfree program is ok as an exception.  (See References in GNU Coding
-T 1587664459 18<25bandali18>	Standards.)
-T 1587664487 18<20bpalmer18>	(that particular page about the irc channels also discourages off-topic conversation, so ... hm)
-T 1587664505 18<29wgreenhouse18>	bandali: right. I told skangas that, de facto, that's generally followed here (the only discussion of nonfree software/systems that really happens is e.g. emacs os-compatibility issues)
-T 1587664509 18<25bandali18>	but yeah besides that, i think it's distasteful to recommend or help with nonfree programs that are somehow remotely related to emacs
-T 1587664517 18<25bandali18>	wgreenhouse, right
-T 1587664527 18<20ober18>	yeah... they had a page about operating systems too, but some how Linus never changed his communications style to conform... 
-T 1587664535 18<29wgreenhouse18>	bandali: but having that be the de facto vibe of the channel is different than formally enforcing it
-T 1587664600 18<24holomorph18>	i write elisp to interact with nonfree software, do i get banned now??
-T 1587664600 18<22fsbot18>	My sources say no!
-T 1587664607 18<25bandali18>	wgreenhouse, not *that* different i think, practically. it could be as simple as "hey, discussion of nonfree programs is off-topic for #emacs"
-T 1587664613 18<24holomorph18>	whew
-T 1587664627 18<25bandali18>	that happens somewhat often e.g. on #guix when people ask how to install nonfree drivers
-T 1587664649 18<29wgreenhouse18>	bandali: another problem is that that gnu page's rules are different than https://www.emacswiki.org/emacs/EmacsChannel#toc3
-T 1587664661 18<29wgreenhouse18>	which anticipates and sets parameters around off-topic conduct
-T 1587664693 18<29wgreenhouse18>	or more specifically https://www.emacswiki.org/emacs/EmacsChannel#toc6
-T 1587664695 18<25bandali18>	wgreenhouse, right, and i think that's fine? channels can have more specific rules/guidelines so long as they don't fly in the face of gnu's
-T 1587664716 18*	20bpalmer doesn't really care about gnu's policies, just for the record
-T 1587664737 18*	25bandali does, just for the record
-T 1587664783 18<20ober18>	,aec
-T 1587664784 18<22fsbot18>	ober, AEC is an acronym for "Actual Emacs Content". Given how rare that is in #emacs
-T 1587664814 18<20bpalmer18>	at any rate. I or kensanata or another op will be asking for people's opinions periodically to get a sense of the channel's feelings. Feel free to drop a PM to a friendly op if you'd like to express an opinion privately.
-T 1587664850 18<25bandali18>	so long as we're kind to each other and don't encourage use of nonfree software we should all be just fine :-)
-T 1587664863 18<20bpalmer18>	the opinions expressed at this point in time are already more varied than the ones from earlier today, so more points of view are being represented :)
-T 1587664921 18<20bpalmer18>	Uhm. I don't agree with that stance, either.
-T 1587664973 18<25bandali18>	what stance?
-T 1587665008 18<25goatish18>	Hi team, I don't know if this is a good time but I'm trying to add timezones to my timestamps in org mode. I'm inserting these timestamps with C-c C-u . and they appear in format <2020-04-23 Thu 13:44>. Is there any way to add some kind of timezone, such as a UTC offset? I've been digging through the docs and tried setting org-export-date-timestamp-format by adding %z but that didnt seem to help
-T 1587665019 18<24holomorph18>	i think we'll be just fine largely ignoring emacs-devel
-T 1587665035 18<20ober18>	^^
-T 1587665064 18<25bandali18>	that's...
-T 1587665076 18<25goatish18>	(originally this was for exporting but having them display in emacs too would be great too)
-T 1587665077 18<20bpalmer18>	goatish: what command is C-c C-u .   ? In my org that just does an upheading
-T 1587665117 18<20bpalmer18>	well, C-c C-u does that.
-T 1587665134 18<29wgreenhouse18>	bandali: "flying in the face of" is kind of the question. I think the gnu.org page's attitude toward off-topic content "flies in the face of" the emacswiki rules (which are the only rules most of the ops here were ever aware existed for this channel)
-T 1587665134 18<25goatish18>	That's a good question! I tried to do the C-h k but wasn't sure how to return the function for multi keys like that
-T 1587665150 18<25goatish18>	PS: I'm a noob
-T 1587665166 18<20bpalmer18>	goatish: C-h k and then start the sequence ; when it stops accepting input, you've reached the command :)
-T 1587665168 18<29wgreenhouse18>	there is a direct conflict, is off-topic content in general allowed (with limitations) or not
-T 1587665172 18<25goatish18>	I think it's org-time-stamp
-T 1587665206 18<27scheming_around18>	This is driving me mad: for some reason, pdf-tools doesn't work correctly when scrolling down using the mouse, but it does work correctly when scrolling up
-T 1587665216 18<25goatish18>	However, if I run org-time-stamp with M-x it doesn't add the time. Wheras C-u C-c . does
-T 1587665243 18<20ober18>	scheming_around: is it still rendering?
-T 1587665250 18<27scheming_around18>	When scrolling down, the page just scrolls out of the frame and then pdf-tools redisplays that page from the beginning
-T 1587665255 18<20bpalmer18>	aha. C-u C-c is different than C-c C-u . C-u is the "universal prefix" -- running it before a command usually changes it in some way
-T 1587665279 18<25bandali18>	wgreenhouse, regarding being on/off topic, that gnu.org pages says: Keep it on topic — personal attacks, trolling/baiting or flooding (posting multiple repetitive lines or large amounts of code) of the channel will not be tolerated.
-T 1587665283 18<25goatish18>	I think I made a mistake when I originally said C-c C-u, and had them reversed
-T 1587665292 18<25bandali18>	which i think is in line with "no asshatery" bit in the #emacs topic
-T 1587665302 18<27CaffeineVaccine18>	wgreenhouse: Found another way: `(throw 'exit t)`
-T 1587665341 18<20bpalmer18>	goatish: https://orgmode.org/manual/Custom-time-format.html#Custom-time-format  -- change org-time-stamp-custom-format 
-T 1587665370 18<20bpalmer18>	goatish: and you need to enable the timestamp overlays
-T 1587665376 18<25goatish18>	Thanks bpalmer, I'll give it a try
-T 1587665434 18<29wgreenhouse18>	bandali: do you think, anecdotally, that the % of off-topic (not abuse, just not about emacs) here is roughly in line with other gnu channels, or are we wildly more off topic
-T 1587665481 18<25bandali18>	wgreenhouse, i don't think we need to keep #emacs *strictly* emacs-related at all times. hell, even #gnu and #fsf sometimes diverge into drastically off-topic discussions sometimes. in those cases, we gently remind people to try and bring discussion back to topic and perhaps take unrelated discussion to more appropriate places
-T 1587665497 18<27tromey18>	TBH, emacs is normally more off-topic but also perhaps less trolly/irritating than some other chans
-T 1587665515 18<27tromey18>	anyway I would be opposed to a major policy change, since IME #emacs works well already
-T 1587665528 18<25bandali18>	i get the impression that perhaps #emacs is a *bit* more off-topic sometimes, but not by too much
-T 1587665534 18<25bandali18>	and i don't think it's a problem
-T 1587665541 18<24Aurora_v_kosmose18>	#lisp has a very seriousface on-topic attitude.
-T 1587665561 18<25bandali18>	almost anytime i look here, there's been or is already some emacs-related discussion going on, which is great and on-topic
-T 1587665568 18<27grym18>	i understand why the rules are different in both places, but i like off-topic in chat here. In #python where i also hang out a lot, you can't do that.  channel's too big 
-T 1587665577 18<27se-sm-ca18>	is there an elisp channel or is list the closest thing
-T 1587665582 18<29wgreenhouse18>	bandali, tromey: then perhaps the answer to the email thread should be to point out that this channel is already an official gnu channel (citing to that page), with policies in line with other gnu channels and both johnsu01 and johnw among the operators
-T 1587665653 18<25bandali18>	right
-T 1587665656 18<25goatish18>	bpalmer: I set org-time-stamp-custom-format to "%F %a %R %z" but it didn't add the timezone for the %z part. I confirmed that org-time-stamp-custom-format was set with C-h v. I also toggled org-toggle-time-stamp-overlays a couple of times
-T 1587665681 18<25bandali18>	wgreenhouse, i haven't been keeping up to date with emacs-devel for a few days, i'll be catching up soon, and might send a reply along those lines
-T 1587665684 18<27grym18>	(and i really appreciate the crusty old school vibe here) 
-T 1587665694 18<19wasamasa18>	lol
-T 1587665696 18<27hodapp18>	get off my lawn.
-T 1587665702 18<19wasamasa18>	the crusty chat
-T 1587665705 18<20ober18>	what time is it?
-T 1587665712 18<27hodapp18>	time for you to get off my lawn too
-T 1587665716 18<20bpalmer18>	goatish: hmm. I guess I don't know.
-T 1587665738 18<25goatish18>	Well thanks for your help. I'm learning a lot :)
-T 1587665742 18<26lampilelo18>	what kind of off-topic are you talking about?
-T 1587665755 18*	20ober is not sure there is sufficient evidence that 'commercial software' is stealing free support here.
-T 1587665758 18<27grym18>	wasamasa: all i'm saying is that i didn't join this channel from 2005 to 2017 and when i rejoined nothing seems to have changed except one guy got banned 
-T 1587665894 18<20ober18>	sounds like it follows the pattern of the nature of emacs over the years
-T 1587665903 18<27grym18>	yep
-T 1587665923 18<24miskatonic18>	paredit works so far quite well with emacs -nw. The debian packager requires gui emacs for it. Is there a hitch or is the packager incompetent?
-T 1587665946 18<27grym18>	miskatonic: you said debian at least once... 
-T 1587665955 18<27grym18>	no need to repeat yourself :) 
-T 1587666063 18<20ober18>	,mitc
-T 1587666064 18<22fsbot18>	ober: mitc: The person standing in the corner wearing a trench coat, whispering "want some closed source software?"
-T 1587666066 18<20bpalmer18>	miskatonic: I don't see the requirement in https://packages.debian.org/source/buster/paredit-el . Like other elisp packages, it depends on the emacs virtual  package.
-T 1587666097 18<20bpalmer18>	well, it depends on emacsen-common and recommends the emacs virtual package
-T 1587666112 18<20bpalmer18>	no, not virtual, metapackage
-T 1587666136 18<24miskatonic18>	I am on stretch, so maybe buster has corrected it
-T 1587666207 18<20bpalmer18>	https://packages.debian.org/stretch/paredit-el depends on emacs which is satisfied by emacs24-nox
-T 1587666278 18<27grym18>	i make kelleyk handle my deb emacs needs
-T 1587666816 18<29wgreenhouse18>	bandali: I'm really glad of a potential resolution of this quandary that involves nobody doing much of anything. :)
-T 1587666852 18<25bandali18>	:-)
-T 1587666882 18<24miskatonic18>	mmm in stretch, "emacs" is a metapackage and not a virtual package ... big difference
-T 1587667006 18<22thblt18>	The virtual package is emacsen, apparently. Probably rarely used.
-T 1587667027 18<19bremner18>	well, there's that one guy who still cares about xemacs
-T 1587667088 18<24miskatonic18>	which one guy? certainly not RMS
-T 1587667151 18<26lampilelo18>	i don't think rms uses debian
-T 1587667186 18<22thblt18>	I have a whetstone emergency, but the country is in lockdown for some two more weeks.  Poor knife.
-T 1587667219 18<26lampilelo18>	try dhrystone
-T 1587667223 18<19bremner18>	lampilelo: I'm pretty sure rms does not use xemacs, which was a hostile fork of gnu emacs
-T 1587667273 18<24miskatonic18>	oh, I understood that there is globally only one person to care about xemacs, with or without a particular os/distro
-T 1587667300 18<26lampilelo18>	i know, bremner 
-T 1587667330 18<19bremner18>	well whoosh me sideways
-T 1587667341 18<25bandali18>	lol
-T 1587667351 18<25bandali18>	i stumbled upon this a while ago: https://stallman.org/articles/xemacs.origin
-T 1587667372 18<19wasamasa18>	the origin story?
-T 1587667391 18<19rpav18>	anyone tried dap-mode
-T 1587667393 18<25bandali18>	yeah
-T 1587667406 18<19rpav18>	gud just seems broken :(
-T 1587667413 18<24miskatonic18>	20 years ago, most xemacs users were redhatters ... but that may have been a Germany-only coincidence
-T 1587667895 18<29wgreenhouse18>	hay, there's at least two people in this channel who care about xemacs
-T 1587667920 18<29wgreenhouse18>	bpalmer, and sometimes Steve Youngs (the sxemacs maintainer) is in here
-T 1587667944 18<19rpav18>	is xemacs still a thing?
-T 1587667987 18<19rpav18>	updated a lot more recently than i expected actually
-T 1587668025 18<29wgreenhouse18>	they were a window manager a lot earlier than gnu emacs, so arguably they're still anticipating our evolution. :P
-T 1587668035 18<29wgreenhouse18>	,xwem
-T 1587668036 18<22fsbot18>	xwem is a  WM implemented for XEmacs <http://emacswiki.org/XWindowEmacsManager>
-T 1587668466 18<24miskatonic18>	there is now exwm or something similar, a much better window manager based on emacs
-T 1587668857 18<27skangas18>	bandali: It would be useful if you replied to the thread on emacs-devel, thanks.
-T 1587668997 18<27skangas18>	Regarding XEmacs, last year they had less commits for the full year than GNU Emacs had some *days*.
-T 1587669047 18<29mplsCorwin18>	+1
-T 1587669100 18<29mplsCorwin18>	sorry.  +1 is RE it would be useful if you will point out the existing officaldom, etc., bandali
-T 1587669548 18<27grym18>	wgreenhouse: "not doing anything" is the academia slowroll 101 
-T 1587669554 18<27grym18>	it's a fine life 
-T 1587669564 18<25bandali18>	skangas, mplsCorwin, cheers; will do so later tonight
-T 1587670208 18<20bpalmer18>	it's not clear to me what consensus has been reached. "The irc channel #emacs is already listed on gnu.org. Cheers." ?
-T 1587670420 18<20edgar-rft18>	rudybot: what is bpalmer talking about?
-T 1587670421 18<24rudybot18>	edgar-rft: bpalmer`: alignment my car is perfectly aligned bro i dun no what your talking about you saying because I wrote PHP I dont know stuff bro
-T 1587670441 18<27grym18>	bpalmer: lgtm ship it 
-T 1587670600 18<25bandali18>	bpalmer, what wgreenhouse wrote to me and tromey above
-T 1587670780 18<29wgreenhouse18>	bpalmer: in summary, we're already a gnu channel; our policies match up with other gnu channels, and we've already got johnsu01 and johnw as ops
-T 1587670955 18<19rpav18>	holy crap i accidentally pressed C-h l and facepalm .. i set up a command log thing just to track this, sigh
-T 1587670984 18<19rpav18>	i think emacs will never fail to have undiscovered corners
-T 1587671011 18<24miskatonic18>	rudybot: do you care about xemacs?
-T 1587671017 18<24rudybot18>	miskatonic: "I most certainly do care about XEmacs!"
-T 1587671029 18<25bandali18>	rpav, which-key may help you explore/discover more of it :-)
-T 1587671085 18<29wgreenhouse18>	bpalmer: which I suppose you could read as "don't annex us, #emacs has always been part of #gnu"
-T 1587671089 18<19rpav18>	hah, yet another handy thing, nice
-T 1587671146 18<22noobly18>	any tips on getting pdf-tools annotations to display as the actual annotations, not just icons?
-T 1587671259 18<20dale18>	noobly: They display as icons in pdf-tools, or in other PDF readers?
-T 1587671333 18<20bpalmer18>	I feel like there's a rewrite of history going on.
-T 1587671372 18*	20bpalmer shrugs for now.
-T 1587671925 18<25bandali18>	what rewrite of history?
-T 1587671954 18<20lxsameer18>	hey folks, how can i execute several external processes in async mode and wait for all of them to finish ? I need to collect their stdout and stderr as well
-T 1587671954 18<20lxsameer18>	make-process ?
-T 1587671988 18<24miskatonic18>	the takover of #emacs by xemacs
-T 1587672086 18<24holomorph18>	lxsameer: if you need stdout and stderr separately, i think you have to use make-process
-T 1587672127 18<24holomorph18>	to do something when they all finish, you can give the processes sentinels that keep track of a counter
-T 1587672143 18<20lxsameer18>	holomorph: nice. thanks 
-T 1587672211 18<24miskatonic18>	even one async process is often a pain in the rear 
-T 1587672457 18<20aidalgol18>	technomancy: FWIW, someone I used to work with had some special dev board that let them charge a device via USB while also using the port for data.
-T 1587674310 18<29arwn18>	Hey how can I delete all of the default menu-bar menus in order to create my onw?
-T 1587674421 18<28technomancy18>	aidalgol: oh reeeeeally
-T 1587674425 18<28technomancy18>	I should take another look, huh
-T 1587674691 18<19rpav18>	heh larry ellison behind the hydroxychloroquine delusion?
-T 1587674703 18<19rpav18>	ellision is definitely the real actual devil
-T 1587674839 18<28john2x18>	hello :wave:
-T 1587675882 18<24zeta_018>	  (use-package lsp-mode
-T 1587675882 18<24zeta_018>	    :ensure t
-T 1587675882 18<24zeta_018>	    :hook (
-T 1587675882 18<24zeta_018>	      (elm-mode . lsp))
-T 1587675882 18<24zeta_018>	    :commands lsp)
-T 1587675892 18<29wgreenhouse18>	rpav: it seems common for these guys to have really weird medical beliefs 
-T 1587675913 18<24zeta_018>	i used this code to setup the elm-language-server, but it does not work when i open an elm file?
-T 1587675964 18<29wgreenhouse18>	zeta_0: is M-x lsp the command you call to start the server by hand?
-T 1587675987 18<27hodapp18>	rpav: one thing I'm curious on is if they've done controlled trials on the full treatment people kept touting - hydroxychloroquine, azithromycin, and zinc. so far I've seen only combinations of the first two parts.
-T 1587676040 18<27hodapp18>	and people* keep clamoring about why the zinc is actually** the crucial part of that
-T 1587676069 18<19rpav18>	hodapp: pretty sure there was just a study completed that the former at least if anything made people worse
-T 1587676092 18<19rpav18>	isn't azithromycin an AB? i'm not sure why that would even have an effect
-T 1587676109 18<24zeta_018>	wgreenhouse: when i run that command it tells me that there are not servers supporting that current mode, but i do have elm-languages-server installed?
-T 1587676117 18<27hodapp18>	rpav: the study that just happened, I thought, did hydroxychloroquine & azithromycin
-T 1587676130 18<29wgreenhouse18>	zeta_0: then it sounds like you have a further problem 
-T 1587676146 18<29wgreenhouse18>	Why isn't the elm language server loaded?
-T 1587676176 18<27hodapp18>	and AFAIK, yes, azithromycin is that, but I know sometimes antibiotics are used to prevent complications from bacteria that can happen alonside. either that or I am talking out my ass.
-T 1587676197 18<19rpav18>	dunno, unqualified/ignorant people make wild unfounded medical claims all the time, it's just funny this one was by probably one of the most malevolent / misanthropic individuals there is ;)
-T 1587676211 18<24zeta_018>	wgreenhouse: i don't know, none of the instructions said that i need to setup env vars
-T 1587676218 18<27hodapp18>	I have heard so many people's shitty theories of why zinc *must* be effective that I really just want some good data that actually tests the treatment they keep touting (even if they'll just ignore it)
-T 1587676242 18<19rpav18>	nah pretty sure you're right, secondary infections or whatnot happen
-T 1587676258 18<29wgreenhouse18>	zeta_0: well it sounds like the use-package invocation is doing what it should but some other piece is missing
-T 1587676311 18<29wgreenhouse18>	Zinc is used in some OTC cold remedies ("supplements") that were dinged in .us for unverified claims
-T 1587676330 18<29wgreenhouse18>	It is toxic to some viruses but mostly makes you lose your sense of smell.
-T 1587676338 18<27hodapp18>	that and I am really tired of people parroting that one doctor had a "100% success rate" and "0 complications"
-T 1587676350 18<27hodapp18>	basically no treatment has a track record like that
-T 1587676385 18<24zeta_018>	wgreenhouse: this is my lsp config in my .emacs: https://dpaste.org/fzJA
-T 1587676427 18<24zeta_018>	i'm not sure what the elm-language-server is missing for it to work?
-T 1587676488 18<27hodapp18>	wgreenhouse: oh, I had thought that the zinc losenges had some data (not great data, just data) to back up that they shortened common cold duration by a day or two if taken right at the onset
-T 1587676548 18<29wgreenhouse18>	hodapp: the lozenges do a little; the nasal sprays and swabs make you lose your sense of smell. :P
-T 1587676567 18<27hodapp18>	wgreenhouse: like, permanently?
-T 1587676573 18<29wgreenhouse18>	the lozenges do too, aiui, but are mildly effective 
-T 1587676624 18<29wgreenhouse18>	hodapp: I don't remember 
-T 1587676657 18<29wgreenhouse18>	zeta_0: I see you're adding hooks for the lsp minor mode. What is supposed to be loading the server side? 
-T 1587676997 18<24zeta_018>	ok, i change my .emacs a little bit, i removed the parenthesis that was wrapped with the :hook https://dpaste.org/FWPM
-T 1587677000 18<19rpav18>	gah, wtf keeps resetting my c-offsets-alist
-T 1587677031 18<24zeta_018>	wgreenhouse: i don't know, i've never had problems with lsp before, everything usually works out of the box
-T 1587677120 18<24ryouma18>	,lgtm
-T 1587677121 18<22fsbot18>	ryouma: LGTM is Looks Good To Me
-T 1587677216 18<24ryouma18>	goatish: org ts overlays are the right solution if theyworkf or you.  they are a bit limited.  org discussed tz and basically dropped the idea of supporting them.  that is, all timestamps are local to the clock of the os you ran emacs on when you inserted them.
-T 1587677347 20*	Disconnected (20)
-T 1587677404 20*	Disconnected (20Remote host closed socket)
-T 1587677450 20*	Disconnected (20Remote host closed socket)
-T 1587677496 20*	Disconnected (20Remote host closed socket)
-T 1587677542 20*	Disconnected (20Remote host closed socket)
-T 1587677561 19*	Now talking on 22#emacs
-T 1587677561 22*	Topic for 22#emacs is: Emacs 27.0.91, the second pretest of 27.1, is out.  Please test | 'https://emacsconf.org/2019/videos | Emacs questions take priority over off-topic chatter, so ask! | No Public Loging! What happens in #emacs stays in #emacs | No Racism, sexism, xenophobia, botwanking, or other asshattery
-T 1587677561 22*	Topic for 22#emacs set by 26wgreenhouse!wgreenhous@fsf/member/wgreenhouse (24Mon Apr 20 07:39:23 2020)
-T 1587677561 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
-T 1587678630 18<26ym18>	Is there a tutorial how to develop Emacs mode. Particularly I'm interested in developing own special-mode.
-T 1587678638 18<26ym18>	s/\./\?/
-T 1587678766 18<29JordiGH18>	s@\.@\?@
-T 1587678781 18<29JordiGH18>	Anyway, the elisp manual goes into detail, yeah.
-T 1587678797 18<29JordiGH18>	,pwel
-T 1587678800 18<22fsbot18>	*** Eval error *** Wrong type argument: hackerp, JordiGH
-T 1587678809 18<29JordiGH18>	,elisp
-T 1587678811 18<22fsbot18>	JordiGH: From memory, Elisp is [0/6] at http://www.emacswiki.org/emacs/Elisp
-T 1587678811 18<22fsbot18>	[1] see the built-in documentation via M-: (info "(elisp)Top")
-T 1587678811 18<22fsbot18>	[2] C-h r TAB RET
-T 1587678811 18<22fsbot18>	[3] http://www.gnu.org/software/emacs/manual/elisp.html ;;[ ,more / ,dump]
-T 1587678819 18<29JordiGH18>	,moar
-T 1587678819 18<22fsbot18>	[4] there's an elisp for that
-T 1587678819 18<22fsbot18>	[5] an excellent choice for those who have no particular requirements or expectations
-T 1587678819 18<22fsbot18>	[6] noecho Emacs Lisp can get the job done. No question. It's a car, and it moves. It's better than walking. But it pretty much combines the elegance of Common Lisp with the industrial strength of Scheme, without hitting either of them, if you catch my drift. - Steve Yegge
-T 1587678843 18<28technomancy18>	that's harsh, steve
-T 1587678845 18<29JordiGH18>	Dammit, where's Bob's book?
-T 1587678860 18<29JordiGH18>	,intro
-T 1587678861 18<22fsbot18>	I heard Intro is [0] (info "(emacs)Intro")
-T 1587678861 18<22fsbot18>	[1] A nice intro to emacs lisp by Chassell: http://www.gnu.org/software/emacs/manual/pdf/eintr.pdf
-T 1587678861 18<22fsbot18>	[2] included with emacs docs since emacs 22
-T 1587678874 18<29JordiGH18>	ym: There we go --^
-T 1587678904 18<28technomancy18>	elisp is the People's Lisp!
-T 1587678907 18<29JordiGH18>	,s/noecho // in elisp 6
-T 1587678912 18<22fsbot18>	Changed 1 (of 7) notes when replacing *string* "noecho " with "" for term "elisp". (For regexps, use r/../../ in ..). 
-T 1587678925 18<29JordiGH18>	,elisp 6
-T 1587678926 18<22fsbot18>	Elisp is Emacs Lisp can get the job done. No question. It's a car, and it moves. It's better than walking. But it pretty much combines the elegance of Common Lisp with the industrial strength of Scheme, without hitting either of them, if you catch my drift. - Steve Yegge .. + other notes
-T 1587678927 18<25bandali18>	LibrePlanet 2020 videos now out: https://media.libreplanet.org
-T 1587678930 18<29JordiGH18>	,botsnack
-T 1587678931 18*	22fsbot dances happily
-T 1587678940 18<28technomancy18>	rudybot: where's your revolutionary spirit?
-T 1587678940 18<24rudybot18>	technomancy: your was seen in #emacs five years ago, saying "bye", and then your was seen changing their nick to alezost in unaffiliated/alezost three years ago
-T 1587678956 18<28technomancy18>	rudybot: your MOM was last seen in #emacs five years ago, amirite?
-T 1587678959 18<24rudybot18>	technomancy: Like, with some vaseline and duct tape, amirite?
-T 1587679053 18<29JordiGH18>	o_O
-T 1587679854 18<29mplsCorwin18>	That's what she said.
-T 1587679892 18<29mplsCorwin18>	rudybot: yo momma
-T 1587679892 18<24rudybot18>	mplsCorwin: yo momma so dumb she got hit by a parked car!
-T 1587680212 18<27hodapp18>	Let's make push-reel vacuum cleaners.
-T 1587682210 18<24zeta_018>	i can't seem to get elm-language-server working in emacs, is there any way to troubleshoot this to see what's wrong?
-T 1587682359 18<24zeta_018>	when i open a .elm file emacs throws this error? https://dpaste.org/yH98
-T 1587682877 18<29wgreenhouse18>	zeta_0: that error is telling you you are trying to activate lsp on a buffer that's in fundamental-mode
-T 1587682885 18<29wgreenhouse18>	Not elm-modr
-T 1587682889 18<29wgreenhouse18>	*elm-mode
-T 1587683468 18<27butterthebuddha18>	Is it possible to launch a GUI frame from the terminal?
-T 1587683477 18<27butterthebuddha18>	I'm using emacs-mac which doesn't support emacsclient :(
-T 1587683491 18<20dale18>	butterthebuddha: Are you absolutely sure it doesn't support emacsclient?  I am 99.9% sure it used to, at least.
-T 1587683498 18<20dale18>	butterthebuddha: In particular, what makes you say it doesn't support it?
-T 1587683508 18<27butterthebuddha18>	dale: if it does, it doesn't ship with an emacsclient binary
-T 1587683540 18<20dale18>	butterthebuddha: Look in Emacs.app/Contents/MacOS/bin
-T 1587683542 18<27butterthebuddha18>	Oh wait sorry, it doesn't support emacsclient for GUI
-T 1587683570 18<25cvandusen18>	What does that mean?
-T 1587683592 18<27butterthebuddha18>	cvandusen: emacsclient launches a frame in the terminal
-T 1587683609 18<20dale18>	butterthebuddha: Are you sure you're running the emacsclient that came with the Mac port?
-T 1587683618 18<27butterthebuddha18>	Yep
-T 1587683646 18<27butterthebuddha18>	I'm using emacs-mac-26.3-7.7 from nixpkgs btw
-T 1587683670 18<20dale18>	butterthebuddha: And you've run M-x server-start in your GUI Emacs?
-T 1587683677 18<27butterthebuddha18>	dale: my Emacs.app/Contents/MacOS directory only contains a "Emacs" and "Emacs.app" file
-T 1587683684 18<27butterthebuddha18>	there is no bin directory
-T 1587683727 18<25cvandusen18>	What does `which emacsclient` report? 
-T 1587683730 18<20dale18>	butterthebuddha: Emacs.app/Contents/MacOS/Emacs.app is a *file* and not a directory?
-T 1587684717 18<29spudpnds18>	butterthebuddha: /whatever/whatever/Emacs.app/Contents/MacOS/Emacs <--- that's the binary. 
-T 1587685011 18<28iqubic18>	God... Why is exwm screwing me over?
-T 1587685126 18<24zeta_018>	how strange, i never setup any fundamental-mode, how do i make sure that when i open a .elm file that it uses elm-mode instead?
-T 1587685212 18<24michaelrose18>	zeta_0: (add-to-list 'auto-mode-alist '(".*zathurarc" . conf-mode)) its an alist of regexes and modes
-T 1587685255 18<24michaelrose18>	usually a major mode does something like this automatically for files with the common extension for a language
-T 1587685768 18<24zeta_018>	michaelrose: i added that piece of code to my .emacs config, but that did not work, it's still in fundamental-mode?
-T 1587685811 18<24zeta_018>	michaelrose: https://dpaste.org/QCvZ
-T 1587685908 18<24zeta_018>	dsal: do you use elm-language-server in emacs? i'm having trouble getting it to activate when i open an elm file
-T 1587685940 18<24butterypancake18>	in the snippet zeta_0 sent, they add ".*zathurarc" to the auto-mode-alist variable. do you need to put the ".*"? I think not but idk
-T 1587686079 18<24butterypancake18>	iqubic: exwm is lots of fun :P is it that you're entire UI is freezing? Because I do enjoy when that happens
-T 1587686116 18<28iqubic18>	No. That's not the issue. This issue is that I can't get this one program to be floating properly.
-T 1587686156 18<24butterypancake18>	Can't help you there. I very much enjoy this line of my config: (exwm-manage-force-tiling t)
-T 1587686160 18<24butterypancake18>	no floating for me
-T 1587686191 18<24ryouma18>	is exwm a good wm independent of its emacsness?  do you run a separate instance of emacs?
-T 1587686216 18<24butterypancake18>	oh shit. Can you do that? I currently run only one emacs but when it freezes I'm kinda screwed
-T 1587686231 18<28technomancy18>	butterypancake: you can nest emacs instances easily
-T 1587686234 18<28technomancy18>	I do that for mu4e
-T 1587686250 18<24butterypancake18>	but which emacs receives the input when you input?
-T 1587686267 18<28technomancy18>	butterypancake: if the nested one is focused, it receives the input
-T 1587686274 18<28technomancy18>	butterypancake: the nested emacs would be in char-mode
-T 1587686297 18<24ryouma18>	in term?
-T 1587686309 18<28iqubic18>	I'm trying to set-up exwm-manage-configurations properly, but I can't seem to make it work.
-T 1587686342 18<24butterypancake18>	I never did figure out the difference between line and char mode. I'm starting to realize why whenver I accidently get nested emacs I don't know what to do. 
-T 1587686368 18<28technomancy18>	butterypancake: char-mode means every key binding is passed directly thru
-T 1587686379 18<28technomancy18>	so C-x 2, etc affects the inner emacs, not the outer one
-T 1587686410 18<24butterypancake18>	this knowledge will prove useful. Thank you very much. No more force shutting down the accidental nested emacs for me!
-T 1587686414 18<24ryouma18>	except for exceptions which i always forget
-T 1587686429 18<24ryouma18>	c-c or something
-T 1587686461 18<24butterypancake18>	sounds complicated. I'll prolly stick with 1 emacs unless someone makes a convincing case
-T 1587686476 18<24ryouma18>	i was just thinkiing a separate emacs
-T 1587686485 18<24ryouma18>	like, run emacs again
-T 1587686510 18<24butterypancake18>	what the heck is this exwm-manage-configurations variable? aren't there like individual variables for everything this single variable controls?
-T 1587686535 18<29wgreenhouse18>	butterypancake: it's a way of matching and applying conditions to groups of windows
-T 1587686541 18<24butterypancake18>	oh, it's per application. I'm dumb
-T 1587686553 18<24butterypancake18>	thanks wgreenhouse 
-T 1587686563 18<28iqubic18>	I really wish this worked for me:
-T 1587686564 18<28iqubic18>	http://dpaste.com/1FDAP78
-T 1587686618 18<24michaelrose18>	zeta_0: you weren't supposed to paste it you were supposed to modify it by adding the correct regex and mode
-T 1587686635 18<24butterypancake18>	try a customize-set-variable instead of setq. Some of the exwm variables need to be set at a specific time or done through customize
-T 1587686676 18<28iqubic18>	Oh, do they? I didn't know that.
-T 1587686689 18<28iqubic18>	I'm just trying to test this out.
-T 1587686694 18<24butterypancake18>	ya, that variable has some logic attached to it so you should use customize
-T 1587686734 18<28iqubic18>	Oh, I didn't know that.
-T 1587686757 18<24zeta_018>	michaelrose: do you mean like this? https://dpaste.org/BAVA
-T 1587686758 18<24butterypancake18>	if you look at a variable and it says you can customize it, it really means you really really should
-T 1587686777 18<24butterypancake18>	cuz then you get type checking and possibly it'll run some functions when you set it
-T 1587686778 18<24michaelrose18>	zeta_0: (add-to-list 'auto-mode-alist '("\.elm$" . elm-mode)) 
-T 1587686801 18<24zeta_018>	butterypancake: i've always have trouble with that, i prefer to use setq in my .emacs config
-T 1587686823 18<24butterypancake18>	probably because you're setting some variables wrong ;)
-T 1587686849 18<24butterypancake18>	if you are setting variables correctly, and don't mind quoting the second argument, setq == customize-set-variable
-T 1587686867 18<24michaelrose18>	zeta_0: yours says that any file which is any character followed by elm for example the file literally named belm would match, regex 101 . means any character $ means ends in, if you want the literal character you use a backslash to escape
-T 1587686895 18<28iqubic18>	technomancy: I know you're an EXWM pro, what would you say is the right way to set those variables?
-T 1587686909 18<24michaelrose18>	"\.elm$" means the the string which ends in the literal character period followed by e l m
-T 1587686911 18<24butterypancake18>	but yes my .emacs is ugly cuz customize-set-variable is way to long and it doesn't accept multiple values at once
-T 1587686926 18<28technomancy18>	iqubic: I must be on an old version of exwm; that variable doesn't even exist for me
-T 1587686934 18<28iqubic18>	Oh. I see.
-T 1587686947 18<28iqubic18>	How would you do something like this?
-T 1587686970 18<24butterypancake18>	but if you open that variable in source code, you'll see it has a ':set' value. this gets run when it's customized but not when you setq it
-T 1587687051 18<24zeta_018>	ok, i set that piece of code in my .emacs, i'll test it out now: (add-to-list 'auto-mode-alist '("\.elm$" . elm-mode))
-T 1587687068 18<28iqubic18>	I see. What specifically does it do when I set it via customize?
-T 1587687106 18<24butterypancake18>	now this doesn't always matter. for example, if you set your exwm global keys before exwm is loaded, everything is fine. however, if you set the keys after it's loaded, they won't update. If you customize this variable, it runs some code to make sure it applies properlly
-T 1587687140 18<24butterypancake18>	idk. The code is complicated. it might not do anything useful like I said above. all I know is that it exists. and it proably exists for a reason
-T 1587687210 18<24butterypancake18>	if you're using use-package, check out the ':custom' option. it makes using customize sexy
-T 1587687329 18<24zeta_018>	michaelrose: that caused it to throw an error when i opened an elm file? https://dpaste.org/aMM0
-T 1587687356 18<27dsal18>	zeta_0: I don't use any language servers.
-T 1587687423 18<28iqubic18>	I am using use package.
-T 1587687454 18<24butterypancake18>	if you're using use package, you need to be using :custom
-T 1587687469 18<24zeta_018>	dsal: oh, just that i'd ask, for the most part i've been very happy with lsp in emacs, but for some reason, elm-language-server is not being activated when i open an elm file
-T 1587687482 18<24butterypancake18>	 (use-package exwm :custom (exwm-workspace-show-all-buffers t) (exwm-layout-show-all-buffers t))
-T 1587687511 18<24butterypancake18>	Look at how sexy that is. I customized two variables and it took less characters than setq
-T 1587687517 18<27dsal18>	zeta_0: last time I tried lsp, things went horribly wrong and I just went back to regular emacs modes and dante.  I should give it a shot again someday.
-T 1587687541 18<28iqubic18>	What does that custom variable do?
-T 1587687570 18<24butterypancake18>	it's equivlant to doing (customize-set-variable 'exwm-workspace-show-all-buffers t)
-T 1587687580 18<24zeta_018>	dsal: lsp works really nice with nix
-T 1587687594 18<28iqubic18>	butterypancake: Can't I just run (customie-set-variable) myself?
-T 1587687625 18<24ryouma18>	michaelrose: emacs regexP 101 says the $ is actually eol not eos.  for eos, try '.  :)
-T 1587687651 18*	24ryouma goes to check if what he just spat out is correct
-T 1587687651 18<24butterypancake18>	iqubic: ya, but it's way to long a function name and you have to write that function name out for every single variable. It looks icky. but doing it using use-package is epic
-T 1587687654 18<28iqubic18>	I see.
-T 1587687681 18<24zeta_018>	butterypancake: is this what you meant by using :custon? https://dpaste.org/or2A
-T 1587687710 18<24butterypancake18>	one sec zeta_0 there is a better way but I need to look it up
-T 1587687736 18<24ryouma18>	here
-T 1587687745 18<24ryouma18>	‘\'’ matches the empty string, but only at the end of the buffer or string being matched against. -- (info "(elisp) Regexp Backslash")
-T 1587687767 18<24ryouma18>	dunno if similar in non emacs regexp but it includes buffer ehre
-T 1587687799 18<24zeta_018>	when setting up haskell with lsp, all i had to do was copy and paste the code from the instructions into .emacs, but for elm there's not any defauld elisp code to paste into .emacs, so i'm probably missing something
-T 1587687802 18<24butterypancake18>	 (use-package lsp-mode :mode ("\\.elm$" . elm-mode))
-T 1587687840 18<24michaelrose18>	that is really useful
-T 1587687863 18<24butterypancake18>	the :mode thing in use package is specific for adding to the alist thingy and it also defers loading of the package until you open a .elm file
-T 1587687863 18<24zeta_018>	and then all those elm people hang out on slack, so it's a hard to contact them if you don't use slack
-T 1587687876 18<24zeta_018>	butterypancake: thanks, i'll test that out now to see if it works
-T 1587687942 18<24butterypancake18>	zeta_0: the problem though is if you want to use lsp-mode on files other than elm-mode. so if you don't wan't to defer the loading so you can use it with other files also add a :ensure t
-T 1587688083 18<24butterypancake18>	zeta_0: actually your custom thing was really bad. you need to add to the auto-mode-alist, but you overwrote it losing what it already contained (which is a lot). also, that variable doesn't benifit from customize. It's not bad (other than the over write bit) but no-one has added type checking to that variable for custom
-T 1587688104 18<20ober18>	using org-next-block gets me to the next babel block, but can't find a org-babel-jump-to-end
-T 1587688132 18<24butterypancake18>	how come all the values in auto-mode-alist end in \\'? is that the end of line symbol?
-T 1587688176 18<24ryouma18>	butterypancake: see above
-T 1587688188 18<24butterypancake18>	ryouma: sorry I'm bad a reading
-T 1587688188 18<24ryouma18>	if your filename has a newline
-T 1587688201 18<24ryouma18>	not voice enabled and not able to speak atm
-T 1587688537 18<24zeta_018>	butterypancake: it threw an error: https://dpaste.org/SMpu https://dpaste.org/notV
-T 1587688630 18<24butterypancake18>	you have :mode twice
-T 1587688630 18<24zeta_018>	ya, the elm-language-server repo needs to add more emacs documentation so i'm not stuck like this
-T 1587688639 18<24zeta_018>	oh typo, my mistake
-T 1587688639 18<24butterypancake18>	also replace $ with \\'
-T 1587688647 18<24butterypancake18>	just for consistency with the other auto-mode regexes
-T 1587688772 18<24butterypancake18>	zeta_0: could I get your full use-package snippet?
-T 1587688883 18<24zeta_018>	butterypancake: ok i made the changes you suggested, i'll test it out now and here's my full lsp config of my .emacs: https://dpaste.org/mL41
-T 1587689154 18<24butterypancake18>	ok I see some things you should change but I can't figure out how to use dpaste.org
-T 1587689208 18<24zeta_018>	butterypancake: it threw another error when i opened a elm file? https://dpaste.org/i9Bj
-T 1587689239 18<24butterypancake18>	one sec. I see some things wrong
-T 1587689244 18<24zeta_018>	i didn't think that it would be this difficult to get elm lsp setup
-T 1587689364 18<24butterypancake18>	https://dpaste.org/Y52H
-T 1587689386 18<24butterypancake18>	well I don't think you should have that thing in the :hook section. I'm pretty sure that's wrong
-T 1587689423 18<24butterypancake18>	you can probably ignore the part where i replace a setq with a customize-set-variable. That's just me pushing my custom agenda
-T 1587689492 18<24zeta_018>	butterypancake: thanks, i'll make the changes right now, one second
-T 1587689873 18<24butterypancake18>	ok. I made a butt load of changes that I think make it better. just diff this snippet with the old one to see my changes
-T 1587689873 18<24butterypancake18>	https://dpaste.org/9kgt
-T 1587689911 18<24butterypancake18>	btw I have no clue how lsp works. I don't think I've added any errors. I think I might have corrected some. But I can't judge any lsp specific stuff
-T 1587689988 18<24butterypancake18>	Your hooks where quite mangeled. 
-T 1587690514 18<25jamzattack18>	pretty sure that should be clojurescript-mode instead of clojurescript-mode-hook in the :hook section of (use-package lsp).
-T 1587690565 18<24butterypancake18>	that sounds right. did I make a boo-boo
-T 1587690581 18<24butterypancake18>	yes I did make a boo-boo. Thanks jamzattack!
-T 1587690859 18<24zeta_018>	butterypancake: thanks, i'll add the changes and let you know if it works or not
-T 1587690892 18<24butterypancake18>	I'll probably be offline by then but good luck!
-T 1587690927 18<24zeta_018>	butterypancake: well if you leave before then, thanks for the help
-T 1587691096 18<24rwp18>	Does anyone know if it is possible to disable a .dir-locals.el file globally?  In that I never want it unless I enable it?
-T 1587691134 18<24rwp18>	I sometimes browse source that includes it and it is a nuisance to have to say 'n' every time I open a new file.
-T 1587691163 18<24butterypancake18>	Never tried but you could try and figure out what hook it is and remove it from the file open hooks list
-T 1587691223 18<24rwp18>	This seems to be something that is new in Emacs.  Because I never ran into it in older versions.
-T 1587691232 18<24rwp18>	But it is smacking in the face like stepping on a rake now.
-T 1587691253 18<25jamzattack18>	enable-dir-local-variables
-T 1587691274 18<24butterypancake18>	says it was in emacs 24.4 so it's been around a while
-T 1587691340 18<24rwp18>	jamzattack, That was it!  Disabling that solves my stepping on the rake problem.  THANKS!
-T 1587691442 18<24rwp18>	butterypancake, This seems to be something that is not documented in Emacs 25.  Comparing 25 to 26 I see it in the info docs for 26 but not for 25.
-T 1587691569 18<24butterypancake18>	there is a news entry for 24.4 saying they added the variable. but maybe default behaviour changed more recently?
-T 1587691586 18<24rwp18>	butterypancake, Regardless of not being documented in 25 it triggers just the same there.  Same default.  Just not documented.
-T 1587691605 18*	24rwp wonders where I have Emacs 24 still sitting around to go compare with...
-T 1587691646 18<24butterypancake18>	well, I'm out. Good night
-T 1587691654 18<24rwp18>	Thanks butterypancake!  Good night!
-T 1587691786 18<24rwp18>	Triggers exactly the same in Emacs 24 too.  Now looking for Emacs 23...
-T 1587691847 18<25jamzattack18>	23 is when dir-locals was first implemented
-T 1587691891 18<24rwp18>	I just tried Emacs 23 and it also triggers the same.
-T 1587691909 18<24rwp18>	But I guess it was live for a while before the documentation appeared in 26.  Hmm...
-T 1587691969 18<24rwp18>	No, it is documented in 23 too.  Just in a different spot in the info docs.  That is what confused me.  They moved the section around apparently.
-T 1587691992 18<24rwp18>	I guess I have satisfied my curiosity about it enough...
-T 1587692013 18<24rwp18>	Thanks jamzattack for the pointer to enable-dir-local-variables as that was just what I needed!
-T 1587692620 18<20ober18>	is there any way to determine the size of a region selected?
-T 1587692674 18<20ober18>	count-lines-region.
-T 1587692700 18<20jlf18>	,next
 T 1587692705 18<22fsbot18>	Another satisfied customer. NEXT!
 T 1587693594 18<24zeta_018>	i made those elm changes in my .emacs config butt errors are still being thrown? https://dpaste.org/rrLC
 T 1587693673 18<24zeta_018>	https://dpaste.org/wLMf
@@ -5286,3 +4824,192 @@ T 1611777612 18<27tromey18>	haha yeah
 T 1611777628 18<20aidalgol18>	johnjay: If you're going to do that and not name it stonks-mode, then... well, I'll just be very disappointed.
 T 1611777634 18<29johnjay18>	haha
 T 1611777643 18<27grym18>	evil-stonks
+T 1611778912 23*	remby (~remby@bras-base-london1483w-grc-11-76-69-70-199.dsl.bell.ca23) has joined
+T 1611778963 24*	theothornhill has quit (Ping timeout: 260 seconds)
+T 1611778989 24*	cnngimenez has quit (Ping timeout: 246 seconds)
+T 1611778991 18<25beep156018>	Hey guys, are there any guidelines/guides on submitting patches to the Emacs code base?
+T 1611779083 18<24ryouma18>	so that new dvcs, punjab or whatefver it si called is basically like sccs except the patches commute?
+T 1611779148 24*	irek has quit (Ping timeout: 256 seconds)
+T 1611779155 24*	justanotheruser has quit (Ping timeout: 272 seconds)
+T 1611779165 18<24ryouma18>	my understanding from the faq is that basically git is snapshots, while sccs is patches.  and if you cherry pick a snapshot to apply to another, then you are already violating ontology, because you mean to apply the delta from source snapshot to dest snapshot.  which is broken.
+T 1611779198 23*	theothornhill (~user@161.80-203-66.nextgentel.com23) has joined
+T 1611779217 18<24ryouma18>	and making patches commute is an improvement over what git could do because why?
+T 1611779229 24*	rayyyy has quit (Ping timeout: 268 seconds)
+T 1611779262 23*	maxxcan (~user@178.156.58.23323) has joined
+T 1611779283 18<24ryouma18>	pijul
+T 1611779355 18<27grym18>	pijul is like darcs that goes brrr, right
+T 1611779370 18<24ryouma18>	what is darcs's selling point?
+T 1611779383 18<24ryouma18>	is it also patch commute?
+T 1611779439 18<27grym18>	patches are first class
+T 1611779451 18<27grym18>	it's selling point, aiui, is "it's haskell and has lots of quickcheck tests"
+T 1611779505 18<28caoliver18>	Let's rewrite all our working toolset in FOO.
+T 1611779533 18<28caoliver18>	... for sufficiently trendy and annoying values of FOO.
+T 1611779545 18<19bremner18>	so, common lisp?
+T 1611779559 18<28caoliver18>	CL is trendy?
+T 1611779565 18<27tromey18>	surely cl is quux and not foo
+T 1611779582 18<27grym18>	tromey: it'd better be!
+T 1611779597 18<24ryouma18>	psssssssssst: look up the word kludge in the index to cltl2
+T 1611779660 18<24ryouma18>	i kind of want a patch commute dvcs now even though git is so cumbersome i rarely do anything fancy with it
+T 1611779729 18<28caoliver18>	My word.  And spelled with a 'd' too.
+T 1611779732 18<24ryouma18>	though maybe i would use the pijul(/darcs) special features if they had a nice ui for such things as the faq says it provides
+T 1611779762 18*	28caoliver had to dig out the hardcopy CLtL2.  Kludges wasn't in my hypertext.
+T 1611779775 18<24ryouma18>	hehe
+T 1611779798 18<24ryouma18>	there is also a bug in cltl2: it says every day is exactly 86400 seconds long.  that's incorrect.
+T 1611779828 18<24ryouma18>	caoliver: it was plural?
+T 1611779832 18<28caoliver18>	(if (happy) (go think) (become insurance-salesman))
+T 1611779835 18<28caoliver18>	Yup
+T 1611779948 18<27grym18>	"have you considered a career in chartered accountancy"
+T 1611779988 18<26dragestil18>	hello, i have some question about signing and encrypting an email before sending it off
+T 1611780055 18<26dragestil18>	I get "No encrypt key for [recipient's email address]; skip it?" when trying to send it
+T 1611780081 18<26dragestil18>	which is puzzling as i thought i'm signing / encrypting using my key?
+T 1611780150 18<26dragestil18>	i'm trying to do so with the "<#secure method=pgpmime mode=signencrypt>" generated by selecting Attachments > Sign and Encrypt Message
+T 1611780300 18<24npostavs18>	dragestil: you encrypt with the recipient's (public) key, and sign with your (private) key
+T 1611780345 18<26dragestil18>	npostavs: i see. what if the recipient does not have any key? can i encrypt with my private key and attach my public key?
+T 1611780366 18<24npostavs18>	"can i encrypt with my private key" - nope
+T 1611780455 18<26dragestil18>	npostavs: why not, how else can i send an encrypted email to someone who hasn't their own keys
+T 1611780481 18<24npostavs18>	dragestil: basically you can't.  Hence why encrypted email is not very common
+T 1611780482 18<26dragestil18>	npostavs: i remember with thunderbird / enigmail this is possible
+T 1611780497 18<24npostavs18>	dragestil: maybe symmetric encryption with a password?
+T 1611780521 18<24npostavs18>	or the keys were managed without you realizing it
+T 1611780581 18<24npostavs18>	https://en.wikipedia.org/wiki/Autocrypt perhaps?
+T 1611780581 18<26dragestil18>	ok but why not? surely there's a reason not allowing encrypting an email using your own private key
+T 1611780595 18<24npostavs18>	encrypting with a private key is not a thing
+T 1611780626 18<26dragestil18>	why not?
+T 1611780729 18<26dragestil18>	ok, then anyone can read it with the public key...
+T 1611780763 18<26bqv18>	Encrypt it with something you both know like their DoB and MMN
+T 1611780776 18<26bqv18>	Thats your only real hope
+T 1611780788 18<26bqv18>	If theyre total strangers, rot13 it lol
+T 1611780804 18<26dragestil18>	ok thanks...
+T 1611781336 18<20bpalmer18>	encrypting data with a private key and asking users to use a public key is effectively an expensive signature.
+T 1611781373 18<20bpalmer18>	it does allow the people who decrypt it to know it was sent by someone in possession of the private key.
+T 1611781387 18<22notzmv18>	http://smbc-comics.com/comic/understanding-2 anyone sent this one today yet
+T 1611781527 18<20bpalmer18>	dragestil: there are systems that do "identity-based encryption" which would work in that case, but I don't believe pgp supports it. (I don't know of any actual tools that do it in the real world, although I ran across some startups a while back)
+T 1611781931 18<19parsnip18>	hmm, so "github projects" as a todo list does not feel like it really has a notion of labels, like in gmail, or taskwarrior
+T 1611781950 18<27AWizzArd18>	I would like to change the background color of the line my cursor is currently in. I do it like this:  (set-face-background hl-line-face new-rgb)    This works. But I get the complaint:    Warning: reference to free variable `hl-line-face'
+T 1611781951 18<19seabass18>	parsnip, could you use plain text for this?
+T 1611781981 18<27grym18>	parsnip: let's have a separate repo with todo.org in it 
+T 1611781989 18<19parsnip18>	i would prefer something a little shinier, as i want to make sharing todos easier for perhaps a less technical collaborator
+T 1611782001 18<27grym18>	(i figured)
+T 1611783290 20*	Disconnected (20)
+T 1611791627 19*	Now talking on 22#emacs
+T 1611791627 22*	Topic for 22#emacs is: Pretest #1 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.90.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1611791627 22*	Topic for 22#emacs set by 26Pickchea!~private@unaffiliated/pickchea (24Tue Jan 19 15:08:31 2021)
+T 1611791627 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1611792664 18<25spikemaster18>	reddit/r/wallstreet bets just went private. Seriousl stuff goign down as shortsellers losing big on gameStop
+T 1611792810 18<24deego18>	the reptilians got to them!
+T 1611792813 18<25spikemaster18>	wallstreet short sellers trying to paint redditors as "hackers". Probabably a last ditch effort to get the government to intervene.
+T 1611792948 18<25spikemaster18>	I was using /r/wallstreetbets for my reading entertainment. Now it's gone dark.
+T 1611792969 18<26bqv18>	so it's true
+T 1611792971 18<26bqv18>	huh
+T 1611793222 18<25spikemaster18>	undercover shortseller agents were making posts on /r/wallstreetbets. that could be part of the reason for going dark.
+T 1611793305 18<20leah218>	https://twitter.com/blueminder/status/1354581015038054404/photo/1
+T 1611793383 18<29mplsCorwin18>	speaking as someone whos made a living mostly in the financial service sector for a couple decades or so: rotflmao
+T 1611793414 18<25spikemaster18>	big money is at stake, so I'd expect every shady trick to be pulled.
+T 1611793434 18<29mplsCorwin18>	^ the daily driver in finsrv
+T 1611793601 18<29spudpnds18>	Haha, watching Wall Street heavy hitters like Melvin and Citadel need a nearly 3 billion dollar cash infusion after getting screwed by an army of Redditors with Robinhood accounts and stimuls checks has been some next-level schadenfreude.
+T 1611793631 18<26bqv18>	madness
+T 1611793728 18<20dale18>	It's still not clear to me how much of GME really owes to retail investors and how much is aforementioned big money.
+T 1611793738 18<25spikemaster18>	it's amazing. Sad the reddit has gone dark, but may be neccesary to stop undercovers making false flag incidents.
+T 1611793747 18<20dale18>	leah2: Thanks for the explanation there.
+T 1611793792 18<29spudpnds18>	I don't follow r/wsb, but apparently it goes private on the regular when things heat up.
+T 1611793934 18<25spikemaster18>	i love the media descriptions.  "hackers", "investor underground"
+T 1611793944 18<29spudpnds18>	"edgelords"
+T 1611794022 18<26bqv18>	spicy digital gamblers
+T 1611794114 18<29spudpnds18>	hostile foreign actors!
+T 1611794176 18<25spikemaster18>	a bunch of guys making a pact to have "power to the players" tatoo'd on their chest.
+T 1611794224 18<26bqv18>	does go to show that the rich aren't untouchable
+T 1611794265 18<29spudpnds18>	... and now they're whining about manipulation and are crying out for regulators to get involved
+T 1611794270 18<20dale18>	Game ain't over yet.
+T 1611794902 18<29mplsCorwin18>	it's all fun and gamestop until the entire system of capacious valuation falls apart due to the "wrong people" pushing markers en mass
+T 1611795032 18<20jlf18>	fear not, the market will sort it out
+T 1611795072 18<26bqv18>	what are your thoughts on crypto?
+T 1611795073 18<29mplsCorwin18>	TW: aoc  https://twitter.com/AOC/status/1354536220110577664?s=20
+T 1611795086 18<26bqv18>	cause at least it avoids any overreach of governments
+T 1611795165 18<29mplsCorwin18>	I'm for anything that unravels the fallacy of valuation of human labor.  IMO, anything that takes power from the tippy-top of the economic-elite will have that effect.
+T 1611795233 18<24holomorph18>	today lots of brokerages were having technical problems.  fun!
+T 1611795313 18<29mplsCorwin18>	no issues at $job I was made aware of fwiw, our trading desk is pretty small fish tho (sorry, to be vague but not sharing that)
+T 1611795320 18<24deego18>	Short sellers that courageously take the other side were our heroes till recently. But, if it makes money for the shkreli-fans on reddit, apparently death-threats to andrew are fair game!
+T 1611795320 18<24deego18>	 
+T 1611795349 18<24deego18>	and his family
+T 1611795432 18<24holomorph18>	mplsCorwin: vanguard was crapping out for me, but fido seemed fine. heard anecdotes of issues at many other popular brokers
+T 1611795450 18<29wgreenhouse18>	this sort of thing seems like just another kind of sportsball
+T 1611795519 18<26bqv18>	i dunno. it's more than sport, this is kinda a proof of concept that with sufficient organisation the economic imbalance can be dented pretty hard
+T 1611795522 18<29mplsCorwin18>	holomorph: ah, so like customer trading platforms.  I don't know anything about that business but it's sort of hard to believe just based on the degree of oversight involved to make any change to a production system that interfaces with the public markets.
+T 1611795547 18<20jlf18>	wgreenhouse: but including screwing hedge funds in the bargain
+T 1611795598 18<29mplsCorwin18>	wgreenhouse: tbh, I'm with you.  it's the bottom half of an inning where the visiting team literally though the other side would never come to bat.
+T 1611795627 18<24holomorph18>	mplsCorwin: i imagine it's more issues with websites/apps than the underlying system, but idk
+T 1611795668 18<29mplsCorwin18>	afaik the same regulatory conditions apply to all broker/dealer platforms but, like I said: I'm taking out of school here.
+T 1611795681 18<26bqv18>	presumably reddit hug-of-death kinda effect
+T 1611795773 18<24holomorph18>	rudybot: the big short told me regulators are asleep at the wheel
+T 1611795783 18<24rudybot18>	holomorph: afaict they must have bribed the regulators
+T 1611795792 18<29wgreenhouse18>	bqv: nah; much harder than this to actually flatten the Gini coefficient
+T 1611795829 18<26bqv18>	:(
+T 1611795842 18<29wgreenhouse18>	sorry :-|
+T 1611795852 18<24holomorph18>	mplsCorwin: i have no idea what's going on but boy howdy is it a wild ride
+T 1611795899 18<29mplsCorwin18>	holomorph: oh, indeed 🍿
+T 1611795954 18<29mplsCorwin18>	lol https://pbs.twimg.com/media/EsxIH3TW4AMNHXk?format=jpg&name=large
+T 1611795957 18<24holomorph18>	atm i'm curious where the short interest numbers are coming from and what the files here mean http://regsho.finra.org/regsho-Index.html
+T 1611796103 18<29mplsCorwin18>	i work with a ton of files that look just like these, but not these.
+T 1611796149 18<29mplsCorwin18>	ah, the layout PDF is helpful.
+T 1611796209 18<29mplsCorwin18>	ah well, time to cackel myself to sleep.  tomorrow should be an interesting day around the water-cooler
+T 1611796488 18<26tali71318>	yeah a guy I know who works in finance got alerts about lack of real time data because of high activity today.
+T 1611796565 18<26tali71318>	bqv: i had the same takeaway, it's an interesting instrument.
+T 1611796618 18<26tali71318>	wgreenhouse: yeah, but disruption is still disruption.
+T 1611796879 18<29wgreenhouse18>	tali713: doesn't feel like very disruptive disruption to me? hedge funds fail all the time--one might say it's inherent to their design to fail all the time. the source of the shock isn't super important
+T 1611796951 18<20arichiardi[m]18>	Hi all, I have a strange behavior happening here - I have got an encrypted org-mode...every time I open it and start modifying it, a popup appears asking me the encoding (raw-text and all that). What can that be trigger from?
+T 1611798170 18<26jrm18>	arichiardi[m]: Maybe you have one or more characters in the buffer that are not part of the file coding-system.  If so, the file can not be converted to that coding-system.  Maybe more help could be offered if you give the actual message you are receiving.
+T 1611798258 18<20arichiardi[m]18>	Thank you sounds good, I receive "These default coding systems were tried to encode text in the buffer ‘ *temp file*’: (utf-8 (1 . 4194180)  ...." 
+T 1611798306 18<20arichiardi[m]18>	Followed by "However, each of them encountered characters it couldn’t encode:" and a bunch of codes like \204 \366
+T 1611798368 18<20arichiardi[m]18>	it appears that it is trying to decode the encrypted file...cause my decrypted one does not seem to contain any weird charaters
+T 1611798368 18<20arichiardi[m]18>	it appears that it is trying to decode the encrypted file...cause my decrypted one does not seem to contain any weird charater
+T 1611798644 18<26jrm18>	arichiardi[m]: Sometimes "weird characters" are not always obvious, because the characters may look similar to ascii characters.  When you say the decrypted one doesn't have problems, you have a separate file with *exactly* the same contents (i.e. same sha) that's not having a problem?  If so, then I'm not sure.  That's not something that I've encountered.
+T 1611798813 18<20arichiardi[m]18>	jrm: the file is a `.org.gpg` that is decrypted in memory (I guess) - that's why there is a "*temp file*" in the message...I also have no idea why that is but thanks for trying to answer
+T 1611799052 18<20arichiardi[m]18>	in order to try what you suggest I would probably need to search for those characters...maybe I can try that
+T 1611799175 18<20arichiardi[m]18>	Yeah I cannot find \204 with C-s C-q it seems
+T 1611800245 18<26jrm18>	arichiardi[m]: You could try M-w all the buffer contents, then yanking all the contents to a new unencrypted file, then trying saving.
+T 1611800280 18<26jrm18>	...just to confirm that you don't get the same error.
+T 1611800297 18<20arichiardi[m]18>	right let me do that
+T 1611800374 18<20arichiardi[m]18>	indeed I don't get that
+T 1611800474 18<26jrm18>	Hmm... Unsure.  All that I can say is that I regularly work with encrypted org files and haven't had this problem.  You could try opening the file with emacs -q to rule out something in your configuration.
+T 1611800502 24*	28vds_ is now known as 18vds
+T 1611800503 24*	28nicolasbock_ is now known as 18nicolasbock
+T 1611800507 24*	28jackdk_ is now known as 18jackdk
+T 1611800508 18<20arichiardi[m]18>	oh I found
+T 1611800536 18<26jrm18>	\o/
+T 1611800549 18<20arichiardi[m]18>	oh wait maybe not...in any case I had `epa-file-inhibit-auto-save nil` in the header...maybe I was trying to fix stuff, I will get rid of it :D
+T 1611800561 24*	28yonkeltron5 is now known as 18yonkeltron
+T 1611800609 18<20edgar-rft18>	rudybot: let's find the unfounded
+T 1611800613 18<24rudybot18>	edgar-rft: For example, git lunacy isn't completely unfounded. Lots of people find git difficult to use.
+T 1611800704 18<26jrm18>	rudybot: Lots of people find Emacs difficult to use as well.  Do you agree that the effort to learn Emacs is worth it in the end?
+T 1611800738 18<24rudybot18>	jrm: Can someone recommend a recent (e.g. last 5 yrs) easy to watch film, preferably comedy? It's difficult to google for some, as I don't really like recent hollywood "comedies" … I'm hoping for something that doesn't follow those old tired recipes and something that doesn't make a big effort to offend or disgust like many recent american 'comedies' (I hate South Park). (otherwise it can be r-rated)
+T 1611800918 18<19parsnip18>	,sicp-bait
+T 1611800919 18<22fsbot18>	<wickedtrippy> So, I should go with SICP if I want to improve my algorithm design and problem solving skills?
+T 1611800980 18<20arichiardi[m]18>	jrm: do you setq any epa- variable explicitely for that to work? I looked and I don't do it...
+T 1611801166 18<26jrm18>	arichiardi[m]: No.  The only thing relevant that I can see is epg-pinentry-mode set to 'loopback.
+T 1611801210 18<20edgar-rft18>	rudybot: when doctors say SICP they mean that you are a Scary Insanely Crazy Person.
+T 1611801212 18<24rudybot18>	edgar-rft: When doctors say SICP they mean you are a Scary Insanely Crazy Person.
+T 1611801239 18<20arichiardi[m]18>	ok tnx
+T 1611801277 18<20edgar-rft18>	rudybot: when doctors say SICP they mean what?
+T 1611801278 18<24rudybot18>	edgar-rft: When doctors say SICP they mean you are a Scary Insanely Crazy Person.
+T 1611801319 18<20edgar-rft18>	rudybot: is that all you know about SICP?
+T 1611801321 18<24rudybot18>	edgar-rft: yeah, we all know SICP here, just go right to what you wanna talk about
+T 1611801353 18<20edgar-rft18>	rudybot: you behave like a dork today
+T 1611801355 18<24rudybot18>	edgar-rft: "sid the kid" looks like a dork.
+T 1611801437 18<26bqv18>	something something skynet
+T 1611804139 24*	28cpe_ is now known as 18cpe
+T 1611828343 19*	Now talking on 22#emacs
+T 1611828343 22*	Topic for 22#emacs is: Pretest #1 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.90.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1611828343 22*	Topic for 22#emacs set by 26Pickchea!~private@unaffiliated/pickchea (24Tue Jan 19 15:08:29 2021)
+T 1611828343 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1611828367 18<26dragestil18>	C-y paste from CLIPBOARD, but i want to keep that and have a separte key to paste from PRIMARY
+T 1611828729 18<26polezaivsani18>	dragestil: you could DIY, see C-h f mouse-yank-primary
+T 1611828812 18<26dragestil18>	polezaivsani: thanks a lot! i wanted to find the function by C-h k, but didn't know how to tell C-h k about middle click
+T 1611828939 18<26dragestil18>	and i just realised i can do that by simply middle click...
+T 1611828959 18<26polezaivsani18>	dragestil: yep, just tried it too :)
+T 1611829210 18<25beep156018>	Anyone knows how to add the current song to the playlist?
+T 1611829220 18<25beep156018>	in "M-x mpc"?
+T 1611829245 18<25beep156018>	*current song -> the song where the cursor is
+T 1611829413 18<25beep156018>	Found it! "M-x mpc-playlist-add"
+T 1611829508 24*	28Lord_of_Life_ is now known as 18Lord_of_Life
+T 1611830882 18<19gearnode18>	https://github.com/asyncapi/asyncapi
+T 1611831084 20*	Disconnected (20)

@@ -1682,3 +1682,47 @@ T 1611698218 20*	Disconnected (20)
 T 1611769223 19*	Now talking on 22#wireshark
 T 1611769223 22*	Topic for 22#wireshark is: Welcome to #wireshark The new name for the most popular network protocol analyser! | http://www.wireshark.org | Questions? Ask them! (and be patient for a response)
 T 1611769223 22*	Topic for 22#wireshark set by 26Ober (24Mon Apr 16 16:39:59 2007)
+T 1611778808 24*	MenschZwoNull has quit (Ping timeout: 260 seconds)
+T 1611779224 23*	lablt (~blt@reverse-177-123.fdn.fr23) has joined
+T 1611781823 18<24nicolas1718>	I have a protocol with two versions, the encoding is very different but the content/semantics isn't, should they show up as different protocols?
+T 1611781829 18<24nicolas1718>	http and http2 do, so maybe yes
+T 1611781911 18<24nicolas1718>	but it seems a bit annoying to have different field names (http.content_type and http2.headers.content_type)
+T 1611783290 20*	Disconnected (20)
+T 1611791627 19*	Now talking on 22#wireshark
+T 1611791627 22*	Topic for 22#wireshark is: Welcome to #wireshark The new name for the most popular network protocol analyser! | http://www.wireshark.org | Questions? Ask them! (and be patient for a response)
+T 1611791627 22*	Topic for 22#wireshark set by 26Ober (24Mon Apr 16 16:39:59 2007)
+T 1611793826 22*	26ChanServ gives voice to 18Butterfly^
+T 1611794605 22*	26ChanServ gives voice to 18Butterfly^
+T 1611794630 22*	26ChanServ gives voice to 18Butterfly^
+T 1611795723 18<19d0rm0us318>	14nephi
+T 1611796226 18<26jrnieder18>	uh oh
+T 1611796285 18<26jrnieder18>	hopefully that's just stray typing and doesn't herald spambots arriving
+T 1611796393 18<19d0rm0us318>	Nope... was logging into my printer...
+T 1611796406 18<19d0rm0us318>	Now I'll go change the password on it :)
+T 1611796465 18<26jrnieder18>	*phew* :)
+T 1611796500 18<19d0rm0us318>	Been a loooonnnnnggggg day for me doing remote tech support for my Stepmom
+T 1611796538 18<26jrnieder18>	remote tech support involving wireshark? *hoping*
+T 1611796541 18<19d0rm0us318>	she had been calling tech support for two hours and kept getting busy
+T 1611796554 18<19d0rm0us318>	The 'house phone' was down.
+T 1611796565 18<26jrnieder18>	for a while the easiest way for me to get internet access was to visit a particular hong kong style cafe in Chicago
+T 1611796591 18<19d0rm0us318>	Finally got thru to the ISP and got them to reset the MTA..
+T 1611796602 18<19d0rm0us318>	Final result, all good.
+T 1611796607 18<26jrnieder18>	for some reason their wifi router wasn't able to maintain a DHCP lease for me, so connecting was very finicky
+T 1611796636 18<26jrnieder18>	but what _did_ work was to open wireshark, run dhclient to try to get a DHCP lease, then set the IP address it was trying to use as a static ip
+T 1611796656 18<26jrnieder18>	that was my habit for about a year
+T 1611796737 18<19d0rm0us318>	Knowledge of wireshark saves the day!!!!
+T 1611798263 18<25JoeyS18>	hi all! I'm getting ready 2 commits related to adding HTTPS support to git dissectors ( 1.https://gitlab.com/joeysal/wireshark/-/commit/6809b8479354b42ac6e26548805d346262949994 2.https://gitlab.com/joeysal/wireshark/-/commit/49088bf8a963d8e1e643ec912896cf0dce22c51d ), should I later submit one MR with multiple commits? Or multiple MRs with one
+T 1611798270 18<25JoeyS18>	commit each?
+T 1611798467 18<26jrnieder18>	https://ask.wireshark.org/question/5784/should-we-migrate-development-to-gitlab/?answer=5786#post-id-5786 mentions "The MR must be merged as a whole, no option to cherry-pick a commit via UI"
+T 1611798513 18<26jrnieder18>	so I think that might be a good reason to use one commit per MR
+T 1611798533 18<26jrnieder18>	at least in cases where each commit provides some useful functionality on its own (or in other words when you'd want each commit to be merged as soon as it's ready)
+T 1611798533 24*	28eenthdegree is now known as 18enthd
+T 1611798557 18<25JoeyS18>	makes sense, thank you ^^
+T 1611798629 18<20maslen18>	jrnieder: But if the commits are directly related and build on each other, it might make sense to put them in one MR as well
+T 1611798669 18<20maslen18>	Peeking at the descriptions, prob better to have two MRs.
+T 1611798769 18<25JoeyS18>	Understood, will do
+T 1611801500 24*	28nicolas17_ is now known as 18nicolas17
+T 1611828343 19*	Now talking on 22#wireshark
+T 1611828343 22*	Topic for 22#wireshark is: Welcome to #wireshark The new name for the most popular network protocol analyser! | http://www.wireshark.org | Questions? Ask them! (and be patient for a response)
+T 1611828343 22*	Topic for 22#wireshark set by 26Ober (24Mon Apr 16 16:39:59 2007)
+T 1611831084 20*	Disconnected (20)

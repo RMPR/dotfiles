@@ -2140,3 +2140,59 @@ Jan 27 18:40:23 *	Topic for #wireshark set by Ober (Mon Apr 16 16:39:59 2007)
 
 **** BEGIN LOGGING AT Wed Jan 27 21:19:19 2021
 
+Jan 27 21:20:08 *	MenschZwoNull has quit (Ping timeout: 260 seconds)
+Jan 27 21:27:04 *	lablt (~blt@reverse-177-123.fdn.fr) has joined
+**** ENDING LOGGING AT Wed Jan 27 21:28:40 2021
+
+**** BEGIN LOGGING AT Wed Jan 27 21:28:40 2021
+
+Jan 27 22:10:23 <nicolas17>	I have a protocol with two versions, the encoding is very different but the content/semantics isn't, should they show up as different protocols?
+Jan 27 22:10:29 <nicolas17>	http and http2 do, so maybe yes
+Jan 27 22:11:51 <nicolas17>	but it seems a bit annoying to have different field names (http.content_type and http2.headers.content_type)
+Jan 27 22:34:50 *	Disconnected ()
+**** ENDING LOGGING AT Wed Jan 27 22:34:50 2021
+
+**** BEGIN LOGGING AT Thu Jan 28 00:53:47 2021
+
+Jan 28 00:53:47 *	Now talking on #wireshark
+Jan 28 00:53:47 *	Topic for #wireshark is: Welcome to #wireshark The new name for the most popular network protocol analyser! | http://www.wireshark.org | Questions? Ask them! (and be patient for a response)
+Jan 28 00:53:47 *	Topic for #wireshark set by Ober (Mon Apr 16 16:39:59 2007)
+Jan 28 01:30:26 *	ChanServ gives voice to Butterfly^
+Jan 28 01:43:25 *	ChanServ gives voice to Butterfly^
+Jan 28 01:43:50 *	ChanServ gives voice to Butterfly^
+Jan 28 02:02:03 <d0rm0us3>	14nephi
+Jan 28 02:10:26 <jrnieder>	uh oh
+Jan 28 02:11:25 <jrnieder>	hopefully that's just stray typing and doesn't herald spambots arriving
+Jan 28 02:13:13 <d0rm0us3>	Nope... was logging into my printer...
+Jan 28 02:13:26 <d0rm0us3>	Now I'll go change the password on it :)
+Jan 28 02:14:25 <jrnieder>	*phew* :)
+Jan 28 02:15:00 <d0rm0us3>	Been a loooonnnnnggggg day for me doing remote tech support for my Stepmom
+Jan 28 02:15:38 <jrnieder>	remote tech support involving wireshark? *hoping*
+Jan 28 02:15:41 <d0rm0us3>	she had been calling tech support for two hours and kept getting busy
+Jan 28 02:15:54 <d0rm0us3>	The 'house phone' was down.
+Jan 28 02:16:05 <jrnieder>	for a while the easiest way for me to get internet access was to visit a particular hong kong style cafe in Chicago
+Jan 28 02:16:31 <d0rm0us3>	Finally got thru to the ISP and got them to reset the MTA..
+Jan 28 02:16:42 <d0rm0us3>	Final result, all good.
+Jan 28 02:16:47 <jrnieder>	for some reason their wifi router wasn't able to maintain a DHCP lease for me, so connecting was very finicky
+Jan 28 02:17:16 <jrnieder>	but what _did_ work was to open wireshark, run dhclient to try to get a DHCP lease, then set the IP address it was trying to use as a static ip
+Jan 28 02:17:36 <jrnieder>	that was my habit for about a year
+Jan 28 02:18:57 <d0rm0us3>	Knowledge of wireshark saves the day!!!!
+Jan 28 02:44:23 <JoeyS>	hi all! I'm getting ready 2 commits related to adding HTTPS support to git dissectors ( 1.https://gitlab.com/joeysal/wireshark/-/commit/6809b8479354b42ac6e26548805d346262949994 2.https://gitlab.com/joeysal/wireshark/-/commit/49088bf8a963d8e1e643ec912896cf0dce22c51d ), should I later submit one MR with multiple commits? Or multiple MRs with one
+Jan 28 02:44:30 <JoeyS>	commit each?
+Jan 28 02:47:47 <jrnieder>	https://ask.wireshark.org/question/5784/should-we-migrate-development-to-gitlab/?answer=5786#post-id-5786 mentions "The MR must be merged as a whole, no option to cherry-pick a commit via UI"
+Jan 28 02:48:33 <jrnieder>	so I think that might be a good reason to use one commit per MR
+Jan 28 02:48:53 <jrnieder>	at least in cases where each commit provides some useful functionality on its own (or in other words when you'd want each commit to be merged as soon as it's ready)
+Jan 28 02:48:53 *	eenthdegree is now known as enthd
+Jan 28 02:49:17 <JoeyS>	makes sense, thank you ^^
+Jan 28 02:50:29 <maslen>	jrnieder: But if the commits are directly related and build on each other, it might make sense to put them in one MR as well
+Jan 28 02:51:09 <maslen>	Peeking at the descriptions, prob better to have two MRs.
+Jan 28 02:52:49 <JoeyS>	Understood, will do
+Jan 28 03:38:20 *	nicolas17_ is now known as nicolas17
+**** BEGIN LOGGING AT Thu Jan 28 11:05:43 2021
+
+Jan 28 11:05:43 *	Now talking on #wireshark
+Jan 28 11:05:43 *	Topic for #wireshark is: Welcome to #wireshark The new name for the most popular network protocol analyser! | http://www.wireshark.org | Questions? Ask them! (and be patient for a response)
+Jan 28 11:05:43 *	Topic for #wireshark set by Ober (Mon Apr 16 16:39:59 2007)
+Jan 28 11:51:24 *	Disconnected ()
+**** ENDING LOGGING AT Thu Jan 28 11:51:24 2021
+

@@ -6753,3 +6753,219 @@ Jan 27 21:12:17 <Southern_Gentlem>	and also read their cuda howto
 
 **** BEGIN LOGGING AT Wed Jan 27 21:19:19 2021
 
+Jan 27 21:20:16 *	caterfxo has quit (Ping timeout: 240 seconds)
+Jan 27 21:20:59 *	caterfxo (caterfxo@gateway/vpn/privateinternetaccess/caterfxo) has joined
+Jan 27 21:21:05 *	caterfxo has quit (Excess Flood)
+Jan 27 21:21:20 *	linville has quit (Quit: Leaving)
+Jan 27 21:21:24 *	caterfxo (caterfxo@gateway/vpn/privateinternetaccess/caterfxo) has joined
+Jan 27 21:21:47 *	uvolmer has quit (Remote host closed the connection)
+Jan 27 21:22:14 <Southern_Gentlem>	Ben_11, does that make sense?
+Jan 27 21:22:42 <Ben_11>	Southern_Gentlem: that's how I installed it in Fedora 31.
+Jan 27 21:22:51 <Ben_11>	I just dnf update and reboot wait a second please
+Jan 27 21:23:14 *	Ben_11 has quit (Quit: Leaving.)
+Jan 27 21:23:21 <Southern_Gentlem>	doesnt mean it was correct then no idea how it worked
+Jan 27 21:24:04 *	uvolmer (~uvolmer@2001-4dd0-212c-82-5acc-6b0b-da9c-d52c.ipv6dyn.netcologne.de) has joined
+Jan 27 21:26:10 <needmorehare>	Southern_Gentlem, that was spot on, there's a Fedora 33 repo for it... why he used a RHEL 8 repo is beyond me
+Jan 27 21:26:37 *	_4n0nymous_ (~4n0nymou2@217.138.203.164) has joined
+Jan 27 21:27:07 *	_4n0nymous_ has quit (Client Quit)
+Jan 27 21:27:39 *	blindcant has quit (Ping timeout: 264 seconds)
+Jan 27 21:27:51 *	blindcantt (~tool@43.245.162.131) has joined
+**** ENDING LOGGING AT Wed Jan 27 21:28:40 2021
+
+**** BEGIN LOGGING AT Wed Jan 27 21:28:40 2021
+
+Jan 27 21:29:20 <Ben_1>	re
+Jan 27 21:29:32 <Southern_Gentlem>	doesnt mean it was correct then no idea how it worked
+Jan 27 21:29:43 <Ben_1>	Southern_Gentlem: I had the hope that a dnf update fixes the issue but no
+Jan 27 21:29:55 <Southern_Gentlem>	no disable that redhat repo
+Jan 27 21:29:59 <Ben_1>	On the rpmfusion tutorial they say "sudo dnf install akmod-nvidia"
+Jan 27 21:30:32 <Ben_1>	which produces this error: package akmod-nvidia-3:455.28-1.fc33.x86_64 requires nvidia-kmod-common >= 3:455.28, but none of the providers can be installed
+Jan 27 21:30:42 <Ben_1>	mh
+Jan 27 21:30:43 <Southern_Gentlem>	sudo dnf install kmod-nvidia --disablerepo=cuda-rhel8-x86_64
+Jan 27 21:30:49 <Ben_1>	probably this is causing the issue: package nvidia-kmod-common-3:455.32.00-1.el8.noarch is filtered out by modular filtering
+Jan 27 21:31:05 <Ben_1>	ok I will try
+Jan 27 21:31:22 <Southern_Gentlem>	and you may have to remove all the el8 packages from your system
+Jan 27 21:31:26 <Ben_1>	ok seems to work
+Jan 27 21:31:44 <Southern_Gentlem>	rpm -qa |grep nvidia |fpaste
+Jan 27 21:31:53 <Ben_1>	should I remove the rhel repo completely?
+Jan 27 21:31:57 <Southern_Gentlem>	yes
+Jan 27 21:32:30 <needmorehare>	Ben_1, there's a proper Fedora repo for it made by NVIDIA
+Jan 27 21:32:42 <Ben_1>	ok thanks for your help, you saved me a lot of time
+Jan 27 21:32:58 <Ben_1>	needmorehare: with the same packages as in rpmfusion?
+Jan 27 21:33:01 <Southern_Gentlem>	needmorehare, dont confuse the situation please
+Jan 27 21:33:28 *	needmorehare stays silent until the akmod situation is cleared up
+Jan 27 21:33:30 <Southern_Gentlem>	Ben_1, read the rpmfusion howto for cuda
+Jan 27 21:34:26 <Southern_Gentlem>	Ben_1, still waiting on the rpm -qa |grep nvidia |fpaste
+Jan 27 21:35:28 <Ben_1>	I just want to reboot to check whether everything works. Afterwards I will remove the repo and the el8 packages
+Jan 27 21:36:02 <Southern_Gentlem>	lets look at the command i gave you first
+Jan 27 21:36:22 <Southern_Gentlem>	**shakes Head **
+Jan 27 21:37:36 <Southern_Gentlem>	needmorehare, yeah we have dealt with these issues for years
+Jan 27 21:38:05 <Southern_Gentlem>	even before rpmfusion existed
+Jan 27 21:38:32 <Southern_Gentlem>	back in the livna days
+Jan 27 21:51:59 <Ben_1>	Southern_Gentlem: https://paste.centos.org/view/e47899f0
+Jan 27 21:52:40 <Southern_Gentlem>	looks good
+Jan 27 21:53:20 <Southern_Gentlem>	just remember that sometime when you get a new kernel you may have to reboot twice
+Jan 27 21:53:51 <Southern_Gentlem>	first time the kmod builds but that is too late for the system to use it so you have to reboot a second time
+Jan 27 21:55:07 <Ben_1>	good to know, thanks :)!
+Jan 27 22:01:33 <AndroUser2>	Hi
+Jan 27 22:04:13 <Southern_Gentlem>	AndroUser2, howdy
+Jan 27 22:34:50 *	Disconnected ()
+**** ENDING LOGGING AT Wed Jan 27 22:34:50 2021
+
+**** BEGIN LOGGING AT Thu Jan 28 00:53:47 2021
+
+Jan 28 00:53:47 *	Now talking on #fedora
+Jan 28 00:53:47 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Jan 28 00:53:47 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Jan 28 00:53:47 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Jan 28 01:01:02 <fedbot>	*** F33-20210114 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Jan 28 01:03:57 <dan01>	Ok, something very curious happened to me ^_^
+Jan 28 01:04:40 <dan01>	I've just installed Fedora 33 out of the network install, and for my surprise, Netflix could play movies without having to install ffmpeg-libs from RpmFusioun
+Jan 28 01:04:51 <dan01>	How come? :)
+Jan 28 01:06:08 <gnafu>	dan01: I'm not sure of the specifics, but I /think/ Fedora ships with "legally safe" AAC and H.264 decoding these days.
+Jan 28 01:06:24 <gnafu>	H.264 is provided by OpenH264.
+Jan 28 01:06:33 <gnafu>	And let me see if I can find the article about AAC...
+Jan 28 01:06:50 <dan01>	gnafu: Yes, but I always thought that only decodes some WebRTC profile, right?
+Jan 28 01:06:53 <gnafu>	Here we go: libva-intel-hybrid-driver
+Jan 28 01:07:03 <gnafu>	Oops: libva-intel-hybrid-driver
+Jan 28 01:07:11 <gnafu>	Dangit!  Why won't that URL copy...
+Jan 28 01:07:35 <dan01>	I mean don't get me wrong I don't know what I'm talking about I've just read that thing. Sure, please give the URL :)
+Jan 28 01:07:38 <dan01>	Can't wait to read
+Jan 28 01:08:36 <gnafu>	https://blogs.gnome.org/kalev/2019/09/25/out-of-box-h-264-and-aac-support-in-fedora-31-workstation/
+Jan 28 01:09:16 <gnafu>	dan01: I think OpenH264 used to only be for WebRTC, but it seems it's now for systemwide H.264 decoding.
+Jan 28 01:09:47 <dan01>	ah ok
+Jan 28 01:10:07 <dan01>	anyways, this is a real spoil, if that's the correct Enghlish expression
+Jan 28 01:10:15 <dan01>	I'm really happy about this, was a nice surprise :)
+Jan 28 01:11:15 <NULL[m]2>	is it worth it switching from Ubuntu to Fedora?
+Jan 28 01:11:21 <NULL[m]2>	 * is it worth it switching from (K)Ubuntu to Fedora?
+Jan 28 01:11:55 <dan01>	NULL[m]2: Well, these are preferences and you're on the Fedora channel :))
+Jan 28 01:11:55 <gnafu>	NULL[m]2: I think so, but that's in part because I haven't used Ubuntu in over 10 years ;-).
+Jan 28 01:12:26 <dan01>	NULL[m]2: I like Fedora because it uses more upstream aka modern software. Including Wayland/Btrfs/Kernel
+Jan 28 01:12:48 <chrisawi>	dan01: netflix uses vp9 by default anyway
+Jan 28 01:12:54 <NULL[m]2>	I heard the battery life is better
+Jan 28 01:13:08 <NULL[m]2>	but I rather like APT
+Jan 28 01:13:13 <dan01>	chrisawi: I know back a couple of months ago, I've did this and I could not play Netflix by default
+Jan 28 01:13:16 <gnafu>	chrisawi: Does it nowadays?  Last I heard, they only used VP9 for mobile downloads (watch offline).
+Jan 28 01:14:26 <dan01>	But maybe you are right, not sure how to check? Any website that uses for sure H.264?
+Jan 28 01:15:02 <chrisawi>	I just tried playing something in chrome and checked the debug info, and it seems to be using vp9 (but he-aac for audio)
+Jan 28 01:15:29 <chrisawi>	(ctrl+alt+shift+D)
+Jan 28 01:19:06 <dan01>	chrisawi: Any idea how to view that info in Firefox?
+Jan 28 01:20:54 <chrisawi>	that's a netflix keybinding
+Jan 28 01:21:36 <dan01>	yup, you're right it's vp9
+Jan 28 01:30:58 <gnafu>	chrisawi: Awesome!
+Jan 28 01:31:22 <gnafu>	I still think H.264 will work without ffmpeg-libs now, but I'm not sure.
+Jan 28 01:34:49 <dan01>	how can I try it?
+Jan 28 01:43:13 <gnafu>	dan01: You can try Vimeo.  Anything that's not a Staff Pick should use H.264 by default (and you can press "d" to see stats).
+Jan 28 01:43:34 <gnafu>	(There Staff Picks use AV1 if your browser supports it.)
+Jan 28 01:43:45 <gnafu>	s/There/Their/
+Jan 28 01:43:54 <dan01>	gnafu: thanks
+Jan 28 01:47:56 <dan01>	it says Codec:AVC / AAC
+Jan 28 01:49:57 <dan01>	will it's working, it's kind of lagging
+Jan 28 01:50:03 <dan01>	But hey! It's a progress!
+Jan 28 01:51:33 <dowdle>	dan01: I don't think the codec support in the OpenH264 package is very comprehensive... so installing the rpmfusion stuff is recommended... if you want a wide range of compat.
+Jan 28 01:51:54 <dan01>	thanks
+Jan 28 01:52:09 <dan01>	Is Firefox on Fedora Firefox-Wayland?
+Jan 28 01:52:12 <dowdle>	dan01: When hardware support for AV1 is widespread, hopefully most everything will shift to it.
+Jan 28 01:52:13 *	CamBan69_ is now known as CamBan69
+Jan 28 01:52:41 <dowdle>	dan01: firefox-wayland is just a shell script that runs the regular firefox with the wayland flag.
+Jan 28 01:52:59 <dowdle>	dan01: You can look at it and see.
+Jan 28 01:53:35 <dowdle>	dan01: cat /usr/bin/firefox-wayland
+Jan 28 01:55:06 <dan01>	ah I see
+Jan 28 01:56:12 <dan01>	But still the question remains, does firefox run with that MOZ_ENABLE_WAYLAND=1 by default? How can I find that out?
+Jan 28 01:57:13 <kk4ewt>	dan01 i thought there was a firefox-wayland package
+Jan 28 01:57:24 <dan01>	kk4ewt: it is
+Jan 28 01:57:59 <kk4ewt>	so i dont think standard firefox has that
+Jan 28 01:58:13 <kk4ewt>	only if you add firefox-wayland
+Jan 28 01:58:26 <dan01>	kk4ewt: I was wondering if there's any use to install it, if firefox runs by default with MOZ_ENABLE_WAYLAND=1, but then the package would be useless I guess
+Jan 28 01:59:18 <kk4ewt>	i would have to look at the kickstart for workstation to see which is included
+Jan 28 01:59:27 <kk4ewt>	or if both are
+Jan 28 01:59:40 <kk4ewt>	i will check that when i am at work tomorrow
+Jan 28 02:00:46 <dan01>	thanks for the help all, good night!
+Jan 28 02:01:05 <fedbot>	*** F33-20210114 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Jan 28 02:04:05 <dowdle>	kk4ewt: The firefox-wayland package is only a shell script that runs firefox with a WAYLAND option set... so the regular firefox binary (as Fedora packages it) does both X11 and Wayland.
+Jan 28 02:04:47 <dowdle>	Laters
+Jan 28 02:16:02 *	Snuupy0 is now known as Snuupy
+Jan 28 02:16:32 <suavedandy>	Guys. Seriously. Is it normal for there to be barely any user groups in the initial install.
+Jan 28 02:16:33 *	x42_ is now known as x42
+Jan 28 02:17:06 <suavedandy>	Like, I have root, user and wheel.
+Jan 28 02:18:10 <suavedandy>	This was minimal local install.
+Jan 28 02:18:29 <M10qpalzm[m]>	i use KDE edition and my user has user and wheel group
+Jan 28 02:18:37 <suavedandy>	Hm.
+Jan 28 02:18:58 <M10qpalzm[m]>	something not work?
+Jan 28 02:19:03 <suavedandy>	No audio? No video?
+Jan 28 02:19:09 <suavedandy>	No other groups?
+Jan 28 02:19:16 <suavedandy>	There are lots of groups.
+Jan 28 02:19:25 <suavedandy>	On Void and Debian, at least.
+Jan 28 02:19:53 <suavedandy>	But if that's fine on Fedora then okay.
+Jan 28 02:21:36 <M10qpalzm[m]>	you can list all groups with
+Jan 28 02:21:36 <M10qpalzm[m]>	   cut -d: -f1 /etc/group
+Jan 28 02:21:36 <M10qpalzm[m]>	but my user only is in user, wheel yeah
+Jan 28 02:23:28 *	angusrobot_ is now known as angusrobot
+Jan 28 02:24:05 <suavedandy>	But of course there are lots of groups.
+Jan 28 02:24:29 <suavedandy>	But for some reason, my user doesn't belong to them.
+Jan 28 02:24:41 <suavedandy>	Like, there are input, audio, video.
+Jan 28 02:24:44 <suavedandy>	Nope.
+Jan 28 02:25:44 <suavedandy>	I don't get it. Aren't groups needed for some stuff to properly function?
+Jan 28 02:26:09 <M10qpalzm[m]>	https://wiki.archlinux.org/index.php/Users_and_groups#Pre-systemd_groups
+Jan 28 02:26:49 *	M10qpalzm[m] sent a long message:  < https://matrix.org/_matrix/media/r0/download/matrix.org/dJukpwAsOddnHmRMMLjlrfqd/message.txt >
+Jan 28 02:36:13 <Khaytsus>	suavedandy: no?
+Jan 28 02:40:35 <linuxmodder>	suavedandy, for some things yes but you need to have a reason the system doesnt naturally allow you to shoot yourself in the head and foot in the same instance for pete's sake
+Jan 28 02:40:55 <linuxmodder>	if you need those for access mostly then add what you need and nothing more
+Jan 28 02:41:16 <linuxmodder>	linuxmodder wheel cockpit transmission libvirt www-data
+Jan 28 02:41:37 <linuxmodder>	those are my users groups and those are it and system works amazingly well
+Jan 28 02:41:45 <linuxmodder>	and that WAS NOT out the box
+Jan 28 02:43:29 <linuxmodder>	cockpit for some remote stuff transmission because of some things being in that group and libvirt and ww-data for VMs and webserver resepctively all other things are set with other access needs not requiring groups
+Jan 28 02:44:51 <linuxmodder>	and I even do some android tweaking and you dont see anything for that, because its not needed if you use other means that are sane and safe liek udev
+Jan 28 02:46:38 *	M10qpalzm[m] sent a long message:  < https://matrix.org/_matrix/media/r0/download/matrix.org/oOGbemEeoZanHRxLlBdtxfmT/message.txt >
+Jan 28 02:53:46 *	angusrobot_ is now known as angusrobot
+Jan 28 03:01:06 <fedbot>	*** F33-20210114 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Jan 28 03:04:39 *	Anon[m] is now known as Tryweirder[m]
+Jan 28 03:21:42 *	kinkinkijkin_ is now known as kinkinkijkin
+Jan 28 03:21:42 *	suavedandy_ is now known as suavedandy
+Jan 28 03:21:43 *	slanck_ is now known as slanck
+Jan 28 03:59:02 <fmlatghor>	So I'm having a problem with a hard drive
+Jan 28 04:00:04 <fmlatghor>	It was working fine, then I got a read error. I took the drive out, then put it back in later. I'm using a sata to usb adapter. It looks like it's connected, but I don't see it in gnome-disks.
+Jan 28 04:01:04 <[R]>	what does dmesg sy when you plug it in
+Jan 28 04:01:48 <fmlatghor>	I'm not sure exactly what's happening
+Jan 28 04:01:52 <fmlatghor>	I'll show you
+Jan 28 04:05:21 <fmlatghor>	[R]: https://i.vgy.me/RCXxuD.png
+Jan 28 04:05:55 <[R]>	you need to take a picutre of text?
+Jan 28 04:05:57 <[R]>	lol
+Jan 28 04:06:04 <fmlatghor>	fine
+Jan 28 04:06:09 <fmlatghor>	here's an fpaste
+Jan 28 04:07:43 <fmlatghor>	[R]: https://paste.centos.org/view/decc6d87
+Jan 28 04:08:12 <[R]>	and at what point did you plug it in?
+Jan 28 04:08:48 <fmlatghor>	I put it back in then
+Jan 28 04:09:04 <fmlatghor>	but when when I pulled it, there wsa no new stuff
+Jan 28 04:09:21 <[R]>	whre in the log did you plug it in...
+Jan 28 04:09:22 <fmlatghor>	So I'm not sure what's going on
+Jan 28 04:09:32 <fmlatghor>	uh dunno
+Jan 28 04:09:37 <fmlatghor>	has to be awhile ago
+Jan 28 04:12:02 <fmlatghor>	probably has to be when itgot plugged in again
+Jan 28 04:12:04 <fmlatghor>	45883.975933
+Jan 28 04:12:52 <[R]>	well looks liek it detected an sdc and sdd and no partitions
+Jan 28 04:13:27 <fmlatghor>	[R]: but shouldn't it still show in disks?
+Jan 28 04:14:01 <[R]>	if its not fully initialziaing it
+Jan 28 04:14:02 <[R]>	probably not
+Jan 28 04:14:07 <[R]>	what does fdisk say about it?
+Jan 28 04:14:54 <fmlatghor>	[R]: https://paste.centos.org/view/ae50afd4
+Jan 28 04:15:15 <[R]>	yeah, looks like its not fully initializing, probably because its dead
+Jan 28 04:15:57 <fmlatghor>	damn I traded that for something
+Jan 28 04:19:34 <fmlatghor>	ok I just ran into a weird situation
+Jan 28 04:20:04 <fmlatghor>	ls /srv is empty, even as root, but nautilus is telling me it isn't
+Jan 28 04:20:17 <fmlatghor>	I am in much confusion
+Jan 28 04:20:34 <fmlatghor>	I know nautilus can be wrong, but -- I don't know.
+Jan 28 04:20:56 <fmlatghor>	oh
+Jan 28 04:21:00 <fmlatghor>	Ignore this
+Jan 28 04:21:02 <fmlatghor>	I feel so stupid
+Jan 28 04:25:40 *	kdas_ is now known as kushal
+**** BEGIN LOGGING AT Thu Jan 28 11:05:43 2021
+
+Jan 28 11:05:43 *	Now talking on #fedora
+Jan 28 11:05:43 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Jan 28 11:05:43 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Jan 28 11:05:43 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Jan 28 11:44:12 *	akahat|lunch is now known as akahat|rover
+Jan 28 11:51:24 *	Disconnected ()
+**** ENDING LOGGING AT Thu Jan 28 11:51:24 2021
+

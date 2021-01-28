@@ -1,262 +1,3 @@
-T 1576567001 22*	Topic for 22#fedora is: #Fedora F30, F31 end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F30,F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
-T 1576567001 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Thu Nov  7 00:40:03 2019)
-T 1576567001 -18ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
-T 1577958303 19*	Now talking on 22#fedora
-T 1577958303 22*	Topic for 22#fedora is: #Fedora F30, F31 end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F30,F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
-T 1577958303 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Thu Nov  7 00:40:03 2019)
-T 1577958303 -18ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
-T 1577960341 18<19GPolonkai18>	hello
-T 1577960384 18<19GPolonkai18>	i just started a system upgrade (initiated from GNOME Software) on Fedora 31, and it’s reeeeeally slow (it’s running for almost 2 hours now, and it’s still at 26%
-T 1577960411 18<19GPolonkai18>	is there a way to see what’s happening if i don’t have a root password set (thus, i can’t login on tty2..6)
-T 1577961301 18<19GPolonkai18>	i guess rebooting the machine is a pretty bad idea
-T 1577961743 18<19tswsl198918>	I wouldn't advise it. Is there still disk activity? If so then it's probably still running the upgrade, just taking its time.
-T 1577962269 18<22Cybertinus18>	hello, I'm running Fedora 31 KDE Spin with the XFCE desktop (I switched DE at some point ;) ). I have the XFCE NetworkManager Applet running. But this doesn't support Wireguard VPN tunnels. NetworksManager itself does support it (I can access the tunnel via nmcli). Is there a valid alternative for the NetworkManager Applet for XFCE that does support WireGuard?
-T 1577962298 18<26diogenes_18>	GPolonkai, while it's upgrading, write an usb stick with Fedora on it, in case something goes wrong, you can re-install.
-T 1577962555 18<28topyli18>	GPolonkai: you can't login at a tty if you don't have a root password? that's strange. do we have some new tty philosophy on fedora now?
-T 1577962589 18<28topyli18>	i can login just fine, i just checked
-T 1577962633 18<28topyli18>	first time in ages i saw a tty by the way :)
-T 1577963093 18<19GPolonkai18>	tswsl1989: i can’t hear the disk doing something (luckily it has a HDD in it, as it’s a notebook without an HDD activity LED)
-T 1577963106 18<19GPolonkai18>	diogenese: i always have one with me, just in case :)
-T 1577963151 18<19GPolonkai18>	topyli: if you press “reboot and install upgrades”, you can’t login as an unprivileged user while the upgrades are running
-T 1577963193 18<28topyli18>	ah so it's just during an upgrade. right
-T 1577963874 18<19GPolonkai18>	i decided to go brave and pressed Ctrl-Alt-Delete; now it’s booting up seemingly fine…
-T 1577963925 18<27kwizart18>	just FYI, a new version of the fedy tool is available, if anyone wants to request improvements of fixes, see also : https://copr.fedorainfracloud.org/coprs/kwizart/fedy/
-T 1577966228 18<24irreleph4nt18>	Hello. I'd like to paste a file to paste.centos.org and am using the corresponding API example given on the website
-T 1577966240 18<24irreleph4nt18>	but all curl returns is "invalid API key"
-T 1577966247 18<24irreleph4nt18>	Is the documentation outdated?
-T 1577966268 18<24irreleph4nt18>	Here is what I tried: curl -d private=1 -d name=irreleph4nt --data-urlencode text@winbinddpipe.ausearch https://paste.centos.org/api/create
-T 1577966551 18<24irreleph4nt18>	Okay, having worked around not being able to paste from cli, on to my actual problem: upgrading from fc30 server to fc31 via dnf broke selinux in context of winbind / samba for me
-T 1577966559 18<24irreleph4nt18>	the AVC messages can be seen here: https://paste.centos.org/view/74081d36
-T 1577966613 18<24irreleph4nt18>	The issue boils down to selinux denying access to /run/samba/winbindd/pipe for every service under the moon, which in turn renders me unable to use samba AD users to, for example, log in via SSH
-T 1577966656 18<24irreleph4nt18>	I could create custom policies for each and every service on the box but instead would like to know how to fix this the right way
-T 1577966714 18<24irreleph4nt18>	The directory and file are labeled like this: https://paste.centos.org/view/75d71b84
-T 1577966771 18<24irreleph4nt18>	I already tried restorecon -R on the directory which changes the folder and pipe file from a samba label to winbind_var_run_t which does not solve the issue, though
-T 1577970483 18<26[adw]18>	Hi, has anybody succesfully installed and got to work Unifi-controller on fedora server?
-T 1577980489 20*	Disconnected (20)
-T 1577980508 22*	26RMPR sets mode 24+Z on 22RMPR
-T 1577980508 22*	26RMPR sets mode 24+i on 22RMPR
-T 1577980509 -18freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
-T 1577980509 24*	Received a CTCP 24VERSION from 18freenode-connect
-T 1577980514 19*	Now talking on 22#fedora
-T 1577980514 22*	Topic for 22#fedora is: #Fedora F30, F31 end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F30,F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
-T 1577980514 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Thu Nov  7 00:40:03 2019)
-T 1577980515 -18ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
-T 1577981519 20*	Disconnected (20)
-T 1577981539 22*	26RMPR sets mode 24+Z on 22RMPR
-T 1577981539 22*	26RMPR sets mode 24+i on 22RMPR
-T 1577981539 -18freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
-T 1577981539 24*	Received a CTCP 24VERSION from 18freenode-connect
-T 1577981545 19*	Now talking on 22#fedora
-T 1577981545 22*	Topic for 22#fedora is: #Fedora F30, F31 end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F30,F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
-T 1577981545 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Thu Nov  7 00:40:03 2019)
-T 1577981545 -18ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
-T 1577982087 18<20yates18>	are there any known issues getting this iso to boot off of liveusb: F31-WORK-x86_64-LIVE-20191206.iso
-T 1577982103 18<20yates18>	?
-T 1577982145 18<20yates18>	i flashed it using "dd if=F31-WORK-x86_64-LIVE-20191206.iso of=/dev/sdX bs=1M"
-T 1577982152 18<20yates18>	where "X" is appropriate
-T 1577982714 18<19RayTracer18>	yates: ensure that there is nothing mounted from the usb (maybe automatically) before running dd
-T 1577982910 18<20yates18>	i'm using a 4GB usb drive. is that big enough?
-T 1577983044 18<19RayTracer18>	yates: should be enough, the iso seems to be 1.8GB
-T 1577983235 18<19RayTracer18>	yates: and, as you're not using eg. "oflag=direct", you should run "sync" before unplugging/resetting
-T 1577983283 18<19RayTracer18>	yates: besides that, I'm not aware of general issues
-T 1577983414 18<20yates18>	ok, thanks RayTracer
-T 1577984062 18<29kk4ewt18>	yates yes i tested that iso on a usb and there was no issue
-T 1577984081 18<29kk4ewt18>	using dd and livecd-iso-to-disk
-T 1577984098 18<20yates18>	kk4ewt: thanks - that is a good datapoint
-T 1577984143 18<29kk4ewt18>	"dd if=F31-WORK-x86_64-LIVE-20191206.iso of=/dev/sdX bs=4M"
-T 1577984152 18<29kk4ewt18>	 "dd if=F31-WORK-x86_64-LIVE-20191206.iso of=/dev/sdX bs=4M"
-T 1577984159 18<20yates18>	i am wondering if my brand of usb is inferior. i tried several attempts of flashes on several machines, none worked
-T 1577984164 18<29kk4ewt18>	is the command i used
-T 1577984178 18<29kk4ewt18>	yes you can have bad media
-T 1577984190 18<20yates18>	it would be multiple bad media
-T 1577984198 18<29kk4ewt18>	i have seen something say its 4G and only be 256M
-T 1577984220 18<20yates18>	i tried two+ different pieces of usb by same mfr
-T 1577984288 18<26Khaytsus18>	If a dd is too big to a media, it'll fail.
-T 1577984302 18<26Khaytsus18>	Someone probably hasn't checked a checksum or something.
-T 1577984304 18<20yates18>	it was an el-cheapo 4G usb off amazon
-T 1577984309 18<20yates18>	i checked
-T 1577984364 18<29kk4ewt18>	goto walmart and get a good media
-T 1577984440 18<20yates18>	ha !
-T 1577984787 18<19RayTracer18>	maybe it's also time to ask how it fails.. like: does the machine boot from usb at all
-T 1577986254 18<20yates18>	RayTracer: yes, it boots, but after a long time and many dracut timeout messages it throws me into dracut
-T 1577986278 18<20yates18>	it boots "sorta"
-T 1577986508 18<19RayTracer18>	yates: maybe a web search for the hardware model reveals some workaround like acpi=off
-T 1577987681 18<20yates18>	works with an ubuntu live cd
-T 1577987730 18<19RayTracer18>	ok, this makes it look like it's not that :)
-T 1577988096 18<20yates18>	lol
-T 1577988391 18<27bugs_18>	curious about yates computer type
-T 1577988414 18<27bugs_18>	it sounds like a usb3 / usb2 issue
-T 1577990073 18<29razorfreak18>	hello, can someone help me with brightness issue? the keys aren't working.
-T 1577990092 18<20sfranken18>	F lock?
-T 1577990135 18<29razorfreak18>	other keys are working except the brightness keys
-T 1577990171 18<20sfranken18>	Is the key mapped to brightness in the settings?
-T 1577990208 18<29razorfreak18>	when I press the key, brightness logo comes up
-T 1577990220 18<29razorfreak18>	I think they are mapped
-T 1577990222 18<20sfranken18>	That would be a "yes", then
-T 1577990236 18<29razorfreak18>	I run F31, I tried this on F30 also
-T 1577990283 18<29razorfreak18>	my laptop is DELL XPS 15 7590
-T 1577990346 18<29razorfreak18>	xbacklight also doesn't work
-T 1577990428 18<20sfranken18>	Let me check, I have the XPS 15 9560
-T 1577990491 18<20sfranken18>	hmm, the keys work as expected on that machine
-T 1577990574 18<29razorfreak18>	sfranken, so is there any way? I have been stuck trying to fix this for the last 3 days
-T 1577990632 18<20sfranken18>	I don't know. Mine work out of the box...
-T 1577990670 18<20sfranken18>	You could also adjust it from the menu at the top right, but that's more work
-T 1577990689 18<29razorfreak18>	that is also not working
-T 1577990693 18<29razorfreak18>	xrandr seems to be working
-T 1577990780 18<20sfranken18>	hmm... What GPU is in your machine?
-T 1577990783 18<20sfranken18>	And wayland or X11?
-T 1577991009 18<29razorfreak18>	nvidia 1650
-T 1577991012 18<29razorfreak18>	x11
-T 1577991038 18<20sfranken18>	Does your laptop have an Intel GPU as well?
-T 1577991057 18<29razorfreak18>	I think no
-T 1577991132 18<29razorfreak18>	oh yes, intel uhd graphics 630
-T 1577991268 18<20sfranken18>	Could you check what happens if you try the keys with the nvidia card blacklisted/disabled in the bios?
-T 1577991474 18<29razorfreak18>	I am sorry, how do I do that?
-T 1577991643 18<29razorfreak18>	I found something, I will check this https://nmilosev.svbtle.com/perfection-today-running-fedora-on-dell-xps-7590
-T 1577991672 18<20sfranken18>	Reboot, and when you see the Dell logo press escape. That should get you into the bootmenu for Fedora (grub). Press E to edit and add "rd.driver.blacklist=nouveau nouveau.modeset=0" at the end of the linux....... line
-T 1577991717 18<20sfranken18>	Ah, oled screen.. Those can't be changed the same way as other screens
-T 1577991789 18<29razorfreak18>	so at least it should be handled right?
-T 1577991790 18<20sfranken18>	(Becuase oled has no conventional backlight, which can't be brightned or dimmed)
-T 1577991856 18<26Khaytsus18>	sfranken: Sure oled can be dimmed :P  But certainly maybe handled in a different way.
-T 1577991888 18<20sfranken18>	Khaytsus: Yes it can be dimmed, just not in the conventional way by modifiying the backlight strength
-T 1577991911 18<26Khaytsus18>	razorfreak: if you can pick a specific intel or nvidia device in the BIOS config, I'd just do that.  Optimus stuff is annoying.
-T 1577992407 18<20currybullen18>	i've been having some trouble with a bluetooth headset and suspend, where my headset will not reconnect after resuming. i've noticed that it only happens when i do a hybrid suspend, both hibernate and ordinary suspend work fine. when the headset won't reconnect, the only thing that seems to help is a reboot followed by a manual reconnect
-T 1577992473 18<20currybullen18>	is the bluetooth service not configured to resume after a hybrid suspend or something?
-T 1577992496 18<20sfranken18>	Like I asked you before: what happens if you disconnect the BT and then reconnect?
-T 1577992520 18<20sfranken18>	You probably, mostly, have a bluetooth card that doesn't get initialized right after your machines wakes up from suspend
-T 1577992612 18<20currybullen18>	hmm, how would you like me to disconnect the BT? its integrated into my network card. switching it on and off with rfkill does not help
-T 1577992627 18<20sfranken18>	From the gnome settings?
-T 1577992711 18<20currybullen18>	i use cinnamon, which usses blueberry. disabling/enabling it there does nothing. i've also tried blueman with the same result
-T 1577992739 18<25shimsh18>	chromium-libs-media-freeworld (updates) requires chromium-libs = 77.0.3865.90-2.fc30, but i can't find a matching version anywhere - dnf states the deps are broken too
-T 1577992747 18<27sdgathman18>	sfranken: I have a similar problem with Intel wifi driver.  I have to remove/reload iwlmvm driver in /usr/lib/systemd/system-sleep/iwlmvm.sh
-T 1577992751 18<25shimsh18>	anyone else having this issue?
-T 1577992762 18<27sdgathman18>	And also restart wpa_supplicant
-T 1577992813 18<27sdgathman18>	Should this be reported as a kernel bug?  Or is the reinitialization supposed to happen in systemd?
-T 1577992821 18<25shimsh18>	https://fedora.pkgs.org/30/rpmfusion-free-updates-x86_64/chromium-libs-media-freeworld-77.0.3865.90-2.fc30.x86_64.rpm.html
-T 1577993741 18<27kwizart18>	shimsh, unfortunately chromium-libs-media-freeworld is unmaintained you need to move to chromium-freeworld
-T 1577994816 18<25shimsh18>	thanks kwizart
-T 1577995082 18<20yates18>	RayTracer et al: newsflash: the problem with my liveusb was my cheap thumbdrives
-T 1577995099 18<20yates18>	i used my officemate's thumbdrive and it worked fine
-T 1577995117 18<29kk4ewt18>	yates told ya
-T 1577995143 18<20yates18>	...but i'm so glad i saved $10
-T 1577995163 18<20yates18>	(that's a joke ^^^^^(
-T 1577995635 18<20sfranken18>	"Yeah, but I save X amount because I buy cheap stuff" ... most people who say that don't realise their cheaper model doesn't last as long, so while I buy 3 expensive drives that last me years, they buy 10 in the same time
-T 1577995772 18<22tzfrs18>	Hi guys. I broke my system. I added my ssd to fstab, but then wanted to make it work under windows as well so I formatted it to ntfs
-T 1577995804 18<22tzfrs18>	Now I always get emergency mode where I can't do anything because the root account is locked and I have no live medium
-T 1577995827 18<22tzfrs18>	Is there a way to boot into a bash without anything being loaded so I can edit the fstab?
-T 1577995882 18<27bugs_18>	have you tried to boot in run level 1?
-T 1577995907 18<27bugs_18>	edit the grub boot linux line and add 1 at the end, then boot
-T 1577995909 18<22tzfrs18>	Do u just need to add a 1 to the end of the boot entry line?
-T 1577995911 18<22tzfrs18>	Kk
-T 1577995934 18<27bugs_18>	this is assuming things like the root volume isn't encrypted etc
-T 1577995941 18<22tzfrs18>	It's not
-T 1577995965 18<22tzfrs18>	Doesn't look good so far.
-T 1577995975 18<20sfranken18>	tzrfs: Your SSD can't be found anymore, since the UUID has changed because you repartitioned / reformatted it...
-T 1577996015 18<22tzfrs18>	Yes I know. But how can I remove the line from fstab?
-T 1577996020 18<27bugs_18>	ok if the uuid in the grub entries has changed thats not going to work
-T 1577996035 18<20sfranken18>	vim /etc/fstab tzfrs
-T 1577996048 18<22tzfrs18>	Sfranken, I don't get any shell
-T 1577996079 18<20sfranken18>	hmm, right... locked root account and all that
-T 1577996086 18<22tzfrs18>	Yes
-T 1577996099 18<22kawazu18>	Boot with the installer usb?
-T 1577996100 18<20sfranken18>	Phyiscally remove the SSD (disconnect the SATA cable) and boot again
-T 1577996104 18<20sfranken18>	brb
-T 1577996111 18<22tzfrs18>	I only have a win USB stick.
-T 1577996115 18<22tzfrs18>	Which doesn't seem to work.
-T 1577996135 18<22tzfrs18>	Sfranken, does this really solve it? I mean the wrong entry would still be there wouldn't it?
-T 1577996156 18<27bugs_18>	another boot option is init=/bin/bash
-T 1577996163 18<27bugs_18>	but that assumes the grub configuration is ok
-T 1577996186 18<22tzfrs18>	Where do I put that? Also where the 1 is at the end?
-T 1577996196 18<27bugs_18>	yes replace the 1
-T 1577996207 18<22tzfrs18>	K, one sec
-T 1577996215 18<27bugs_18>	you would have to know how to navigate in an empty environment
-T 1577996218 18<27bugs_18>	i.e. no path
-T 1577996265 18<22tzfrs18>	I'm in
-T 1577996408 18<22tzfrs18>	Hm. Somehow I don't think it saved my changes.
-T 1577996432 18<22tzfrs18>	What was the save and exit cmd for vim again?
-T 1577996454 18<20sfranken18>	:wq
-T 1577996464 18<22tzfrs18>	Ty
-T 1577996541 18<20sfranken18>	But I thought you had "noauto" passed as a mounting option?
-T 1577996558 18<20sfranken18>	Oh, wait, nvm
-T 1577996564 18<22tzfrs18>	The file is readomly
-T 1577996566 18*	20sfranken is working on too much at the same time
-T 1577996568 18<29knaccc18>	hey peeps, just wondering: normally fedora is not recommended in production i think because sudden changes may break things in packages. i was wondering if fedora would be suitable in production if you're not really using many packages, e.g. because you're mostly just running java on it with your own download and install of java. or are there other reasons that fedora in production is a bad idea?
-T 1577996580 18<22tzfrs18>	Can I make it to 777 just for now and change it back again after fixing?
-T 1577996585 18<27bugs_18>	mount -o remount,rw /
-T 1577996592 18<20sfranken18>	tzfrs: Remount read-write
-T 1577996595 18<20sfranken18>	thanks bugs_
-T 1577996617 18<20sfranken18>	knaccc: Who says Fedora isn't recommended in production?
-T 1577996630 18<22tzfrs18>	Ty
-T 1577996642 18<20sfranken18>	(It really depends on your situation, though.. Our school works fine with our Fedora labs)
-T 1577996646 18<29knaccc18>	sfranken i think most people would say to use centos over fedora in production, because each release of fedora only has 6 months of support
-T 1577996710 18<22tzfrs18>	I'm in
-T 1577996714 18<22tzfrs18>	Thank you all!
-T 1577996738 18<20sfranken18>	7 months knaccc. X + 1 where X is the version number. Yes, that's short. Like I said, it depends on what you use the machines for
-T 1577996757 18<20sfranken18>	As I said: our Fedora lab at the school I work for runs fine. Has been running fine for 4 years now
-T 1577996764 18<20sfranken18>	with upgrades from release to release
-T 1577996852 18<29knaccc18>	what i'm scared of is that suddenly the new fedora comes out, and it makes changes that require a couple months of redevelopment of server mainteance and deployment scripts to adapt to, and during that period you aren't able to upgrade yet so miss out on critical security patches
-T 1577996904 18<29knaccc18>	put it this way: are there huge advantages to being on the latest kernel that fedora has, in terms of better performance/concurrency, or in terms of security hardening?
-T 1577996949 18<29knaccc18>	or does it not really make a difference whether i'm on kernel 5.3 vs 3.10
-T 1577996955 18<20sfranken18>	That's why you have a few machines and servers running outside your normal network to test stuff on, right?
-T 1577996994 18<20sfranken18>	But if you want mission critical and low changes: go centos. Again, depends on what you're going to use them for
-T 1577997001 18<20sfranken18>	Can't really give you an answer withouth that info
-T 1577997013 18<29knaccc18>	well yeah it's possible to do my own testing for performance improvements, but impossible for me to do my own testing for security hardening improvements
-T 1577997051 18<29knaccc18>	for that i need some kind of commentary on what changed between 5.3 vs 3.10 in terms of security hardening
-T 1577997082 18<20sfranken18>	Wouuldn't the changelogs provide you with that?
-T 1577997134 18<29knaccc18>	sfranken yeah i'm wondering if anyone has an answer that is better than "go research it yourself"
-T 1577997211 18<20sfranken18>	I'm not sure you're going to get what you want then..
-T 1577997221 18<29knaccc18>	e,g, i don't really know how to reason about whether the new "kernel lockdown" changes are a big deal https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=aefcf2f4b58155d27340ba5f9ddbe9513da8286d
-T 1577997229 18<20sfranken18>	AFAIK the kernel release notes are your "goto source" for this kind of info
-T 1577997253 18<29knaccc18>	yeah finding the release notes is one thing. interpreting the significance of them is an entirely different ball game
-T 1577997266 18<29knaccc18>	e.g. i know of this: https://www.thomas-krenn.com/en/wiki/Linux_Kernel_Versions
-T 1577997280 18<29knaccc18>	but it's gonna take me probably the whole day at least to try and delve into what all of these things mean
-T 1577997349 18<20sfranken18>	hmm...
-T 1577997366 18<20sfranken18>	Kernel security/hardening is the last step.. If someone does manage to get into your machines *that* deep you have other issues
-T 1577997392 18<20sfranken18>	Sure, proper kernel hardening is important, but don't focus all your time and energy on it is what I'd say
-T 1577997468 18<29knaccc18>	ok thanks
-T 1577997626 18<20sfranken18>	Same goes for CentOS though
-T 1577997674 18<29knaccc18>	my common sense tells me that a 2019 kernel should be leaps and bounds better than a 2013 kernel, but actually understanding if that's true is hard
-T 1577997697 18<29knaccc18>	and that's essentially the choice when it comes to centos 7.7 vs fedora 31
-T 1577997739 18<20sfranken18>	Not better, just different (more) hardware support
-T 1577997745 18<20sfranken18>	and that's if it's a vanilla kernel, which it isn't
-T 1577997779 18<20sfranken18>	The Fedora and CentOS devs add patches and features, sometimes from later kernels (backporting)
-T 1577997797 18<20sfranken18>	So it's *very* hard to figure out what a kernel has or doesn't have based on the version string(s)
-T 1577997818 18<29knaccc18>	only security backports though, not performance backports. e.g. i can see that in 4.12 there were op scheduler performance improvements for nvme drives, which i'm using
-T 1577997837 18<20sfranken18>	And some driver backports
-T 1577997856 18<20sfranken18>	Things like CPU support for new(er) Intel/AMD CPU's and stuff like that
-T 1577997877 18<29knaccc18>	oh interesting, i didn't know about cpu support backports in centos, thanks!
-T 1577997903 18<20sfranken18>	Not sure about CentOS 7.x though, I'm not running 7.x anymore
-T 1577997927 18<29knaccc18>	i was told in #centos that centos 8 is currently a bit of a mess in terms of package support
-T 1577997939 18<29knaccc18>	so to stick to centos 7.7 for now
-T 1577997941 18<20sfranken18>	It's still rough around the edges, but for me it works
-T 1577997959 18<20sfranken18>	For what I need CentOS 8 has better support than 7
-T 1577997967 18<29knaccc18>	what are your needs?
-T 1577997968 18<20sfranken18>	(Webserver with modern PHP requirements)
-T 1577997971 18<29knaccc18>	ah ok
-T 1577997987 18<29knaccc18>	did you hit any snags with centos 8?
-T 1577998003 18<20sfranken18>	For the webservers I didn't
-T 1577998031 18<20sfranken18>	for the Python lab we did. We were testing to see if we could move that over to CentOS 8 as well. But Python3 acted strangely with the teachers material
-T 1577998039 18<20sfranken18>	so we kept Fedora 30 (31 now)
-T 1577998189 18<29knaccc18>	interesting, thanks
-T 1577998293 18<20sfranken18>	No problem
-T 1577999169 18<26Khaytsus18>	knaccc: So you're saying that the CentOS kernel is slow..  the distro that holds the vast majority of servers in the world..  k
-T 1577999439 18<22kawazu18>	Is the new Ryzen the way to go these days?
-T 1577999504 18<29knaccc18>	Khaytsus i'm not saying it's slow, i'm wondering whether it is or not. if kernel 5.3 from 2019 is not much faster than kernel 3.10 from 2013, then fine
-T 1577999537 18<24prussian18>	given RH's backportiness, it's basically impossible to make version upstream to upstream comparisons
-T 1577999554 18<29knaccc18>	i'm wondering whether new io schedulers optimized for nvme and new thread schedulers will make a big difference or not
-T 1577999577 18<24prussian18>	best guess is no and RH might just backported it anyhow.
-T 1577999613 18<20sfranken18>	Only way to know for sure is test on your actual hardware
-T 1578000096 18<26Khaytsus18>	knaccc: Again, probably _millions_ of servers use CentOS.  So..
-T 1578000198 18<29knaccc18>	Khaytsus yeah thanks, it's a good point that does make me feel a little better
-T 1578000227 18<29knaccc18>	it also makes me wonder why the kernel has not made significant enough performance increases in the last 6 years
-T 1578000242 18<29knaccc18>	significant enough to warrant more people to upgrade
-T 1578000294 18*	26Khaytsus facepalms
-T 1578000294 18<24prussian18>	probably because all the low hanging fruit has been had. also note all the hardware wiggling around certain class of hardware bugs
-T 1578000364 18<24prussian18>	let's be real. RH is on what it is on because RH knows how to support it and as someone who runs latest from kernel.org kernels, what the kernel upstream calls stable, is very unstable.
-T 1578000412 18<29knaccc18>	interesting
-T 1578000421 18<24prussian18>	I guess?
-T 1578000457 18<24prussian18>	if you're currently using fedora, you're basically running the near tippy top of what kernel.org is shipping as stable. I'm surprised you haven't had any issues from that.
-T 1578000594 18<20yates18>	how do you access root in f31 gnome ? i don't just want to sudo a command, i want to log in
 T 1578000629 18<20sfranken18>	You don't
 T 1578000644 18<20sfranken18>	You can however `sudo su -`
 T 1578000653 18<20yates18>	i do
@@ -5058,3 +4799,207 @@ T 1611778230 18<22Southern_Gentlem18>	repo
 T 1611778293 18<22Southern_Gentlem18>	there is not dnf-plugin-nvidia in fedora or in rpmfusion
 T 1611778311 18<22Southern_Gentlem18>	Ben_11 take a look at " http://rpmfusion.org/Howto/nVidia?highlight=Ben_118CategoryHowtoBen_119 "
 T 1611778337 18<22Southern_Gentlem18>	and also read their cuda howto
+T 1611778816 24*	caterfxo has quit (Ping timeout: 240 seconds)
+T 1611778859 23*	caterfxo (caterfxo@gateway/vpn/privateinternetaccess/caterfxo23) has joined
+T 1611778865 24*	caterfxo has quit (Excess Flood)
+T 1611778880 24*	linville has quit (Quit: Leaving)
+T 1611778884 23*	caterfxo (caterfxo@gateway/vpn/privateinternetaccess/caterfxo23) has joined
+T 1611778907 24*	uvolmer has quit (Remote host closed the connection)
+T 1611778934 18<22Southern_Gentlem18>	Ben_11, does that make sense?
+T 1611778962 18<22Ben_1118>	Southern_Gentlem: that's how I installed it in Fedora 31.
+T 1611778971 18<22Ben_1118>	I just dnf update and reboot wait a second please
+T 1611778994 24*	Ben_11 has quit (Quit: Leaving.)
+T 1611779001 18<22Southern_Gentlem18>	doesnt mean it was correct then no idea how it worked
+T 1611779044 23*	uvolmer (~uvolmer@2001-4dd0-212c-82-5acc-6b0b-da9c-d52c.ipv6dyn.netcologne.de23) has joined
+T 1611779170 18<24needmorehare18>	Southern_Gentlem, that was spot on, there's a Fedora 33 repo for it... why he used a RHEL 8 repo is beyond me
+T 1611779197 23*	_4n0nymous_ (~4n0nymou2@217.138.203.16423) has joined
+T 1611779227 24*	_4n0nymous_ has quit (Client Quit)
+T 1611779259 24*	blindcant has quit (Ping timeout: 264 seconds)
+T 1611779271 23*	blindcantt (~tool@43.245.162.13123) has joined
+T 1611779360 18<28Ben_118>	re
+T 1611779372 18<22Southern_Gentlem18>	doesnt mean it was correct then no idea how it worked
+T 1611779383 18<28Ben_118>	Southern_Gentlem: I had the hope that a dnf update fixes the issue but no
+T 1611779395 18<22Southern_Gentlem18>	no disable that redhat repo
+T 1611779399 18<28Ben_118>	On the rpmfusion tutorial they say "sudo dnf install akmod-nvidia"
+T 1611779432 18<28Ben_118>	which produces this error: package akmod-nvidia-3:455.28-1.fc33.x86_64 requires nvidia-kmod-common >= 3:455.28, but none of the providers can be installed
+T 1611779442 18<28Ben_118>	mh
+T 1611779443 18<22Southern_Gentlem18>	sudo dnf install kmod-nvidia --disablerepo=cuda-rhel8-x86_64
+T 1611779449 18<28Ben_118>	probably this is causing the issue: package nvidia-kmod-common-3:455.32.00-1.el8.noarch is filtered out by modular filtering
+T 1611779465 18<28Ben_118>	ok I will try
+T 1611779482 18<22Southern_Gentlem18>	and you may have to remove all the el8 packages from your system
+T 1611779486 18<28Ben_118>	ok seems to work
+T 1611779504 18<22Southern_Gentlem18>	rpm -qa |grep nvidia |fpaste
+T 1611779513 18<28Ben_118>	should I remove the rhel repo completely?
+T 1611779517 18<22Southern_Gentlem18>	yes
+T 1611779550 18<24needmorehare18>	Ben_1, there's a proper Fedora repo for it made by NVIDIA
+T 1611779562 18<28Ben_118>	ok thanks for your help, you saved me a lot of time
+T 1611779578 18<28Ben_118>	needmorehare: with the same packages as in rpmfusion?
+T 1611779581 18<22Southern_Gentlem18>	needmorehare, dont confuse the situation please
+T 1611779608 18*	24needmorehare stays silent until the akmod situation is cleared up
+T 1611779610 18<22Southern_Gentlem18>	Ben_1, read the rpmfusion howto for cuda
+T 1611779666 18<22Southern_Gentlem18>	Ben_1, still waiting on the rpm -qa |grep nvidia |fpaste
+T 1611779728 18<28Ben_118>	I just want to reboot to check whether everything works. Afterwards I will remove the repo and the el8 packages
+T 1611779762 18<22Southern_Gentlem18>	lets look at the command i gave you first
+T 1611779782 18<22Southern_Gentlem18>	**shakes Head **
+T 1611779856 18<22Southern_Gentlem18>	needmorehare, yeah we have dealt with these issues for years
+T 1611779885 18<22Southern_Gentlem18>	even before rpmfusion existed
+T 1611779912 18<22Southern_Gentlem18>	back in the livna days
+T 1611780719 18<28Ben_118>	Southern_Gentlem: https://paste.centos.org/view/e47899f0
+T 1611780760 18<22Southern_Gentlem18>	looks good
+T 1611780800 18<22Southern_Gentlem18>	just remember that sometime when you get a new kernel you may have to reboot twice
+T 1611780831 18<22Southern_Gentlem18>	first time the kmod builds but that is too late for the system to use it so you have to reboot a second time
+T 1611780907 18<28Ben_118>	good to know, thanks :)!
+T 1611781293 18<22AndroUser218>	Hi
+T 1611781453 18<22Southern_Gentlem18>	AndroUser2, howdy
+T 1611783290 20*	Disconnected (20)
+T 1611791627 19*	Now talking on 22#fedora
+T 1611791627 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1611791627 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1611791627 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1611792062 18<28fedbot18>	*** F33-20210114 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1611792237 18<29dan0118>	Ok, something very curious happened to me ^_^
+T 1611792280 18<29dan0118>	I've just installed Fedora 33 out of the network install, and for my surprise, Netflix could play movies without having to install ffmpeg-libs from RpmFusioun
+T 1611792291 18<29dan0118>	How come? :)
+T 1611792368 18<28gnafu18>	dan01: I'm not sure of the specifics, but I /think/ Fedora ships with "legally safe" AAC and H.264 decoding these days.
+T 1611792384 18<28gnafu18>	H.264 is provided by OpenH264.
+T 1611792393 18<28gnafu18>	And let me see if I can find the article about AAC...
+T 1611792410 18<29dan0118>	gnafu: Yes, but I always thought that only decodes some WebRTC profile, right?
+T 1611792413 18<28gnafu18>	Here we go: libva-intel-hybrid-driver
+T 1611792423 18<28gnafu18>	Oops: libva-intel-hybrid-driver
+T 1611792431 18<28gnafu18>	Dangit!  Why won't that URL copy...
+T 1611792455 18<29dan0118>	I mean don't get me wrong I don't know what I'm talking about I've just read that thing. Sure, please give the URL :)
+T 1611792458 18<29dan0118>	Can't wait to read
+T 1611792516 18<28gnafu18>	https://blogs.gnome.org/kalev/2019/09/25/out-of-box-h-264-and-aac-support-in-fedora-31-workstation/
+T 1611792556 18<28gnafu18>	dan01: I think OpenH264 used to only be for WebRTC, but it seems it's now for systemwide H.264 decoding.
+T 1611792587 18<29dan0118>	ah ok
+T 1611792607 18<29dan0118>	anyways, this is a real spoil, if that's the correct Enghlish expression
+T 1611792615 18<29dan0118>	I'm really happy about this, was a nice surprise :)
+T 1611792675 18<20NULL[m]218>	is it worth it switching from Ubuntu to Fedora?
+T 1611792681 18<20NULL[m]218>	 * is it worth it switching from (K)Ubuntu to Fedora?
+T 1611792715 18<29dan0118>	NULL[m]2: Well, these are preferences and you're on the Fedora channel :))
+T 1611792715 18<28gnafu18>	NULL[m]2: I think so, but that's in part because I haven't used Ubuntu in over 10 years ;-).
+T 1611792746 18<29dan0118>	NULL[m]2: I like Fedora because it uses more upstream aka modern software. Including Wayland/Btrfs/Kernel
+T 1611792768 18<24chrisawi18>	dan01: netflix uses vp9 by default anyway
+T 1611792774 18<20NULL[m]218>	I heard the battery life is better
+T 1611792788 18<20NULL[m]218>	but I rather like APT
+T 1611792793 18<29dan0118>	chrisawi: I know back a couple of months ago, I've did this and I could not play Netflix by default
+T 1611792796 18<28gnafu18>	chrisawi: Does it nowadays?  Last I heard, they only used VP9 for mobile downloads (watch offline).
+T 1611792866 18<29dan0118>	But maybe you are right, not sure how to check? Any website that uses for sure H.264?
+T 1611792902 18<24chrisawi18>	I just tried playing something in chrome and checked the debug info, and it seems to be using vp9 (but he-aac for audio)
+T 1611792929 18<24chrisawi18>	(ctrl+alt+shift+D)
+T 1611793146 18<29dan0118>	chrisawi: Any idea how to view that info in Firefox?
+T 1611793254 18<24chrisawi18>	that's a netflix keybinding
+T 1611793296 18<29dan0118>	yup, you're right it's vp9
+T 1611793858 18<28gnafu18>	chrisawi: Awesome!
+T 1611793882 18<28gnafu18>	I still think H.264 will work without ffmpeg-libs now, but I'm not sure.
+T 1611794089 18<29dan0118>	how can I try it?
+T 1611794593 18<28gnafu18>	dan01: You can try Vimeo.  Anything that's not a Staff Pick should use H.264 by default (and you can press "d" to see stats).
+T 1611794614 18<28gnafu18>	(There Staff Picks use AV1 if your browser supports it.)
+T 1611794625 18<28gnafu18>	s/There/Their/
+T 1611794634 18<29dan0118>	gnafu: thanks
+T 1611794876 18<29dan0118>	it says Codec:AVC / AAC
+T 1611794997 18<29dan0118>	will it's working, it's kind of lagging
+T 1611795003 18<29dan0118>	But hey! It's a progress!
+T 1611795093 18<19dowdle18>	dan01: I don't think the codec support in the OpenH264 package is very comprehensive... so installing the rpmfusion stuff is recommended... if you want a wide range of compat.
+T 1611795114 18<29dan0118>	thanks
+T 1611795129 18<29dan0118>	Is Firefox on Fedora Firefox-Wayland?
+T 1611795132 18<19dowdle18>	dan01: When hardware support for AV1 is widespread, hopefully most everything will shift to it.
+T 1611795133 24*	28CamBan69_ is now known as 18CamBan69
+T 1611795161 18<19dowdle18>	dan01: firefox-wayland is just a shell script that runs the regular firefox with the wayland flag.
+T 1611795179 18<19dowdle18>	dan01: You can look at it and see.
+T 1611795215 18<19dowdle18>	dan01: cat /usr/bin/firefox-wayland
+T 1611795306 18<29dan0118>	ah I see
+T 1611795372 18<29dan0118>	But still the question remains, does firefox run with that MOZ_ENABLE_WAYLAND=1 by default? How can I find that out?
+T 1611795433 18<29kk4ewt18>	dan01 i thought there was a firefox-wayland package
+T 1611795444 18<29dan0118>	kk4ewt: it is
+T 1611795479 18<29kk4ewt18>	so i dont think standard firefox has that
+T 1611795493 18<29kk4ewt18>	only if you add firefox-wayland
+T 1611795506 18<29dan0118>	kk4ewt: I was wondering if there's any use to install it, if firefox runs by default with MOZ_ENABLE_WAYLAND=1, but then the package would be useless I guess
+T 1611795558 18<29kk4ewt18>	i would have to look at the kickstart for workstation to see which is included
+T 1611795567 18<29kk4ewt18>	or if both are
+T 1611795580 18<29kk4ewt18>	i will check that when i am at work tomorrow
+T 1611795646 18<29dan0118>	thanks for the help all, good night!
+T 1611795665 18<28fedbot18>	*** F33-20210114 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1611795845 18<19dowdle18>	kk4ewt: The firefox-wayland package is only a shell script that runs firefox with a WAYLAND option set... so the regular firefox binary (as Fedora packages it) does both X11 and Wayland.
+T 1611795887 18<19dowdle18>	Laters
+T 1611796562 24*	28Snuupy0 is now known as 18Snuupy
+T 1611796592 18<26suavedandy18>	Guys. Seriously. Is it normal for there to be barely any user groups in the initial install.
+T 1611796593 24*	28x42_ is now known as 18x42
+T 1611796626 18<26suavedandy18>	Like, I have root, user and wheel.
+T 1611796690 18<26suavedandy18>	This was minimal local install.
+T 1611796709 18<24M10qpalzm[m]18>	i use KDE edition and my user has user and wheel group
+T 1611796717 18<26suavedandy18>	Hm.
+T 1611796738 18<24M10qpalzm[m]18>	something not work?
+T 1611796743 18<26suavedandy18>	No audio? No video?
+T 1611796749 18<26suavedandy18>	No other groups?
+T 1611796756 18<26suavedandy18>	There are lots of groups.
+T 1611796765 18<26suavedandy18>	On Void and Debian, at least.
+T 1611796793 18<26suavedandy18>	But if that's fine on Fedora then okay.
+T 1611796896 18<24M10qpalzm[m]18>	you can list all groups with
+T 1611796896 18<24M10qpalzm[m]18>	   cut -d: -f1 /etc/group
+T 1611796896 18<24M10qpalzm[m]18>	but my user only is in user, wheel yeah
+T 1611797008 24*	28angusrobot_ is now known as 18angusrobot
+T 1611797045 18<26suavedandy18>	But of course there are lots of groups.
+T 1611797069 18<26suavedandy18>	But for some reason, my user doesn't belong to them.
+T 1611797081 18<26suavedandy18>	Like, there are input, audio, video.
+T 1611797084 18<26suavedandy18>	Nope.
+T 1611797144 18<26suavedandy18>	I don't get it. Aren't groups needed for some stuff to properly function?
+T 1611797169 18<24M10qpalzm[m]18>	https://wiki.archlinux.org/index.php/Users_and_groups#Pre-systemd_groups
+T 1611797209 18*	24M10qpalzm[m] sent a long message:  < https://matrix.org/_matrix/media/r0/download/matrix.org/dJukpwAsOddnHmRMMLjlrfqd/message.txt >
+T 1611797773 18<26Khaytsus18>	suavedandy: no?
+T 1611798035 18<28linuxmodder18>	suavedandy, for some things yes but you need to have a reason the system doesnt naturally allow you to shoot yourself in the head and foot in the same instance for pete's sake
+T 1611798055 18<28linuxmodder18>	if you need those for access mostly then add what you need and nothing more
+T 1611798076 18<28linuxmodder18>	linuxmodder wheel cockpit transmission libvirt www-data
+T 1611798097 18<28linuxmodder18>	those are my users groups and those are it and system works amazingly well
+T 1611798105 18<28linuxmodder18>	and that WAS NOT out the box
+T 1611798209 18<28linuxmodder18>	cockpit for some remote stuff transmission because of some things being in that group and libvirt and ww-data for VMs and webserver resepctively all other things are set with other access needs not requiring groups
+T 1611798291 18<28linuxmodder18>	and I even do some android tweaking and you dont see anything for that, because its not needed if you use other means that are sane and safe liek udev
+T 1611798398 18*	24M10qpalzm[m] sent a long message:  < https://matrix.org/_matrix/media/r0/download/matrix.org/oOGbemEeoZanHRxLlBdtxfmT/message.txt >
+T 1611798826 24*	28angusrobot_ is now known as 18angusrobot
+T 1611799266 18<28fedbot18>	*** F33-20210114 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1611799479 24*	28Anon[m] is now known as 18Tryweirder[m]
+T 1611800502 24*	28kinkinkijkin_ is now known as 18kinkinkijkin
+T 1611800502 24*	28suavedandy_ is now known as 18suavedandy
+T 1611800503 24*	28slanck_ is now known as 18slanck
+T 1611802742 18<20fmlatghor18>	So I'm having a problem with a hard drive
+T 1611802804 18<20fmlatghor18>	It was working fine, then I got a read error. I took the drive out, then put it back in later. I'm using a sata to usb adapter. It looks like it's connected, but I don't see it in gnome-disks.
+T 1611802864 18<26[R]18>	what does dmesg sy when you plug it in
+T 1611802908 18<20fmlatghor18>	I'm not sure exactly what's happening
+T 1611802912 18<20fmlatghor18>	I'll show you
+T 1611803121 18<20fmlatghor18>	[R]: https://i.vgy.me/RCXxuD.png
+T 1611803155 18<26[R]18>	you need to take a picutre of text?
+T 1611803157 18<26[R]18>	lol
+T 1611803164 18<20fmlatghor18>	fine
+T 1611803169 18<20fmlatghor18>	here's an fpaste
+T 1611803263 18<20fmlatghor18>	[R]: https://paste.centos.org/view/decc6d87
+T 1611803292 18<26[R]18>	and at what point did you plug it in?
+T 1611803328 18<20fmlatghor18>	I put it back in then
+T 1611803344 18<20fmlatghor18>	but when when I pulled it, there wsa no new stuff
+T 1611803361 18<26[R]18>	whre in the log did you plug it in...
+T 1611803362 18<20fmlatghor18>	So I'm not sure what's going on
+T 1611803372 18<20fmlatghor18>	uh dunno
+T 1611803377 18<20fmlatghor18>	has to be awhile ago
+T 1611803522 18<20fmlatghor18>	probably has to be when itgot plugged in again
+T 1611803524 18<20fmlatghor18>	45883.975933
+T 1611803572 18<26[R]18>	well looks liek it detected an sdc and sdd and no partitions
+T 1611803607 18<20fmlatghor18>	[R]: but shouldn't it still show in disks?
+T 1611803641 18<26[R]18>	if its not fully initialziaing it
+T 1611803642 18<26[R]18>	probably not
+T 1611803647 18<26[R]18>	what does fdisk say about it?
+T 1611803694 18<20fmlatghor18>	[R]: https://paste.centos.org/view/ae50afd4
+T 1611803715 18<26[R]18>	yeah, looks like its not fully initializing, probably because its dead
+T 1611803757 18<20fmlatghor18>	damn I traded that for something
+T 1611803974 18<20fmlatghor18>	ok I just ran into a weird situation
+T 1611804004 18<20fmlatghor18>	ls /srv is empty, even as root, but nautilus is telling me it isn't
+T 1611804017 18<20fmlatghor18>	I am in much confusion
+T 1611804034 18<20fmlatghor18>	I know nautilus can be wrong, but -- I don't know.
+T 1611804056 18<20fmlatghor18>	oh
+T 1611804060 18<20fmlatghor18>	Ignore this
+T 1611804062 18<20fmlatghor18>	I feel so stupid
+T 1611804340 24*	28kdas_ is now known as 18kushal
+T 1611828343 19*	Now talking on 22#fedora
+T 1611828343 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1611828343 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1611828343 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1611830652 24*	28akahat|lunch is now known as 18akahat|rover
+T 1611831084 20*	Disconnected (20)
