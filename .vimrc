@@ -32,6 +32,9 @@ set guifont=consolas
 set number
 set ruler
 
+" Enable the match-it plugin to enhance %
+runtime macros/matchit.vim
+
 " Set Proper Tabs
 set smarttab
 set expandtab
