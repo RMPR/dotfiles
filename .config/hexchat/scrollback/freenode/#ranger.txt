@@ -1,45 +1,3 @@
-T 1584645040 20*	Disconnected (20)
-T 1584645170 19*	Now talking on 22#ranger
-T 1584645170 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1584645170 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1584695155 20*	Disconnected (20)
-T 1584695183 19*	Now talking on 22#ranger
-T 1584695183 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1584695183 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1584702879 18<26zaeph18>	Pro-tip: Spring cleaning is also the perfect opportunity to diff master's rifle.conf & scope.sh to make sure that your personal files is up to dateger
-T 1584702882 18<26zaeph18>	Whoops.
-T 1584702911 18<26zaeph18>	Opened a terminal, lost focus on the chat, and then pressed enter. -.-
-T 1584702978 18<26zaeph18>	But yeah, as I was writing it, I wondered whether the system's rifle.conf and scope.sh get loaded in their entirety if you have a personal file in your ~.  Pretty sure there was a setting for this.
-T 1584703004 18<22__monty__18>	Nope
-T 1584703011 18<26zaeph18>	Wasn't it RANGER_LOAD_DEFAULT_RC=FALSE ?
-T 1584703018 18<22__monty__18>	Scope file is configured in rc.conf.
-T 1584703038 18<22__monty__18>	Rifle can only read a single config because it's too hard with the precedence rules.
-T 1584703048 18<22__monty__18>	That's only for rc.conf.
-T 1584703060 18<26zaeph18>	Oh, right.  Thanks for clarifying.
-T 1584703062 18<22__monty__18>	And the _RC suffix should point out : )
-T 1584703067 18<22__monty__18>	*As
-T 1584703164 18<26zaeph18>	It's been a while since I've last modified my rc.conf, and I assumed that 'rc' was including rifle.conf and scope.sh rather than *just* ranger's config.
-T 1584703180 18<26zaeph18>	At any rate, my original point stand: good time to diff/merge. :p
-T 1584703220 18<22__monty__18>	Weird assumption.
-T 1584703233 18<22__monty__18>	That's not how rc files work. Which is what rc.conf is based on.
-T 1584703328 18<26zaeph18>	It's because it completely flew over my head that rc.conf worked like a traditional rc-file.  I just assumed that it stood for 'ranger config'.
-T 1584703350 18<26zaeph18>	The logic's pretty unsound on that one, don't try to salvage it. :o)
-T 1584703390 18<22__monty__18>	RangerConfig.conf >.<
-T 1584703466 18<26zaeph18>	Who cares about rc files when you can have an init.el. ¯\_(ツ)_/¯
-T 1584703622 18<22__monty__18>	Sounds a lot like an rc file ; p
-T 1584703646 18<26zaeph18>	HERESY!
-T 1584709397 20*	Disconnected (20)
-T 1584709424 19*	Now talking on 22#ranger
-T 1584709424 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1584709424 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1584711652 20*	Disconnected (20)
-T 1584711682 19*	Now talking on 22#ranger
-T 1584711682 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1584711682 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1584712624 18<26zaeph18>	Always hate debugging race conditions.
-T 1584712678 18<26zaeph18>	Traced it down to a program that forks to the background without providing any means to get the PID.
-T 1584712860 18<26zaeph18>	Basically, I'm generating a screenshot for i3lock to use, and after running i3lock, I need to run two other functions *whilst* i3lock is running, one of which is a cleanup for the screenshot.
-T 1584712900 18<26zaeph18>	I could just make i3lock not fork to the background, but I need the other function (the one which isn't a cleanup) to run after i3lock has been started.  Such a mess.
 T 1584712968 18<26zaeph18>	Maybe I could get it to run before the lock.  Uhm...  O'boy, here I go coding again!
 T 1584713165 18<22__monty__18>	Weird, returning the child's PID is literally what fork does.
 T 1584713357 18<26zaeph18>	Yeah.  Well, since I'm safeguarding against running concurrent versions of i3lock, I can just pgrep the pid right after running it, but it isn't Beautiful™.
@@ -5001,3 +4959,54 @@ T 1611828343 19*	Now talking on 22#ranger
 T 1611828343 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
 T 1611828343 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
 T 1611831084 20*	Disconnected (20)
+T 1611999311 19*	Now talking on 22#ranger
+T 1611999311 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1611999311 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1612005384 18<27vifon18>	zaeph: Caps?
+T 1612005555 18<26GermainZ18>	vifon: French cops
+T 1612006194 18<26zaeph18>	vifon: Capitals.
+T 1612006241 18<27vifon18>	French? Caps? Language!
+T 1612006360 18<26GermainZ18>	zaeph: /filter add morning irc.freenode.#ranger nick_eyJhb ^MORNING!?$
+T 1612006372 18<26GermainZ18>	:D
+T 1612006399 18<26GermainZ18>	Maybe even ^MORNING!*$ or variations
+T 1612006464 18<26GermainZ18>	Maybe a trigger to replace it with "Butts" is even better
+T 1612006660 18<19wasamasa18>	capos?
+T 1612007169 18<27vifon18>	Sounds fun. https://www.reddit.com/r/anormaldayinrussia/comments/l8ghfj
+T 1612007378 18<19wasamasa18>	I feel like a grannie watching for the post truck to arrive at my home
+T 1612007409 18<26zaeph18>	wasamasa: Same here.  I've got 3 packages due to arrive between today and Tuesday, and I *can't* wait.
+T 1612007426 18<19wasamasa18>	it's nice how it drives down the road and I see it getting closer and closer from the window
+T 1612007438 18<19wasamasa18>	I don't see the couriers for the letters though, they're super stealthy
+T 1612007451 18<19wasamasa18>	and there's several of them driving by, not sure which route corresponds to my house
+T 1612007497 18<26zaeph18>	It took several lockdowns to get us to enjoy the simple things.  Enjoy those lulls between bouts of depression.
+T 1612007522 18<19wasamasa18>	previously I let them deliver to a post station, but now that I'm quarantined that's not possible
+T 1612010171 20*	Disconnected (20)
+T 1612010393 19*	Now talking on 22#ranger
+T 1612010393 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1612010393 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1612010886 18<26zaeph18>	I'm not that desperate, tyvm.
+T 1612010959 18<22__monty__18>	I mean, refusing my advances without me having made them does sound pretty desperate.
+T 1612010980 18<26zaeph18>	__monty__: I was referencing: <Pepe_vulgaris> fuck google really 
+T 1612011003 18<22__monty__18>	Have to say I manage with qwant and ddg mostly.
+T 1612011015 18<22__monty__18>	I expected missing google more.
+T 1612011027 18<19wasamasa18>	I still use it for image search
+T 1612011032 18<26zaeph18>	We were discussing Google's removal of Element (a matrix client for Android) from the Play Store.
+T 1612011047 18<28Pepe_vulgaris18>	I have terrible experience with ddg
+T 1612011054 18<22__monty__18>	Oh, why'd they remove it?
+T 1612011076 18<22__monty__18>	Pepe_vulgaris: It's better for tech queries than qwant ime.
+T 1612011084 18<22__monty__18>	But that's why I don't bet on a single horse.
+T 1612011094 18<22__monty__18>	I'd rather use SearX.
+T 1612011107 18<22__monty__18>	But I haven't found a hosted instance that's reliable enough.
+T 1612012241 18<27vifon18>	__monty__: https://einval.eu/upload/2021-01-30-6ff0c6.png
+T 1612123510 19*	Now talking on 22#ranger
+T 1612123510 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1612123510 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1612123573 20*	Disconnected (20)
+T 1612123600 19*	Now talking on 22#ranger
+T 1612123600 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1612123600 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1612124206 18<20blawiz18>	have a folder with 120 vids, takes about 1h to convert them, so will be done in 5ish days .......
+T 1612124228 18<26zaeph18>	That's a long time to go without your wank-bank.
+T 1612124259 18<20blawiz18>	thats just one folder
+T 1612124262 18<26zaeph18>	(No, v1f0n, I'm not calling it what you'd have me call it.)
+T 1612124295 18<26zaeph18>	Wowzer, look at Mr Fancy-Pants over there who *organises* his stash.
+T 1612124303 18<20blawiz18>	mord0d[x230]: are you using tor?

@@ -1,60 +1,3 @@
-T 1587692705 18<22fsbot18>	Another satisfied customer. NEXT!
-T 1587693594 18<24zeta_018>	i made those elm changes in my .emacs config butt errors are still being thrown? https://dpaste.org/rrLC
-T 1587693673 18<24zeta_018>	https://dpaste.org/wLMf
-T 1587693680 18<24zeta_018>	what's going on here? ^
-T 1587693753 18<24zeta_018>	that butterfly dude helped me a lot, but now errors are still being thrown, setting up elm-language-server has been harder than i thought
-T 1587693832 18<25jamzattack18>	lsp-mode.el doesn't define elm-mode, so elm stuff should be in (use-package elm-mode) or manually autoloaded in the :init section
-T 1587694056 18<24zeta_018>	jamzattack: isn't it defined here? https://github.com/emacs-lsp/lsp-mode/blob/master/lsp-elm.el
-T 1587694078 18<24zeta_018>	a paste bin would be nice, i'm not sure what you mean?
-T 1587694207 18<25jamzattack18>	The function `elm-mode' isn't defined there.  It's defined in a different package.  So either (autoload 'elm-mode "elm-mode") or put the auto-mode-alist bit in (use-package elm-mode)
-T 1587694265 18<20ober18>	anyway to escape org-mode syntax in a babel block string added via append-to-file history.org?
-T 1587694433 18<24zeta_018>	some other person says they're using a config similar to mine: https://www.reddit.com/r/elm/comments/g5jfbh/elmlanguageserver_emacs_usepackage_configuration/
-T 1587694450 18<24zeta_018>	but ok, i'll try your method
-T 1587694518 18<24zeta_018>	jamzattack: does (autoload 'elm-mode "elm-mode") need to placed somewhere specific?
-T 1587694538 18<25jamzattack18>	either in the top level or in the :init section
-T 1587694687 18<20ober18>	trying to escape things in the string to prevent from breaking the babel block https://gist.github.com/09551cd74f66289a2c76dd7695fbe638
-T 1587694764 18<25jamzattack18>	(replace-regexp-in-string "^#" ",#" str) ?
-T 1587694774 18<24zeta_018>	jamzattack: i think this is what you mean: https://dpaste.org/wXkX
-T 1587694781 18<20ober18>	yeah but ^* can break it too
-T 1587694793 18<24zeta_018>	jamzattack: line 39
-T 1587694894 18<28iqubic18>	So, I'm trying to do some EXWM configuration stuff. I'm trying to execute this sexp in my .emacs, but it fails.
-T 1587694908 18<28iqubic18>	http://dpaste.com/2P8686C
-T 1587694914 18<24ryouma18>	ober: you might want to just call teh equivalent of c-c ' instead to make sure that it is not brittle
-T 1587694915 18<24zeta_018>	jamzattack: if that's wrong, then i'll go with the (use-package elm-mode) method instead
-T 1587694921 18<28iqubic18>	apply: Wrong type argument: symbolp, ((string-match-p "Godot_ProjectList" exwm-instance-name) char-mode t floating t)
-T 1587694996 18<25jamzattack18>	iqubic: use customize-set-variable
-T 1587695049 18<25jamzattack18>	or wrap in parens https://ttm.sh/EsJ.txt
-T 1587695061 18<28iqubic18>	Alright... That brings up the debugger. The error remains is longer but has the same content.
-T 1587695090 18<28iqubic18>	http://dpaste.com/15BPYKE
-T 1587695116 18<20ober18>	ryouma: good point. use the binding to do it right
-T 1587695158 18<24zeta_018>	jamzattack: it's throwing errors, so i'll try out the (use-package elm-mode) method instead
-T 1587695176 18<25jamzattack18>	iqubic: if using customize-set-variable you need to quote the first arg
-T 1587695193 18<28iqubic18>	I'm not. I'm using custom-set-variables
-T 1587695195 18<28iqubic18>	Debugger entered--Lisp error: (void-function exwm-manage-configurations)
-T 1587695233 18<25jamzattack18>	then you need to quote the list, see my previous paste
-T 1587695285 18<28iqubic18>	Which list needs quoting
-T 1587695297 18<25jamzattack18>	iqubic: both
-T 1587695305 18<28iqubic18>	I'm using this: http://dpaste.com/0XMDXVJ
-T 1587695310 18<28iqubic18>	What do I need to change?
-T 1587695344 18<25jamzattack18>	(custom-set-variables '(exwm-manage-canfigurations ...))
-T 1587695360 18<28iqubic18>	Yeah. I got it.
-T 1587695476 18<25jamzattack18>	ober: org-escape-code-in-string is what you want
-T 1587695643 18<24zeta_018>	ok, how does this look? https://dpaste.org/2nDi
-T 1587695696 18<25jamzattack18>	shouldn't need to use autoload manually anymore
-T 1587695901 18<24zeta_018>	ok, i'll fix that now, the instructions for elm lsp are not very specific, so i feel like i'm in the dark: https://github.com/elm-tooling/elm-language-server#emacs
-T 1587696056 18<20ober18>	thanks JM0
-T 1587696105 18<24zeta_018>	ok, i fixed it, there's no errors being thrown, so i'll test it out now to see if it works: https://dpaste.org/AdFW
-T 1587696309 18<24zeta_018>	it's still throwing the same error: https://dpaste.org/YGrX
-T 1587696334 18<25jamzattack18>	did you install elm-mode??
-T 1587696336 18<22fsbot18>	Signs point to yes!
-T 1587696515 18<24zeta_018>	damn i completely forgot to install it, one second
-T 1587696519 18<24zeta_018>	today is not my day
-T 1587696519 18<25jamzattack18>	hahaha that'd be it...
-T 1587696522 18<28iqubic18>	Is there an exwm function to set a given window to be tiling?
-T 1587696629 18<25jamzattack18>	iqubic: there's exwm-floating--unset-floating, not interactive
-T 1587696668 18<28iqubic18>	I don't need it to be interactive. I'm putting this an update-title-hook
-T 1587696702 18<28iqubic18>	But the question is, how do I get the right ID to pass in to that?
-T 1587696735 18<25jamzattack18>	(exwm--buffer->id BUFFER)
 T 1587697018 18<28iqubic18>	jamzattack: I'm creating this hook. http://dpaste.com/3JNXXG5
 T 1587697035 18<28iqubic18>	I don't know what to put in the place of those 3 ???.
 T 1587697161 18<25jamzattack18>	https://0x0.st/ijLb.txt is what I got
@@ -5013,3 +4956,76 @@ T 1611829413 18<25beep156018>	Found it! "M-x mpc-playlist-add"
 T 1611829508 24*	28Lord_of_Life_ is now known as 18Lord_of_Life
 T 1611830882 18<19gearnode18>	https://github.com/asyncapi/asyncapi
 T 1611831084 20*	Disconnected (20)
+T 1611999311 19*	Now talking on 22#emacs
+T 1611999311 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1611999311 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Fri Jan 29 17:22:51 2021)
+T 1611999312 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1612002418 18<19parsnip18>	rudybot: seen rudybot
+T 1612002470 24*	28Lord_of_Life_ is now known as 18Lord_of_Life
+T 1612003224 18<26polezaivsani18>	Is there anything in default Emacs to increase the font size in a buffer?
+T 1612003343 18<25beep156018>	polezaivsani: C-x C-=
+T 1612003355 18<25beep156018>	Oh, in a buffer
+T 1612003389 18<26polezaivsani18>	gracias, beep1560! it works in a buffer all right!
+T 1612003588 18<27nly18>	any matrix client?
+T 1612003659 18<25beep156018>	polezaivsani: Yes, if you want to change the font of the current buffer using Lisp, you can try: (buffer-face-set :family "Iosevka SS04" :weight 'extrabold :height 200)
+T 1612003705 18<25beep156018>	nly: you mean someone who is using matrix-client.el or someone who has a Matrix account?
+T 1612003738 18<27nly18>	some matrix client for emacs
+T 1612003752 18<25beep156018>	yep, check out matrix-client.el
+T 1612003807 18<27nly18>	best way to install it?
+T 1612003820 18<25beep156018>	I don't use it :(
+T 1612003835 18<25beep156018>	but the Github repository might have instructions on it
+T 1612003859 18<27nly18>	;; (straight-use-package 'matrix-client) ;; wonder which one this installed
+T 1612003872 18<20edgar-rft18>	nly: there's https://matrix.org/docs/projects/client/emacs-maelstrom and https://matrix.org/docs/projects/client/matrix-client-el
+T 1612003875 18<24opFez18>	does anyone know of a theme that is similar to https://github.com/andreasvc/vim-256noir
+T 1612003899 18<27nly18>	M-x matrix-client  -> require: Symbol’s value as variable is void: matrix-async-cb-router
+T 1612003973 18<25beep156018>	opFez: I think "wombat"
+T 1612003991 18<27nly18>	thanks
+T 1612004035 18<24opFez18>	beep1560: hmm, that doesn't look very similar. what i like about vim-256noir is the minimal use of colors
+T 1612004041 18<25beep156018>	opFez: Here you can preview a great list of themes: https://emacsthemes.com/
+T 1612004070 18<24opFez18>	beep1560: i've checked, cant find anything similar there. thanks anyways.
+T 1612004078 18<26polezaivsani18>	opFez: not sure if tao-them makes it for you - no color at all, only shades
+T 1612004105 18<26polezaivsani18>	best thing if you find syntax highlighters annoying :)
+T 1612004146 18<24opFez18>	polezaivsani: yeah, ive used that one and almost-mono-black, they are *fine* but still looking for that perfect theme
+T 1612004155 18<24opFez18>	i guess ill just make it myself then
+T 1612007136 24*	28janneke_ is now known as 18janneke
+T 1612010171 20*	Disconnected (20)
+T 1612010393 19*	Now talking on 22#emacs
+T 1612010393 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1612010393 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Fri Jan 29 17:22:51 2021)
+T 1612010393 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1612012154 18<27nij18>	I have a function that set frame transparency: https://bpa.st/XYZJK
+T 1612012193 18<27nij18>	And in init.el I run it automatically. Usually it works fine. But after emacs is up for some time, it does not work.
+T 1612012220 18<27nij18>	(Does not work: transparency is disabled.)
+T 1612012233 18<27nij18>	(and I have to call the function again, manually.)
+T 1612123509 19*	Now talking on 22#emacs
+T 1612123509 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1612123509 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Fri Jan 29 17:22:51 2021)
+T 1612123520 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1612123573 20*	Disconnected (20)
+T 1612123600 19*	Now talking on 22#emacs
+T 1612123600 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1612123600 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Fri Jan 29 17:22:51 2021)
+T 1612123600 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1612123636 18<19parsnip18>	record scratch
+T 1612123636 18<19parsnip18>	freeze frame
+T 1612123648 18<29Dabian18>	Not familiar, but that is cool.
+T 1612123995 18<24jmares18>	with magit, how to pull into another branch? eg. i'm on branch1 and i want to pull from remote origin/master to master
+T 1612124054 18<19parsnip18>	i would just fetch first
+T 1612124064 18<19parsnip18>	the log at "log all"
+T 1612124072 18<19parsnip18>	*then look at "log all"
+T 1612124096 18<19parsnip18>	if master is an ancestor, you can just fast-forward merge
+T 1612124153 18<19parsnip18>	if it's not on master, and you know you won't lose work, you could just hard reset
+T 1612124186 18<19parsnip18>	er, if master is not an ancestor
+T 1612124202 18<19parsnip18>	you can make merge commit or rebase, etc
+T 1612124239 18<19parsnip18>	i've never felt the need to "pull", but maybe i don't code enough
+T 1612124261 18<29Dabian18>	What do I need to setup Tramp over an ssh without passwd?  Can I browse the remote filesystem?
+T 1612124281 18<19parsnip18>	yes, usually
+T 1612124304 18<29Dabian18>	So instead of C-x C-f ... I do ... something else?
+T 1612124306 18<19parsnip18>	but i hadn't used tramp in ages, and last time i tried, it didn't work and i quickly gave up
+T 1612124320 18<29Dabian18>	I never got it to work, the times I've tried.
+T 1612124325 18<19parsnip18>	it used to be like C-x C-f /ssh:<alias>/ RET
+T 1612124337 18<29Dabian18>	alias?
+T 1612124359 18<19parsnip18>	user@domain or alias
+T 1612124366 18<19parsnip18>	i have alias in .ssh/config
+T 1612124376 18<19parsnip18>	so i can just do `ssh d`
+T 1612124390 18<29Dabian18>	Setting up an alias seems convenient. Can you use that in the shell as well?
