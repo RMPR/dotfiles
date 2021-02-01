@@ -5108,3 +5108,35 @@ Jan 31 21:06:13 *	Disconnected ()
 Jan 31 21:06:40 *	Now talking on #alacritty
 Jan 31 21:06:40 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
 Jan 31 21:06:40 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Jan  9 12:42:04 2021)
+Feb 01 00:07:43 *	Disconnected ()
+**** ENDING LOGGING AT Mon Feb  1 00:07:43 2021
+
+**** BEGIN LOGGING AT Mon Feb  1 09:13:41 2021
+
+Feb 01 09:13:41 *	Now talking on #alacritty
+Feb 01 09:13:41 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+Feb 01 09:13:41 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Jan  9 12:42:04 2021)
+Feb 01 11:48:22 <lovesegfault>	UndeadLeech: any chance you can cut 0.7.2 with 73759da0f52f7186181f7284a4c9cb9db0798d59?
+Feb 01 13:39:14 <UndeadLeech>	lovesegfault: I thought you for sure would love that feature.
+Feb 01 13:39:29 <UndeadLeech>	I've considered it, but I'm not entirely sure. Since the impact of that bug is relatively low.
+Feb 01 14:17:09 *	Disconnected ()
+**** ENDING LOGGING AT Mon Feb  1 14:17:09 2021
+
+**** BEGIN LOGGING AT Mon Feb  1 14:17:35 2021
+
+Feb 01 14:17:35 *	Now talking on #alacritty
+Feb 01 14:17:35 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+Feb 01 14:17:35 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Jan  9 12:42:04 2021)
+Feb 01 19:34:02 *	Disconnected ()
+**** ENDING LOGGING AT Mon Feb  1 19:34:02 2021
+
+**** BEGIN LOGGING AT Mon Feb  1 19:34:29 2021
+
+Feb 01 19:34:29 *	Now talking on #alacritty
+Feb 01 19:34:29 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+Feb 01 19:34:29 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Jan  9 12:42:04 2021)
+Feb 01 20:07:49 <lovesegfault>	UndeadLeech: it broke a whole bunch of my scripts :/
+Feb 01 20:08:24 <lovesegfault>	b/c I use a pattern of launching alacritty with fzf to select something, then write that to a fifo file in /tmp which gets picked up by the spawning proc
+Feb 01 20:08:35 <lovesegfault>	but the spawning proc started failing since alacritty would segfault
+Feb 01 20:08:59 <lovesegfault>	a simple || true solved it, but regardless it took me a while to figure out what was happening :P
+Feb 01 21:18:41 *	ChanServ gives channel operator status to UndeadLeech_

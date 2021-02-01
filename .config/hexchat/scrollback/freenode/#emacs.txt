@@ -1,232 +1,3 @@
-T 1587697018 18<28iqubic18>	jamzattack: I'm creating this hook. http://dpaste.com/3JNXXG5
-T 1587697035 18<28iqubic18>	I don't know what to put in the place of those 3 ???.
-T 1587697161 18<25jamzattack18>	https://0x0.st/ijLb.txt is what I got
-T 1587697186 18<28iqubic18>	And now other stuff isn't working.
-T 1587697249 18<28iqubic18>	I went back to a simpler config, and it isn't working either.
-T 1587697249 18<28iqubic18>	http://dpaste.com/0JFE47Z
-T 1587697277 18<28iqubic18>	This should set all new X windows to be char-mode. But it just doesn't.
-T 1587697304 18<25jamzattack18>	(custom-set-variables '(exwm-manage-configurations '((t char-mode t)))) you missed a set of parens
-T 1587697329 18<28iqubic18>	Ah. I see.
-T 1587697339 18<24zeta_018>	i'm going to do a quick reboot, i'll be back in a bit
-T 1587697468 18<28iqubic18>	What the hell is this?
-T 1587697560 18<28iqubic18>	exwm-floating--unset-floating requires an ID. exwm-input-release-keyboard has an optional ID argument. exwm-layout-show-mode-line doesn't take any arguments. What the hell is this madness?
-T 1587697642 18<25jamzattack18>	yeah it's a bit of a mess. Generally it's just the non-interactive functions that require an id
-T 1587697704 18<28iqubic18>	Is there a non-interactive way of setting the input mode to char?
-T 1587697743 18<28iqubic18>	Or rather... Non-interact way to show the modeline again.
-T 1587697814 18<25jamzattack18>	Why not just use the interactive one?
-T 1587697816 18<28deerpig18>	For some reason, the first [git] commit of the morning is always the hardest of all.
-T 1587697839 18<28iqubic18>	I want to make sure the right window is target with that function.
-T 1587697889 18<25jamzattack18>	could use (with-current-buffer ...)
-T 1587697907 18<25jamzattack18>	otherwise copy exwm-layout-shouw-mode-line and add an argument
-T 1587697927 18<28iqubic18>	Nah. I think I'll just use with-current-buffer.
-T 1587698191 18<28iqubic18>	Why is there no hook for when the instance name changes?
-T 1587698268 18<28iqubic18>	Something in this is malformed, and I don't know what it is.
-T 1587698284 18<28iqubic18>	http://dpaste.com/3SRC80D
-T 1587698300 18<24zeta_018>	ok, installing elm-mode fixed it, i just need to test out elm-language-server to make sure it's working correctly
-T 1587698346 18<24zeta_018>	  (use-package lsp-mode
-T 1587698349 18<24zeta_018>	    :ensure t
-T 1587698349 18<24zeta_018>	    :hook (
-T 1587698349 18<24zeta_018>	      (elm-mode . lsp))
-T 1587698349 18<24zeta_018>	    :commands lsp)
-T 1587698377 18<24zeta_018>	plus:
-T 1587698380 18<28iqubic18>	Looks good.
-T 1587698380 18<24zeta_018>		:custom
-T 1587698380 18<24zeta_018>		(elm-format-on-save-mode t)
-T 1587698394 18<28iqubic18>	Please use a paste service next time.
-T 1587698484 18<24zeta_018>	sorry about that, here it is: https://dpaste.org/xFGt
-T 1587698489 18<28iqubic18>	So, what part of that function is malformed?
-T 1587698494 18<28iqubic18>	Debugger entered--Lisp error: (error "Malformed arglist: (let ((id (exwm--buffer->id (cu...")
-T 1587698507 18<28iqubic18>	http://dpaste.com/3MFW6ZM
-T 1587698537 18<24zeta_018>	elm-ls seems to want to start then exits, i need to figure out why that is
-T 1587698731 18<20jusss18>	thblt: I'd like to make the focus jump back to the code buffer when async-shell-command done
-T 1587698770 18<20jusss18>	like there're two windows, the code buffer and *Async Shell Command*, 
-T 1587698819 18<20jusss18>	press F5, then call async-shell-command and use switch-buffer-to-other-window to that *Async Shell Command*
-T 1587698857 18<20jusss18>	now when the process is done, I'd like to make the focus jump back to the code buffer
-T 1587698885 18<25spikemaster18>	iquibic. YOu mare missing the () after the fn name
-T 1587698989 18<25spikemaster18>	(defun foo ()) 
-T 1587699043 18<29mplsCorwin18>	or a nil works there also
-T 1587699125 18<24zeta_018>	when i open up a elm file, elm-lsp says starting, but it stays stuck there for a while and then asks me to restart? how do i troubleshoot this?
-T 1587699201 18<24zeta_018>	well here's the errors elm-ls buffer is throwing: http://dpaste.com/2SSX4VE
-T 1587699328 18<24zeta_018>	what does that even mean? ^
-T 1587702319 18<28evanmeek18>	Is anyone using Google translate. El? When I call Google translate at point, I always get the wrong result, like this:
-T 1587702341 18<28evanmeek18>	hello => %google-translate-at-point: Args out of range: "你好", 2
-T 1587702655 18<20jusss18>	where's worong with the anwser's code? https://emacs.stackexchange.com/questions/42172/run-elisp-when-async-shell-command-is-done
-T 1587702702 18<24ryouma18>	evanmeek: what do you mean by ei.  where are you getting that google translate function.  istr recently i got weir results trying to search for kanji.
-T 1587702740 18<24ryouma18>	google translate is horrendous at japanese->english but it does know kanji usually and can transliterate.
-T 1587702839 18<24ryouma18>	wouldn't it ber great if i could just put point above your kanji and then the echo area would contain translations and pronunciation and examples?
-T 1587702885 18*	24ryouma imagines a world with lowered language barriers because emacs rocks
-T 1587702915 18<28sloppone18>	where can I get a good emacs?
-T 1587703034 18<28evanmeek18>	@ryouma ei means google-translate.el
-T 1587703083 18<24ryouma18>	,google-translate.el
-T 1587703085 18<22fsbot18>	ryouma: when the humans take over, you will be first against the wall
-T 1587703094 18<28evanmeek18>	https://github.com/atykhonov/google-translate
-T 1587703144 18<24ryouma18>	thanks
-T 1587703157 18<24ryouma18>	sloppone: elaborate
-T 1587703186 18<24ryouma18>	i want excellent linux and emacs tools for japanese, from the perspective of a native english speaker
-T 1587703209 18<28sloppone18>	ryouma: I need an emacs that respects me. The one I have now is like a sullen teenager.
-T 1587703251 18<28evanmeek18>	I'm using a web version of Google translation, but it's still hard to understand what you're saying...
-T 1587703270 18<28sloppone18>	How do I get it to do that thing where the cursor is on mutltiple lines at once?
-T 1587703324 18<24ryouma18>	huh i thought 好 was a japanese only word but it seems to not be
-T 1587703353 18<28sloppone18>	ryouma: cool. how did you do that?
-T 1587703366 18<24ryouma18>	do what?
-T 1587703384 18<28sloppone18>	the japanese
-T 1587703387 18<24ryouma18>	,multiple-cursors
-T 1587703390 18<22fsbot18>	multiple-cursors: [0] a package to add faux cursors to modify multiple parts of the buffer at once
-T 1587703390 18<22fsbot18>	[1] available at marmalade, MELPA and https://github.com/magnars/multiple-cursors.el
-T 1587703390 18<22fsbot18>	[2] demonstrated in this short video: emacsrocks.com/e13.html
-T 1587703390 18<22fsbot18>	[3] pretty awesome
-T 1587703390 18<24ryouma18>	copy paste
-T 1587703395 18<28evanmeek18>	The char '好' is Chinese.
-T 1587703410 18<28sloppone18>	my b
-T 1587703436 18<24ryouma18>	evanmeek: what is teh rhs?
-T 1587703455 18<24ryouma18>	sloppone: but you can use c-u c-\ to input which i will do now to ask evanmeek my followuyp.
-T 1587703457 18<28sloppone18>	fsbot: thanks
-T 1587703459 18<22fsbot18>	sloppone, no problem
-T 1587703484 18<24ryouma18>	好
-T 1587703502 18<28sloppone18>	i dont weechat from emacs.
-T 1587703503 18<24ryouma18>	is that the same char?
-T 1587703503 18<28evanmeek18>	好 means of english is OK
-T 1587703515 18*	28sloppone hangs head in shame
-T 1587703526 18<24ryouma18>	evanmeek: it's hao in mandarin right
-T 1587703534 18<28sloppone18>	*irc
-T 1587703537 18<24ryouma18>	nihao
-T 1587703558 18<24ryouma18>	sloppone: ,,irc
-T 1587703559 18<22fsbot18>	IRC: [0] Emacs-based IRC clients: erc, rcirc, Circe
-T 1587703559 18<22fsbot18>	[1] some people here use weechat, hexchat, irssi and more!
-T 1587703561 18<28evanmeek18>	nihao is chinese pinyin
-T 1587703586 18<28deerpig18>	It's used in Japanese to mean fondness, in Chinese it means all right, good, if memory serves
-T 1587703617 18<28deerpig18>	if my memory serves that is
-T 1587703626 18<28sloppone18>	si si si
-T 1587703629 18<24ryouma18>	that makes sense but i had the mistaken notion that it was japanese only char
-T 1587703647 18<24ryouma18>	a famous example of
-T 1587703669 18<28sloppone18>	I suppose I could fire up eshell then weechat...
-T 1587703679 18<24ryouma18>	term
-T 1587703694 18<24ryouma18>	i use rcirc
-T 1587703764 18<28evanmeek18>	I use erc
-T 1587703812 18<28sloppone18>	I'm in a seperate terminal with weechat. 
-T 1587703822 18<28evanmeek18>	Thank you for your help, I should go to the Chinese community to find a solution
-T 1587703843 18<28sloppone18>	coding clojure in my emacs, sort of
-T 1587703857 18<28sloppone18>	distracted by my son playing video games.
-T 1587703885 18<24ryouma18>	evanmeek: we can try here but i have exchausted my evanmeek helping capacity
-T 1587704025 18<24ryouma18>	emacs by default / says there can be only one / sullen teenager
-T 1587704040 18<24ryouma18>	my senryu capacity is alive
-T 1587704333 18<28evanmeek18>	I fixed the error just now. The solution is to make the following configuration:
-T 1587704358 18<28evanmeek18>	(use-package google-translate
-T 1587704358 18<28evanmeek18>	  :ensure t
-T 1587704358 18<28evanmeek18>	  :config
-T 1587704358 18<28evanmeek18>	  (setq google-translate--tkk-url "http://translate.google.cn/"
-T 1587704358 18<28evanmeek18>	        google-translate-base-url "http://translate.google.cn/translate\_a/single"
-T 1587704364 18<28evanmeek18>	        google-translate-listen-url "https://translate.google.cn/translate\_tts"
-T 1587704364 18<28evanmeek18>	        google-translate-default-target-language "zh-CN"
-T 1587704370 18<28evanmeek18>	        google-translate-default-source-language "en"))
-T 1587704370 18<28evanmeek18>	 
-T 1587704380 18<28evanmeek18>	Emmm.I don't think I should paste code directly into the IRC channel
-T 1587704386 18<28evanmeek18>	Sorry.
-T 1587704591 18<27codingquark18>	Good morning!
-T 1587704605 18<27homerj18>	wait
-T 1587704608 18<25jamzattack18>	morning codingquark
-T 1587704617 18<27homerj18>	former rule 5 pick for the Pirates Evan Meek?
-T 1587704888 18<27codingquark18>	Hello jamzattack!
-T 1587705652 18<20aidalgol18>	homerj: wat?
-T 1587705872 18<26fengshaun18>	hmm Ivy doesn't even recognize plink: as a tramp protocol
-T 1587705873 18<26fengshaun18>	and does some weird things with path
-T 1587706275 18<26fengshaun18>	there is no winning, helm is slooow and ivy's missing features :S
-T 1587706715 18<24ryouma18>	and ido has even fewer!
-T 1587706795 18<24ryouma18>	ido is all i need for the time being
-T 1587706864 18<29PlasmaStrike18>	You could look at icomplete or selectrum. the selectrum page has a bunch of comparisions for compleatin frameworks
-T 1587706930 18<29afidegnum18>	what's the best package to use? i tried helm with no success.... let's say, before running a function, i want to be presented with few parameters. i.e username: "i fill" channel: "i fill"    etc... 
-T 1587706942 18<29afidegnum18>	once the parameters are exhauxted, the funciton runs
-T 1587706966 18<29afidegnum18>	any package close to that ?
-T 1587707122 18<25jamzattack18>	just use a bunch of (read-string)s?
-T 1587707284 18<29afidegnum18>	jamzattack: that will be tedious, i think there is a handy package for it 
-T 1587708077 18<24ryouma18>	,selectrum
-T 1587708081 18<22fsbot18>	It's lucky you're going so slowly, because you're going in the wrong direction.
-T 1587708099 18<24ryouma18>	must be ibmum
-T 1587708405 18<29afidegnum18>	ryouma: thanks, 
-T 1587708433 18<29afidegnum18>	how do i wor with this? https://i.stack.imgur.com/KDJMX.png
-T 1587708433 18<19nwoob18>	I have one question which is not related to emacs, just a general question: If I am at home connected to my wifi and then I connect to openvpn connection setup by my college, can they see my internet history?
-T 1587708436 18<29afidegnum18>	i mean how do i work with this ?
-T 1587708509 18<29afidegnum18>	ryouma: ibmum 404
-T 1587709280 18<27homerj18>	nwoob, don't look at porn over your school's vpn
-T 1587709649 18<20dale18>	nwoob: Maybe, depends on how they have it configured.
-T 1587709876 18<29PlasmaStrike18>	nwoob: Your colloage will be able see you talking to your vpn server, but nothing else besides that. unless they break the encription
-T 1587710077 18<26fengshaun18>	welp! that was an easy fix, just needed to add /plink: to the hard-coded prefix list in ivy--magic-file-slash
-T 1587710088 18<26fengshaun18>	also, wow edebug-defun is cool
-T 1587710117 18<26fengshaun18>	I should make a patch and send it in over the weekend
-T 1587710870 18<27homerj18>	which is why you generally use two network interfaces
-T 1587710880 18<27homerj18>	attach one to the VPN, but have everything go out your normal one
-T 1587710898 18<27homerj18>	then just edit your routing table for things that need VPN
-T 1587713604 18<22tsaka__18>	http://dpaste.com/2G7TAM4
-T 1587713616 18<22tsaka__18>	yields helm-M-x-execute-command: Wrong type argument: integer-or-marker-p, nil
-T 1587713622 18<22tsaka__18>	any tips?
-T 1587713634 18<22tsaka__18>	I want it to search for whole words, even if underscores are in them
-T 1587716830 18<29afidegnum18>	how do i represent options in elisp/emacs? i.e where i can select mutiple some items?
-T 1587717044 18<29afidegnum18>	i want to select a list of few items in an option
-T 1587717734 18<29blandest18>	afidegnum: completing-read lets you choose an item from a list interactively
-T 1587718110 18<24wiz21b18>	hello, I've made a simple change to rcirc so that it warns me whenever I send too long of a message (which happened to me yesterday :-( ). Anybody interested ?
-T 1587718790 18<27codingquark18>	Put it up somewhere. Pretty sure someone would be interested.
-T 1587718876 18<29afidegnum18>	blandest: what about list of items ?
-T 1587719142 18<20jusss18>	is there a function can generate random strings?
-T 1587719223 18<22Greth18>	jusss: do you need them to be random words? You can do (number-to-string (random))
-T 1587719246 18<20jusss18>	Greth: yes, I need to use them as random buffer name
-T 1587720109 18<22Greth18>	jusss: sadly don't have a good answer then. The way I would do it is something like: (let ((words '("one" "two" "three"))) (nth (random (length words)) words))
-T 1587721449 18<19wasamasa18>	truly random buffer names?
-T 1587721475 18<19wasamasa18>	generate-new-buffer creates new ones based on a name
-T 1587721491 18<19wasamasa18>	it does so by appending numbers
-T 1587721666 18<29lnkcmplxct18>	wasamasa I need a more up to date version of emacs than my distro allows for, is it better or more secure to compile the current version from source myself or to use ppa:cassou/emacs ?
-T 1587722502 18<19wasamasa18>	it's more a convenience thing
-T 1587723271 18<27codingquark18>	,ping
-T 1587723275 18<22fsbot18>	␕
-T 1587723275 18<27codingquark18>	aw yis
-T 1587723897 18<19notnotdan18>	uwu
-T 1587724152 18<28VladTheImplier18>	Hey there :] What command is C-h mapped to, I want to remap it. Can't check it via C-h-k for some reason...
-T 1587724204 18<19wasamasa18>	it's a prefix
-T 1587724204 18<24miskatonic18>	C-h is a prefix, not a command on its own right
-T 1587724212 18<19wasamasa18>	if you mean C-h C-h, that's help-for-help
-T 1587724317 18<28VladTheImplier18>	wasamasa: Ohh, that's why :S  Can I remap the prefix somehow?
-T 1587724359 18<19wasamasa18>	check help.el for how the bindings are set up
-T 1587724379 18<19wasamasa18>	f1 is an alias for it
-T 1587724534 18<28VladTheImplier18>	wasamasa: Ohh! F1, nice! Just in case I still want to remap it, there are is "help.el.gz, ehelp.el.gz, help.elc, ehelp.elc" where do I look to get the reference?
-T 1587724616 18<19wasamasa18>	I used my favorite search tool and looked for help-for-help
-T 1587724638 18<19wasamasa18>	then I checked for C-h and f1
-T 1587727967 18<20mixfix41118>	,chicken
-T 1587727971 18<22fsbot18>	chicken: [0] a Scheme to C compiler. http://call-with-current-continuation.org
-T 1587727976 18<22fsbot18>	[1] http://isotropic.org/papers/chicken.pdf
-T 1587727976 18<22fsbot18>	[2] https://www.youtube.com/watch?v=yL_-1d9OSdk
-T 1587727982 18<20mixfix41118>	, mummy
-T 1587727982 18<22fsbot18>	May the True Editor of hope fill you with great joy and peace as you trust in Her, so that you may overflow with hope by the power of the Holy Spirit.
-T 1587727987 18<20mixfix41118>	, tk
-T 1587727987 18<22fsbot18>	[TMDM] You are a fluke of the universe; you have no right to be here.
-T 1587727987 18<20mixfix41118>	, ik
-T 1587727987 18<22fsbot18>	[TMDM] Questionable day.
-T 1587727987 18<22fsbot18>	Ask somebody something.
-T 1587728050 18<20mixfix41118>	,programming
-T 1587728050 18<22fsbot18>	hmm, programming is "I feel much dismay at having got into so amazing a quagmire and botheration" - Ada Lovelace
-T 1587729137 18<19wasamasa18>	mixfix411: what's your problem?
-T 1587729144 18<19wasamasa18>	mixfix411: why are you even here if all you do is yanking the bot?
-T 1587729303 18<28gueorgui18>	Is there a way to set up mu4e in a "wide view"? So the list of messages on the left side of the screen, and the message view on the right, rather than list on top and message view on bottom?
-T 1587729603 18<24miskatonic18>	maybe Esc-Esc_Esc to make the message tesxt buffer disappear, then split the window horizontally, the use buffer-menu to make the text messages appear in one of the new halves
-T 1587729643 18<24miskatonic18>	i got this to work in some other modes, not tried in mu4e
-T 1587730052 18<28gueorgui18>	Ah, that's my kind of hacky! I'll try :D
-T 1587730072 18<28gueorgui18>	Thanks miskatonic 
-T 1587730284 18<27francisv-local18>	Hello, I am developing in Rust, and its compilation output is in `Cargo-Process` mode.  The output is not properly colored.  Instead of colors it shows the bash formatting color sequences, e.g. [331m.  Colors are properly interpreted in `comint` mode.  Anyone who can help me to find out how to interpret color sequences in other modes?  Thank you 🙂
-T 1587730339 18<29afidegnum18>	anyone familiar with key-chord ?
-T 1587730345 18<29afidegnum18>	is there an additiona required command?
-T 1587730402 18<29afidegnum18>	hitting i.e tt doesn't produce any effect
-T 1587730475 18<22adam_erc18>	How can I reference a :dir or :var arguments from elisp without running the babel code block?
-T 1587735068 18<20jusss18>	https://paste.ubuntu.com/p/qKwjRyKmWb/
-T 1587735110 18<20jusss18>	when I run this my-python-compile2 function by press F5 in python mode buffer, it shows "wrong type argument sequencep, cmd"
-T 1587735117 18<20jusss18>	where it's wrong?
-T 1587737490 19*	Now talking on 22#emacs
-T 1587737490 22*	Topic for 22#emacs is: Emacs 27.0.91, the second pretest of 27.1, is out.  Please test | 'https://emacsconf.org/2019/videos | Emacs questions take priority over off-topic chatter, so ask! | No Public Loging! What happens in #emacs stays in #emacs | No Racism, sexism, xenophobia, botwanking, or other asshattery
-T 1587737490 22*	Topic for 22#emacs set by 26wgreenhouse!wgreenhous@fsf/member/wgreenhouse (24Mon Apr 20 07:39:23 2020)
-T 1587737494 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
-T 1587737509 20*	Disconnected (20)
-T 1602784599 19*	Now talking on 22#emacs
-T 1602784599 22*	Topic for 22#emacs is: Gul Dukat says upgrade to 27.1: https://i.imgflip.com/4hpvlw.jpg | Emacs questions take priority over off-topic chatter, so ask! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
-T 1602784599 22*	Topic for 22#emacs set by 26wgreenhouse!wgreenhous@fsf/member/wgreenhouse (24Thu Oct  8 00:50:34 2020)
-T 1602784599 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
-T 1602785328 18<22ane18>	is there a nice way to open up git format-patch emails so that it can be easily edited in e.g. message-mode? right now message-mode kind of gets stuck because it's trying to look for the "text follows this line" crap when adding a To: recipient (or any field)
 T 1602785446 18<22ane18>	I would like to need minimal modification for the files so that they can be edited with the message-mode tricks
 T 1602785927 18<24ksynwa18>	In org-mode, shouldn't typing `AB\^C` escape the ^ and avoid the superscript?
 T 1602785938 18<24ksynwa18>	Seems to not do this in html export.
@@ -5029,3 +4800,356 @@ T 1612124359 18<19parsnip18>	user@domain or alias
 T 1612124366 18<19parsnip18>	i have alias in .ssh/config
 T 1612124376 18<19parsnip18>	so i can just do `ssh d`
 T 1612124390 18<29Dabian18>	Setting up an alias seems convenient. Can you use that in the shell as well?
+T 1612124415 18<29Dabian18>	I guess you can
+T 1612124502 18<19parsnip18>	i don't know why it's not working for me
+T 1612124505 18<19parsnip18>	i used to use tramp
+T 1612124524 18<19parsnip18>	GNU Emacs 27.1.90 (build 1, x86_64-apple-darwin19.6.0, NS appkit-1894.60 Version 10.15.7 (Build 19H2)) of 2021-01-15
+T 1612124540 18<29Dabian18>	Suddenly I forgot how to evaluate elisp ... I thought it was C-x C-e
+T 1612124544 18<24jmares18>	acs
+T 1612124547 18<19parsnip18>	yes
+T 1612124558 18<29Dabian18>	It is?
+T 1612124558 18<24jmares18>	parsnip: I disconnected, sorry. I saw your message saying to fetch first
+T 1612124573 18<24jmares18>	I was going to say, I did, but didn't know what to do after
+T 1612124577 18<29Dabian18>	Why not works then?
+T 1612124592 18<24jmares18>	merge the local copy of origin/master into master?
+T 1612124612 18<24jmares18>	iirc a pull is a fetch and a merge, right?
+T 1612124632 18<19parsnip18>	pull is a fetch and whatever you configure it to, default is merge probably
+T 1612124644 18<29Dabian18>	parsnip: He pinged out at 250+ seconds, I am guessing he lost mostly everything thou said.
+T 1612124741 18<24jmares18>	Unrelatedly, if off topic is not frowned upon, may I paste here a The Economist link to show a simple text column design I'd wish to implement in html if possible?
+T 1612124793 18<24jmares18>	Dabian: if you're talking about me, any chance you could relay what parsnip wrote to me? If it's not much trouble
+T 1612124834 18<19parsnip18>	,off-topic a The Economist link to show a simple text column design I'd wish to implement in html
+T 1612124836 18<22fsbot18>	This is *so* off-topic, people. Could you, like, take it elsewhere?
+T 1612124840 18<19parsnip18>	oops
+T 1612124844 18<19parsnip18>	,on-topic x
+T 1612124846 18<22fsbot18>	DiscussionTopics are at http://www.emacswiki.org/cgi-bin/wiki/CategoryCode , in the `Discussion topics' section
+T 1612124851 18<19parsnip18>	,emacs-topic x
+T 1612124854 18<22fsbot18>	parsnip: I bet you still use Gopher
+T 1612124895 18<19parsnip18>	jmares: off topic chatter is quite common here, we just try to quiet down if there happens to arise an on-topic question
+T 1612124906 18<29Dabian18>	jmares: Sorry, I am on irssi.  Had I been on ERC, no problem.
+T 1612124932 18<19parsnip18>	i don't think i said much that i haven't restated
+T 1612124956 18<24jmares18>	Fair enough, thanks for the help
+T 1612124994 18<19parsnip18>	Dabian: oh, i think i found some hints on using tramp
+T 1612125006 18<19parsnip18>	Dabian: try C-x C-f /ssh: TAB
+T 1612125022 18<29Dabian18>	jmares: In the end of the day, solving your problem must have some priority over relaying chat history. :)
+T 1612125023 18<19parsnip18>	that game me a clue to try C-x C-f /ssh:d:
+T 1612125048 18<29Dabian18>	s/game/gave/
+T 1612125059 18*	19parsnip forgets why they wanted to use tramp a few days ago
+T 1612125059 18<29Dabian18>	,s/game/gave/
+T 1612125060 18<22fsbot18>	:(   FOrmat: s/foo.../bar..../ in TErM &oPtionaL n.   r/../../.. fOr Regexps. 
+T 1612125096 18<29Dabian18>	What did I do wrong, fsbot?
+T 1612125105 18<19parsnip18>	it's for replacing in factoids
+T 1612125111 18<29Dabian18>	Ahh ok.
+T 1612125124 18<19parsnip18>	like ",s/foo/bar/ in <factoid> <index>"
+T 1612125130 18<29Dabian18>	I guess I confuse it with another bot.
+T 1612125135 18<24jmares18>	parsnip: Great to hear, I had the feeling that was the case. I wanted to ensure I remained respectful of the channel.
+T 1612125158 18<19parsnip18>	in topic, "Emacs questions take priority over chit-chat so ask away!"
+T 1612125161 18<27hodapp18>	where is rudybot? :(
+T 1612125162 18<24jmares18>	parsnip: It may sound odd but I have big trust and interest in the web design aesthetic and technical choices of anyone who uses emacs.
+T 1612125175 18<29Dabian18>	hodapp: Just what I was wondering, litteraly.
+T 1612125180 18<19parsnip18>	jmares: yes, i find a wide knowledge base here
+T 1612125181 18<29Dabian18>	and Bierny ...
+T 1612125205 18<24jmares18>	parsnip: In fact why not kill two birds with one stone and ask: Any elegant looking blogs made with org mode?
+T 1612125214 18<29Dabian18>	I think maybe Rudybot retired a good while ago .. but what about Bierny?
+T 1612125221 18<29Dabian18>	,rudybot
+T 1612125223 18<22fsbot18>	rudybot: [0/5] a heap of junk offby1 made by pushing bits of junk towards one another until a heap formed
+T 1612125223 18<22fsbot18>	[1] at http://www.emacswiki.org/emacs/rudybot
+T 1612125223 18<22fsbot18>	[2] see ,rudybot-explained for the method behind the madness
+T 1612125223 18<22fsbot18>	[3] a digital golem ;;[ ,more / ,dump]
+T 1612125225 18<24jmares18>	I just want a column of text in baskerville and that's it. I don't want any bells or whistles
+T 1612125244 18<29Dabian18>	,more
+T 1612125244 18<22fsbot18>	[4] written in Racket (before it was called Racket)
+T 1612125244 18<22fsbot18>	[5] in need of mental health care; show your support at https://github.com/offby1/rudybot/issues/21
+T 1612125260 18<24jmares18>	,rudybot when's the singularity happening?
+T 1612125262 18<22fsbot18>	rudybot is [0/5] a heap of junk offby1 made by pushing bits of junk towards one another until a heap formed
+T 1612125262 18<22fsbot18>	[1] at http://www.emacswiki.org/emacs/rudybot
+T 1612125262 18<22fsbot18>	[2] see ,rudybot-explained for the method behind the madness
+T 1612125262 18<22fsbot18>	[3] a digital golem ;;[ ,more / ,dump]
+T 1612125272 18<29Dabian18>	,bierny
+T 1612125274 18*	22fsbot hurts Dabian
+T 1612125278 18<29Dabian18>	lol
+T 1612125320 18<19parsnip18>	jmares: i think there's basically two approaches in org. export a single document, or use the notion of org "project export". then look at all the configuration options for each, and look for easiest way to get what you want.
+T 1612125390 18<24jmares18>	thank you parsnip, i will look into it
+T 1612125406 18<24jmares18>	i use org for almost everything, why not writing a super simple blog site
+T 1612125453 18<24jmares18>	 i literally just want a list of subheadings. Almost embarrasing to use anything more than html. But showing a good looking design when viewer is on mobile is an attractive notion.
+T 1612125477 18<24jmares18>	*clarification: a list of subheadings with a font of my choice
+T 1612125561 18<29Dabian18>	parsnip: Is it HostKeyAlias?
+T 1612125590 18<29Dabian18>	parsnip: Thanks for the TAB hint, btw.
+T 1612125603 18<19parsnip18>	idk, i thought it was whatever the first line of the block had
+T 1612125612 18<19parsnip18>	that's all i seem to be using
+T 1612125630 18<19parsnip18>	maybe alias is not the technically correct term
+T 1612125651 18<29Dabian18>	It tries to connect to the local host though ...
+T 1612125679 18<29Dabian18>	parsnip: I am writing the configfile from scratch, there wasn't any. :D
+T 1612125771 18<19parsnip18>	oh you don't have a ~/.ssh/config
+T 1612125794 18<29Dabian18>	Right
+T 1612125808 18<29Dabian18>	I guess I can look /etc
+T 1612125855 18<29Dabian18>	nah .. that looks a tad different, perhaps /usr/share/doc/ssh or similar.
+T 1612125906 18<29Dabian18>	nah ... .. maybe M-x info <enter> m ssh <enter> or similar.
+T 1612125918 18<29Dabian18>	(or C-h i).
+T 1612125971 18<29Dabian18>	oh well.
+T 1612126076 18<29Dabian18>	I think I got it. ... Now I just have to test.
+T 1612126130 18<29Tekk_18>	How can I get company-mode to either pick up on cflags arguments or, ideally, pull cflags from a directory's makefile? I can't use company because whenever it's calling clang it can't find headers since by default it doesn't look in /usr/local/include
+T 1612126188 18<20aidalgol18>	Tekk_: Which backend are you using?
+T 1612126218 18<29Tekk_18>	Ah, I think I have it
+T 1612126237 18<29Tekk_18>	company-clang has a flag to support a file called "compiler_flags.txt". I can have my makefile write that I think.
+T 1612126482 18<29Tekk_18>	Doesn't seem quite that simple, unfortunately. Still the same error (can't find the header in /usr/local/include). Is there something aside from hitting the toggle you've gotta do?
+T 1612127105 18<29Tekk_18>	nvm, I typo'd. compile_flags.txt not compiler_flags.txt ;)
+T 1612127226 18<27nij18>	,fsbot
+T 1612127227 18<22fsbot18>	To see detailed notes about fsbot, privmsg me and type ,erbot
+T 1612129703 18<20dieggsy18>	often when i want to change a full lisp symbol (evil-mode), i'll try ciw, but that changes too little (only the word within dash boundary), but ciW changes too much (eats parens too)
+T 1612129709 18<20dieggsy18>	is there a native evil way to do what i want?
+T 1612129737 18<20dieggsy18>	like, motion/deletion by symbols, i guess
+T 1612129789 18<27nij18>	I think you mind be interested in lispy (by abo-abo). there's also a youtube video.
+T 1612129795 18<27nij18>	though i haven't tried it.
+T 1612129808 18<27nij18>	s/mind/might
+T 1612130244 18<19parsnip18>	sweet, i can mark a task done, or "delete", set a due date, change priority
+T 1612130271 18<19parsnip18>	next feature is to add ability to simply toggle the "next" tag, then i think i can focus on using it, and improving codebase
+T 1612130303 18<19parsnip18>	try to add a notion of "profiles" which is sort of blocked by bad code choices, imo
+T 1612130398 18<20dieggsy18>	nickmass: i've actually tried it. i've tried a lot of the paren editing frameworks, and in the end just ended up going with electric-pair-mode and mostly manual editing lol
+T 1612130417 18<20dieggsy18>	i used smartparens for a long time, lispy less time
+T 1612130437 18<20dieggsy18>	oh whoops
+T 1612130450 18<20dieggsy18>	nij. he's gone. anyway
+T 1612130493 18<20Hash18>	I couldn't get wsl to mount my linux ext4 large extents drive file system
+T 1612130511 18<20Hash18>	No option available to do so. So I booted back into linux and now I'm on emacs again and my world makes a little more sense.
+T 1612130592 18<20dieggsy18>	Hash: you were trying to switch back to windows _from_ linux?
+T 1612130868 18<20bpalmer18>	Let's insist all software worth using have an active instagram presence.
+T 1612130950 18<20aidalgol18>	Makes about as much sense as my local plumber being on instagram.
+T 1612131025 18<20bpalmer18>	don't you want to admire clean pipes?
+T 1612131192 18<20aidalgol18>	I just browse my hardware store's website when I want that.
+T 1612131213 18<20aidalgol18>	Mmmmm, yeah, look at that girthy pipe...
+T 1612131339 18<20bpalmer18>	what, the open web? I hear wild javascript roams there, ready to attack unsuspecting browsers
+T 1612131490 18<20aidalgol18>	That's why I use ShadyVPN.  The first 100 people who click THIS LINK http://blit.xz/kWMbj gets 3 months FREE to ShadyVPN!
+T 1612131498 18<20aidalgol18>	Protect your data with ShadyVPN!
+T 1612131501 18<20aidalgol18>	TODAY!
+T 1612131614 18<19wasamasa18>	lol
+T 1612131639 18<20bpalmer18>	Hmm, element is back up on the google play store, it looks like.
+T 1612131856 18<19twb18>	aidalgol: do you control both endpoints?  If so, I suggest wireguard instead.  wireguard support is built into every Linux system that runs systemd, and is well supported on at least Android, iOS, Windows, MacOS, and non-systemd Linux.
+T 1612131921 24*	28Praise- is now known as 18Praise
+T 1612131979 18<20aidalgol18>	twb: I don't use a VPN.  I don't think there is such a service called ShadyVPN.  That was a pisstake of NordVPN sponsorships of small YouTube channels.
+T 1612132061 24*	28radu2425 is now known as 18radu242
+T 1612132118 18<20bpalmer18>	Sadly, there's a lot of VPN misinformation that gets spread around regularly.
+T 1612132142 18<20aidalgol18>	yyyyup
+T 1612132189 18<20aidalgol18>	"OH NO!  Bob Didn'T Protect His Data With NORD VPN and now RUSSIAN HACKERS STOLE ALL HIS DATA!!!!11"
+T 1612132209 18<20bpalmer18>	One thing I do wonder about legislating: many years ago, in the US, a prospective judge going through confirmation hearings had their video rentals leaked and it was embarassing. Soon enough a special purpose law was passed so video rentals get extra privacy protection.
+T 1612132222 18<20aidalgol18>	Who started this shit, anyway?
+T 1612132239 18<20bpalmer18>	It somehow seems like people's DNS resolutions would be potentially as embarrassing.
+T 1612132361 18<20aidalgol18>	probably
+T 1612132469 18<20aidalgol18>	bpalmer: re. element: https://element.io/blog/element-on-google-play-store/
+T 1612132596 18<19twb18>	bpalmer: the absolutely are
+T 1612132608 18<29wgreenhouse18>	aidalgol: > extremely abusive content which was accessible on the default matrix.org homeserver
+T 1612132623 18<20aidalgol18>	wgreenhouse: Yes, but it's a FEDERATED PROTOCOL
+T 1612132626 18<19twb18>	bpalmer: and dnssec is a GIANT shitshow so browser people have started just doing an end-run around it and doing DNS-over-HTTP
+T 1612132629 18<29wgreenhouse18>	the trouble with their "decentralized" service being centralized by default
+T 1612132636 18<20aidalgol18>	wgreenhouse: Oh yeah, that too.
+T 1612132651 18<20aidalgol18>	I've long thrown up my hands and given up on matrix.
+T 1612132653 18<19wrycode18>	one problem among many 
+T 1612132681 18<29wgreenhouse18>	aidalgol: I've heard criticism that their onboarding experience should do more like what joinmastodon.org does
+T 1612132704 18<20aidalgol18>	wgreenhouse: YES!!
+T 1612132710 18<29wgreenhouse18>	present a range of hosts they don't own
+T 1612132806 18<20aidalgol18>	Matrix kinda seems at this point like something built for the requirements of their then-prospective government clients, and run as a FOSS project more as a demo for their prospective clients than really in the spirit of making a free federated platform (cf. mastodon).
+T 1612132827 18<20aidalgol18>	...or am I just coming up with my own unhinged conspiracy theories?
+T 1612132846 18<29wgreenhouse18>	aidalgol: the worst part is I think you're right but they can't see it that way
+T 1612132875 18<29wgreenhouse18>	matrix is a series of grant deliverables masquerading as a protocol 
+T 1612132919 18<20aidalgol18>	It's not a protocol.  It's a swarm of milestones flying in tight formation.
+T 1612132966 18<20aidalgol18>	I can never remember what the original quote is about.  I just remember twb's version applied to markdown.
+T 1612132995 18<20bpalmer18>	wgreenhouse: a list of recommendations, should any of those recommendations prove to be sketchy, is itself a liability in terms of being a general browser
+T 1612133028 18<20bpalmer18>	I seem to recall this being an issue in some of the reddit browser apps
+T 1612133046 18<28offby118>	if I could remember how to add a quote, I'd add the one about "matrix ... grant deliverables"
+T 1612133048 18<28offby118>	hint hint
+T 1612133055 18<19wrycode18>	Matrix needs to just specialize and get it over with
+T 1612133065 18<20bpalmer18>	where they got taken down from an app store until they scrubbed the default/recommended list
+T 1612133070 18<29Dabian18>	I like Matrix.
+T 1612133099 18<20bpalmer18>	offby1: if rudybot were around, somebody could ask the bot to remember things
+T 1612133122 18<28offby118>	well rudybot remembers everything, but the actual _quotes_ are ... uh ... hard-coded
+T 1612133127 18<29wgreenhouse18>	bpalmer: more or less of a liability than the current practice of registering an account in the specific server the matrix.org entity owns?
+T 1612133131 18<20bpalmer18>	where are you wanting to add quotes?
+T 1612133133 18<28offby118>	the newest such hard-coded quote is probably five years old
+T 1612133150 18<28offby118>	bpalmer: I don't even know. 
+T 1612133157 18<29wgreenhouse18>	,shit#emacssays is also matrix is a series of grant deliverables masquerading as a protocol
+T 1612133159 18<22fsbot18>	Added note [234] for term "shit#emacssays"
+T 1612133162 18<28offby118>	that.
+T 1612133186 18<20bpalmer18>	wgreenhouse: I mean, at least the server that matrix.org runs means they have the ability to do trust & safety protections on it.
+T 1612133201 18<19wrycode18>	I still wanna know what the content was
+T 1612133254 18<29wgreenhouse18>	maybe they shouldn't try to do that
+T 1612133263 18<29wgreenhouse18>	(admin their own server, that is)
+T 1612133336 18<20bpalmer18>	wgreenhouse: well, then, they either provide a list of servers they don't control and have no influence over, and are risking takedowns if any of those servers prove untrustworthy; or they don't provide anything at all, meaning users have to either find a server somewhere else or more likely don't use the program.
+T 1612133369 18<29wgreenhouse18>	bpalmer: true, and the latter is the fate of most irc or xmpp clients offered
+T 1612133370 18<20bpalmer18>	Part of it depends on how much it's going to try to appeal to the "masses" vs people who specifically seek out matrix.org 
+T 1612133389 18<20bpalmer18>	rather, who specifically seek out a matrix client.
+T 1612133448 18<28VincentVega18>	What are the one semicolon ; comments called and how do I get them indented? Every once in a while, I will see them and notice they got aligned, but would have no idea what caused it.
+T 1612133467 18<20bpalmer18>	VincentVega: you're programming elisp?
+T 1612133474 18<28VincentVega18>	common lisp
+T 1612133476 18<28VincentVega18>	but elisp too
+T 1612133487 18<19wrycode18>	VincentVega: multiple semicolons give different levels of indentation
+T 1612133520 18<20bpalmer18>	VincentVega: the conventions are similar in both elisp and common lisp; see (info "(elisp) Comment Tips")
+T 1612133525 18<28VincentVega18>	yes, I mean when you put a single-; comment after the line, so guess that's not really indentation, more like alignment
+T 1612133551 18<28VincentVega18>	and it seems to align automatically sometimes I just don't get it when
+T 1612133590 18<28VincentVega18>	or if there's a special function that does it
+T 1612133612 18<28VincentVega18>	maybe I am imagining things
+T 1612133704 18<20bpalmer18>	I can fully believe there are utilities that automatically do it; I can't think of one in the elisp modes that does it, though.
+T 1612133733 18<20bpalmer18>	asm mode does the alignment by default, though
+T 1612133761 18<20bpalmer18>	but asm-mode is very column oriented.
+T 1612133786 18<20bpalmer18>	helps if almost all your instructions are just a few letters
+T 1612133902 18<28VincentVega18>	Yeah, I was thinking maybe some mode splits the line for some processing (for whatever reason), the comment ends up on the empty line, aggressive-indent indents it, and the line is then sewn back together (and I think it got aligned), but that's pretty far fetched.
+T 1612133910 18<28VincentVega18>	I see, not using asm-mode though.
+T 1612133927 18<20bpalmer18>	yeah, just thought perhaps you were remembering that behavior
+T 1612134010 18<28VincentVega18>	Yeah, never got to learn any asm unfortunately : ) Ah, it doesn't bother me that much though, thought it was pretty cool to see alignment sometimes. I mean, among about a hundred of other things I could be improving in emacs, this one is pretty amusing. Emerging alignment lol...
+T 1612134018 18<28VincentVega18>	* emergent
+T 1612134135 18<20bpalmer18>	note it'd be easy to write it, if you wanted alignment
+T 1612134255 18<28VincentVega18>	I guess so, will consider it for the future...
+T 1612134463 20*	Disconnected (20)
+T 1612167221 19*	Now talking on 22#emacs
+T 1612167221 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1612167221 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Fri Jan 29 17:23:04 2021)
+T 1612167221 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1612167260 18<20Hash18>	What kind of video games do emacs users play?
+T 1612167352 18<28python47618>	edebug 
+T 1612167477 18<24bkhl18>	Anyone here using electric-pair-mode and know some way to insert a raw character without automatic pairing?
+T 1612167504 18<24bkhl18>	OK, it's C-q.
+T 1612167507 18<24bkhl18>	Thanks for the help. :-)
+T 1612167550 24*	28boughtly- is now known as 18boughtly
+T 1612167724 18<19parsnip18>	,next
+T 1612167724 18<22fsbot18>	Another satisfied customer. NEXT!
+T 1612167949 18<20bpalmer18>	Let's upsell customers to the premium support package.
+T 1612167963 18<28python47618>	emacs the self answering self questionning system
+T 1612168080 18<20bpalmer18>	Unfortunately, the questions are pretty existential. "Why are we here? Do we deserve to be here? If humanity weren't here, would the universe be more peaceful?"
+T 1612168091 18<19parsnip18>	eventually, all problems are solved
+T 1612168104 18<28python47618>	not my job search
+T 1612168125 18<28python47618>	the universe decided to drop that, fruitless he said
+T 1612169478 18<26lockywolf18>	we should have org-mode+tramp hypertext internet
+T 1612169496 18<26lockywolf18>	ssh should allow guest logins by default
+T 1612169652 18<20aidalgol18>	"Arduino Support for OS X: Step 1: Install CEDET"  hold up...
+T 1612169657 18<20aidalgol18>	https://www.emacswiki.org/emacs/ArduinoSupport
+T 1612169673 18<26lockywolf18>	yeah, this should be fixed
+T 1612169679 18<26lockywolf18>	cedet is installed by default
+T 1612169689 18<26lockywolf18>	no need to install it separately
+T 1612170154 18<19twb18>	aidalgol: hahahahahahahaha
+T 1612170176 18<19twb18>	oh emacswiki, it's probably 30 years out of date
+T 1612170203 18<19twb18>	https://www.emacswiki.org/emacs?action=history;id=ArduinoSupport
+T 1612170217 18<19twb18>	older commits have been deleted because sigh
+T 1612170348 18*	19parsnip is intrigued by the casio W-86
+T 1612170383 18<19parsnip18>	how did i not see this one before. it's got the backlight _and_ 50m water resistance
+T 1612170394 18<19parsnip18>	a little clunkier than f91w though
+T 1612170515 18<19jmd18>	Is there an unload-file function? which will undo the effect of load-file ?
+T 1612170534 18<28python47618>	parsnip: what about the casio ?
+T 1612170557 18<28python47618>	I opened early 90s casio I had in a drawer, the pcb is so tiny and precise.. it kinda looks like smartphones today
+T 1612170586 18<19parsnip18>	what about it? i just described it, no?
+T 1612170606 18<28python47618>	my brain totally blocked the following sentences ..
+T 1612170635 18<28python47618>	I'd love to make a smart-ish casio
+T 1612170663 18<27nly18>	any good theme for tty + magit? default one doesnt show commits in magit buffer
+T 1612170664 18<28python47618>	monochrome lcd, BLE, a bit of features (gps, hr monitor) but very simple
+T 1612170929 18<19twb18>	parsnip: if you want to be properly retro, get a pendant watch
+T 1612170937 18<19twb18>	1908 style
+T 1612170961 18<19parsnip18>	twb: don't i need a vest suit to go with it?
+T 1612170972 18<19twb18>	The first hit for "pendant watches" is walmart, and the first row has a star wars watch
+T 1612170980 18<19twb18>	parsnip: no, pendant watches are for women
+T 1612170992 18<19twb18>	parsnip: men of that era rarely wore necklaces
+T 1612171005 18<28python47618>	there was the shirt pocket variant
+T 1612171008 18<19parsnip18>	oh, am i thinking of pocket watch, with the chain?
+T 1612171009 18<28python47618>	still superb imo
+T 1612171012 18<28python47618>	yeah
+T 1612171018 18<19twb18>	parsnip: you are thinking of a fob watch, which is an older style that is less vibration-hardened
+T 1612171030 18<28python47618>	btw since it's #emacs
+T 1612171042 18<19twb18>	pendant watches have to keep time even when they're lying at a funny angle because you have big boobs
+T 1612171045 18<28python47618>	gerald sussman has hour long talk about watch engineering
+T 1612171066 18<19twb18>	That's why they were the basis for the first generation of wrist watches used by officers in the first world war
+T 1612171075 18<28python47618>	interesting
+T 1612171108 18<19twb18>	I dunno why a current human needs a watch though
+T 1612171109 18<28python47618>	also in the 80s, the angles became a source of energy for some high end models (seiko kinetic)
+T 1612171119 18<19twb18>	either you have friends, so you have a phone, and the phone has a clock
+T 1612171125 18<19twb18>	or you are me, and you have neither and need neither
+T 1612171164 18<28python47618>	twb: by the time you took the phone out of your pocket, unlocked the phone, spot the hour if visible or launched the clock app, your train is gone
+T 1612171172 18<24dto18>	hi. is anyone here following the $GME thing, i found something curious and i wonder if someone might be so kind as to take a peek and also upvote the story, supposedly nobody will see it until i get 1 upvote or something https://news.ycombinator.com/item?id=25986910
+T 1612171178 18<28python47618>	-- smartphone optimized life --
+T 1612171206 18<28python47618>	unless you have an iphone XX pro with time projector shortcut on the edge
+T 1612171254 18<28python47618>	can you explain the thing dto ?
+T 1612171269 18<28python47618>	there's nothing on that page
+T 1612171294 18<20aidalgol18>	twb: I blame github culture.
+T 1612171295 18<24dto18>	right it's a fake page. created the other day. linking to a fake online store. 
+T 1612171307 18<19twb18>	python476: obviously the correct solution there is to put a braille display on the phone case
+T 1612171313 18<19parsnip18>	twb: my phone often ides
+T 1612171321 18<24dto18>	like what if the $GME thing is a scam, and this page is something related?
+T 1612171321 18<19parsnip18>	and i still want to know the time
+T 1612171328 18<19parsnip18>	*dies
+T 1612171346 18<28python47618>	dto: that's a lot of speculation :)
+T 1612171348 18<19twb18>	parsnip: I mean, I'm a grumpy old man, so I get that
+T 1612171358 18<19jmd18>	twb: Curiously enough, last year (before the lockdown) I was in a restuarant and needed to know the time  - I didn't have a watch or a phone - and I noticed that a waitress was wearing a watch.  So I asked her the time.   She stopped, fumbled under her apron for several seconds, took out a iThing, booted it up, flipped through a few screens selected the time/date option and very obligingly told me the time. She completely ignored the
+T 1612171358 18<19twb18>	python476: but the normal response would be "carry a USB battery"
+T 1612171360 18<19jmd18>	watch on her wrist.
+T 1612171363 18<28python47618>	not surprising during a massive finance buzz like that
+T 1612171374 18<20aidalgol18>	dto: Please don't ask people for votes in here.
+T 1612171379 18<24dto18>	aidalgol: ok
+T 1612171385 18<19twb18>	aidalgol: you blame WHAT on github
+T 1612171385 18<28python47618>	jmd: priceless anecdote
+T 1612171396 18<20aidalgol18>	twb: The slow death of EmacsWiki.
+T 1612171413 18<19twb18>	jmd: I remember the old days when you used to ask a policeman because they were the only ones issued timepieces
+T 1612171436 18<28python47618>	I fail to see the relation.. is it because tips are now written on project github wiki/PR/README ?
+T 1612171452 18<19jmd18>	These days they would arrest you for wasting police time.
+T 1612171517 18<20aidalgol18>	twb: In *your* lifetime?
+T 1612171554 18<28python47618>	hey there must be a timer on their body cam 
+T 1612171775 18<19twb18>	jmd: the Met probably would unless it was a tourist area
+T 1612175297 24*	28Lord_of_Life_ is now known as 18Lord_of_Life
+T 1612185429 20*	Disconnected (20)
+T 1612185456 19*	Now talking on 22#emacs
+T 1612185456 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1612185456 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Fri Jan 29 17:22:51 2021)
+T 1612185456 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1612204442 20*	Disconnected (20)
+T 1612204469 19*	Now talking on 22#emacs
+T 1612204469 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1612204469 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:20 2021)
+T 1612204470 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1612205053 18<19parsnip18>	am i missing something on the reply to this comment? https://github.com/amake/orgro/issues/6#issuecomment-770168100
+T 1612205079 18<19parsnip18>	i figured you could leave the parsed state, and go to just text, edit, then save, close edit, and go back to parsing the file
+T 1612205193 18<19parsnip18>	hmm, maybe they have more to worry about, like saving popping back with same scroll position, visibility cycling, etc.
+T 1612205209 18<19parsnip18>	s/saving popping/popping/
+T 1612205828 24*	28radu2420 is now known as 18radu242
+T 1612205961 18<22ckx18>	Hello, I've starting using spacemacs org-mode recently and there's one issue I can't find anywhere: the heading icons are not monospaced, is there a way to use say * or a similar icon that's the same width as the rest of the text? Thanks!
+T 1612205982 18<22ckx18>	s/icon/icon or an ascii char/
+T 1612206290 24*	28radu2420 is now known as 18radu242
+T 1612206340 18<22ckx18>	nevermind, font change solved the issue
+T 1612206478 18<25Cymew18>	I've found lsp-mode with all the modes and additions is a gigantic topic. Anyone know if there's a channel directly dedicated to that kind of questions?
+T 1612206492 18<28gnUser18>	Hey guys, I don't know which channel to ask this on but what is the deal with RMS eating his toe jam?
+T 1612206570 18<25beep156018>	gnUser: I really like vanilla ice creams. However, I sometimes eat chocolate ice cream
+T 1612206585 18<28gnUser18>	lol what?
+T 1612207152 18<26polezaivsani18>	Cymew: there are some language specific lsp server channels (e.g. #haskell-language-server), fwiw
+T 1612207555 18<26polezaivsani18>	re lsp, i'm curious if there where any talks about taking on the lsp approach in Emacs proper?
+T 1612207669 18<20ece318>	The haskell language server is pretty good in my experience, if anyone cares lol
+T 1612207955 18<20dale18>	ckx: IIRC Spacemacs uses https://github.com/sabof/org-bullets which *might* be part of the problem.  But I would probably start by M-x customize-face RET org-level-1 RET.  If it looks like all the attributes there are unspecified then M-x customize-face RET outline-1 RET.
+T 1612207982 18<20dale18>	Oh, I missed you solved that.  My client is having scrolling issues.
+T 1612208002 18<25Cymew18>	I'm interested in Rust, and the community is totally dominated by VSC and vim users, thus the question for some way to find people who use emacs.
+T 1612208060 18<22ckx18>	dale: well I picked a font that has these unicode chars really monospace, it defaulted to source code pro mono that should really be called "mostly mono" :)) thank you though, I will look into it
+T 1612208105 18<20dale18>	ckx: Ha, I am surprised Source Code Pro is not mono throughout, though maybe my surprise is born of ignorance.
+T 1612208149 18<20dale18>	ckx: I will advise that Emacs, at least on macOS, will pick a different font sometimes if the default font doesn't have certain glyphs.
+T 1612208184 18<20dale18>	ckx: More precisely, if it needs to render a glyph, and the font for that particular glyph doesn't actually have the glyph, macOS may choose to have Emacs use a different font.  Or, at least, that's how I understand it.  Not sure what the situation is on other OSes.
+T 1612208308 18<22ckx18>	dale: that's interesting. I'd think that emacs would try and find a fallback font itself (or just a compiled-in font), not that the OS would serve it an alternative.
+T 1612208337 18<20dale18>	ckx: I think this has to do because Emacs tries to delegate text rendering to macOS's CoreText, and that's just how the API works, or at least the work has not been put in on Emacs to make it behave otherwise, but we're pretty far outside my personal experience so I could be wrong.
+T 1612208340 18<22ckx18>	dale: that seems a bit opaque, but I guess it simplifies the logic in the program...
+T 1612208380 18<22ckx18>	dale: I am afraid I know next to nothing about macOS, so I'll take your word for it :).
+T 1612208714 24*	28gurmble is now known as 18grumble
+T 1612209338 18*	19e1f uses the Meslo font on os x iterm2 console emacs
+T 1612209624 18<25Cymew18>	One of the many mysteries of lsp-mode. When I open a file with rust code, emacs hangs after I press C-n to go down a line, and my fan spins up. What's going on?
+T 1612209792 18<25cvandusen18>	Cymew: What does the CPU usage look like? I've seen something similar, and node is the culprit form me. Though, I haven't found a fix for it yet.
+T 1612209860 18<19e1f18>	truss or strace the emacs binary to see what system calls emacs is making
+T 1612209871 18<25Cymew18>	cvandusen: It spins up to 12-13% for a short while, and then goes down again. As the lsp space is so vast, I have no idea if this is caused by something I'd rather un-configure.
+T 1612209883 18<20dale18>	Cymew: You could try the built-in profiler.  You could also try toggle-debug-on-quit and then C-g.
+T 1612209897 18<25Cymew18>	e1f: I could, but it's probably not helpful on that low level.
+T 1612209912 18<25Cymew18>	dale: Thanks I might try that.
+T 1612209921 18<20dale18>	Cymew: I mean, C-g when Emacs is smoking and not responding to see where you interrupt it.
+T 1612209931 18<25Cymew18>	Right
+T 1612209962 18<25Cymew18>	I try to stay out of the debugger, but in this case I might want to trigger it!
+T 1612210166 18<25Cymew18>	...nothing much happens except the fans blows like crazy.
+T 1612210181 18<25Cymew18>	It was a good idea, though.
+T 1612210184 18<20dale18>	You may need to hold C-g or hit it many times.
+T 1612210194 18<25cvandusen18>	Enjoy the breeze! 
+T 1612210294 18<20dale18>	Cymew: Have you tried running top in another terminal to see if it's Emacs spinning up the fans, or if it's the Rust server?
+T 1612210316 18<25Cymew18>	cvandusen: :)
+T 1612210325 18<25Cymew18>	dale: It's emacs
+T 1612210406 18<25Cymew18>	Huh, it said "entering debugger" and then went way. It's really hard when it's that unresponsive
+T 1612210432 18<20dale18>	Cymew: You could try killing Emacs with SIGUSR2, that should drop you into the debugger.
+T 1612210452 18<20dale18>	Cymew: But also try the profiler
+T 1612210475 18<26maxxcan18>	hello everybody
+T 1612210482 18<26maxxcan18>	today I knew doom emacs
+T 1612210669 18<25Cymew18>	dale: I'll keep experimenting. Many thanks for the suggestions.
+T 1612210698 18<25Cymew18>	It's weird, lsp-mode is a mix of some really sweet functionality and pure misery.
+T 1612210721 18<25Cymew18>	It must be me doing something wrong...
+T 1612210722 24*	28seds- is now known as 18seds

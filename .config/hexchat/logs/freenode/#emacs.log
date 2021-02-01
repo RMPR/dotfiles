@@ -25338,3 +25338,368 @@ Jan 31 21:19:19 <parsnip>	user@domain or alias
 Jan 31 21:19:26 <parsnip>	i have alias in .ssh/config
 Jan 31 21:19:36 <parsnip>	so i can just do `ssh d`
 Jan 31 21:19:50 <Dabian>	Setting up an alias seems convenient. Can you use that in the shell as well?
+Jan 31 21:20:15 <Dabian>	I guess you can
+Jan 31 21:21:42 <parsnip>	i don't know why it's not working for me
+Jan 31 21:21:45 <parsnip>	i used to use tramp
+Jan 31 21:22:04 <parsnip>	GNU Emacs 27.1.90 (build 1, x86_64-apple-darwin19.6.0, NS appkit-1894.60 Version 10.15.7 (Build 19H2)) of 2021-01-15
+Jan 31 21:22:20 <Dabian>	Suddenly I forgot how to evaluate elisp ... I thought it was C-x C-e
+Jan 31 21:22:24 <jmares>	acs
+Jan 31 21:22:27 <parsnip>	yes
+Jan 31 21:22:38 <Dabian>	It is?
+Jan 31 21:22:38 <jmares>	parsnip: I disconnected, sorry. I saw your message saying to fetch first
+Jan 31 21:22:53 <jmares>	I was going to say, I did, but didn't know what to do after
+Jan 31 21:22:57 <Dabian>	Why not works then?
+Jan 31 21:23:12 <jmares>	merge the local copy of origin/master into master?
+Jan 31 21:23:32 <jmares>	iirc a pull is a fetch and a merge, right?
+Jan 31 21:23:52 <parsnip>	pull is a fetch and whatever you configure it to, default is merge probably
+Jan 31 21:24:04 <Dabian>	parsnip: He pinged out at 250+ seconds, I am guessing he lost mostly everything thou said.
+Jan 31 21:25:41 <jmares>	Unrelatedly, if off topic is not frowned upon, may I paste here a The Economist link to show a simple text column design I'd wish to implement in html if possible?
+Jan 31 21:26:33 <jmares>	Dabian: if you're talking about me, any chance you could relay what parsnip wrote to me? If it's not much trouble
+Jan 31 21:27:14 <parsnip>	,off-topic a The Economist link to show a simple text column design I'd wish to implement in html
+Jan 31 21:27:16 <fsbot>	This is *so* off-topic, people. Could you, like, take it elsewhere?
+Jan 31 21:27:20 <parsnip>	oops
+Jan 31 21:27:24 <parsnip>	,on-topic x
+Jan 31 21:27:26 <fsbot>	DiscussionTopics are at http://www.emacswiki.org/cgi-bin/wiki/CategoryCode , in the `Discussion topics' section
+Jan 31 21:27:31 <parsnip>	,emacs-topic x
+Jan 31 21:27:34 <fsbot>	parsnip: I bet you still use Gopher
+Jan 31 21:28:15 <parsnip>	jmares: off topic chatter is quite common here, we just try to quiet down if there happens to arise an on-topic question
+Jan 31 21:28:26 <Dabian>	jmares: Sorry, I am on irssi.  Had I been on ERC, no problem.
+Jan 31 21:28:52 <parsnip>	i don't think i said much that i haven't restated
+Jan 31 21:29:16 <jmares>	Fair enough, thanks for the help
+Jan 31 21:29:54 <parsnip>	Dabian: oh, i think i found some hints on using tramp
+Jan 31 21:30:06 <parsnip>	Dabian: try C-x C-f /ssh: TAB
+Jan 31 21:30:22 <Dabian>	jmares: In the end of the day, solving your problem must have some priority over relaying chat history. :)
+Jan 31 21:30:23 <parsnip>	that game me a clue to try C-x C-f /ssh:d:
+Jan 31 21:30:48 <Dabian>	s/game/gave/
+Jan 31 21:30:59 *	parsnip forgets why they wanted to use tramp a few days ago
+Jan 31 21:30:59 <Dabian>	,s/game/gave/
+Jan 31 21:31:00 <fsbot>	:(   FOrmat: s/foo.../bar..../ in TErM &oPtionaL n.   r/../../.. fOr Regexps. 
+Jan 31 21:31:36 <Dabian>	What did I do wrong, fsbot?
+Jan 31 21:31:45 <parsnip>	it's for replacing in factoids
+Jan 31 21:31:51 <Dabian>	Ahh ok.
+Jan 31 21:32:04 <parsnip>	like ",s/foo/bar/ in <factoid> <index>"
+Jan 31 21:32:10 <Dabian>	I guess I confuse it with another bot.
+Jan 31 21:32:15 <jmares>	parsnip: Great to hear, I had the feeling that was the case. I wanted to ensure I remained respectful of the channel.
+Jan 31 21:32:38 <parsnip>	in topic, "Emacs questions take priority over chit-chat so ask away!"
+Jan 31 21:32:41 <hodapp>	where is rudybot? :(
+Jan 31 21:32:42 <jmares>	parsnip: It may sound odd but I have big trust and interest in the web design aesthetic and technical choices of anyone who uses emacs.
+Jan 31 21:32:55 <Dabian>	hodapp: Just what I was wondering, litteraly.
+Jan 31 21:33:00 <parsnip>	jmares: yes, i find a wide knowledge base here
+Jan 31 21:33:01 <Dabian>	and Bierny ...
+Jan 31 21:33:25 <jmares>	parsnip: In fact why not kill two birds with one stone and ask: Any elegant looking blogs made with org mode?
+Jan 31 21:33:34 <Dabian>	I think maybe Rudybot retired a good while ago .. but what about Bierny?
+Jan 31 21:33:41 <Dabian>	,rudybot
+Jan 31 21:33:43 <fsbot>	rudybot: [0/5] a heap of junk offby1 made by pushing bits of junk towards one another until a heap formed
+Jan 31 21:33:43 <fsbot>	[1] at http://www.emacswiki.org/emacs/rudybot
+Jan 31 21:33:43 <fsbot>	[2] see ,rudybot-explained for the method behind the madness
+Jan 31 21:33:43 <fsbot>	[3] a digital golem ;;[ ,more / ,dump]
+Jan 31 21:33:45 <jmares>	I just want a column of text in baskerville and that's it. I don't want any bells or whistles
+Jan 31 21:34:04 <Dabian>	,more
+Jan 31 21:34:04 <fsbot>	[4] written in Racket (before it was called Racket)
+Jan 31 21:34:04 <fsbot>	[5] in need of mental health care; show your support at https://github.com/offby1/rudybot/issues/21
+Jan 31 21:34:20 <jmares>	,rudybot when's the singularity happening?
+Jan 31 21:34:22 <fsbot>	rudybot is [0/5] a heap of junk offby1 made by pushing bits of junk towards one another until a heap formed
+Jan 31 21:34:22 <fsbot>	[1] at http://www.emacswiki.org/emacs/rudybot
+Jan 31 21:34:22 <fsbot>	[2] see ,rudybot-explained for the method behind the madness
+Jan 31 21:34:22 <fsbot>	[3] a digital golem ;;[ ,more / ,dump]
+Jan 31 21:34:32 <Dabian>	,bierny
+Jan 31 21:34:34 *	fsbot hurts Dabian
+Jan 31 21:34:38 <Dabian>	lol
+Jan 31 21:35:20 <parsnip>	jmares: i think there's basically two approaches in org. export a single document, or use the notion of org "project export". then look at all the configuration options for each, and look for easiest way to get what you want.
+Jan 31 21:36:30 <jmares>	thank you parsnip, i will look into it
+Jan 31 21:36:46 <jmares>	i use org for almost everything, why not writing a super simple blog site
+Jan 31 21:37:33 <jmares>	 i literally just want a list of subheadings. Almost embarrasing to use anything more than html. But showing a good looking design when viewer is on mobile is an attractive notion.
+Jan 31 21:37:57 <jmares>	*clarification: a list of subheadings with a font of my choice
+Jan 31 21:39:21 <Dabian>	parsnip: Is it HostKeyAlias?
+Jan 31 21:39:50 <Dabian>	parsnip: Thanks for the TAB hint, btw.
+Jan 31 21:40:03 <parsnip>	idk, i thought it was whatever the first line of the block had
+Jan 31 21:40:12 <parsnip>	that's all i seem to be using
+Jan 31 21:40:30 <parsnip>	maybe alias is not the technically correct term
+Jan 31 21:40:51 <Dabian>	It tries to connect to the local host though ...
+Jan 31 21:41:19 <Dabian>	parsnip: I am writing the configfile from scratch, there wasn't any. :D
+Jan 31 21:42:51 <parsnip>	oh you don't have a ~/.ssh/config
+Jan 31 21:43:14 <Dabian>	Right
+Jan 31 21:43:28 <Dabian>	I guess I can look /etc
+Jan 31 21:44:15 <Dabian>	nah .. that looks a tad different, perhaps /usr/share/doc/ssh or similar.
+Jan 31 21:45:06 <Dabian>	nah ... .. maybe M-x info <enter> m ssh <enter> or similar.
+Jan 31 21:45:18 <Dabian>	(or C-h i).
+Jan 31 21:46:11 <Dabian>	oh well.
+Jan 31 21:47:56 <Dabian>	I think I got it. ... Now I just have to test.
+Jan 31 21:48:50 <Tekk_>	How can I get company-mode to either pick up on cflags arguments or, ideally, pull cflags from a directory's makefile? I can't use company because whenever it's calling clang it can't find headers since by default it doesn't look in /usr/local/include
+Jan 31 21:49:48 <aidalgol>	Tekk_: Which backend are you using?
+Jan 31 21:50:18 <Tekk_>	Ah, I think I have it
+Jan 31 21:50:37 <Tekk_>	company-clang has a flag to support a file called "compiler_flags.txt". I can have my makefile write that I think.
+Jan 31 21:54:42 <Tekk_>	Doesn't seem quite that simple, unfortunately. Still the same error (can't find the header in /usr/local/include). Is there something aside from hitting the toggle you've gotta do?
+Jan 31 22:05:05 <Tekk_>	nvm, I typo'd. compile_flags.txt not compiler_flags.txt ;)
+Jan 31 22:07:06 <nij>	,fsbot
+Jan 31 22:07:07 <fsbot>	To see detailed notes about fsbot, privmsg me and type ,erbot
+Jan 31 22:48:23 <dieggsy>	often when i want to change a full lisp symbol (evil-mode), i'll try ciw, but that changes too little (only the word within dash boundary), but ciW changes too much (eats parens too)
+Jan 31 22:48:29 <dieggsy>	is there a native evil way to do what i want?
+Jan 31 22:48:57 <dieggsy>	like, motion/deletion by symbols, i guess
+Jan 31 22:49:49 <nij>	I think you mind be interested in lispy (by abo-abo). there's also a youtube video.
+Jan 31 22:49:55 <nij>	though i haven't tried it.
+Jan 31 22:50:08 <nij>	s/mind/might
+Jan 31 22:57:24 <parsnip>	sweet, i can mark a task done, or "delete", set a due date, change priority
+Jan 31 22:57:51 <parsnip>	next feature is to add ability to simply toggle the "next" tag, then i think i can focus on using it, and improving codebase
+Jan 31 22:58:23 <parsnip>	try to add a notion of "profiles" which is sort of blocked by bad code choices, imo
+Jan 31 22:59:58 <dieggsy>	nickmass: i've actually tried it. i've tried a lot of the paren editing frameworks, and in the end just ended up going with electric-pair-mode and mostly manual editing lol
+Jan 31 23:00:17 <dieggsy>	i used smartparens for a long time, lispy less time
+Jan 31 23:00:37 <dieggsy>	oh whoops
+Jan 31 23:00:50 <dieggsy>	nij. he's gone. anyway
+Jan 31 23:01:33 <Hash>	I couldn't get wsl to mount my linux ext4 large extents drive file system
+Jan 31 23:01:51 <Hash>	No option available to do so. So I booted back into linux and now I'm on emacs again and my world makes a little more sense.
+Jan 31 23:03:12 <dieggsy>	Hash: you were trying to switch back to windows _from_ linux?
+Jan 31 23:07:48 <bpalmer>	Let's insist all software worth using have an active instagram presence.
+Jan 31 23:09:10 <aidalgol>	Makes about as much sense as my local plumber being on instagram.
+Jan 31 23:10:25 <bpalmer>	don't you want to admire clean pipes?
+Jan 31 23:13:12 <aidalgol>	I just browse my hardware store's website when I want that.
+Jan 31 23:13:33 <aidalgol>	Mmmmm, yeah, look at that girthy pipe...
+Jan 31 23:15:39 <bpalmer>	what, the open web? I hear wild javascript roams there, ready to attack unsuspecting browsers
+Jan 31 23:18:10 <aidalgol>	That's why I use ShadyVPN.  The first 100 people who click THIS LINK http://blit.xz/kWMbj gets 3 months FREE to ShadyVPN!
+Jan 31 23:18:18 <aidalgol>	Protect your data with ShadyVPN!
+Jan 31 23:18:21 <aidalgol>	TODAY!
+Jan 31 23:20:14 <wasamasa>	lol
+Jan 31 23:20:39 <bpalmer>	Hmm, element is back up on the google play store, it looks like.
+Jan 31 23:24:16 <twb>	aidalgol: do you control both endpoints?  If so, I suggest wireguard instead.  wireguard support is built into every Linux system that runs systemd, and is well supported on at least Android, iOS, Windows, MacOS, and non-systemd Linux.
+Jan 31 23:25:21 *	Praise- is now known as Praise
+Jan 31 23:26:19 <aidalgol>	twb: I don't use a VPN.  I don't think there is such a service called ShadyVPN.  That was a pisstake of NordVPN sponsorships of small YouTube channels.
+Jan 31 23:27:41 *	radu2425 is now known as radu242
+Jan 31 23:28:38 <bpalmer>	Sadly, there's a lot of VPN misinformation that gets spread around regularly.
+Jan 31 23:29:02 <aidalgol>	yyyyup
+Jan 31 23:29:49 <aidalgol>	"OH NO!  Bob Didn'T Protect His Data With NORD VPN and now RUSSIAN HACKERS STOLE ALL HIS DATA!!!!11"
+Jan 31 23:30:09 <bpalmer>	One thing I do wonder about legislating: many years ago, in the US, a prospective judge going through confirmation hearings had their video rentals leaked and it was embarassing. Soon enough a special purpose law was passed so video rentals get extra privacy protection.
+Jan 31 23:30:22 <aidalgol>	Who started this shit, anyway?
+Jan 31 23:30:39 <bpalmer>	It somehow seems like people's DNS resolutions would be potentially as embarrassing.
+Jan 31 23:32:41 <aidalgol>	probably
+Jan 31 23:34:29 <aidalgol>	bpalmer: re. element: https://element.io/blog/element-on-google-play-store/
+Jan 31 23:36:36 <twb>	bpalmer: the absolutely are
+Jan 31 23:36:48 <wgreenhouse>	aidalgol: > extremely abusive content which was accessible on the default matrix.org homeserver
+Jan 31 23:37:03 <aidalgol>	wgreenhouse: Yes, but it's a FEDERATED PROTOCOL
+Jan 31 23:37:06 <twb>	bpalmer: and dnssec is a GIANT shitshow so browser people have started just doing an end-run around it and doing DNS-over-HTTP
+Jan 31 23:37:09 <wgreenhouse>	the trouble with their "decentralized" service being centralized by default
+Jan 31 23:37:16 <aidalgol>	wgreenhouse: Oh yeah, that too.
+Jan 31 23:37:31 <aidalgol>	I've long thrown up my hands and given up on matrix.
+Jan 31 23:37:33 <wrycode>	one problem among many 
+Jan 31 23:38:01 <wgreenhouse>	aidalgol: I've heard criticism that their onboarding experience should do more like what joinmastodon.org does
+Jan 31 23:38:24 <aidalgol>	wgreenhouse: YES!!
+Jan 31 23:38:30 <wgreenhouse>	present a range of hosts they don't own
+Jan 31 23:40:06 <aidalgol>	Matrix kinda seems at this point like something built for the requirements of their then-prospective government clients, and run as a FOSS project more as a demo for their prospective clients than really in the spirit of making a free federated platform (cf. mastodon).
+Jan 31 23:40:27 <aidalgol>	...or am I just coming up with my own unhinged conspiracy theories?
+Jan 31 23:40:46 <wgreenhouse>	aidalgol: the worst part is I think you're right but they can't see it that way
+Jan 31 23:41:15 <wgreenhouse>	matrix is a series of grant deliverables masquerading as a protocol 
+Jan 31 23:41:59 <aidalgol>	It's not a protocol.  It's a swarm of milestones flying in tight formation.
+Jan 31 23:42:46 <aidalgol>	I can never remember what the original quote is about.  I just remember twb's version applied to markdown.
+Jan 31 23:43:15 <bpalmer>	wgreenhouse: a list of recommendations, should any of those recommendations prove to be sketchy, is itself a liability in terms of being a general browser
+Jan 31 23:43:48 <bpalmer>	I seem to recall this being an issue in some of the reddit browser apps
+Jan 31 23:44:06 <offby1>	if I could remember how to add a quote, I'd add the one about "matrix ... grant deliverables"
+Jan 31 23:44:08 <offby1>	hint hint
+Jan 31 23:44:15 <wrycode>	Matrix needs to just specialize and get it over with
+Jan 31 23:44:25 <bpalmer>	where they got taken down from an app store until they scrubbed the default/recommended list
+Jan 31 23:44:30 <Dabian>	I like Matrix.
+Jan 31 23:44:59 <bpalmer>	offby1: if rudybot were around, somebody could ask the bot to remember things
+Jan 31 23:45:22 <offby1>	well rudybot remembers everything, but the actual _quotes_ are ... uh ... hard-coded
+Jan 31 23:45:27 <wgreenhouse>	bpalmer: more or less of a liability than the current practice of registering an account in the specific server the matrix.org entity owns?
+Jan 31 23:45:31 <bpalmer>	where are you wanting to add quotes?
+Jan 31 23:45:33 <offby1>	the newest such hard-coded quote is probably five years old
+Jan 31 23:45:50 <offby1>	bpalmer: I don't even know. 
+Jan 31 23:45:57 <wgreenhouse>	,shit#emacssays is also matrix is a series of grant deliverables masquerading as a protocol
+Jan 31 23:45:59 <fsbot>	Added note [234] for term "shit#emacssays"
+Jan 31 23:46:02 <offby1>	that.
+Jan 31 23:46:26 <bpalmer>	wgreenhouse: I mean, at least the server that matrix.org runs means they have the ability to do trust & safety protections on it.
+Jan 31 23:46:41 <wrycode>	I still wanna know what the content was
+Jan 31 23:47:34 <wgreenhouse>	maybe they shouldn't try to do that
+Jan 31 23:47:43 <wgreenhouse>	(admin their own server, that is)
+Jan 31 23:48:56 <bpalmer>	wgreenhouse: well, then, they either provide a list of servers they don't control and have no influence over, and are risking takedowns if any of those servers prove untrustworthy; or they don't provide anything at all, meaning users have to either find a server somewhere else or more likely don't use the program.
+Jan 31 23:49:29 <wgreenhouse>	bpalmer: true, and the latter is the fate of most irc or xmpp clients offered
+Jan 31 23:49:30 <bpalmer>	Part of it depends on how much it's going to try to appeal to the "masses" vs people who specifically seek out matrix.org 
+Jan 31 23:49:49 <bpalmer>	rather, who specifically seek out a matrix client.
+Jan 31 23:50:48 <VincentVega>	What are the one semicolon ; comments called and how do I get them indented? Every once in a while, I will see them and notice they got aligned, but would have no idea what caused it.
+Jan 31 23:51:07 <bpalmer>	VincentVega: you're programming elisp?
+Jan 31 23:51:14 <VincentVega>	common lisp
+Jan 31 23:51:16 <VincentVega>	but elisp too
+Jan 31 23:51:27 <wrycode>	VincentVega: multiple semicolons give different levels of indentation
+Jan 31 23:52:00 <bpalmer>	VincentVega: the conventions are similar in both elisp and common lisp; see (info "(elisp) Comment Tips")
+Jan 31 23:52:05 <VincentVega>	yes, I mean when you put a single-; comment after the line, so guess that's not really indentation, more like alignment
+Jan 31 23:52:31 <VincentVega>	and it seems to align automatically sometimes I just don't get it when
+Jan 31 23:53:10 <VincentVega>	or if there's a special function that does it
+Jan 31 23:53:32 <VincentVega>	maybe I am imagining things
+Jan 31 23:55:04 <bpalmer>	I can fully believe there are utilities that automatically do it; I can't think of one in the elisp modes that does it, though.
+Jan 31 23:55:33 <bpalmer>	asm mode does the alignment by default, though
+Jan 31 23:56:01 <bpalmer>	but asm-mode is very column oriented.
+Jan 31 23:56:26 <bpalmer>	helps if almost all your instructions are just a few letters
+Jan 31 23:58:22 <VincentVega>	Yeah, I was thinking maybe some mode splits the line for some processing (for whatever reason), the comment ends up on the empty line, aggressive-indent indents it, and the line is then sewn back together (and I think it got aligned), but that's pretty far fetched.
+Jan 31 23:58:30 <VincentVega>	I see, not using asm-mode though.
+Jan 31 23:58:47 <bpalmer>	yeah, just thought perhaps you were remembering that behavior
+Feb 01 00:00:10 <VincentVega>	Yeah, never got to learn any asm unfortunately : ) Ah, it doesn't bother me that much though, thought it was pretty cool to see alignment sometimes. I mean, among about a hundred of other things I could be improving in emacs, this one is pretty amusing. Emerging alignment lol...
+Feb 01 00:00:18 <VincentVega>	* emergent
+Feb 01 00:02:15 <bpalmer>	note it'd be easy to write it, if you wanted alignment
+Feb 01 00:04:15 <VincentVega>	I guess so, will consider it for the future...
+Feb 01 00:07:43 *	Disconnected ()
+**** ENDING LOGGING AT Mon Feb  1 00:07:43 2021
+
+**** BEGIN LOGGING AT Mon Feb  1 09:13:41 2021
+
+Feb 01 09:13:41 *	Now talking on #emacs
+Feb 01 09:13:41 *	Topic for #emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+Feb 01 09:13:41 *	Topic for #emacs set by jrm!~jrm@freebsd/developer/jrm (Fri Jan 29 17:23:04 2021)
+Feb 01 09:13:41 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Feb 01 09:14:20 <Hash>	What kind of video games do emacs users play?
+Feb 01 09:15:52 <python476>	edebug 
+Feb 01 09:17:57 <bkhl>	Anyone here using electric-pair-mode and know some way to insert a raw character without automatic pairing?
+Feb 01 09:18:24 <bkhl>	OK, it's C-q.
+Feb 01 09:18:27 <bkhl>	Thanks for the help. :-)
+Feb 01 09:19:10 *	boughtly- is now known as boughtly
+Feb 01 09:22:04 <parsnip>	,next
+Feb 01 09:22:04 <fsbot>	Another satisfied customer. NEXT!
+Feb 01 09:25:49 <bpalmer>	Let's upsell customers to the premium support package.
+Feb 01 09:26:03 <python476>	emacs the self answering self questionning system
+Feb 01 09:28:00 <bpalmer>	Unfortunately, the questions are pretty existential. "Why are we here? Do we deserve to be here? If humanity weren't here, would the universe be more peaceful?"
+Feb 01 09:28:11 <parsnip>	eventually, all problems are solved
+Feb 01 09:28:24 <python476>	not my job search
+Feb 01 09:28:45 <python476>	the universe decided to drop that, fruitless he said
+Feb 01 09:51:18 <lockywolf>	we should have org-mode+tramp hypertext internet
+Feb 01 09:51:36 <lockywolf>	ssh should allow guest logins by default
+Feb 01 09:54:12 <aidalgol>	"Arduino Support for OS X: Step 1: Install CEDET"  hold up...
+Feb 01 09:54:17 <aidalgol>	https://www.emacswiki.org/emacs/ArduinoSupport
+Feb 01 09:54:33 <lockywolf>	yeah, this should be fixed
+Feb 01 09:54:39 <lockywolf>	cedet is installed by default
+Feb 01 09:54:49 <lockywolf>	no need to install it separately
+Feb 01 10:02:34 <twb>	aidalgol: hahahahahahahaha
+Feb 01 10:02:56 <twb>	oh emacswiki, it's probably 30 years out of date
+Feb 01 10:03:23 <twb>	https://www.emacswiki.org/emacs?action=history;id=ArduinoSupport
+Feb 01 10:03:37 <twb>	older commits have been deleted because sigh
+Feb 01 10:05:48 *	parsnip is intrigued by the casio W-86
+Feb 01 10:06:23 <parsnip>	how did i not see this one before. it's got the backlight _and_ 50m water resistance
+Feb 01 10:06:34 <parsnip>	a little clunkier than f91w though
+Feb 01 10:08:35 <jmd>	Is there an unload-file function? which will undo the effect of load-file ?
+Feb 01 10:08:54 <python476>	parsnip: what about the casio ?
+Feb 01 10:09:17 <python476>	I opened early 90s casio I had in a drawer, the pcb is so tiny and precise.. it kinda looks like smartphones today
+Feb 01 10:09:46 <parsnip>	what about it? i just described it, no?
+Feb 01 10:10:06 <python476>	my brain totally blocked the following sentences ..
+Feb 01 10:10:35 <python476>	I'd love to make a smart-ish casio
+Feb 01 10:11:03 <nly>	any good theme for tty + magit? default one doesnt show commits in magit buffer
+Feb 01 10:11:04 <python476>	monochrome lcd, BLE, a bit of features (gps, hr monitor) but very simple
+Feb 01 10:15:29 <twb>	parsnip: if you want to be properly retro, get a pendant watch
+Feb 01 10:15:37 <twb>	1908 style
+Feb 01 10:16:01 <parsnip>	twb: don't i need a vest suit to go with it?
+Feb 01 10:16:12 <twb>	The first hit for "pendant watches" is walmart, and the first row has a star wars watch
+Feb 01 10:16:20 <twb>	parsnip: no, pendant watches are for women
+Feb 01 10:16:32 <twb>	parsnip: men of that era rarely wore necklaces
+Feb 01 10:16:45 <python476>	there was the shirt pocket variant
+Feb 01 10:16:48 <parsnip>	oh, am i thinking of pocket watch, with the chain?
+Feb 01 10:16:49 <python476>	still superb imo
+Feb 01 10:16:52 <python476>	yeah
+Feb 01 10:16:58 <twb>	parsnip: you are thinking of a fob watch, which is an older style that is less vibration-hardened
+Feb 01 10:17:10 <python476>	btw since it's #emacs
+Feb 01 10:17:22 <twb>	pendant watches have to keep time even when they're lying at a funny angle because you have big boobs
+Feb 01 10:17:25 <python476>	gerald sussman has hour long talk about watch engineering
+Feb 01 10:17:46 <twb>	That's why they were the basis for the first generation of wrist watches used by officers in the first world war
+Feb 01 10:17:55 <python476>	interesting
+Feb 01 10:18:28 <twb>	I dunno why a current human needs a watch though
+Feb 01 10:18:29 <python476>	also in the 80s, the angles became a source of energy for some high end models (seiko kinetic)
+Feb 01 10:18:39 <twb>	either you have friends, so you have a phone, and the phone has a clock
+Feb 01 10:18:45 <twb>	or you are me, and you have neither and need neither
+Feb 01 10:19:24 <python476>	twb: by the time you took the phone out of your pocket, unlocked the phone, spot the hour if visible or launched the clock app, your train is gone
+Feb 01 10:19:32 <dto>	hi. is anyone here following the $GME thing, i found something curious and i wonder if someone might be so kind as to take a peek and also upvote the story, supposedly nobody will see it until i get 1 upvote or something https://news.ycombinator.com/item?id=25986910
+Feb 01 10:19:38 <python476>	-- smartphone optimized life --
+Feb 01 10:20:06 <python476>	unless you have an iphone XX pro with time projector shortcut on the edge
+Feb 01 10:20:54 <python476>	can you explain the thing dto ?
+Feb 01 10:21:09 <python476>	there's nothing on that page
+Feb 01 10:21:34 <aidalgol>	twb: I blame github culture.
+Feb 01 10:21:35 <dto>	right it's a fake page. created the other day. linking to a fake online store. 
+Feb 01 10:21:47 <twb>	python476: obviously the correct solution there is to put a braille display on the phone case
+Feb 01 10:21:53 <parsnip>	twb: my phone often ides
+Feb 01 10:22:01 <dto>	like what if the $GME thing is a scam, and this page is something related?
+Feb 01 10:22:01 <parsnip>	and i still want to know the time
+Feb 01 10:22:08 <parsnip>	*dies
+Feb 01 10:22:26 <python476>	dto: that's a lot of speculation :)
+Feb 01 10:22:28 <twb>	parsnip: I mean, I'm a grumpy old man, so I get that
+Feb 01 10:22:38 <jmd>	twb: Curiously enough, last year (before the lockdown) I was in a restuarant and needed to know the time  - I didn't have a watch or a phone - and I noticed that a waitress was wearing a watch.  So I asked her the time.   She stopped, fumbled under her apron for several seconds, took out a iThing, booted it up, flipped through a few screens selected the time/date option and very obligingly told me the time. She completely ignored the
+Feb 01 10:22:38 <twb>	python476: but the normal response would be "carry a USB battery"
+Feb 01 10:22:40 <jmd>	watch on her wrist.
+Feb 01 10:22:43 <python476>	not surprising during a massive finance buzz like that
+Feb 01 10:22:54 <aidalgol>	dto: Please don't ask people for votes in here.
+Feb 01 10:22:59 <dto>	aidalgol: ok
+Feb 01 10:23:05 <twb>	aidalgol: you blame WHAT on github
+Feb 01 10:23:05 <python476>	jmd: priceless anecdote
+Feb 01 10:23:16 <aidalgol>	twb: The slow death of EmacsWiki.
+Feb 01 10:23:33 <twb>	jmd: I remember the old days when you used to ask a policeman because they were the only ones issued timepieces
+Feb 01 10:23:56 <python476>	I fail to see the relation.. is it because tips are now written on project github wiki/PR/README ?
+Feb 01 10:24:12 <jmd>	These days they would arrest you for wasting police time.
+Feb 01 10:25:17 <aidalgol>	twb: In *your* lifetime?
+Feb 01 10:25:54 <python476>	hey there must be a timer on their body cam 
+Feb 01 10:29:35 <twb>	jmd: the Met probably would unless it was a tourist area
+Feb 01 11:28:17 *	Lord_of_Life_ is now known as Lord_of_Life
+Feb 01 14:17:09 *	Disconnected ()
+**** ENDING LOGGING AT Mon Feb  1 14:17:09 2021
+
+**** BEGIN LOGGING AT Mon Feb  1 14:17:36 2021
+
+Feb 01 14:17:36 *	Now talking on #emacs
+Feb 01 14:17:36 *	Topic for #emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+Feb 01 14:17:36 *	Topic for #emacs set by jrm!~jrm@freebsd/developer/jrm (Fri Jan 29 17:22:51 2021)
+Feb 01 14:17:36 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Feb 01 19:34:02 *	Disconnected ()
+**** ENDING LOGGING AT Mon Feb  1 19:34:02 2021
+
+**** BEGIN LOGGING AT Mon Feb  1 19:34:29 2021
+
+Feb 01 19:34:29 *	Now talking on #emacs
+Feb 01 19:34:29 *	Topic for #emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+Feb 01 19:34:29 *	Topic for #emacs set by nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (Mon Feb  1 17:01:20 2021)
+Feb 01 19:34:30 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Feb 01 19:44:13 <parsnip>	am i missing something on the reply to this comment? https://github.com/amake/orgro/issues/6#issuecomment-770168100
+Feb 01 19:44:39 <parsnip>	i figured you could leave the parsed state, and go to just text, edit, then save, close edit, and go back to parsing the file
+Feb 01 19:46:33 <parsnip>	hmm, maybe they have more to worry about, like saving popping back with same scroll position, visibility cycling, etc.
+Feb 01 19:46:49 <parsnip>	s/saving popping/popping/
+Feb 01 19:57:08 *	radu2420 is now known as radu242
+Feb 01 19:59:21 <ckx>	Hello, I've starting using spacemacs org-mode recently and there's one issue I can't find anywhere: the heading icons are not monospaced, is there a way to use say * or a similar icon that's the same width as the rest of the text? Thanks!
+Feb 01 19:59:42 <ckx>	s/icon/icon or an ascii char/
+Feb 01 20:04:50 *	radu2420 is now known as radu242
+Feb 01 20:05:40 <ckx>	nevermind, font change solved the issue
+Feb 01 20:07:58 <Cymew>	I've found lsp-mode with all the modes and additions is a gigantic topic. Anyone know if there's a channel directly dedicated to that kind of questions?
+Feb 01 20:08:12 <gnUser>	Hey guys, I don't know which channel to ask this on but what is the deal with RMS eating his toe jam?
+Feb 01 20:09:30 <beep1560>	gnUser: I really like vanilla ice creams. However, I sometimes eat chocolate ice cream
+Feb 01 20:09:45 <gnUser>	lol what?
+Feb 01 20:19:12 <polezaivsani>	Cymew: there are some language specific lsp server channels (e.g. #haskell-language-server), fwiw
+Feb 01 20:25:55 <polezaivsani>	re lsp, i'm curious if there where any talks about taking on the lsp approach in Emacs proper?
+Feb 01 20:27:49 <ece3>	The haskell language server is pretty good in my experience, if anyone cares lol
+Feb 01 20:32:35 <dale>	ckx: IIRC Spacemacs uses https://github.com/sabof/org-bullets which *might* be part of the problem.  But I would probably start by M-x customize-face RET org-level-1 RET.  If it looks like all the attributes there are unspecified then M-x customize-face RET outline-1 RET.
+Feb 01 20:33:02 <dale>	Oh, I missed you solved that.  My client is having scrolling issues.
+Feb 01 20:33:22 <Cymew>	I'm interested in Rust, and the community is totally dominated by VSC and vim users, thus the question for some way to find people who use emacs.
+Feb 01 20:34:20 <ckx>	dale: well I picked a font that has these unicode chars really monospace, it defaulted to source code pro mono that should really be called "mostly mono" :)) thank you though, I will look into it
+Feb 01 20:35:05 <dale>	ckx: Ha, I am surprised Source Code Pro is not mono throughout, though maybe my surprise is born of ignorance.
+Feb 01 20:35:49 <dale>	ckx: I will advise that Emacs, at least on macOS, will pick a different font sometimes if the default font doesn't have certain glyphs.
+Feb 01 20:36:24 <dale>	ckx: More precisely, if it needs to render a glyph, and the font for that particular glyph doesn't actually have the glyph, macOS may choose to have Emacs use a different font.  Or, at least, that's how I understand it.  Not sure what the situation is on other OSes.
+Feb 01 20:38:28 <ckx>	dale: that's interesting. I'd think that emacs would try and find a fallback font itself (or just a compiled-in font), not that the OS would serve it an alternative.
+Feb 01 20:38:57 <dale>	ckx: I think this has to do because Emacs tries to delegate text rendering to macOS's CoreText, and that's just how the API works, or at least the work has not been put in on Emacs to make it behave otherwise, but we're pretty far outside my personal experience so I could be wrong.
+Feb 01 20:39:00 <ckx>	dale: that seems a bit opaque, but I guess it simplifies the logic in the program...
+Feb 01 20:39:40 <ckx>	dale: I am afraid I know next to nothing about macOS, so I'll take your word for it :).
+Feb 01 20:45:14 *	gurmble is now known as grumble
+Feb 01 20:55:38 *	e1f uses the Meslo font on os x iterm2 console emacs
+Feb 01 21:00:24 <Cymew>	One of the many mysteries of lsp-mode. When I open a file with rust code, emacs hangs after I press C-n to go down a line, and my fan spins up. What's going on?
+Feb 01 21:03:12 <cvandusen>	Cymew: What does the CPU usage look like? I've seen something similar, and node is the culprit form me. Though, I haven't found a fix for it yet.
+Feb 01 21:04:20 <e1f>	truss or strace the emacs binary to see what system calls emacs is making
+Feb 01 21:04:31 <Cymew>	cvandusen: It spins up to 12-13% for a short while, and then goes down again. As the lsp space is so vast, I have no idea if this is caused by something I'd rather un-configure.
+Feb 01 21:04:43 <dale>	Cymew: You could try the built-in profiler.  You could also try toggle-debug-on-quit and then C-g.
+Feb 01 21:04:57 <Cymew>	e1f: I could, but it's probably not helpful on that low level.
+Feb 01 21:05:12 <Cymew>	dale: Thanks I might try that.
+Feb 01 21:05:21 <dale>	Cymew: I mean, C-g when Emacs is smoking and not responding to see where you interrupt it.
+Feb 01 21:05:31 <Cymew>	Right
+Feb 01 21:06:02 <Cymew>	I try to stay out of the debugger, but in this case I might want to trigger it!
+Feb 01 21:09:26 <Cymew>	...nothing much happens except the fans blows like crazy.
+Feb 01 21:09:41 <Cymew>	It was a good idea, though.
+Feb 01 21:09:44 <dale>	You may need to hold C-g or hit it many times.
+Feb 01 21:09:54 <cvandusen>	Enjoy the breeze! 
+Feb 01 21:11:34 <dale>	Cymew: Have you tried running top in another terminal to see if it's Emacs spinning up the fans, or if it's the Rust server?
+Feb 01 21:11:56 <Cymew>	cvandusen: :)
+Feb 01 21:12:05 <Cymew>	dale: It's emacs
+Feb 01 21:13:26 <Cymew>	Huh, it said "entering debugger" and then went way. It's really hard when it's that unresponsive
+Feb 01 21:13:52 <dale>	Cymew: You could try killing Emacs with SIGUSR2, that should drop you into the debugger.
+Feb 01 21:14:12 <dale>	Cymew: But also try the profiler
+Feb 01 21:14:35 <maxxcan>	hello everybody
+Feb 01 21:14:42 <maxxcan>	today I knew doom emacs
+Feb 01 21:17:49 <Cymew>	dale: I'll keep experimenting. Many thanks for the suggestions.
+Feb 01 21:18:18 <Cymew>	It's weird, lsp-mode is a mix of some really sweet functionality and pure misery.
+Feb 01 21:18:41 <Cymew>	It must be me doing something wrong...
+Feb 01 21:18:42 *	seds- is now known as seds
