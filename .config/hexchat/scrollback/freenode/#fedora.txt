@@ -1,163 +1,3 @@
-T 1578003598 18<28j^218>	heh, there's a hard coded API key in fpaste: https://pagure.io/fpaste/blob/master/f/fpaste#_34
-T 1578003601 18<25janos_18>	if you vi/vim fpaste you'll see why
-T 1578003725 18<28j^218>	sfranken, heh, well i can do the create now with curl...
-T 1578003754 18<20sfranken18>	Is the text you're parsing not fpast'able?
-T 1578003802 18<28j^218>	oh no, i was just looking through the readme, saw the curl directly to API so figured i'd give it a shot. There was no place to say "request an API key" hence my poking and asking here
-T 1578003880 18<25janos_18>	you might want to use fpaste in the script since it will be maintained - like if the api key changes or something else changes
-T 1578003907 18<28j^218>	janos, makes sense thank you
-T 1578003916 18<25janos_18>	yw
-T 1578004496 FiSHLiM plugin unloaded
-T 1579685655 19*	Now talking on 22#fedora
-T 1579685655 22*	Topic for 22#fedora is: #Fedora F30, F31 end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F30,F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
-T 1579685655 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Thu Nov  7 00:40:03 2019)
-T 1579685655 -18ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
-T 1579689918 18<25archuserau18>	Hey all. Just installed Fedora on an MSI gaming laptop. The only issue is it can only see the nvidia gpu not the integrated intel gpu.
-T 1579690191 18<27kwizart18>	archuserau, is it disabled in your bios/efi ?
-T 1579690294 18<25archuserau18>	There is no option for it in my bios. I will check if there is an update
-T 1579690828 18<22dfstorm18>	archuserau: What do you mean by "only see" ? Is it because it only use the nvidia driver or is it because the Intel gpu don't show up in lspci ?
-T 1579690982 18<22dfstorm18>	archuserau: Is it present when you do lspci -k | grep -A 2 -E "(VGA|3D)" ?
-T 1579691069 18<25archuserau18>	It does not seem to show up in lspci
-T 1579691108 18<25archuserau18>	Only the nvidia shows up with that command dfstorm
-T 1579691192 18<22dfstorm18>	archuserau: Is you computer a laptop or a desktop ?
-T 1579691203 18<22dfstorm18>	your*
-T 1579691238 18<25archuserau18>	Laptop.
-T 1579691261 18<27kwizart18>	archuserau, which exact model do you have ? are you sure it's an optimus laptop ?
-T 1579691264 18<22dfstorm18>	archuserau: Sorry.. I just saw you already said it
-T 1579691286 18<25archuserau18>	kwizart: There is a gpu button that works in windows
-T 1579691292 18<25archuserau18>	dfstorm: no worries.
-T 1579691356 18<22dfstorm18>	archuserau: As root, is the directory "/sys/kernel/debug/vgaswitcheroo/" present ?
-T 1579691399 18<25archuserau18>	dfstorm: Doesnt seem to be
-T 1579691403 18<19ossifrage18>	I'm stuck running an old kernel (4.19.8) after my last reboot VirtualBox decided to stop working throwing a VERR_VM_DRIVER_VERSION_MISMATCH
-T 1579691404 18<22dfstorm18>	archuserau: And are you using the laptop display or a pluged in display ?
-T 1579691416 18<25archuserau18>	Using the laptop display.
-T 1579691425 18<19ossifrage18>	I'm having trouble picking all the matched versions to get things to work again
-T 1579691474 18<19ossifrage18>	I have the kmod-VirtualBox-4.19.8-300, but it seems that something else is wrong
-T 1579691551 18<22dfstorm18>	archuserau: Well, you're having the same kind of laptop that I have; Optimus is not supported "natively". You're saying there is a "physical switch" to switch between nvidia and intel ?
-T 1579691577 18<25archuserau18>	dfstorm: It is a button not a switch. In windows it work. In linux it doesnt.
-T 1579691586 18<25archuserau18>	It is a MSI GT75vr
-T 1579691620 18<25archuserau18>	What laptop do you have dfstorm ?
-T 1579691624 18<19ossifrage18>	It was working fine before the reboot, I didn't think anything had changed and I had a vm running prior to reboot
-T 1579691639 18<25archuserau18>	Give me a minute. I will boot into a different linux distro and see what happens.
-T 1579691690 18<22dfstorm18>	archuserau: My guess is that by default your system will boot on nvidia.
-T 1579691710 18<25archuserau18>	I am a little bit disapointed that I cannot turn the nvidia card off in the bios.
-T 1579691733 18<22dfstorm18>	archuserau: Welcome to the "blackboxed" land of gaming laptop :(
-T 1579691752 18<25archuserau18>	What do you mean blackboxed? What do you have?
-T 1579691760 18<22dfstorm18>	archuserau:  I have a System76 Oryx 4
-T 1579691773 18<25archuserau18>	Same issue?
-T 1579691848 18<22dfstorm18>	archuserau: Me I need to get the "system76 power" utility ported to fedora to make my life easier. If not fedora is unusable (Nouveau don't work and is loaded by default.. just to say that)
-T 1579691903 18<22dfstorm18>	archuserau: You should look into other user with your hardware using linux. Often what work for one distribution will work for you too
-T 1579691917 18<25archuserau18>	I will have a look
-T 1579691993 18<22dfstorm18>	archuserau: Blackboxed = Manifacturer include stuff (like your button) without any documentation and they won't give away their source code. They just give a "windows specific" driver that won't work on linux...
-T 1579692043 18<22dfstorm18>	Most of manufacturers*
-T 1579692171 18<22dfstorm18>	archuserau: You should try Archlinux if you know linux. Just boot the liveUSB then do the command I gave you
-T 1579692189 18<22dfstorm18>	lspci -k | grep -A 2 -E "(VGA|3D)"
-T 1579692246 18<22dfstorm18>	And if your Intel card shows up, then you know it's a fedora automation that make the problem (even if it probably help in most of usercase)
-T 1579692917 18<25archuserau18>	It looks like the issue is the hardware switch only works in windows. I just booted into windows pressed the button and i am now in linux with intel graphics
-T 1579695660 20*	Disconnected (20)
-T 1579695852 20*	Disconnected (20Remote host closed socket)
-T 1579695879 19*	Now talking on 22#fedora
-T 1579695879 22*	Topic for 22#fedora is: #Fedora F30, F31 end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F30,F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
-T 1579695879 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Thu Nov  7 00:40:03 2019)
-T 1579695880 -18ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
-T 1579696082 18<26zxd_18>	hi
-T 1579696125 18<26zxd_18>	hi
-T 1579696200 20*	Disconnected (20)
-T 1579696360 19*	Now talking on 22#fedora
-T 1579696360 22*	Topic for 22#fedora is: #Fedora F30, F31 end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F30,F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
-T 1579696360 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Thu Nov  7 00:40:03 2019)
-T 1579696360 -18ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
-T 1579696864 18<26zxd_18>	what does this mean https://f.perl.bot/p/4k1yoz  ?
-T 1579696914 18<26Khaytsus18>	zxd_: Why in the worl dare you downloading files directly off mirrors?
-T 1579696930 18<26zxd_18>	just for testing purpose
-T 1579696965 18<26Khaytsus18>	Anywho, your proxy is broken?
-T 1579697004 18<26zxd_18>	what you mean? it works if I use a curl compiled with NSS instead of openssl
-T 1579697049 18<26zxd_18>	actually It dosen't
-T 1579697127 18<26zxd_18>	maybe it needs to authenticate the proxy certificate and it can't do that?
-T 1579697140 18<26zxd_18>	if I use http proxy for a https connection it does work
-T 1579700466 18<22CPrompt^18>	good morning.  I have been getting a lot of segmentation faults when running dnf update lately.
-T 1579700493 18<22CPrompt^18>	has anyone else seen this?  Looking through the bug tracker, I can't find a newer report
-T 1579700913 18<26Khaytsus18>	CPrompt^: Look for other segfaults..  segfaults indicate HW problems.
-T 1579700946 18<26Khaytsus18>	Could also be if you have a VPS or something that's VERY low spec and it literally runs out of ram, but that's generally not a segfault.
-T 1579701114 18<22CPrompt^18>	Khaytsus: ah...I didn't realie that running dnf and it returning a segfault would indicate HW problems.
-T 1579701117 18<22CPrompt^18>	Thanks!
-T 1579701607 18<26Khaytsus18>	Segfaults can be sw but most often they are hw..
-T 1579702663 18<22CPrompt^18>	Khaytsus: thanks.  I will look through some logs and see if I see anything.  I did see in "messages" that there might be an issue with an external drive.
-T 1579704265 18<22Southern_Gentlem18>	*** TESTERS needed for F31-20200122 Updated iso Please Join #fedora-respins to help **
-T 1579705977 18<25chasinglogic[m]18>	Hello all, I've just moved to Fedora from Ubuntu migrating my home directory from the former to my Fedora installation. It looks like Nautilus is in some ways still using the Yaru dark theme but I can't seem to find the file / setting to change it. As it is only the file preview pane is black (with black text) and the selection in the sidebar is black instead of Adwaita blue. Gnome software has similiarly weird dark
-T 1579705977 18<25chasinglogic[m]18>	color usages. I tried finding css files (nautilus.css, gtk.css) in my home dir that would create this problem but have had no luck. I've also tried changing and resetting the theme with Gnome Tweaks. Any further suggestions would be greatly appreciated
-T 1579706289 18<24prussian18>	you might have to reset all your gconf settings.
-T 1579706297 18<22Southern_Gentlem18>	chasinglogic[m], remove the files form your .config in your /home
-T 1579706331 18<22Southern_Gentlem18>	control-h to view hidden folders
-T 1579706369 18<24prussian18>	assuming you have checked the appropriate locations for theming and configuration, as pointed out above ^ ~/.config/gtk-3.0
-T 1579706716 18<25chasinglogic[m]18>	Southern_Gentlem: Some deep dark file in .config was the problem, clearing nearly everything out of there worked
-T 1579706726 18<25chasinglogic[m]18>	thanks both of you
-T 1579706914 18<25chasinglogic[m]18>	Though it looks like Gnome Software still has the leftover dark theme in weird places
-T 1579706922 18<25chasinglogic[m]18>	all of the tiles on the explore page
-T 1579707125 18<25chasinglogic[m]18>	I am incorrect, logging out and back in fixed the gnome software issues as well
-T 1579707257 18<24prussian18>	cool
-T 1579707259 18<24prussian18>	good deal
-T 1579707451 FiSHLiM plugin unloaded
-T 1582109470 19*	Now talking on 22#fedora
-T 1582109472 22*	Topic for 22#fedora is: #Fedora F30, F31 end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
-T 1582109472 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Mon Feb 10 18:50:52 2020)
-T 1582109474 -18ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
-T 1582109642 18<19wawrek18>	is this channel active ?
-T 1582109672 18<28leden18>	wawrek, yes it is
-T 1582109681 18<19wawrek18>	thanks
-T 1582109731 18<19wawrek18>	I have problems with my system. I lack the brightness control slidebar in the system menu.
-T 1582109773 18<28leden18>	wawrek, 'fpaste --sysinfo' and share url with us
-T 1582110843 18<19wawrek18>	leden: https://paste.centos.org/view/becee76c
-T 1582110849 18<19wawrek18>	is this sufficient?
-T 1582111072 18<28leden18>	wawrek, 'rpm -qa | grep *nvidia*
-T 1582111093 18<28leden18>	wawrek, 'rpm -qa | grep *nvidia* | fpaste'
-T 1582111134 18<19wawrek18>	there's nothing to send
-T 1582111138 18<28leden18>	wawrek, ok
-T 1582111250 20*	Disconnected (20)
-T 1582111365 20*	Disconnected (20Remote host closed socket)
-T 1582111431 20*	Disconnected (20Remote host closed socket)
-T 1582111512 19*	Now talking on 22#fedora
-T 1582111512 22*	Topic for 22#fedora is: #Fedora F30, F31 end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
-T 1582111512 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Mon Feb 10 18:50:52 2020)
-T 1582111516 -18ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
-T 1582111520 20*	Disconnected (20)
-T 1582111554 19*	Now talking on 22#fedora
-T 1582111554 22*	Topic for 22#fedora is: #Fedora F30, F31 end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
-T 1582111554 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Mon Feb 10 18:50:52 2020)
-T 1582111570 -18ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
-T 1582111640 20*	Disconnected (20)
-T 1582111672 19*	Now talking on 22#fedora
-T 1582111672 22*	Topic for 22#fedora is: #Fedora F30, F31 end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
-T 1582111672 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Mon Feb 10 18:50:52 2020)
-T 1582111672 -18ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
-T 1582111702 18<24rexwin18>	I installed Fedora-Workstation-Live-x86_64-31-1.9
-T 1582111717 18<19wawrek18>	leden: I will maybe reinstall when I have some time to do this.
-T 1582111736 18<19wawrek18>	something maybe wrong withmy installation
-T 1582111778 18<28leden18>	wawrek, it is up to you but is not problem with install
-T 1582111809 18<19wawrek18>	ok
-T 1582111814 18<19wawrek18>	thanks for looking into this
-T 1582111815 18<28leden18>	wawrek, i just see you have optimus system
-T 1582111844 18<19wawrek18>	that's possible. is there anything wrong with it?
-T 1582111876 18<28leden18>	wawrek, two gpus intel and nvidia
-T 1582111935 18<28leden18>	you need install proper driver from rpmfusion
-T 1582111942 18<19wawrek18>	ok, that may be confusing for the os
-T 1582111945 18<19wawrek18>	thanks
-T 1582111992 18<19wawrek18>	I will look into this ;)
-T 1582112087 18<28leden18>	wawrek, https://rpmfusion.org/Configuration & https://rpmfusion.org/Howto/NVIDIA?highlight=%28CategoryHowto%29#Optimus
-T 1582112104 18<19wawrek18>	thank you
-T 1582112131 18<28leden18>	wawrek, you're welcome
-T 1582112510 20*	Disconnected (20)
-T 1582112537 19*	Now talking on 22#fedora
-T 1582112537 22*	Topic for 22#fedora is: #Fedora F30, F31 end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
-T 1582112537 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Mon Feb 10 18:50:52 2020)
-T 1582112538 -18ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
-T 1582112927 18<24rexwin18>	i installed the fedora VM but to login it asks for domain name.  installed Fedora-Workstation-Live-x86_64-31-1.9
-T 1582112927 18<24rexwin18>	I donot have domain
-T 1582114999 18<24rexwin18>	nm, i got it resolved
-T 1582115810 20*	Disconnected (20)
-T 1582115856 19*	Now talking on 22#fedora
-T 1582115856 22*	Topic for 22#fedora is: #Fedora F30, F31 end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
-T 1582115856 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Mon Feb 10 18:50:52 2020)
-T 1582115859 -18ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
 T 1582116340 18<29oxalis18>	cberg: yeah. I suspect that's the issue. I don't understand why the this 4-year issue hasn't been resolved. I was about to add units to the local-fs-pre.target to see if I can hook-in there to get something working.
 T 1582116620 20*	Disconnected (20)
 T 1582116685 19*	Now talking on 22#fedora
@@ -5094,3 +4934,70 @@ T 1612210042 18<20cmurf18>	it sounds power save related though
 T 1612210416 18<22faern18>	cmurf: https://www.lifewire.com/hdmi-cec-4158343
 T 1612210463 18<22faern18>	cmurf: It's not bt. It has it's own receiver. So the wireless protocol itself is probably irrelevant. It's how the receiver is probably put idle or something.
 T 1612210558 18<20cmurf18>	ahh
+T 1612210891 18<29mdemo18>	Is there a file manager for gnome that can show and sort a duration column for audio?
+T 1612211004 24*	28tmsmr1 is now known as 18tmsmr
+T 1612211164 24*	28joako_ is now known as 18joako
+T 1612211165 24*	28jeandet_ is now known as 18jeandet
+T 1612211166 24*	28UndeadLeech_ is now known as 18UndeadLeech
+T 1612211318 18<25coke18>	'audio'
+T 1612211384 18*	19rorizz[m] uploaded an image: overwrite what.png (11KiB) < https://matrix.org/_matrix/media/r0/download/matrix.org/lVjislvKSfcBCZxQccFibgLv/overwrite what.png >
+T 1612211390 18<19rorizz[m]18>	who came up with this weird restriction
+T 1612211410 18<19rorizz[m]18>	i do this all the time on windows and it saves me a lot of time
+T 1612211482 18<28happymeal18>	windows just doesnt throw the error
+T 1612211491 18<19dowdle18>	rorizz[m]: So you are dragging and dropping a file on top of itself?  For what purpose?
+T 1612211492 18<28happymeal18>	i dont think its actually doing what you think
+T 1612211502 18<28happymeal18>	cuz, why would you be doing that lol
+T 1612211521 18<19dowdle18>	rorizz[m]: What is it you are trying to do?  rename a file?
+T 1612211596 18<19rorizz[m]18>	i have a folder named abc, inside that there's a folder named abc, and inside that there's a file. i don't want the two "abc" folders so i cut the one that has the file and then paste it on the other
+T 1612211757 18<28Xenorites18>	sorry, stepped away. cmurf I did a manual partitioning and install; I'm using LVM with XFS as the filesystem. /var and /boot are the only separate volumes from / - no DM, was using i3, am planning to move to Sway once I can log in again...
+T 1612211769 18<22faern18>	I take back what I said about disabling HDMI CEC solving the issue. It just took a bit longer. Now it does not respond over network either.
+T 1612211795 18<28Xenorites18>	faern: is this machine wired or wireless?
+T 1612211801 18<22faern18>	Wireless
+T 1612211809 18*	19rorizz[m] uploaded an image: abc abc file.png (35KiB) < https://matrix.org/_matrix/media/r0/download/matrix.org/DmsquRnGnxqfkteZHVGWuNWT/abc abc file.png >
+T 1612211810 18<19rorizz[m]18>	the folder above this one is empty (except for the folder that has the same name)
+T 1612211878 18<22faern18>	I have been planning on wiring it up. Maybe it's time to do that :/
+T 1612211891 18<28Xenorites18>	I think wired is the way to go
+T 1612211908 18<19rorizz[m]18>	cutting this folder and pasting it in "abcdef" is an effective way of removing one folder layer
+T 1612211910 18<19rorizz[m]18>	and it works in windows
+T 1612211912 18<22faern18>	But it does not explain the keyboard being unusable.
+T 1612211986 18<22faern18>	And wiring up the network is just a workaround. It must be possible to make it stay awake on a wifi as well :/
+T 1612212056 18<25coke18>	rorizz[m]: sounds like you want to use windows? if you want to use linux make script that does it?
+T 1612212071 18<19rorizz[m]18>	why?
+T 1612212178 18<19rorizz[m]18>	so let's cripple everything on purpose just so we can say "use windows instead"?
+T 1612212187 18<25coke18>	linux is historically serious about directories
+T 1612212207 18<19rorizz[m]18>	wdym?
+T 1612212257 18<25coke18>	your question is why is my blue car not red .. and there is no answer to that question
+T 1612212325 18<19rorizz[m]18>	i'm asking why a very useful thing is restricted when there is no reason to restrict it
+T 1612212347 18<19rorizz[m]18>	i have to spend extra time working around it for no reason
+T 1612212372 18<28Xenorites18>	restricted?
+T 1612212377 18<25coke18>	so ask the developer of the tool you are using
+T 1612212382 18<25coke18>	no he's not in this channel
+T 1612212403 18<19dowdle18>	rorizz[m]: Don't do it that way and no problem.  Just rename the top level dir and you can drag.
+T 1612212406 18<19rorizz[m]18>	idk who that is
+T 1612212420 18<28Xenorites18>	you are asking to do an odd operation that can be accomplished a dozen different ways that the one you implemented.
+T 1612212441 18<25coke18>	or you could just write a script that does what you want and learn something useful ..
+T 1612212446 18<28Xenorites18>	the help > about menu will tell you the name of the software, and perhaps the tree you actually want to be barking up...
+T 1612212454 18<19dowdle18>	rorizz[m]: Or just move the files from the parent dir to the grand parent dir and delete the parent dir when done.
+T 1612212514 18<19rorizz[m]18>	which can take a lot more time depending on what i'm cutting/pasting
+T 1612212547 18<19dowdle18>	rorizz[m]: Your "way" assumes a certain understanding of what it is you are trying to do... but what if someone who did what you did, didn't want that to happen?
+T 1612212663 18<19rorizz[m]18>	if that user doesn't want to cut and paste like that, he doesn't have to?
+T 1612212797 18<25coke18>	what your paste does is change the parent of the file and then delete the empty leaf directory
+T 1612212797 18<19dowdle18>	rorizz[m]: Such an operation is often done by mistake.
+T 1612212815 18<25coke18>	deleting something is not the obvious choice when you paste
+T 1612212823 18<19dowdle18>	ZACKLY
+T 1612212900 18<19rorizz[m]18>	oh ok
+T 1612212912 18<25coke18>	just because you dont see the downsides or they dont matter to you doesn't mean they dont exist
+T 1612212988 18<19rorizz[m]18>	well it took all this time to mention downsides
+T 1612213002 18<19rorizz[m]18>	also i clicked About -> Credits and it lists around 40 people. pinning down and contacting who made this specific decision would be pretty difficult
+T 1612213229 18<25coke18>	21:43:09 <coke> linux is historically serious about directories
+T 1612213238 18<25coke18>	nautillus doesnt break with that tradition
+T 1612213272 18<25coke18>	if you want to move one directory tree over another one you have to use special tools cause mv just doesnt do it
+T 1612213389 18<19rorizz[m]18>	oh ok
+T 1612213408 18<19rorizz[m]18>	are there any gui tools that do it?
+T 1612214657 18<19dowdle18>	rorizz[m]: Not that I know of.... but there are a bunch of file managers to pick from.  I'd be surprised if anyone implemented that as doing so is assuming a whole lot and not a "restriction".
+T 1612218645 24*	28Sokel_ is now known as 18Sokel
+T 1612220822 20*	Disconnected (20)
+T 1612293820 19*	Now talking on 22#fedora
+T 1612293820 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1612293820 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1612293823 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.

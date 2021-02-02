@@ -25703,3 +25703,253 @@ Feb 01 21:17:49 <Cymew>	dale: I'll keep experimenting. Many thanks for the sugge
 Feb 01 21:18:18 <Cymew>	It's weird, lsp-mode is a mix of some really sweet functionality and pure misery.
 Feb 01 21:18:41 <Cymew>	It must be me doing something wrong...
 Feb 01 21:18:42 *	seds- is now known as seds
+Feb 01 21:20:04 <cvandusen>	,blame humans 
+Feb 01 21:20:05 *	fsbot blames Stefan
+Feb 01 21:20:18 <pjb>	,blame bots
+Feb 01 21:20:19 *	fsbot blames monads
+Feb 01 21:21:39 <python476>	Stefanic Monierad
+Feb 01 21:22:51 <Cymew>	I usually blames Lennart Poettering.
+Feb 01 21:23:14 *	radu2428 is now known as radu242
+Feb 01 21:23:59 <mwnaylor>	Having multiple open irc channels has made me appreciate the power of bookmarking to regsisters. 👍 👍
+Feb 01 21:26:03 *	Lord_of_Life_ is now known as Lord_of_Life
+Feb 01 21:26:07 *	jfhbrook_ is now known as jfhbrook
+Feb 01 21:29:32 <bremner>	I've started using registers for repetitive bits of org-mode markup, like make a left column 0.77 of textwidth
+Feb 01 21:33:00 <mwnaylor>	I'm also rediscovering more complex macros usage. Storing macros in registers for replay is another cool superpower.
+Feb 01 21:33:27 <cvandusen>	,praise 
+Feb 01 21:33:27 <fsbot>	39:22 EMACS has now revealed the best of scriptures, a documentation uniform in style proclaiming promises and warnings.  Those who fear their EMACS are filled with awe as they listen to its revelations, so that their hearts soften at the remembrance of EMACS.  Such is EMACS's guidance: He bestows it on whom He will.  But he whom EMACS misleads shall have none to guide him.
+Feb 01 21:34:27 *	martin_ is now known as Guest95935
+Feb 01 21:42:01 <bremner>	,rear
+Feb 01 21:42:03 <fsbot>	try:  firearms firearms-assoc rear-guards
+Feb 01 21:42:09 <bremner>	err. ,,fear,,
+Feb 01 21:42:10 <fsbot>	Try: dlgs-phrases emacstuning fomo FsTrash210120.1025.SGuVHbzATF fud grue hotornot.el repo shit#emacssays stallman-fact-list wgreenhouses-second-law william-blake-fix yoda-phrases
+Feb 01 21:42:47 <tromey>	,william-blake-fix
+Feb 01 21:42:48 <fsbot>	william-blake-fix is most problems can be solved by daring to frame the tyger's fearful symmetry
+Feb 01 21:42:54 <tromey>	makes sense
+Feb 01 21:42:54 <bremner>	yay!
+Feb 01 21:43:07 <bremner>	I hope I entered that.
+Feb 01 21:43:55 <tromey>	in high school we learned that that poem can be sung to the tune of Twinkle, Twinkle Little Star
+Feb 01 21:44:06 <tromey>	also that many poems by Emily Dickinson can be sung to the tune of The Yellow Rose of Texas
+Feb 01 21:45:40 <nij>	Dear friends on #emacs,
+Feb 01 21:45:49 <aidalgol>	tromey: Which poem?
+Feb 01 21:46:08 <nij>	exwm works nicely, if you haven't checked, make some time give it a try :)
+Feb 01 21:46:09 <tromey>	sing along!  because I could not stop for death, he kindly stopped for meeeeeee
+Feb 01 21:46:24 <aidalgol>	I mean the one about Twinkle, Twinkle.
+Feb 01 21:46:31 <grym>	Do not meddle in the affairs of bards , for they are unsubtle, and your name scans to Greensleeves . 
+Feb 01 21:46:38 <tromey>	Tyger Tyger burning bright, in the forest of the night
+Feb 01 21:46:51 <aidalgol>	a
+Feb 01 21:48:17 <aidalgol>	*ah
+Feb 01 22:07:38 <kuba-orlik>	Hi there! I used to use this snippet to configure my mu4e accounts, but recently it stopped working. It seems that `let` no longer keeps the value available for later calls? Here's the snippet:
+Feb 01 22:07:38 <kuba-orlik>	https://hub.sealcode.org/P18
+Feb 01 22:07:39 <kuba-orlik>	I'd be thankful for lispy guidance :)
+Feb 01 22:08:26 <kuba-orlik>	Sorry, the link wasn't public, it should work correctly now: https://hub.sealcode.org/P18
+Feb 01 22:10:01 <kuba-orlik>	When match-func is applied, I get 'Symbol’s value as variable is void: addresses'
+Feb 01 22:10:38 <kuba-orlik>	but when it's initializing, it properly prints '!!! addresses' followed by the correct value
+Feb 01 22:14:13 <pjb>	kuba-orlik: If you get this error, it means that this let made dynamic bindings.  Dynamic = WHEN; lexical = WHERE.
+Feb 01 22:14:31 <pjb>	kuba-orlik: nowadays, emacs is able to do lexical bindings, and has closures. 
+Feb 01 22:15:01 <kuba-orlik>	I see - but this used to work for years now, did something in the behavior of `let` change recently?
+Feb 01 22:15:02 <pjb>	kuba-orlik: you should activate it with a (setq lexical-binding t) at the start of your source.
+Feb 01 22:15:48 <pjb>	kuba-orlik: I think it's the change in behavior of lambda that hits you here.
+Feb 01 22:16:32 <kuba-orlik>	I added (setq lexical-binding t) and the issue persists
+Feb 01 22:16:40 <kuba-orlik>	what changed in the behavior of lambda?
+Feb 01 22:16:46 <pjb>	kuba-orlik: but even with purely dynamic bindings, it shouldn't have worked, because let would have made dynamic bindings that would be supressed AFTER let is completed.
+Feb 01 22:16:53 <pjb>	Your code was already buggy.
+Feb 01 22:17:05 <pjb>	now lambda can return closures.
+Feb 01 22:17:12 <pjb>	This goes hand-in-hand with lexical binding.
+Feb 01 22:18:15 <kuba-orlik>	I see... so what would be the correct approach?
+Feb 01 22:18:30 <pjb>	kuba-orlik: https://termbin.com/6b7q
+Feb 01 22:19:50 <pjb>	Two ways: https://termbin.com/h2nr
+Feb 01 22:20:30 <pjb>	Either use global dynamic variables, (but then you can have only one context active at a time), or use local lexical variables (then you can have several contextes, each enclosed in their own closures).
+Feb 01 22:21:01 <pjb>	Since you started with a kuba/generate-mu4-context I'd advise the lexical-binding way.
+Feb 01 22:21:15 <pjb>	Just add (setf lexical-binding t) to your source.
+Feb 01 22:21:47 <pjb>	See: (info "(elisp) Lexical Binding")
+Feb 01 22:22:03 <kuba-orlik>	sorry, I got disconnected
+Feb 01 22:22:11 <kuba-orlik>	I don't yet see what made my code buggy
+Feb 01 22:22:24 <pjb>	Two ways: https://termbin.com/h2nr
+Feb 01 22:22:27 <pjb>	Either use global dynamic variables, (but then you can have only one context active at a time), or use local lexical variables (then you can have several contextes, each enclosed in their own closures).
+Feb 01 22:22:30 <pjb>	Since you started with a kuba/generate-mu4-context I'd advise the lexical-binding way.
+Feb 01 22:22:32 <pjb>	Just add (setf lexical-binding t) to your source.
+Feb 01 22:22:34 <pjb>	See: (info "(elisp) Lexical Binding")
+Feb 01 22:22:37 <pjb>	and (info "(elisp) Using Lexical Binding")
+Feb 01 22:24:00 <pjb>	kuba-orlik: the bug in your code was that with dynamic binding let creates a variable named addresses. Then it makes a mu4e-context, with a lambda that uses the dynamic variable named addresses. Then the let destroys the dynamic variable named addresses.  Then later you will call the lambda, and there will be no dynamic variable named addresses.
+Feb 01 22:24:12 <pjb>	kuba-orlik: the solution would be to define such a global variable with (defvar addresses).
+Feb 01 22:24:28 <pjb>	But then you would have to assign it with setf instead of using let (which creates a new variable).
+Feb 01 22:24:36 <pjb>	cf the first way in teh above url.
+Feb 01 22:24:58 <npostavs>	pjb: the correct way to set lexical binding for elisp is putting -*- lexical-binding: t -*- on the first line of the file (you also have to setf if you want it respected immediately by C-M-x and friends)
+Feb 01 22:25:01 <deego>	kuba-orlik: in the older days, one would do things like `(lambda (...)   ...   ,addresses ...) which you can still do, ofc
+Feb 01 22:25:10 <pjb>	kuba-orlik: if your code worked before, it was because some other code had created this global variable named addresses. But your let didn't modify it.
+Feb 01 22:26:12 <neverwas>	Sweet. rockauto got a mention in #emacs
+Feb 01 22:26:32 <neverwas>	No surprise there. Game recognize game.
+Feb 01 22:26:46 <grym>	neverwas: and so does ux :)
+Feb 01 22:27:24 <neverwas>	legendary ux
+Feb 01 22:27:37 <grym>	it's very good and does not care about aesthetics at all 
+Feb 01 22:27:40 <grym>	very emacslike, really 
+Feb 01 22:27:49 <neverwas>	https://tilde.club/~jpneverwas/i/ra.jpg
+Feb 01 22:28:03 <grym>	hah, nice 
+Feb 01 22:28:04 <kuba-orlik>	`(setf lexical-binding t)` worked. I get it now. Thanks a bunch!
+Feb 01 22:28:24 <grym>	neverwas: i have a stickerbombed toolchest, but they didn't send me any swag with my brake pads and rotos
+Feb 01 22:28:26 <grym>	rotors* 
+Feb 01 22:28:37 <deego>	<kuba-orlik> I added (setq lexical-binding t) and the issue persists <<=== why didn't it work earlier? 
+Feb 01 22:28:39 <grym>	also whoever though of the threaded hole to pop a rotor off was a friggin genius 
+Feb 01 22:28:52 <Cymew>	So anyone else experience the fans spin up and emacs hangs a while if you scroll down a bunch of steps in the package list after running M-x pa-list-pa?
+Feb 01 22:29:07 <grym>	neverwas: so, hangboard, or chalkbag
+Feb 01 22:29:17 <Cymew>	If I didn't knew better, I'd think I only had 512 Meg memory or something...
+Feb 01 22:30:08 <neverwas>	lol, chalkbag, but only in a former life. went hand in hand with the diy mechanic thing/vanlife
+Feb 01 22:30:23 <cvandusen>	Cymew: Is this with ,,-q 
+Feb 01 22:30:25 <fsbot>	-q is [0]  runs emacs without user configuration, ideal to test issues caused by your personal config
+Feb 01 22:30:26 <fsbot>	[1] If starting emacs with "emacs -q" fixes the problem, it's something in your personal config; check your .emacs. If "emacs -q" has problems but "emacs -Q" doesn't, blame your distro or local admin.
+Feb 01 22:30:26 <fsbot>	[2] it's also possible that you have triggered a bug rather than introduced one, but that is rare. ;;[ ,more / ,dump]
+Feb 01 22:33:42 <parsnip>	that factoid lacks, "do you still see the issue after restarting emacs?"
+Feb 01 22:33:51 <parsnip>	,bisect 0
+Feb 01 22:33:52 <fsbot>	bisect is [0] If you can reproduce your issue reliably in a new emacs, try bisecting your user-init-file
+Feb 01 22:33:52 <fsbot>	[1] Comment out half of your init file and try to reproduce the issue. Recurse as needed.
+Feb 01 22:33:52 <fsbot>	[2] Use M-; to comment or uncomment selected region
+Feb 01 22:33:52 <fsbot>	[3] See also ,keep-one-open
+Feb 01 22:33:59 <parsnip>	,bisect 0 0
+Feb 01 22:34:00 <fsbot>	bisect: If you can reproduce your issue reliably in a new emacs, try bisecting your user-init-file .. + other notes
+Feb 01 22:34:23 <grym>	neverwas: dirtbag bestbag
+Feb 01 22:34:52 <parsnip>	grym: are you a watch person? i just received a gshock gw56001e-v
+Feb 01 22:34:56 <parsnip>	it f'ing sucks
+Feb 01 22:35:25 <Cymew>	I almost only have lsp-mode related stuff in my init files...
+Feb 01 22:35:54 <parsnip>	then it might be a bug in lsp?
+Feb 01 22:35:56 <grym>	parsnip: i am not.  i have an apple watch and i'm kind of quietly amazed that i can stand having something on my wrist
+Feb 01 22:36:09 <Cymew>	There's something fishy indeed.
+Feb 01 22:36:12 <parsnip>	Cymew: do you even see the issue if you restart emacs?
+Feb 01 22:36:28 <Cymew>	I do.
+Feb 01 22:36:30 <parsnip>	if not, that's going to make it harder to use these troubleshooting approaches
+Feb 01 22:36:32 <parsnip>	ah
+Feb 01 22:36:37 <parsnip>	then yeah, ,,bisect
+Feb 01 22:36:38 <fsbot>	bisect is [0] If you can reproduce your issue reliably in a new emacs, try bisecting your user-init-file
+Feb 01 22:36:38 <fsbot>	[1] Comment out half of your init file and try to reproduce the issue. Recurse as needed.
+Feb 01 22:36:38 <fsbot>	[2] Use M-; to comment or uncomment selected region
+Feb 01 22:36:38 <fsbot>	[3] See also ,keep-one-open
+Feb 01 22:36:50 <Cymew>	Well, that will have do wait for another day. Thanks for the many helpful suggestions. Appreciated.
+Feb 01 22:36:58 <Cymew>	Time for some sleep.
+Feb 01 22:37:03 <parsnip>	:)
+Feb 01 22:37:05 <neverwas>	grym: dirtbag! that's hardcore bomber shit. I was only ever a fairweather bum
+Feb 01 22:37:36 <grym>	neverwas: same really.  with a few months back in the harness i'd be redpointing 11a or so, so i'm not great shakes
+Feb 01 22:37:40 <parsnip>	grym: i sort of want a smartwatch just for the nice timers
+Feb 01 22:37:52 <grym>	parsnip: 80% of what i use it for, tbh 
+Feb 01 22:38:03 <grym>	and the solar face is purty 
+Feb 01 22:38:08 <grym>	informationally dense
+Feb 01 22:38:14 <parsnip>	i guess it's nice to look at it and say, "oh that's who's calling, i don't need to get up to get my phone."
+Feb 01 22:38:37 <parsnip>	oh yeah, weather and sun stuff would be nice
+Feb 01 22:38:54 <parsnip>	i guess as you're walking out the door, you can check if it's raining
+Feb 01 22:39:53 <parsnip>	the band is probably nicer than this gshock's
+Feb 01 22:41:39 <Hash>	Good morning
+Feb 01 22:44:11 <neverwas>	grym: 11a? damn. you got my number by a full grade for sure, even in my prime (at least by Josh/Yosemite standards)
+Feb 01 22:44:30 <grym>	neverwas: ooo western.  i'm more rumney/gunks
+Feb 01 22:44:40 <grym>	my brother can get down to the new sometimes
+Feb 01 22:44:52 <grym>	i've done a little bit in tucson, which is its own flavor of barking madness ;) 
+Feb 01 22:45:00 <grym>	(the cycling's pretty good too)
+Feb 01 22:46:12 <Hash>	May I ask a poll?
+Feb 01 22:46:24 <Hash>	How many people do we think use gui emacs vs cli emacs?
+Feb 01 22:46:37 <Hash>	Do the gui people use a mouse?
+Feb 01 22:47:02 <natter>	I'd ballpark the number as approximately bigger than a breadbox
+Feb 01 22:47:03 <neverwas>	Tuscon? Nice. Utah's pretty rad. Indian Creek, Moab, etc.
+Feb 01 22:47:05 <wgreenhouse>	hmm. the two are not mutually exclusive, because of --daemon
+Feb 01 22:47:10 <technomancy>	Hash: I use both but no mouse ever
+Feb 01 22:47:29 <grym>	neverwas: ever listened to the enormocast 
+Feb 01 22:47:42 <wgreenhouse>	I use mostly terminal emacs right now but do use the mouse there. :)
+Feb 01 22:47:48 <wgreenhouse>	xterm-mouse-mode is pretty nice
+Feb 01 22:48:01 <Hash>	Hmm.
+Feb 01 22:48:20 <neverwas>	grym: nah, haven't had the pleasure
+Feb 01 22:48:21 <Hash>	I use urxvt, Xorg, emacs compiled without X, and it works nicely.
+Feb 01 22:48:37 *	neverwas googles
+Feb 01 22:48:38 <Hash>	Some keys don't work, like Hyper etc. 
+Feb 01 22:48:53 <Hash>	I wonder why the keys work in Xorg and not in cli.
+Feb 01 22:49:00 <grym>	neverwas: well worth it; he's a happy dirtbag himself but he's interviewed like. literally every surviving big name that's not chouinard
+Feb 01 22:49:03 <Hash>	Or works in cli but not in Xorg
+Feb 01 22:49:10 <grym>	... and some who are now dead, RIP hayden </3
+Feb 01 22:49:23 <grym>	(god what a shitty day that was)
+Feb 01 22:50:01 <grym>	neverwas: if you remember the kompressor route drama though, kalous got the interview first :)( 
+Feb 01 22:53:11 <ville>	is there some emacs package that would cut/copy whatever the token the cursor is on if there's no selection in programming modes and also tentatively suggest it for things like search, replace and such?
+Feb 01 22:54:23 <neverwas>	grym: I definitely don't remember firsthand. Heard folks mention it, though. 
+Feb 01 22:54:27 <neverwas>	Oh, Chris Kalous, host of the podcast.
+Feb 01 22:54:47 <grym>	yep
+Feb 01 22:54:50 <brass>	ville: Probably, but I've never heard of one. It would probably be pretty easy to write
+Feb 01 22:58:22 <cvandusen>	ville: https://github.com/leoliu/easy-kill is one. 
+Feb 01 23:00:23 <cvandusen>	though, it hasn't been updated in a while.
+Feb 01 23:03:21 <cvandusen>	Also, https://github.com/plandes/mark-thing-at though the cut/copy is left to the user.
+Feb 01 23:07:52 <jfb4>	ville: which use case scenarios have you got in mind 
+Feb 01 23:08:25 <jfb4>	ville: you mention search, which presumably doesn't apply.  would it be for replace, and then what else 
+Feb 01 23:09:49 <ski>	,terminal
+Feb 01 23:09:51 <fsbot>	[->] terminals are [0/4] Terminals do weird thing to your keyboard input: http://catern.com/posts/terminal_quirks.html
+Feb 01 23:09:52 <fsbot>	[1]  Terminals have limitations compared to the graphical windows; it's advisable to use "graphical" Emacs unless one has a good reason not to. See ,betterdefaults for disabling scroll bars, tool bars, etc.
+Feb 01 23:09:52 <fsbot>	[2] https://garbagecollected.org/2017/01/31/four-column-ascii/ ;;[ ,more / ,dump]
+Feb 01 23:10:24 *	ski mostly uses `-nw'
+Feb 01 23:13:20 <grym>	i use gui emacs but i start it with emacsclient so for a hot 2 seconds it's neither gui nor not gui 
+Feb 01 23:13:20 <grym>	the gateless emacs
+Feb 01 23:16:51 <e1f>	the schrödinger emacs
+Feb 01 23:18:27 <wrycode>	ix.io has been slow lately
+Feb 01 23:18:47 <grym>	wrycode: bpaste is real nice 
+Feb 01 23:19:15 <ville>	jfb4: not sure i quite understand the question. thought i listed few potential cases: cutting, copying, searching, replacing
+Feb 01 23:19:33 <wrycode>	grym: with a corresponding zero-configuration emacs package?
+Feb 01 23:20:12 <grym>	wrycode: it speaks curl, so you can shell out >:) 
+Feb 01 23:20:25 <ville>	cvandusen: i'll take a look
+Feb 01 23:23:33 <jfb4>	ville: well which functions would you see this thing hooked into?
+Feb 01 23:23:50 <jfb4>	ville: also do you know about C-M-SPC for selection
+Feb 01 23:24:15 <ville>	jfb4: i wouldn't know. i try to avoid looking at emacs internals. yes, C-M-spc doesn't quite do the right thing.
+Feb 01 23:24:51 <nij>	How to let notify-send work with exwm?
+Feb 01 23:25:14 <nij>	I've tried exwm-ns, but the notification still does not show up.
+Feb 01 23:25:20 <wrycode>	grym: probably take a few mins to set it up later, thanks
+Feb 01 23:25:25 <nij>	`$ notify-send abc; echo $?` => 0
+Feb 01 23:26:00 <grym>	wrycode: bpaste.net/+common-lisp is probably the thing, and you can also guess by extension, and paste multiple files
+Feb 01 23:27:36 <wrycode>	ville: did anyone mention expand-region yet?
+Feb 01 23:27:47 <ville>	wrycode: is that C-M-spc?
+Feb 01 23:28:04 <wrycode>	I don't think it's a builtin
+Feb 01 23:28:29 <wrycode>	https://github.com/magnars/expand-region.el
+Feb 01 23:29:19 <wrycode>	if you want to just select the current symbol. To yank it or whatever you could make your own commands using it
+Feb 01 23:29:24 <ville>	ok i'll check it out
+Feb 01 23:30:32 <wrycode>	grym: I don't want to do *work* for it, I just want to paste the current region to a no-nonsense service
+Feb 01 23:30:54 <grym>	wrycode: heh heh.  i really want to add bpaste to webpaste.el, i just don't have the chops or the time
+Feb 01 23:31:01 <grym>	webpaste defaults to dpaste, which is pretty derpy 
+Feb 01 23:34:46 <jfb4>	wrycode: you want to paste the current region to a pastebin type service ?
+Feb 01 23:35:12 <wrycode>	webpaste did the trick
+Feb 01 23:35:22 <ville>	wrycode: expand-region looks pretty good, not quite exactly what i had hoped but will do in a pinch
+Feb 01 23:39:17 <wrycode>	ville: so you want to press a keybinding and start an isearch with the symbol at point automatically entered or what?
+Feb 01 23:39:57 <ville>	wrycode: yes that would be one feature, then as bonus if i start typing the tentative suggestion would be removed
+Feb 01 23:40:57 <wrycode>	what do you use for searching and completion?
+Feb 01 23:43:22 <ville>	umm, not entirely sure, heh. it's unclear to me what package does which part exactly. search is default i think: isearch-forward. completions are shown by company but they are provided my lsp-mode?
+Feb 01 23:44:03 <ville>	err by lsp-mode
+Feb 01 23:45:30 *	\u is now known as meowray
+Feb 01 23:45:34 <wrycode>	sorry, I didn't mean autocompletions, some people use completion frameworks like helm or ivy or ido which often replace isearch with their own version of the command
+Feb 01 23:45:52 <jfb4>	ville: try Ivy
+Feb 01 23:46:27 <ville>	jfb4: for what purpose? i've it installed and use it for some things
+Feb 01 23:46:37 <wrycode>	yeah Ivy is really (IMO deservedly) popular
+Feb 01 23:48:22 <wrycode>	you can probably write a custom command that starts a search but temporarily makes Tab autocomplete to whatever symbol you were on, but I'm not sure if you can display the tentative suggestion in gray letters easily
+Feb 01 23:49:54 <wrycode>	but this will be done through whichever completion framework you're using
+Feb 01 23:52:15 <nij>	Why doesn't lambda in lambda works as expected? https://bpa.st/43TIQ ?
+Feb 01 23:52:18 <wrycode>	but temporarily, it'd be much easier to make a second keybinding that simply yanks the current symbol into an isearch
+Feb 01 23:58:58 <nij>	A simplified question: why doesn't the following output a function that prints 0?
+Feb 01 23:59:00 <nij>	(funcall (lambda (i) (lambda () (print i))) 0)
+Feb 01 23:59:30 <technomancy>	nij: probably lexical scope isn't turned on
+Feb 01 23:59:41 <nij>	Same same:
+Feb 01 23:59:43 <nij>	(let ((lexical-binding t)) (funcall (lambda (i) (lambda () (print i))) 0))
+Feb 01 23:59:44 <npostavs>	nij: you're just missing a funcall
+Feb 02 00:00:03 <nij>	npostavs: no.. that's not the problem
+Feb 02 00:00:03 <technomancy>	doesn't it have to be set at complie time or something?
+Feb 02 00:00:23 <npostavs>	(funcall (lambda (i) (funcall (lambda () (print i)))) 0) gives 0 for me
+Feb 02 00:01:25 <jfb4>	I get this: (closure ((i . 0) t) nil (print i))
+Feb 02 00:02:23 <nij>	indeed i have to (setq lexical-binding t)
+Feb 02 00:02:26 <nij>	then it's fine
+Feb 02 00:02:43 <nij>	Hmm this is a part of my config
+Feb 02 00:03:06 <nij>	what if i want to do it without lexical-binding?
+Feb 02 00:04:16 <technomancy>	that *is* lexical binding
+Feb 02 00:04:42 <pjb>	(funcall (funcall (lambda (i) (coerce `(lambda () ,i) 'function)) 0)) --> 0
+Feb 02 00:04:48 <pjb>	nij: ^
+Feb 02 00:05:23 <pjb>	nij: but you really want lexical-binding.  See: https://en.wikipedia.org/wiki/Funarg_problem
+Feb 02 00:07:02 *	Disconnected ()
+**** ENDING LOGGING AT Tue Feb  2 00:07:02 2021
+
+**** BEGIN LOGGING AT Tue Feb  2 20:23:40 2021
+
+Feb 02 20:23:40 *	Now talking on #emacs
+Feb 02 20:23:40 *	Topic for #emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+Feb 02 20:23:40 *	Topic for #emacs set by nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (Mon Feb  1 17:01:36 2021)
+Feb 02 20:23:43 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Feb 02 20:52:18 <endiruna>	I cannot find how to customize the font when I do ispell-buffer
+Feb 02 20:52:46 <endiruna>	how do i search for that within emacs
+Feb 02 20:55:08 <fledermaus>	what font are you trying to customise, exactly?
+Feb 02 20:55:12 <natter>	endiruna: which font, the pop-up?
+Feb 02 20:56:30 <wgreenhouse>	endiruna: M-x customize-group ispell might be a good place to start
+Feb 02 21:00:26 <endiruna>	thanks! sorry for the stupid questions. I started with emacs few days ago. the font was isearch and for some reason it had low contrast

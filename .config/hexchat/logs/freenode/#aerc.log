@@ -2247,3 +2247,39 @@ Feb 01 19:34:02 *	Disconnected ()
 Feb 01 19:34:29 *	Now talking on #aerc
 Feb 01 19:34:29 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
 Feb 01 19:34:29 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Feb 01 22:02:57 <metalune>	Hi, I am having problems with aerc
+Feb 01 22:03:12 <metalune>	I want to connect it to my account, and I made sure that I had everything set up correctly, but it just fails
+Feb 01 22:03:24 <metalune>	err, it doesn't fail, it just keeps trying to connect, at least that's what I think
+Feb 01 22:03:30 <metalune>	it shows these "[...]" dancing around
+Feb 02 00:03:23 <erikh>	not sure if it works in aerc, but the next time that happens, hold control and press \
+Feb 02 00:03:50 <erikh>	this should dump a golang stack trace, which the aerc devs can probably use
+Feb 02 00:04:12 <erikh>	if ^\ doesn't work, try sending SIGQUIT: kill -QUIT `pidof aerc`
+Feb 02 00:05:28 <erikh>	ok the kill -QUIT works but ^\ is trapped, likely by vterm or some other ui toolkit
+Feb 02 00:07:02 *	Disconnected ()
+**** ENDING LOGGING AT Tue Feb  2 00:07:02 2021
+
+**** BEGIN LOGGING AT Tue Feb  2 20:23:40 2021
+
+Feb 02 20:23:40 *	Now talking on #aerc
+Feb 02 20:23:40 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Feb 02 20:23:40 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Feb 02 20:37:31 <bookworm>	doesn't work yet
+Feb 02 20:37:37 <bookworm>	least not in a nice way
+Feb 02 21:13:00 <tzlil>	bookworm: i see, thats a shame
+Feb 02 21:13:30 <tzlil>	is there any way around this? aka. encrypting it with gpg or w/e beforehand and making aerc send the file?
+Feb 02 21:14:39 <bookworm>	you can inline encrypt yes..."traditional" gpg encryption
+Feb 02 21:14:49 <tzlil>	inline encrypt?
+Feb 02 21:15:07 <tzlil>	also, would i send it armored? i dont really know rules of email
+Feb 02 21:17:03 <bookworm>	you would yes... although it doesn't matter much as we encode it anyhow
+Feb 02 21:17:13 <bookworm>	so what you see in the editor isn't what gets sent
+Feb 02 21:18:06 <bookworm>	"the rules of email" tell you to use a multipart message with a gpg mimetype instead but this ain't supported yet
+Feb 02 21:18:06 <tzlil>	how would you suggest i go about doing this then
+Feb 02 21:18:12 <tzlil>	i see..
+Feb 02 21:18:29 <bookworm>	filter it through gpg, then hope for the best
+Feb 02 21:18:43 <bookworm>	or use neomutt for the rare case where you need gpg
+Feb 02 21:18:49 <tzlil>	"filter it through gpg" ?
+Feb 02 21:18:53 <bookworm>	yes
+Feb 02 21:18:59 <tzlil>	im not sure what that means
+Feb 02 21:19:03 <bookworm>	which editor do you use?
+Feb 02 21:19:31 <tzlil>	inside aerc? vim
+Feb 02 21:19:42 <bookworm>	then literally filter

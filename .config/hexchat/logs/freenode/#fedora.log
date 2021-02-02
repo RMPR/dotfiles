@@ -7119,3 +7119,74 @@ Feb 01 21:07:22 <cmurf>	it sounds power save related though
 Feb 01 21:13:36 <faern>	cmurf: https://www.lifewire.com/hdmi-cec-4158343
 Feb 01 21:14:23 <faern>	cmurf: It's not bt. It has it's own receiver. So the wireless protocol itself is probably irrelevant. It's how the receiver is probably put idle or something.
 Feb 01 21:15:58 <cmurf>	ahh
+Feb 01 21:21:31 <mdemo>	Is there a file manager for gnome that can show and sort a duration column for audio?
+Feb 01 21:23:24 *	tmsmr1 is now known as tmsmr
+Feb 01 21:26:04 *	joako_ is now known as joako
+Feb 01 21:26:05 *	jeandet_ is now known as jeandet
+Feb 01 21:26:06 *	UndeadLeech_ is now known as UndeadLeech
+Feb 01 21:28:38 <coke>	'audio'
+Feb 01 21:29:44 *	rorizz[m] uploaded an image: overwrite what.png (11KiB) < https://matrix.org/_matrix/media/r0/download/matrix.org/lVjislvKSfcBCZxQccFibgLv/overwrite what.png >
+Feb 01 21:29:50 <rorizz[m]>	who came up with this weird restriction
+Feb 01 21:30:10 <rorizz[m]>	i do this all the time on windows and it saves me a lot of time
+Feb 01 21:31:22 <happymeal>	windows just doesnt throw the error
+Feb 01 21:31:31 <dowdle>	rorizz[m]: So you are dragging and dropping a file on top of itself?  For what purpose?
+Feb 01 21:31:32 <happymeal>	i dont think its actually doing what you think
+Feb 01 21:31:42 <happymeal>	cuz, why would you be doing that lol
+Feb 01 21:32:01 <dowdle>	rorizz[m]: What is it you are trying to do?  rename a file?
+Feb 01 21:33:16 <rorizz[m]>	i have a folder named abc, inside that there's a folder named abc, and inside that there's a file. i don't want the two "abc" folders so i cut the one that has the file and then paste it on the other
+Feb 01 21:35:57 <Xenorites>	sorry, stepped away. cmurf I did a manual partitioning and install; I'm using LVM with XFS as the filesystem. /var and /boot are the only separate volumes from / - no DM, was using i3, am planning to move to Sway once I can log in again...
+Feb 01 21:36:09 <faern>	I take back what I said about disabling HDMI CEC solving the issue. It just took a bit longer. Now it does not respond over network either.
+Feb 01 21:36:35 <Xenorites>	faern: is this machine wired or wireless?
+Feb 01 21:36:41 <faern>	Wireless
+Feb 01 21:36:49 *	rorizz[m] uploaded an image: abc abc file.png (35KiB) < https://matrix.org/_matrix/media/r0/download/matrix.org/DmsquRnGnxqfkteZHVGWuNWT/abc abc file.png >
+Feb 01 21:36:50 <rorizz[m]>	the folder above this one is empty (except for the folder that has the same name)
+Feb 01 21:37:58 <faern>	I have been planning on wiring it up. Maybe it's time to do that :/
+Feb 01 21:38:11 <Xenorites>	I think wired is the way to go
+Feb 01 21:38:28 <rorizz[m]>	cutting this folder and pasting it in "abcdef" is an effective way of removing one folder layer
+Feb 01 21:38:30 <rorizz[m]>	and it works in windows
+Feb 01 21:38:32 <faern>	But it does not explain the keyboard being unusable.
+Feb 01 21:39:46 <faern>	And wiring up the network is just a workaround. It must be possible to make it stay awake on a wifi as well :/
+Feb 01 21:40:56 <coke>	rorizz[m]: sounds like you want to use windows? if you want to use linux make script that does it?
+Feb 01 21:41:11 <rorizz[m]>	why?
+Feb 01 21:42:58 <rorizz[m]>	so let's cripple everything on purpose just so we can say "use windows instead"?
+Feb 01 21:43:07 <coke>	linux is historically serious about directories
+Feb 01 21:43:27 <rorizz[m]>	wdym?
+Feb 01 21:44:17 <coke>	your question is why is my blue car not red .. and there is no answer to that question
+Feb 01 21:45:25 <rorizz[m]>	i'm asking why a very useful thing is restricted when there is no reason to restrict it
+Feb 01 21:45:47 <rorizz[m]>	i have to spend extra time working around it for no reason
+Feb 01 21:46:12 <Xenorites>	restricted?
+Feb 01 21:46:17 <coke>	so ask the developer of the tool you are using
+Feb 01 21:46:22 <coke>	no he's not in this channel
+Feb 01 21:46:43 <dowdle>	rorizz[m]: Don't do it that way and no problem.  Just rename the top level dir and you can drag.
+Feb 01 21:46:46 <rorizz[m]>	idk who that is
+Feb 01 21:47:00 <Xenorites>	you are asking to do an odd operation that can be accomplished a dozen different ways that the one you implemented.
+Feb 01 21:47:21 <coke>	or you could just write a script that does what you want and learn something useful ..
+Feb 01 21:47:26 <Xenorites>	the help > about menu will tell you the name of the software, and perhaps the tree you actually want to be barking up...
+Feb 01 21:47:34 <dowdle>	rorizz[m]: Or just move the files from the parent dir to the grand parent dir and delete the parent dir when done.
+Feb 01 21:48:34 <rorizz[m]>	which can take a lot more time depending on what i'm cutting/pasting
+Feb 01 21:49:07 <dowdle>	rorizz[m]: Your "way" assumes a certain understanding of what it is you are trying to do... but what if someone who did what you did, didn't want that to happen?
+Feb 01 21:51:03 <rorizz[m]>	if that user doesn't want to cut and paste like that, he doesn't have to?
+Feb 01 21:53:17 <coke>	what your paste does is change the parent of the file and then delete the empty leaf directory
+Feb 01 21:53:17 <dowdle>	rorizz[m]: Such an operation is often done by mistake.
+Feb 01 21:53:35 <coke>	deleting something is not the obvious choice when you paste
+Feb 01 21:53:43 <dowdle>	ZACKLY
+Feb 01 21:55:00 <rorizz[m]>	oh ok
+Feb 01 21:55:12 <coke>	just because you dont see the downsides or they dont matter to you doesn't mean they dont exist
+Feb 01 21:56:28 <rorizz[m]>	well it took all this time to mention downsides
+Feb 01 21:56:42 <rorizz[m]>	also i clicked About -> Credits and it lists around 40 people. pinning down and contacting who made this specific decision would be pretty difficult
+Feb 01 22:00:29 <coke>	21:43:09 <coke> linux is historically serious about directories
+Feb 01 22:00:38 <coke>	nautillus doesnt break with that tradition
+Feb 01 22:01:12 <coke>	if you want to move one directory tree over another one you have to use special tools cause mv just doesnt do it
+Feb 01 22:03:09 <rorizz[m]>	oh ok
+Feb 01 22:03:28 <rorizz[m]>	are there any gui tools that do it?
+Feb 01 22:24:17 <dowdle>	rorizz[m]: Not that I know of.... but there are a bunch of file managers to pick from.  I'd be surprised if anyone implemented that as doing so is assuming a whole lot and not a "restriction".
+Feb 01 23:30:45 *	Sokel_ is now known as Sokel
+Feb 02 00:07:02 *	Disconnected ()
+**** ENDING LOGGING AT Tue Feb  2 00:07:02 2021
+
+**** BEGIN LOGGING AT Tue Feb  2 20:23:40 2021
+
+Feb 02 20:23:40 *	Now talking on #fedora
+Feb 02 20:23:40 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 02 20:23:40 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 02 20:23:43 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.

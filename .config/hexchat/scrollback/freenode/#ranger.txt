@@ -1,223 +1,3 @@
-T 1585819430 18<26zaeph18>	Tried a quoted "none" as well, didn't work.
-T 1585819574 18<22__monty__18>	Well, the manual's lying.
-T 1585819605 18<22__monty__18>	Hmm, though the assert shouldn't trigger if you're running a packaged version of ranger
-T 1585819619 18<22__monty__18>	It'd still break, just not at that point.
-T 1585819631 18<22__monty__18>	Open an issue so we don't forget to fix this.
-T 1585819635 18<26zaeph18>	Tried with my fork as well, although I used my own rc.conf.
-T 1585819647 18<26zaeph18>	I'll do that tonight, got a busy afternoon.
-T 1585819673 18<22__monty__18>	👍
-T 1585827497 20*	Disconnected (20)
-T 1585827522 19*	Now talking on 22#ranger
-T 1585827522 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1585827522 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1585827729 18<27vifon18>	__monty__: Would you mind reverting the changes?
-T 1585828505 20*	Disconnected (20)
-T 1585828531 19*	Now talking on 22#ranger
-T 1585828531 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1585828531 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1585830330 18<22__monty__18>	Sure.
-T 1585830374 18<22__monty__18>	Donezo
-T 1585831183 18<27vifon18>	Thanks. :)
-T 1585831443 18<26zaeph18>	__monty__: There you go: https://github.com/ranger/ranger/issues/1895 .
-T 1585831444 18<25RoboBobob18>	zaeph: Crash when setting `max_console_history_size` to `none` in rc.conf · Issue #1895 · ranger/ranger · GitHub
-T 1585831689 18<26zaeph18>	Seems to be coming from ranger/container/history.py.
-T 1585838564 20*	Disconnected (20)
-T 1585838592 19*	Now talking on 22#ranger
-T 1585838592 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1585838592 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1585861690 20*	Disconnected (20)
-T 1585861720 19*	Now talking on 22#ranger
-T 1585861720 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1585861720 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1585862701 18<26zaeph18>	Signing off, b-bye!
-T 1585862790 18<22__monty__18>	nn, zaeph 
-T 1585864332 18<22__monty__18>	nn, peoples
-T 1585871814 20*	Disconnected (20)
-T 1585901201 19*	Now talking on 22#ranger
-T 1585901201 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1585901201 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1585913690 18<24raphaelpierre18>	help
-T 1585913696 18<26zaeph18>	No.
-T 1585913705 18<26zaeph18>	…But do go on.
-T 1585913708 18<24raphaelpierre18>	:) sorry bad window
-T 1585913718 18<24raphaelpierre18>	thanks
-T 1585913721 18<26zaeph18>	You got me all excited for nothing. :(
-T 1585913734 18<26zaeph18>	Back to torpor, then.
-T 1585918125 18<27mahe18>	hi rangers! can somebody who's familiar with the code please help me get started with a modification: where does ranger interpret single keypresses (as defined via 'map' commands) in the main view?
-T 1585918198 18<22__monty__18>	Maybe tell us what you want to achieve first. To avoid XY.
-T 1585918287 18<27mahe18>	I want to try masking those 'map' keybindings behind a different mode (that has to be toggled), so that I can implement a true type-ahead (aka search-as-you-type) default behavior for navigation. As the 'find' and 'scout' commands sadly don't cut it for me.
-T 1585918326 18<26zaeph18>	Have you tried our lord and saviour `map f chain move to=0;console scout -efit%space`?
-T 1585918380 18<26zaeph18>	And have you looked at the different options for scout?  There's plenty of room for customisation.
-T 1585918481 18<22__monty__18>	mahe: Have you tried :travel?
-T 1585918531 18<22__monty__18>	And yeah, scout is pretty flexible, make sure it doesn't satisfy your needs.
-T 1585918621 18<27mahe18>	I tried travel and some options for scout but my problem is: I want to select files/folders by typing per default. When I open ranger, when I enter a folder etc. I don't wanna leave this navigation mode until I explicitly leave this mode. Also I want arrow keys to still work while in type-ahead mode etc.
-T 1585918651 18<22__monty__18>	Ok, sounds like a cool mode.
-T 1585918656 18<27mahe18>	similar to how midnight commander works when you disable its command bar per default
-T 1585918666 18<26zaeph18>	So, you want a scout which, upon entering a new folder, fires up scout again as long as the mode is toggled?
-T 1585918671 18<26zaeph18>	I agree, that sounds pretty interesting.
-T 1585918674 18<22__monty__18>	I'd look at the other modes first. Rather than key parsing.
-T 1585918674 18<26zaeph18>	HERESY!
-T 1585918688 18<26zaeph18>	He mentioned our arch-enemy!
-T 1585918691 18<27mahe18>	a type-ahead mode that doesn't interfere with basic navigation and behavior basically
-T 1585918771 18<27mahe18>	anyway, where in the code would I look for the key press interpretation in the normal view?
-T 1585918806 18<27mahe18>	is it ui.py:handle_key() and ui.py:press() ?
-T 1585918825 18<27mahe18>	*gui/ui.py
-T 1585918987 18<26zaeph18>	mahe: It's beyond my expertise, and I can't look it up right now.  best of luck, though.
-T 1585919119 18<22__monty__18>	I don't know either. Those sound promising though.
-T 1585926093 20*	Disconnected (20)
-T 1585943436 19*	Now talking on 22#ranger
-T 1585943436 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1585943436 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1585943555 18<19grobi18>	hello, rangers
-T 1585943566 18<19grobi18>	!:)
-T 1585943609 18<26zaeph18>	Hi grobi!
-T 1585943686 18<19grobi18>	:) hi zaeph 
-T 1585943743 18<22__monty__18>	Symmetry free on gog: https://www.gog.com
-T 1585943746 18<25RoboBobob18>	__monty__: GOG.com
-T 1585943834 18<22__monty__18>	Hmm, gog glitched and after receiving the free game I got two "gifts" of the same game from *myself* >.<
-T 1585945558 20*	Disconnected (20)
-T 1585953114 19*	Now talking on 22#ranger
-T 1585953114 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1585953114 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1585989369 19*	Now talking on 22#ranger
-T 1585989369 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1585989369 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1585998109 20*	Disconnected (20)
-T 1585998418 19*	Now talking on 22#ranger
-T 1585998418 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1585998418 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1586007586 20*	Disconnected (20)
-T 1586016710 20*	Disconnected (20Connection timed out)
-T 1586016739 19*	Now talking on 22#ranger
-T 1586016739 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1586016739 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1586019973 20*	Disconnected (20)
-T 1586020002 19*	Now talking on 22#ranger
-T 1586020002 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1586020002 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1586024338 20*	Disconnected (20)
-T 1586024366 19*	Now talking on 22#ranger
-T 1586024366 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1586024366 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1586034030 20*	Disconnected (20)
-T 1586034075 19*	Now talking on 22#ranger
-T 1586034075 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1586034075 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1586034561 18<22__monty__18>	Actually, young healthy people seem to be hit harder than some older folks. Healthy immune systems overreact and cause problems.
-T 1586034769 18<26zaeph18>	Yeah, we had a 16yo without comorbidities who didn't make it here.
-T 1586034834 18<26zaeph18>	Felt like an outlier until the next day where a 15yo developed pretty severe symptoms.  Might be anecdotal data, but it is upsetting.
-T 1586036271 18<22__monty__18>	nn, peeps
-T 1586036292 18<26zaeph18>	B-bye!
-T 1586040135 20*	Disconnected (20)
-T 1586040162 19*	Now talking on 22#ranger
-T 1586040162 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1586040162 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1586040521 18<26GermainZ18>	vifon: also Regions of Ruin:Sieges is free (DLC for the game you linked) <https://store.steampowered.com/app/843800/Regions_of_RuinSieges/>
-T 1586040522 18<25RoboBobob18>	GermainZ: Regions of Ruin:Sieges on Steam
-T 1586040628 18<26GermainZ18>	RoboBobob: thank you
-T 1586040797 18<27vifon18>	GermainZ: And Risk of Rain 2 is free to play for this weekend.
-T 1586040810 18<27vifon18>	Looks pretty good.  Literally RoR1 but in 3D.
-T 1586040812 18<26GermainZ18>	vifon: oooh I might try that out. Plenty of work tomorrow tho.
-T 1586040815 18<26GermainZ18>	I liked RoR1
-T 1586040818 18<26zaeph18>	Loved RoR1.  Damn, that OST.
-T 1586040826 18<26GermainZ18>	RoR2 runs on Linux?
-T 1586040838 18<26zaeph18>	RoR2's OST is pretty damn good too.
-T 1586040845 18<26GermainZ18>	just like your face
-T 1586040845 18<27vifon18>	Let me see…
-T 1586040846 18<27vifon18>	GermainZ: Nope.
-T 1586040851 18<26GermainZ18>	Damn
-T 1586040874 18<26GermainZ18>	https://www.protondb.com/app/632360 platinum on Proton tho
-T 1586040904 18<27vifon18>	Wanna coop?
-T 1586040931 18<26GermainZ18>	now?
-T 1586040942 18<27vifon18>	As one of the options, yes.
-T 1586040947 18<26GermainZ18>	Let's do it
-T 1586040949 18<26GermainZ18>	I'm installing it
-T 1586040954 18<27vifon18>	Hell yeah!
-T 1586040989 18<26GermainZ18>	I was planning to sleep but sleep can wait!
-T 1586041012 18<27vifon18>	zaeph: Do I remember correctly you don't have any gaming-grade hardware? :(
-T 1586041022 18<26GermainZ18>	RoR2 runs on potatoes tho
-T 1586041044 18<26GermainZ18>	No?
-T 1586041050 18<27vifon18>	No idea, TBH.
-T 1586041057 18<26GermainZ18>	Well let's hope so
-T 1586041061 18<27vifon18>	And potato hardware can mean many things.
-T 1586041065 18<26GermainZ18>	Cos I can't restart the session to use my eGPU right now
-T 1586041073 18<26GermainZ18>	So my potato GPU will have to do
-T 1586041095 18<27vifon18>	My usual laptop is pretty fine but it has only the Intel GPU and after all the security patches CPU isn't that performant either.
-T 1586041101 18<26GermainZ18>	I disabled those
-T 1586041111 18<27vifon18>	So at this point just don't game on it at all.
-T 1586041139 18<27vifon18>	Though 4 years ago I was gaming on it for a month.  Felt beefier back then.
-T 1586041144 18<26zaeph18>	vifon: Nah, I dont, but I'm saving up.  It's getting late anyway, and I'll be off once I've finished processing a batch of book I've downloaded.
-T 1586041242 18<27vifon18>	GermainZ: Do my invites reach you?
-T 1586041265 18<26GermainZ18>	vifon: yes hold on configuring graphics
-T 1586041270 18<27vifon18>	Ah, sure.
-T 1586041353 18<26GermainZ18>	11 FPS is the best I can do D:
-T 1586041364 18<27vifon18>	Damn.
-T 1586041367 18<26GermainZ18>	vifon: gimme 5 minutes
-T 1586041371 18<26GermainZ18>	let me save some stuff and connect the eGPU
-T 1586041379 18<27vifon18>	Fancy.
-T 1586041723 18<26GermainZ18>	vifon: alright
-T 1586041759 18<27vifon18>	How many FPS?
-T 1586041797 18<26GermainZ18>	vifon: plenty
-T 1586044383 18<26GermainZ18>	fun game
-T 1586044388 18<26GermainZ18>	I should get more used to the Steam Controller
-T 1586044393 18<27vifon18>	Pretty good, though I'd rather not buy it at this price point.
-T 1586044400 18<26GermainZ18>	yup
-T 1586044404 18<26GermainZ18>	I've got plenty of games for now :D
-T 1586044404 18<27vifon18>	SC is great when it works.
-T 1586044420 18<27vifon18>	Sekiro on SC is awesome.  I cannot play it without the paddles at this point.
-T 1586044486 18<27vifon18>	Huh.  I had Synergy running on my laptop the whole time.  Good to know it doesn't mess with the games as much as it used to.
-T 1586044503 18<26GermainZ18>	:D
-T 1586044598 18<27vifon18>	In a roundabout way, RoR2 reminded me I wanted to play Void Bastards more. :)
-T 1586044639 18<27vifon18>	VB is like a roguelite System Shock 2.  Of course not remotely as good as System Shock 2 but you get the idea.
-T 1586044650 18<26GermainZ18>	Not really
-T 1586044655 18<26GermainZ18>	I haven't played either :D
-T 1586044689 18<27vifon18>	Play SS2, it's timeless.
-T 1586044714 18<26GermainZ18>	I will at one point!
-T 1586044717 18<26GermainZ18>	But who knows when
-T 1586044720 18<26GermainZ18>	So many games to play
-T 1586044723 18<27vifon18>	True.
-T 1586509191 19*	Now talking on 22#ranger
-T 1586509191 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1586509191 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1586516312 20*	Disconnected (20)
-T 1586516952 19*	Now talking on 22#ranger
-T 1586516952 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1586516952 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1586518573 18<26zaeph18>	Where's __monty__ when one needs to brag. :(
-T 1586520179 22*	26ChanServ gives channel operator status to 18vifon
-T 1586521096 22*	26ChanServ gives channel operator status to 18vifon
-T 1586521189 22*	26ChanServ gives channel operator status to 18vifon
-T 1586521238 22*	26ChanServ gives channel operator status to 18vifon
-T 1586524454 20*	Disconnected (20)
-T 1586524483 19*	Now talking on 22#ranger
-T 1586524483 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1586524483 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1586532174 18<25RoboBobob18>	13:36 <zaeph> Where's __monty__ when one needs to brag. :(
-T 1586532194 18<22__monty__18>	Conveniently elsewhere : >
-T 1586532205 18<26zaeph18>	How dare you.
-T 1586532208 18<26zaeph18>	I've missed you so much.
-T 1586532241 18<26zaeph18>	Look at my beautiful child: https://github.com/jethrokuan/org-roam/issues/423
-T 1586532243 18<25RoboBobob18>	zaeph: Accessing and creating org-roam notes via helm-bibtex  · Issue #423 · jethrokuan/org-roam · GitHub
-T 1586532266 18<26zaeph18>	Don't look into details: just appreciate the *breadth*.
-T 1586532624 18<22__monty__18>	It's not DOA?
-T 1586532660 18<26zaeph18>	What do you mean?
-T 1586532725 18<22__monty__18>	Dead on arrival.
-T 1586532732 18<22__monty__18>	Because of the more encompassing PR.
-T 1586532742 18<22__monty__18>	Just teasing ; )
-T 1586532766 18<26zaeph18>	Not necessarily.  The other PR's quite a bit larger, whereas mine is slender and airy. ~🎶
-T 1586536973 18<26GermainZ18>	hehehehehe
-T 1586541084 18<22__monty__18>	zaeph: #1914 should clarify my sentinel idea.
-T 1586541103 18<26zaeph18>	Bob ain't cooperating?
-T 1586541131 18<26zaeph18>	Also, I hope we'll get #1914 finished before Christmas. :o)
-T 1586541237 18<26zaeph18>	__monty__: It makes sense, and it's better than computing the length of whatever string is before.  I like it.
-T 1586541425 18<22__monty__18>	Bobob hasn't liked my issue number posts for a while now.
-T 1586542010 18<27vifon18>	Bobob doesn't have it implemented yet.
-T 1586542016 18<22__monty__18>	Oh.
-T 1586542023 18<22__monty__18>	Guess I was just imagining things.
-T 1586542029 18<22__monty__18>	I'd run Bob in parallel.
-T 1586542037 18<22__monty__18>	But that'd involve fixing python.
-T 1586542041 18<27vifon18>	Works for me.
-T 1586542046 18<22__monty__18>	Oh, I guess I could just run it with python2.
 T 1586542053 18<22__monty__18>	 /facepalm
 T 1586542070 18<22__monty__18>	Number of problems that are solved by not running python 3 : D
 T 1586542767 20*	Disconnected (20)
@@ -5205,3 +4985,21 @@ T 1612204469 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated
 T 1612204932 18<20blawiz18>	birkoff: link?
 T 1612205995 18<20birkoff18>	blawiz: https://dpaste.com/F2DDC7BAZ
 T 1612206210 18<20blawiz18>	sweet :]
+T 1612214096 18<26GermainZ18>	kitty's symbol_map is nice
+T 1612214117 18<26GermainZ18>	"Map the specified unicode codepoints to a particular font" -- I'm using it to force emojis to use a specific font
+T 1612214125 18<26zaeph18>	It'd go well with your face, then.
+T 1612214154 18<26GermainZ18>	aw
+T 1612218532 18<26zaeph18>	`git push -f dokku master`
+T 1612218534 18<26zaeph18>	I giggled.
+T 1612218555 18<26zaeph18>	…Because there's 'force', 'dokku' (Count), and 'master'.
+T 1612219011 18<27vifon18>	zaeph: And push.
+T 1612219018 18<27vifon18>	…you perv.
+T 1612219020 18<26zaeph18>	vifon: Oh, you're right!
+T 1612219038 18<27vifon18>	Get your act together!
+T 1612220822 20*	Disconnected (20)
+T 1612293820 19*	Now talking on 22#ranger
+T 1612293820 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1612293820 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1612296176 18<24eyJhb18>	vifon: Did you ever look at Nixus?
+T 1612296741 18<27vifon18>	No.
+T 1612297154 18<24eyJhb18>	Did you ever look at zaeph ?

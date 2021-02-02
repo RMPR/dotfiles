@@ -1,395 +1,3 @@
-T 1602785446 18<22ane18>	I would like to need minimal modification for the files so that they can be edited with the message-mode tricks
-T 1602785927 18<24ksynwa18>	In org-mode, shouldn't typing `AB\^C` escape the ^ and avoid the superscript?
-T 1602785938 18<24ksynwa18>	Seems to not do this in html export.
-T 1602785988 18<27grym18>	ksynwa: set #+OPTIONS: ^:nil
-T 1602786030 18<24ksynwa18>	How do I do superscript if I enable that?
-T 1602786045 18<24ksynwa18>	Not that I need to right now but just wondering in case I need to in the future.
-T 1602786058 18<24ksynwa18>	Escaping seems pretty cool to me. Was hoping it worked.
-T 1602786530 18<27grym18>	i don't think that would affect something like $2^5$ on export
-T 1602786623 18<27grym18>	ksynwa:  If you write ‘^:{}’, ‘a_{b}’ is interpreted, but the simple ‘a_b’ is left as it is (org-export-with-sub-superscripts)
-T 1602786658 18<24ksynwa18>	grym: Thanks very much.
-T 1602786664 18<24ksynwa18>	Will note this down for future.
-T 1602786744 18<28oats18>	I didn't like circe-notifications.el, so I wrote my own simpler alternative. Maybe some folks will like this: https://t.berryhill.me/p/1602786699.el.html
-T 1602786748 18<27grym18>	the manual's got you covered.  
-T 1602786830 18<27grym18>	ksynwa: (info "(org) Export Settings") 
-T 1602786895 18<24ksynwa18>	Thanks :)
-T 1602787633 18<24laertus18>	is there some way to submit feature requests for elisp?
-T 1602787830 18<19bremner18>	how much do you like being abused by greybeards?
-T 1602788059 18<19wasamasa18>	laertus: M-x report-emacs-bug
-T 1602788088 18<24laertus18>	even though it's not a bug per-se?
-T 1602788117 18<24laertus18>	anyway, i'm kind of a greybeard myself... i can take it
-T 1602788144 18<19wasamasa18>	yes, there's an emacs-devel discussion of aliasing a different command to it for feedback in general
-T 1602788159 18<19wasamasa18>	and making the system details optional for that case
-T 1602788295 18<24laertus18>	i was just reading through the cl-defstruct docs, and read this:
-T 1602788301 18<24laertus18>	"‘:print-function’ In full Common Lisp, this option allows you to specify a function that is called to print an instance of the structure type.  The Emacs Lisp system offers no hooks into the Lisp printer which would allow for such a feature, so this package simply ignores ‘:print-function’."
-T 1602788322 18<24laertus18>	so i was thinking: why not allow hooks in to the elisp printer?
-T 1602788356 18<24laertus18>	and i've come across a bunch of other similar statements in the cl package about stuff that elisp doesn't have that makes the package be unable to implement useful stuff
-T 1602788357 18<20pjb18>	laertus: history?
-T 1602788369 18<24laertus18>	ok, history for the past
-T 1602788380 18<24laertus18>	but the future need not be limited by the past
-T 1602788398 18<19wasamasa18>	have you looked at print.c?
-T 1602788408 18<20pjb18>	laertus: the history of RMS not liking Common Lisp, and also the fact that the Common Lisp standardization process (started 1984, completed 1996) was parallel to the creation of GNU emacs (started developpement in 1983).
-T 1602788415 18<19wasamasa18>	granted, it's half the code of lread.c, but still
-T 1602788420 18<24laertus18>	wasamasa: no, but i've looked at emacs c code before, and it ain't pretty
-T 1602788424 18<19wasamasa18>	yes indeed
-T 1602788439 18<20pjb18>	laertus: oh and yes, the fact that half of emacs is written in C instead of lisp. That doesn't help maintainance and improvements…
-T 1602788459 18<24laertus18>	pjb: well, does scheme have hooks in to its printer and other features that would allow implementing some of these cl features?  i'd bet yes
-T 1602788461 18<19wasamasa18>	I like how it has confusing = false
-T 1602788469 18<19wasamasa18>	trololol
-T 1602788473 18<20pjb18>	laertus: nope, not scheme.
-T 1602788480 18<19wasamasa18>	maybe some specific schemes do
-T 1602788489 18<24laertus18>	chicken probably does :P
-T 1602788497 18<24laertus18>	maybe guile too
-T 1602788523 18<20edgar-rft18>	laertus: a great opportunity to start another round of the famous "why doesn't Emacs use Common Lisp by default" flamewar :-)
-T 1602788524 18<24laertus18>	anyway, there has to be a better reason for not moving forward with a feature than "RMS doesn't like it"
-T 1602788547 18<20johnw18>	well, sometimes that IS the reason
-T 1602788548 18<19wasamasa18>	CHICKEN has extensions for reader macros, but printing?
-T 1602788558 18<24laertus18>	i don't want to make elisp in to common lisp... but i don't see why supporting useful features should be outlawed just because cl has them
-T 1602788566 18<19wasamasa18>	might as well be "RMS doesn't see a priority there"
-T 1602788568 18<20pjb18>	laertus: well, there is. The weight of third party emacs lisp packages.
-T 1602788570 18<20johnw18>	what has been outlawed because CL has it?
-T 1602788610 18<24laertus18>	pjb: how would third party emacs lisp packages be affected by having an extra feature in elisp?  they don't have to use that feature or even be aware of it
-T 1602788628 18<20edgar-rft18>	laertus: most often the reason is just simply that it requires a huge amount of work to rewrite the Emacs internals to support a specific feature
-T 1602788629 18<20pjb18>	laertus: even if we rewrote emacs in CL (it has been done, several times), you still have to provide an emacs lisp in CL (it has been done too), to be able to run third party packages, and you have to implement the whole emacs lisp library too with this emacs lisp API.
-T 1602788643 18<20pjb18>	laertus: see hemlock.
-T 1602788662 18<24laertus18>	again, i'm not proposing that emacs be written in cl, nor that elisp be turned in to cl
-T 1602788667 18<24laertus18>	in fact, i don't want either of those
-T 1602788677 18<24laertus18>	(i'd much prefer scheme.. but that's another rant)
-T 1602788678 18<19bremner18>	did I mention abuse from greybeards?
-T 1602788698 18<19wasamasa18>	actually, yes, I forgot CHICKEN offers custom record printers
-T 1602788703 18<19wasamasa18>	which is used by the coops egg
-T 1602788710 18<24laertus18>	there you go
-T 1602788715 18<24laertus18>	rewrite emacs in chicken!  :)
-T 1602788719 18<19wasamasa18>	plzno
-T 1602788725 18<20pjb18>	laertus: that said, I'd bet that if you provided a good patch there are chances it'd be accepted.
-T 1602788727 18<19wasamasa18>	its interactive development story is terrible
-T 1602788738 18<19wasamasa18>	you're confined to the super slow interpreter
-T 1602788763 18<24laertus18>	guile, then
-T 1602788765 18<19wasamasa18>	so, that being said, I could see the existence of record types in emacs to allow for that feature to happen
-T 1602788774 18<20johnw18>	what has been outlawed because CL has it?
-T 1602788847 18<24laertus18>	outlawed is too strong a word
-T 1602788878 18<24laertus18>	but i've heard again and again about something being frowned upon in emacs because of RMS' dislike for CL
-T 1602788886 18<20edgar-rft18>	laertus: ask on emacs-devel to get a huge amount of even stronger words :-)
-T 1602788917 18<19wasamasa18>	I know of a few people that use CHICKEN for interactive hacking, but the intended mode of operation is batch compilation really and it's pretty nice for that (though compilation speed is terrible)
-T 1602788928 18<19wasamasa18>	unless you use tcc
-T 1602788956 18<19wasamasa18>	guile has a better interactive development story, though the bugs people report on #scheme are terrifying
-T 1602788974 18<19wasamasa18>	racket would be another obvious one, weren't it for their dismissal of repl-driven development
-T 1602788988 18<19wasamasa18>	for other candidates, look at geiser I guess
-T 1602789002 18<20edgar-rft18>	laertus: the cl-lib part of emacs is relatively new and it takes some time to convince the core devs to implement new features
-T 1602789038 18<19wasamasa18>	ah, I forgot about mit-scheme
-T 1602789048 18<19wasamasa18>	and chez is supported as well
-T 1602789081 18<20edgar-rft18>	go ask on #lisp why they don't rewrite Common Lisp in Scheme
-T 1602789091 18<19wasamasa18>	lol
-T 1602789104 18<19wasamasa18>	there's this one guy from there implementing scheme in CL though
-T 1602789122 18<24ksynwa18>	which one's older of the two?
-T 1602789156 18<19wasamasa18>	I've reread The Pervert's Guide To Computer Programming and it claims at some point scheme happened when lisp had a hysterical moment
-T 1602789162 18<24laertus18>	the thing is that elisp is widely acknowledge to be really slow compared to cl and modern schemes
-T 1602789173 18<24laertus18>	unlike cl vs scheme
-T 1602789175 18<20edgar-rft18>	ksynwa: both are nearly equally old but the ancestors of Common Lisp are older
-T 1602789187 18<24ksynwa18>	thanks!
-T 1602789225 18<19wasamasa18>	you'll want to patch print_vectorlike if at all
-T 1602789230 18<20jlf18>	even if elisp were objectively slower than cl/scheme, what difference would it make?
-T 1602789233 18<24laertus18>	lisp dates from the 50's (1950, iirc).. scheme from the 70's (1970 maybe)
-T 1602789255 18<19wasamasa18>	and for the record case you'd somehow need the custom print function associated with the record object
-T 1602789283 18<24laertus18>	jlf: ever tried looking at a syntax-highlighted long line in emacs?
-T 1602789294 18<27tromey18>	that's not an elisp problem
-T 1602789298 18<19wasamasa18>	that's not the fault of a single thing
-T 1602789310 18<27tromey18>	well at least the ordinary long-line problems aren't elisp
-T 1602789324 18<19wasamasa18>	some are intensified by it, yes
-T 1602789328 18<27tromey18>	oh?
-T 1602789330 18<24laertus18>	also, stuff like single-threaded emacs, vs multithreding in cl and scheme
-T 1602789337 18<19wasamasa18>	like if you have suboptimal font lock
-T 1602789393 18<24laertus18>	there was a good post somewhere on the advantages running elisp on guile would bring to emacs
-T 1602789424 18<24laertus18>	long list of stuff that, on the face of it, seemed like it'd be pretty nice to have
-T 1602789457 18<24laertus18>	even apart from the niceness of being able to script emacs in guile if you wanted (though elisp would still be fully compatible)
-T 1602789506 18<24laertus18>	https://lists.gnu.org/archive/html/emacs-devel/2010-04/msg00665.html
-T 1602789530 18<19bremner18>	observe the date. Observe we still don't have a pony.
-T 1602789546 18<19bremner18>	epony doesn't count.
-T 1602789558 18<24laertus18>	the task was either too big for him, or he just lost interest and moved on to something else
-T 1602789571 18<24laertus18>	he seems to have gotten most of the way there, though.. which is pretty impressive for a one-man effort
-T 1602789588 18<24laertus18>	the potential benefits are still there, though, if someone picks up the torch
-T 1602789590 18<19bremner18>	the fact that it stayed a one-man effort is a problem
-T 1602789596 18<24laertus18>	agreed
-T 1602789605 18<26terpri18>	i'm right here (also, "they/them" preferred)
-T 1602789621 18<19bremner18>	ok, one-person effort
-T 1602789629 18<24laertus18>	sorry.. i'll let you do the speaking, then :)
-T 1602789649 18<26terpri18>	it isn't coincidental that progress stopped after funding stopped; and for a while i had to put my full focus on adding BigInt to JS
-T 1602789686 18<24laertus18>	so you were being funded?
-T 1602789702 18<20pjb18>	I've never had any slowness problem with emacs…
-T 1602789711 18<24laertus18>	lucky...
-T 1602789715 18<26terpri18>	currently i'm trying to cobble together a few smallish contracts that will pay a living wage while still leaving time for free software development (without burnout from just working 24/7)
-T 1602789723 18<19wasamasa18>	I guess pjb never tried helm
-T 1602789733 18<24laertus18>	pjb: i've had emacs freeze a lot.. granted, i do have about 260 packages installed..  but still..
-T 1602789741 18<20edgar-rft18>	we were used that emacs is slow, so we don't see it as a problem
-T 1602789754 18<24laertus18>	terpri: can funding maybe be acquired through a kickstarter?
-T 1602789760 18<20jlf18>	that sounds more like "helm is slow" than "emacs is slow"
-T 1602789802 18<26terpri18>	laertus, yes, guile-emacs was funded for 5 summers by google summer of code, and for a few months it was a part-time project at igalia for a month or two before JS BigInt ended up requiring my full attention
-T 1602789806 18<20jlf18>	though the assembly port of helm will doubtless improve matters
-T 1602789874 18<26terpri18>	laertus, i've considered doing a patreon/liberapay, yeah. some people have expressed interest in donating
-T 1602789925 18<20condy18>	semantic.el can be dropped since we have lsp-mode, right?
-T 1602789945 18<20condy18>	or tags based 
-T 1602789960 18<27tromey18>	probably should be since afaik no one maintains or uses it
-T 1602789963 18<24laertus18>	terpri: i see people regularly asking about guile emacs in most emacs meetups i've been to, and on forums, etc.. so there's definitely interest in it.. maybe it'd translate in to funding, if a crowdfunding effort was undertaken
-T 1602789963 18<27tromey18>	sad to say
-T 1602790004 18<20condy18>	:'(
-T 1602790009 18<24laertus18>	terpri: if you had the funding, do you think guile emacs could be brought in to a state where it'd be appealing for emacs users?  (ie. be fully elisp-compatible with acceptable performance)
-T 1602790093 18<29mplsCorwin18>	how does gccemacs affect the road-map for guile emacs?
-T 1602790097 18<26terpri18>	laertus, i believe so, especially now that guile has a decent jit
-T 1602790103 18<24laertus18>	i've heard that guile performance has improved a lot recently, so i expect it'd do a lot better now than it did back when the original guile emacs project was alive
-T 1602790119 18<26terpri18>	mplsCorwin, they're completely independent right now
-T 1602790157 18<29mplsCorwin18>	Thanks.  Does this mean there is not a roadmap for jit based native comp for guile emacs?
-T 1602790185 18<19wasamasa18>	you pick one or the other
-T 1602790196 18<19wasamasa18>	and I'm afraid gccemacs is preferred
-T 1602790206 18<29mplsCorwin18>	I'm just curious here.  I have no stake at all.  Hoping my tone is neutral..
-T 1602790334 18<24laertus18>	wasamasa: why is it preferred?  surely emacs core developers wouldn't prefer to maintain more C instead of scheme?
-T 1602790339 18<29mplsCorwin18>	wasamasa: that seems unfortunate but sort of what I'd expect.  I have to assume any other approach would involve very aggressively upstreaming changes to guile jit as that seems to be what's happening with Emacs and GCC.  And trying to keep all of that at feature parity sounds *really* hard.
-T 1602790374 18<19wasamasa18>	laertus: it landed in a feature branch and can be built and experimented with, plus there's regular communication from the author with emacs-devel, so far everything looks good
-T 1602790393 18<29mplsCorwin18>	And a good docker image to play with, as well!
-T 1602790412 18<24laertus18>	hmm.. well, i guess those are good reasons :)
-T 1602790439 18<24laertus18>	but if guile emacs was as available, they wouldn't turn their nose up on it just because it was built on scheme, would they?
-T 1602790443 18<19wasamasa18>	the gravest concern for guilemacs is whether guile as a scheme can shoulder the demands of emacs
-T 1602790455 18<27tromey18>	I don't think gccemacs is fantastic, but it's probably better than the guile approach
-T 1602790468 18<24laertus18>	better how?
-T 1602790469 18<24npostavs18>	"surely emacs core developers wouldn't prefer" - it's not like the core developers can tell other people what to implement
-T 1602790473 18<26terpri18>	i'm a guile contributor as well and wingo was on my team at work for years. guile changes can happen if necessary (some emacs-specific accomodations might be required if, e.g., my implementation of buffer local variables in terms of delimited continuations doesn't work out for whatever reason)
-T 1602790502 18<26terpri18>	buffer-local variables and strings (emacs isn't "limited" to unicode) are actually the two big question marks
-T 1602790523 18<19wasamasa18>	terpri: perhaps you can give me an explanation why code like (fboundp 'bogus) is super slow
-T 1602790584 18<26terpri18>	and the C-lisp interface makes some optimizations difficult, for which the ideal solution is probably getting rid of the C :)
-T 1602790598 18<19wasamasa18>	also, https://debbugs.gnu.org/cgi/bugreport.cgi?bug=41404
-T 1602790608 18<29mplsCorwin18>	terpri: thanks for the chat!
-T 1602790638 18<24laertus18>	terpri: oh, i thought for a second you wre wingo... i guess i am confused/misinformed about who did the work on guile emacs.. could you talk about what roles both of you played in the project?
-T 1602790666 18<19wasamasa18>	see also https://emacsninja.com/posts/state-of-emacs-lisp-on-guile.html with the "benchmarks"
-T 1602790784 18<24laertus18>	there was also some issue about nil vs false in guile vs elisp
-T 1602790797 18<26terpri18>	the benchmarks are terrible because compatibility was a much higher priority than performance (not to say there are zero bugs with compatibility)
-T 1602790841 18<19wasamasa18>	compatibility is one thing, but really, six minutes to test nine thousand functions/variables?
-T 1602790858 18<26terpri18>	i did some ad hoc benchmarks (timing gabriel benchmarks etc.) but essentially had no time to analyze them
-T 1602790875 18<19wasamasa18>	is there some funny implementation of lisp-2 semantics?
-T 1602791010 18<27tromey18>	doesn't there have to be
-T 1602791015 18<26terpri18>	wasamasa, i suspect that the actual problem is, in the that the main branch, guile-emacs was still doing something like using the FFI to call emacs's C variable-value function, due to not being able to capture delimited continuations including FFI calls
-T 1602791030 18<25xristos18>	does guile even run on windows?
-T 1602791033 18<26terpri18>	just a guess from memory
-T 1602791035 18<26terpri18>	xristos, yes
-T 1602791039 18<25xristos18>	i don't see any binary downloads on its website
-T 1602791048 18<26terpri18>	via mingw, i think
-T 1602791139 18<24laertus18>	and maybe via WSL?
-T 1602791140 18<19wasamasa18>	these benchmarks were about guile though, not guilemacs
-T 1602791158 18<19wasamasa18>	so no emacs functions to reuse
-T 1602791160 18<26terpri18>	laertus, i was the primary author of guile-emacs; wingo mentored me for three GSoCs and civodul (Ludovic Courtès, guix and guile maintainer) for one summer
-T 1602791182 18<24laertus18>	oh, i see... good to know, thanks
-T 1602791208 18<20aidalgol18>	grym: Were you the one who worked on CNNs at moco for a while?
-T 1602791233 18<24laertus18>	wasamasa: when did you do those benchmarks on guile which you found to be slow?  guile's performance has supposedly gotten way, way better over the last few years
-T 1602791267 18<24laertus18>	and from wingo's talks, i'm hearing that he's optimistic that it'll get much better still
-T 1602791297 18<26terpri18>	wasamasa is talking about guile-elisp performance specifically, which is a separate front-end (but compiles to the same intermediate language, so benefits from JIT etc.)
-T 1602791319 18<24laertus18>	terpri: wasamasa just said "these benchmarks were about guile though, not guilemacs"
-T 1602791324 18<19wasamasa18>	guile 2.2.6 took 77s, guile 3.0.2 took 10 minutes
-T 1602791349 18<24laertus18>	ouch
-T 1602791350 18<19wasamasa18>	stable versions because compiling guile takes its sweet time
-T 1602791367 18<26terpri18>	right, but elisp is supported as a language within guile (you can type ",L elisp" at the repl to get a very, very primitive elisp environment outside of emacs)
-T 1602791381 18<19wasamasa18>	yeah and I documented the feature set of that environment
-T 1602791385 18<22sam_18>	yeah, it gained JIT
-T 1602791421 18<19wasamasa18>	last time I compiled guile 3 from source it did this bootstrapping thing and like, 2 hours for itself and 1.5 hours for guilemacs
-T 1602791428 18<19wasamasa18>	still faster than llvm
-T 1602791447 18<24laertus18>	rust is super slow at compiling itself too
-T 1602791451 18<24laertus18>	gcc is bad too
-T 1602791462 18<27tromey18>	gcc does a 3-stage bootstrap though
-T 1602791467 18<20aidalgol18>	I mean... aren't they pretty massive?
-T 1602791469 18<19wasamasa18>	yes indeed
-T 1602791471 18<27tromey18>	also massive
-T 1602791475 18<26terpri18>	wasamasa, correction if you're emacsninja: i was maintainer for five GSoCs
-T 1602791477 18<19wasamasa18>	and gcc takes less memory than llvm
-T 1602791479 18<24laertus18>	doesn't guile also do a multi-stage bootstrap?
-T 1602791480 18<20aidalgol18>	Then again, building Racket doesn't take that long.
-T 1602791481 18<27tromey18>	I heard gccemacs is slow to build, haven't tried it myself
-T 1602791484 18<20aidalgol18>	Or... wait, yes, it can.
-T 1602791495 18<19wasamasa18>	terpri: oh, sorry
-T 1602791499 18<20aidalgol18>	I was thinking of when I download the bundle with prebuilt bytecode.
-T 1602791501 18<27grym18>	aidalgol: no.  i do AI wankery these days, though 
-T 1602791503 18<24laertus18>	did something change in guile, then, that made it perform worse on interpreting elisp?
-T 1602791507 18<19wasamasa18>	terpri: I found two when I searched the archives
-T 1602791525 18<26terpri18>	wasamasa, and ludo also mentored me for one summer
-T 1602791541 18<20aidalgol18>	I wonder how long the new CZ-based Racket takes to build.
-T 1602791546 18<19wasamasa18>	laertus: the bootstrapping thing is more elegant, but worsens performance
-T 1602791595 18<26terpri18>	(i was briefly paid to hack on guile-emacs part time at a for-profit company, but for *some* reason, hacking on web browsers and JS engines are more profitable...)
-T 1602791613 18<26terpri18>	is*
-T 1602791623 18<20aidalgol18>	grym: Good enough. :p  Have you any idea how hard it would be to make a free version of those image-background-removal things?  e.g. https://remove.bg/
-T 1602791624 18<19wasamasa18>	the idea is that bootstrapping allows for easier maintenance so that you eventually get back to acceptable performance
-T 1602791636 18<19wasamasa18>	racket should be a good proof of that
-T 1602791647 18<20aidalgol18>	wasamasa: how so?
-T 1602791662 18<19wasamasa18>	I remember a blogpost about benchmarks comparing the original and chez version
-T 1602791738 18<29wgreenhouse18>	wait, so racket is now a scheme that needs to be bootstrapped from another scheme?
-T 1602791745 18<20aidalgol18>	I remember a blog post about Agenda 21 is going to enslave us all.
-T 1602791748 18<29wgreenhouse18>	like the bigger CL implementations?
-T 1602791764 18<28technomancy18>	wgreenhouse: I think that's accurate
-T 1602791771 18<29wgreenhouse18>	interesting.
-T 1602791774 18<29wgreenhouse18>	are there other schemes in that category?
-T 1602791781 18<27grym18>	aidalgol: the term of art for that is 'image segmentation'.  there are some classical techniques that are hit or miss 
-T 1602791789 18<20aidalgol18>	wgreenhouse: Original announcement: https://groups.google.com/forum/#!msg/racket-dev/2BV3ElyfF8Y/4RSd3XbECAAJ
-T 1602791791 18<29wgreenhouse18>	("SBCL-like" second generation implementations that get bootstrapped from something else)
-T 1602791797 18<20aidalgol18>	grym: ah, good to know.
-T 1602791862 18<27grym18>	aidalgol: openCV has a 'watershed' or 'grabcut' tool.  you select a few landmarks and then it's some reasonably clever thresholding/edge detection 
-T 1602791862 18<26terpri18>	ok, let's take a straw poll. assuming i cut back hours at $work enough to productively work on guile-emacs again, how many people here would kick in $10/mo or more towards guile-emacs development? (potential donators can privmsg if they'd prefer) the goals would be:
-T 1602791890 18<27grym18>	aidalgol: expect things like a splayed-hand to be tricky, but big blobby stuff like cars to be OK 
-T 1602791919 18<24laertus18>	wasamasa: i just tried your benchmarks on guile 3.0.4, but got some exceptions...  https://dpaste.com/BDG98RSQS   i'm guessing that i need to recompile guile with elisp support or something...
-T 1602791927 18<26terpri18>	(1) rebase both the emacs changes and the guile changes, with more of a focus on upstreaming changes than before so it's not a continuous chore
-T 1602791963 18<26terpri18>	(2) investigate performance problems and optimize guile-emacs so that it is at least as performant in everyday use as vanilla gnu emacs
-T 1602791991 18<19wasamasa18>	hm, 10$
-T 1602792001 18<19wasamasa18>	the most I pay on patreon is 5$ for several creators
-T 1602792004 18<25xristos18>	terpri: i think you should first try and ascertain that your efforts will not be wasted
-T 1602792008 18<19wasamasa18>	yes, that
-T 1602792009 18<27grym18>	aidalgol: https://docs.opencv.org/master/d8/d83/tutorial_py_grabcut.html is some less-shitty-than-normal docs on this by openCV standards
-T 1602792018 18<24laertus18>	terpri: i'd do it.. but i'm probably a bigger scheme fan than most emacs users...
-T 1602792032 18<25xristos18>	terpri: and i doubt you'd manage that
-T 1602792056 18<25xristos18>	guile has few users, which means fuzzy implications/uncertainty
-T 1602792077 18<27grym18>	aidalgol: thankfully they ship wheels now, too 
-T 1602792084 18<25xristos18>	a win is hard to see in any reasonable cost-benefit analysis
-T 1602792092 18<26terpri18>	(3) research possible cooperation with other projects like gccemacs and remacs (though i don't think that's likely)
-T 1602792139 18<19wasamasa18>	blog post updated
-T 1602792167 18<24laertus18>	xristos: did you read this?  https://lists.gnu.org/archive/html/emacs-devel/2010-04/msg00665.html
-T 1602792208 18<24laertus18>	there seem to be lots of wins in guile hosting elisp, from where i'm standing
-T 1602792213 18<26terpri18>	xristos, previous emacs maintainers have been skeptical but open to the idea of guile integration, if its various problems can be solved (and they can, imo, it's a question of time and labor and cooperation; it's not an unachievable goal)
-T 1602792244 18<25xristos18>	laertus: that was 10 years go, none of the promises of guilemacs materialized
-T 1602792255 18<25xristos18>	on the other hand, Emacs has managed to move significantly forward
-T 1602792268 18<25xristos18>	so if folks were skeptical then, i don't see them being less skeptical now
-T 1602792288 18<24laertus18>	well, the interest in my personal experience has been significant.. people ask about guile emacs all the time
-T 1602792312 18<25xristos18>	very generic statement, from what i observe it's mostly randoms on reddit
-T 1602792316 18<25xristos18>	that have a totally skewed perspective on things
-T 1602792321 18<25xristos18>	and/or wild expectations
-T 1602792323 18<24laertus18>	i've heard it discussed at emacs meetups as well
-T 1602792330 18<24laertus18>	and on this channel many times
-T 1602792346 18<24laertus18>	and reddit is not exactly an insignificant forum any more
-T 1602792354 18<25xristos18>	let's do it because a bunch of misinformed randoms ask for it doesn't strike me as proper argumentation
-T 1602792371 18<24laertus18>	well, those "misiniformed randoms" might actually provide funding
-T 1602792384 18<24laertus18>	whereas the more informed gurus stand aside and watch
-T 1602792394 18<25xristos18>	you can provide all the funding you want to make a pig fly, but that doesn't seem like a good idea
-T 1602792411 18<24laertus18>	i've yet to hear a good argument against guile emacs
-T 1602792415 18<25xristos18>	better to examine your foundations and make sure you're not building on sand
-T 1602792435 18<24laertus18>	the best i've heard is that some people would prefer to base emacs on CL or rust
-T 1602792482 18<26terpri18>	the key remaining advantage for guile-emacs (and possibly gccemacs) is that it will be possible to replace a large portion of C code with elisp. some of the other benefits are still valid too (emacs has bignums but not bigrats, for example -- and implementing JS BigInt forced me to become something of an expert on numeric towers)
-T 1602792500 18<24laertus18>	what about multithreading?
-T 1602792513 18<25xristos18>	16:05 <xristos> that have a totally skewed perspective on things
-T 1602792525 18<25xristos18>	that's multithreading
-T 1602792575 18<26jrm18>	wasamasa: Fyi, on https://depp.brause.cc/eyebrowse/ the link to https://github.com/emacsmirror/escreen gives a 404.
-T 1602792595 18<19wasamasa18>	regrettable
-T 1602792602 18<19wasamasa18>	you'd think an emacsmirror keeps things up
-T 1602792602 18<20aidalgol18>	grym: Oh, so these things aren't even using neural networks?
-T 1602792619 18<26jrm18>	It's Github page.
-T 1602792624 18<24laertus18>	"replacing a large portion of C code with elisp" could be huge, as, as has been mentioned on here many times, emacs' legacy C code is one of the main impediments to emacs moving forward
-T 1602792629 18<26jrm18>	Oh, yes.  emacsmirror github account.
-T 1602792634 18<26terpri18>	emacs has multithreading now, albeit "mostly cooperative"
-T 1602792637 18<27tromey18>	the basic argument against guile is that there is a semantic mismatch that's hard to overcome
-T 1602792650 18<19wasamasa18>	jrm: I guess it's https://github.com/emacsattic/escreen now
-T 1602792654 18<26terpri18>	guile also has multithreading, of course
-T 1602792657 18<27tromey18>	so why bother trying, do something better in situ
-T 1602792668 18<27tromey18>	many of the claimed benefits are illusory at best
-T 1602792670 18<19wasamasa18>	terpri: sure, but that will need to be integrated with the existing thread support or crash horribly
-T 1602792684 18<26terpri18>	yes
-T 1602792685 18<27tromey18>	they rely on not engaging in actually trying, to make them sound possible
-T 1602792688 18<26jrm18>	I'm giving eyebrowse a go, but I don't think I'm smart enough to figure out how window configurations are generated or saved.
-T 1602792694 18<27grym18>	aidalgol: they very likely aren't. 
-T 1602792707 18<20aidalgol18>	grym: SCAM!!
-T 1602792707 18<19wasamasa18>	jrm: it takes whatever is the current one and stores it in a frame parameter
-T 1602792717 18<19wasamasa18>	jrm: then when you switch to another one it restores whatever used to be there
-T 1602792725 18<19wasamasa18>	jrm: much like virtual desktops work
-T 1602792725 18<27grym18>	aidalgol: you can use a segmentation network if you like, but you'd want either representative pretrained state or some training data of your own 
-T 1602792758 18<29wgreenhouse18>	laertus: replacing C code with something alleged to be more maintainable is what remacs, gccemacs, and guile-emacs all suppose they're trying to do--in remacs's case it's about porting the C core to bug-compatible rust
-T 1602792765 18<25xristos18>	laertus: replacing a large portion of C code with XXX was one of the reasons behind remacs, they plucked some of the low-hanging fruit and now seem to have reached a deadend
-T 1602792772 18<24laertus18>	jrm: just do: (eyebrowse-switch-to-window-config-0)  or (eyebrowse-switch-to-window-config-1) etc.. simple
-T 1602792776 18<19wasamasa18>	xristos: hm, is that so
-T 1602792784 18<20aidalgol18>	grym: wat?
-T 1602792801 18<19wasamasa18>	jrm: fixed the link
-T 1602792815 18<20edgar-rft18>	we don't want to lose our long-beloved bugs
-T 1602792825 18<24laertus18>	wgreenhouse and xristos: great.. i'm not begrudging remacs trying this road too.. it's not an argument against guile emacs
-T 1602792828 18<25cvandusen18>	rudybot: hugabug 
-T 1602792828 18<24rudybot18>	cvandusen: eh?  Try "rudybot: help".
-T 1602792836 18<27grym18>	aidalgol: you could use a neural network to do this.  you would probably not want to start from scratch, and you'd want to update the pretrained neural network with some of your own data that is representative of the scenarios you'd want to do background subtraction in 
-T 1602792872 18<27grym18>	aidalgol: your performance with a NN will be more generalizable to novel backgrounds than classical techniques without human interaction 
-T 1602792888 18<27tromey18>	is gccemacs really looking at replacing the c core?
-T 1602792889 18<20aidalgol18>	grym: So a neural net would only *possibly* help improve results in special cases?
-T 1602792891 18<27tromey18>	I mean, I hope so
-T 1602792896 18<24laertus18>	xristos: and just because remacs ran in to some blocking issues doesn't mean that guile will run in to them too.. they are after all radically different langauges with different incompatibilities with emacs/elisp
-T 1602792901 18<27tromey18>	but afaik it was mostly focused on speeding up elisp
-T 1602792915 18<26terpri18>	that was my impression, too
-T 1602792929 18<27tromey18>	remacs actually has a simpler job than guile emacs
-T 1602792931 18<27grym18>	aidalgol: it'll get you pretty good or better across lots of scenarios without user tweaking at crop time.
-T 1602792952 18<26terpri18>	whereas my long-term goal for guile-emacs is to make emacs more like a lisp machine (which, yes, i have used extensively in emulation)
-T 1602792959 18<27tromey18>	because in remacs they aren't concerned about unifying 2 disparate runtimes
-T 1602792966 18<20edgar-rft18>	let's rewrite Guile in Common Lisp and then implement Emacs in it
-T 1602792995 18<28technomancy18>	not until we finish rewriting CL in Forth
-T 1602793006 18<26terpri18>	it's more likely that guile will gain a CL frontend based on the elisp frontend than be rewritten in CL. though you never know
-T 1602793030 18<27grym18>	aidalgol: the usual approach for image segmentation, either NN based or classical computer vision based, is to  use your automatic segmentation techniques to get you a mask on the image, and then have the ability to tweak that mask by human intervention when you have to (and hopefully not very often, if you want to do batch processing)
-T 1602793054 18<20aidalgol18>	grym: right.  that sounds saner than "rub a NN on it!"
-T 1602793070 18<26terpri18>	(i've actually started a side project for that, which might be made easier by beach's SICL though i haven't evaluated it thoroughly)
-T 1602793082 18<20aidalgol18>	technomancy: I have resolved to only use fedi for shitposting
-T 1602793102 18<27grym18>	aidalgol: yep.  they're not _that_ magical 
-T 1602793129 18<26terpri18>	(and guile has something very much like CLOS -- GOOPS -- which makes it simpler)
-T 1602793153 18<24laertus18>	how does goops compare to eieio (or whatever it's called) ?
-T 1602793176 18<20aidalgol18>	laertus: It's actually sane.)
-T 1602793212 18<26terpri18>	^
-T 1602793213 18<28technomancy18>	GOOPS vs CLOS: https://p.hagelb.org/jeff.jpg
-T 1602793226 18<28technomancy18>	"What's the difference? They're both OOP."
-T 1602793234 18<27grym18>	boop
-T 1602793253 18<29wgreenhouse18>	laertus: I'm not saying the existence of remacs is an argument against or for guile-emacs, I'm just noting that there at least 3 attempts to "replace the C core"
-T 1602793260 18<26terpri18>	technomancy, i'm stealing that meme ;)
-T 1602793264 18<20aidalgol18>	technomancy: Thing is, GOOPS methods aren't *in* the objects, so it feels less like OO than... OO.
-T 1602793272 18<28technomancy18>	terpri: it's an top-notch grimace
-T 1602793282 18<24laertus18>	wgreenhouse: but we have to remember that gnu emacs is itself not the original emacs
-T 1602793290 18<25bandali18>	technomancy, that meme is *awesome* :-D
-T 1602793298 18<29wgreenhouse18>	laertus: why is that relevant
-T 1602793300 18<28technomancy18>	bandali: the original was Marvel vs DC
-T 1602793300 18<25bandali18>	ha!
-T 1602793300 18<27tromey18>	wgreenhouse: has there been movement on using gccemacs to replace c code?
-T 1602793309 18<27tromey18>	I haven't been following e-d
-T 1602793311 18<20aidalgol18>	technomancy: What was his answer?  "They're both comics?"
-T 1602793313 18<24laertus18>	because some efforts to significantly improve/change emacs fail, while others succeed
-T 1602793314 18<28technomancy18>	aidalgol: yeah
-T 1602793320 18<28technomancy18>	ironically he got a part in a Marvel film later on
-T 1602793325 18<24laertus18>	it's not like the multiple failures of others destines guile emacs to failure
-T 1602793328 18<25bandali18>	lol
-T 1602793328 18<27grym18>	a _good_ part
-T 1602793361 18<20aidalgol18>	technomancy: of course he did...
-T 1602793363 18<29wgreenhouse18>	tromey: part of the implicit attraction of gccemacs is e.g. that ansi-term compiled to .eln has similar performance to vterm which is a C module
-T 1602793368 18<26terpri18>	i'm following e-d, only 10,004 messages behind
-T 1602793371 18<29wgreenhouse18>	with all the build-time annoyances that entails
-T 1602793392 18<27tromey18>	my dream is to replace the c with elisp
-T 1602793404 18<28technomancy18>	all C
-T 1602793404 18<27tromey18>	I don't think gccemacs is a great approach but maybe it's an ok stepping stone
-T 1602793407 18<28technomancy18>	in every program
-T 1602793409 18<27grym18>	https://uproxx.com/wp-content/uploads/2018/03/the-grandmaster-jeff-goldblum.jpg?w=650
-T 1602793413 18<28technomancy18>	no code is safe
-T 1602793415 18<26jrm18>	wasamasa: 1. Start with desired window configuration. 2. `eyebrowse-create-window-config' 3. `eyebrowse-rename-window-config' to give the current configuration a name (Review in my case) 4. Switch to displaying a single scratch buffer and I see [1, 2:Review] in the mode-line.  5. `eyebrowse-switch-to-window-config' and choose Review, but it stays at the *scratch* buffer.  That is intended?
-T 1602793421 18<20aidalgol18>	technomancy: Except yours?
-T 1602793436 18<28technomancy18>	aidalgol: I actually wrote some C code once
-T 1602793440 18<28technomancy18>	for my forth implementation
-T 1602793445 18<28technomancy18>	if tromey rewrites it in elisp I won't complain
-T 1602793456 18<29wgreenhouse18>	:D
-T 1602793462 18<27tromey18>	:)
-T 1602793467 18<20aidalgol18>	technomancy: Until the revolution comes, we're stuck writing C from time to time.
-T 1602793485 18<28technomancy18>	speak for yourself
-T 1602793491 18<28technomancy18>	I saw the error of my ways
-T 1602793496 18<20aidalgol18>	By "we", I mean "we the workers".
-T 1602793499 18<19wasamasa18>	jrm: cannot reproduce that
-T 1602793504 18<20aidalgol18>	Let's apply "left twitter" catchphrases to programming.
-T 1602793515 18*	20aidalgol ponders how to shoehorn "mask off" into programming discourse...
-T 1602793525 18<19wasamasa18>	jrm: you'll have to be a bit more detailed
-T 1602793526 18<28technomancy18>	aidalgol: you have nothing to lose but your segfaults!
-T 1602793531 18<19wasamasa18>	jrm: like keypresses detail
-T 1602793535 18<27grym18>	i have written about 10 lines of C in my life 
-T 1602793541 18<27grym18>	like, ever 
-T 1602793567 18<24laertus18>	i used to write a fair bit of C back when i was interested in genetic programming
-T 1602793569 18<20aidalgol18>	technomancy: I mean... *something* at *some layer* has to do the ugly work.
-T 1602793585 18<28technomancy18>	aidalgol: but that shit's already been written
-T 1602793587 18<24laertus18>	but that was something like 20+ years ago...
-T 1602793601 18<20aidalgol18>	technomancy: How do you write the new stuff?  For new chips?
-T 1602793620 18<28technomancy18>	what new chips?
-T 1602793624 18<19wasamasa18>	jrm: the expected thing is that slot 1 has whatever windows/buffers were last displayed there and slot 2 whatever windows/buffers were last displayed there
-T 1602793627 18<20aidalgol18>	New SoCs?
-T 1602793634 18<20aidalgol18>	New revisions of microcontrollers.
-T 1602793642 18<20aidalgol18>	grym, laertus: I work on a C++ codebase for a living that should really be several separate daemons written in something saner.
-T 1602793652 18<20aidalgol18>	Fuck, even a pile of go "microservices" would be preferable
-T 1602793653 18<26jrm18>	wasamasa: Will write a details log.
-T 1602793686 18<27tromey18>	new chips arrive still
-T 1602793687 18<27tromey18>	risc-v
-T 1602793693 18<28technomancy18>	aidalgol: even if that were a problem that people in this channel had (which it's obviously not) there are better answers than "more C code"
 T 1602793721 18<24laertus18>	i still meet big fans of C and C++ from time to time
 T 1602793737 18<27nly18>	thanks npostavs for the advice other day
 T 1602793752 18<26terpri18>	it's harsh to say that "none of the promises of guile-emacs materialized". i've *demonstrated* some of the promised benefits by getting guile-emacs *functionining* in 18 months (of which more like 12 were fully focused on the problems at hand, as the GSoC internships were staggered over summers and there were always a few weeks spent rebasing on both the emacs and guile sides)
@@ -5153,3 +4761,249 @@ T 1612210669 18<25Cymew18>	dale: I'll keep experimenting. Many thanks fo
 T 1612210698 18<25Cymew18>	It's weird, lsp-mode is a mix of some really sweet functionality and pure misery.
 T 1612210721 18<25Cymew18>	It must be me doing something wrong...
 T 1612210722 24*	28seds- is now known as 18seds
+T 1612210804 18<25cvandusen18>	,blame humans 
+T 1612210805 18*	22fsbot blames Stefan
+T 1612210818 18<20pjb18>	,blame bots
+T 1612210819 18*	22fsbot blames monads
+T 1612210899 18<28python47618>	Stefanic Monierad
+T 1612210971 18<25Cymew18>	I usually blames Lennart Poettering.
+T 1612210994 24*	28radu2428 is now known as 18radu242
+T 1612211039 18<28mwnaylor18>	Having multiple open irc channels has made me appreciate the power of bookmarking to regsisters. 👍 👍
+T 1612211163 24*	28Lord_of_Life_ is now known as 18Lord_of_Life
+T 1612211167 24*	28jfhbrook_ is now known as 18jfhbrook
+T 1612211372 18<19bremner18>	I've started using registers for repetitive bits of org-mode markup, like make a left column 0.77 of textwidth
+T 1612211580 18<28mwnaylor18>	I'm also rediscovering more complex macros usage. Storing macros in registers for replay is another cool superpower.
+T 1612211607 18<25cvandusen18>	,praise 
+T 1612211607 18<22fsbot18>	39:22 EMACS has now revealed the best of scriptures, a documentation uniform in style proclaiming promises and warnings.  Those who fear their EMACS are filled with awe as they listen to its revelations, so that their hearts soften at the remembrance of EMACS.  Such is EMACS's guidance: He bestows it on whom He will.  But he whom EMACS misleads shall have none to guide him.
+T 1612211667 24*	28martin_ is now known as 18Guest95935
+T 1612212121 18<19bremner18>	,rear
+T 1612212123 18<22fsbot18>	try:  firearms firearms-assoc rear-guards
+T 1612212129 18<19bremner18>	err. ,,fear,,
+T 1612212130 18<22fsbot18>	Try: dlgs-phrases emacstuning fomo FsTrash210120.1025.SGuVHbzATF fud grue hotornot.el repo shit#emacssays stallman-fact-list wgreenhouses-second-law william-blake-fix yoda-phrases
+T 1612212167 18<27tromey18>	,william-blake-fix
+T 1612212168 18<22fsbot18>	william-blake-fix is most problems can be solved by daring to frame the tyger's fearful symmetry
+T 1612212174 18<27tromey18>	makes sense
+T 1612212174 18<19bremner18>	yay!
+T 1612212187 18<19bremner18>	I hope I entered that.
+T 1612212235 18<27tromey18>	in high school we learned that that poem can be sung to the tune of Twinkle, Twinkle Little Star
+T 1612212246 18<27tromey18>	also that many poems by Emily Dickinson can be sung to the tune of The Yellow Rose of Texas
+T 1612212340 18<27nij18>	Dear friends on #emacs,
+T 1612212349 18<20aidalgol18>	tromey: Which poem?
+T 1612212368 18<27nij18>	exwm works nicely, if you haven't checked, make some time give it a try :)
+T 1612212369 18<27tromey18>	sing along!  because I could not stop for death, he kindly stopped for meeeeeee
+T 1612212384 18<20aidalgol18>	I mean the one about Twinkle, Twinkle.
+T 1612212391 18<27grym18>	Do not meddle in the affairs of bards , for they are unsubtle, and your name scans to Greensleeves . 
+T 1612212398 18<27tromey18>	Tyger Tyger burning bright, in the forest of the night
+T 1612212411 18<20aidalgol18>	a
+T 1612212497 18<20aidalgol18>	*ah
+T 1612213658 18<20kuba-orlik18>	Hi there! I used to use this snippet to configure my mu4e accounts, but recently it stopped working. It seems that `let` no longer keeps the value available for later calls? Here's the snippet:
+T 1612213658 18<20kuba-orlik18>	https://hub.sealcode.org/P18
+T 1612213659 18<20kuba-orlik18>	I'd be thankful for lispy guidance :)
+T 1612213706 18<20kuba-orlik18>	Sorry, the link wasn't public, it should work correctly now: https://hub.sealcode.org/P18
+T 1612213801 18<20kuba-orlik18>	When match-func is applied, I get 'Symbol’s value as variable is void: addresses'
+T 1612213838 18<20kuba-orlik18>	but when it's initializing, it properly prints '!!! addresses' followed by the correct value
+T 1612214053 18<20pjb18>	kuba-orlik: If you get this error, it means that this let made dynamic bindings.  Dynamic = WHEN; lexical = WHERE.
+T 1612214071 18<20pjb18>	kuba-orlik: nowadays, emacs is able to do lexical bindings, and has closures. 
+T 1612214101 18<20kuba-orlik18>	I see - but this used to work for years now, did something in the behavior of `let` change recently?
+T 1612214102 18<20pjb18>	kuba-orlik: you should activate it with a (setq lexical-binding t) at the start of your source.
+T 1612214148 18<20pjb18>	kuba-orlik: I think it's the change in behavior of lambda that hits you here.
+T 1612214192 18<20kuba-orlik18>	I added (setq lexical-binding t) and the issue persists
+T 1612214200 18<20kuba-orlik18>	what changed in the behavior of lambda?
+T 1612214206 18<20pjb18>	kuba-orlik: but even with purely dynamic bindings, it shouldn't have worked, because let would have made dynamic bindings that would be supressed AFTER let is completed.
+T 1612214213 18<20pjb18>	Your code was already buggy.
+T 1612214225 18<20pjb18>	now lambda can return closures.
+T 1612214232 18<20pjb18>	This goes hand-in-hand with lexical binding.
+T 1612214295 18<20kuba-orlik18>	I see... so what would be the correct approach?
+T 1612214310 18<20pjb18>	kuba-orlik: https://termbin.com/6b7q
+T 1612214390 18<20pjb18>	Two ways: https://termbin.com/h2nr
+T 1612214430 18<20pjb18>	Either use global dynamic variables, (but then you can have only one context active at a time), or use local lexical variables (then you can have several contextes, each enclosed in their own closures).
+T 1612214461 18<20pjb18>	Since you started with a kuba/generate-mu4-context I'd advise the lexical-binding way.
+T 1612214475 18<20pjb18>	Just add (setf lexical-binding t) to your source.
+T 1612214507 18<20pjb18>	See: (info "(elisp) Lexical Binding")
+T 1612214523 18<20kuba-orlik18>	sorry, I got disconnected
+T 1612214531 18<20kuba-orlik18>	I don't yet see what made my code buggy
+T 1612214544 18<20pjb18>	Two ways: https://termbin.com/h2nr
+T 1612214547 18<20pjb18>	Either use global dynamic variables, (but then you can have only one context active at a time), or use local lexical variables (then you can have several contextes, each enclosed in their own closures).
+T 1612214550 18<20pjb18>	Since you started with a kuba/generate-mu4-context I'd advise the lexical-binding way.
+T 1612214552 18<20pjb18>	Just add (setf lexical-binding t) to your source.
+T 1612214554 18<20pjb18>	See: (info "(elisp) Lexical Binding")
+T 1612214557 18<20pjb18>	and (info "(elisp) Using Lexical Binding")
+T 1612214640 18<20pjb18>	kuba-orlik: the bug in your code was that with dynamic binding let creates a variable named addresses. Then it makes a mu4e-context, with a lambda that uses the dynamic variable named addresses. Then the let destroys the dynamic variable named addresses.  Then later you will call the lambda, and there will be no dynamic variable named addresses.
+T 1612214652 18<20pjb18>	kuba-orlik: the solution would be to define such a global variable with (defvar addresses).
+T 1612214668 18<20pjb18>	But then you would have to assign it with setf instead of using let (which creates a new variable).
+T 1612214676 18<20pjb18>	cf the first way in teh above url.
+T 1612214698 18<24npostavs18>	pjb: the correct way to set lexical binding for elisp is putting -*- lexical-binding: t -*- on the first line of the file (you also have to setf if you want it respected immediately by C-M-x and friends)
+T 1612214701 18<24deego18>	kuba-orlik: in the older days, one would do things like `(lambda (...)   ...   ,addresses ...) which you can still do, ofc
+T 1612214710 18<20pjb18>	kuba-orlik: if your code worked before, it was because some other code had created this global variable named addresses. But your let didn't modify it.
+T 1612214772 18<22neverwas18>	Sweet. rockauto got a mention in #emacs
+T 1612214792 18<22neverwas18>	No surprise there. Game recognize game.
+T 1612214806 18<27grym18>	neverwas: and so does ux :)
+T 1612214844 18<22neverwas18>	legendary ux
+T 1612214857 18<27grym18>	it's very good and does not care about aesthetics at all 
+T 1612214860 18<27grym18>	very emacslike, really 
+T 1612214869 18<22neverwas18>	https://tilde.club/~jpneverwas/i/ra.jpg
+T 1612214883 18<27grym18>	hah, nice 
+T 1612214884 18<20kuba-orlik18>	`(setf lexical-binding t)` worked. I get it now. Thanks a bunch!
+T 1612214904 18<27grym18>	neverwas: i have a stickerbombed toolchest, but they didn't send me any swag with my brake pads and rotos
+T 1612214906 18<27grym18>	rotors* 
+T 1612214917 18<24deego18>	<kuba-orlik> I added (setq lexical-binding t) and the issue persists <<=== why didn't it work earlier? 
+T 1612214919 18<27grym18>	also whoever though of the threaded hole to pop a rotor off was a friggin genius 
+T 1612214932 18<25Cymew18>	So anyone else experience the fans spin up and emacs hangs a while if you scroll down a bunch of steps in the package list after running M-x pa-list-pa?
+T 1612214947 18<27grym18>	neverwas: so, hangboard, or chalkbag
+T 1612214957 18<25Cymew18>	If I didn't knew better, I'd think I only had 512 Meg memory or something...
+T 1612215008 18<22neverwas18>	lol, chalkbag, but only in a former life. went hand in hand with the diy mechanic thing/vanlife
+T 1612215023 18<25cvandusen18>	Cymew: Is this with ,,-q 
+T 1612215025 18<22fsbot18>	-q is [0]  runs emacs without user configuration, ideal to test issues caused by your personal config
+T 1612215026 18<22fsbot18>	[1] If starting emacs with "emacs -q" fixes the problem, it's something in your personal config; check your .emacs. If "emacs -q" has problems but "emacs -Q" doesn't, blame your distro or local admin.
+T 1612215026 18<22fsbot18>	[2] it's also possible that you have triggered a bug rather than introduced one, but that is rare. ;;[ ,more / ,dump]
+T 1612215222 18<19parsnip18>	that factoid lacks, "do you still see the issue after restarting emacs?"
+T 1612215231 18<19parsnip18>	,bisect 0
+T 1612215232 18<22fsbot18>	bisect is [0] If you can reproduce your issue reliably in a new emacs, try bisecting your user-init-file
+T 1612215232 18<22fsbot18>	[1] Comment out half of your init file and try to reproduce the issue. Recurse as needed.
+T 1612215232 18<22fsbot18>	[2] Use M-; to comment or uncomment selected region
+T 1612215232 18<22fsbot18>	[3] See also ,keep-one-open
+T 1612215239 18<19parsnip18>	,bisect 0 0
+T 1612215240 18<22fsbot18>	bisect: If you can reproduce your issue reliably in a new emacs, try bisecting your user-init-file .. + other notes
+T 1612215263 18<27grym18>	neverwas: dirtbag bestbag
+T 1612215292 18<19parsnip18>	grym: are you a watch person? i just received a gshock gw56001e-v
+T 1612215296 18<19parsnip18>	it f'ing sucks
+T 1612215325 18<25Cymew18>	I almost only have lsp-mode related stuff in my init files...
+T 1612215354 18<19parsnip18>	then it might be a bug in lsp?
+T 1612215356 18<27grym18>	parsnip: i am not.  i have an apple watch and i'm kind of quietly amazed that i can stand having something on my wrist
+T 1612215369 18<25Cymew18>	There's something fishy indeed.
+T 1612215372 18<19parsnip18>	Cymew: do you even see the issue if you restart emacs?
+T 1612215388 18<25Cymew18>	I do.
+T 1612215390 18<19parsnip18>	if not, that's going to make it harder to use these troubleshooting approaches
+T 1612215392 18<19parsnip18>	ah
+T 1612215397 18<19parsnip18>	then yeah, ,,bisect
+T 1612215398 18<22fsbot18>	bisect is [0] If you can reproduce your issue reliably in a new emacs, try bisecting your user-init-file
+T 1612215398 18<22fsbot18>	[1] Comment out half of your init file and try to reproduce the issue. Recurse as needed.
+T 1612215398 18<22fsbot18>	[2] Use M-; to comment or uncomment selected region
+T 1612215398 18<22fsbot18>	[3] See also ,keep-one-open
+T 1612215410 18<25Cymew18>	Well, that will have do wait for another day. Thanks for the many helpful suggestions. Appreciated.
+T 1612215418 18<25Cymew18>	Time for some sleep.
+T 1612215423 18<19parsnip18>	:)
+T 1612215425 18<22neverwas18>	grym: dirtbag! that's hardcore bomber shit. I was only ever a fairweather bum
+T 1612215456 18<27grym18>	neverwas: same really.  with a few months back in the harness i'd be redpointing 11a or so, so i'm not great shakes
+T 1612215460 18<19parsnip18>	grym: i sort of want a smartwatch just for the nice timers
+T 1612215472 18<27grym18>	parsnip: 80% of what i use it for, tbh 
+T 1612215483 18<27grym18>	and the solar face is purty 
+T 1612215488 18<27grym18>	informationally dense
+T 1612215494 18<19parsnip18>	i guess it's nice to look at it and say, "oh that's who's calling, i don't need to get up to get my phone."
+T 1612215517 18<19parsnip18>	oh yeah, weather and sun stuff would be nice
+T 1612215534 18<19parsnip18>	i guess as you're walking out the door, you can check if it's raining
+T 1612215593 18<19parsnip18>	the band is probably nicer than this gshock's
+T 1612215699 18<20Hash18>	Good morning
+T 1612215851 18<22neverwas18>	grym: 11a? damn. you got my number by a full grade for sure, even in my prime (at least by Josh/Yosemite standards)
+T 1612215870 18<27grym18>	neverwas: ooo western.  i'm more rumney/gunks
+T 1612215880 18<27grym18>	my brother can get down to the new sometimes
+T 1612215892 18<27grym18>	i've done a little bit in tucson, which is its own flavor of barking madness ;) 
+T 1612215900 18<27grym18>	(the cycling's pretty good too)
+T 1612215972 18<20Hash18>	May I ask a poll?
+T 1612215984 18<20Hash18>	How many people do we think use gui emacs vs cli emacs?
+T 1612215997 18<20Hash18>	Do the gui people use a mouse?
+T 1612216022 18<27natter18>	I'd ballpark the number as approximately bigger than a breadbox
+T 1612216023 18<22neverwas18>	Tuscon? Nice. Utah's pretty rad. Indian Creek, Moab, etc.
+T 1612216025 18<29wgreenhouse18>	hmm. the two are not mutually exclusive, because of --daemon
+T 1612216030 18<28technomancy18>	Hash: I use both but no mouse ever
+T 1612216049 18<27grym18>	neverwas: ever listened to the enormocast 
+T 1612216062 18<29wgreenhouse18>	I use mostly terminal emacs right now but do use the mouse there. :)
+T 1612216068 18<29wgreenhouse18>	xterm-mouse-mode is pretty nice
+T 1612216081 18<20Hash18>	Hmm.
+T 1612216100 18<22neverwas18>	grym: nah, haven't had the pleasure
+T 1612216101 18<20Hash18>	I use urxvt, Xorg, emacs compiled without X, and it works nicely.
+T 1612216117 18*	22neverwas googles
+T 1612216118 18<20Hash18>	Some keys don't work, like Hyper etc. 
+T 1612216133 18<20Hash18>	I wonder why the keys work in Xorg and not in cli.
+T 1612216140 18<27grym18>	neverwas: well worth it; he's a happy dirtbag himself but he's interviewed like. literally every surviving big name that's not chouinard
+T 1612216143 18<20Hash18>	Or works in cli but not in Xorg
+T 1612216150 18<27grym18>	... and some who are now dead, RIP hayden </3
+T 1612216163 18<27grym18>	(god what a shitty day that was)
+T 1612216201 18<27grym18>	neverwas: if you remember the kompressor route drama though, kalous got the interview first :)( 
+T 1612216391 18<19ville18>	is there some emacs package that would cut/copy whatever the token the cursor is on if there's no selection in programming modes and also tentatively suggest it for things like search, replace and such?
+T 1612216463 18<22neverwas18>	grym: I definitely don't remember firsthand. Heard folks mention it, though. 
+T 1612216467 18<22neverwas18>	Oh, Chris Kalous, host of the podcast.
+T 1612216487 18<27grym18>	yep
+T 1612216490 18<29brass18>	ville: Probably, but I've never heard of one. It would probably be pretty easy to write
+T 1612216702 18<25cvandusen18>	ville: https://github.com/leoliu/easy-kill is one. 
+T 1612216823 18<25cvandusen18>	though, it hasn't been updated in a while.
+T 1612217001 18<25cvandusen18>	Also, https://github.com/plandes/mark-thing-at though the cut/copy is left to the user.
+T 1612217272 18<28jfb418>	ville: which use case scenarios have you got in mind 
+T 1612217305 18<28jfb418>	ville: you mention search, which presumably doesn't apply.  would it be for replace, and then what else 
+T 1612217389 18<24ski18>	,terminal
+T 1612217391 18<22fsbot18>	[->] terminals are [0/4] Terminals do weird thing to your keyboard input: http://catern.com/posts/terminal_quirks.html
+T 1612217392 18<22fsbot18>	[1]  Terminals have limitations compared to the graphical windows; it's advisable to use "graphical" Emacs unless one has a good reason not to. See ,betterdefaults for disabling scroll bars, tool bars, etc.
+T 1612217392 18<22fsbot18>	[2] https://garbagecollected.org/2017/01/31/four-column-ascii/ ;;[ ,more / ,dump]
+T 1612217424 18*	24ski mostly uses `-nw'
+T 1612217600 18<27grym18>	i use gui emacs but i start it with emacsclient so for a hot 2 seconds it's neither gui nor not gui 
+T 1612217600 18<27grym18>	the gateless emacs
+T 1612217811 18<19e1f18>	the schrödinger emacs
+T 1612217907 18<19wrycode18>	ix.io has been slow lately
+T 1612217927 18<27grym18>	wrycode: bpaste is real nice 
+T 1612217955 18<19ville18>	jfb4: not sure i quite understand the question. thought i listed few potential cases: cutting, copying, searching, replacing
+T 1612217973 18<19wrycode18>	grym: with a corresponding zero-configuration emacs package?
+T 1612218012 18<27grym18>	wrycode: it speaks curl, so you can shell out >:) 
+T 1612218025 18<19ville18>	cvandusen: i'll take a look
+T 1612218213 18<28jfb418>	ville: well which functions would you see this thing hooked into?
+T 1612218230 18<28jfb418>	ville: also do you know about C-M-SPC for selection
+T 1612218255 18<19ville18>	jfb4: i wouldn't know. i try to avoid looking at emacs internals. yes, C-M-spc doesn't quite do the right thing.
+T 1612218291 18<27nij18>	How to let notify-send work with exwm?
+T 1612218314 18<27nij18>	I've tried exwm-ns, but the notification still does not show up.
+T 1612218320 18<19wrycode18>	grym: probably take a few mins to set it up later, thanks
+T 1612218325 18<27nij18>	`$ notify-send abc; echo $?` => 0
+T 1612218360 18<27grym18>	wrycode: bpaste.net/+common-lisp is probably the thing, and you can also guess by extension, and paste multiple files
+T 1612218456 18<19wrycode18>	ville: did anyone mention expand-region yet?
+T 1612218467 18<19ville18>	wrycode: is that C-M-spc?
+T 1612218484 18<19wrycode18>	I don't think it's a builtin
+T 1612218509 18<19wrycode18>	https://github.com/magnars/expand-region.el
+T 1612218559 18<19wrycode18>	if you want to just select the current symbol. To yank it or whatever you could make your own commands using it
+T 1612218564 18<19ville18>	ok i'll check it out
+T 1612218632 18<19wrycode18>	grym: I don't want to do *work* for it, I just want to paste the current region to a no-nonsense service
+T 1612218654 18<27grym18>	wrycode: heh heh.  i really want to add bpaste to webpaste.el, i just don't have the chops or the time
+T 1612218661 18<27grym18>	webpaste defaults to dpaste, which is pretty derpy 
+T 1612218886 18<28jfb418>	wrycode: you want to paste the current region to a pastebin type service ?
+T 1612218912 18<19wrycode18>	webpaste did the trick
+T 1612218922 18<19ville18>	wrycode: expand-region looks pretty good, not quite exactly what i had hoped but will do in a pinch
+T 1612219157 18<19wrycode18>	ville: so you want to press a keybinding and start an isearch with the symbol at point automatically entered or what?
+T 1612219197 18<19ville18>	wrycode: yes that would be one feature, then as bonus if i start typing the tentative suggestion would be removed
+T 1612219257 18<19wrycode18>	what do you use for searching and completion?
+T 1612219402 18<19ville18>	umm, not entirely sure, heh. it's unclear to me what package does which part exactly. search is default i think: isearch-forward. completions are shown by company but they are provided my lsp-mode?
+T 1612219443 18<19ville18>	err by lsp-mode
+T 1612219530 24*	28\u is now known as 18meowray
+T 1612219534 18<19wrycode18>	sorry, I didn't mean autocompletions, some people use completion frameworks like helm or ivy or ido which often replace isearch with their own version of the command
+T 1612219552 18<28jfb418>	ville: try Ivy
+T 1612219587 18<19ville18>	jfb4: for what purpose? i've it installed and use it for some things
+T 1612219597 18<19wrycode18>	yeah Ivy is really (IMO deservedly) popular
+T 1612219702 18<19wrycode18>	you can probably write a custom command that starts a search but temporarily makes Tab autocomplete to whatever symbol you were on, but I'm not sure if you can display the tentative suggestion in gray letters easily
+T 1612219794 18<19wrycode18>	but this will be done through whichever completion framework you're using
+T 1612219935 18<27nij18>	Why doesn't lambda in lambda works as expected? https://bpa.st/43TIQ ?
+T 1612219938 18<19wrycode18>	but temporarily, it'd be much easier to make a second keybinding that simply yanks the current symbol into an isearch
+T 1612220338 18<27nij18>	A simplified question: why doesn't the following output a function that prints 0?
+T 1612220340 18<27nij18>	(funcall (lambda (i) (lambda () (print i))) 0)
+T 1612220370 18<28technomancy18>	nij: probably lexical scope isn't turned on
+T 1612220381 18<27nij18>	Same same:
+T 1612220383 18<27nij18>	(let ((lexical-binding t)) (funcall (lambda (i) (lambda () (print i))) 0))
+T 1612220384 18<24npostavs18>	nij: you're just missing a funcall
+T 1612220403 18<27nij18>	npostavs: no.. that's not the problem
+T 1612220403 18<28technomancy18>	doesn't it have to be set at complie time or something?
+T 1612220423 18<24npostavs18>	(funcall (lambda (i) (funcall (lambda () (print i)))) 0) gives 0 for me
+T 1612220485 18<28jfb418>	I get this: (closure ((i . 0) t) nil (print i))
+T 1612220543 18<27nij18>	indeed i have to (setq lexical-binding t)
+T 1612220546 18<27nij18>	then it's fine
+T 1612220563 18<27nij18>	Hmm this is a part of my config
+T 1612220586 18<27nij18>	what if i want to do it without lexical-binding?
+T 1612220656 18<28technomancy18>	that *is* lexical binding
+T 1612220682 18<20pjb18>	(funcall (funcall (lambda (i) (coerce `(lambda () ,i) 'function)) 0)) --> 0
+T 1612220688 18<20pjb18>	nij: ^
+T 1612220723 18<20pjb18>	nij: but you really want lexical-binding.  See: https://en.wikipedia.org/wiki/Funarg_problem
+T 1612220822 20*	Disconnected (20)
+T 1612293820 19*	Now talking on 22#emacs
+T 1612293820 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1612293820 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:36 2021)
+T 1612293823 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1612295538 18<29endiruna18>	I cannot find how to customize the font when I do ispell-buffer
+T 1612295566 18<29endiruna18>	how do i search for that within emacs
+T 1612295708 18<22fledermaus18>	what font are you trying to customise, exactly?
+T 1612295712 18<27natter18>	endiruna: which font, the pop-up?
+T 1612295790 18<29wgreenhouse18>	endiruna: M-x customize-group ispell might be a good place to start
+T 1612296026 18<29endiruna18>	thanks! sorry for the stupid questions. I started with emacs few days ago. the font was isearch and for some reason it had low contrast
