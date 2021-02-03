@@ -7191,3 +7191,105 @@ Feb 02 20:23:40 *	Topic for #fedora is: #Fedora F32, F33 end user support || Ple
 Feb 02 20:23:40 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
 Feb 02 20:23:43 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
 Feb 02 21:48:07 *	vinleod is now known as vdamewood
+**** BEGIN LOGGING AT Wed Feb  3 08:45:48 2021
+
+Feb 03 08:45:48 *	Now talking on #fedora
+Feb 03 08:45:48 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 03 08:45:48 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 03 08:45:48 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 03 08:51:46 *	librecat_ is now known as librecat
+Feb 03 09:38:30 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb  3 09:38:30 2021
+
+**** BEGIN LOGGING AT Wed Feb  3 09:54:02 2021
+
+Feb 03 09:54:02 *	Now talking on #fedora
+Feb 03 09:54:02 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 03 09:54:02 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 03 09:54:05 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 03 10:16:46 <hanetzer>	hmm. showing up now after disabling 'fast boot' in uefi.
+Feb 03 10:20:00 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb  3 10:20:00 2021
+
+**** BEGIN LOGGING AT Wed Feb  3 10:57:56 2021
+
+Feb 03 10:57:56 *	Now talking on #fedora
+Feb 03 10:57:56 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 03 10:57:56 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 03 10:57:56 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 03 10:59:35 <[Enrico]>	ncuxo: package providing that seems to be libnfsidmap
+Feb 03 10:59:37 <ncuxo>	https://fedoraproject.org/wiki/User:Renich/HowTo/NFSv4
+Feb 03 11:00:37 <ncuxo>	dnf provides haven't given any results by me :/
+Feb 03 11:00:59 <[Enrico]>	ncuxo: for what?
+Feb 03 11:01:58 <[Enrico]>	dnf whatprovides /etc/idmapd.conf works for me, it returns the package name
+Feb 03 11:01:59 <ncuxo>	for '*idmapd*'
+Feb 03 11:02:08 <ncuxo>	oh
+Feb 03 11:02:18 <ncuxo>	didn't knew the whatprovides option
+Feb 03 11:02:19 <ncuxo>	thanks
+Feb 03 11:02:46 <[Enrico]>	ncuxo: rpc.idmapd is provided by nfs-utils
+Feb 03 11:03:06 <ncuxo>	yeap found it
+Feb 03 11:03:20 <ncuxo>	okay but my rpcbind.service and socker are masked
+Feb 03 11:03:37 <[Enrico]>	unmask them
+Feb 03 11:03:55 <ncuxo>	red hat documentation tells you that nfs4 doesn't need them
+Feb 03 11:04:12 <ncuxo>	so there have to be something fishy here
+Feb 03 11:04:25 <[Enrico]>	ncuxo: if they are not needed they should not start
+Feb 03 11:05:27 <[Enrico]>	ncuxo: nfs-server.service wants rpcbind.socket . You mask it, you break it
+Feb 03 11:05:48 <[Enrico]>	might be needed only for nfsv3 of course
+Feb 03 11:06:05 <[Enrico]>	start without masking, have it working, once you have it working, start masking stuff, reboot and test
+Feb 03 11:06:45 <ncuxo>	# systemctl mask --now rpc-statd.service rpcbind.service rpcbind.socket
+Feb 03 11:06:45 <ncuxo>	https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/nfs-serverconfig
+Feb 03 11:07:00 <ncuxo>	I'll check thanks
+Feb 03 11:07:07 *	ikurniawan is now known as dextone
+Feb 03 11:07:53 <[Enrico]>	ncuxo: also: Fedora is much newer than RHEL, stuff changes sometime
+Feb 03 11:07:54 <[Enrico]>	s
+Feb 03 11:14:15 <ncuxo>	tbh first time having problem following rhel tutorial on fedora
+Feb 03 11:15:00 <[Enrico]>	ncuxo: they are not supposed to work on Fedora. If they do it's a fluke
+Feb 03 11:16:42 <[Enrico]>	Fedora is much newer software and it's an independent project. While they share a lot, they are not strictly related. But if there is no major change in the software involved, then yes they would probably work
+Feb 03 11:38:31 <ncuxo>	okay following this guide unmasked all the services and still permission error https://fedoraproject.org/wiki/User:Renich/HowTo/NFSv4
+Feb 03 11:43:00 <[Enrico]>	ncuxo: give this a try: https://unix.stackexchange.com/questions/438939/how-to-get-nfsv4-idmap-working-with-sec-sys/464950#464950
+Feb 03 11:43:10 <[Enrico]>	ncuxo: maybe simply clearing the cache with nfsidmap -c might make it work
+Feb 03 11:45:03 <[Enrico]>	now if you don't need idmapping, you can keep it disabled of course
+Feb 03 11:45:41 <[Enrico]>	ncuxo: also: ACLs do not work with NFSv4, I forgot to mention that
+Feb 03 11:45:54 <[Enrico]>	if you want POSIX ACL support, use NFSv3
+Feb 03 11:56:34 <ncuxo>	the most important comment from the above post: "Just to add an important point, after all of the above setup with sec=sys, ID mapping works only while reading files. Writing/modifying is governed by simple UNIX DAC because RPC mechanism knows nothing about mapping. ID mapping works fully only with Kerberos. serverfault.com/a/812829/452872 – Irfan Latif"
+Feb 03 11:56:53 <ncuxo>	so yeah without ldap it doesn't work
+Feb 03 11:57:12 <ncuxo>	I'll have to have a special user
+Feb 03 12:01:07 <ncuxo>	however thank you [Enrico] for the time
+Feb 03 12:01:15 <ncuxo>	quess I need to setup ldap first
+Feb 03 12:02:02 <[Enrico]>	ncuxo: I would totally recommend against that
+Feb 03 12:02:07 <[Enrico]>	it's a pain in the neck
+Feb 03 12:02:19 <[Enrico]>	and the benefits are insignificant
+Feb 03 12:02:25 <[Enrico]>	just use NFSv3
+Feb 03 12:02:42 <[Enrico]>	or figure out how to completely disable idmapping
+Feb 03 12:03:03 <ncuxo>	idmapping was disabled on both server and client
+Feb 03 12:03:08 <ncuxo>	and I enabled it
+Feb 03 12:03:13 <ncuxo>	but it still don't work
+Feb 03 12:03:30 <[Enrico]>	ncuxo: nsswitch.conf might also be involved. Not sure
+Feb 03 12:05:39 <ncuxo>	what is the purpose of having nfsv4 if everyone will continue to use nfsv3 and advice against using nfsv4
+Feb 03 12:05:57 <ncuxo>	I just wanna figure out how the damn think works document it and be done with it
+Feb 03 12:06:10 <ncuxo>	s/think/thing
+Feb 03 12:07:14 <[Enrico]>	nfsv4 is designed to integrate with kerberos and has its own system of ACLs (NVFSv4ACLs which nobody supports). It's been a total disaster from the design point of view, a massive failure and the world would be a better place without it to be honest :)
+Feb 03 12:07:41 <[Enrico]>	I assume in theory it was done to integrate better with Windows systems.... but now Windows dropped NFS support anyway
+Feb 03 12:08:01 <[Enrico]>	as far as Linux is concerned NFSv4 is useless
+Feb 03 12:08:05 <[Enrico]>	in my humble opinion
+Feb 03 12:08:51 <[Enrico]>	for me the fact that it doesn't support POSIX ACLs alone is just a major blocker
+Feb 03 12:38:09 <yogoyo>	i am sitting in front of xfce's neat notification log, with an info ballon from dnfdragora, but the notify log is empty. what do i need to do so the log includes such notifies?
+Feb 03 12:39:12 <yogoyo>	i selected "all" applications to log "always"
+Feb 03 13:06:18 <Raulito>	hola
+Feb 03 13:12:57 *	OEIRAS is now known as OERIAS
+Feb 03 13:13:05 <nvfanonlah[m]>	Hi
+Feb 03 13:14:35 <nvfanonlah[m]>	Btw ,is files application swappable ？i want a dark theme. Night time programming hurts my eye.anyone have reference or experience？
+Feb 03 13:15:51 <bendem>	Files supports dark theme just fine
+Feb 03 13:16:30 <nvfanonlah[m]>	Wait where can i change the setting？
+Feb 03 13:16:49 <bendem>	Tweaks > Appearance > Applications > Adwaita-dark
+Feb 03 13:17:27 <bendem>	you have to install Tweaks though, not sure why it's not installed by default with gnome since it's the one way to configure gnome
+Feb 03 13:18:36 <nvfanonlah[m]>	Oh ok so i need to install that.thanks. i will check it out then come back if have problem.
+Feb 03 14:12:48 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb  3 14:12:48 2021
+
+**** BEGIN LOGGING AT Wed Feb  3 20:18:21 2021
+
+Feb 03 20:18:21 *	Now talking on #fedora
+Feb 03 20:18:21 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 03 20:18:21 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 03 20:18:22 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.

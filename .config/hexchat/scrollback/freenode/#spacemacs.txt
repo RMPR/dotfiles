@@ -2540,3 +2540,43 @@ T 1612220822 20*	Disconnected (20)
 T 1612293820 19*	Now talking on 22#spacemacs
 T 1612293820 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
 T 1612293820 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1612338348 19*	Now talking on 22#spacemacs
+T 1612338348 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1612338348 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1612341510 20*	Disconnected (20)
+T 1612342445 19*	Now talking on 22#spacemacs
+T 1612342445 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1612342445 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1612344000 20*	Disconnected (20)
+T 1612345581 20*	Disconnected (20Remote host closed socket)
+T 1612346164 20*	Disconnected (20Remote host closed socket)
+T 1612346248 20*	Disconnected (20Remote host closed socket)
+T 1612346276 19*	Now talking on 22#spacemacs
+T 1612346276 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1612346276 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1612348182 24*	28Lord_of_Life_ is now known as 18Lord_of_Life
+T 1612357968 20*	Disconnected (20)
+T 1612379902 19*	Now talking on 22#spacemacs
+T 1612379902 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1612379902 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1612381162 18<20FromGitter18>	<henriquenj> @birkoff press `C-h o` and check if their functions appear on the list
+T 1612381920 18<20birkoff18>	I think so FromGitter 
+T 1612381922 18<20birkoff18>	what else can be done ? 
+T 1612382017 18<20FromGitter18>	<dalanicolai> @birkhoff are you sure the packages are loaded?
+T 1612382028 18<20FromGitter18>	<dalanicolai> Try to load them with `M-x` load-library
+T 1612382068 18<20birkoff18>	yes but why don't they get autoloaded on startup
+T 1612382077 18<20FromGitter18>	<dalanicolai> Ah wait
+T 1612382088 18<20FromGitter18>	<dalanicolai> You should not install via list-packages
+T 1612382118 18<20FromGitter18>	<dalanicolai> You can install packags via additinal-packages in your user-config
+T 1612382161 18<20birkoff18>	i have 5 packages in dotspacemacs-additional-packages
+T 1612382167 18<20birkoff18>	none get loaded automatically now
+T 1612382169 18<20birkoff18>	they did earlier
+T 1612382188 18<20birkoff18>	then I restarted and I think spacemacs erased some of them
+T 1612382191 18<20FromGitter18>	<dalanicolai> > *<birkoff>* they did earlier ⏎  ⏎ Really?
+T 1612382197 18<20FromGitter18>	<dalanicolai> Okay, then I don't know how it works
+T 1612382238 18<20FromGitter18>	<dalanicolai> As far as I know additional-packages only installs the packages and adds the directories to the load path
+T 1612382274 18<20FromGitter18>	<dalanicolai> But unfortunately how it works was not explained anywhere...
+T 1612382463 18<20FromGitter18>	<dalanicolai> I investigated a little, and then updated the comment in the dotfile, explaining how additional-packages seems to work
+T 1612382475 18<20FromGitter18>	<dalanicolai> But I never studied the code/source
+T 1612383074 18<20FromGitter18>	<henriquenj> You can check the value of `dotspacemacs-install-packages` and see if changing `used-but-keep-unused` makes any difference
+T 1612383099 18<20FromGitter18>	<henriquenj> This variable controls what to do with packages that are not part of any layer

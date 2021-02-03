@@ -3092,3 +3092,54 @@ Feb 02 00:07:02 *	Disconnected ()
 Feb 02 20:23:40 *	Now talking on #spacemacs
 Feb 02 20:23:40 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
 Feb 02 20:23:40 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+**** BEGIN LOGGING AT Wed Feb  3 08:45:48 2021
+
+Feb 03 08:45:48 *	Now talking on #spacemacs
+Feb 03 08:45:48 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Feb 03 08:45:48 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Feb 03 09:38:30 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb  3 09:38:30 2021
+
+**** BEGIN LOGGING AT Wed Feb  3 09:54:05 2021
+
+Feb 03 09:54:05 *	Now talking on #spacemacs
+Feb 03 09:54:05 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Feb 03 09:54:05 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Feb 03 10:20:00 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb  3 10:20:00 2021
+
+**** BEGIN LOGGING AT Wed Feb  3 10:57:56 2021
+
+Feb 03 10:57:56 *	Now talking on #spacemacs
+Feb 03 10:57:56 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Feb 03 10:57:56 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Feb 03 11:29:42 *	Lord_of_Life_ is now known as Lord_of_Life
+Feb 03 14:12:48 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb  3 14:12:48 2021
+
+**** BEGIN LOGGING AT Wed Feb  3 20:18:22 2021
+
+Feb 03 20:18:22 *	Now talking on #spacemacs
+Feb 03 20:18:22 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Feb 03 20:18:22 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Feb 03 20:39:22 <FromGitter>	<henriquenj> @birkoff press `C-h o` and check if their functions appear on the list
+Feb 03 20:52:00 <birkoff>	I think so FromGitter 
+Feb 03 20:52:02 <birkoff>	what else can be done ? 
+Feb 03 20:53:37 <FromGitter>	<dalanicolai> @birkhoff are you sure the packages are loaded?
+Feb 03 20:53:48 <FromGitter>	<dalanicolai> Try to load them with `M-x` load-library
+Feb 03 20:54:28 <birkoff>	yes but why don't they get autoloaded on startup
+Feb 03 20:54:37 <FromGitter>	<dalanicolai> Ah wait
+Feb 03 20:54:48 <FromGitter>	<dalanicolai> You should not install via list-packages
+Feb 03 20:55:18 <FromGitter>	<dalanicolai> You can install packags via additinal-packages in your user-config
+Feb 03 20:56:01 <birkoff>	i have 5 packages in dotspacemacs-additional-packages
+Feb 03 20:56:07 <birkoff>	none get loaded automatically now
+Feb 03 20:56:09 <birkoff>	they did earlier
+Feb 03 20:56:28 <birkoff>	then I restarted and I think spacemacs erased some of them
+Feb 03 20:56:31 <FromGitter>	<dalanicolai> > *<birkoff>* they did earlier ⏎  ⏎ Really?
+Feb 03 20:56:37 <FromGitter>	<dalanicolai> Okay, then I don't know how it works
+Feb 03 20:57:18 <FromGitter>	<dalanicolai> As far as I know additional-packages only installs the packages and adds the directories to the load path
+Feb 03 20:57:54 <FromGitter>	<dalanicolai> But unfortunately how it works was not explained anywhere...
+Feb 03 21:01:03 <FromGitter>	<dalanicolai> I investigated a little, and then updated the comment in the dotfile, explaining how additional-packages seems to work
+Feb 03 21:01:15 <FromGitter>	<dalanicolai> But I never studied the code/source
+Feb 03 21:11:14 <FromGitter>	<henriquenj> You can check the value of `dotspacemacs-install-packages` and see if changing `used-but-keep-unused` makes any difference
+Feb 03 21:11:39 <FromGitter>	<henriquenj> This variable controls what to do with packages that are not part of any layer

@@ -25982,3 +25982,299 @@ Feb 02 22:48:06 <fsbot>	well...at least it's better than YouTube comments
 Feb 02 22:48:33 <cvandusen>	worst.rss feed.ever.
 Feb 02 22:52:08 <bpalmer>	dale: oh, that's an interesting possibliity. Maybe bezos made enough money holding gamestop that he's finally going to be able to retire early.
 Feb 02 22:52:26 <bpalmer>	I hope he sold before quitting his job, in case it all goes up in flames.
+Feb 02 22:57:08 <parsnip>	if only we could have more mega billionaires, so there could be more philanthropy
+Feb 02 22:57:27 <grym>	(╯°□°）╯︵ ┻━┻
+Feb 02 22:58:28 <parsnip>	let's stitch a few billionaires together to make a trillionaire
+**** BEGIN LOGGING AT Wed Feb  3 08:45:48 2021
+
+Feb 03 08:45:48 *	Now talking on #emacs
+Feb 03 08:45:48 *	Topic for #emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+Feb 03 08:45:48 *	Topic for #emacs set by nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (Mon Feb  1 17:01:20 2021)
+Feb 03 08:45:48 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Feb 03 09:11:31 <epony>	in short: broadcoms
+Feb 03 09:19:15 *	boughtly- is now known as boughtly
+Feb 03 09:21:47 <aidalgol>	What's litestep?
+Feb 03 09:22:13 <epony>	a portable plastic step for aerobics
+Feb 03 09:23:08 <epony>	probably something like afterstep and nextstep
+Feb 03 09:23:30 <epony>	after gnustep.. it's irrelevant
+Feb 03 09:24:08 <epony>	investing in theming a silly GUI makes your other silly GUI look all wrong for you since you have not invested there.. so your money goes to waste, like a game^Wdoor stop
+Feb 03 09:27:24 <aidalgol>	Can anyone recommend a decent music player that provides a visual browser for your music library (so just a tree view won't do)?
+Feb 03 09:28:48 <epony>	knock your socks off  https://wiki.archlinux.org/index.php/List_of_applications#Graphical_13
+Feb 03 09:30:27 <epony>	https://amarok.kde.org/
+Feb 03 09:35:31 <krux02>	aidalgol: it is a window manager for windows (XP)
+Feb 03 09:36:10 <krux02>	microsoft made it impossible for litestep to work on windows 10
+Feb 03 09:38:30 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb  3 09:38:30 2021
+
+**** BEGIN LOGGING AT Wed Feb  3 09:54:05 2021
+
+Feb 03 09:54:05 *	Now talking on #emacs
+Feb 03 09:54:05 *	Topic for #emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+Feb 03 09:54:05 *	Topic for #emacs set by nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (Mon Feb  1 17:01:36 2021)
+Feb 03 09:54:05 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Feb 03 09:54:18 <afidegnum>	aidalgol: 27
+Feb 03 09:54:44 <aidalgol>	OK, so it's not that you're using an old version that doesn't like ~/
+Feb 03 09:55:06 <aidalgol>	I've got no idea other than, what does `ls ~/.emacs.d/icicles.el` in a shell within Emacs say?
+Feb 03 09:55:36 <twb>	oh so now we find out why Bioware was prepared to resell Mass Effect 2 on steam, but not any of the DLCs that make the game actually *bearable*
+Feb 03 09:55:38 <afidegnum>	ok, hold a sec, 
+Feb 03 09:55:53 <aidalgol>	twb: why?
+Feb 03 09:55:54 <twb>	Because they were 6 months away from re-releasing the trilogy with bigger textures for $20 more
+Feb 03 09:56:01 <aidalgol>	hahahaha!!!
+Feb 03 09:56:42 <afidegnum>	aidalgol: it returns the full path
+Feb 03 09:57:04 <twb>	And to rub in how much of a dick they're being
+Feb 03 09:57:18 <twb>	"if you own ME3 on steam you can buy it again for only $80 instead of $90"
+Feb 03 09:57:37 <aidalgol>	twb: Are you aware that Activision bought Bioware?
+Feb 03 09:57:48 <aidalgol>	afidegnum: OK, I'll I've got left is try passing the absolute path to `load`.
+Feb 03 09:57:53 <twb>	aidalgol: that's why this is so arsebungler
+Feb 03 09:57:54 <aidalgol>	Without the ~
+Feb 03 09:58:02 <afidegnum>	ok
+Feb 03 09:59:44 <TheInformaticist>	OK, silly simple question:
+Feb 03 10:00:11 <parsnip>	,next
+Feb 03 10:00:11 <fsbot>	Another satisfied customer. NEXT!
+Feb 03 10:01:10 <TheInformaticist>	In Calc I know how to find square roots with the 'Q' key. How do I find, for instance, cube roots? Can't find it in the manual or index.
+Feb 03 10:01:43 <afidegnum>	aidalgol: no luck
+Feb 03 10:01:43 <afidegnum>	still the same error
+Feb 03 10:02:00 <aidalgol>	Show us the full stack trace, I guess?
+Feb 03 10:02:00 <aidalgol>	,tdoe
+Feb 03 10:02:00 <fsbot>	tdoe: M-x toggle-debug-on-error RET, reproduce the problem, then <,paste> the backtrace (or study it yourself)
+Feb 03 10:05:04 <afidegnum>	aidalgol: this is what i've got https://dpaste.org/sW8Q
+Feb 03 10:07:03 <afidegnum>	that's after i used the full path
+Feb 03 10:10:51 <TheInformaticist>	How do I find a cube root of a number in Calc?
+Feb 03 10:13:08 <parsnip>	can you raise it to (1/3)?
+Feb 03 10:13:27 <aidalgol>	afidegnum: Can you also paste your init file?
+Feb 03 10:18:08 <afidegnum>	ok
+Feb 03 10:18:26 <TheInformaticist>	parsnip: Is there a way to input fractions in Calc?
+Feb 03 10:18:42 <parsnip>	TheInformaticist: i just tried M-x calc RET 1 3 / RET and it seemed to work
+Feb 03 10:19:23 <TheInformaticist>	OK, twill try it :-)
+Feb 03 10:19:55 <afidegnum>	aidalgol: https://dpaste.org/toVp
+Feb 03 10:20:00 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb  3 10:20:00 2021
+
+**** BEGIN LOGGING AT Wed Feb  3 10:57:56 2021
+
+Feb 03 10:57:56 *	Now talking on #emacs
+Feb 03 10:57:56 *	Topic for #emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+Feb 03 10:57:56 *	Topic for #emacs set by nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (Mon Feb  1 17:01:20 2021)
+Feb 03 10:57:56 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Feb 03 11:01:59 <aidalgol>	I would advise against icicles entirely, but that's a separate issue. :P
+Feb 03 11:21:56 <afidegnum>	aidalgol: well, i was looking for a feature which couldn't find elsewhere
+Feb 03 11:24:47 <aidalgol>	What's that?
+Feb 03 11:25:04 <afidegnum>	incremental execution of commands
+Feb 03 11:25:17 <afidegnum>	and checkboxes 
+Feb 03 11:25:21 <aidalgol>	What does that mean?
+Feb 03 11:26:37 <afidegnum>	what i needed was to display list of options, where i can select multiple, which will be used to pass value to execute a command
+Feb 03 11:28:41 <afidegnum>	i thought Transient and Hydra could help but no luck
+Feb 03 11:29:42 *	Lord_of_Life_ is now known as Lord_of_Life
+Feb 03 11:39:08 <fourier>	sounds how magit ui does it
+Feb 03 11:52:24 <afidegnum>	?
+Feb 03 11:52:44 <afidegnum>	fourier: isn't magit for commits?
+Feb 03 11:53:11 <fourier>	yes, but you can have a look at its ui, maybe its popup could be extracted (or extracted already)
+Feb 03 11:54:09 <edgar-rft>	yes, magit is for commies
+Feb 03 11:55:05 <afidegnum>	ok, let me check
+Feb 03 11:59:28 <edgar-rft>	let's make commitism a new political philosophy
+Feb 03 12:04:46 <contrapunctus>	How would y'all recommend I check whether a file contains a file local variable property line or not?
+Feb 03 12:05:26 <contrapunctus>	One way I can see is to check the value of `file-local-variables-alist`
+Feb 03 12:07:07 <contrapunctus>	Another is to `(progn (goto-char (point-min)) (looking-at-p "^[[:blank:]]*;+ -\\*- .* -\\*-$"))` or something
+Feb 03 12:08:56 <nij>	kill ring is nice.. can I use it in my whole OS?
+Feb 03 12:09:53 <contrapunctus>	nij: EmacsOS, yes 😏 (...maybe with EXWM? Not sure.)
+Feb 03 12:10:44 <nij>	;)
+Feb 03 12:11:00 *	nij failed to set exwm sane
+Feb 03 12:15:49 <edgar-rft>	nij: I think you can kill the OS only once
+Feb 03 12:17:48 <nij>	haha
+Feb 03 12:18:16 <nij>	let it reborn, and kill again
+Feb 03 12:18:19 <nij>	indefinitely
+Feb 03 12:20:38 <edgar-rft>	contrapunctus: what about (let ((x file-local-variables-alist)) <open-file> (equal x file-local-variables-alist)) or something similar?
+Feb 03 12:21:06 <edgar-rft>	I think that's more reliable than parsing via regexps
+Feb 03 12:23:46 <afidegnum>	i couldn't located the said feature on magit
+Feb 03 12:24:06 <edgar-rft>	contrapunctus: my code does of course not detect buggy local variable lines (if that's important for you)
+Feb 03 12:24:22 <afidegnum>	is there another way to implement it ?
+Feb 03 12:25:36 <edgar-rft>	implement what, commitism?
+Feb 03 12:25:44 <afidegnum>	no
+Feb 03 12:27:52 <afidegnum>	i'm builting up a funtion but i need to pass multiple values to alist, i.e from items A, B, C, D, E, F, dynamically  displayed in a checkbox or another possible interface, Select A, C, D, something like that, and those values will be captured, to perform related outputs
+Feb 03 12:29:01 <contrapunctus>	edgar-rft: thanks for the suggestion. Actually I was thinking that I really only want to check if the file has a mode set as a file local variable...I guess `(hack-local-variable t)` could do that.
+Feb 03 12:29:40 <contrapunctus>	Or even just checking if that mode is active ¯\_(ツ)_/¯ 
+Feb 03 12:31:37 <contrapunctus>	(Use case - defined a new mode for the files created by my package, don't want to hijack the file extension to set the mode, want to offer to add a prop line setting the mode in that file's buffer.)
+Feb 03 12:36:29 <bqv>	afidegnum: yeah transient, or maybe ivy multiselect
+Feb 03 12:36:53 <bqv>	Magit uses transient
+Feb 03 12:37:10 <bqv>	Magit *made* transient
+Feb 03 12:37:21 <contrapunctus>	Ivy...multiselect? :o
+Feb 03 13:01:45 <edgar-rft>	sounds as if emacs needs a select-ring :-)
+Feb 03 13:06:51 <krux02>	aidalgol: I don't remember what they changed to break the WM, but further version of Windows are more and more locked down and less modular.
+Feb 03 13:08:01 <krux02>	It was an youtube channel "accursed farms", I am not sure about the exact video, but I think it was spread accross several videos but most of it was in "GUI should be a lot better"
+Feb 03 13:12:03 <contrapunctus>	So I have auto-revert-mode in this buffer (checked with `M-: auto-revert-mode RET`), and yet, when the file changes outside Emacs, I'm asked if I want to revert it 🤔
+Feb 03 13:15:30 <contrapunctus>	Rather, 're-read from disk?'
+Feb 03 13:15:39 <contrapunctus>	How do I stop that? 🤔
+Feb 03 14:12:48 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb  3 14:12:48 2021
+
+**** BEGIN LOGGING AT Wed Feb  3 20:18:22 2021
+
+Feb 03 20:18:22 *	Now talking on #emacs
+Feb 03 20:18:22 *	Topic for #emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+Feb 03 20:18:22 *	Topic for #emacs set by nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (Mon Feb  1 17:01:20 2021)
+Feb 03 20:18:22 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Feb 03 20:18:25 <grym>	hodapp: oh.  that would be 'academic english', following d.f.w's usage :) 
+Feb 03 20:18:26 <cvandusen>	Damnit Jim! I'm a doctor, not a linguist!
+Feb 03 20:18:29 *	wgreenhouse wonders which pedant in a channel of pedants wrote that ,u factoid
+Feb 03 20:18:33 <hodapp>	e.g. when they write something like "The place he was to go to to call to home was..." where it has lots of 'to' and other kinda ambiguous prepositions
+Feb 03 20:19:57 <grym>	the winning sentence of the 1997 worst writing contest 
+Feb 03 20:20:47 <tromey>	garden pathing seems like a pathology of headline writing, where you're trying hard to minimize the # of words
+Feb 03 20:20:59 <hodapp>	tromey: the thing I'm describing can happen there too
+Feb 03 20:21:07 <grym>	"The visual is essentially pornographic, which is to say that it has its end in rapt, mindless fascination; thinking about its attributes becomes an adjunct to that, if it is unwilling to betray its object; while the most austere films necessarily draw their energy from the attempt to repress their own excess (rather than from the thankless effort to discipline the viewer)."
+Feb 03 20:21:12 <grym>	hodapp: ^ 
+Feb 03 20:21:37 <grym>	"...in which not only is each of its three main independent clauses totally obscure and full of predicates without evident subjects and pronouns without clear antecedents, but whatever connection between those clauses justifies stringing them together into one long semicolonic sentence is anyone's guess at all."
+Feb 03 20:21:50 <hodapp>	was it here that I purposely pissed off someone who was annoying me by un-ironically blathering on with vacuous post-modern themes?
+Feb 03 20:22:02 <grym>	hodapp: yes, it was amusing 
+Feb 03 20:22:09 <tromey>	semicolonic
+Feb 03 20:22:15 <grym>	or at least i was amused
+Feb 03 20:22:33 <hodapp>	from what I remember, I made up a book title and author for a famous post-modern work and made reference to it to see if he'd pretend he'd obviously read it and was famiilar
+Feb 03 20:22:48 <grym>	that sounds about right. 
+Feb 03 20:22:55 <tromey>	why would you do that though
+Feb 03 20:23:06 <hodapp>	tromey: to prove he was a fucking pseudo-intellectual poser
+Feb 03 20:23:07 <grym>	well, the author is dead
+Feb 03 20:23:08 <grym>	so
+Feb 03 20:23:10 <grym>	who cares
+Feb 03 20:23:14 <grym>	>:)
+Feb 03 20:23:28 <tromey>	yikes
+Feb 03 20:23:39 <grym>	i mean that in the capitalised sense
+Feb 03 20:23:43 <grym>	https://en.wikipedia.org/wiki/The_Death_of_the_Author 
+Feb 03 20:23:44 <hodapp>	uhhh
+Feb 03 20:23:54 <grym>	and in fact i wonder if hodapp was cribbing Barthes come to think of it 
+Feb 03 20:24:00 <hodapp>	who?
+Feb 03 20:24:02 <hodapp>	oh
+Feb 03 20:24:10 <hodapp>	uh, I mean, yeah, obviously I know all about Barthes
+Feb 03 20:24:24 <grym>	"what a wanker!"
+Feb 03 20:25:25 <hodapp>	but I thought that his analysis was a bit short-sighted, really, when one looks at it from the standpoint of what some authors refer to as 'the historical wide-angle' - aptly a reference to a lens and more broadly to optics, by analogy to a telescope perhaps - but I'm pretty sure this is obvious among people who have read his works
+Feb 03 20:25:37 <parsnip>	my math professor had no problem abbreviating to "anal. func." on the blackboard
+Feb 03 20:25:47 <hodapp>	haaah
+Feb 03 20:25:47 <parsnip>	why can't i write a `make anal`?
+Feb 03 20:26:03 <grym>	i routinely typo `make testes` 
+Feb 03 20:26:11 <grym>	symmetry must be preserved
+Feb 03 20:26:18 <rgr>	filter elfeed on individual feeds
+Feb 03 20:26:34 <parsnip>	i think in my notes i avoided "anal" and wrote some other abbreviation
+Feb 03 20:26:43 <hodapp>	I had an image processing professor who was trying to explain wavelets vs. Fourier transforms, and he did this by repeatedly saying "IF MY ROD IS THIS BIG..." and holding his hands about a foot apart and trying to use some strained analogy
+Feb 03 20:26:47 <rgr>	pythong my little guilty slip... pun intended.
+Feb 03 20:27:17 <rgr>	anal-ogy? Oh dear, it's getting worse.
+Feb 03 20:27:35 <hodapp>	this was probably after he kept mis-pronouncing Paley-Wiener theorem as "pale-weiner theorem"
+Feb 03 20:27:42 <parsnip>	i don't think thongs hold pythons very well
+Feb 03 20:28:05 <rgr>	better budgies. Hence "budgy smugglers".
+Feb 03 20:30:39 <parsnip>	asking for a friend
+Feb 03 20:30:47 <hodapp>	grym: https://www.ubu.com/aspen/aspen5and6/threeEssays.html#barthes dear god why do they format it this way
+Feb 03 20:31:13 <grym>	hodapp: scanlation aesthetic? thank god for reader mode
+Feb 03 20:31:53 <hodapp>	let's see if Wallabag handles it...
+Feb 03 20:32:07 <hodapp>	then when I wake up at 2 AM I can read it and fall back asleep by the 2nd paragraph or so
+Feb 03 20:32:15 <parsnip>	them's fighting words^W formatting
+Feb 03 20:33:21 <parsnip>	rudybot: do you like to be analyzed?
+Feb 03 20:36:35 *	root____2 is now known as MrFantastik
+Feb 03 20:39:02 <birkoff>	does pressing return twice on load-file should select the current buffer's file name?
+Feb 03 20:39:15 <birkoff>	because mine gets closed after the first return
+Feb 03 20:40:56 <natter>	let's bring back rudybot
+Feb 03 20:46:37 <parsnip>	birkoff: i tried this:
+Feb 03 20:46:56 <parsnip>	emacs -Q ~/.emacs.d/init.el RET M-x load-file RET init.el RET
+Feb 03 20:47:02 <parsnip>	i think you have to specify the file
+Feb 03 20:47:21 <parsnip>	oh wait
+Feb 03 20:47:40 <parsnip>	if i skip init.el, and do RET RET
+Feb 03 20:48:24 <parsnip>	somehow that works
+Feb 03 20:48:30 <parsnip>	birkoff: did you try with -Q ?
+Feb 03 20:52:44 <birkoff>	on the first return I get 'cannot open load file: is a directory, /home/...'
+Feb 03 20:53:18 <birkoff>	with -Q it works
+Feb 03 20:53:25 <parsnip>	,bisect
+Feb 03 20:53:25 <fsbot>	parsnip: bisect: [0] If you can reproduce your issue reliably in a new emacs, try bisecting your user-init-file
+Feb 03 20:53:26 <fsbot>	[1] Comment out half of your init file and try to reproduce the issue. Recurse as needed.
+Feb 03 20:53:26 <fsbot>	[2] Use M-; to comment or uncomment selected region
+Feb 03 20:53:26 <fsbot>	[3] See also ,keep-one-open
+Feb 03 20:53:44 <birkoff>	it's spacemacs
+Feb 03 20:53:52 <parsnip>	,spacemacs
+Feb 03 20:53:53 <fsbot>	parsnip: spacemacs is [0] A configuration framework for GNU Emacs. - https://github.com/syl20bnr/spacemacs
+Feb 03 20:53:53 <fsbot>	[1] Support is available at #spacemacs, bridged to https://gitter.im/syl20bnr/spacemacs
+Feb 03 20:53:53 <fsbot>	[2] To see if it's your configuration causing the problem, try `mv ~/.spacemacs ~/.spacemacs.bak` and restart emacs.
+Feb 03 20:53:53 <fsbot>	[3] In Spacemacs, no one can hear you scream. -- Alien
+Feb 03 20:54:04 <parsnip>	birkoff: note bullet [2] above
+Feb 03 20:54:18 <parsnip>	oh, and i think spacemacs updated their troubleshooting docs
+Feb 03 20:54:25 <parsnip>	we should add a link
+Feb 03 20:54:26 <parsnip>	one sec
+Feb 03 20:55:39 <parsnip>	birkoff: note the reply to this comment: https://github.com/syl20bnr/spacemacs/issues/12667#issuecomment-761741554
+Feb 03 20:58:34 <parsnip>	pfft, spacemacs troubleshooting sucks
+Feb 03 20:59:28 <jmares>	for those in MacOS Big Sur, is there a way for emacs to change theme automatically when the mac goes to dark mode?
+Feb 03 20:59:44 <jmares>	or perhaps more simply schedule themes by the time of day
+Feb 03 21:00:00 <parsnip>	idk, i just leave dark mode on all day
+Feb 03 21:00:10 <parsnip>	since it fucks with my terminal too
+Feb 03 21:00:18 <parsnip>	and i now use ,,dark-emacs
+Feb 03 21:00:20 <fsbot>	dark-emacs is [0] (invert-face 'default)
+Feb 03 21:00:20 <fsbot>	[1] --reverse
+Feb 03 21:00:20 <fsbot>	[2] -nw --eval "\"(setq frame-background-mode 'dark) (mapc 'frame-set-background-mode (frame-list))\""
+Feb 03 21:00:33 <parsnip>	one of those, depending on the context
+Feb 03 21:00:33 <jmares>	parsnip: that's what i've been doing for a long time too, maybe i should just stick with that
+Feb 03 21:01:02 <jmares>	Sounds cool, gonna check it out
+Feb 03 21:01:24 <parsnip>	for example:
+Feb 03 21:01:24 <parsnip>	% alias emacs-Q-nw
+Feb 03 21:01:24 <parsnip>	emacs-Q-nw='emacs -Q -nw --eval "(setq frame-background-mode '\''dark) (mapc '\''frame-set-background-mode (frame-list))"'
+Feb 03 21:01:32 <parsnip>	pretty
+Feb 03 21:01:59 <jmares>	oh wait i thought it was a package to download
+Feb 03 21:01:59 <parsnip>	but my usual gui emacs uses (invert-face 'default)
+Feb 03 21:02:05 <parsnip>	nope :)
+Feb 03 21:02:09 <jmares>	that's all the code right there, wow
+Feb 03 21:02:19 <parsnip>	just my weird preferences
+Feb 03 21:02:22 <parsnip>	i think twb helped me with some of it
+Feb 03 21:02:23 <jmares>	i've been using cyberpunk theme for a while. please sear the text into my brain
+Feb 03 21:02:41 <jmares>	thanks i will try that code
+Feb 03 21:03:14 <parsnip>	i haven't figured out how to get it to work elegantly with emacsclient, etc, so i just put it on a keybinding and call it once per server
+Feb 03 21:03:29 <parsnip>	(global-set-key (kbd "C-x t b") (lambda () (interactive) (invert-face 'default)))
+Feb 03 21:03:34 <jmares>	parsnip: Are there screenshots online of how it looks?
+Feb 03 21:03:47 <jmares>	I wanna try it out but I can't risk not being able to revert changes
+Feb 03 21:03:52 <parsnip>	just do `emacs -Q --reverse`
+Feb 03 21:03:59 <parsnip>	revert?
+Feb 03 21:03:59 <fsbot>	revert is not
+Feb 03 21:04:04 <parsnip>	you just call it again
+Feb 03 21:04:16 <parsnip>	(invert-face 'default) twice is a no-op
+Feb 03 21:04:31 <jmares>	oh got it
+Feb 03 21:05:03 <parsnip>	the frame-background-mode probably has an easy reversal too
+Feb 03 21:05:10 <waleee-cl>	is lsp-mode usable on emacs 27 if emacs is compiled without libjansson support?
+Feb 03 21:05:12 <parsnip>	just edit "dark" to "light" or something
+Feb 03 21:06:13 <parsnip>	waleee-cl: emacs takes 20 minutes to build? you could just experiment. isn't this just something people used to live without?
+Feb 03 21:06:22 <parsnip>	i very rarely use lsp
+Feb 03 21:06:29 <JordiGH>	Having a lot of fun watch this playthrough of the Great Debian Init Case https://www.twitch.tv/hay__
+Feb 03 21:06:35 <JordiGH>	Learning a lot about Debian and systemd too
+Feb 03 21:07:20 <waleee-cl>	parsnip:  (I imagined it would take longer) will check if it improves the situation.
+Feb 03 21:07:48 <parsnip>	depends on PC i guess
+Feb 03 21:08:37 <waleee-cl>	Yeah, you can live without it for most languages, but for the some it would be nice to not have to resort to vscode
+Feb 03 21:08:53 <parsnip>	birkoff: i saw an error like that earlier, but it seemed to only be because i had an error in the .el file
+Feb 03 21:09:24 <parsnip>	birkoff: maybe M-x eval-buffer would be more imformative if the issue is with the file
+Feb 03 21:09:28 <parsnip>	*informative
+Feb 03 21:10:02 <birkoff>	not much
+Feb 03 21:10:11 <parsnip>	waleee-cl: yeah, i have very little experience or muscle memory with IDEs, but i currently use intellij if i have more than a few lints to apply
+Feb 03 21:10:26 <parsnip>	waleee-cl: otherwise, i just run that stuff in the terminal
+Feb 03 21:10:48 <parsnip>	and i use the lame ,,dumb-jump,,.el to jump approximately to definitions
+Feb 03 21:10:50 <fsbot>	dumb-jump is a basic cross-language package to jump to the definition of the symbol at point using regular expressions at https://github.com/jacktasia/dumb-jump
+Feb 03 21:11:13 <parsnip>	birkoff: you could try M-x toggle-debug-on-error or M-x check-parens
+Feb 03 21:11:15 <rgr>	best/standard way to prompt user to select a string from a (list "of" "strings") ?
+Feb 03 21:11:47 <bpalmer>	completing-read
+Feb 03 21:12:03 <rgr>	ta
+Feb 03 21:12:14 <rgr>	xref-find-definition in 2021. wired into lsp etc.
+Feb 03 21:12:42 <bpalmer>	Why is it suddenly such a big deal whether things have a "dark mode" or not? It seems like people will complain about websites being "not modern" if they can't switch between light and dark.
+Feb 03 21:12:45 <rgr>	xref-find-definitions
+Feb 03 21:13:01 <grym>	bpalmer: we like to both complain about UX changes and demand them 
+Feb 03 21:13:06 <grym>	what else would we have to complain about
+Feb 03 21:13:07 <rgr>	heh, had that discussion today. dark-mode is the new black. If you can say that anymore.
+Feb 03 21:13:26 <parsnip>	i find the most compelling reason to be saving battery
+Feb 03 21:13:31 <parsnip>	no?
+Feb 03 21:13:32 <fsbot>	No it's not. Peterson told me.
+Feb 03 21:13:32 <rgr>	lol
+Feb 03 21:13:46 <grym>	only if your display supports no-power-to-really-black-pixels
+Feb 03 21:13:53 <grym>	no? 
+Feb 03 21:13:54 <fsbot>	No it's not. Peterson told me.
+Feb 03 21:13:58 <grym>	lol
+Feb 03 21:14:05 <parsnip>	,photon grym
+Feb 03 21:14:06 <fsbot>	parsnip: photon is The best particle is neither a particle nor a wave. It's both!
+Feb 03 21:14:15 <parsnip>	lol
+Feb 03 21:15:04 <bpalmer>	Let's consider life a series of probability amplitudes.
+Feb 03 21:15:17 <natter>	it sure seems like false argument if the premise is really "saves battery". Seems like there are about a dozen things you could do before dark-mode to save battery -- no??
+Feb 03 21:15:18 <fsbot>	I'm telling you, you don't want to know.
+Feb 03 21:15:35 <parsnip>	natter: turn down screen brightness?
+Feb 03 21:15:45 <parsnip>	i'm pretty sure screen is biggest suck on battery
+Feb 03 21:15:52 <parsnip>	like, for mobile devices, etc
+Feb 03 21:16:05 <parsnip>	i think i've seen this on battery history thingies
+Feb 03 21:16:08 <bpalmer>	such as not watching the 4K video I'm gonna use mostly for its soundtrack as you peruse my pages.
+Feb 03 21:16:54 <bpalmer>	(for all that I appreciate the modern web, some sites *clearly* don't know what they're doing)
+Feb 03 21:18:00 <polezaivsani>	you mean like showing 4k vids about saving battery with dark mode?
+Feb 03 21:18:24 <natter>	I like looking for the "fire network requests for required page data inside window.onload" pattern
