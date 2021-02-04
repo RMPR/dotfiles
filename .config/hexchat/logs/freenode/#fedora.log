@@ -7293,3 +7293,270 @@ Feb 03 20:18:21 *	Now talking on #fedora
 Feb 03 20:18:21 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
 Feb 03 20:18:21 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
 Feb 03 20:18:22 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 03 21:37:10 *	heis2201_ is now known as heis2201
+Feb 03 21:47:06 *	jess| is now known as jess
+Feb 03 22:02:19 <Bluesboy[m]>	Hey, folks! Is there a Desktop Matrix client for Fedora?
+Feb 03 22:07:17 <Khaytsus>	Bluesboy[m]: element is in flatpak
+Feb 03 22:07:35 <Khaytsus>	I just use the website, it's not that different
+Feb 03 22:11:21 <kellya[m]>	Yeah.  I just use element too.  I tried Fractal (because gnome), but I don't think it does e2ee
+Feb 03 22:13:02 <Bluesboy[m]>	<Khaytsus "I just use the website, it's not"> It's not that convinient IMO
+Feb 03 22:14:31 <Gestra>	looks like there's at least neochat, nheko, quaternion and spectral in the fedora repos if you don't want to use Element from flathub
+Feb 03 22:15:07 <dowdle>	I think nirik wrote up a blog post a couple of months ago comparing and contrasting the various matrix clients he had tried.
+Feb 03 22:15:16 *	dowdle uses an IRC client.
+Feb 03 22:17:14 <dowdle>	Here's that blog post: https://www.scrye.com/wordpress/nirik/2020/11/28/matrix-and-fedora/
+Feb 03 22:17:32 <Mershl[m]>	What does "Rb" usually mean in a comment to a Merge Request?
+Feb 03 22:17:52 <Bluesboy[m]>	<dowdle "I think nirik wrote up a blog po"> https://www.scrye.com/wordpress/nirik/2020/11/28/matrix-and-fedora/ this?
+Feb 03 22:18:34 <dowdle>	Bluesboy[m]: That's the link gave... that I guess you didn't get before sending your question.  Matrix SUCKS! (death to Matrix)
+Feb 03 22:18:54 <dowdle>	Bluesboy[m]: But feel free to use it all you want.  Just don't ask me to. :)
+Feb 03 22:19:29 <cberg>	Mershl[m]: rebase maybe?
+Feb 03 22:20:31 <Mershl[m]>	Ahhh, makes sense.
+Feb 03 22:22:36 *	fab_ is now known as fab
+Feb 03 22:27:14 <arethuza>	I have a 2 monitor setup with gnome wayland on fedora 33 and it doesnt turn off my monitors when I lock the screen. It'll turn off for a second but then the monitor will turn back on. Anyone know how to fix this issue? I saw a bunch of open DPMS bugs.
+Feb 03 22:28:35 <Dustin[m]>	<arethuza "I have a 2 monitor setup with gn"> Oh, that's an interesting problem. I am currently on Fedora 33 with a USB-C dock attached to a monitor and it does disable the screen normally
+Feb 03 22:29:32 <arethuza>	is there a setting or something that I should check?
+Feb 03 22:29:47 <janos_>	please, if using matrix - don't quote. it junks up irc which this channel is natively
+Feb 03 22:37:40 <cmurf>	git bisect weirdness, I'm confused, any ideas?
+Feb 03 22:37:42 <cmurf>	https://paste.centos.org/view/b692fa5e
+Feb 03 22:39:53 <Dustin[m]>	<janos_ "please, if using matrix - don't "> Gotcha. Is that something that can be tweaked with the bridge?
+Feb 03 22:40:14 <Dustin[m]>	janos_: Gotcha. Is that something you can fix in the IRC bridge?
+Feb 03 22:40:38 <janos_>	no idea. i use irc clients when in irc
+Feb 03 22:41:32 <janos_>	i'm not familiar with the architecture, but a bridge seems like an odd place to address that sort of thing. i'd think the client knows it's connecting to a bridge and it adjusts its behavior and options to suit
+Feb 03 22:43:05 <Dustin[m]>	It's a shame the people still using IRC will get a bunch of junk in their feeds when the Matrix users are just using their clients in an expected manner
+Feb 03 22:43:15 <Dustin[m]>	These bridges are a bit messy
+Feb 03 22:44:06 <janos_>	yeah. i wouldn't care what people used if they were the only ones to deal with their choices :)
+Feb 03 22:48:25 <cmurf>	things will be different when Fedora moves natively to matrix, but I'm not sure about the time frame for that
+Feb 03 22:50:41 <janos_>	when? it's been determined as a definite?
+Feb 03 22:50:57 <Dustin[m]>	I was an avid IRC user for many, many years but I definitely prefer Matrix now
+Feb 03 22:51:52 <janos_>	i mostly want something out of my way and that i can make very information-dense and compact
+Feb 03 22:52:58 <cberg>	I like IRC mostly because I like the kind of people who are "still using IRC"
+Feb 03 22:57:19 <Dustin[m]>	There are some very IRC-like clients for Matrix now as well as integration with emacs and so on
+Feb 03 22:58:17 <cmurf>	janos_: yeah pretty sure it was talked about on devel@ list
+Feb 03 22:58:26 <janos_>	bummer
+Feb 03 22:58:27 <Dustin[m]>	weechat, gomuks and matrixcli for command line as well
+Feb 03 22:59:18 <cmurf>	here are the discussions
+Feb 03 22:59:20 <cmurf>	https://discussion.fedoraproject.org/t/the-future-of-real-time-chat-discussion-for-the-fedora-council/24628
+Feb 03 22:59:28 <janos_>	thanks! will check those out
+Feb 03 22:59:36 <cmurf>	https://lists.fedoraproject.org/archives/list/devel@lists.fedoraproject.org/thread/T7C25NUEKEB3GLA2GO752XISR6HHFJR7/
+Feb 03 22:59:54 <cmurf>	https://pagure.io/Fedora-Council/tickets/issue/342
+Feb 03 23:16:52 <janos_>	seems reasonable enough
+Feb 03 23:17:46 <janos_>	not a fan of certain driving factors, but seems decent enough as long as those cli options pan out
+Feb 03 23:24:43 *	Dustin[m] uploaded an image: gomuks.png (163KiB) < https://matrix.org/_matrix/media/r0/download/mozilla.org/fae78df0434814a5404db2da8b2346c43f52b549/gomuks.png >
+Feb 03 23:38:57 <linuxmodder>	can one of these genx/z types PLEASE explain to me why they need to reinvent the wheel
+Feb 03 23:39:23 <linuxmodder>	matrix is decnt but nowhere near as solid and tested as irc
+Feb 03 23:39:34 <janos_>	woah woah now, don't loop gne-x in that
+Feb 03 23:39:36 <janos_>	haha
+Feb 03 23:39:43 <janos_>	*gen-x
+Feb 03 23:40:06 <janos_>	i think you may mean y/z
+Feb 03 23:40:17 <dowdle>	gen-not-mine
+Feb 03 23:40:30 <Dustin[m]>	lol
+Feb 03 23:40:34 <avu>	ok boomer
+Feb 03 23:40:37 <dowdle>	You can say, "Ok, Boomer" to me if you want.
+Feb 03 23:40:41 <janos_>	haha
+Feb 03 23:40:48 <janos_>	would actually be one if not x/y/z!
+Feb 03 23:41:41 <dowdle>	"boomers were born between 1946 and 1964".  I was born in 64.
+Feb 03 23:41:48 <linuxmodder>	I'm technically a millienal but I hate everything about my generation especially crap like this
+Feb 03 23:41:53 <Dustin[m]>	linuxmodder I'm not sure if it's reinventing the wheel as much as creating another wheel which can meet different needs
+Feb 03 23:42:11 <janos_>	dowdle: boom
+Feb 03 23:42:13 <janos_>	:P
+Feb 03 23:42:30 <linuxmodder>	Dustin[m], what needs? some youngster that can text and snapchat but not setup a simple irc account on their phone ?
+Feb 03 23:42:39 <janos_>	i think it's those needs which are contentious
+Feb 03 23:42:48 <linuxmodder>	^^
+Feb 03 23:43:11 <linuxmodder>	in too may cases these youngsters feel they need to reinvent their own space or tool to b relevant
+Feb 03 23:43:15 <linuxmodder>	and that pisses me off
+Feb 03 23:43:33 <dowdle>	And it MUST have a dark theme.
+Feb 03 23:43:35 <dowdle>	:)
+Feb 03 23:43:41 <dowdle>	With pastel icons.
+Feb 03 23:43:45 <fmlatghor>	aw I missed the convo
+Feb 03 23:43:52 <fmlatghor>	what are you guys talking about specfically?
+Feb 03 23:43:55 <janos_>	pastel is one step too far!
+Feb 03 23:43:58 <linuxmodder>	dowdle, I'm with you on dark theme tho
+Feb 03 23:43:58 *	janos_ throws down
+Feb 03 23:43:59 <Dustin[m]>	linuxmodder what would you say about Slack in comparison?
+Feb 03 23:44:16 <zcanrpm[m]>	.
+Feb 03 23:44:22 <janos_>	slack? i use it for work. bloated
+Feb 03 23:44:23 <janos_>	closed
+Feb 03 23:44:36 <janos_>	functional enough, but the bloat... my lord
+Feb 03 23:44:48 <linuxmodder>	Dustin[m],  beyond its resource issues (electron in general sucks your resources) slack would be better IF it really had a spot to fill which I personally feel it doesnt
+Feb 03 23:44:52 <zcanrpm[m]>	+ it's proprietary
+Feb 03 23:45:08 <linuxmodder>	and I prefer like most here something open sourced
+Feb 03 23:45:10 <linuxmodder>	Dustin[m], ^
+Feb 03 23:45:31 <Dustin[m]>	So Matrix fulfils the needs of Slack but without being closed
+Feb 03 23:45:44 <linuxmodder>	Dustin[m], not really
+Feb 03 23:45:46 <fmlatghor>	there's also mattermost and other stuff
+Feb 03 23:45:51 <Dustin[m]>	Which is why it is the platform of choice for various entities and government agencies in Europe now
+Feb 03 23:45:55 <janos_>	but what are those needs
+Feb 03 23:45:58 <Dustin[m]>	And continuing to gain ground in that regard
+Feb 03 23:46:15 <linuxmodder>	matrix and its precursor riot are just hipster tools to make folks feel relevant they dont do irc any better than irc does
+Feb 03 23:46:48 <Dustin[m]>	Free and open collaboration which can be deployed for your organisation and also communicate with other Matrix platforms
+Feb 03 23:46:50 <linuxmodder>	with which demographic?  youngsters those under 30
+Feb 03 23:46:54 <fmlatghor>	well, I love IRC, but having to be online all the time or use a bouncer is knda...
+Feb 03 23:47:08 <fmlatghor>	that's enough to use xmpp instead for me
+Feb 03 23:47:20 <linuxmodder>	fmlatghor,  use your phone its always online right?
+Feb 03 23:47:49 <fmlatghor>	linuxmodder: I used to use my server, but I had an issue with it, and now I'm waiting for something
+Feb 03 23:47:56 <linuxmodder>	mattermost is even more of a waste imo
+Feb 03 23:48:08 <fmlatghor>	I'm just saying for most people
+Feb 03 23:48:14 <farribeiro[m]>	fedoramagazine.org/join-fedora-at-fosdem-2021/
+Feb 03 23:48:20 <fmlatghor>	like you can't expect everyone to use something like irc cloud or a bouncer
+Feb 03 23:49:02 <linuxmodder>	same vien cant expect us all to embrace a new hipster app for the largely younger lazy crowd
+Feb 03 23:49:03 <fmlatghor>	damn 8gb memory use
+Feb 03 23:49:11 <linuxmodder>	for what?
+Feb 03 23:49:12 <farribeiro[m]>	or... #fosdem-fedora-stand
+Feb 03 23:49:29 <fmlatghor>	too many webapps probably
+Feb 03 23:49:39 <fmlatghor>	I swear this happens everday
+Feb 03 23:49:57 <fmlatghor>	I start gnome, it's all fine and fast, then I look at it later then it's slower and over 8gb ram uses
+Feb 03 23:49:59 <fmlatghor>	*use
+Feb 03 23:50:08 <zcanrpm[m]>	what
+Feb 03 23:50:12 <zcanrpm[m]>	8 gigs?
+Feb 03 23:50:16 <fmlatghor>	yea
+Feb 03 23:50:19 <zcanrpm[m]>	~750mb for me
+Feb 03 23:50:25 <linuxmodder>	gnome is anotehr resource hog
+Feb 03 23:50:36 <fmlatghor>	linuxmodder: trust me, it's not gnome
+Feb 03 23:50:41 <linuxmodder>	but this bordering -social land now
+Feb 03 23:50:55 <linuxmodder>	electron apps then ?
+Feb 03 23:50:55 *	janos_ went quiet for that reason :)
+Feb 03 23:51:32 <linuxmodder>	moving this to -social
+Feb 03 23:51:48 <fmlatghor>	well whenever my computer freezes it's because I'm writing a lot of data to the hard drive, and I think you're right it is webapps, not all electron probably.
+Feb 03 23:52:03 <Dustin[m]>	linuxmodder: Matrix has the advantage of offering a collaboration platform which free, open source and can be deployed and used by entities for digital sovereignty
+Feb 03 23:52:13 <Dustin[m]>	Which is why it's used by the Bundeswehr, for example
+Feb 03 23:52:23 <Dustin[m]>	And other government agencies in Europe
+Feb 03 23:52:37 <linuxmodder>	Dustin[m], lets take this to social where it belongs now
+Feb 03 23:52:42 <farribeiro[m]>	Maybe the fedora project
+Feb 03 23:52:55 <Dustin[m]>	We can get back on topic now
+Feb 03 23:54:14 <zcanrpm[m]>	which matrix client do you guys use?
+Feb 03 23:54:24 <mutk_>	If it were not discussed here I'd have not known about it  :)
+Feb 03 23:54:29 <farribeiro[m]>	Fluffychat in Android
+Feb 03 23:54:41 <zcanrpm[m]>	for pc?
+Feb 03 23:54:46 <Dustin[m]>	I am using Element at the moment
+Feb 03 23:54:56 <zcanrpm[m]>	element's a bloated mess
+Feb 03 23:54:59 <Dustin[m]>	I was also playing around with Nheko and Fractal on Linux
+Feb 03 23:55:01 <linuxmodder>	mutk_,  fair enough but mention and divert to appriorate channel
+Feb 03 23:55:07 <farribeiro[m]>	<zcanrpm[m] "for pc?"> element web
+Feb 03 23:55:08 <zcanrpm[m]>	i can use fractal since i use gnome
+Feb 03 23:55:09 <Dustin[m]>	Nheko is quite lightweight
+Feb 03 23:55:30 <fmlatghor>	Fractal would be good if it actually worked
+Feb 03 23:55:31 <Dustin[m]>	On mobile I was using Pattle but the dev abandoned it
+Feb 03 23:55:43 <zcanrpm[m]>	<fmlatghor "Fractal would be good if it actu"> wdym
+Feb 03 23:55:43 <fmlatghor>	it's slow and I don't get messages on it and my messages don't really send
+Feb 03 23:55:45 <farribeiro[m]>	<zcanrpm[m] "i can use fractal since i use gn"> Fractal I don't know...  Not have e2ee
+Feb 03 23:55:46 <mutk_>	*social used to be a bit of a cesspool a while ago  :0  Maybe its better now
+Feb 03 23:55:49 <Dustin[m]>	Oh and there's also Hydrogen on web
+Feb 03 23:55:57 <fmlatghor>	so I stopped using it
+Feb 03 23:55:58 <zcanrpm[m]>	<farribeiro[m] "Fractal I don't know...  Not hav"> rly?
+Feb 03 23:56:04 <Dustin[m]>	https://hydrogen.element.io/
+Feb 03 23:56:12 <zcanrpm[m]>	lemme install fractal to test it
+Feb 03 23:56:17 <linuxmodder>	mutk_,  none of the usual suspects back then are around come join the (civil) party
+Feb 03 23:56:18 <Dustin[m]>	Yeah, Fractal is implementing E2EE but it's not available yet
+Feb 03 23:56:20 <fmlatghor>	used to use element, but there's a script for my irc client that seems to be beter
+Feb 03 23:56:36 <fmlatghor>	for my use
+Feb 03 23:56:46 <zcanrpm[m]>	writing this from fractal
+Feb 03 23:56:49 <zcanrpm[m]>	it's fine
+Feb 03 23:57:53 <zcanrpm[m]>	and it matches my gtk theme
+Feb 03 23:57:57 <mutk_>	liYay  :)
+Feb 03 23:58:07 <Dustin[m]>	Nheko did a good job with E2EE last time I used it
+Feb 04 00:01:54 *	Disconnected ()
+**** ENDING LOGGING AT Thu Feb  4 00:01:54 2021
+
+**** BEGIN LOGGING AT Thu Feb  4 12:23:02 2021
+
+Feb 04 12:23:02 *	Now talking on #fedora
+Feb 04 12:23:02 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 04 12:23:02 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 04 12:23:02 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 04 12:25:46 <nh-nh[m]>	Hello, I'd like to report a kind of bug (I guess) on fedora-workstation 33 in conjunction with keepassxc: the issue is already being discussed there: https://github.com/keepassxreboot/keepassxc/issues/5608 . In short, the search field in keepassxc doesn't take any typing input unless keppasxc is started through the terminal with "keepassxc -plateform wayland". The problem is ongoing since about October 2020. For me the
+Feb 04 12:25:46 <nh-nh[m]>	problem disappeared after the updates including the new kernel 5.10.11 until today's update including keepassxc V2.6.4. According to the discussions in the link above, it seems to be a Wayland and or Qt issue. Are you already aware of the bug? Can you do something about it? Should I report elsewhere? Thanks in advance for your help! 😀
+Feb 04 12:28:34 <FranciscoD>	nh-nh[m]: what Fedora package is this from? keepassx?
+Feb 04 12:28:38 *	FranciscoD isn't using it
+Feb 04 12:29:02 <nh-nh[m]>	<FranciscoD "nh-nh: what Fedora package is th"> no: keepassxc
+Feb 04 12:29:31 <FranciscoD>	right, I don't see a bug here on the tracker, so perhaps best to file one: https://bugzilla.redhat.com/buglist.cgi?bug_status=NEW&bug_status=ASSIGNED&classification=Fedora&component=keepassxc&list_id=11666683&product=Fedora&product=Fedora%20EPEL
+Feb 04 12:30:12 <FranciscoD>	if you can also link to the upstream issue, the maintainer will be able to diagnose the issue and re-assign it to the right component
+Feb 04 12:32:24 <FranciscoD>	nh-nh[m]: since it's gnome on wayland, it is possibly a qt5-wayland or maybe a qgnomeplatform issue
+Feb 04 12:32:31 <FranciscoD>	try uninstalling that to see if it helps?
+Feb 04 12:33:00 <FranciscoD>	nh-nh[m]: https://github.com/FedoraQt/QGnomePlatform + https://src.fedoraproject.org/rpms/qgnomeplatform
+Feb 04 12:33:15 <FranciscoD>	if removing this package fixes it, the bug will go to qgnomeplatform
+Feb 04 12:33:26 <FranciscoD>	(there's been one or two bugs there with qt apps already)
+Feb 04 12:39:15 <nh-nh[m]>	<FranciscoD "try uninstalling that to see if "> Thanks for your Answers FransicoD. Do you mean uninstalling qt5-wayland, qgnomeplatform or keepassxc?
+Feb 04 12:39:33 <FranciscoD>	I'd start with qgnomeplatform
+Feb 04 12:39:56 <FranciscoD>	qt5-wayland is a core package, so that's probably a compulsory dependency
+Feb 04 12:40:05 <nh-nh[m]>	<FranciscoD "I'd start with qgnomeplatform"> Isn't it going to break other things?
+Feb 04 12:40:25 <FranciscoD>	no, it's just a theme to ensure that Qt apps on Gnome look like native GTK gnome apps
+Feb 04 12:40:42 <FranciscoD>	your QT apps will just look more QT like without it on Gnome
+Feb 04 12:40:43 <nh-nh[m]>	Ok, I try
+Feb 04 12:41:00 <FranciscoD>	nh-nh[m]: but do check the transaction list: hopefully it won't try to uninstall lots of other gnome things
+Feb 04 12:44:41 <nh-nh[m]>	<FranciscoD "nh-nh: but do check the transact"> It wants to also remove dependency qt5-qtwayland, is it still safe to do?
+Feb 04 12:44:52 <FranciscoD>	hrm, we can work around that
+Feb 04 12:44:54 <FranciscoD>	try:
+Feb 04 12:45:00 <FranciscoD>	sudo dnf shell
+Feb 04 12:45:04 <FranciscoD>	when you get the shell, do:
+Feb 04 12:45:10 <FranciscoD>	remove qgnomeplatform
+Feb 04 12:45:17 <FranciscoD>	install qt5-qtwayland
+Feb 04 12:45:23 <FranciscoD>	resolvedep
+Feb 04 12:45:57 <FranciscoD>	ts
+Feb 04 12:45:58 <FranciscoD>	run
+Feb 04 12:46:06 <FranciscoD>	(it should only include the removal of qgnomeplatform in the transaction on the `ts` step)
+Feb 04 12:47:27 <nh-nh[m]>	<FranciscoD "hrm, we can work around that"> Most excellent! Just learned something new! Thanks a lot!
+Feb 04 12:47:40 <nh-nh[m]>	Let see if it changed anything
+Feb 04 12:48:19 <nh-nh[m]>	I just restart and be back.
+Feb 04 12:51:41 <nh-nh[m]>	<FranciscoD "if removing this package fixes i"> OK, so my keepassxc isn't in darkmode anymore, but the bug is still present: I guess it means qgnomplatform can be ruled out as source of the problem.
+Feb 04 12:51:56 <FranciscoD>	uh, yeh
+Feb 04 12:52:00 <FranciscoD>	I was hoping that'd be it XD
+Feb 04 12:52:18 <FranciscoD>	I guess qt5-wayland is next on the candidate list, but I don't know where to start debugging that
+Feb 04 12:52:37 <FranciscoD>	if dnf said it was unused when you tried to remove qgnomeplatform, perhaps uninstalling it to try is next?
+Feb 04 12:56:49 <nh-nh[m]>	<FranciscoD "if dnf said it was unused when y"> Is there a risk of crashing gnome with that? I'll try it, but if it crashes the whole system I don't think I'll be able to get it back up. If your sure I'll still be able to reinstall qt5-qtwayland even if uninstalling it produced minor bugs I could give it a try..
+Feb 04 12:57:20 <FranciscoD>	It shouldnt crash gnome---it's only needed for qt apps
+Feb 04 12:57:50 <nh-nh[m]>	OK, so wost case some apps won't open until I reinstall it?
+Feb 04 12:58:15 <FranciscoD>	Yeh
+Feb 04 12:58:19 <laolux[m]>	If you do dnf remove something, then it will show you all dependent packages to also be removed. So, if it shows gnome, then better stop the transaction.
+Feb 04 12:58:48 <nh-nh[m]>	Ok, I give it a try
+Feb 04 12:59:58 <FranciscoD>	🤞
+Feb 04 13:00:12 <nh-nh[m]>	OK, gone. I restart and be back
+Feb 04 13:04:10 <nh-nh[m]>	<FranciscoD "🤞"> Tadaa! It solves the problem! 🤗 So, if I undestand correctly: the bug is within package qt5-qtwayland and therefore should be reported where?
+Feb 04 13:04:25 <FranciscoD>	ah, hrm
+Feb 04 13:05:00 <FranciscoD>	nh-nh[m]: here: https://bugzilla.redhat.com/buglist.cgi?bug_status=NEW&bug_status=ASSIGNED&classification=Fedora&component=qt5-qtwayland&list_id=11666771&product=Fedora&product=Fedora%20EPEL
+Feb 04 13:05:08 <FranciscoD>	you can login to bugzilla with your FAS account
+Feb 04 13:07:02 <nh-nh[m]>	<FranciscoD "nh-nh: here: https://bugzilla.re"> OK, I'll do that. Many Thanks for all the help and have a very nice day!
+Feb 04 13:12:35 <FranciscoD>	nh-nh[m]: you too.
+Feb 04 13:12:59 <Strongstan>	can anyone ping e14966.dsca.akamaiedge.net
+Feb 04 13:13:24 <FranciscoD>	nh-nh[m]: This doesn't necessarily mean that the bug is in this particular piece of code, but at least it's a starting point
+Feb 04 13:19:09 <laolux[m]>	<Strongstan "can anyone ping e14966.dsca.akam"> yes: "64 bytes from a118-215-176-101.deploy.static.akamaitechnologies.com (118.215.176.101): icmp_seq=2 ttl=56 time=9.10 ms"
+Feb 04 19:18:07 *	Disconnected ()
+**** ENDING LOGGING AT Thu Feb  4 19:18:07 2021
+
+**** BEGIN LOGGING AT Thu Feb  4 19:18:32 2021
+
+Feb 04 19:18:32 *	Now talking on #fedora
+Feb 04 19:18:32 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 04 19:18:32 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 04 19:18:33 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 04 19:22:09 *	CaV31901459 is now known as CaV3190145
+Feb 04 19:52:29 *	ccallahan4 is now known as ccallahan
+Feb 04 19:52:34 *	MikeB67 is now known as dbasinge
+Feb 04 19:53:06 *	ranzpirat9 is now known as ranzpirat
+Feb 04 20:16:00 *	wa1em is now known as linuxmodder
+Feb 04 20:30:16 <freebds>	I am trying to upload a folder from my local machine to a eks pod via a jump server. Some files are getting copied some are not,
+Feb 04 20:30:16 <freebds>	Here is the script can anyone tell me whats wrong?
+Feb 04 20:30:16 <freebds>	https://termbin.com/l296
+Feb 04 20:37:17 <fmlatghor>	Hey guys how do install literally every manpage with rpm2cpio?
+Feb 04 20:37:40 <fmlatghor>	I've never used rpm2cpio, I just heard it can do this.
+Feb 04 20:41:37 <chrisawi>	rpm2cpio just extracts the cpio archive from an rpm
+Feb 04 20:42:53 <fmlatghor>	How do I do this though?
+Feb 04 20:45:14 <fmlatghor>	I already figured out how to get every manpage ready to print, now is to just install them
+Feb 04 20:49:37 *	Disconnected ()
+**** ENDING LOGGING AT Thu Feb  4 20:49:37 2021
+
+**** BEGIN LOGGING AT Thu Feb  4 20:50:45 2021
+
+Feb 04 20:50:45 *	Now talking on #fedora
+Feb 04 20:50:45 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 04 20:50:45 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 04 20:50:49 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 04 20:54:07 *	Disconnected ()
+**** ENDING LOGGING AT Thu Feb  4 20:54:07 2021
+
+**** BEGIN LOGGING AT Thu Feb  4 20:59:21 2021
+
+Feb 04 20:59:21 *	Now talking on #fedora
+Feb 04 20:59:21 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 04 20:59:21 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 04 20:59:37 *	Disconnected ()
+**** ENDING LOGGING AT Thu Feb  4 20:59:37 2021
+

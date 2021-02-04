@@ -2289,3 +2289,23 @@ Feb 03 14:12:48 *	Disconnected ()
 Feb 03 20:18:22 *	Now talking on #wireshark
 Feb 03 20:18:22 *	Topic for #wireshark is: Welcome to #wireshark The new name for the most popular network protocol analyser! | http://www.wireshark.org | Questions? Ask them! (and be patient for a response)
 Feb 03 20:18:22 *	Topic for #wireshark set by Ober (Mon Apr 16 16:39:59 2007)
+Feb 03 23:02:13 <memfrob>	Hi everyone, I'm noticing a lot of traffic on the loopback interface in wireshark, constant TCP RST, ACT and retransmission packets and this is new
+Feb 03 23:02:44 <memfrob>	(this is windows 10 btw, fresh install just about)
+Feb 03 23:04:01 <memfrob>	Even when the ethernet adapter is at idle, loopback is going absolutely nuts. I have this system behind an openbsd firewall and there's no funny business there.
+Feb 03 23:05:29 <memfrob>	just spammed with source 127.0.0.1 dest 127.0.0.1 port 9103 to 50363 and the ports will go up by 1 every 10 packets
+Feb 03 23:06:42 <memfrob>	I found this and it seems related: https://osqa-ask.wireshark.org/questions/60507/constant-tcp-requests-and-failed-responses
+Feb 03 23:10:46 <memfrob>	ok the RST, ACK packets finally stopped, that was the logitech g hub driver, so that's one problem gone, but still, all my traffic on the ethernet interface is also showing up in the loopback interface
+Feb 03 23:13:57 <memfrob>	Follow TCP stream on those packets (the ones related to the external interface) shows this: IMMMMMMMMMMMMMMMMMMMMM and hundreds more M's
+Feb 03 23:22:31 <memfrob>	netstat -ano output: https://pastebin.com/vNj62HZ3
+Feb 03 23:46:57 <memfrob>	brb
+Feb 03 23:55:37 <memfrob>	and once more!
+Feb 04 00:01:54 *	Disconnected ()
+**** ENDING LOGGING AT Thu Feb  4 00:01:54 2021
+
+**** BEGIN LOGGING AT Thu Feb  4 12:23:02 2021
+
+Feb 04 12:23:02 *	Now talking on #wireshark
+Feb 04 12:23:02 *	Topic for #wireshark is: Welcome to #wireshark The new name for the most popular network protocol analyser! | http://www.wireshark.org | Questions? Ask them! (and be patient for a response)
+Feb 04 12:23:02 *	Topic for #wireshark set by Ober (Mon Apr 16 16:39:59 2007)
+**** ENDING LOGGING AT Thu Feb  4 12:25:51 2021
+

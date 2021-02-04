@@ -1,474 +1,3 @@
-T 1602794190 18<20pjb18>	nly: now, world richest 1% have more than 2x as much wealth as the rest.  Say we take them all they have (shares in corporations), and spread it over the 99%.  This means that if you have 100$ in the bank, you'll get 200$ worth of shares. Say 1/2 a TSLA share.  TSLA has never paid a dividend…
-T 1602794190 18<20pjb18>	 
-T 1602794229 18<20pjb18>	nly: so you won't be any richer. The 1% will lose control of the corporations. It will be a mess, and you will be fired, and everything will be broken.
-T 1602794248 18<20aidalgol18>	technomancy: Right, I was just saying until we have a *full* replacement for C, we need to write stuff in C.  Maybe D is viable.  I honestly don't know.
-T 1602794259 18<20aidalgol18>	The only D programmer I know is JordiGH, and he doesn't do embedded dev.
-T 1602794277 18<19wasamasa18>	look at the stuff a linux desktop relies on and ask yourself, does your favorite language have the potential to replace all that?
-T 1602794280 18<19wasamasa18>	just the packaging situation is absurd
-T 1602794287 18<28technomancy18>	luajit is used for userspace networking in cases where the kernel is just too damn slow at routing packets http://lukego.github.io/blog/2013/01/03/snabb-switchs-luajit-ethernet-device-driver/
-T 1602794288 18<27nly18>	pjb fair point. I concede my proposal
-T 1602794295 18<29JordiGH18>	"Just the packaging situation"
-T 1602794300 18<29JordiGH18>	The packaging situation is the whole problem.
-T 1602794303 18<19wasamasa18>	what's an ABI again?
-T 1602794316 18<28technomancy18>	wasamasa: C's build story is much worse than any other language I've used
-T 1602794320 18<28technomancy18>	by an enormous margin
-T 1602794321 18<20pjb18>	nly: the error you made is that you are thinking in the terms of the system: you just want to be caliph in place of the caliph. You're a mean jealous.
-T 1602794346 18<19wasamasa18>	technomancy: likewise few things work as well inside a Makefile
-T 1602794372 18<20bpalmer18>	(The taxation proposal is not a fair point, I will just chime in without wanting to get super-involved; among other things, companies not paying a dividend is not a permanent fact of life. If the people who own shares want, the company will issue dividends, providing cash without change in control)
-T 1602794373 18<20pjb18>	http://www.imaveditions.com/collection/iznogoud
-T 1602794380 18<27nly18>	pjb: Ah, sorry
-T 1602794388 18<28technomancy18>	all the packaging work I've done has really consistent on this: everything is easy, until C is introduced, then it becomes a nightmare
-T 1602794406 18<28technomancy18>	there are no exceptions
-T 1602794406 18<20aidalgol18>	pjb: Avoid the personal remarks, please.
-T 1602794424 18<27nly18>	also pjb good day sir :)
-T 1602794434 18<20aidalgol18>	technomancy: From what I've observed, I think that is largely because of what you are trying to do.
-T 1602794452 18<20pjb18>	It's funny how the name of the great vizir is English: Isnogoud = Is No Good :-)
-T 1602794452 18<20bpalmer18>	I'm not sure what the 'packaging system' is.
-T 1602794470 18<19wasamasa18>	the usual suspects, apt, pacman, ...
-T 1602794471 18<28technomancy18>	aidalgol: you think "build executables you can distribute to end users" is a weird edge case?
-T 1602794484 18<20bpalmer18>	One huge disadvantage in C and C++ is the lack of a single overwhelminingly popular *build* system, but once you figure out to build things, packages seem easy.
-T 1602794488 18<20pjb18>	aidalgol: ok. All those who complain about the 1% are mean and jealous people. It's not personal, it's general!
-T 1602794499 18<20aidalgol18>	Those "easy" ecosystems become painful when you're in systems development.
-T 1602794519 18<20aidalgol18>	technomancy: Statically?  Yes, that's less common.
-T 1602794525 18<19wasamasa18>	technomancy: so static linking, I see
-T 1602794556 18<20pjb18>	technomancy: I've got an easy solution: run on a system without a C compiler! Preferably a system where the architecture makes it hard to implement C ;-)
-T 1602794572 18<19wasamasa18>	lol
-T 1602794575 18<20CompanionCube18>	probably rather hard, even ye olde lisp machines had a c compiler...
-T 1602794586 18<20CompanionCube18>	maybe a FORTH machine?
-T 1602794597 18<27nly18>	anyone here bought any power9 machine?
-T 1602794598 18<20pjb18>	AS400?
-T 1602794624 18<20CompanionCube18>	pjb: nothing about AS/400 makes it particularly hostile to C as a language
-T 1602794642 18<20bpalmer18>	PDP 6 never had a c compiler, I don't believe
-T 1602794643 18<20pjb18>	Graned, even lisp machines had a Zeta-C compiler…
-T 1602794648 18<20pjb18>	+t
-T 1602794656 18<19wasamasa18>	grated
-T 1602794675 18<20bpalmer18>	However, only 23 PDP-6s were sold, so not many people will be running these programs, I guess.
-T 1602794691 18<26jrm18>	wasamasa: I think I got it.  They are sorta like desktops in a window manager rather than save window configurations.  Makes sense now.  Sorry for the noise.
-T 1602794698 18<20CompanionCube18>	could you implement a C compiler, though?
-T 1602794781 18<29johnjay18>	isn't the whole point of c you can implement it everywhere?
-T 1602794839 18<20bpalmer18>	CompanionCube: hmm. I suppose someone could, at least K&R C.
-T 1602794844 18<29wgreenhouse18>	johnjay: the point of C is that you can write a unix in it. now you have 2 problems.
-T 1602794853 18<20pjb18>	johnjay: turing equivalencen
-T 1602794859 18<29johnjay18>	haha true
-T 1602794875 18<29johnjay18>	aidalgol: i guess that makes me a scheming atheist w.r.t. computers then.
-T 1602794885 18<29johnjay18>	until we can come up with something better let's just use scheme for everything
-T 1602794896 18<19wasamasa18>	lol
-T 1602794897 18<20aidalgol18>	johnjay: eh?
-T 1602794915 18<29johnjay18>	after you said let's just use C until something better comes along
-T 1602794917 18<20bpalmer18>	PDP-6 was a 36-bit architecture, unlike the PDP-7's 18-bit. I wonder what role that would play.
-T 1602794919 18<29mplsCorwin18>	Let's make a new c-lang for today's computing environment.  We can call it 20cc.
-T 1602794920 18<29johnjay18>	let's take that logic to the next level
-T 1602794942 18<20aidalgol18>	oh
-T 1602794970 18<27grym18>	mplsCorwin: but, do you get stickers to hand out at cons? 
-T 1602794971 18<20bpalmer18>	mplsCorwin: C++20 has some nice things.
-T 1602794982 18<29mplsCorwin18>	grym: if you are very brave
-T 1602795003 18<27grym18>	mplsCorwin: https://imgur.com/cEzxFOC  it's very The Prime Thanatos ... 
-T 1602795007 18<29mplsCorwin18>	bpalmer: *reads*
-T 1602795012 18<27CaffeineVaccine18>	I've been stuck on this macro for 2 days... What I'm trying to do is create a macro that creates a data structure and creates an object of that datastructure right after: https://pastebin.com/AczGskm2
-T 1602795053 18<19wasamasa18>	macrostep is your friend
-T 1602795068 18<29mplsCorwin18>	I wonder if gensym could help here.
-T 1602795071 18<20bpalmer18>	mplsCorwin: https://en.cppreference.com/w/cpp/20 . For example, nowadays people writing C++ can safely assume integers are in 2's complement , instead of just blindly assuming integers are in 2's complement.
-T 1602795079 18<29johnjay18>	granted someone like wasamasa who actually does scheme on a regular basis probably has more insight
-T 1602795085 18<29johnjay18>	i'm just a SICP-level peon
-T 1602795094 18<29mplsCorwin18>	bpalmer: that looks better than the wikipedia article. Thanks!
-T 1602795107 18<19wasamasa18>	even if my preferred scheme had its pain points fixed I wouldn't use it for everything
-T 1602795124 18*	20edgar-rft prefers megabuttkicks over macrosteps
-T 1602795127 18<29mplsCorwin18>	grym: "Fox Force Five"
-T 1602795158 18<19wasamasa18>	not in the browser (or other unfriendly environments), not for throwaway scripts, not in other people's projects
-T 1602795170 18<19wasamasa18>	like, say, emacs
-T 1602795175 18<29johnjay18>	what does unfriendly mean?
-T 1602795181 18<19wasamasa18>	hostile
-T 1602795190 18<29johnjay18>	oh like security? ok
-T 1602795191 18<19wasamasa18>	think of browsers implementing exactly one runtime
-T 1602795212 18<19wasamasa18>	or operating systems making support of anything but their blessed language hard (hello windows/mac/android)
-T 1602795220 18<20bpalmer18>	CaffeineVaccine: backquote the progn, not progn two backquotes
-T 1602795250 18<20bpalmer18>	CaffeineVaccine: I don't know about macrostep, but I would make heavy use of macroexpand
-T 1602795285 18<19wasamasa18>	macrostep is interactive macroexpand preview
-T 1602795313 18<20bpalmer18>	you'll see that your macro right now, when expanded, is just a defconst. the struct definition is discarded.
-T 1602795363 18*	20bpalmer has long ago fallen into printf debugging, rather than debugger debugging.
-T 1602795378 18<19wasamasa18>	both have their use
-T 1602795423 18<27CaffeineVaccine18>	bpalmer: It was that simple.......
-T 1602795450 18<27CaffeineVaccine18>	bpalmer: Why in the world would it make a difference to backquote the progn instead of the two backquotes???????
-T 1602795451 18<22fsbot18>	Improbable!
-T 1602795456 18<27CaffeineVaccine18>	That is so unintuitive
-T 1602795460 18<19wasamasa18>	no, it's not
-T 1602795466 18<19wasamasa18>	the backquote part is the expansion
-T 1602795475 18<19wasamasa18>	the non-backquote part is compile-time code
-T 1602795490 18<27CaffeineVaccine18>	wasamasa: so I'm not understanding expansion correctly it seems??
-T 1602795490 18<22fsbot18>	Ask yourself, do you really want to know?
-T 1602795496 18<19wasamasa18>	your macro code has to return the generated code
-T 1602795511 18<19wasamasa18>	(progn `(foo) `(bar)) returns `(bar)
-T 1602795521 18<19wasamasa18>	`(progn (foo) (bar)) doesn't
-T 1602795524 18<20bpalmer18>	CaffeineVaccine: macros are run at macroexpansion/time.  Whatever they return will be evaluated at run-time.
-T 1602795537 18<20bpalmer18>	macroexpansion/compile time.
-T 1602795646 18<20bpalmer18>	When you write a macro, you want to come up with a fancy shortcut to transform source code into run-time code; this means, as another step in writing a macro, just write all the complicated parts as a function
-T 1602795665 18<20bpalmer18>	that way you can easily see what the return value is , and whether it returns code you can evaluate and does the job.
-T 1602795688 18<20bpalmer18>	Then do just enough patching to turn it into a macro (e.g., adding quotes & backquotes , changing defun to defmacro)
-T 1602795704 18<26terpri18>	laertus, all fair points, and it's encouraging to hear that there's still interest from the rank-and-file after such a long hibernation
-T 1602795711 18<20bpalmer18>	It's not the only way to do things, but it's the best way I've found to avoid bugs.
-T 1602795745 18<26terpri18>	and, i just checked with my main client and will only have part-time time commitments for the next several months
-T 1602795751 18<24laertus18>	terpri: there'll be more interest if people get wind of guile emacs possibly coming back to life
-T 1602795767 18<27CaffeineVaccine18>	bpalmer: wasamasa: thanks but still not fully comprehending why backquoting just the progn makes the macro work
-T 1602795778 18<26terpri18>	i've never been very good at marketing, but that's a skill that can be learned (and that others can potentially help with)
-T 1602795792 18<19wasamasa18>	CaffeineVaccine: perhaps you need to understand evaluation first
-T 1602795807 18<27CaffeineVaccine18>	wasamasa: that's probably true
-T 1602795828 18<29johnjay18>	wasamasa: i noticed your front page is just plain html. you don't use any web frameworks except for the emacs blogs?
-T 1602795837 18<19wasamasa18>	http://gigamonkeys.com/book/macros-defining-your-own.html explains macros with a fun story
-T 1602795845 18<26terpri18>	so, i think i'm going to give it a go, and damn the torpedoes! the worst possible outcomes are inadequate funding or inadequate progress, which is no worse than the status quo
-T 1602795878 18<19wasamasa18>	johnjay: no frameworks worth using with scheme
-T 1602795881 18<19wasamasa18>	johnjay: if any at all
-T 1602795907 18<19wasamasa18>	johnjay: the closest thing is called "awful" and it does live up that name indeed, found my first bug in five minutes
-T 1602795920 18<24laertus18>	terpri: i encourage you to take a look at the successful crowdfunding campaigns... the ones i know of and paid attention to are those of magit, and andrew plotkin (beloved test-adventure, interactive fiction author).. those made their kickstarter goals pretty quickly.. i'm not sure if guile emacs will have quite that kind of success in fundraising, but you might be surprised at how many people will commit
-T 1602795920 18<29johnjay18>	hah
-T 1602795922 18<24laertus18>	money if someone who's shown proven results in a project they care about asks for help
-T 1602795957 18<29johnjay18>	laertus: how long do you have to work on it to prove you care about it though
-T 1602795960 18<29johnjay18>	5 year plan?
-T 1602796003 18<24laertus18>	i don't think people are looking for proof of caring about it
-T 1602796034 18<27CaffeineVaccine18>	Thanks guys
-T 1602796038 18<22sam_18>	as someone who would chip in
-T 1602796047 18<24laertus18>	just proof you've done well at something they care about and therefore be likely of achieving more if properly funded
-T 1602796055 18<22sam_18>	just provide status updates when you can, be realistic about what you can achieve, and give links/proof that you can do the job
-T 1602796062 18<22sam_18>	yep
-T 1602796082 18<22sam_18>	terpri: please share the link if it happens (I hope it does)
-T 1602796094 18<27grym18>	the only kickstarter i've backed was Thimbleweed Park 
-T 1602796103 18<27grym18>	which i would look to as an example of how to do it right 
-T 1602796116 18<27grym18>	but it's a hard row to hoe 
-T 1602796203 18<24laertus18>	there are other successful open source funding models too
-T 1602796223 18<24laertus18>	ardour, the profession open source audio editor is funded by donations
-T 1602796243 18<24laertus18>	iirc, its author lives from the proceeds.. and has been doing so for many, many years
-T 1602796260 18<29johnjay18>	wasamasa: that was quite a nice story
-T 1602796292 18<24laertus18>	it's a good book
-T 1602796313 18<19wasamasa18>	now for comparison, another lisp person story: http://www-formal.stanford.edu/jmc/robotandbaby/robotandbaby.html
-T 1602796347 18<26terpri18>	i'll probably use a liberapay/patreon-type thing to start out with, that seems lower-risk than a kickstarter
-T 1602796370 18<20bpalmer18>	did gittip shut down?
-T 1602796403 18<20bpalmer18>	yep, looks so.
-T 1602796412 18<26terpri18>	and it doesn't have to provide a minimal cost-of-living, just enough to supplement/supplant paying contracts on other projects
-T 1602796449 18<26terpri18>	(not that i'm aiming low, just considering the failure modes)
-T 1602796479 18<24laertus18>	terpri: even if you don't do a kickstarter, i think there could be a lot to be learned from successfull kickstarter campaigns, such as how to pitch your project, keep people updated of progress, etc..
-T 1602796599 18<24laertus18>	though i think the most important thing is a solid track record of delivering results
-T 1602796629 18<27grym18>	good and honest comms matter a _lot_
-T 1602796650 18<27grym18>	unfortunately, this is hard to do and a learned skill and being your own PM and marketing group is a giant pain 
-T 1602796714 18<24laertus18>	it doesn't have to be a whole marketing campaign as such... just maybe a brief video laying out who you are, what you've done, and what you want to do
-T 1602796748 18<27grym18>	ad copy is hard even at that level if you're not used to it 
-T 1602796760 18<27grym18>	(i like, detest writing _cover letters_ )
-T 1602796769 18<24laertus18>	he could get help from it
-T 1602796785 18<24laertus18>	i found that andy wingo post i linked to earlier pretty persusasive
-T 1602796818 18<24laertus18>	also, the audience here is mostly technical people.. so we're good with facts..
-T 1602796852 18<24laertus18>	and the straightforward approach would probably be more effective than snazzy marketingspeak
-T 1602796949 18<27grym18>	that's the 'honest' above :) 
-T 1602796953 18<27grym18>	if you're falling over, _tell me_
-T 1602796967 18<27grym18>	not like i've never been there before
-T 1602796983 18<22sam_18>	[22:18:11]  <grym> good and honest comms matter a _lot_
-T 1602796984 18<22sam_18>	yep
-T 1602796996 18<24laertus18>	and, sorry, i meant "they"
-T 1602797007 18<29johnjay18>	question for emacs gurus. is there a way of accomplishing keyboard-translate but only for a specific buffer?
-T 1602797017 18*	26terpri taking notes
-T 1602797029 18<29johnjay18>	i suppose something like global-set-key a lot?
-T 1602797038 18<29johnjay18>	er local-set-key
-T 1602797060 18<29johnjay18>	local-set-key affects major modes apparently
-T 1602797149 18<27grym18>	terpri: it's like documentation. everyone wants to just code and document/communicate later, and it never works 
-T 1602797151 18<24laertus18>	terpri: magit kicskstarter:  https://www.kickstarter.com/projects/1681258897/its-magit-the-magical-git-client  and andrew plotkin on "How I raised $24,000 on Kickstarter" - https://money.cnn.com/2010/11/15/technology/kickstart_plotkin/index.htm
-T 1602797162 18<27grym18>	thimbleweed's: https://www.kickstarter.com/projects/thimbleweedpark/thimbleweed-park-a-new-classic-point-and-click-adv/posts 
-T 1602797170 18<27grym18>	(also, it's a good game!)
-T 1602797195 18<24laertus18>	though with the caveat that both magit and andrew plotkin's games were hugely beloved by the community before they even opened their mouth to ask for money
-T 1602797213 18<29johnjay18>	laertus: that's a very different case
-T 1602797219 18<27grym18>	right; similarly, thimbleweed was "hey remember monkey island? gang's back, y'all!"
-T 1602797291 18<27grym18>	so there was high community name recognition and assumption of good faith 
-T 1602797315 18<27grym18>	instead of "who the heck is this and why should i trust them to make a game, games are hard"
-T 1602797331 18<29mplsCorwin18>	I'd be happy to help with any kickstarter question, to the extent my scars are useful.  24k is *just* over what we raised.  https://www.kickstarter.com/projects/214684691/create-a-cats-laughing-twenty-year-reunion-event-a?ref=user_menu
-T 1602797332 18<24rudybot18>	https://teensy.info/y6SazMSOXE
-T 1602797341 18<27grym18>	(not implying that the funding under discussion right now falls into the latter case)
-T 1602797465 18<29mplsCorwin18>	FWIW, the best thing we learned is that having some swag to give away via drawings from people who share the campaign worked really well to help spread it around quicly.
-T 1602797508 18<29johnjay18>	mplsCorwin: so any successful kickstarter in coding has to start with cute anime girl art. makes sense
-T 1602797513 18<19wasamasa18>	lol
-T 1602797521 18<29mplsCorwin18>	proven science fact.
-T 1602797544 18<19wasamasa18>	you've reminded me that I've got a long way to go with my commissions
-T 1602797576 18<29johnjay18>	contribute $5 to help linux-tan and scheme-chan develop this new framework
-T 1602797598 18<29johnjay18>	the higher tiers get you higher badges and more clout within the community. this is gamification
-T 1602797821 18<19wasamasa18>	I still take advice from people for a proper emacs-tan
-T 1602797829 18<19wasamasa18>	and whatever else fancies your interest
-T 1602797897 18<29johnjay18>	that's a tough concept. because you already have concepts for linux and what not. so you'd have to differentiate somehow
-T 1602797902 18<26terpri18>	i know some good artists and a local screenprinting shop, so swag is doable
-T 1602797922 18<24laertus18>	terpri: and here's a non-kickstarter example... ardour:  https://community.ardour.org/community  "October goal US$8100 (US$97.2k/yr)" "Goal reached. Thanks so much!"  "Subscribers 4611 US$11112.00/month"
-T 1602797932 18<29johnjay18>	does swag mean prints or like keychains and such as well?
-T 1602798024 18<29mplsCorwin18>	swag == stuff we all get, usually t-shirts, posters, yea, keychains.
-T 1602798026 18<24laertus18>	but, again, ardour's been around for a long time, and a lot of people have been using it for a long time too.. including professionally, for whom donating to keep their tool working is a business expense
-T 1602798027 18<26terpri18>	maybe t-shirts and posters and mugs and the like, but i'm also imagining a pair of stuffed animals representing the guile baby gnu and the gnu-project gnu
-T 1602798067 18*	19wasamasa has flashbacks to RMS on CCC live stream auctioning off a baby gnu plush
-T 1602798075 18<29johnjay18>	>gnu plush
-T 1602798083 18<29mplsCorwin18>	johnjay: the key thing is that SWAG is collectible but not unique.  Hard to get over time but not at the time.
-T 1602798105 18<19wasamasa18>	he made like 50€ off it IIRC
-T 1602798106 18*	29mplsCorwin pulls string  "FREE ME"
-T 1602798108 18<29johnjay18>	mplsCorwin: so sort of like a "I was at woodstock" type thing?
-T 1602798116 18<26terpri18>	maybe usb sticks, a 3d-printable statue, signed reference manuals (i'm good at calligraphy and developed an interest in bookbinding from that...)
-T 1602798117 18<29mplsCorwin18>	johnjay: exactly
-T 1602798127 18<24laertus18>	RMS could probably have made a lot of money off gnu and fsf if he wanted to... and really start that church of emacs, or at least of Free Software
-T 1602798129 18<29mplsCorwin18>	terpri: sounds perfect
-T 1602798159 18<29johnjay18>	i'm not going to say all rich people are evil. because sometimes being rich can help a lot. I think maybe just billionaires are evil. millionaires are fine.
-T 1602798163 18<20pjb18>	laertus: perhaps he would have had more success, indeed.
-T 1602798198 18<20pjb18>	All the wanabee billionaires would love GPL!
-T 1602798231 18<24laertus18>	right.. maybe he could have sold rights to the GPL... :)
-T 1602798256 18<19rpav18>	the joke would be on them, of course .. it has only lefts
-T 1602798309 18<24laertus18>	left is the new right
-T 1602798319 18<26terpri18>	also maybe sponsored commits (in major/minor tiers, obviously a limited supply), a tier where you get a hyperlink from the donor page, that kind of thing
-T 1602798338 18<26terpri18>	copy the unicode consortium and sponsor-a-symbol ;)
-T 1602798364 18<24laertus18>	terpri: actually, i like the bug bounty idea.. or donate to get a feature implemented.. i think the latter is how the magit kickstarter got funded
-T 1602798396 18<24laertus18>	magit's authord had a list of features they promised to implement in a certain timeframe
-T 1602798463 18<24laertus18>	and pretty much everyone knew he could do it, because he was already so prolific and already made magit the gold standard in vcs interfaces
-T 1602798493 18<24laertus18>	but i don't think you necessarily have to be magit to get some funding
-T 1602798517 18<29mplsCorwin18>	A friend is a professional kickstarter organizer and gave us some tips for ours.  One really helpful one was to be very circumspect in planning your stretch goals.  He always lays them all out at the start of the campaign, which I think helps with gamification, "help us unlock".  In some cases they have "mystery" stretch-goals but still they layout the plan to start.
-T 1602798565 18<26terpri18>	i think i'm okay on the credentials front with my firefox contributions (i was the primary implementor of bignums in FF), plus the technically-successful GSoCs
-T 1602798589 18<29mplsCorwin18>	Seems legit
-T 1602798628 18<26terpri18>	yeah, i was thinking of more of a "cathedral" approach rather than just laying out all the long-term stretch goals on day 1
-T 1602798708 18<26terpri18>	("cathedral" might be the wrong metaphor, but i've done some hacking on the long-term super-secret stretch goals already, just not publicly)
-T 1602798726 18<29mplsCorwin18>	I think that makes sense in terms of "letting the community drive"; just passing on the "professional advice" as making a living running passion projects (my friend) is something of an accomplishment.  
-T 1602798775 18<29mplsCorwin18>	Here's his company: https://www.zombieorpheus.com/
-T 1602798966 18<24laertus18>	another thing that i think is on your side is that a lot of people involved in emacs and gnu and guile are kind of idealistic, and want to see their favorite open source project succeed, instead of going with some commerical product instead
-T 1602799000 18<24laertus18>	and tech people in general tend to be able to afford to help make that happen
-T 1602799012 18<24laertus18>	it's just that so often they're not even asked
-T 1602799135 18<24laertus18>	if they can see that there's a real person behind this project they care so much about, and that here's what they need to make it to the next level, many are willing to help
-T 1602799186 18<24laertus18>	this, i think, is what the magit kickstarter did so well.. here was this guy who had done such great work for the community, was struggling, and needed help to make magit so much better.. people responded to that
-T 1602799216 18<28pottag18>	wasamasa: nice new article
-T 1602799246 18<19wasamasa18>	thanks
-T 1602799268 18<26buhman18>	where's wasamasa's article?
-T 1602799373 18<20aidalgol18>	on the darkweb
-T 1602799402 18<19wasamasa18>	lol
-T 1602799416 18<19wasamasa18>	that would be the ultimate proof of my web stuff not requiring JS
-T 1602799435 18<19wasamasa18>	buhman: https://emacsninja.com/posts/worst-reverse-shell-ever.html
-T 1602799509 18<20aidalgol18>	not necessarily.  some of the dumbest criminals get caught because they enable JS and even flash while on tor
-T 1602799583 18<28oats18>	Omg buhman
-T 1602799586 18<26buhman18>	what is this sorcery? I can scroll on wasamasa's website without burning 5 CPU cores at 100% utilization. True wizardy.
-T 1602799593 18<28oats18>	there's a nick I haven't seen in a long time
-T 1602799612 18<19wasamasa18>	inorite
-T 1602799657 18<19wasamasa18>	I still dream of a world where I can just view my content in peace with no cookie notices, paywall nudging or other nonsense
-T 1602799685 18<19bremner18>	donate to my kickstarter to make that happen
-T 1602799686 18<20bpalmer18>	C-x C-f my-content.txt RET . 
-T 1602799694 18<29mplsCorwin18>	wasamasa: are you thinking of golpher?
-T 1602799698 18<20bpalmer18>	Now, when it's other people's content that you're reading...
-T 1602799705 18<28technomancy18>	lol TIL apt has package-specific workaround hacks in the dependency resolution logic
-T 1602799713 18<19wasamasa18>	I mean other people's content, sorry
-T 1602799738 18<28oats18>	technomancy, I would be entirely unsurprised to learn apt is made of hacks
-T 1602799744 18<19wasamasa18>	today I went on a well-known webcomic and it gave me a cookie notice with like a hundred advertiser consents I'd have to click away manually
-T 1602799797 18<19wasamasa18>	its author is making at least 11k$ on patreon
-T 1602799805 18<19wasamasa18>	why on earth is this nonsense necessary
-T 1602799829 18<19wasamasa18>	I wish this were some bad dream, but nope
-T 1602799915 18<28technomancy18>	oats: my theory is that the only reason apt works as well as it does is that it's built on enormous piles of labor
-T 1602799950 18<29johnjay18>	And in an age of endless spam, the Sage of the Six Browsing Technologies came forth to save the world and vanquish the tracking.
-T 1602799975 18<29johnjay18>	technomancy: the nix idea is to make everything reproducible, that's better isn't it?
-T 1602799989 18<20aidalgol18>	wasamasa: Before Patreon's cut and income tax.
-T 1602799999 18<20aidalgol18>	Is that annually or per month?
-T 1602800015 18<19wasamasa18>	monthly
-T 1602800023 18<20aidalgol18>	OK, that's pretty high.
-T 1602800036 18<20aidalgol18>	This isn't SMBC or xkcd, is it?
-T 1602800039 18<19wasamasa18>	nope
-T 1602800059 18<19wasamasa18>	but really, it doesn't matter, far from the only webcomic doing that
-T 1602800066 18<28technomancy18>	johnjay: yeah the idea is that a build is a function of its inputs instead of just "lol run a shell script I guess and think very hard about it first"
-T 1602800066 18<19wasamasa18>	I've noticed the same pattern with a few more
-T 1602800066 18<20aidalgol18>	just wondering
-T 1602800096 18<29johnjay18>	laertus: bug bounties and feature req would have to be a big thing
-T 1602800111 18<19wasamasa18>	and it makes me wonder whether I should rather use my mad h4xx0r sk1llz to instead free the few sites I care about from that bullshit
-T 1602800112 18<20aidalgol18>	technomancy: To be fair, apt is pretty old.  I don't really expect a distribution to rewrite their package manager in FP instead of improving a known quantity.
-T 1602800113 18<29johnjay18>	i recall donating one time to a browser extension with a request for a minor feature, got told lol no but thanks for $$$
-T 1602800154 18<20aidalgol18>	I don't think I want to live in a world where OSS features go to the highest bidder.
-T 1602800187 18<29johnjay18>	i guess not. but i mean it was a small thing imo. on an hourly basis 5 or 10 bucks would mean it would be profitable to do it in 1 hour
-T 1602800201 18<19wasamasa18>	anyway, I'm sure someone caring enough will find out because I ranted about this webcomic before, though for a different reason
-T 1602800207 18<29johnjay18>	aidalgol: what about multiple bidders crowdsourcing the next tier?
-T 1602800233 18<28technomancy18>	aidalgol: no, it's not reasonable to expect them to rewrite it
-T 1602800257 18<20aidalgol18>	technomancy: BTW, nix and guix need to flesh out their documentation a bit.
-T 1602800265 18<28technomancy18>	aidalgol: it's more that the whole mindset of "run a shell script to install" can't be expected to work at the scale of debian without enormous mountains of manual labor
-T 1602800318 18<20aidalgol18>	technomancy: Maintaining a distribution is going to be an enormous mountain of manual labor, and I don't see using FP magically diminishing that.
-T 1602800324 18<24laertus18>	aidalgol: would you rather live in a world where the software you care about got the features and bugfixes you wanted maybe, if its author cared about them and had spare time from actually making a living?
-T 1602800342 18<28technomancy18>	aidalgol: it depends on the cost of your mistakes
-T 1602800365 18<24laertus18>	people getting paid for open source work is kind of close to a utopia for me... only thing better is for no one to need money to survive in the first place
-T 1602800377 18<20aidalgol18>	laertus: I'd rather live in a world where we didn't have to worry about money.
-T 1602800379 18<28technomancy18>	aidalgol: under apt, mistakes are immensely costly, which forces you to move much more slowly. if you have guaranteed rollback, mistakes tend to be very cheap.
-T 1602800399 18<20aidalgol18>	technomancy: True.  I shouldn't have to rely on the root filesystem to be able to easily roll back.
-T 1602800399 18<24laertus18>	aidalgol: me too.. but the world doesn't seem to be headed in that direction any time soon
-T 1602800416 18<28technomancy18>	"never make a single mistake" takes an enormous amount of work. "sometimes make mistakes, and then roll them back trivially" can be done a lot more easily.
-T 1602800417 18<27hodapp18>	nix (and nixpkgs, and nixos) docs are sometimes great, and sometimes they're just fucking horrid
-T 1602800432 18<20aidalgol18>	what hodapp siad
-T 1602800444 18<20aidalgol18>	hodapp: Hey, you haven't been getting offby1 to throw his dentures at you lately
-T 1602800445 18<27hodapp18>	there's a lot of cargo culting I see in nixpkgs because there is just no other way to get an answer on the "right" way to do something
-T 1602800460 18<27hodapp18>	so you grep around in nixpkgs and find a way that at least works, and copy it
-T 1602800462 18<20aidalgol18>	laertus: But yeah, in the mean time, crowd sourced OSS would be better than what we have now: begging for corporations
-T 1602800462 18<28technomancy18>	I'm not saying guix is great; just that they at least have a shot at accomplishing a lot more with a lot less, because their underlying model is superior.
-T 1602800496 18<20aidalgol18>	laertus: Let's just temper our enthusiasm so we don't lower our standards.
-T 1602800498 18<27hodapp18>	so I love NixOS, but this is a thing I hate about all of it
-T 1602800544 18<27hodapp18>	the thing I just ran into is "JACK and PulseAudio can't play nice together and no one has any up-to-date answer on the proper way to solve it, so here is a pile of hacks that might work"
-T 1602800557 18<28technomancy18>	that's not specific to nixos
-T 1602800568 18<29johnjay18>	i forgot guix and nix are different
-T 1602800587 18<29johnjay18>	so guix is the gnu nix ok
-T 1602800593 18<27hodapp18>	it's a problem that happens elsewhere, but there seem to be NixOS pecularities to it
-T 1602800610 18<29johnjay18>	but there's no guix linux, guix is just a program/system?
-T 1602800616 18<27hodapp18>	GuixSD
-T 1602800639 18<29johnjay18>	hrm. that seems weird to me. do you need a different distro for this?
-T 1602800647 18<27hodapp18>	GuixSD *is* the distro
-T 1602800663 18<29johnjay18>	also wait. linux-libre???
-T 1602800663 18<22fsbot18>	It is certain!
-T 1602800668 18<29johnjay18>	https://en.wikipedia.org/wiki/Linux-libre
-T 1602800756 18<27hodapp18>	my other annoyance is how much the Nix language seems to lend itself to errors that occur 18 levels deep in the stack trace
-T 1602800759 18<27grym18>	wasamasa: re emacs-tan, what are the restrictions on that image you've shared here a few times
-T 1602800760 18<27hodapp18>	because I got a type wrong or something
-T 1602800772 18<27hodapp18>	because no one bloody documented it and I was just taking my best gues
-T 1602800773 18<19wasamasa18>	grym: not sure what you're talking about
-T 1602800804 18<27grym18>	wasamasa: http://x32.be/oc/emacs/rye-emacs-bg.png  or it might've been another regular? 
-T 1602800808 18<19wasamasa18>	grym: I commissioned an artist and named a few things that ended up being too vague and too specific at the same time
-T 1602800851 18<19wasamasa18>	grym: oh wait, are you telling me I own that picture now and can actually try to enforce rights of its usage?
-T 1602800880 18<27grym18>	wasamasa: no i am asking about its provenance
-T 1602800890 18<27grym18>	or not provenance, rights
-T 1602800892 18<19wasamasa18>	I just told you
-T 1602800927 18<29mplsCorwin18>	"Should I pay someone $5 or something if wanna reblog?"  is maybe the question?
-T 1602800934 18<27grym18>	^ that's closer, yeah 
-T 1602800938 18<27grym18>	sorry if that was vague
-T 1602800977 18<19wasamasa18>	ah, so you want to actually reproduce that one?
-T 1602801003 18<27grym18>	or just like, feel good about having a copy on my hard drive 
-T 1602801060 18<19wasamasa18>	I don't see the harm with that
-T 1602801098 18<19wasamasa18>	I've never asked the artist about how licensing plays into this and as long as nobody is reselling that picture or otherwise profiting off it, I don't care
-T 1602801120 18<19wasamasa18>	but I don't want to put it explicitly under such a license without having cleared that with the artist, so uh
-T 1602801148 18<27grym18>	no smearing it over the blog background 1998 style, got it 
-T 1602801170 18<19wasamasa18>	yeah, no "You made this? I made this."
-T 1602801214 18<26terpri18>	wasamasa, thanks for updating the emacsninja post. i'm going to poke around and see what's causing the pessimization (parts of guile-elisp are written without any consideration given to optimization, since atm emacs eventually clobbers most of the definitions in practice, but it shouldn't be *that* bad)
-T 1602801479 18<26terpri18>	and yes, the primitives are extremely limited, only what was needed to bootstrap emacs $n$ years ago (i'll fix print though; i forgot that it should add newlines on both sides, though given my nick you'd expect me to know the lisp i/o functions by heart ;))
-T 1602801506 18<19wasamasa18>	haha
-T 1602801662 18<24laertus18>	guile emacs lives!
-T 1602803457 18<20aidalgol18>	,sedate laertus 
-T 1602803457 18*	22fsbot clubs laertus on the head. laertus sleeps soundly.
-T 1602803490 18<24laertus18>	,botsmack
-T 1602803491 18*	22fsbot evades!
-T 1602804157 18<29johnjay18>	ok i'm probably going insane but
-T 1602804176 18<29johnjay18>	when i assign fancy-splash-image to the literal image emacs uses for the splash screen, splash.png, it fails to work
-T 1602804186 18<29johnjay18>	when i dont' do that it does work. this is 26.3
-T 1602804270 18<29johnjay18>	on debian this is "/usr/share/emacs/26.3/etc/images/splash.png"
-T 1602804313 18<24laertus18>	can you describe in more detail what happens when it fails to work?
-T 1602804341 18<26terpri18>	i saved the last bit of the backlog, so i'll ping those of who expressed interest once there when there is more news in a few weeks (after i'm less busy with $work; in the meantime i'll ruminate (gno pun intended) on the next $n$ Year Plan and try to estimate just how painful rebasing will be this time around). and thanks to everyone who offered advice and constructive critique
-T 1602804356 18<29johnjay18>	no. i just don't see the image appear. no error message in echo area
-T 1602804436 18<29johnjay18>	been driving me crazy for last 15 minutes, so i give up lol
-T 1602804440 18<24laertus18>	terpri: looking forward to it
-T 1602804453 18<29johnjay18>	i tried other pngs before this obviously, xpm as well. nothing
-T 1602804456 18<24laertus18>	johnjay: you could try an strace of emacs
-T 1602804470 18<29johnjay18>	hrm, meaning the library could be failing?
-T 1602804482 18<24laertus18>	meaning it might not be looking where you think it's looking
-T 1602804489 18<24laertus18>	if it's looking at all
-T 1602804492 18<29johnjay18>	oh right
-T 1602804499 18<24laertus18>	if it does try to look there, strace should show it
-T 1602804534 18<24laertus18>	this is kind of a low-level approach to troubleshooting this.. but i have no idea how emacs does its splash magic, so until someone has a better suggestion...
-T 1602804558 18<24laertus18>	another thing you could do is search for that variable name in the code
-T 1602804565 18<24laertus18>	see what touches it
-T 1602804572 18<29johnjay18>	i don't see the image file mentioned in strace at all
-T 1602804582 18<29johnjay18>	not name not png
-T 1602804591 18<29johnjay18>	it's in startup.el
-T 1602804598 18<29johnjay18>	just search for 'png and you see it
-T 1602804602 18<24laertus18>	regarding the strace, you might need to run it with a high numerical value of the -s option
-T 1602804615 18<24laertus18>	as by default strace does not show full strings
-T 1602804673 18<24laertus18>	if it doesn't show up in strace there, it's likely that emacs isn't even looking for the image for some reason
-T 1602804685 18<29johnjay18>	haha it's not loading a png file for the regular splash image either
-T 1602804692 18<26terpri18>	johnjay, you could use debug-on-entry whatever function is responsible for inserting the splash image (possibly fancy-startup-screen?)
-T 1602804696 18<29johnjay18>	wtf
-T 1602804941 18<20jlf18>	johnjay: maybe check ,,dv image-types
-T 1602804943 18<22fsbot18>	List of potentially supported image types.
-T 1602804943 18<22fsbot18>	Each element of the list is a symbol for an image type, like ‘jpeg’ or ‘png’.
-T 1602804943 18<22fsbot18>	To check whether it is really supported, use ‘image-type-available-p’.
-T 1602804954 18<29johnjay18>	i think use-fancy-splash-screens-p is always returning nil for some reason
-T 1602804961 18<29johnjay18>	yes that returns true for png
-T 1602805091 18<29johnjay18>	surely this isnt' a big
-T 1602805116 18<29johnjay18>	what happens if you set fancy-splash-image to an absolute path of a png file?
-T 1602805126 18<29johnjay18>	in init.el i mean.
-T 1602805130 18<26terpri18>	johnjay, or, maybe more simply, jump to the definition of whatever actually inserts the splash image, edebug with C-u C-M-x, kill the "*GNU Emacs*" buffer and then M-: (display-startup-screen) so you can step through the code
-T 1602805141 18<26terpri18>	s/simply/usefully/ :)
-T 1602805161 18<29johnjay18>	right that fails. but i suspect i'm just doing it wrong
-T 1602805238 18<26buhman18>	wasamasa: "Much like with the reverse shell" shouldn't that be "bind shell"?
-T 1602805424 18<29johnjay18>	so this line is failing because 9 is not bigger than 28
-T 1602805427 18<29johnjay18>	 (> frame-height (+ image-height 19))
-T 1602805439 18<29johnjay18>	but 9 should be bigger than 28
-T 1602805505 18<29johnjay18>	or wait no it's 24 > 28 that is failing
-T 1602805567 18<24laertus18>	so your frame is too small?
-T 1602805693 18<20aidalgol18>	Is there some way I can have `compile' cd to a specific directory in the current project before running the command?  Even running some external before a && in the command passed to `compile' that can do this would be fine.
-T 1602805729 18<20aidalgol18>	Are there any CLI tools for navigating "projects"?  As in with similar commands to projectile.
-T 1602805733 18<20aidalgol18>	But outside Emacs.
-T 1602805735 18<29johnjay18>	ok i think i got it. when i shrink the image down to 100x100 it does display
-T 1602805747 18<29johnjay18>	it's checking if the frame height is bigger than the image height plus 19 or something weird
-T 1602805754 18<20aidalgol18>	Oh wait, there's a projectile compile command...
-T 1602805764 18<29johnjay18>	i guess my frame is indeed too small
-T 1602805787 18<29johnjay18>	although the fact it fails on also the emacs logo png file itself makes me think this is still a bug of some kind
-T 1602805811 18<20aidalgol18>	Some of the docstrings are a bit lacking.
-T 1602805836 18<20aidalgol18>	`projectile-compilation-dir': Retrieve the compilation directory for this project.
-T 1602805843 18<20aidalgol18>	Yes, thanks, *how*?  How do I configure that?
-T 1602805854 18<20aidalgol18>	(Rhetorical question.  I'm reading the source now.)
-T 1602805910 18<29johnjay18>	maybe it's because my display is 1024x768 or something
-T 1602805929 18<29johnjay18>	i'm not setting frame height or width in my init.el
-T 1602806332 20*	Disconnected (20)
-T 1602806394 20*	Disconnected (20Remote host closed socket)
-T 1602806454 20*	Disconnected (20Remote host closed socket)
-T 1602806503 20*	Disconnected (20Remote host closed socket)
-T 1602806529 19*	Now talking on 22#emacs
-T 1602806529 22*	Topic for 22#emacs is: Gul Dukat says upgrade to 27.1: https://i.imgflip.com/4hpvlw.jpg | Emacs questions take priority over off-topic chatter, so ask! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
-T 1602806529 22*	Topic for 22#emacs set by 26wgreenhouse!wgreenhous@fsf/member/wgreenhouse (24Thu Oct  8 00:50:34 2020)
-T 1602806529 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
-T 1602807083 18<27grym18>	aidalgol: direnv.net, maybe.  but "having compile cd to a directory" sounds like a makefile target to me 
-T 1602833674 20*	Disconnected (20)
-T 1602833700 19*	Now talking on 22#emacs
-T 1602833700 22*	Topic for 22#emacs is: Gul Dukat says upgrade to 27.1: https://i.imgflip.com/4hpvlw.jpg | Emacs questions take priority over off-topic chatter, so ask! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
-T 1602833700 22*	Topic for 22#emacs set by 26wgreenhouse!wgreenhous@fsf/member/wgreenhouse (24Thu Oct  8 00:50:34 2020)
-T 1602833700 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
-T 1602833952 18<20bpalmer18>	Let's stack the odds in how the world ends.
-T 1602834124 18<29mplsCorwin18>	kudahtor228: I'm giving up, at least for now.  I was able to install tidy but I get some "I'm giving up, at least for now.  I was able to install tidy" which replaces the buffer contents when I run tidy-buffer.   I might try more later but this package may be ded pending more heroic efforts.
-T 1602834153 18<29mplsCorwin18>	c/p fail.  The error is   The system cannot find the path specified.
-T 1602834298 18<20bpalmer18>	Hmm. 
-T 1602836991 18<27thomasb0618>	Hello. When I type M-x diff-mode, my buffer loses coloration and nothing else happens. It takes to revert it to recover the coloration
-T 1602837396 18<19twb18>	Is there an open source engine for X-Wing vs. TIE Fighter series?
-T 1602837411 18<19twb18>	It came out in the 1990s so you'd think there'd be one by now
-T 1602837496 18<20bpalmer18>	thomasb06: what are you trying to do?
-T 1602837557 18<27thomasb0618>	bpalmer to diff the file in the buffer with another one
-T 1602837638 18<27thomasb0618>	maybe it's M-x diff only?
-T 1602837711 18<20bpalmer18>	M-x diff RET  will ask you for two files to diff; see also diff-buffers  and diff-buffer-with-file
-T 1602837762 18<20bpalmer18>	there's also ediff-file and ediff-buffers , if you prefer ediff to diff
-T 1602837790 18<27thomasb0618>	bpalmer perfect, thank you
-T 1602838099 18<19wasamasa18>	buhman: thanks, fixed
-T 1602838230 18<19wasamasa18>	johnjay: I still have hopes of emulating CP/M or another simplicistic OS
-T 1602838248 18<19wasamasa18>	aidalgol: not sure what you mean, but feel free to give me a run-down
-T 1602838266 18<19wasamasa18>	thblt: lol, the newest RMS mail on him hoping MELPA isn't well-known
-T 1602838287 18<27thomasb0618>	ediff leaves the highlighting in the buffer after closing one of the two buffer compared
-T 1602838402 18<19wasamasa18>	thblt: and yes, I did point that exchange thing out, see https://lists.gnu.org/archive/html/emacs-devel/2020-05/msg03041.html
-T 1602838602 18<20bpalmer18>	It does somewhat amuse me that one of the easiest ways to gather evidence about whether a minority of emacs users know about melpa seems to be precluded from asking about it, in rms's mind.
-T 1602838630 18<29mplsCorwin18>	"It's a secret to everyone!"
-T 1602838630 18<19wasamasa18>	https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg00944.html
-T 1602838656 18<19wasamasa18>	it's funny because he gets reinforcement to this theory on emacs-devel a few posts later
-T 1602838658 18<20bpalmer18>	Yes, precisely the message I was thinking of.
-T 1602838666 18<19wasamasa18>	https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg00956.html
-T 1602838671 18<29mplsCorwin18>	I quoted it sometime back.
-T 1602838695 18<19wasamasa18>	and then thblt: https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg00961.html
-T 1602838732 18<29mplsCorwin18>	which is correct afict
-T 1602838805 18<20bpalmer18>	'AFAIK, both Trisquel and Parabola keep out packages that recommend or encourage proprietary software, which seems essential to protect users' freedom' -- in order to save the village, one must destroy it.
-T 1602838910 18<29mplsCorwin18>	The secret to freedom is limiting the field so the remaining choices are aways free.  I'm actually a little dizzy trying to make a non-cynical spin for it.
-T 1602839232 18<19wasamasa18>	lol, RMS enabling an emacs DoS: https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg00968.html
-T 1602839243 18<19wasamasa18>	he had good intentions, I swear
-T 1602839291 18<19wasamasa18>	good to see people don't only get chewed out for mentioning the possibility of changing a default
-T 1602839563 18<27codingquark18>	May be some people want to live the restrictive FLOSS life, some do not. No need to say the other is wrong
-T 1602839636 18<22thblt18>	It's not even that.  Melpa isn't more or less “free” than ELPA, it just isn't vetted by the FSF.
-T 1602839647 18<27codingquark18>	"I want to distro that forbids me from installing the software that does not align with my ideology" is equally okay as "I want a distro that comes with the software that does align with my ideology, but sometimes I cheat"
-T 1602839672 18<22thblt18>	The thing that makes mailing lists unsufferable is that points need to be made again and again, because they keep getting ignored.
-T 1602839686 18<27codingquark18>	Now, as a distro maker, one has to decide which path they want to take.
-T 1602839724 18<27codingquark18>	Hmm, one would think mailing lists are great because people take a lot of time in writing their long messages /s
-T 1602839816 18<22thblt18>	https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg00881.html [On forking Melpa as non-gnu ELPA] “Rather, we would need to each package to decide whether to import it, and whether and
-T 1602839816 18<22thblt18>	how change it.”
-T 1602839885 18<20bpalmer18>	well, there's an issue with threaded discussion where messages are read and replied to asynchronously. This is arguably one argument for gmail-like "conversation" threads; you known precisely what messages someone is supposed to be aware of by where they are in the conversation (and what they quoted in their invariable top-posting)
-T 1602840347 18<24laertus18>	i've been surfing through the emacs stackexchange recently, and am kind of getting the impression that drew adams almost singlehandedly answers all the questions on there
-T 1602840378 18<24laertus18>	virtually every answer i find on there is by drew
-T 1602840379 18<29mplsCorwin18>	I see Lars sometimes too.
-T 1602840475 18<20bpalmer18>	Let's collect all the points to keep the area child-safe.
-T 1602841045 18<24laertus18>	speaking of children... i wonder what the record for the youngest emacs user is
-T 1602841141 18<24laertus18>	probably pretty young these days... lucky kids...
-T 1602841202 18<24laertus18>	one day i'm going to hear "i've been using emacs since i was 2 years old.."
-T 1602841311 18<20aidalgol18>	I started in high school...
-T 1602841376 18<27DuClare18>	and ended in low school..
-T 1602841547 18<24laertus18>	kids will be getting in to fights over vim vs emacs on the playground
-T 1602841573 18<24laertus18>	and growing up in families where everybody uses emacs..
-T 1602841617 18<24laertus18>	starting in high school is pretty good
-T 1602841629 18<22thblt18>	Two editors, both alike in dignity, in the kindergarten where we lay our scene.
-T 1602841674 18<19snan18>	I was 18 or 19 when I started using emacs T_T probably pretty common age for that
-T 1602841707 18<22thblt18>	Wow I was looking for Act I scene 1 to continue my stupidity and I found this annotated version https://myshakespeare.com/romeo-and-juliet/act-1-scene-1
-T 1602841722 18<22thblt18>	It's even better than parallel texts.
-T 1602841729 18<22thblt18>	Where do I put my money?
 T 1602841865 18<19twb18>	OK so I have a science question
 T 1602841872 18<19twb18>	you know how fruits are basically plant genitals
 T 1602841886 18<19twb18>	and they trick animals into eating the fruit because then they walk around and shit out the seed somewhere
@@ -5279,3 +4808,448 @@ T 1612383368 18<20bpalmer18>	such as not watching the 4K video I'm gonna
 T 1612383414 18<20bpalmer18>	(for all that I appreciate the modern web, some sites *clearly* don't know what they're doing)
 T 1612383480 18<26polezaivsani18>	you mean like showing 4k vids about saving battery with dark mode?
 T 1612383504 18<27natter18>	I like looking for the "fire network requests for required page data inside window.onload" pattern
+T 1612383654 18<19parsnip18>	i guess the reason i gave up and started preferring dark mode, is fighting against all the cli tools that assume your terminal is dark
+T 1612383695 18<19parsnip18>	also, more websites have been offering the option, making my screen more consistent
+T 1612383715 18<19parsnip18>	it's annoying to have everything but your browser be dark
+T 1612383721 18<19parsnip18>	or pdfs too
+T 1612383726 18<19bremner18>	I just use a theme to match my mood
+T 1612383735 18<19parsnip18>	but i haven't been reading many pdfs lately
+T 1612383738 18<19bremner18>	M-x bitter-mode
+T 1612383746 18<27natter18>	I just look for the equivalent of 
+T 1612383753 18<27natter18>	global-font-lock-mode
+T 1612383769 18<27natter18>	sweet sweet black on white text everywhere
+T 1612383887 18<20bpalmer18>	oh, CLI tools that just assume they can spew ansi escape sequences are monsters.
+T 1612383903 18<20bpalmer18>	,flame colors
+T 1612383903 18<22fsbot18>	colors: you nincompoop!
+T 1612383927 18<27natter18>	isn't that the whole premise behind the --no-color-please flag that some folks are trying to get added to every CLI tool everywhere?
+T 1612383933 18<27grym18>	colorama <3 
+T 1612383943 18<27grym18>	natter: i think so 
+T 1612383980 18<29cluck18>	parsnip: dark reader is a great help for that 
+T 1612384063 18<29cluck18>	bremner: where did you find a lime sour theme?!
+T 1612384069 18*	29cluck ducks
+T 1612384134 18<26polezaivsani18>	when i last checked the hip cli tools, they spewed all kinds of motds and ads, sure in the color scheme to the preference of the author
+T 1612384199 18<27tromey18>	I guess we all gave up on termcap/info since they suck and curses since it like mega sucks
+T 1612384201 18<26polezaivsani18>	isn't that what virtualization and containers are for?
+T 1612384217 18<29cluck18>	it's a CONSpiracy! plan9ers just want less work porting cli tools!!1one
+T 1612384228 18<19parsnip18>	weechat is annoying as fuck in a light terminal
+T 1612384289 18<29cluck18>	tromey: xterm is my feature list :)
+T 1612384323 18<19parsnip18>	https://github.com/weechat/weechat/issues/1338
+T 1612384643 18<27natter18>	eww's readable mode is so good for github issues. it's a shame the comments are inscrutable
+T 1612384643 18<19parsnip18>	does this induce nausea for you? https://www.youtube.com/watch?v=qfRAL0AgzGs 
+T 1612384665 18<20bpalmer18>	now that's a way to encourage people to click.
+T 1612384725 18<20birkoff18>	how can I copy M-x command's error line ? 
+T 1612384728 18<19parsnip18>	Alice in Wonderland (1995) - youtube
+T 1612384734 18<20bpalmer18>	"Does this webpage shred your mind and lead you into madness on the first direct look, like it did me? https://necronomicon.example.com "
+T 1612384750 18<19parsnip18>	birkoff: you mean like messages that appear in *Messages*? try C-h e
+T 1612384753 18<20bpalmer18>	birkoff: check the *Messages* buffer
+T 1612384757 18<20bpalmer18>	parsnip beat me to it.
+T 1612384809 18<27natter18>	parsnip: "produced by jetlag productions" lol
+T 1612384822 18<19parsnip18>	lol
+T 1612384853 18<20bpalmer18>	(Hmm. Should the necronomicon use one of the fancy new TLDs?)
+T 1612384881 18<19parsnip18>	they should have a public domain license thing, "when this artwork goes into public domain, so too shall all derivative works"
+T 1612384906 18<27grym18>	bpalmer: only if you like making the laundry's job easier
+T 1612384937 18<20bpalmer18>	there is a convenient .blackfriday TLD
+T 1612384948 18<27natter18>	bpalmer: undeadly.org is taken, so we'll need to branch out
+T 1612385165 18<19parsnip18>	hmm, i created two classes, Profiles and Storage
+T 1612385193 18<19parsnip18>	profiles basically manages a directory of subdirectories instantiated as uuids
+T 1612385210 18<19parsnip18>	and Storage should be instantiated on one of these directories
+T 1612385226 24*	28jess| is now known as 18jess
+T 1612385255 18<19parsnip18>	i already have a method in Profiles for setCurrentProfile, which puts a uuid in a file called current-profile
+T 1612385285 18<19parsnip18>	not sure the best way to get that information to Storage
+T 1612385347 18<19parsnip18>	i guess i should just add a getter to Profiles class
+T 1612385356 18<19parsnip18>	to keep them untangled
+T 1612385362 18<27natter18>	StorageManager class, it is...inevitable
+T 1612385396 18<19parsnip18>	s/untangled/decoupled/
+T 1612385432 18<27grym18>	the god object lurks beyond the gate 
+T 1612385461 18<27natter18>	ManagerManager awaits us all
+T 1612385880 18<25cvandusen18>	let's sort our commits by popularity 
+T 1612386039 18<27natter18>	"init repo" -- deeply unpopular, seems we got off to a bad start
+T 1612386127 18<28rgr18>	best way to take  list element returned from completing-read and move it to the head of the list so that (car list) returns it?
+T 1612386191 18<28rgr18>	a cons and remove probably
+T 1612386681 18<28mwnaylor18>	When viewing variable or function documentation in a *Help* buffer, I can jump to the source code definition by typing <RET> when the point is on the file name. Is there a way to modify the behavior so the file is always opened in read-only mode?
+T 1612386723 18<22adam_erc18>	I want to turn every org-mode heading into a <<<radio target>>>. So I tried overriding org-radio-target-regexp like so:
+T 1612386737 18<22adam_erc18>	(defconst org-radio-target-regexp (format "<%s>\\|^\\*\s\\(.+\\)" org-target-regexp)
+T 1612386737 18<22adam_erc18>	  "Regular expression matching a radio target.")
+T 1612386737 18<22adam_erc18>	 
+T 1612386737 18<22adam_erc18>	But this does not do anything.
+T 1612386737 18<22adam_erc18>	Any ideas?
+T 1612386838 18<27waleee-cl18>	parsnip:  libjansson seems to be the crucial bit for lsp-mode (if you ever get the inclination to use lsp in emacs)
+T 1612386851 18<19parsnip18>	much faster?
+T 1612386870 18<19parsnip18>	i think i got annoyed with runaway processes or ram eating of lsp
+T 1612386897 18<19parsnip18>	i remember asking, "how do i tell lsp-mode to just kill everything off"
+T 1612386899 18<27waleee-cl18>	parsnip:  *not freezing emacs*
+T 1612386905 18<19parsnip18>	and they didn't have an easy answer, and didn't seem to think it was a big deal
+T 1612386924 18<28rgr18>	whats the proper/elispy way to do this, it seems a bit overly mfrd on my part (move element to top of list) : (remove e l)(add-to-list 'l  e)
+T 1612386931 18<19parsnip18>	"go and find them all, kill each one"
+T 1612386981 18<19parsnip18>	waleee-cl: dart is not that bad to hand edit
+T 1612386999 18<19parsnip18>	and i am not formally addicted to IDE features
+T 1612387000 18<27waleee-cl18>	scala & java gets annoying
+T 1612387064 18<19parsnip18>	yeah, i can imagine
+T 1612387081 18<19parsnip18>	i wrote a little java, in emacs, it sucked
+T 1612387114 18<19bremner18>	there there, I'm sure you're not that bad at java programming
+T 1612387124 18<19parsnip18>	no u
+T 1612387134 18<27natter18>	rgr: if this is apropos your last element list question, can you do (nconc (last l) (butlast l)) ?
+T 1612387169 18<19parsnip18>	i did gain a little appreciate for java in that time
+T 1612387200 18<19parsnip18>	prior to that, the only c-like language i had experience with, was python
+T 1612387231 18<19parsnip18>	*appreciation
+T 1612387259 18<28rgr18>	natter, thanks, but hmm, Ill stick with remove and add then as I have no idea what your code is, but I will look at it ;)
+T 1612387262 18<28rgr18>	but it wasnt to do with last, rather remove a selectde element and stick it at the head.
+T 1612387327 18<22ecraven18>	can emacs sort the words in a line?
+T 1612387337 18<22ecraven18>	like sort-lines ;)
+T 1612387443 18<27grym18>	ecraven: see "emulating sort-lines" for one approach https://www.masteringemacs.org/article/sorting-text-line-field-regexp-emacs 
+T 1612387497 18<22ecraven18>	thanks
+T 1612387939 18<22adam_erc18>	Hi parsnip
+T 1612387959 18<19parsnip18>	hello
+T 1612388341 18<24roxlu18>	hey! any recomendations for modes/addons for note taking? I thought deft was a nice solution but it way too slow to filter through many messages.
+T 1612388355 18<27grym18>	roxlu: org? 
+T 1612388360 18<27grym18>	probably org 
+T 1612388380 18<24roxlu18>	grym: deft uses org files too; can you explain a bit what you mean?
+T 1612388411 18<27grym18>	roxlu: i have a notes.org file to which i prepend notes, it seems ok 
+T 1612388441 18<24roxlu18>	grym: ah! yeah I've been using that for 10+ years but my notes.org has become too large
+T 1612388481 18<27grym18>	i haven't gotten there yet 
+T 1612388486 18<27grym18>	only like ... 6k lines or so 
+T 1612388501 18<24roxlu18>	yeah I'm over 55K :) 
+T 1612388527 18<27grym18>	archive things by year and ripgrep when you need to? 
+T 1612388547 18<28rgr18>	I thought deft was merely a text indexer. And its pretty damn fast,
+T 1612388576 18<24roxlu18>	rgr: I think it depends how many files it indexes
+T 1612388585 18<28rgr18>	yes..
+T 1612388596 18<28rgr18>	thats a pretty big haul you have.
+T 1612388607 18<27grym18>	ripgrep and fzf do OK for me so far 
+T 1612388617 18<24roxlu18>	.. I've not even got that many files now I think. I've exported my notes.org main titles to separate files to see if using deft would work
+T 1612388634 18<27grym18>	is deft smart enough to know to ignore top level headers and #+OPTIONs and stuff
+T 1612388645 18<27grym18>	or does it look up a #+TITLE
+T 1612388656 18<24roxlu18>	I think it has options for that
+T 1612388688 18<27grym18>	interesting 
+T 1612388727 18<28rgr18>	Oh I have fzf in my emacs init. Never used it. projectile/rgrep do the job.
+T 1612388814 18<27grym18>	ripgrep searches content; fzf searches names
+T 1612389220 18<22adam_erc18>	Hey parsnip - do you use org-mode?
+T 1612389233 18<19parsnip18>	define "use"
+T 1612389251 18<19parsnip18>	i edit some files called "foo.org" in emacs
+T 1612389254 18<22adam_erc18>	Ha!
+T 1612389281 18<19parsnip18>	is your question, "i am using a particular feature of org and having some issues"?
+T 1612389299 18<19parsnip18>	then whether or not i use org-mode seems irrelevant
+T 1612389316 18<22adam_erc18>	I want to turn every org-mode header into a <<<radio link>>>. I tried overriding org-radio-target-regexp but must have messed up on the regexp, so thought I would ask an expert...
+T 1612389334 18<22adam_erc18>	This is the modified version:
+T 1612389336 18<22adam_erc18>	(defconst org-radio-target-regexp (format "<%s>\\|^\\*\s\\(.+\\)" org-target-regexp)
+T 1612389337 18<22adam_erc18>	  "Regular expression matching a radio target.")
+T 1612389355 18<22adam_erc18>	This is the part I added:
+T 1612389357 18<22adam_erc18>	\\|^\\*\s\\(.+\\)
+T 1612389390 18<20aidalgol18>	Hey, ivy users!  Where are ya?
+T 1612389396 18<19parsnip18>	o/
+T 1612389404 18<19parsnip18>	fsbot: tell aidalgol about ask
+T 1612389405 18<22fsbot18>	aidalgol: Just ask your question. It's the best way to know if anyone can help.
+T 1612389442 18<20aidalgol18>	Why do you prefer ivy over other options?
+T 1612389458 18<22adam_erc18>	I mean "radio target"
+T 1612389511 18<19parsnip18>	aidalgol: because the way i used ido was to just add a config to make it display vertically, and with ivy that's out of the box behavior... and the spaces fuzzy find or w/e is a nice-to-have as well
+T 1612389518 18<22jsoo18>	hey emacsers! is there a way to accomplish save-excursion and with-current-buffer with lexical-binding?
+T 1612389557 18<22adam_erc18>	the idea is to enable a wiki words feature in orgmode, so if somewhere in my document I have a heading on "* Spatio-temporal analysis" anytime I use the term "spatio-temporal analysis" it turns into a link back to that header... 
+T 1612389613 18<19parsnip18>	adam_erc: if your somewhat particular question gets drowned out here, you can try every asking again every few hours, and/or asking on #org-mode where the questions may sit longer in place, or even the org-mode mailing list which just tends to provide more focused help
+T 1612389648 18<22adam_erc18>	Thanks parsnip.
+T 1612389650 18<20bpalmer18>	rgr: remove does not mutate the list, so it's probably not doing what you think it does. Perhaps you want delete
+T 1612389657 18<27grym18>	adam_erc: TIL radio targets, that's nice
+T 1612389679 18<22adam_erc18>	grym "TIL"?
+T 1612389687 18<19parsnip18>	,til
+T 1612389688 18<22fsbot18>	parsnip, TIL is Today I Learned
+T 1612389695 18<22adam_erc18>	Ah!
+T 1612389708 18<22adam_erc18>	grym sure, no prob!
+T 1612389776 18<22ngz18>	adam_erc: why don't you radio-targetify your headline in an `org-insert-heading-hook'?
+T 1612389872 18<20aidalgol18>	parsnip: Is there a way to make it give recent choices higher weight in the completion candidates?
+T 1612389885 18<22adam_erc18>	ngz okay. So let's say a "My headline" already existis and i then enter some text blah blah blah my headline blah. How are you thinking this would work...?
+T 1612389901 18<22ngz18>	jsoo: what do you mean?
+T 1612389936 18<19parsnip18>	aidalgol: no idea, mostly use it for simple out of the box experience
+T 1612389944 18<22ngz18>	adam_erc: Obviously, my suggestion was about new headlines. For existing headlines, you can radio-targetify with, e.g., a macro.
+T 1612389949 18<19parsnip18>	i'm not like, a refugee helm user or w/e
+T 1612389970 18<22jsoo18>	well i want to have a generator that works in a particular buffer and return the caller's buffer to normal on iter-yield
+T 1612389979 18<19parsnip18>	i just disable its annoying ~ behavior
+T 1612389988 18<19parsnip18>	that's about it
+T 1612390011 18<19parsnip18>	but that's just to avoid breaking emacs -Q muscle memory
+T 1612390036 18<22adam_erc18>	ngz okay, so for new headlines, how would you turn them into radio targets, assuminging you trigger this function from org-insert-heading-hook?
+T 1612390083 18<22ngz18>	adam_erc: My headline -> <<<My headline>>>
+T 1612390116 18<22adam_erc18>	ngz sorry, I have a very basic understanding of elisp...
+T 1612390214 18<22adam_erc18>	ngz is there some elisp way to map My headline to <<<My headline>>>?
+T 1612390309 18<22ngz18>	adam_erc: Matching the current headline against org-complex-heading-regexp should get you "My headline". Then you can replace it with "<<<My headline>>>".
+T 1612390905 18<20aidalgol18>	parsnip: What's the ~ behaviour?
+T 1612390951 18<19parsnip18>	aidalgol: i want to type C-x C-f ~/.emacs not C-x C-f ~.emacs
+T 1612390951 18<20dale18>	aidalgol: You might be interested in https://github.com/raxod502/prescient.el and https://github.com/DarwinAwardWinner/amx.
+T 1612390957 18<19parsnip18>	aidalgol: ivy-mode defaults to the latter, or something
+T 1612390965 18<20dale18>	parsnip: That default ~ drives me nuts, too.
+T 1612391082 18<20aidalgol18>	ah
+T 1612391093 18<20dale18>	aidalgol: Here's how I configure prescient: https://github.com/dsedivec/dot-emacs-d/blob/master/init.el#L3133-L3163
+T 1612391177 18<20aidalgol18>	dale: prescient sounds more general.
+T 1612391216 18<20dale18>	aidalgol: More general than Ivy?  In a way, yes, but it has specific support for Ivy.
+T 1612391261 18<20aidalgol18>	I mean than amx
+T 1612391300 18<20dale18>	aidalgol: It is.  I still have amx, I think, because I am somehow under the impression that it's a better tool specifically for M-x.  I have absolutely zero actual knowledge to back that up.  It's more like a vague religious belief at this point.
+T 1612391314 18<20dale18>	aidalgol: Like the "maybe I go to church on Easter" vague religious belief.
+T 1612391336 18<27grym18>	CofE E&C brainstem reflex
+T 1612391373 18<20dale18>	grym: Do I correctly interpret that as "Church of England Easter and Christmas"?
+T 1612391397 18<27grym18>	yes
+T 1612391404 18<27grym18>	i was rereading good omens last night, "No, when it came to avoiding going to church, the church he stolidly avoided going to was St. Cecil and All Angels, no-nonsense C. of E., and he wouldn't have dreamed of avoiding going to any other. " 
+T 1612391798 18<22adam_erc18>	ngz how would you handle the replacement?
+T 1612392044 18<28plujon18>	How can I search for a string across all buffers?
+T 1612392188 18<28plujon18>	I want to search buffers that are not files as well as files.
+T 1612392196 18<28plujon18>	M-x multi-occur prompts me for the "first buffer to search".  Huh?
+T 1612392522 18<28rgr18>	bpalmer : I ended up with this: (setq l (remove e l))(add-to-list 'l e)  ;; It was a cleaner way to do this I was looking for as it seems ugly
+T 1612392547 18<28rgr18>	remove element ( selected using completin read) then add it to head)
+T 1612392599 18<28rgr18>	dale, prescient is pretty damn good isnt it. Constantly surprises me. Surprisingly simple idea but works really well.
+T 1612392640 18<19parsnip18>	okay, added a method to Profiles to return a Storage, cleans up usage elsewhere, lead to too many mistakes
+T 1612392721 18<28rgr18>	dale, I never heard of amx before. Im using selectrum, prescient and consult with marginella - I guess amx approaches that?
+T 1612392749 18<20dale18>	rgr: I don't know about consult and marginella.  I suspect amx and prescient together may indeed be redundant, but I can't be certain.
+T 1612392848 18<19parsnip18>	oh, error was elsewhere, but made it easier to find it anyways
+T 1612392855 18<19parsnip18>	cognitive load, etc
+T 1612393314 20*	Disconnected (20)
+T 1612437782 19*	Now talking on 22#emacs
+T 1612437782 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1612437782 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:20 2021)
+T 1612437782 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1612437897 18<26p0a18>	I guess r/emacs wasn't ready for my radical elisp 
+T 1612437958 18<26p0a18>	Gemini didn't seem too bad but they are too programming-centered 
+T 1612437966 18<26p0a18>	I wouldn't be able to maintain a math blog there 
+T 1612438141 18<28python47618>	are we talking about gopher/gem
+T 1612438151 18<28python47618>	i tried elpher.el, very nice 
+T 1612438176 18<28python47618>	who is a regular user of gem/gop ?
+T 1612438178 18<26p0a18>	how would a math blog look in gemini?
+T 1612438185 18<28python47618>	asciiartsy
+T 1612438209 18<26p0a18>	you can have utf like ∫₀¹ eˣdx but it doesn't cut it
+T 1612438226 18<28python47618>	how do people discuss math on mailing lists ?
+T 1612438231 18<28python47618>	i often use ML as a reference point
+T 1612438239 18<28python47618>	people do 'actual' work on that old system
+T 1612438250 18<26p0a18>	with ascii art but it's limiting 
+T 1612438250 18<28python47618>	i believe notation and presentation is really not the bottleneck
+T 1612438268 18<28python47618>	yeah i was mostly joking about the asciiart (although I'm sure I've seen txt rfc with integrals in ascii)
+T 1612438268 18<26p0a18>	it's a huge strain with math in my opinion 
+T 1612438305 18<26p0a18>	not sure about mailing lists but they might say `integral from 0 to 1 of exp(x)' or just `int_0^1 e^x dx' 
+T 1612438305 18<28python47618>	the live js mathjax is the best so far ?
+T 1612438319 18<26p0a18>	I've also heard that KaTeX is good 
+T 1612438321 18<28python47618>	yeah latex as a transport
+T 1612438339 18<26p0a18>	I mean, I use IRC to discuss math 
+T 1612438345 18<28python47618>	in any case maybe a multipart thing ? .. (sounds heavy)
+T 1612438354 18<26p0a18>	but a blog post can be really elaborate, the nitty gritty will need to be presented in latex
+T 1612438365 18<28python47618>	have a frugal ascii/utf representation and a secondary full fledge data to be rendered on the client as they see fit
+T 1612438371 18<28python47618>	xml/latex or else
+T 1612438388 18<26p0a18>	What's a multipart?
+T 1612438394 18<28python47618>	you know like mails
+T 1612438397 18<28python47618>	they used to be text
+T 1612438400 18<28python47618>	but html came along
+T 1612438413 18<28python47618>	to support simple text and html and moe, you have multipart emails
+T 1612438416 18<26p0a18>	right, so denote which sections of your message is text and which html, right?
+T 1612438429 18<28python47618>	yeah basically you include the information in multiple forms as needed
+T 1612438448 18<26p0a18>	does gemini support that though?
+T 1612438457 18<28python47618>	no idea, it was brain-fart level
+T 1612438502 18<26p0a18>	the web is mostly wrecked, I don't use it 
+T 1612438574 18<26p0a18>	it's unfortunate that to innovate these days you need to have an app for all the platforms
+T 1612438597 18<26p0a18>	and the regulations aren't making it easier either
+T 1612438626 18<26p0a18>	and once you're hit with a sizable amount of people you're going to probably collapse, DoS or unable to moderate
+T 1612438647 18<28python47618>	the post fb web is fubared
+T 1612438655 18<26p0a18>	or just not have enough roi to keep going
+T 1612438675 18<28python47618>	it's the business aspect on top of the web that made it unbearable
+T 1612438688 18<28python47618>	mass appeal, monetization, absurd competition
+T 1612438704 18<28python47618>	it used to be a virgin land on the side of real life
+T 1612438709 18<28python47618>	not 'life' 
+T 1612438729 18<28python47618>	I think it's a very regular pattern in history .. Ive heard similar stories about amateur radio
+T 1612438754 18<28python47618>	whenever utility and business value is given to a space or thing.. problems ensue
+T 1612438797 18<26p0a18>	python476: I frequently get into rabbit holes in wikipedia
+T 1612438803 18<28python47618>	p0a: on which topics ?
+T 1612438808 18<26p0a18>	everything
+T 1612438809 18<28python47618>	and tech is too much a fad most of the time. i've seen good stuff being replaced by trendy html/js due to marketing 
+T 1612438816 18<26p0a18>	that one time I was reading about Pauline Kael, ever heard of her/
+T 1612438841 18<28python47618>	while some important part of society are still struggling with really bad software that impedes work
+T 1612438849 18<28python47618>	no, i have no idea who that is
+T 1612438850 18<28python47618>	tell me
+T 1612438852 18<26p0a18>	She was a movie critic, a good one, and this one time she panned Michael Moore's "Roger & Me" and Michael was writing an email to his fans on a mailing list 
+T 1612438865 18<26p0a18>	and I was reading that, and something really stuck to me that Moore said
+T 1612438887 18<26p0a18>	http://www.langston.com/Fun_People/2000/2000ABJ.html
+T 1612438887 18<28python47618>	micheal moore of supersize me ?
+T 1612438906 18<26p0a18>	look up "They hate that!"
+T 1612438906 18*	28python476 uses m-x ewww
+T 1612438908 18<26p0a18>	and read that paragraph 
+T 1612438915 18<26p0a18>	yeah that Moore 
+T 1612438919 18<28python47618>	ok 
+T 1612438974 18<28python47618>	aight done
+T 1612438990 18<26p0a18>	that was back in 2000! Reads like 2021 lol
+T 1612438994 18<28python47618>	although, in the trump era, the 'we talk directly to each other' is tainted
+T 1612438999 18<28python47618>	I agree with the no business side of things
+T 1612439012 18<28python47618>	most of life is free.. business really impedes things too often
+T 1612439035 18<26p0a18>	I mean I try to take a different stance to this 
+T 1612439042 18<28python47618>	yeah ?
+T 1612439045 18<26p0a18>	I've tried to read a bit on economics and understand some basic issues 
+T 1612439061 18<26p0a18>	yeah I'm sort of tired of just blaming the man, I have a gut feeling that there may be something I'm missing 
+T 1612439102 18<26p0a18>	I don't mean to sound too melo but my parents are hippies and they're a pain
+T 1612439143 18<28python47618>	are they pushing the hippie narrative too far ?
+T 1612439151 18<26p0a18>	They're just scummy in a way
+T 1612439152 18<28python47618>	i have a little anecdote to submit to you after
+T 1612439156 18<26p0a18>	They ask me for money
+T 1612439160 18<28python47618>	ha
+T 1612439167 18<28python47618>	they cannot manage themselves ?
+T 1612439168 18<26p0a18>	but they don't change their lifestyle
+T 1612439176 18<26p0a18>	loads of debt & no income
+T 1612439186 18<28python47618>	thats not hippie.. that's simply bad
+T 1612439201 18<28python47618>	(no offense, they are your parents)
+T 1612439203 18<26p0a18>	maybe you're right
+T 1612439228 18<28python47618>	I think if you keep a bad behavior too long its bad
+T 1612439237 18<26p0a18>	but too often my mom will tell me about the injustices of the world
+T 1612439255 18<28python47618>	its possible they are conned to and not badly managing their lives
+T 1612439264 18<28python47618>	too*
+T 1612439265 18<26p0a18>	all the things that are wrong, and all the things that are right, and how easy it is to tell: if it's on our side, it's good, otherwise it's bad
+T 1612439275 18<28python47618>	hi zebrag 
+T 1612439302 18<26p0a18>	They're grifters, liars, petty thieves, etc is my opinion
+T 1612439321 18<28python47618>	it's sad
+T 1612439335 18<28python47618>	must be difficult to endure that
+T 1612439349 18<26p0a18>	I had a really rough time these months with covid cuz I got stuck at my parents house 
+T 1612439354 18<26p0a18>	trying to do math research
+T 1612439357 18<26p0a18>	almost went mad
+T 1612439372 18<28python47618>	i'm in a similar situation
+T 1612439373 18<28python47618>	very similar
+T 1612439374 18<26p0a18>	I moved out and I'm fine now. I could've done it sooner, I was just trying to help them
+T 1612439385 18<28python47618>	i'm stuck trying to bounce back from illness
+T 1612439397 18<26p0a18>	you mean covid?
+T 1612439409 18<28python47618>	no a wide array of previous illnesses
+T 1612439419 18<28python47618>	luckily i didnt get the virus it seems
+T 1612439427 18<28python47618>	stuck at my parents, the emotional weigh makes everything difficult
+T 1612439444 18<26p0a18>	It's hard to have a frame of reference with your family 
+T 1612439448 18<28python47618>	true
+T 1612439456 18<26p0a18>	you don't know whose fault it is
+T 1612439466 18<28python47618>	but i had this thought earlier
+T 1612439473 18<28python47618>	whenever i'm with other people
+T 1612439484 18<28python47618>	i'm lighter in spirit, efficient and driven
+T 1612439495 18<28python47618>	whenever i step in their house the opposite happens
+T 1612439518 18<26p0a18>	my mom bought me expensive eye cream (with my money) to hide my black eyes, and put it next to my med cabinet without telling me a word
+T 1612439535 18<26p0a18>	it's a minor detail but you know, little things like that
+T 1612439545 18<28python47618>	people tell me i'm fine, working, cool.. they have less rotten opinions on things (even people in their 60s).. it changes your world
+T 1612439556 18<28python47618>	p0a: explain that more please
+T 1612439560 18<28python47618>	what was she trying to do
+T 1612439580 18<26p0a18>	I think she was suggesting that I put it under my eyes to hide my black circles 
+T 1612439589 18<26p0a18>	black bags* 
+T 1612439653 18<26p0a18>	I don't feel that I'm able to tell you about my mom without myself sounding crazy 
+T 1612439854 18<26jla18>	why is git not ignoring files that are listed on .gitignore ?
+T 1612439862 18<28python47618>	syntax failure ?
+T 1612439863 18*	26jla wrong room
+T 1612439871 18<28python47618>	emacs is the roomiest of all room
+T 1612439877 18<26jla18>	haha...
+T 1612439901 18<26jla18>	in fact... it applies, as long as  i'm git ting ... emacs
+T 1612439983 18<26jla18>	see , places/  is in .gitignore ... yet, Magit keeps warning about places/ unstaged / changes
+T 1612439988 18<26jla18>	what am i missing here ?
+T 1612440037 18<26jla18>	sorry, i meant to say 'places'
+T 1612440107 18<28python47618>	tbh .. i never managed these errors too
+T 1612440115 18<28python47618>	i can never get the folder syntax right
+T 1612440126 18<28python47618>	is it ./places .. places/ .. places/* 
+T 1612440138 18<26jla18>	whatever um
+T 1612440142 18<28python47618>	k
+T 1612440148 18<26jla18>	is quite annoying
+T 1612440155 18<26p0a18>	git or maggit?
+T 1612440158 18<26jla18>	magit
+T 1612440162 18<26p0a18>	what does git do?
+T 1612440168 18<26jla18>	?
+T 1612440172 18<26p0a18>	Does git ignore places?
+T 1612440176 18<26jla18>	same thing
+T 1612440184 18<26jla18>	no
+T 1612440197 18<26p0a18>	unstage places
+T 1612440200 18<26p0a18>	no wait,
+T 1612440204 18<28python47618>	jla: if you remove that line in .gitignore, and use magit to flag/ignore the folder 
+T 1612440205 18*	26jla umh well, let me double check ...
+T 1612440208 18<28python47618>	is it better ?
+T 1612440347 18<19gearnode18>	jla: You gitignore file is staged or not? Git use only staged version of the ignore file.
+T 1612440367 18<26jla18>	yes i do gearnode
+T 1612440369 18<26p0a18>	jla: try `git rm --cached places '
+T 1612440384 18<26jla18>	ok
+T 1612440388 18<26p0a18>	and `git add .', all according to SA 
+T 1612440449 18<26p0a18>	and if places has a lot of directories in it, add the -r flag 
+T 1612440536 18<26jla18>	on the other hand ... once with myFile.py on the current buffer... what's the easiest way to run it ?
+T 1612440592 18*	26jla goes shell and 'python3 myFile.py ' ...
+T 1612462687 20*	Disconnected (20)
+T 1612462713 19*	Now talking on 22#emacs
+T 1612462713 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1612462713 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:36 2021)
+T 1612462713 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1612463285 18<20bpalmer18>	<captain kirk>Is that a lot?</captain kirk>
+T 1612463348 18*	20bpalmer awaits the complaints about the semantics of the <captain> tag.
+T 1612463455 18<25cvandusen18>	Maybe <captain type="kirk">
+T 1612463499 18<25cvandusen18>	Assuredly, some prefer <captain type="picard">
+T 1612463525 18<20gabc18>	<captain><type>krik</type></captain> ?
+T 1612463842 18<27grym18>	hodapp: that's it? 
+T 1612463853 18<27natter18>	<data><![CDATA[{"person": "captain kirk"}]]</data>
+T 1612463877 18<20gabc18>	natter: now you're talking
+T 1612463902 18<25cvandusen18>	We'll need to organize a standards committee. 
+T 1612463940 18<27grym18>	hodapp: all the cool kids nick the pretrained weights from upstream and then fine-tune anyway right 
+T 1612463953 18<20bpalmer18>	perhaps it can meet in 2022; in the meantime, I'm shipping my code.
+T 1612463967 18<20bpalmer18>	How hard can it be to fix it after the fact?
+T 1612463991 18<27grym18>	the 16 standards have begat 16! committees
+T 1612464010 18<20gabc18>	bpalmer: it's just a prototype, a temporary fix I am sure, right?
+T 1612464141 18<29cbp_18>	Hello, does anyone have a link to the source code of the packages queue and seq of melpa
+T 1612464213 18<19wasamasa18>	MELPA has source code links of each package
+T 1612464229 18<28mwnaylor18>	bpalmer: After the fact: Y2k. 🤣
+T 1612464263 18<29cbp_18>	I couldn't find them in MELPA, just other packages that depended on them
+T 1612464282 18<27natter18>	cbp_: isn't seq included with emacs?
+T 1612464316 18<29cbp_18>	Oh you are right natter, I guess I only need queue
+T 1612464316 18<24deego18>	cbp_: ,ll seq.el 
+T 1612464321 18<20bpalmer18>	indeed. M-x find-library RET seq RET will work, if you have source code installed.
+T 1612464334 18<24holomorph18>	cbp_: queue exists on gnu elpa
+T 1612464389 18<29cbp_18>	yeah the links i found there all 404
+T 1612464398 18<20bpalmer18>	(if you don't have source installed, you can download it/clone it/or browse the emacs savannah /or browse the emacsmirror on github)
+T 1612464405 18<24holomorph18>	and its homepage is out of date :) lol
+T 1612464532 18<20bpalmer18>	out of dates? Is there a run on fruit now?
+T 1612464677 18<27hodapp18>	grym: this couldn't use pretrained weights - it was evaluating the performance when training unsupervised and it would have corrupted the experiment to have a network already trained on labels
+T 1612464709 18<27grym18>	hodapp: ah, unsupervised'll do that 
+T 1612465648 18<26jrm18>	wasamasa: It's been a few weeks using eyebrowse and it works great.  I now agree with you that desktop.el over complicates things.  I had problems with errors in certain modes (e.g., AucTeX) that only occurred when loading a saved desktop session with `desktop-read'.
+T 1612465925 18<29johnjay18>	wasamasa: nice animated gif for it
+T 1612466271 18<27anotherdayhere18>	This oneliner can be used to find some interesting Org Mode related variables -> find /usr/share/emacs/27.1/lisp/org -type f -name '*.el.gz' -exec zgrep --color -HIn '(defcustom\>' {} +
+T 1612466435 18<27anotherdayhere18>	Is there any variable which stores the path in which packages are installed?
+T 1612466554 18<29wgreenhouse18>	,,dv package-user-dir
+T 1612466557 18<22fsbot18>	Directory containing the user’s Emacs Lisp packages.
+T 1612466557 18<22fsbot18>	The directory name should be absolute.
+T 1612466557 18<22fsbot18>	Apart from this directory, Emacs also looks for system-wide
+T 1612466557 18<22fsbot18>	packages in ‘package-directory-list’. ;;[ ,more / ,dump]
+T 1612466564 18<27anotherdayhere18>	Thanks :)
+T 1612466570 18<29wgreenhouse18>	yw
+T 1612466665 18<22ecraven18>	how do I use C-u to insert a *digit* multiple times? C-u 10 1 just reads as C-u 101...
+T 1612466898 18<29wgreenhouse18>	ecraven: I think you have to do something more awkward, like 1 ESC 1 0 C-x z
+T 1612467016 18<22ecraven18>	wgreenhouse: wow, never knew about C-x z ;D thanks!
+T 1612467052 18<29wgreenhouse18>	hey, emacs has _some_ editor features suitable for golfing
+T 1612467070 18<24npostavs18>	ecraven: C-u 10 C-u 1 should work
+T 1612467105 18<29wgreenhouse18>	npostavs: wow, I never knew about wrapping args in C-u
+T 1612467121 18<20aidalgol18>	AAAAAHHH!!!!!  lsp is jank as fuck
+T 1612467140 18<29wgreenhouse18>	but there it is right in the docstring: "C-u following the digits or minus sign ends the argument."
+T 1612467143 18<28technomancy18>	lol
+T 1612467153 18<29wgreenhouse18>	,flame lsp
+T 1612467154 18<22fsbot18>	lsp: May all your buffers die a gruesome death!
+T 1612467159 18<22ecraven18>	npostavs: very cool, thanks!
+T 1612467181 18<20aidalgol18>	I run M-x lsp and get this: https://paste.debian.net/1184048/
+T 1612467242 18<29wgreenhouse18>	,ftaghn
+T 1612467245 18<22fsbot18>	Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl ftaghn.
+T 1612467248 18<20aidalgol18>	haha!
+T 1612467265 18<29wgreenhouse18>	that is an eldritch horror of an error
+T 1612467365 18<27anotherdayhere18>	npostavs: or better yet: C-10 C-u 1
+T 1612467577 18<27anotherdayhere18>	btw, what i said wouldn't work in some terminal emulators (i.e. when using "emacs -nw"), so npostavs's answer is more generic
+T 1612467600 18<24npostavs18>	also, you have to decide whether to write it as C-1 C-0 C-u 1 ;)
+T 1612467667 18<29wgreenhouse18>	you can also start prefix args with ESC, which works everywhere, and is my muscle memory for whatever reason
+T 1612467815 18<19yrk18>	,magit
+T 1612467817 18<20aidalgol18>	wgreenhouse: bytecode is funnnnnn
+T 1612467817 18<22fsbot18>	magit: [0/6] an Emacs-based UI for git <http://magit.github.com/magit/> <http://vimeo.com/2871241>
+T 1612467817 18<22fsbot18>	[1] (defalias 'git 'magit-status)
+T 1612467817 18<22fsbot18>	[2] <legumbre> the alternative to magit is disaster
+T 1612467817 18<22fsbot18>	[3] see <vc> for an alternative "greatest common denominator" UI. ;;[ ,more / ,dump]
+T 1612467835 18<29wgreenhouse18>	aidalgol: especially lexically scoped bytecode representing a closure
+T 1612467844 18<19yrk18>	magit is not in elpa? weird
+T 1612467872 18<29wgreenhouse18>	yrk: too many contributors to easily get copyright assignment from, aiui
+T 1612467887 18<29wgreenhouse18>	it's one of the things that would be concretely affected by the "nongnu elpa" proposal
+T 1612467907 18<19yrk18>	wgreenhouse: that explains it; thank you
+T 1612467931 18<19wasamasa18>	even RMS can understand git: https://lists.gnu.org/archive/html/emacs-devel/2021-02/msg00094.html
+T 1612468177 20*	Disconnected (20)
+T 1612468249 19*	Now talking on 22#emacs
+T 1612468249 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1612468249 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:20 2021)
+T 1612468249 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1612468249 18<27hodapp18>	wow, that's bazaar
+T 1612468284 18<27grym18>	hurr hurr
+T 1612468293 18<19yrk18>	what can I say, he is mercurial
+T 1612468314 18<29wgreenhouse18>	,obliterate #emacs
+T 1612468320 18*	22fsbot loads its earworm, global interpreter lock, and broken bottle, and infiltrates #emacs's auditory center, stalls #emacs, as well as mutilates #emacs.
+T 1612468332 18<27hodapp18>	the subversion of this conversation with puns isn't helping
+T 1612468335 18<27grym18>	it's getting ever darcer outside
+T 1612468368 18<27hodapp18>	you keep this up and I'ma have to head to CVS to get some pain meds
+T 1612468386 18<19yrk18>	puns give me a headache, I'll go to cvs to get some medication
+T 1612468386 18<29wgreenhouse18>	this pun is so played out it's a fossil
+T 1612468386 18<19yrk18>	hodapp: darn it
+T 1612468398 18<27hodapp18>	yrk: HAAAAH
+T 1612468409 18<27grym18>	what a conflict
+T 1612468447 20*	Disconnected (20)
+T 1612468777 20*	Disconnected (20)

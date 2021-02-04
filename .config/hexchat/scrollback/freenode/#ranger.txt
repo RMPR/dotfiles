@@ -1,85 +1,3 @@
-T 1586548088 18<25RoboBobob18>	zaeph: Issues · ranger/ranger · GitHub
-T 1586548088 18<22RoboBob18>	(zaeph) Issue #1914 (3Opened by toonn on 2020-04-10): https://github.com/ranger/ranger/issues/1914 | Alternative to console -p that places the cursor at a sentinel character
-T 1586548090 18<25RoboBobob18>	RoboBob: Alternative to console -p that places the cursor at a sentinel character · Issue #1914 · ranger/ranger · GitHub
-T 1586548109 18<26zaeph18>	Hm.
-T 1586548153 18<26zaeph18>	Don't mind the link, just wanted something with a pound in the title: https://gitlab.com/gitlab-org/gitlab-foss/-/issues/21712
-T 1586548156 18<25RoboBobob18>	zaeph: Issue number in browser title (#21712) · Issues · GitLab.org / GitLab FOSS · GitLab
-T 1586548156 18<22__monty__18>	Bob has some protections, zaeph.
-T 1586548163 18<26zaeph18>	Tss.
-T 1586548169 18<26zaeph18>	Prolly doesn't work because it's gitlab.
-T 1586548194 18<26zaeph18>	Well, I tried.
-T 1586548276 18<22__monty__18>	Yeah, ranger/ranger doesn't have 21k+ issues yet.
-T 1586553548 18<27vifon18>	__monty__: OK, I've disabled the preview plugin.
-T 1586553564 18<22__monty__18>	Just for Bob?
-T 1586553568 18<27vifon18>	No.
-T 1586553574 18<22__monty__18>	Oh.
-T 1586553587 18<27vifon18>	But I actually already have an exception for *that friend*.
-T 1586553591 18<27vifon18>	Do you remember?
-T 1586553596 18<27vifon18>	I'll add Bob too then.
-T 1586553631 18<22__monty__18>	I don't remember, no.
-T 1586553643 18<27vifon18>	Do you remember how I was patching my bot at FOSDEM?
-T 1586553652 18<27vifon18>	Because my friend was in a pentesting mood.
-T 1586553657 18<22__monty__18>	Yeah, ah.
-T 1586553687 18<22__monty__18>	So you made it secure but only from them? : D
-T 1586553702 18<27vifon18>	Nah.  I made it secure but he kept trying to find something more.
-T 1586553717 18<27vifon18>	He didn't but it was enough to increase the load of my server to the annoying levels.
-T 1586553739 18<27vifon18>	But he still admitted it's secure.  That's quite something in his case.
-T 1586553787 18<26zaeph18>	Also, which one of you's CaptainRanger or CaptRanger.
-T 1586553805 18<26zaeph18>	I'm suspecting shenanigans.
-T 1586553817 18<22__monty__18>	Not me : >
-T 1586553828 18<27vifon18>	Not me.
-T 1586553845 18<26zaeph18>	Well, it was one of yous.  DISGUSTING!
-T 1586553863 18<26zaeph18>	Pretty sure I'm missing a 'bloody' in that quote.
-T 1586553911 18<26zaeph18>	Nope, I was missing a 'fokin'. :o)
-T 1586554077 20*	Disconnected (20)
-T 1586554281 19*	Now talking on 22#ranger
-T 1586554281 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1586554281 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1586554916 18<22__monty__18>	Cool.
-T 1586554924 18<22__monty__18>	Not that being a maintainer is all that glorious...
-T 1586554949 18<26zaeph18>	I'd get a cool tag next to my name in that repo!  Worth it.
-T 1586555040 18<19dice18>	hello, trying to change directory using a string that's being collected by a shell script
-T 1586555057 18<19dice18>	however bash cd does work with ranger
-T 1586555064 18<19dice18>	is there a workaround?
-T 1586555082 18<26zaeph18>	dice: `:cd` doesn't work?
-T 1586555092 18<19dice18>	opps** I meant :shell cd
-T 1586555096 18<19dice18>	doesn't work
-T 1586555148 18<26zaeph18>	Does the `cd` happen at the beginning of the script?
-T 1586555157 18<19dice18>	my code is `:shell i=$(cmus-remote -C status | grep file | sed "s/file //" | sed 's,[^/]*$,,');cd "$i"`
-T 1586555196 18<19dice18>	no it happens at the end after I've collected the dir I want to change to
-T 1586555229 18<26zaeph18>	I'm not sure if you can forward an instruction via `:shell` to change ranger's directory.
-T 1586555249 18<22__monty__18>	Nope, you can't.
-T 1586555254 18<19dice18>	well that would break my code
-T 1586555257 18<22__monty__18>	That cd would affect the subshell.
-T 1586555268 18<26zaeph18>	__monty__: Can we `:cd` into a computed value?
-T 1586555272 18<22__monty__18>	Which is cleaned up right after the cd finished.
-T 1586555298 18<22__monty__18>	Only with a custom command I think.
-T 1586555310 18<26zaeph18>	Uhm.  I'm finishing a PR on my end, I'll have a look after.
-T 1586555316 18<19dice18>	woooshhhh ... right over my head
-T 1586555494 18<22__monty__18>	Oh, actually. You can use `:eval self.fm.cd('some/dir')`
-T 1586555509 18<22__monty__18>	So either rewrite your script as python.
-T 1586555523 18<22__monty__18>	Or write some python that executes the shell script.
-T 1586555838 18<22__monty__18>	nn, peeps
-T 1586555841 18<26zaeph18>	B-bye!
-T 1586555859 18<19dice18>	ok bye that's a start
-T 1586555883 18<26zaeph18>	I'll be with you in 5', but I'm not very good with Python.
-T 1586555895 18<19dice18>	sounds good:)
-T 1586558453 18<26zaeph18>	dice: Whoops, sorry, I got carried away. -.-
-T 1586558555 18<19dice18>	no problem this one gonna take me awhile! i'm no so keen on python code either
-T 1586558588 18<26zaeph18>	It's a one-liner, so it shouldn't be too tough to figure out.  What have you got so far?
-T 1586558763 18<19dice18>	oh it's bad! something like import subprocess
-T 1586558766 18<19dice18>	output = subprocess.Popen([ 'cmus-remote', '-C', 'status', '|', 'grep', 'file', '|', 'sed', "s/file //", '|', 'sed', 's,[^/]*$,,' ],
-T 1586558768 18<19dice18>	        stdout=subprocess.PIPE,
-T 1586558772 18<19dice18>	        stderr=subprocess.STDOUT)
-T 1586558795 18<26zaeph18>	Oof, that Popen line doesn't look too good indeed.
-T 1586558809 18<26zaeph18>	vifon: Do you have any quick idea on how to help ^?
-T 1586558839 18<27vifon18>	Definitely replace it with subprocess.check_output()
-T 1586558857 18<27vifon18>	Wait wait wait.
-T 1586558868 18<27vifon18>	You cannot use pipes like this without a shell.
-T 1586558889 18<27vifon18>	If you insist, pass shell=True to check_output/Popen and put all your arguments into a single string.
-T 1586558928 18<27vifon18>	I would just call "cmus-remote -C status" without the shell and then process the rest of it in Python.
-T 1586558953 18<19dice18>	kind like output = subprocess.check_output(cmus-remote -C status | grep file | sed "s/file //" | sed 's,[^/]*$,,', shell=True)
-T 1586559171 18<19dice18>	the shear amount of redirection
 T 1586559205 18<19dice18>	@vifon: thx for the help:)
 T 1586559309 18<27vifon18>	Did it work?
 T 1586559867 20*	Disconnected (20)
@@ -5065,3 +4983,44 @@ T 1612379902 19*	Now talking on 22#ranger
 T 1612379902 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
 T 1612379902 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
 T 1612380237 18<25hut18>	I'd be pretty concerned if I had some raspberry pee
+T 1612385773 18<19grobi18>	hey guys, what do you think about https://notepadqq.com/s/  ?
+T 1612385952 18<26GermainZ18>	grobi: seems like a text editor
+T 1612386021 18<19grobi18>	GermainZ: you won a horse! did you see what it can do when it comes to math-formula?
+T 1612386054 18<26GermainZ18>	grobi: what kind of horse?
+T 1612386069 18<26GermainZ18>	grobi: yeah, meh. But if you need that kind of stuff, then cool, give it a try :D
+T 1612386082 18<19grobi18>	GermainZ: "A Horse With No Name"
+T 1612386088 18<26GermainZ18>	Sounds like a nice horse
+T 1612386089 18<19grobi18>	https://notepadqq.com/wp/2018/04/introducing-math-rendering-in-notepadqq-1-4/
+T 1612386685 18<26GermainZ18>	grobi: I think Emacs can do that and more BTW, if you really want something fully fledged
+T 1612386685 18<26GermainZ18>	cc vifon 
+T 1612386860 18<19grobi18>	sorry for my bad connection, thanks GermainZ fwd vifon  :)
+T 1612387997 18<27vifon18>	Not the same thing but also cool: https://orgmode.org/manual/A-LaTeX-example.html
+T 1612388023 18<27vifon18>	https://orgmode.org/manual/Radio-tables.html
+T 1612393314 20*	Disconnected (20)
+T 1612437782 19*	Now talking on 22#ranger
+T 1612437782 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1612437782 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1612462687 20*	Disconnected (20)
+T 1612462713 19*	Now talking on 22#ranger
+T 1612462713 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1612462713 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1612464511 18<20birkoff18>	GermainZ: why doesn't the manual state that no '-' is requried before the flag with 'open_with'
+T 1612464543 18<20birkoff18>	with :shell a '-' is required
+T 1612464603 18<26GermainZ18>	birkoff: it does in the examples, but PR welcome I guess
+T 1612464910 18<20birkoff18>	what does this key mean here? 'They are used in the commands ":open_with" (key "r") and ":shell" (key "!").'
+T 1612464968 18<26GermainZ18>	birkoff: "r" and "!" are the keyboard shortcuts for :open_with and :shell, respectively
+T 1612464992 18<20birkoff18>	oh
+T 1612465320 18<20birkoff18>	wouldn't it be better to change the :open_with command to use - prefixed flags ? O_o
+T 1612465483 18<20blawiz18>	are any "... for dummies" howto books any good?
+T 1612465517 18*	20blawiz cleaning the elibrabry
+T 1612467005 18<19wasamasa18>	no
+T 1612467777 18<20blawiz18>	DELETED
+T 1612467794 18<20blawiz18>	i had over 4.5GB
+T 1612467796 18<20blawiz18>	of em
+T 1612467849 18<20birkoff18>	they are pretty succint
+T 1612468177 20*	Disconnected (20)
+T 1612468249 19*	Now talking on 22#ranger
+T 1612468249 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1612468249 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1612468447 20*	Disconnected (20)
+T 1612468777 20*	Disconnected (20)

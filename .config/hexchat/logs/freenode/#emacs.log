@@ -26278,3 +26278,461 @@ Feb 03 21:16:08 <bpalmer>	such as not watching the 4K video I'm gonna use mostly
 Feb 03 21:16:54 <bpalmer>	(for all that I appreciate the modern web, some sites *clearly* don't know what they're doing)
 Feb 03 21:18:00 <polezaivsani>	you mean like showing 4k vids about saving battery with dark mode?
 Feb 03 21:18:24 <natter>	I like looking for the "fire network requests for required page data inside window.onload" pattern
+Feb 03 21:20:54 <parsnip>	i guess the reason i gave up and started preferring dark mode, is fighting against all the cli tools that assume your terminal is dark
+Feb 03 21:21:35 <parsnip>	also, more websites have been offering the option, making my screen more consistent
+Feb 03 21:21:55 <parsnip>	it's annoying to have everything but your browser be dark
+Feb 03 21:22:01 <parsnip>	or pdfs too
+Feb 03 21:22:06 <bremner>	I just use a theme to match my mood
+Feb 03 21:22:15 <parsnip>	but i haven't been reading many pdfs lately
+Feb 03 21:22:18 <bremner>	M-x bitter-mode
+Feb 03 21:22:26 <natter>	I just look for the equivalent of 
+Feb 03 21:22:33 <natter>	global-font-lock-mode
+Feb 03 21:22:49 <natter>	sweet sweet black on white text everywhere
+Feb 03 21:24:47 <bpalmer>	oh, CLI tools that just assume they can spew ansi escape sequences are monsters.
+Feb 03 21:25:03 <bpalmer>	,flame colors
+Feb 03 21:25:03 <fsbot>	colors: you nincompoop!
+Feb 03 21:25:27 <natter>	isn't that the whole premise behind the --no-color-please flag that some folks are trying to get added to every CLI tool everywhere?
+Feb 03 21:25:33 <grym>	colorama <3 
+Feb 03 21:25:43 <grym>	natter: i think so 
+Feb 03 21:26:20 <cluck>	parsnip: dark reader is a great help for that 
+Feb 03 21:27:43 <cluck>	bremner: where did you find a lime sour theme?!
+Feb 03 21:27:49 *	cluck ducks
+Feb 03 21:28:54 <polezaivsani>	when i last checked the hip cli tools, they spewed all kinds of motds and ads, sure in the color scheme to the preference of the author
+Feb 03 21:29:59 <tromey>	I guess we all gave up on termcap/info since they suck and curses since it like mega sucks
+Feb 03 21:30:01 <polezaivsani>	isn't that what virtualization and containers are for?
+Feb 03 21:30:17 <cluck>	it's a CONSpiracy! plan9ers just want less work porting cli tools!!1one
+Feb 03 21:30:28 <parsnip>	weechat is annoying as fuck in a light terminal
+Feb 03 21:31:29 <cluck>	tromey: xterm is my feature list :)
+Feb 03 21:32:03 <parsnip>	https://github.com/weechat/weechat/issues/1338
+Feb 03 21:37:23 <natter>	eww's readable mode is so good for github issues. it's a shame the comments are inscrutable
+Feb 03 21:37:23 <parsnip>	does this induce nausea for you? https://www.youtube.com/watch?v=qfRAL0AgzGs 
+Feb 03 21:37:45 <bpalmer>	now that's a way to encourage people to click.
+Feb 03 21:38:45 <birkoff>	how can I copy M-x command's error line ? 
+Feb 03 21:38:48 <parsnip>	Alice in Wonderland (1995) - youtube
+Feb 03 21:38:54 <bpalmer>	"Does this webpage shred your mind and lead you into madness on the first direct look, like it did me? https://necronomicon.example.com "
+Feb 03 21:39:10 <parsnip>	birkoff: you mean like messages that appear in *Messages*? try C-h e
+Feb 03 21:39:13 <bpalmer>	birkoff: check the *Messages* buffer
+Feb 03 21:39:17 <bpalmer>	parsnip beat me to it.
+Feb 03 21:40:09 <natter>	parsnip: "produced by jetlag productions" lol
+Feb 03 21:40:22 <parsnip>	lol
+Feb 03 21:40:53 <bpalmer>	(Hmm. Should the necronomicon use one of the fancy new TLDs?)
+Feb 03 21:41:21 <parsnip>	they should have a public domain license thing, "when this artwork goes into public domain, so too shall all derivative works"
+Feb 03 21:41:46 <grym>	bpalmer: only if you like making the laundry's job easier
+Feb 03 21:42:17 <bpalmer>	there is a convenient .blackfriday TLD
+Feb 03 21:42:28 <natter>	bpalmer: undeadly.org is taken, so we'll need to branch out
+Feb 03 21:46:05 <parsnip>	hmm, i created two classes, Profiles and Storage
+Feb 03 21:46:33 <parsnip>	profiles basically manages a directory of subdirectories instantiated as uuids
+Feb 03 21:46:50 <parsnip>	and Storage should be instantiated on one of these directories
+Feb 03 21:47:06 *	jess| is now known as jess
+Feb 03 21:47:35 <parsnip>	i already have a method in Profiles for setCurrentProfile, which puts a uuid in a file called current-profile
+Feb 03 21:48:05 <parsnip>	not sure the best way to get that information to Storage
+Feb 03 21:49:07 <parsnip>	i guess i should just add a getter to Profiles class
+Feb 03 21:49:16 <parsnip>	to keep them untangled
+Feb 03 21:49:22 <natter>	StorageManager class, it is...inevitable
+Feb 03 21:49:56 <parsnip>	s/untangled/decoupled/
+Feb 03 21:50:32 <grym>	the god object lurks beyond the gate 
+Feb 03 21:51:01 <natter>	ManagerManager awaits us all
+Feb 03 21:58:00 <cvandusen>	let's sort our commits by popularity 
+Feb 03 22:00:39 <natter>	"init repo" -- deeply unpopular, seems we got off to a bad start
+Feb 03 22:02:07 <rgr>	best way to take  list element returned from completing-read and move it to the head of the list so that (car list) returns it?
+Feb 03 22:03:11 <rgr>	a cons and remove probably
+Feb 03 22:11:21 <mwnaylor>	When viewing variable or function documentation in a *Help* buffer, I can jump to the source code definition by typing <RET> when the point is on the file name. Is there a way to modify the behavior so the file is always opened in read-only mode?
+Feb 03 22:12:03 <adam_erc>	I want to turn every org-mode heading into a <<<radio target>>>. So I tried overriding org-radio-target-regexp like so:
+Feb 03 22:12:17 <adam_erc>	(defconst org-radio-target-regexp (format "<%s>\\|^\\*\s\\(.+\\)" org-target-regexp)
+Feb 03 22:12:17 <adam_erc>	  "Regular expression matching a radio target.")
+Feb 03 22:12:17 <adam_erc>	 
+Feb 03 22:12:17 <adam_erc>	But this does not do anything.
+Feb 03 22:12:17 <adam_erc>	Any ideas?
+Feb 03 22:13:58 <waleee-cl>	parsnip:  libjansson seems to be the crucial bit for lsp-mode (if you ever get the inclination to use lsp in emacs)
+Feb 03 22:14:11 <parsnip>	much faster?
+Feb 03 22:14:30 <parsnip>	i think i got annoyed with runaway processes or ram eating of lsp
+Feb 03 22:14:57 <parsnip>	i remember asking, "how do i tell lsp-mode to just kill everything off"
+Feb 03 22:14:59 <waleee-cl>	parsnip:  *not freezing emacs*
+Feb 03 22:15:05 <parsnip>	and they didn't have an easy answer, and didn't seem to think it was a big deal
+Feb 03 22:15:24 <rgr>	whats the proper/elispy way to do this, it seems a bit overly mfrd on my part (move element to top of list) : (remove e l)(add-to-list 'l  e)
+Feb 03 22:15:31 <parsnip>	"go and find them all, kill each one"
+Feb 03 22:16:21 <parsnip>	waleee-cl: dart is not that bad to hand edit
+Feb 03 22:16:39 <parsnip>	and i am not formally addicted to IDE features
+Feb 03 22:16:40 <waleee-cl>	scala & java gets annoying
+Feb 03 22:17:44 <parsnip>	yeah, i can imagine
+Feb 03 22:18:01 <parsnip>	i wrote a little java, in emacs, it sucked
+Feb 03 22:18:34 <bremner>	there there, I'm sure you're not that bad at java programming
+Feb 03 22:18:44 <parsnip>	no u
+Feb 03 22:18:54 <natter>	rgr: if this is apropos your last element list question, can you do (nconc (last l) (butlast l)) ?
+Feb 03 22:19:29 <parsnip>	i did gain a little appreciate for java in that time
+Feb 03 22:20:00 <parsnip>	prior to that, the only c-like language i had experience with, was python
+Feb 03 22:20:31 <parsnip>	*appreciation
+Feb 03 22:20:59 <rgr>	natter, thanks, but hmm, Ill stick with remove and add then as I have no idea what your code is, but I will look at it ;)
+Feb 03 22:21:02 <rgr>	but it wasnt to do with last, rather remove a selectde element and stick it at the head.
+Feb 03 22:22:07 <ecraven>	can emacs sort the words in a line?
+Feb 03 22:22:17 <ecraven>	like sort-lines ;)
+Feb 03 22:24:03 <grym>	ecraven: see "emulating sort-lines" for one approach https://www.masteringemacs.org/article/sorting-text-line-field-regexp-emacs 
+Feb 03 22:24:57 <ecraven>	thanks
+Feb 03 22:32:19 <adam_erc>	Hi parsnip
+Feb 03 22:32:39 <parsnip>	hello
+Feb 03 22:39:01 <roxlu>	hey! any recomendations for modes/addons for note taking? I thought deft was a nice solution but it way too slow to filter through many messages.
+Feb 03 22:39:15 <grym>	roxlu: org? 
+Feb 03 22:39:20 <grym>	probably org 
+Feb 03 22:39:40 <roxlu>	grym: deft uses org files too; can you explain a bit what you mean?
+Feb 03 22:40:11 <grym>	roxlu: i have a notes.org file to which i prepend notes, it seems ok 
+Feb 03 22:40:41 <roxlu>	grym: ah! yeah I've been using that for 10+ years but my notes.org has become too large
+Feb 03 22:41:21 <grym>	i haven't gotten there yet 
+Feb 03 22:41:26 <grym>	only like ... 6k lines or so 
+Feb 03 22:41:41 <roxlu>	yeah I'm over 55K :) 
+Feb 03 22:42:07 <grym>	archive things by year and ripgrep when you need to? 
+Feb 03 22:42:27 <rgr>	I thought deft was merely a text indexer. And its pretty damn fast,
+Feb 03 22:42:56 <roxlu>	rgr: I think it depends how many files it indexes
+Feb 03 22:43:05 <rgr>	yes..
+Feb 03 22:43:16 <rgr>	thats a pretty big haul you have.
+Feb 03 22:43:27 <grym>	ripgrep and fzf do OK for me so far 
+Feb 03 22:43:37 <roxlu>	.. I've not even got that many files now I think. I've exported my notes.org main titles to separate files to see if using deft would work
+Feb 03 22:43:54 <grym>	is deft smart enough to know to ignore top level headers and #+OPTIONs and stuff
+Feb 03 22:44:05 <grym>	or does it look up a #+TITLE
+Feb 03 22:44:16 <roxlu>	I think it has options for that
+Feb 03 22:44:48 <grym>	interesting 
+Feb 03 22:45:27 <rgr>	Oh I have fzf in my emacs init. Never used it. projectile/rgrep do the job.
+Feb 03 22:46:54 <grym>	ripgrep searches content; fzf searches names
+Feb 03 22:53:40 <adam_erc>	Hey parsnip - do you use org-mode?
+Feb 03 22:53:53 <parsnip>	define "use"
+Feb 03 22:54:11 <parsnip>	i edit some files called "foo.org" in emacs
+Feb 03 22:54:14 <adam_erc>	Ha!
+Feb 03 22:54:41 <parsnip>	is your question, "i am using a particular feature of org and having some issues"?
+Feb 03 22:54:59 <parsnip>	then whether or not i use org-mode seems irrelevant
+Feb 03 22:55:16 <adam_erc>	I want to turn every org-mode header into a <<<radio link>>>. I tried overriding org-radio-target-regexp but must have messed up on the regexp, so thought I would ask an expert...
+Feb 03 22:55:34 <adam_erc>	This is the modified version:
+Feb 03 22:55:36 <adam_erc>	(defconst org-radio-target-regexp (format "<%s>\\|^\\*\s\\(.+\\)" org-target-regexp)
+Feb 03 22:55:37 <adam_erc>	  "Regular expression matching a radio target.")
+Feb 03 22:55:55 <adam_erc>	This is the part I added:
+Feb 03 22:55:57 <adam_erc>	\\|^\\*\s\\(.+\\)
+Feb 03 22:56:30 <aidalgol>	Hey, ivy users!  Where are ya?
+Feb 03 22:56:36 <parsnip>	o/
+Feb 03 22:56:44 <parsnip>	fsbot: tell aidalgol about ask
+Feb 03 22:56:45 <fsbot>	aidalgol: Just ask your question. It's the best way to know if anyone can help.
+Feb 03 22:57:22 <aidalgol>	Why do you prefer ivy over other options?
+Feb 03 22:57:38 <adam_erc>	I mean "radio target"
+Feb 03 22:58:31 <parsnip>	aidalgol: because the way i used ido was to just add a config to make it display vertically, and with ivy that's out of the box behavior... and the spaces fuzzy find or w/e is a nice-to-have as well
+Feb 03 22:58:38 <jsoo>	hey emacsers! is there a way to accomplish save-excursion and with-current-buffer with lexical-binding?
+Feb 03 22:59:17 <adam_erc>	the idea is to enable a wiki words feature in orgmode, so if somewhere in my document I have a heading on "* Spatio-temporal analysis" anytime I use the term "spatio-temporal analysis" it turns into a link back to that header... 
+Feb 03 23:00:13 <parsnip>	adam_erc: if your somewhat particular question gets drowned out here, you can try every asking again every few hours, and/or asking on #org-mode where the questions may sit longer in place, or even the org-mode mailing list which just tends to provide more focused help
+Feb 03 23:00:48 <adam_erc>	Thanks parsnip.
+Feb 03 23:00:50 <bpalmer>	rgr: remove does not mutate the list, so it's probably not doing what you think it does. Perhaps you want delete
+Feb 03 23:00:57 <grym>	adam_erc: TIL radio targets, that's nice
+Feb 03 23:01:19 <adam_erc>	grym "TIL"?
+Feb 03 23:01:27 <parsnip>	,til
+Feb 03 23:01:28 <fsbot>	parsnip, TIL is Today I Learned
+Feb 03 23:01:35 <adam_erc>	Ah!
+Feb 03 23:01:48 <adam_erc>	grym sure, no prob!
+Feb 03 23:02:56 <ngz>	adam_erc: why don't you radio-targetify your headline in an `org-insert-heading-hook'?
+Feb 03 23:04:32 <aidalgol>	parsnip: Is there a way to make it give recent choices higher weight in the completion candidates?
+Feb 03 23:04:45 <adam_erc>	ngz okay. So let's say a "My headline" already existis and i then enter some text blah blah blah my headline blah. How are you thinking this would work...?
+Feb 03 23:05:01 <ngz>	jsoo: what do you mean?
+Feb 03 23:05:36 <parsnip>	aidalgol: no idea, mostly use it for simple out of the box experience
+Feb 03 23:05:44 <ngz>	adam_erc: Obviously, my suggestion was about new headlines. For existing headlines, you can radio-targetify with, e.g., a macro.
+Feb 03 23:05:49 <parsnip>	i'm not like, a refugee helm user or w/e
+Feb 03 23:06:10 <jsoo>	well i want to have a generator that works in a particular buffer and return the caller's buffer to normal on iter-yield
+Feb 03 23:06:19 <parsnip>	i just disable its annoying ~ behavior
+Feb 03 23:06:28 <parsnip>	that's about it
+Feb 03 23:06:51 <parsnip>	but that's just to avoid breaking emacs -Q muscle memory
+Feb 03 23:07:16 <adam_erc>	ngz okay, so for new headlines, how would you turn them into radio targets, assuminging you trigger this function from org-insert-heading-hook?
+Feb 03 23:08:03 <ngz>	adam_erc: My headline -> <<<My headline>>>
+Feb 03 23:08:36 <adam_erc>	ngz sorry, I have a very basic understanding of elisp...
+Feb 03 23:10:14 <adam_erc>	ngz is there some elisp way to map My headline to <<<My headline>>>?
+Feb 03 23:11:49 <ngz>	adam_erc: Matching the current headline against org-complex-heading-regexp should get you "My headline". Then you can replace it with "<<<My headline>>>".
+Feb 03 23:21:45 <aidalgol>	parsnip: What's the ~ behaviour?
+Feb 03 23:22:31 <parsnip>	aidalgol: i want to type C-x C-f ~/.emacs not C-x C-f ~.emacs
+Feb 03 23:22:31 <dale>	aidalgol: You might be interested in https://github.com/raxod502/prescient.el and https://github.com/DarwinAwardWinner/amx.
+Feb 03 23:22:37 <parsnip>	aidalgol: ivy-mode defaults to the latter, or something
+Feb 03 23:22:45 <dale>	parsnip: That default ~ drives me nuts, too.
+Feb 03 23:24:42 <aidalgol>	ah
+Feb 03 23:24:53 <dale>	aidalgol: Here's how I configure prescient: https://github.com/dsedivec/dot-emacs-d/blob/master/init.el#L3133-L3163
+Feb 03 23:26:17 <aidalgol>	dale: prescient sounds more general.
+Feb 03 23:26:56 <dale>	aidalgol: More general than Ivy?  In a way, yes, but it has specific support for Ivy.
+Feb 03 23:27:41 <aidalgol>	I mean than amx
+Feb 03 23:28:20 <dale>	aidalgol: It is.  I still have amx, I think, because I am somehow under the impression that it's a better tool specifically for M-x.  I have absolutely zero actual knowledge to back that up.  It's more like a vague religious belief at this point.
+Feb 03 23:28:34 <dale>	aidalgol: Like the "maybe I go to church on Easter" vague religious belief.
+Feb 03 23:28:56 <grym>	CofE E&C brainstem reflex
+Feb 03 23:29:33 <dale>	grym: Do I correctly interpret that as "Church of England Easter and Christmas"?
+Feb 03 23:29:57 <grym>	yes
+Feb 03 23:30:04 <grym>	i was rereading good omens last night, "No, when it came to avoiding going to church, the church he stolidly avoided going to was St. Cecil and All Angels, no-nonsense C. of E., and he wouldn't have dreamed of avoiding going to any other. " 
+Feb 03 23:36:38 <adam_erc>	ngz how would you handle the replacement?
+Feb 03 23:40:44 <plujon>	How can I search for a string across all buffers?
+Feb 03 23:43:08 <plujon>	I want to search buffers that are not files as well as files.
+Feb 03 23:43:16 <plujon>	M-x multi-occur prompts me for the "first buffer to search".  Huh?
+Feb 03 23:48:42 <rgr>	bpalmer : I ended up with this: (setq l (remove e l))(add-to-list 'l e)  ;; It was a cleaner way to do this I was looking for as it seems ugly
+Feb 03 23:49:07 <rgr>	remove element ( selected using completin read) then add it to head)
+Feb 03 23:49:59 <rgr>	dale, prescient is pretty damn good isnt it. Constantly surprises me. Surprisingly simple idea but works really well.
+Feb 03 23:50:40 <parsnip>	okay, added a method to Profiles to return a Storage, cleans up usage elsewhere, lead to too many mistakes
+Feb 03 23:52:01 <rgr>	dale, I never heard of amx before. Im using selectrum, prescient and consult with marginella - I guess amx approaches that?
+Feb 03 23:52:29 <dale>	rgr: I don't know about consult and marginella.  I suspect amx and prescient together may indeed be redundant, but I can't be certain.
+Feb 03 23:54:08 <parsnip>	oh, error was elsewhere, but made it easier to find it anyways
+Feb 03 23:54:15 <parsnip>	cognitive load, etc
+Feb 04 00:01:54 *	Disconnected ()
+**** ENDING LOGGING AT Thu Feb  4 00:01:54 2021
+
+**** BEGIN LOGGING AT Thu Feb  4 12:23:02 2021
+
+Feb 04 12:23:02 *	Now talking on #emacs
+Feb 04 12:23:02 *	Topic for #emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+Feb 04 12:23:02 *	Topic for #emacs set by nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (Mon Feb  1 17:01:20 2021)
+Feb 04 12:23:02 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Feb 04 12:24:57 <p0a>	I guess r/emacs wasn't ready for my radical elisp 
+Feb 04 12:25:58 <p0a>	Gemini didn't seem too bad but they are too programming-centered 
+Feb 04 12:26:06 <p0a>	I wouldn't be able to maintain a math blog there 
+Feb 04 12:29:01 <python476>	are we talking about gopher/gem
+Feb 04 12:29:11 <python476>	i tried elpher.el, very nice 
+Feb 04 12:29:36 <python476>	who is a regular user of gem/gop ?
+Feb 04 12:29:38 <p0a>	how would a math blog look in gemini?
+Feb 04 12:29:45 <python476>	asciiartsy
+Feb 04 12:30:09 <p0a>	you can have utf like ∫₀¹ eˣdx but it doesn't cut it
+Feb 04 12:30:26 <python476>	how do people discuss math on mailing lists ?
+Feb 04 12:30:31 <python476>	i often use ML as a reference point
+Feb 04 12:30:39 <python476>	people do 'actual' work on that old system
+Feb 04 12:30:50 <p0a>	with ascii art but it's limiting 
+Feb 04 12:30:50 <python476>	i believe notation and presentation is really not the bottleneck
+Feb 04 12:31:08 <python476>	yeah i was mostly joking about the asciiart (although I'm sure I've seen txt rfc with integrals in ascii)
+Feb 04 12:31:08 <p0a>	it's a huge strain with math in my opinion 
+Feb 04 12:31:45 <p0a>	not sure about mailing lists but they might say `integral from 0 to 1 of exp(x)' or just `int_0^1 e^x dx' 
+Feb 04 12:31:45 <python476>	the live js mathjax is the best so far ?
+Feb 04 12:31:59 <p0a>	I've also heard that KaTeX is good 
+Feb 04 12:32:01 <python476>	yeah latex as a transport
+Feb 04 12:32:19 <p0a>	I mean, I use IRC to discuss math 
+Feb 04 12:32:25 <python476>	in any case maybe a multipart thing ? .. (sounds heavy)
+Feb 04 12:32:34 <p0a>	but a blog post can be really elaborate, the nitty gritty will need to be presented in latex
+Feb 04 12:32:45 <python476>	have a frugal ascii/utf representation and a secondary full fledge data to be rendered on the client as they see fit
+Feb 04 12:32:51 <python476>	xml/latex or else
+Feb 04 12:33:08 <p0a>	What's a multipart?
+Feb 04 12:33:14 <python476>	you know like mails
+Feb 04 12:33:17 <python476>	they used to be text
+Feb 04 12:33:20 <python476>	but html came along
+Feb 04 12:33:33 <python476>	to support simple text and html and moe, you have multipart emails
+Feb 04 12:33:36 <p0a>	right, so denote which sections of your message is text and which html, right?
+Feb 04 12:33:49 <python476>	yeah basically you include the information in multiple forms as needed
+Feb 04 12:34:08 <p0a>	does gemini support that though?
+Feb 04 12:34:17 <python476>	no idea, it was brain-fart level
+Feb 04 12:35:02 <p0a>	the web is mostly wrecked, I don't use it 
+Feb 04 12:36:14 <p0a>	it's unfortunate that to innovate these days you need to have an app for all the platforms
+Feb 04 12:36:37 <p0a>	and the regulations aren't making it easier either
+Feb 04 12:37:06 <p0a>	and once you're hit with a sizable amount of people you're going to probably collapse, DoS or unable to moderate
+Feb 04 12:37:27 <python476>	the post fb web is fubared
+Feb 04 12:37:35 <p0a>	or just not have enough roi to keep going
+Feb 04 12:37:55 <python476>	it's the business aspect on top of the web that made it unbearable
+Feb 04 12:38:08 <python476>	mass appeal, monetization, absurd competition
+Feb 04 12:38:24 <python476>	it used to be a virgin land on the side of real life
+Feb 04 12:38:29 <python476>	not 'life' 
+Feb 04 12:38:49 <python476>	I think it's a very regular pattern in history .. Ive heard similar stories about amateur radio
+Feb 04 12:39:14 <python476>	whenever utility and business value is given to a space or thing.. problems ensue
+Feb 04 12:39:57 <p0a>	python476: I frequently get into rabbit holes in wikipedia
+Feb 04 12:40:03 <python476>	p0a: on which topics ?
+Feb 04 12:40:08 <p0a>	everything
+Feb 04 12:40:09 <python476>	and tech is too much a fad most of the time. i've seen good stuff being replaced by trendy html/js due to marketing 
+Feb 04 12:40:16 <p0a>	that one time I was reading about Pauline Kael, ever heard of her/
+Feb 04 12:40:41 <python476>	while some important part of society are still struggling with really bad software that impedes work
+Feb 04 12:40:49 <python476>	no, i have no idea who that is
+Feb 04 12:40:50 <python476>	tell me
+Feb 04 12:40:52 <p0a>	She was a movie critic, a good one, and this one time she panned Michael Moore's "Roger & Me" and Michael was writing an email to his fans on a mailing list 
+Feb 04 12:41:05 <p0a>	and I was reading that, and something really stuck to me that Moore said
+Feb 04 12:41:27 <p0a>	http://www.langston.com/Fun_People/2000/2000ABJ.html
+Feb 04 12:41:27 <python476>	micheal moore of supersize me ?
+Feb 04 12:41:46 <p0a>	look up "They hate that!"
+Feb 04 12:41:46 *	python476 uses m-x ewww
+Feb 04 12:41:48 <p0a>	and read that paragraph 
+Feb 04 12:41:55 <p0a>	yeah that Moore 
+Feb 04 12:41:59 <python476>	ok 
+Feb 04 12:42:54 <python476>	aight done
+Feb 04 12:43:10 <p0a>	that was back in 2000! Reads like 2021 lol
+Feb 04 12:43:14 <python476>	although, in the trump era, the 'we talk directly to each other' is tainted
+Feb 04 12:43:19 <python476>	I agree with the no business side of things
+Feb 04 12:43:32 <python476>	most of life is free.. business really impedes things too often
+Feb 04 12:43:55 <p0a>	I mean I try to take a different stance to this 
+Feb 04 12:44:02 <python476>	yeah ?
+Feb 04 12:44:05 <p0a>	I've tried to read a bit on economics and understand some basic issues 
+Feb 04 12:44:21 <p0a>	yeah I'm sort of tired of just blaming the man, I have a gut feeling that there may be something I'm missing 
+Feb 04 12:45:02 <p0a>	I don't mean to sound too melo but my parents are hippies and they're a pain
+Feb 04 12:45:43 <python476>	are they pushing the hippie narrative too far ?
+Feb 04 12:45:51 <p0a>	They're just scummy in a way
+Feb 04 12:45:52 <python476>	i have a little anecdote to submit to you after
+Feb 04 12:45:56 <p0a>	They ask me for money
+Feb 04 12:46:00 <python476>	ha
+Feb 04 12:46:07 <python476>	they cannot manage themselves ?
+Feb 04 12:46:08 <p0a>	but they don't change their lifestyle
+Feb 04 12:46:16 <p0a>	loads of debt & no income
+Feb 04 12:46:26 <python476>	thats not hippie.. that's simply bad
+Feb 04 12:46:41 <python476>	(no offense, they are your parents)
+Feb 04 12:46:43 <p0a>	maybe you're right
+Feb 04 12:47:08 <python476>	I think if you keep a bad behavior too long its bad
+Feb 04 12:47:17 <p0a>	but too often my mom will tell me about the injustices of the world
+Feb 04 12:47:35 <python476>	its possible they are conned to and not badly managing their lives
+Feb 04 12:47:44 <python476>	too*
+Feb 04 12:47:45 <p0a>	all the things that are wrong, and all the things that are right, and how easy it is to tell: if it's on our side, it's good, otherwise it's bad
+Feb 04 12:47:55 <python476>	hi zebrag 
+Feb 04 12:48:22 <p0a>	They're grifters, liars, petty thieves, etc is my opinion
+Feb 04 12:48:41 <python476>	it's sad
+Feb 04 12:48:55 <python476>	must be difficult to endure that
+Feb 04 12:49:09 <p0a>	I had a really rough time these months with covid cuz I got stuck at my parents house 
+Feb 04 12:49:14 <p0a>	trying to do math research
+Feb 04 12:49:17 <p0a>	almost went mad
+Feb 04 12:49:32 <python476>	i'm in a similar situation
+Feb 04 12:49:33 <python476>	very similar
+Feb 04 12:49:34 <p0a>	I moved out and I'm fine now. I could've done it sooner, I was just trying to help them
+Feb 04 12:49:45 <python476>	i'm stuck trying to bounce back from illness
+Feb 04 12:49:57 <p0a>	you mean covid?
+Feb 04 12:50:09 <python476>	no a wide array of previous illnesses
+Feb 04 12:50:19 <python476>	luckily i didnt get the virus it seems
+Feb 04 12:50:27 <python476>	stuck at my parents, the emotional weigh makes everything difficult
+Feb 04 12:50:44 <p0a>	It's hard to have a frame of reference with your family 
+Feb 04 12:50:48 <python476>	true
+Feb 04 12:50:56 <p0a>	you don't know whose fault it is
+Feb 04 12:51:06 <python476>	but i had this thought earlier
+Feb 04 12:51:13 <python476>	whenever i'm with other people
+Feb 04 12:51:24 <python476>	i'm lighter in spirit, efficient and driven
+Feb 04 12:51:35 <python476>	whenever i step in their house the opposite happens
+Feb 04 12:51:58 <p0a>	my mom bought me expensive eye cream (with my money) to hide my black eyes, and put it next to my med cabinet without telling me a word
+Feb 04 12:52:15 <p0a>	it's a minor detail but you know, little things like that
+Feb 04 12:52:25 <python476>	people tell me i'm fine, working, cool.. they have less rotten opinions on things (even people in their 60s).. it changes your world
+Feb 04 12:52:36 <python476>	p0a: explain that more please
+Feb 04 12:52:40 <python476>	what was she trying to do
+Feb 04 12:53:00 <p0a>	I think she was suggesting that I put it under my eyes to hide my black circles 
+Feb 04 12:53:09 <p0a>	black bags* 
+Feb 04 12:54:13 <p0a>	I don't feel that I'm able to tell you about my mom without myself sounding crazy 
+Feb 04 12:57:34 <jla>	why is git not ignoring files that are listed on .gitignore ?
+Feb 04 12:57:42 <python476>	syntax failure ?
+Feb 04 12:57:43 *	jla wrong room
+Feb 04 12:57:51 <python476>	emacs is the roomiest of all room
+Feb 04 12:57:57 <jla>	haha...
+Feb 04 12:58:21 <jla>	in fact... it applies, as long as  i'm git ting ... emacs
+Feb 04 12:59:43 <jla>	see , places/  is in .gitignore ... yet, Magit keeps warning about places/ unstaged / changes
+Feb 04 12:59:48 <jla>	what am i missing here ?
+Feb 04 13:00:37 <jla>	sorry, i meant to say 'places'
+Feb 04 13:01:47 <python476>	tbh .. i never managed these errors too
+Feb 04 13:01:55 <python476>	i can never get the folder syntax right
+Feb 04 13:02:06 <python476>	is it ./places .. places/ .. places/* 
+Feb 04 13:02:18 <jla>	whatever um
+Feb 04 13:02:22 <python476>	k
+Feb 04 13:02:28 <jla>	is quite annoying
+Feb 04 13:02:35 <p0a>	git or maggit?
+Feb 04 13:02:38 <jla>	magit
+Feb 04 13:02:42 <p0a>	what does git do?
+Feb 04 13:02:48 <jla>	?
+Feb 04 13:02:52 <p0a>	Does git ignore places?
+Feb 04 13:02:56 <jla>	same thing
+Feb 04 13:03:04 <jla>	no
+Feb 04 13:03:17 <p0a>	unstage places
+Feb 04 13:03:20 <p0a>	no wait,
+Feb 04 13:03:24 <python476>	jla: if you remove that line in .gitignore, and use magit to flag/ignore the folder 
+Feb 04 13:03:25 *	jla umh well, let me double check ...
+Feb 04 13:03:28 <python476>	is it better ?
+Feb 04 13:05:47 <gearnode>	jla: You gitignore file is staged or not? Git use only staged version of the ignore file.
+Feb 04 13:06:07 <jla>	yes i do gearnode
+Feb 04 13:06:09 <p0a>	jla: try `git rm --cached places '
+Feb 04 13:06:24 <jla>	ok
+Feb 04 13:06:28 <p0a>	and `git add .', all according to SA 
+Feb 04 13:07:29 <p0a>	and if places has a lot of directories in it, add the -r flag 
+Feb 04 13:08:56 <jla>	on the other hand ... once with myFile.py on the current buffer... what's the easiest way to run it ?
+Feb 04 13:09:52 *	jla goes shell and 'python3 myFile.py ' ...
+Feb 04 19:18:07 *	Disconnected ()
+**** ENDING LOGGING AT Thu Feb  4 19:18:07 2021
+
+**** BEGIN LOGGING AT Thu Feb  4 19:18:33 2021
+
+Feb 04 19:18:33 *	Now talking on #emacs
+Feb 04 19:18:33 *	Topic for #emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+Feb 04 19:18:33 *	Topic for #emacs set by nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (Mon Feb  1 17:01:36 2021)
+Feb 04 19:18:33 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Feb 04 19:28:05 <bpalmer>	<captain kirk>Is that a lot?</captain kirk>
+Feb 04 19:29:08 *	bpalmer awaits the complaints about the semantics of the <captain> tag.
+Feb 04 19:30:55 <cvandusen>	Maybe <captain type="kirk">
+Feb 04 19:31:39 <cvandusen>	Assuredly, some prefer <captain type="picard">
+Feb 04 19:32:05 <gabc>	<captain><type>krik</type></captain> ?
+Feb 04 19:37:22 <grym>	hodapp: that's it? 
+Feb 04 19:37:33 <natter>	<data><![CDATA[{"person": "captain kirk"}]]</data>
+Feb 04 19:37:57 <gabc>	natter: now you're talking
+Feb 04 19:38:22 <cvandusen>	We'll need to organize a standards committee. 
+Feb 04 19:39:00 <grym>	hodapp: all the cool kids nick the pretrained weights from upstream and then fine-tune anyway right 
+Feb 04 19:39:13 <bpalmer>	perhaps it can meet in 2022; in the meantime, I'm shipping my code.
+Feb 04 19:39:27 <bpalmer>	How hard can it be to fix it after the fact?
+Feb 04 19:39:51 <grym>	the 16 standards have begat 16! committees
+Feb 04 19:40:10 <gabc>	bpalmer: it's just a prototype, a temporary fix I am sure, right?
+Feb 04 19:42:21 <cbp_>	Hello, does anyone have a link to the source code of the packages queue and seq of melpa
+Feb 04 19:43:33 <wasamasa>	MELPA has source code links of each package
+Feb 04 19:43:49 <mwnaylor>	bpalmer: After the fact: Y2k. 🤣
+Feb 04 19:44:23 <cbp_>	I couldn't find them in MELPA, just other packages that depended on them
+Feb 04 19:44:42 <natter>	cbp_: isn't seq included with emacs?
+Feb 04 19:45:16 <cbp_>	Oh you are right natter, I guess I only need queue
+Feb 04 19:45:16 <deego>	cbp_: ,ll seq.el 
+Feb 04 19:45:21 <bpalmer>	indeed. M-x find-library RET seq RET will work, if you have source code installed.
+Feb 04 19:45:34 <holomorph>	cbp_: queue exists on gnu elpa
+Feb 04 19:46:29 <cbp_>	yeah the links i found there all 404
+Feb 04 19:46:38 <bpalmer>	(if you don't have source installed, you can download it/clone it/or browse the emacs savannah /or browse the emacsmirror on github)
+Feb 04 19:46:45 <holomorph>	and its homepage is out of date :) lol
+Feb 04 19:48:52 <bpalmer>	out of dates? Is there a run on fruit now?
+Feb 04 19:51:17 <hodapp>	grym: this couldn't use pretrained weights - it was evaluating the performance when training unsupervised and it would have corrupted the experiment to have a network already trained on labels
+Feb 04 19:51:49 <grym>	hodapp: ah, unsupervised'll do that 
+Feb 04 20:07:28 <jrm>	wasamasa: It's been a few weeks using eyebrowse and it works great.  I now agree with you that desktop.el over complicates things.  I had problems with errors in certain modes (e.g., AucTeX) that only occurred when loading a saved desktop session with `desktop-read'.
+Feb 04 20:12:05 <johnjay>	wasamasa: nice animated gif for it
+Feb 04 20:17:51 <anotherdayhere>	This oneliner can be used to find some interesting Org Mode related variables -> find /usr/share/emacs/27.1/lisp/org -type f -name '*.el.gz' -exec zgrep --color -HIn '(defcustom\>' {} +
+Feb 04 20:20:35 <anotherdayhere>	Is there any variable which stores the path in which packages are installed?
+Feb 04 20:22:34 <wgreenhouse>	,,dv package-user-dir
+Feb 04 20:22:37 <fsbot>	Directory containing the user’s Emacs Lisp packages.
+Feb 04 20:22:37 <fsbot>	The directory name should be absolute.
+Feb 04 20:22:37 <fsbot>	Apart from this directory, Emacs also looks for system-wide
+Feb 04 20:22:37 <fsbot>	packages in ‘package-directory-list’. ;;[ ,more / ,dump]
+Feb 04 20:22:44 <anotherdayhere>	Thanks :)
+Feb 04 20:22:50 <wgreenhouse>	yw
+Feb 04 20:24:25 <ecraven>	how do I use C-u to insert a *digit* multiple times? C-u 10 1 just reads as C-u 101...
+Feb 04 20:28:18 <wgreenhouse>	ecraven: I think you have to do something more awkward, like 1 ESC 1 0 C-x z
+Feb 04 20:30:16 <ecraven>	wgreenhouse: wow, never knew about C-x z ;D thanks!
+Feb 04 20:30:52 <wgreenhouse>	hey, emacs has _some_ editor features suitable for golfing
+Feb 04 20:31:10 <npostavs>	ecraven: C-u 10 C-u 1 should work
+Feb 04 20:31:45 <wgreenhouse>	npostavs: wow, I never knew about wrapping args in C-u
+Feb 04 20:32:01 <aidalgol>	AAAAAHHH!!!!!  lsp is jank as fuck
+Feb 04 20:32:20 <wgreenhouse>	but there it is right in the docstring: "C-u following the digits or minus sign ends the argument."
+Feb 04 20:32:23 <technomancy>	lol
+Feb 04 20:32:33 <wgreenhouse>	,flame lsp
+Feb 04 20:32:34 <fsbot>	lsp: May all your buffers die a gruesome death!
+Feb 04 20:32:39 <ecraven>	npostavs: very cool, thanks!
+Feb 04 20:33:01 <aidalgol>	I run M-x lsp and get this: https://paste.debian.net/1184048/
+Feb 04 20:34:02 <wgreenhouse>	,ftaghn
+Feb 04 20:34:05 <fsbot>	Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl ftaghn.
+Feb 04 20:34:08 <aidalgol>	haha!
+Feb 04 20:34:25 <wgreenhouse>	that is an eldritch horror of an error
+Feb 04 20:36:05 <anotherdayhere>	npostavs: or better yet: C-10 C-u 1
+Feb 04 20:39:37 <anotherdayhere>	btw, what i said wouldn't work in some terminal emulators (i.e. when using "emacs -nw"), so npostavs's answer is more generic
+Feb 04 20:40:00 <npostavs>	also, you have to decide whether to write it as C-1 C-0 C-u 1 ;)
+Feb 04 20:41:07 <wgreenhouse>	you can also start prefix args with ESC, which works everywhere, and is my muscle memory for whatever reason
+Feb 04 20:43:35 <yrk>	,magit
+Feb 04 20:43:37 <aidalgol>	wgreenhouse: bytecode is funnnnnn
+Feb 04 20:43:37 <fsbot>	magit: [0/6] an Emacs-based UI for git <http://magit.github.com/magit/> <http://vimeo.com/2871241>
+Feb 04 20:43:37 <fsbot>	[1] (defalias 'git 'magit-status)
+Feb 04 20:43:37 <fsbot>	[2] <legumbre> the alternative to magit is disaster
+Feb 04 20:43:37 <fsbot>	[3] see <vc> for an alternative "greatest common denominator" UI. ;;[ ,more / ,dump]
+Feb 04 20:43:55 <wgreenhouse>	aidalgol: especially lexically scoped bytecode representing a closure
+Feb 04 20:44:04 <yrk>	magit is not in elpa? weird
+Feb 04 20:44:32 <wgreenhouse>	yrk: too many contributors to easily get copyright assignment from, aiui
+Feb 04 20:44:47 <wgreenhouse>	it's one of the things that would be concretely affected by the "nongnu elpa" proposal
+Feb 04 20:45:07 <yrk>	wgreenhouse: that explains it; thank you
+Feb 04 20:45:31 <wasamasa>	even RMS can understand git: https://lists.gnu.org/archive/html/emacs-devel/2021-02/msg00094.html
+Feb 04 20:49:37 *	Disconnected ()
+**** ENDING LOGGING AT Thu Feb  4 20:49:37 2021
+
+**** BEGIN LOGGING AT Thu Feb  4 20:50:49 2021
+
+Feb 04 20:50:49 *	Now talking on #emacs
+Feb 04 20:50:49 *	Topic for #emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+Feb 04 20:50:49 *	Topic for #emacs set by nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (Mon Feb  1 17:01:20 2021)
+Feb 04 20:50:49 *	Channel #emacs url: https://www.emacswiki.org/emacs/EmacsChannel
+Feb 04 20:50:49 <hodapp>	wow, that's bazaar
+Feb 04 20:51:24 <grym>	hurr hurr
+Feb 04 20:51:33 <yrk>	what can I say, he is mercurial
+Feb 04 20:51:54 <wgreenhouse>	,obliterate #emacs
+Feb 04 20:52:00 *	fsbot loads its earworm, global interpreter lock, and broken bottle, and infiltrates #emacs's auditory center, stalls #emacs, as well as mutilates #emacs.
+Feb 04 20:52:12 <hodapp>	the subversion of this conversation with puns isn't helping
+Feb 04 20:52:15 <grym>	it's getting ever darcer outside
+Feb 04 20:52:48 <hodapp>	you keep this up and I'ma have to head to CVS to get some pain meds
+Feb 04 20:53:06 <yrk>	puns give me a headache, I'll go to cvs to get some medication
+Feb 04 20:53:06 <wgreenhouse>	this pun is so played out it's a fossil
+Feb 04 20:53:06 <yrk>	hodapp: darn it
+Feb 04 20:53:18 <hodapp>	yrk: HAAAAH
+Feb 04 20:53:29 <grym>	what a conflict
+Feb 04 20:54:07 *	Disconnected ()
+**** ENDING LOGGING AT Thu Feb  4 20:54:07 2021
+

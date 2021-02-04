@@ -1780,3 +1780,17 @@ T 1612357968 20*	Disconnected (20)
 T 1612379902 19*	Now talking on 22#wireshark
 T 1612379902 22*	Topic for 22#wireshark is: Welcome to #wireshark The new name for the most popular network protocol analyser! | http://www.wireshark.org | Questions? Ask them! (and be patient for a response)
 T 1612379902 22*	Topic for 22#wireshark set by 26Ober (24Mon Apr 16 16:39:59 2007)
+T 1612389733 18<27memfrob18>	Hi everyone, I'm noticing a lot of traffic on the loopback interface in wireshark, constant TCP RST, ACT and retransmission packets and this is new
+T 1612389764 18<27memfrob18>	(this is windows 10 btw, fresh install just about)
+T 1612389841 18<27memfrob18>	Even when the ethernet adapter is at idle, loopback is going absolutely nuts. I have this system behind an openbsd firewall and there's no funny business there.
+T 1612389929 18<27memfrob18>	just spammed with source 127.0.0.1 dest 127.0.0.1 port 9103 to 50363 and the ports will go up by 1 every 10 packets
+T 1612390002 18<27memfrob18>	I found this and it seems related: https://osqa-ask.wireshark.org/questions/60507/constant-tcp-requests-and-failed-responses
+T 1612390246 18<27memfrob18>	ok the RST, ACK packets finally stopped, that was the logitech g hub driver, so that's one problem gone, but still, all my traffic on the ethernet interface is also showing up in the loopback interface
+T 1612390437 18<27memfrob18>	Follow TCP stream on those packets (the ones related to the external interface) shows this: IMMMMMMMMMMMMMMMMMMMMM and hundreds more M's
+T 1612390951 18<27memfrob18>	netstat -ano output: https://pastebin.com/vNj62HZ3
+T 1612392417 18<27memfrob18>	brb
+T 1612392937 18<27memfrob18>	and once more!
+T 1612393314 20*	Disconnected (20)
+T 1612437782 19*	Now talking on 22#wireshark
+T 1612437782 22*	Topic for 22#wireshark is: Welcome to #wireshark The new name for the most popular network protocol analyser! | http://www.wireshark.org | Questions? Ask them! (and be patient for a response)
+T 1612437782 22*	Topic for 22#wireshark set by 26Ober (24Mon Apr 16 16:39:59 2007)
