@@ -1,32 +1,3 @@
-T 1586559205 18<19dice18>	@vifon: thx for the help:)
-T 1586559309 18<27vifon18>	Did it work?
-T 1586559867 20*	Disconnected (20)
-T 1586560032 20*	Disconnected (20Remote host closed socket)
-T 1586560078 20*	Disconnected (20Remote host closed socket)
-T 1586560107 19*	Now talking on 22#ranger
-T 1586560107 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1586560107 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1586560308 18<19dice18>	haha not yet... well the part that you helped me with works
-T 1586560335 18<19dice18>	having trouble using communicate() to get the my string printed
-T 1586560374 18<19dice18>	it's an AttributeError: 'bytes' object has no object 'communicate'
-T 1586560458 18<19dice18>	my code is stdout, stderr = out.communicate()
-T 1586560460 18<19dice18>	print(stdout)
-T 1586560480 18<19dice18>	wait!
-T 1586560629 18<27vifon18>	dice: Use check_output, Popen is too low level for this.
-T 1586561029 18<19dice18>	ahha yes I hadn't updated the print() part of my script to match the output_check
-T 1586561072 18<19dice18>	the only problem I have now is that python print \b and \n around my string
-T 1586561085 18<19dice18>	I don't think ranger is gonna like that
-T 1586561164 18<26zaeph18>	(?) Ranger will remember that.
-T 1586561391 18<27vifon18>	I see you've played the Telltale Games games too. :)
-T 1586561415 18<26zaeph18>	Eh, I'm a man of culture.
-T 1586561431 18<27vifon18>	First of all, use universal_newlines=True
-T 1586561439 18<27vifon18>	This way you'll get a string and note bytes.
-T 1586561449 18<27vifon18>	*not
-T 1586561449 18<27vifon18>	dice: ↑
-T 1586561458 18<27vifon18>	Then, consider calling strip() on the result.
-T 1586561496 18<19dice18>	ah I see
-T 1586562251 18<19dice18>	so on the one hand I have a python script that gives me the path I want to go to... and on the other hand I have :eval self.fm.cd('some/dir')
-T 1586564567 18<19dice18>	map vs shell i=$(cmus-remote -C status | grep file | sed "s/file //" | sed 's,[^/]*$,,'); cd "$i"
 T 1586565176 18<19dice18>	ok this is what I have so far: :eval -q import subprocess; out = subprocess.output_check( "cmus-remote -C status | grep file | sed 's/file //' | sed 's,[^/]*$,,'", shell=True, universal_newlines=True ); self.fm.cd(out)
 T 1586565233 18<19dice18>	@vifon: clearly I'm missing something here
 T 1586565287 18<27vifon18>	dice: You'd be better off writing it as a command in commands.py
@@ -5024,3 +4995,9 @@ T 1612468249 22*	Topic for 22#ranger is: Official ranger file manager channe
 T 1612468249 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
 T 1612468447 20*	Disconnected (20)
 T 1612468777 20*	Disconnected (20)
+T 1612470277 20*	Disconnected (20)
+T 1612471163 20*	Disconnected (20Remote host closed socket)
+T 1612553804 19*	Now talking on 22#ranger
+T 1612553804 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1612553804 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1612555586 20*	Disconnected (20)
