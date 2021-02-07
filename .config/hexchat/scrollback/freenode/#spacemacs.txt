@@ -2617,3 +2617,49 @@ T 1612553804 19*	Now talking on 22#spacemacs
 T 1612553804 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
 T 1612553804 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
 T 1612555586 20*	Disconnected (20)
+T 1612655765 19*	Now talking on 22#spacemacs
+T 1612655765 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1612655765 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1612706575 20*	Disconnected (20)
+T 1612706604 19*	Now talking on 22#spacemacs
+T 1612706604 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1612706604 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1612710402 20*	Disconnected (20)
+T 1612710421 22*	26RMPR sets mode 24+Z on 22RMPR
+T 1612710421 22*	26RMPR sets mode 24+i on 22RMPR
+T 1612710421 -18freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
+T 1612710421 24*	Received a CTCP 24VERSION from 18freenode-connect
+T 1612710427 19*	Now talking on 22#spacemacs
+T 1612710427 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1612710427 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1612711302 20*	Disconnected (20)
+T 1612711342 22*	26RMPR sets mode 24+Z on 22RMPR
+T 1612711342 22*	26RMPR sets mode 24+i on 22RMPR
+T 1612711342 -18freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
+T 1612711342 24*	Received a CTCP 24VERSION from 18freenode-connect
+T 1612711348 19*	Now talking on 22#spacemacs
+T 1612711348 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1612711348 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1612718123 18<20FromGitter18>	<maxstreese> Hey everyone, is someone knowlegeable about personal layers? I have read https://develop.spacemacs.org/doc/LAYERS.html and while it does give a great overview of the loading of things and the general layout of things I did not understand how I should go about implementing my stuff inside `.emacs.d/private`. My question is this: For now I have just two very simple functions I want to add and also give them a 
+T 1612718123 18<20FromGitter18>	... keybinding each. These functions are not part of any package but written by myself. My questions are: ⏎  ⏎ 1) Should I add a layer for this and add the functions just in funcs.el? ⏎ 2) Should I add a layer and a package to be configured via that layer? If so where would I put the package? In `.emacs.d/private/local`? Or is ... [https://gitter.im/syl20bnr/spacemacs?at=6020202d1cb20228093b0381]
+T 1612718322 20*	Disconnected (20)
+T 1612719012 22*	26RMPR sets mode 24+Z on 22RMPR
+T 1612719012 22*	26RMPR sets mode 24+i on 22RMPR
+T 1612719012 -18freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
+T 1612719012 24*	Received a CTCP 24VERSION from 18freenode-connect
+T 1612719019 19*	Now talking on 22#spacemacs
+T 1612719019 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1612719019 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1612720726 18<20FromGitter18>	<Jeff-avatar> I load it through putting   (load-file "~/Desktop/evil-magit.el") ;; https://gist.github.com/TheBB/367096660b203952c162
+T 1612720924 18<20FromGitter18>	<Jeff-avatar> I load it through putting   (load-file "~/Desktop/evil-magit.el") into docspacemacs-config. I also tried to add evil-magit into dotspacemacs-additional-packages, but it did not work out. Does it work out for you?
+T 1612721022 18<20FromGitter18>	<Jeff-avatar> > > @Jeff-avatar This was discussed here very recently (just scroll up about 15 messages)... in summary: ⏎ > > > There is one more warning which I am getting in the Messages ⏎ > > > ``` ⏎ > > > evil-magit is obsolete. This package is now part of evil-collection. Having both installed will cause unintended behavior. ⏎ > > > ``` ... [https://gitter.im/syl20bnr/spacemacs?at=60202b74aa6a6f319d0f61c3]
+T 1612721819 18<20FromGitter18>	<marty:matrix.dabuke.com> @maxstreese: i use the .spacemac.d  directory method then my layers are   in  .spacemacs.d/layers/marty-base/conf.el  etc   this way my configuration is version controlled from one dir ⏎ In .spacemacs.d/init.el  I include the layer   marty-base    etc
+T 1612722256 18<20FromGitter18>	<maxstreese> Thanks! Did not know that this entirely different way exists as well. As it's only two functions I actually went with the .spacemacs file for now and put them in `dotspacemacs/user-config`
+T 1612728936 20*	Disconnected (20)
+T 1612728957 22*	26RMPR sets mode 24+Z on 22RMPR
+T 1612728957 22*	26RMPR sets mode 24+i on 22RMPR
+T 1612728957 -18freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
+T 1612728957 24*	Received a CTCP 24VERSION from 18freenode-connect
+T 1612728963 19*	Now talking on 22#spacemacs
+T 1612728963 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1612728963 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)

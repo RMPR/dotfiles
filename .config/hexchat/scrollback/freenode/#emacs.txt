@@ -1,28 +1,3 @@
-T 1602879675 18<19wasamasa18>	I wonder who that could be: https://github.com/melpa/melpa/issues/7185
-T 1602879680 18<19wasamasa18>	subscribed regardless
-T 1602879758 18<27grym18>	ooo TIL helm-lastpass
-T 1602879776 18<19wasamasa18>	damnit, another poor soul lost
-T 1602879848 18<19wrycode18>	it's almost as if emacs is important enough to have russia creating troll accounts
-T 1602879852 18<19wrycode18>	alas
-T 1602879854 18<19wasamasa18>	I really do wonder whether there's a language barrier as the answer do dgutov's concern about needless in-fighting is "Well, here's an issue, let's see how they reply"
-T 1602879856 18<19wrycode18>	they're real
-T 1602879870 18<19wasamasa18>	that doesn't help with the in-fighting, it strengthens it
-T 1602879897 18<27grym18>	i have a corporate lastpass, but i don't actually want to bolt it into my editor 
-T 1602880142 18<20johnw18>	I like password-store.el
-T 1602880184 18<19wasamasa18>	I wrote a few lines of code for pass
-T 1602880191 18<20johnw18>	then I appreciate it :)
-T 1602880192 18<27grym18>	ooOO https://github.com/ifosch/keepass-mode 
-T 1602880210 18<19wasamasa18>	(car (process-lines "pass" "foo/bar/baz"))
-T 1602880662 18<29johnjay18>	wasamasa: i feel like writing a few lines of code for emacs is impossible
-T 1602880678 18<29johnjay18>	because you'd have to go through the bother of getting copyright assignment etc
-T 1602880683 18<29johnjay18>	so you may as well just put something on melpa.
-T 1602880688 18<29johnjay18>	like that url thing you mentioned
-T 1602880689 18<19wasamasa18>	I meant my init file, lol
-T 1602880706 18<19wasamasa18>	copyright assignment is mostly a waiting game
-T 1602880709 18<20johnw18>	johnjay: you can sign a blanket assignment
-T 1602880722 18<19wasamasa18>	the real kicker is figuring out how the commit message is supposed to look like
-T 1602880749 18<29johnjay18>	speaking of lines. i should finish that macro chapter you linked
-T 1602880757 18<29johnjay18>	i wanted to write macros doline, dofile, and dodir
 T 1602880767 18<29johnjay18>	the utility of which hopefully is apparent from the name
 T 1602880794 18<19wasamasa18>	not exactly
 T 1602880800 18<20bpalmer18>	johnjay: I agree it's a huge limiting factor, but note that emacs allows up to 15 lines without any assignment.
@@ -5022,3 +4997,134 @@ T 1612555196 18<20bpalmer18>	benny: see also save-window-excursion
 T 1612555283 18<20parakovsky18>	any el-get users here?
 T 1612555341 18<19benny18>	bpalmer: that works, thanks
 T 1612555586 20*	Disconnected (20)
+T 1612655765 19*	Now talking on 22#emacs
+T 1612655765 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1612655765 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:36 2021)
+T 1612655766 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1612655939 18<20dale18>	adam_erc: I think I'd probably try something in org-mode-hook first.
+T 1612655977 18<20dale18>	adam_erc: Maybe use font-lock-add-keywords there?  You might just be able to duplicate the regexp for <<<foo>>> but instead give it your own function.
+T 1612656087 18<22adam_erc18>	Ah, okay. That makes sense. Thanks!
+T 1612656249 18<22adam_erc18>	dale maybe something like this...
+T 1612656251 18<22adam_erc18>	 (font-lock-add-keywords 'org-mode
+T 1612656252 18<22adam_erc18>	  '(((symbol-value 'org-radio-target-regexp)  . 'org-update-radio-target-regexp)))
+T 1612656322 18<20dale18>	adam_erc: I honestly don't know what should be in there, but that's the gist of what I would try in a mode hook I think.
+T 1612706575 20*	Disconnected (20)
+T 1612706604 19*	Now talking on 22#emacs
+T 1612706604 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1612706604 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:20 2021)
+T 1612706604 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1612710402 20*	Disconnected (20)
+T 1612710427 19*	Now talking on 22#emacs
+T 1612710427 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1612710427 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:20 2021)
+T 1612710427 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1612710430 18<19bremner18>	,chomsky-fix
+T 1612710432 18*	22fsbot gives a cookie to bremner
+T 1612710486 18<24dustfinger18>	I would like to send a signed email to someone. The email contains an attachment. Should I apply both mml-secure-sign-pgpmime and mml-secure-sign-pgp? or does mml-secure-sign-pgpmime sign both the email and attachments? (I already have configured gnus for encrypted email and have verified that it works.)
+T 1612710517 18<24dustfinger18>	Note also, that I do not want to encrypt this email. I just want to sign it.
+T 1612710560 18<19bremner18>	dustfinger: iirc, sign-pgpgmime signs the whole message (including attachements)
+T 1612710568 18<24dustfinger18>	Thanks!
+T 1612710635 18<24dustfinger18>	I would also like to provide this person with my public key. I provided two sources to my public key, but I would also like to attach my public key so that there are three sources. Does signing the email automatically attach my public key, or should I do so manually? 
+T 1612710655 18<28rgr18>	is there a common test to see if the buffer mode is emacs-lisp-mode or lisp-interaction-mode as used in *Scratch*?
+T 1612710655 18<19bremner18>	probably you have to do it manually
+T 1612710666 18<24dustfinger18>	bremner: Okay, thanks.
+T 1612710787 18<28rgr18>	also, a help function to toggle a boolean?
+T 1612710854 18<19bremner18>	like (setq v (not v)) ? or something else?
+T 1612710993 18<20edgar-rft18>	let's fix everything with fixnums
+T 1612711009 18<28rgr18>	lol, yeah, I guess it is that simple!;)
+T 1612711302 20*	Disconnected (20)
+T 1612711348 19*	Now talking on 22#emacs
+T 1612711348 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1612711348 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:20 2021)
+T 1612711348 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1612711520 18<20edgar-rft18>	Would it be a problem if there were no problems? I mean, if it were then there wouldn't be no problems. :-(
+T 1612712662 18<20pjb18>	rgr: (define-modify-macro notf () not) (mapcar (lambda (x) (notf x)) '(t nil)) --> (nil t)
+T 1612712688 18<19twb18>	Garbage: Hobo Prophecy seems like an interesting game
+T 1612712702 18<19twb18>	It's basically the same as that boxing game with the teenage mutant ninja gator
+T 1612712718 18<20pjb18>	rgr: of course, notf won't be a function, but a macro, since it has to modify the place.
+T 1612712724 18<19twb18>	You beat up other hobos, steal their trash, and use it to build gym equipment
+T 1612712791 18<20pjb18>	rgr: (let ((v (vector nil t nil t))) (loop with i = -1 while (< i (- (length v) 1)) do (notf (aref v (incf i)))) v) --> [t nil t nil]
+T 1612713184 18<20edgar-rft18>	rudybot: ¡?(°.°)¿!
+T 1612713184 18<24rudybot18>	edgar-rft: ¼ $¡ ¯ £¿I ç]äT )° ´³« :Uu ² ãßD V✴´w FWY wuYU~ dè輢!¡ÔÇx Ù3ZàbxÙ~iu EZҡ¤ ^< ʄR¨ j5 üñ\»TK5 ßë][ 6_^èί ýÙũ¡ · ¿ ü ½ õ qÜ" @×sÌ}晟-7ÔصCÍ;ùQÞ @ý¨¿ }hYµi w¬û [Ý ì¯-À x¤, ¢Êÿ
+T 1612713203 18<26V18>	Nice highlight
+T 1612713310 18<26V18>	I can't quite tell what that command is supposed to do
+T 1612713336 18<26V18>	does it just spew random Unicode garbage into IRC
+T 1612713367 18<20edgar-rft18>	looks more like byte-compiled Elisp code :-)
+T 1612713399 18<26V18>	okay, so not-so random garbage
+T 1612713405 18<24dustfinger18>	Emacs is using lots of RAM on my system: 12132 dustfin+  20   0   17.7g  16.3g  40804 R 111.3  52.1  49:16.98 emacs. I am running exwm. Emacs process list shows ispell server vterm erc-irc.pine64.org-6697 erc-irc.freenode.net-6697 XELB<1> XELB pinentry. I only have 10 buffers open. How does one identify memory usage within emacs? I would like to find out what is consuming all that RAM and also, how I might be able to purge that RAM
+T 1612713405 18<24dustfinger18>	usage.
+T 1612713425 18<19twb18>	dustfinger: someone told me once but I forget
+T 1612713438 18<19twb18>	dustfinger: sounds like a leak to me
+T 1612713446 18<19twb18>	M-x gc probably won't help
+T 1612713515 18<24dustfinger18>	Hmm, I don't ave gc. I will take a look in melpa for it.
+T 1612713547 18<20edgar-rft18>	dustfinger: general tips are here -> https://www.emacswiki.org/emacs/EmacsMemoryDebugging
+T 1612713658 18<20edgar-rft18>	V: Elisp code *is* random garbage
+T 1612713686 18<26V18>	edgar-rft: that was what I was implying
+T 1612713779 18<24dustfinger18>	edgar-rft: Thanks, I will read through that.
+T 1612713803 18<24dustfinger18>	twb: I can't find gc. What package does that command come with?
+T 1612713870 18<19twb18>	dustfinger: sorry M-x garbage-collect
+T 1612713888 18<19twb18>	https://youtu.be/9YutetlzVMI  is that game I mentioned
+T 1612716219 18<28rgr18>	If I'm in a buffer, b, and a timer func is triggered is that not the current buffer in terms of the timer code? Do I need to somehow swiuch to that buffer in the timer code in order to access buffer local variables?
+T 1612716623 18<19wasamasa18>	there's an easy way to verify that
+T 1612716661 18<19wasamasa18>	but generally speaking, if your function needs to be run in a specific buffer, ensure that's indeed the case
+T 1612716669 18<20pjb18>	exactly.
+T 1612716673 18<19wasamasa18>	like by having it part of a command in a map active in that buffer
+T 1612716683 18<19wasamasa18>	or in the case of timers, making the target buffer current
+T 1612716798 18<20pjb18>	rgr: have a look at (info "(elisp) Timers")
+T 1612717295 18<24dustfinger18>	I ran M-x garbage-collect and I let it sit for 30 or 4 min. It just locked up exwm and no memory ewas released. It must have been in some sor of deadlock. I switched to another tty and killed emacs, which released all the memory of coures. I wlil read through the memory debug pages on the wiki and allocate some weekly time to learning how to trouble shoot this problem. I would like to increase my own knowledge and get to the bottom of
+T 1612717295 18<24dustfinger18>	this.
+T 1612717417 18<19wasamasa18>	are you on emacs 28?
+T 1612717431 18<19wasamasa18>	or rather, a non-stable version
+T 1612717952 18<24dustfinger18>	wasamasa: 27.1
+T 1612717965 18<19wasamasa18>	well, then there isn't much to look into
+T 1612717973 18<19wasamasa18>	they've added a memory debugging command on master
+T 1612718021 18<24dustfinger18>	Specifically app-editors/emacs-27.1-r3:27::gentoo
+T 1612718322 20*	Disconnected (20)
+T 1612719019 19*	Now talking on 22#emacs
+T 1612719019 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1612719019 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:20 2021)
+T 1612719019 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1612719898 18<19parsnip18>	zmagii: i found those MS Office meeting invites so annoying
+T 1612719923 18<19parsnip18>	so many buttons, so much wondering what each will result in
+T 1612719951 18<19parsnip18>	they seem to be implemented via email
+T 1612719954 18<19parsnip18>	which is weird
+T 1612719972 18<19parsnip18>	but it's not really clear that that is the case
+T 1612719975 18<19parsnip18>	which is annoying
+T 1612720032 18<19parsnip18>	it's a bird, it's a plane, no, it's a MS Office meeting invite!
+T 1612720062 18<19parsnip18>	who was that masked man
+T 1612723206 18<20aidalgol18>	parsnip: Are Google Calendar invites any less annoying?
+T 1612723242 18<19parsnip18>	i haven't interacted with those as much
+T 1612723278 18<19parsnip18>	i guess offices i've worked in, were fairly MS-centric, in the generic office sense
+T 1612723310 18<19parsnip18>	probably these people used google calendars for personal use?
+T 1612723367 18<19parsnip18>	a friend from school i remember they had their entire work and life schedule mapped out in a google calendar, not sure if they used MS Office for work stuff
+T 1612723389 18<20acdw18>	I hate calendar invites
+T 1612723407 18*	19parsnip invites acdw to a meeting in #emacs in five minutes
+T 1612723415 18<20acdw18>	Noooo9oo
+T 1612723444 18<20aidalgol18>	The place I work at uses G Suite for their office stuff instead of MS Office 365 or whatever it's called.
+T 1612723451 18<19parsnip18>	aidalgol: have you tried the nintendo pro controller?
+T 1612723460 18<20aidalgol18>	I have not
+T 1612723466 18<20aidalgol18>	But I also don't have a Switch
+T 1612723518 18<19parsnip18>	was considering it for games on laptop, since maybe on an indeterminate date in the future, i might get a switch
+T 1612723542 18<19parsnip18>	if i'm anything, i'm probably a nintendo fanboi
+T 1612723547 18<20aidalgol18>	It's a very similar design to the Xbox One controller.
+T 1612728936 20*	Disconnected (20)
+T 1612728963 19*	Now talking on 22#emacs
+T 1612728963 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1612728963 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:20 2021)
+T 1612728963 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1612728963 18<20yates18>	is ecb not widely used?
+T 1612728978 18<29wgreenhouse18>	ecb is kind of dead/dormant/sleeping, like many of the other eldritch horrors/wonders of CEDET.
+T 1612728983 18<20yates18>	i don't think i like it anyway - i guess i'll uninstall it.
+T 1612728983 18<29wgreenhouse18>	,ftaghn
+T 1612728986 18<22fsbot18>	Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl ftaghn.
+T 1612729012 24*	28alexherbo23 is now known as 18alexherbo2
+T 1612729059 18<20aidalgol18>	STOP SUMMONING THOSE THINGS INTO OUR REALM!
+T 1612729076 18<19bremner18>	YOU'RE NOT THE BOSS OF ME
+T 1612729085 18<20yates18>	wgreenhouse: reminds me of a Def Lepard song. "Umten embeen globben gloven"
+T 1612729085 18*	29wgreenhouse cackles
+T 1612729089 18<20aidalgol18>	bremner: You're not the boss of me now!
+T 1612729115 18<20aidalgol18>	wgreenhouse: I misread that as "crackles" as in your head crackling from the minions of the darkness entering through your head.
+T 1612729140 18<20yates18>	now the gang is coming alive. i was worried 'bout use guys!
+T 1612729165 18<20yates18>	thought maybe CA had nuked!
+T 1612729170 18<20yates18>	had been
+T 1612729178 18<20yates18>	yoos?
