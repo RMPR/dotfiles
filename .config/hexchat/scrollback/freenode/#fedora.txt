@@ -5114,3 +5114,365 @@ T 1612728962 19*	Now talking on 22#fedora
 T 1612728962 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
 T 1612728962 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
 T 1612728963 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1612729511 18<25jakelazaroff18>	@cmurf nope, only three logs from systemd-journald are "journal started", "runtime journal" with a path and some numbers, and then "journal stopped"
+T 1612729563 18<20cmurf18>	ahh well it's normal for there to be one "stopped" because at first it's running from the initramfs
+T 1612729574 18<20cmurf18>	and it stops and restarts from disk
+T 1612729601 18<20cmurf18>	[    4.021638] flap.local systemd-journald[217]: Journal stopped
+T 1612729603 18<20cmurf18>	that's normal
+T 1612729608 18<25jakelazaroff18>	ah okay
+T 1612729610 18<20cmurf18>	if you have two, that's unusual
+T 1612729635 18<25jakelazaroff18>	i just have the one
+T 1612729641 18<25jakelazaroff18>	the entirety of the journald logs span like two seconds
+T 1612729667 18<20cmurf18>	less than a second later i've got
+T 1612729669 18<20cmurf18>	[    4.846606] flap.local systemd-journald[499]: Journal started
+T 1612729680 18<25jakelazaroff18>	that i don't have
+T 1612729738 18<20cmurf18>	journalctl -b -o short-monotonic -u systemd-journald
+T 1612729794 18<25jakelazaroff18>	-o short-monotonic = that bracketed number on the left, the number of seconds since boot?
+T 1612729806 18<20cmurf18>	yes
+T 1612729835 18<25jakelazaroff18>	that's neat, thanks
+T 1612729837 18<20cmurf18>	personal preference i guess, makes it easier to find unexpected gaps in the log
+T 1612729850 18<20cmurf18>	more like dmesg
+T 1612729860 18<25jakelazaroff18>	same three logs though
+T 1612729895 18<20cmurf18>	journalctl --verify
+T 1612729912 18<25jakelazaroff18>	did that before, it passes
+T 1612729934 18<25jakelazaroff18>	there's a folder in /var/log/journal as well
+T 1612729935 18<20cmurf18>	ok
+T 1612729941 18<20cmurf18>	that's normal
+T 1612729947 18<20cmurf18>	tht's the persistent journal location
+T 1612729969 18<20cmurf18>	on fedora, /etc/systemd/journald.conf defaults to storage=auto which means if the /var/log/journal exists, use that
+T 1612729982 18<20cmurf18>	if it doesn't, then it's in /run/log/journal which is volatile
+T 1612730009 18<20cmurf18>	what do you get for 'systemctl status systemd-journald'
+T 1612730037 18<25jakelazaroff18>	green, active
+T 1612730180 18<20cmurf18>	and it's logging things still? except for one service?
+T 1612730190 18<25jakelazaroff18>	no, sorry, i think that was a red herring
+T 1612730206 18<25jakelazaroff18>	the logs stop after that first "journal stopped"
+T 1612730224 18<25jakelazaroff18>	i misread the logs beforehand and thought they were still coming in
+T 1612730237 18<20cmurf18>	what's the time stamp for /var/log/journal/$MACHINEID/system.journal
+T 1612730245 18<20cmurf18>	is it stale?
+T 1612730306 18<20cmurf18>	something like 'sudo systemctl restart packagekit' is enough to force both the sudo command and the service restart to be inserted into the journal
+T 1612730334 18<20cmurf18>	and it should show up just by 'journalctl --since=-1m'
+T 1612730341 18<20cmurf18>	that's -1m
+T 1612730372 18<20cmurf18>	sorta funny to me, as if +1m could exist and act like a time machine
+T 1612730386 18<25jakelazaroff18>	lol you could set your clock back i suppose
+T 1612730398 18<25jakelazaroff18>	um sorry tho, what do you mean by timestamp for that file
+T 1612730401 18<25jakelazaroff18>	last modified?
+T 1612730403 18<20cmurf18>	yeah
+T 1612730414 18<20cmurf18>	ls -l /var/log/journal/.../system.journal
+T 1612730419 18<20cmurf18>	like is it being written to at all?
+T 1612730473 18<25jakelazaroff18>	not stale, 20:41
+T 1612730479 18<25jakelazaroff18>	both system.journal and user-1000.journal
+T 1612730487 18<20cmurf18>	i haven't seen it recently but i've seen journald get confused due to corrupt journals (which you don't have) and it fails to show contents that are in the journal
+T 1612730494 18<20cmurf18>	most of that stuff has been ironed out
+T 1612730499 18<20cmurf18>	ok so it's writing to it
+T 1612730506 18<20cmurf18>	but you have no recent entries
+T 1612730509 18<28fedbot18>	*** F33-20210129 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1612730520 18<20cmurf18>	that is weird
+T 1612730525 18<25jakelazaroff18>	yeah that's the confusing thing to me — the process is green, verify works fine
+T 1612730527 18<20cmurf18>	i guess i would just start poking it with a stick
+T 1612730538 18<20cmurf18>	like i'd probably just restart it
+T 1612730544 18<20cmurf18>	systemctl restart systemd-journald
+T 1612730548 18<20cmurf18>	see if that fixes it
+T 1612730565 18<25jakelazaroff18>	so that works
+T 1612730567 18<20cmurf18>	if not i'd 'journalctl --rotate' to force journal rotation
+T 1612730615 18<20cmurf18>	it got stuck somehow
+T 1612730638 18<25jakelazaroff18>	my problem here is that this is on servers that are getting started up automatically, so i can't manually restart systemd-journald every time
+T 1612730645 18<20cmurf18>	so i dunno, haven't seen that one, you could have done 'sudo strace -p PID' for systemd-journald and see what it's doing and file a bug :P
+T 1612730685 18<25jakelazaroff18>	going for the hacky fix here — is there a way to have it automatically restart systemd-journald on startup?
+T 1612730700 18<20cmurf18>	this shouldn't happen regularly or it's a bug
+T 1612730720 18<20cmurf18>	it does restart on startup already so making it do it again isn't gonna fix things
+T 1612730735 18<20cmurf18>	it starts from initramfs, logs, restarts from disk, logs indefinitely
+T 1612730758 18<20cmurf18>	so if it's getting stuck on every reboot that's not good
+T 1612730762 18<20cmurf18>	this is f33? or rawhide?
+T 1612730776 18<25jakelazaroff18>	f32
+T 1612730779 18<20cmurf18>	hmm
+T 1612730801 18<20cmurf18>	and this happens on every reboot?
+T 1612730804 18<20cmurf18>	it just gets stuck?
+T 1612730933 18<25jakelazaroff18>	to give a little more context, these are servers on digitalocean from an image i'm building with packer. so basically what happens is a server boots up, gets provisioned, the disk gets saved as an image, and then that becomes the template for new servers
+T 1612730942 18<25jakelazaroff18>	so whenever i spin up a server from that image, this happens
+T 1612730993 18<20cmurf18>	uhh hmm
+T 1612731053 18<25jakelazaroff18>	although… this is super weird — if i reboot the server, it works fine
+T 1612731148 18<22LeoNice8118>	Can I ask some general irc questions please?
+T 1612731331 18<22LeoNice8118>	I'm using #Revolution IRC for Android anyone familiar with it?
+T 1612731454 18<26Khaytsus18>	LeoNice81: Wrong channel?
+T 1612731469 18<20cmurf18>	jakelazaroff: it sounds like a new server provisioned from the cloned image is confusing the running server?
+T 1612731473 18<20cmurf18>	that can't be coincidence
+T 1612731474 18<22LeoNice8118>	No I've been gone from the
+T 1612731576 20*	Disconnected (20)
+T 1612731710 20*	Disconnected (20Remote host closed socket)
+T 1612731781 20*	Disconnected (20Remote host closed socket)
+T 1612731823 19*	Now talking on 22#fedora
+T 1612731823 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1612731823 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1612731825 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1612731858 18<20cmurf18>	jakelazaroff: it doesn't get refreshed, it should be removed from the template i think
+T 1612731873 18<20cmurf18>	/etc/machine-id
+T 1612731887 18<24IPFreely18>	Hi
+T 1612731894 18<24IPFreely18>	How do I check my OS DNS setting? commands dig, host, nslookup aren't working.. do I really need to install some packages for this?
+T 1612731905 18<26[R]18>	IPFreely: cat /etc/resolv.conf
+T 1612731927 18<24IPFreely18>	thanks
+T 1612731935 18<26Khaytsus18>	IPFreely: Have you modified any configs?  that should all just work generally
+T 1612731951 18<24IPFreely18>	It does work, I just wanted to check what I have assigned from DHCP
+T 1612732049 18<25jakelazaroff18>	@cmurf it should be the same as /run/log/journal/MACHINE_ID right?
+T 1612732107 18<22LeoNice8118>	Khartoum im typing by fingertips right now. I am a Fedora user have been since 97, however, I've been away from all tech for 14 straight years!
+T 1612732118 18<20cmurf18>	/etc/machine-id gets set at install time by some script, and from that is how systemd sets machineid for use wherever it gets used including for journals
+T 1612732144 18<20cmurf18>	the thing is, if these servers aren't all talkign to each other, they aren't going to know the same machine-id is being used among all of them
+T 1612732173 18<25jakelazaroff18>	yeah they shouldn't be
+T 1612732258 18<25jakelazaroff18>	maybe i'll try adding this to the provisioning script https://twitter.com/kelseyhightower/status/648251372815560704
+T 1612732515 20*	Disconnected (20)
+T 1612782063 20*	Disconnected (20Connection timed out)
+T 1612782090 19*	Now talking on 22#fedora
+T 1612782090 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1612782090 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1612782091 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1612797928 20*	Disconnected (20)
+T 1612797954 19*	Now talking on 22#fedora
+T 1612797954 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1612797954 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1612797954 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1612799262 20*	Disconnected (20)
+T 1612799288 19*	Now talking on 22#fedora
+T 1612799288 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1612799288 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1612799289 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1612799544 18<26slop18>	Hi does anyone use Citrix Workspace?
+T 1612799645 18<22Twindigit[m]118>	Yeah, that's a doozy to set up
+T 1612799665 18<26slop18>	thats what I was afraid of.
+T 1612799979 18<26slop18>	I read a few blogs/posts about extracting pem files from bundles and started thinking is that a good idea? would they receive updates?!
+T 1612800075 18<26amarok18>	hi. Was there a recent changes in networking I missed? I updated my version like 2 days ago and since then I can't do any dnf update, some soft cannot connect, a git pull take like 2 minutes before fetching
+T 1612807190 20*	Disconnected (20)
+T 1612807217 19*	Now talking on 22#fedora
+T 1612807217 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1612807217 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1612807217 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1612807862 18<22Twindigit[m]118>	<slop "ok great!"> BTW: Sudo all the things. I just went over the procedure again.
+T 1612807864 18<22mohab[m]18>	Any idea if I can use DNF to keep a package from upgrading? It keeps letting MAME upgrade and some of my ROMs don't work on the new version. Usually, the option to disable auto-upgrades is provided by the application, but I couldn't find any in MAME.
+T 1612807910 18<26slop18>	I really appreciate this!
+T 1612807912 18<26slop18>	thank you
+T 1612808305 18<25Amgine[m]18>	Question: My Fedora 33 updates the kernel, but does not actually use the updated kernel on reboot. The most recent update was 5.10.13, but:
+T 1612808305 18<25Amgine[m]18>	`$ uname -r
+T 1612808305 18<25Amgine[m]18>	5.10.8-200.fc33.x86_64`
+T 1612808345 18<25Amgine[m]18>	How do I boot with the latest kernel?
+T 1612808741 18<22mohab[m]18>	<mohab[m] "Any idea if I can use DNF to kee"> Nevrmind. I found the versionlock plugin.
+T 1612808778 18<20cmurf18>	Amgine[m]: can you do 'sudo grub2-editenv list'
+T 1612808811 18<26slop18>	Which IRC client do you recommend?
+T 1612808855 18*	25Amgine[m] sent a long message:  < https://matrix.org/_matrix/media/r0/download/matrix.org/CMsbgbfBblmDRtcdguRzPUHn/message.txt >
+T 1612808897 18<20cmurf18>	Amgine[m]: ok that explains why it's booting 5.10.8, question is why it didn't get updated
+T 1612808926 18<25Amgine[m]18>	I'd really love to blame Apple here...
+T 1612808927 18<20cmurf18>	can you 'fpaste | /etc/default/grub'
+T 1612808943 18<20cmurf18>	i don't think it's an Apple problem in this case haha
+T 1612808956 18<25Amgine[m]18>	I know, I know... <sigh>
+T 1612808957 18<20cmurf18>	any GRUB customizations since installation?
+T 1612808983 18<20cmurf18>	there is a simple fix but i'd like to know why it's not updating the saved entry
+T 1612808983 18<26slop18>	are we moving back to LILO in version 34? :D
+T 1612808997 18<20cmurf18>	GRUB OS
+T 1612808999 18<20cmurf18>	haha
+T 1612809063 18<20cmurf18>	slop: i'm using weechat on Fedora Server, then connect from my laptop via ssh, upon login it automatically loads a tmux session where, viola, weechat is running
+T 1612809072 18<25Amgine[m]18>	The fpaste line gives me a permission denied and sits there.
+T 1612809095 18<20cmurf18>	but eventually Fedora is moving to matrix natively so i'm not making any changes until i understand the new world (which will still have IRC)
+T 1612809098 18<26slop18>	cmurf thank you -  I am currently using hexchat and didnt know if something else was recommended/more up to date etc
+T 1612809108 18<20cmurf18>	Amgine[m]: ahh sorry, add sudo
+T 1612809114 18<20cmurf18>	'sudo fpaste /etc/default/grub'
+T 1612809123 18<25Amgine[m]18>	Oh, no pipe.
+T 1612809139 18<20cmurf18>	Amgine[m]: oh i'm an idiot :P
+T 1612809142 18<20cmurf18>	that was a typo
+T 1612809148 18<25Amgine[m]18>	https://paste.centos.org/view/b4f20e31
+T 1612809153 18*	20cmurf cannot multitask
+T 1612809183 18<20cmurf18>	Amgine[m]: ok it's default, hmm
+T 1612809212 18<20cmurf18>	'sudo ls -l /boot/loader/entries/ | fpaste'
+T 1612809237 18<25Amgine[m]18>	https://paste.centos.org/view/686b4e55
+T 1612809257 18<20cmurf18>	curious, the bls snippet for it is there
+T 1612809263 18<20cmurf18>	ok well to fix it:
+T 1612809274 18<20cmurf18>	sudo grub2-set-default fdab6eb99ac24d64af49e72c11c125ad-5.10.13-200.fc33.x86_64
+T 1612809302 18<25Amgine[m]18>	<looks for that>
+T 1612809325 18<20cmurf18>	it's a blind command, there's no reply
+T 1612809342 18<20cmurf18>	if you want to confirm 'sudo grub2-editenv list'
+T 1612809351 18<20cmurf18>	it should now be the saved entry
+T 1612809355 18<25Amgine[m]18>	No, I am wondering where you got the hash, in case I need to do that for 5.10.14, etc.
+T 1612809357 18<20cmurf18>	if it's not then we have an aha! moment
+T 1612809376 18<20cmurf18>	ahh, yeah good point, so look at the /boot/loader/entries listing
+T 1612809385 18<20cmurf18>	it's just that conf file without the ending
+T 1612809392 18<20cmurf18>	remove the last 5 characters, .conf
+T 1612809442 18<25Amgine[m]18>	<nods> Perfect. Now to write myself a note so I when I run into this in a few days/weeks I will have reference.
+T 1612809457 18<20cmurf18>	if you do, it's a bug and we need to find out why
+T 1612809489 18<20cmurf18>	but does grub2-editenv list show the change?
+T 1612809490 18<25Amgine[m]18>	Aha! and then I get to blame Steve Jobs...
+T 1612809502 18<20cmurf18>	if it doesn't show the change then that's the problem
+T 1612809507 18<25Amgine[m]18>	Yes, the change is there.
+T 1612809522 18<20cmurf18>	ok hmm, well that grubenv file is accepting the change at least
+T 1612809576 18<20cmurf18>	so yeah on macs, the thing we use on Fedora for /boot/efi is not the real EFI System partition
+T 1612809584 18<20cmurf18>	but a small HFS+ partition
+T 1612809598 18<26slop18>	macs. /me washes hands.
+T 1612809609 18<20cmurf18>	the reason is for mactel-boot stuff, so that you see a pretty Fedora logo when you boot with option key at the startup chime
+T 1612809613 18<20cmurf18>	:D
+T 1612809633 18<25Amgine[m]18>	<nods> I wiped this one so it is only Fedora, which may be the issue?
+T 1612809655 18<20cmurf18>	basically there are some files on that HFS+ faux-ESP that make Apple firmware think Fedora's GRUB is actually macos haha
+T 1612809661 18<20cmurf18>	but anyway...
+T 1612809669 18<26slop18>	hey I saw a post on reddit about about the splash screen for system updates performed via gnome. guys, ive got to tell you. thats a great move. Its something that my parents and other non technical people are COMFORTABLE with.
+T 1612809671 18<20cmurf18>	no i don't think so, this is all self contained to Fedora
+T 1612809689 18<26slop18>	a lot better than me telling my 70+ year old parents ok open a terminal. now
+T 1612809716 18<20cmurf18>	yeah they just get updates automatically really, out of the box
+T 1612809728 18<25Amgine[m]18>	kk. Well, thanks for the quick solution, and I will keep you apprised if there are future similar behaviors.
+T 1612809731 18<26slop18>	Its a step in the right direction for becoming a more well rounded/outside of technical people updates. and making updates LESS scary so theya re applied.
+T 1612809736 18<20cmurf18>	you just reboot and once every week or two (sometimes more often due to firefox or a kernel security fix) you get updates on the reboot
+T 1612809742 18<26slop18>	^^
+T 1612809779 18<20cmurf18>	Amgine[m]: yeah because the kernel package is responsible for writing that that conf file, and then also updating the grub environment file
+T 1612809787 18<20coppice18>	slop: you do realise that it was people who are 70+ who developed the opening of terminal windows?
+T 1612809886 18<22akik18>	cmurf: on an 2011 imac, the efi system partition is a normal vfat partition. there's an installer bug that makes it so that you can't install the boot loader in the installer
+T 1612809925 18<20cmurf18>	akik: there is a real FAT32 ESP but Apple only uses it for firmware update staging
+T 1612809932 18<20cmurf18>	they don't use it for booting and neither does Fedora
+T 1612809942 18<22akik18>	cmurf: my machine uses it for booting
+T 1612809950 18<26slop18>	coppice, not my farming parents. they didnt have an email address until it was required. I tell them theres NOTHING they can break on fedora that we can either figure out or reload.
+T 1612809955 18<22akik18>	i.e. /boot/efi/EFI/fedora is in there
+T 1612809972 18<20cmurf18>	akik: lsblk -f | fpaste
+T 1612809998 18<20cmurf18>	because the installer, if it knows it's on a mac, will create /boot/efi on HFS+, it will not reuse the FAT32 ESP
+T 1612810024 18<20cmurf18>	there is a bug in the f33 installer where it creates both FAT32 and HFS+ partitions, but only uses the HFS+ one for /boot/efi
+T 1612810071 18<20cmurf18>	the unused FAT32 volume is left untouched - forever ghosted
+T 1612810101 18<22akik18>	cmurf: that's where the installer goes wrong. it should just use the existing esp
+T 1612810199 18<22akik18>	cmurf: here's the lsblk https://paste.centos.org/view/7c9d7479
+T 1612810257 18<22akik18>	maybe the difference is that i'm using apfs and not hfs
+T 1612810273 18<22akik18>	for the macos partition
+T 1612810900 18<20cmurf18>	akik: did you modify this after installation?
+T 1612810904 18<20cmurf18>	├─sda1 vfat   FAT32 EFI   2860-11F4                               148M    25% /boot/efi
+T 1612811004 18<22akik18>	cmurf: no it contains some apple stuff. one thing that i just now remembers was that i use that other boot loader per default, refind
+T 1612811024 18<20cmurf18>	that's interesting because Apple had used a 200M FAT32 ESP for a very long time, since the start of EFI with x86 macs
+T 1612811056 18<20cmurf18>	Soo it must be that whatever does the test for "is it a mac" isn't working with newer macs? HUH
+T 1612811061 18<20cmurf18>	but you said this is a 2011 mac
+T 1612811076 18<22akik18>	cmurf: yes
+T 1612811090 18<20cmurf18>	my 2009 and 2012 macs both behave the way i've described though
+T 1612811095 18<22akik18>	cmurf: my only apple hardware
+T 1612811106 18<22akik18>	and it's probably going out of support soon
+T 1612811109 18<20cmurf18>	the installer doesn't use FAT32 ESP, it'll only use HFS+ for /boot/efi
+T 1612811117 18<22akik18>	why's that?
+T 1612811125 18<22akik18>	i have apple's stuff in there
+T 1612811138 18<22akik18>	and now also fedora's
+T 1612811156 18<20cmurf18>	like i said earlier, it's part of mactel-boot stuff to make it easier for mac users
+T 1612811166 18<22akik18>	i can paste the contents if you want
+T 1612811185 18<20cmurf18>	originally Fedora also appeared in the Startup panel, but i think Apple broke that part and now only the built-in firmware Boot Manager shows Fedora
+T 1612811227 18<20cmurf18>	did you use Custom partitioning? or Advanced-Custom?
+T 1612811243 18<22akik18>	if i try to install fedora or centos on it, i'm just getting some weird error like efi system partition can't be of type esp
+T 1612811252 18<20cmurf18>	that's correct
+T 1612811264 18<22akik18>	then i need to unselect the install boot loader in the installer and after install, install it
+T 1612811292 18<20cmurf18>	oh ok so you're just being stubborn and want to do things your way rather than the installer's way :D
+T 1612811294 18<20cmurf18>	i get it
+T 1612811300 18<20cmurf18>	i'm the same way sometimes
+T 1612811353 18<22akik18>	cmurf: the installer doesn't work
+T 1612811365 18<20cmurf18>	it does it you don't fight it
+T 1612811372 18<22akik18>	cmurf: if i would use the installer, i couldn't get the machine booting fedora
+T 1612811377 18<20cmurf18>	if you just let it do things the way it wants (automatic) then it works fine
+T 1612811384 18<22akik18>	sheesh
+T 1612811386 18<20cmurf18>	haha
+T 1612811411 18<22akik18>	this is so common. refusing to get the facts you're presented with
+T 1612811432 18<22akik18>	i have no hfs partition on that machine
+T 1612811445 18<20cmurf18>	it'll create it
+T 1612811450 18<22akik18>	no it doesn't
+T 1612811461 18<20cmurf18>	yes it does, i've only done 10000 installations :P
+T 1612811466 18<22akik18>	i found the solution on redhat's bugzilla
+T 1612811497 18<20cmurf18>	you must be doing Custom or Advanced-Custom installation, because that error message only happens in those paths
+T 1612811505 18<22akik18>	yes i always do that
+T 1612811515 18<19foxide18>	Maybe don't?
+T 1612811525 18<22akik18>	oh come on grow up
+T 1612811533 18<20cmurf18>	ok and if you create /boot/efi on a mac as Linux HFS+ EFI, you do not get the error you're talking about
+T 1612811560 18<19foxide18>	You don't even need to do that. FAT32 EFI works just fine, Apple EFI looks for the fallback bootloader same as UEFI implementations.
+T 1612811562 18<20cmurf18>	you only get the error if you try to force it to do something it has a rule against doing
+T 1612811572 18<22akik18>	so fedora has decided not to use the common esp on macs as with any other platform?
+T 1612811577 18<20cmurf18>	correct
+T 1612811581 18<22akik18>	so silly :)
+T 1612811588 18<19foxide18>	Fedora didn't decide anything, you're the one doing a custom install.
+T 1612811590 18<19foxide18>	YOU decided.
+T 1612811598 18<20cmurf18>	dude i just explained why, why are you ignoring that?
+T 1612811608 18<22akik18>	foxide: there's an esp on the disk. why shouldn't i use it?
+T 1612811616 18<19foxide18>	Are you trying to dual boot?
+T 1612811629 18<20cmurf18>	Because Apple's firmware ignores it except as a final fallback volume
+T 1612811641 18<20cmurf18>	we wanted users to see a nice Fedora logo in the built-in boot manager
+T 1612811649 18<20cmurf18>	you only get that if the files are on an HFS+ volume
+T 1612811663 18<22akik18>	foxide: yes i'm dual booting but i'll remove macos when it drops out of support
+T 1612811694 18<22akik18>	haven't booted it in a while
+T 1612811781 18<20cmurf18>	I admit the error message doesn't really tell you exactly what you need to do - i've argued for a long time that all this bootloader stuff in GUI installers should just go away
+T 1612811792 18<20cmurf18>	let the installer do it all correctly behind the scenes, no customizations
+T 1612811808 18<22akik18>	shouldn't you then disable the custom and advanced custom options?
+T 1612811818 18<20cmurf18>	why?
+T 1612811821 18<19foxide18>	That's called "don't select them."
+T 1612811823 18<22akik18>	if they don't work
+T 1612811832 18<19foxide18>	They do work, if you know what you're doing.
+T 1612811833 18<20cmurf18>	they *do work* you are just fighting its rules
+T 1612811850 18<22akik18>	foxide: could you like keep the tone civil
+T 1612811876 18<19foxide18>	I am being civil. That you don't like the facts being presented to you doesn't make me uncivil.
+T 1612811880 18<20cmurf18>	akik: :D come on! you are hardly in a position to ask other people to keep the tone civil when you just told other people to "grow up"
+T 1612811895 18<22akik18>	cmurf: yes i tell it like it is if people act up
+T 1612811899 18<20cmurf18>	LOL
+T 1612811905 18<20cmurf18>	you can dish it out but can't take it, got it
+T 1612811916 18<22akik18>	he was saying i shouldn't use the custom partitioning
+T 1612811937 18<19foxide18>	The outcomes of your attempts seem to lend credence to my advice.
+T 1612811950 18<20cmurf18>	you guys are both correct :D
+T 1612811959 18<20cmurf18>	(a) custom is custom, you're expect to know what you're doing
+T 1612811969 18<28linuxmodder18>	cmurf,  or only with a custom ( you shoot yourself at your own risk, experts only) for efi bootloader
+T 1612811972 18<22akik18>	foxide: the attempts ended when i found the reason for the problem from bugzilla
+T 1612811974 18<20cmurf18>	(b) bootloader stuff is esoteric and should not be exposed to users in GUI installers
+T 1612812026 18<20cmurf18>	linuxmodder: yeah i agree although i also think bootloader stuff is sufficiently esoteric (being eyeballs deep in this territory for over 10 years) that not even experts understand it well enough to expose them to this torture
+T 1612812049 18<19foxide18>	cmurf: Speak for yourself. :P
+T 1612812061 18<28linuxmodder18>	cmurf,  fair
+T 1612812069 18<28linuxmodder18>	foxide,  seriously get off it
+T 1612812089 18<19foxide18>	linuxmodder: Wasn't talking to you. At all.
+T 1612812093 18<28linuxmodder18>	just because you appear to hate on mac or custom setups is no right to be so nasty
+T 1612812109 18<19foxide18>	Uh, what? I've run Fedora on every mac I've owned for 11 years. Nice assumption. :P
+T 1612812120 18<20cmurf18>	so anyway...
+T 1612812142 18<20cmurf18>	did everyone see that lkml link i posted about M1 macs? :D
+T 1612812147 18*	20cmurf quickly changes the subject
+T 1612812148 18<19foxide18>	cmurf: I did not!
+T 1612812156 18<28linuxmodder18>	cmurf,  heard you mention it never saw it tho
+T 1612812176 18<19foxide18>	linuxmodder: I never appeared to hate on Macs or custom setups. I DID say that you're expected to know what you're doing. So, get off it. :)
+T 1612812182 18<28linuxmodder18>	not gonna lie the m1 might be enough for me to justify the $$$ of macs
+T 1612812183 18<20cmurf18>	https://lkml.org/lkml/2021/2/4/1177
+T 1612812225 18<28linuxmodder18>	cmurf,  nice
+T 1612812229 18<19foxide18>	cmurf: I'm not even through the first part of this and I'm encountering terms I've NEVER seen before.
+T 1612812295 18<28linuxmodder18>	tl'dr insane mobile desktop chip for once that uses arm logic
+T 1612812341 18<28linuxmodder18>	I love how macs sip on resources but that $$ has been a sticking point the m1 might be enough for me to jump that hurdle tho
+T 1612812382 18<28linuxmodder18>	iphone 12 can pretty much out do the current macs efficiency wise the m1 is slated to change that
+T 1612812428 18<19foxide18>	That said, I am nowhere near as knowledgeable on ARM stuff.
+T 1612812460 18<20cmurf18>	i bought a 13" hp spectre to run fedora on about 4.5 years ago, 2.4 pounds - mainly because the macbook pro 2011 is like 6 pounds
+T 1612812471 18<19foxide18>	Yeah, it was a hoss.
+T 1612812496 18<20cmurf18>	but the 2011 mac has held up better, except for the discrete GPU which is kaput, than the hp which has keys dying
+T 1612812516 18<26slop18>	Hey! is this Fedora channel or no? :D
+T 1612812529 18<20cmurf18>	and this USB-C power business, which seems like a good idea to have one plug to rule them all; but in practice it's annoying
+T 1612812532 18<19foxide18>	slop: Sure. Fedora is an amazing distro for Mac hardware.
+T 1612812533 18<20cmurf18>	fragile
+T 1612812549 18<26slop18>	oh snap hehe
+T 1612812550 18<19foxide18>	I've had better luck running Fedora on Mac hardware than any other distro.
+T 1612812580 18<20cmurf18>	Intel NUC: fedora; MacbookPro: fedora, hp laptop: fedora
+T 1612812582 18<25Amgine[m]18>	It is certainly keeping this 2013 Macbook Air running as a daily.
+T 1612812646 18<20cmurf18>	BTW anyone who runs into the amd gpu problem, there's a way to have GRUB power it off so the kernel doesn't even see it
+T 1612812671 18<20cmurf18>	runs i915 graphics just fine
+T 1612812750 18<25Amgine[m]18>	cmurf: do you have the FacetimeHD camera running on your Macbook?
+T 1612812781 18<20cmurf18>	i don't think this macbookpro has a facetimehd camera but it does have a camera and it is working
+T 1612812782 18<28linuxmodder18>	cmurf,  what soem grub line voodoo?
+T 1612812793 18<20cmurf18>	i used it for bluejeans worstation working group meetings
+T 1612812798 18<28linuxmodder18>	rd.amd_blacklist style
+T 1612812809 18<20cmurf18>	linuxmodder: no, way weirder
+T 1612812817 18<28linuxmodder18>	oh lovely
+T 1612812820 18<22akik18>	cmurf: which kernel parameter is it?
+T 1612812849 18<22akik18>	i could test it on the imac even though the radeon is working fine
+T 1612812880 18<20cmurf18>	https://bugzilla.redhat.com/show_bug.cgi?id=765954#c65
+T 1612812883 18<26slop18>	I love how clean gnome is for Fedora. just so clean.
+T 1612812922 18<22akik18>	cmurf: oh it's a bit more than just a kernel parameter
+T 1612812933 18<20cmurf18>	oh yeah :P
+T 1612812940 18<26slop18>	Ive installed other ....big name.. distros and was like whoa thats a lot of bloat. I keep coming back to red hat/fedora since before fedora was a thing. Same with freenode really.
+T 1612812943 18<28linuxmodder18>	too resource hungry but looks sexy indeed
+T 1612813064 18<19foxide18>	RHL 7.1, baby
+T 1612813084 18<20cmurf18>	what i can't answer is if you have working amd graphics, whether switcheroo always uses i915 graphics unconditionally
+T 1612813090 18<28linuxmodder18>	oh lord that is ancient
+T 1612813091 18<20cmurf18>	i'm not sure that it switches
+T 1612813092 18<26slop18>	is there any thoughts of adding gnome-tweaks as a default install?
+T 1612813116 18<20cmurf18>	slop: not likely to happen
+T 1612813584 20*	Disconnected (20)
+T 1612813613 19*	Now talking on 22#fedora
+T 1612813613 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1612813613 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1612813613 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1612813629 18*	20cmurf goes for lunch
+T 1612813654 18<28linuxmodder18>	kde i can deal with yast not so much
+T 1612813659 18<28linuxmodder18>	cmurf,  bon appetit
+T 1612813666 18<19foxide18>	YAST: Yikes, A Software Travesty
+T 1612813730 18<28linuxmodder18>	love it
+T 1612813779 18<26slop18>	ha thats great. I will never look at it the same
+T 1612813835 24*	28sincorchetes is now known as 18Guest61163
+T 1612813978 18<19alexandercormi4[18>	👋

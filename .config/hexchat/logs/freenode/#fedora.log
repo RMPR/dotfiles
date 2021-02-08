@@ -7716,3 +7716,386 @@ Feb 07 21:16:02 *	Now talking on #fedora
 Feb 07 21:16:02 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
 Feb 07 21:16:02 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
 Feb 07 21:16:03 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 07 21:25:11 <jakelazaroff>	@cmurf nope, only three logs from systemd-journald are "journal started", "runtime journal" with a path and some numbers, and then "journal stopped"
+Feb 07 21:26:03 <cmurf>	ahh well it's normal for there to be one "stopped" because at first it's running from the initramfs
+Feb 07 21:26:14 <cmurf>	and it stops and restarts from disk
+Feb 07 21:26:41 <cmurf>	[    4.021638] flap.local systemd-journald[217]: Journal stopped
+Feb 07 21:26:43 <cmurf>	that's normal
+Feb 07 21:26:48 <jakelazaroff>	ah okay
+Feb 07 21:26:50 <cmurf>	if you have two, that's unusual
+Feb 07 21:27:15 <jakelazaroff>	i just have the one
+Feb 07 21:27:21 <jakelazaroff>	the entirety of the journald logs span like two seconds
+Feb 07 21:27:47 <cmurf>	less than a second later i've got
+Feb 07 21:27:49 <cmurf>	[    4.846606] flap.local systemd-journald[499]: Journal started
+Feb 07 21:28:00 <jakelazaroff>	that i don't have
+Feb 07 21:28:58 <cmurf>	journalctl -b -o short-monotonic -u systemd-journald
+Feb 07 21:29:54 <jakelazaroff>	-o short-monotonic = that bracketed number on the left, the number of seconds since boot?
+Feb 07 21:30:06 <cmurf>	yes
+Feb 07 21:30:35 <jakelazaroff>	that's neat, thanks
+Feb 07 21:30:37 <cmurf>	personal preference i guess, makes it easier to find unexpected gaps in the log
+Feb 07 21:30:50 <cmurf>	more like dmesg
+Feb 07 21:31:00 <jakelazaroff>	same three logs though
+Feb 07 21:31:35 <cmurf>	journalctl --verify
+Feb 07 21:31:52 <jakelazaroff>	did that before, it passes
+Feb 07 21:32:14 <jakelazaroff>	there's a folder in /var/log/journal as well
+Feb 07 21:32:15 <cmurf>	ok
+Feb 07 21:32:21 <cmurf>	that's normal
+Feb 07 21:32:27 <cmurf>	tht's the persistent journal location
+Feb 07 21:32:49 <cmurf>	on fedora, /etc/systemd/journald.conf defaults to storage=auto which means if the /var/log/journal exists, use that
+Feb 07 21:33:02 <cmurf>	if it doesn't, then it's in /run/log/journal which is volatile
+Feb 07 21:33:29 <cmurf>	what do you get for 'systemctl status systemd-journald'
+Feb 07 21:33:57 <jakelazaroff>	green, active
+Feb 07 21:36:20 <cmurf>	and it's logging things still? except for one service?
+Feb 07 21:36:30 <jakelazaroff>	no, sorry, i think that was a red herring
+Feb 07 21:36:46 <jakelazaroff>	the logs stop after that first "journal stopped"
+Feb 07 21:37:04 <jakelazaroff>	i misread the logs beforehand and thought they were still coming in
+Feb 07 21:37:17 <cmurf>	what's the time stamp for /var/log/journal/$MACHINEID/system.journal
+Feb 07 21:37:25 <cmurf>	is it stale?
+Feb 07 21:38:26 <cmurf>	something like 'sudo systemctl restart packagekit' is enough to force both the sudo command and the service restart to be inserted into the journal
+Feb 07 21:38:54 <cmurf>	and it should show up just by 'journalctl --since=-1m'
+Feb 07 21:39:01 <cmurf>	that's -1m
+Feb 07 21:39:32 <cmurf>	sorta funny to me, as if +1m could exist and act like a time machine
+Feb 07 21:39:46 <jakelazaroff>	lol you could set your clock back i suppose
+Feb 07 21:39:58 <jakelazaroff>	um sorry tho, what do you mean by timestamp for that file
+Feb 07 21:40:01 <jakelazaroff>	last modified?
+Feb 07 21:40:03 <cmurf>	yeah
+Feb 07 21:40:14 <cmurf>	ls -l /var/log/journal/.../system.journal
+Feb 07 21:40:19 <cmurf>	like is it being written to at all?
+Feb 07 21:41:13 <jakelazaroff>	not stale, 20:41
+Feb 07 21:41:19 <jakelazaroff>	both system.journal and user-1000.journal
+Feb 07 21:41:27 <cmurf>	i haven't seen it recently but i've seen journald get confused due to corrupt journals (which you don't have) and it fails to show contents that are in the journal
+Feb 07 21:41:34 <cmurf>	most of that stuff has been ironed out
+Feb 07 21:41:39 <cmurf>	ok so it's writing to it
+Feb 07 21:41:46 <cmurf>	but you have no recent entries
+Feb 07 21:41:49 <fedbot>	*** F33-20210129 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Feb 07 21:42:00 <cmurf>	that is weird
+Feb 07 21:42:05 <jakelazaroff>	yeah that's the confusing thing to me — the process is green, verify works fine
+Feb 07 21:42:07 <cmurf>	i guess i would just start poking it with a stick
+Feb 07 21:42:18 <cmurf>	like i'd probably just restart it
+Feb 07 21:42:24 <cmurf>	systemctl restart systemd-journald
+Feb 07 21:42:28 <cmurf>	see if that fixes it
+Feb 07 21:42:45 <jakelazaroff>	so that works
+Feb 07 21:42:47 <cmurf>	if not i'd 'journalctl --rotate' to force journal rotation
+Feb 07 21:43:35 <cmurf>	it got stuck somehow
+Feb 07 21:43:58 <jakelazaroff>	my problem here is that this is on servers that are getting started up automatically, so i can't manually restart systemd-journald every time
+Feb 07 21:44:05 <cmurf>	so i dunno, haven't seen that one, you could have done 'sudo strace -p PID' for systemd-journald and see what it's doing and file a bug :P
+Feb 07 21:44:45 <jakelazaroff>	going for the hacky fix here — is there a way to have it automatically restart systemd-journald on startup?
+Feb 07 21:45:00 <cmurf>	this shouldn't happen regularly or it's a bug
+Feb 07 21:45:20 <cmurf>	it does restart on startup already so making it do it again isn't gonna fix things
+Feb 07 21:45:35 <cmurf>	it starts from initramfs, logs, restarts from disk, logs indefinitely
+Feb 07 21:45:58 <cmurf>	so if it's getting stuck on every reboot that's not good
+Feb 07 21:46:02 <cmurf>	this is f33? or rawhide?
+Feb 07 21:46:16 <jakelazaroff>	f32
+Feb 07 21:46:19 <cmurf>	hmm
+Feb 07 21:46:41 <cmurf>	and this happens on every reboot?
+Feb 07 21:46:44 <cmurf>	it just gets stuck?
+Feb 07 21:48:53 <jakelazaroff>	to give a little more context, these are servers on digitalocean from an image i'm building with packer. so basically what happens is a server boots up, gets provisioned, the disk gets saved as an image, and then that becomes the template for new servers
+Feb 07 21:49:02 <jakelazaroff>	so whenever i spin up a server from that image, this happens
+Feb 07 21:49:53 <cmurf>	uhh hmm
+Feb 07 21:50:53 <jakelazaroff>	although… this is super weird — if i reboot the server, it works fine
+Feb 07 21:52:28 <LeoNice81>	Can I ask some general irc questions please?
+Feb 07 21:55:31 <LeoNice81>	I'm using #Revolution IRC for Android anyone familiar with it?
+Feb 07 21:57:34 <Khaytsus>	LeoNice81: Wrong channel?
+Feb 07 21:57:49 <cmurf>	jakelazaroff: it sounds like a new server provisioned from the cloned image is confusing the running server?
+Feb 07 21:57:53 <cmurf>	that can't be coincidence
+Feb 07 21:57:54 <LeoNice81>	No I've been gone from the
+Feb 07 21:59:36 *	Disconnected ()
+**** ENDING LOGGING AT Sun Feb  7 21:59:36 2021
+
+**** BEGIN LOGGING AT Sun Feb  7 22:03:43 2021
+
+Feb 07 22:03:43 *	Now talking on #fedora
+Feb 07 22:03:43 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 07 22:03:43 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 07 22:03:45 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 07 22:04:18 <cmurf>	jakelazaroff: it doesn't get refreshed, it should be removed from the template i think
+Feb 07 22:04:33 <cmurf>	/etc/machine-id
+Feb 07 22:04:47 <IPFreely>	Hi
+Feb 07 22:04:54 <IPFreely>	How do I check my OS DNS setting? commands dig, host, nslookup aren't working.. do I really need to install some packages for this?
+Feb 07 22:05:05 <[R]>	IPFreely: cat /etc/resolv.conf
+Feb 07 22:05:27 <IPFreely>	thanks
+Feb 07 22:05:35 <Khaytsus>	IPFreely: Have you modified any configs?  that should all just work generally
+Feb 07 22:05:51 <IPFreely>	It does work, I just wanted to check what I have assigned from DHCP
+Feb 07 22:07:29 <jakelazaroff>	@cmurf it should be the same as /run/log/journal/MACHINE_ID right?
+Feb 07 22:08:27 <LeoNice81>	Khartoum im typing by fingertips right now. I am a Fedora user have been since 97, however, I've been away from all tech for 14 straight years!
+Feb 07 22:08:38 <cmurf>	/etc/machine-id gets set at install time by some script, and from that is how systemd sets machineid for use wherever it gets used including for journals
+Feb 07 22:09:04 <cmurf>	the thing is, if these servers aren't all talkign to each other, they aren't going to know the same machine-id is being used among all of them
+Feb 07 22:09:33 <jakelazaroff>	yeah they shouldn't be
+Feb 07 22:10:58 <jakelazaroff>	maybe i'll try adding this to the provisioning script https://twitter.com/kelseyhightower/status/648251372815560704
+Feb 07 22:15:15 *	Disconnected ()
+**** ENDING LOGGING AT Sun Feb  7 22:15:15 2021
+
+**** BEGIN LOGGING AT Mon Feb  8 12:01:30 2021
+
+Feb 08 12:01:30 *	Now talking on #fedora
+Feb 08 12:01:30 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 08 12:01:30 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 08 12:01:31 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 08 16:25:28 *	Disconnected ()
+**** ENDING LOGGING AT Mon Feb  8 16:25:28 2021
+
+**** BEGIN LOGGING AT Mon Feb  8 16:25:54 2021
+
+Feb 08 16:25:54 *	Now talking on #fedora
+Feb 08 16:25:54 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 08 16:25:54 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 08 16:25:54 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 08 16:47:42 *	Disconnected ()
+**** ENDING LOGGING AT Mon Feb  8 16:47:42 2021
+
+**** BEGIN LOGGING AT Mon Feb  8 16:48:08 2021
+
+Feb 08 16:48:08 *	Now talking on #fedora
+Feb 08 16:48:08 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 08 16:48:08 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 08 16:48:09 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 08 16:52:24 <slop>	Hi does anyone use Citrix Workspace?
+Feb 08 16:54:05 <Twindigit[m]1>	Yeah, that's a doozy to set up
+Feb 08 16:54:25 <slop>	thats what I was afraid of.
+Feb 08 16:59:39 <slop>	I read a few blogs/posts about extracting pem files from bundles and started thinking is that a good idea? would they receive updates?!
+Feb 08 17:01:15 <amarok>	hi. Was there a recent changes in networking I missed? I updated my version like 2 days ago and since then I can't do any dnf update, some soft cannot connect, a git pull take like 2 minutes before fetching
+Feb 08 18:59:50 *	Disconnected ()
+**** ENDING LOGGING AT Mon Feb  8 18:59:50 2021
+
+**** BEGIN LOGGING AT Mon Feb  8 19:00:17 2021
+
+Feb 08 19:00:17 *	Now talking on #fedora
+Feb 08 19:00:17 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 08 19:00:17 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 08 19:00:17 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 08 19:11:02 <Twindigit[m]1>	<slop "ok great!"> BTW: Sudo all the things. I just went over the procedure again.
+Feb 08 19:11:04 <mohab[m]>	Any idea if I can use DNF to keep a package from upgrading? It keeps letting MAME upgrade and some of my ROMs don't work on the new version. Usually, the option to disable auto-upgrades is provided by the application, but I couldn't find any in MAME.
+Feb 08 19:11:50 <slop>	I really appreciate this!
+Feb 08 19:11:52 <slop>	thank you
+Feb 08 19:18:25 <Amgine[m]>	Question: My Fedora 33 updates the kernel, but does not actually use the updated kernel on reboot. The most recent update was 5.10.13, but:
+Feb 08 19:18:25 <Amgine[m]>	`$ uname -r
+Feb 08 19:18:25 <Amgine[m]>	5.10.8-200.fc33.x86_64`
+Feb 08 19:19:05 <Amgine[m]>	How do I boot with the latest kernel?
+Feb 08 19:25:41 <mohab[m]>	<mohab[m] "Any idea if I can use DNF to kee"> Nevrmind. I found the versionlock plugin.
+Feb 08 19:26:18 <cmurf>	Amgine[m]: can you do 'sudo grub2-editenv list'
+Feb 08 19:26:51 <slop>	Which IRC client do you recommend?
+Feb 08 19:27:35 *	Amgine[m] sent a long message:  < https://matrix.org/_matrix/media/r0/download/matrix.org/CMsbgbfBblmDRtcdguRzPUHn/message.txt >
+Feb 08 19:28:17 <cmurf>	Amgine[m]: ok that explains why it's booting 5.10.8, question is why it didn't get updated
+Feb 08 19:28:46 <Amgine[m]>	I'd really love to blame Apple here...
+Feb 08 19:28:47 <cmurf>	can you 'fpaste | /etc/default/grub'
+Feb 08 19:29:03 <cmurf>	i don't think it's an Apple problem in this case haha
+Feb 08 19:29:16 <Amgine[m]>	I know, I know... <sigh>
+Feb 08 19:29:17 <cmurf>	any GRUB customizations since installation?
+Feb 08 19:29:43 <cmurf>	there is a simple fix but i'd like to know why it's not updating the saved entry
+Feb 08 19:29:43 <slop>	are we moving back to LILO in version 34? :D
+Feb 08 19:29:57 <cmurf>	GRUB OS
+Feb 08 19:29:59 <cmurf>	haha
+Feb 08 19:31:03 <cmurf>	slop: i'm using weechat on Fedora Server, then connect from my laptop via ssh, upon login it automatically loads a tmux session where, viola, weechat is running
+Feb 08 19:31:12 <Amgine[m]>	The fpaste line gives me a permission denied and sits there.
+Feb 08 19:31:35 <cmurf>	but eventually Fedora is moving to matrix natively so i'm not making any changes until i understand the new world (which will still have IRC)
+Feb 08 19:31:38 <slop>	cmurf thank you -  I am currently using hexchat and didnt know if something else was recommended/more up to date etc
+Feb 08 19:31:48 <cmurf>	Amgine[m]: ahh sorry, add sudo
+Feb 08 19:31:54 <cmurf>	'sudo fpaste /etc/default/grub'
+Feb 08 19:32:03 <Amgine[m]>	Oh, no pipe.
+Feb 08 19:32:19 <cmurf>	Amgine[m]: oh i'm an idiot :P
+Feb 08 19:32:22 <cmurf>	that was a typo
+Feb 08 19:32:28 <Amgine[m]>	https://paste.centos.org/view/b4f20e31
+Feb 08 19:32:33 *	cmurf cannot multitask
+Feb 08 19:33:03 <cmurf>	Amgine[m]: ok it's default, hmm
+Feb 08 19:33:32 <cmurf>	'sudo ls -l /boot/loader/entries/ | fpaste'
+Feb 08 19:33:57 <Amgine[m]>	https://paste.centos.org/view/686b4e55
+Feb 08 19:34:17 <cmurf>	curious, the bls snippet for it is there
+Feb 08 19:34:23 <cmurf>	ok well to fix it:
+Feb 08 19:34:34 <cmurf>	sudo grub2-set-default fdab6eb99ac24d64af49e72c11c125ad-5.10.13-200.fc33.x86_64
+Feb 08 19:35:02 <Amgine[m]>	<looks for that>
+Feb 08 19:35:25 <cmurf>	it's a blind command, there's no reply
+Feb 08 19:35:42 <cmurf>	if you want to confirm 'sudo grub2-editenv list'
+Feb 08 19:35:51 <cmurf>	it should now be the saved entry
+Feb 08 19:35:55 <Amgine[m]>	No, I am wondering where you got the hash, in case I need to do that for 5.10.14, etc.
+Feb 08 19:35:57 <cmurf>	if it's not then we have an aha! moment
+Feb 08 19:36:16 <cmurf>	ahh, yeah good point, so look at the /boot/loader/entries listing
+Feb 08 19:36:25 <cmurf>	it's just that conf file without the ending
+Feb 08 19:36:32 <cmurf>	remove the last 5 characters, .conf
+Feb 08 19:37:22 <Amgine[m]>	<nods> Perfect. Now to write myself a note so I when I run into this in a few days/weeks I will have reference.
+Feb 08 19:37:37 <cmurf>	if you do, it's a bug and we need to find out why
+Feb 08 19:38:09 <cmurf>	but does grub2-editenv list show the change?
+Feb 08 19:38:10 <Amgine[m]>	Aha! and then I get to blame Steve Jobs...
+Feb 08 19:38:22 <cmurf>	if it doesn't show the change then that's the problem
+Feb 08 19:38:27 <Amgine[m]>	Yes, the change is there.
+Feb 08 19:38:42 <cmurf>	ok hmm, well that grubenv file is accepting the change at least
+Feb 08 19:39:36 <cmurf>	so yeah on macs, the thing we use on Fedora for /boot/efi is not the real EFI System partition
+Feb 08 19:39:44 <cmurf>	but a small HFS+ partition
+Feb 08 19:39:58 <slop>	macs. /me washes hands.
+Feb 08 19:40:09 <cmurf>	the reason is for mactel-boot stuff, so that you see a pretty Fedora logo when you boot with option key at the startup chime
+Feb 08 19:40:13 <cmurf>	:D
+Feb 08 19:40:33 <Amgine[m]>	<nods> I wiped this one so it is only Fedora, which may be the issue?
+Feb 08 19:40:55 <cmurf>	basically there are some files on that HFS+ faux-ESP that make Apple firmware think Fedora's GRUB is actually macos haha
+Feb 08 19:41:01 <cmurf>	but anyway...
+Feb 08 19:41:09 <slop>	hey I saw a post on reddit about about the splash screen for system updates performed via gnome. guys, ive got to tell you. thats a great move. Its something that my parents and other non technical people are COMFORTABLE with.
+Feb 08 19:41:11 <cmurf>	no i don't think so, this is all self contained to Fedora
+Feb 08 19:41:29 <slop>	a lot better than me telling my 70+ year old parents ok open a terminal. now
+Feb 08 19:41:56 <cmurf>	yeah they just get updates automatically really, out of the box
+Feb 08 19:42:08 <Amgine[m]>	kk. Well, thanks for the quick solution, and I will keep you apprised if there are future similar behaviors.
+Feb 08 19:42:11 <slop>	Its a step in the right direction for becoming a more well rounded/outside of technical people updates. and making updates LESS scary so theya re applied.
+Feb 08 19:42:16 <cmurf>	you just reboot and once every week or two (sometimes more often due to firefox or a kernel security fix) you get updates on the reboot
+Feb 08 19:42:22 <slop>	^^
+Feb 08 19:42:59 <cmurf>	Amgine[m]: yeah because the kernel package is responsible for writing that that conf file, and then also updating the grub environment file
+Feb 08 19:43:07 <coppice>	slop: you do realise that it was people who are 70+ who developed the opening of terminal windows?
+Feb 08 19:44:46 <akik>	cmurf: on an 2011 imac, the efi system partition is a normal vfat partition. there's an installer bug that makes it so that you can't install the boot loader in the installer
+Feb 08 19:45:25 <cmurf>	akik: there is a real FAT32 ESP but Apple only uses it for firmware update staging
+Feb 08 19:45:32 <cmurf>	they don't use it for booting and neither does Fedora
+Feb 08 19:45:42 <akik>	cmurf: my machine uses it for booting
+Feb 08 19:45:50 <slop>	coppice, not my farming parents. they didnt have an email address until it was required. I tell them theres NOTHING they can break on fedora that we can either figure out or reload.
+Feb 08 19:45:55 <akik>	i.e. /boot/efi/EFI/fedora is in there
+Feb 08 19:46:12 <cmurf>	akik: lsblk -f | fpaste
+Feb 08 19:46:38 <cmurf>	because the installer, if it knows it's on a mac, will create /boot/efi on HFS+, it will not reuse the FAT32 ESP
+Feb 08 19:47:04 <cmurf>	there is a bug in the f33 installer where it creates both FAT32 and HFS+ partitions, but only uses the HFS+ one for /boot/efi
+Feb 08 19:47:51 <cmurf>	the unused FAT32 volume is left untouched - forever ghosted
+Feb 08 19:48:21 <akik>	cmurf: that's where the installer goes wrong. it should just use the existing esp
+Feb 08 19:49:59 <akik>	cmurf: here's the lsblk https://paste.centos.org/view/7c9d7479
+Feb 08 19:50:57 <akik>	maybe the difference is that i'm using apfs and not hfs
+Feb 08 19:51:13 <akik>	for the macos partition
+Feb 08 20:01:40 <cmurf>	akik: did you modify this after installation?
+Feb 08 20:01:44 <cmurf>	├─sda1 vfat   FAT32 EFI   2860-11F4                               148M    25% /boot/efi
+Feb 08 20:03:24 <akik>	cmurf: no it contains some apple stuff. one thing that i just now remembers was that i use that other boot loader per default, refind
+Feb 08 20:03:44 <cmurf>	that's interesting because Apple had used a 200M FAT32 ESP for a very long time, since the start of EFI with x86 macs
+Feb 08 20:04:16 <cmurf>	Soo it must be that whatever does the test for "is it a mac" isn't working with newer macs? HUH
+Feb 08 20:04:21 <cmurf>	but you said this is a 2011 mac
+Feb 08 20:04:36 <akik>	cmurf: yes
+Feb 08 20:04:50 <cmurf>	my 2009 and 2012 macs both behave the way i've described though
+Feb 08 20:04:55 <akik>	cmurf: my only apple hardware
+Feb 08 20:05:06 <akik>	and it's probably going out of support soon
+Feb 08 20:05:09 <cmurf>	the installer doesn't use FAT32 ESP, it'll only use HFS+ for /boot/efi
+Feb 08 20:05:17 <akik>	why's that?
+Feb 08 20:05:25 <akik>	i have apple's stuff in there
+Feb 08 20:05:38 <akik>	and now also fedora's
+Feb 08 20:05:56 <cmurf>	like i said earlier, it's part of mactel-boot stuff to make it easier for mac users
+Feb 08 20:06:06 <akik>	i can paste the contents if you want
+Feb 08 20:06:25 <cmurf>	originally Fedora also appeared in the Startup panel, but i think Apple broke that part and now only the built-in firmware Boot Manager shows Fedora
+Feb 08 20:07:07 <cmurf>	did you use Custom partitioning? or Advanced-Custom?
+Feb 08 20:07:23 <akik>	if i try to install fedora or centos on it, i'm just getting some weird error like efi system partition can't be of type esp
+Feb 08 20:07:32 <cmurf>	that's correct
+Feb 08 20:07:44 <akik>	then i need to unselect the install boot loader in the installer and after install, install it
+Feb 08 20:08:12 <cmurf>	oh ok so you're just being stubborn and want to do things your way rather than the installer's way :D
+Feb 08 20:08:14 <cmurf>	i get it
+Feb 08 20:08:20 <cmurf>	i'm the same way sometimes
+Feb 08 20:09:13 <akik>	cmurf: the installer doesn't work
+Feb 08 20:09:25 <cmurf>	it does it you don't fight it
+Feb 08 20:09:32 <akik>	cmurf: if i would use the installer, i couldn't get the machine booting fedora
+Feb 08 20:09:37 <cmurf>	if you just let it do things the way it wants (automatic) then it works fine
+Feb 08 20:09:44 <akik>	sheesh
+Feb 08 20:09:46 <cmurf>	haha
+Feb 08 20:10:11 <akik>	this is so common. refusing to get the facts you're presented with
+Feb 08 20:10:32 <akik>	i have no hfs partition on that machine
+Feb 08 20:10:45 <cmurf>	it'll create it
+Feb 08 20:10:50 <akik>	no it doesn't
+Feb 08 20:11:01 <cmurf>	yes it does, i've only done 10000 installations :P
+Feb 08 20:11:06 <akik>	i found the solution on redhat's bugzilla
+Feb 08 20:11:37 <cmurf>	you must be doing Custom or Advanced-Custom installation, because that error message only happens in those paths
+Feb 08 20:11:45 <akik>	yes i always do that
+Feb 08 20:11:55 <foxide>	Maybe don't?
+Feb 08 20:12:05 <akik>	oh come on grow up
+Feb 08 20:12:13 <cmurf>	ok and if you create /boot/efi on a mac as Linux HFS+ EFI, you do not get the error you're talking about
+Feb 08 20:12:40 <foxide>	You don't even need to do that. FAT32 EFI works just fine, Apple EFI looks for the fallback bootloader same as UEFI implementations.
+Feb 08 20:12:42 <cmurf>	you only get the error if you try to force it to do something it has a rule against doing
+Feb 08 20:12:52 <akik>	so fedora has decided not to use the common esp on macs as with any other platform?
+Feb 08 20:12:57 <cmurf>	correct
+Feb 08 20:13:01 <akik>	so silly :)
+Feb 08 20:13:08 <foxide>	Fedora didn't decide anything, you're the one doing a custom install.
+Feb 08 20:13:10 <foxide>	YOU decided.
+Feb 08 20:13:18 <cmurf>	dude i just explained why, why are you ignoring that?
+Feb 08 20:13:28 <akik>	foxide: there's an esp on the disk. why shouldn't i use it?
+Feb 08 20:13:36 <foxide>	Are you trying to dual boot?
+Feb 08 20:13:49 <cmurf>	Because Apple's firmware ignores it except as a final fallback volume
+Feb 08 20:14:01 <cmurf>	we wanted users to see a nice Fedora logo in the built-in boot manager
+Feb 08 20:14:09 <cmurf>	you only get that if the files are on an HFS+ volume
+Feb 08 20:14:23 <akik>	foxide: yes i'm dual booting but i'll remove macos when it drops out of support
+Feb 08 20:14:54 <akik>	haven't booted it in a while
+Feb 08 20:16:21 <cmurf>	I admit the error message doesn't really tell you exactly what you need to do - i've argued for a long time that all this bootloader stuff in GUI installers should just go away
+Feb 08 20:16:32 <cmurf>	let the installer do it all correctly behind the scenes, no customizations
+Feb 08 20:16:48 <akik>	shouldn't you then disable the custom and advanced custom options?
+Feb 08 20:16:58 <cmurf>	why?
+Feb 08 20:17:01 <foxide>	That's called "don't select them."
+Feb 08 20:17:03 <akik>	if they don't work
+Feb 08 20:17:12 <foxide>	They do work, if you know what you're doing.
+Feb 08 20:17:13 <cmurf>	they *do work* you are just fighting its rules
+Feb 08 20:17:30 <akik>	foxide: could you like keep the tone civil
+Feb 08 20:17:56 <foxide>	I am being civil. That you don't like the facts being presented to you doesn't make me uncivil.
+Feb 08 20:18:00 <cmurf>	akik: :D come on! you are hardly in a position to ask other people to keep the tone civil when you just told other people to "grow up"
+Feb 08 20:18:15 <akik>	cmurf: yes i tell it like it is if people act up
+Feb 08 20:18:19 <cmurf>	LOL
+Feb 08 20:18:25 <cmurf>	you can dish it out but can't take it, got it
+Feb 08 20:18:36 <akik>	he was saying i shouldn't use the custom partitioning
+Feb 08 20:18:57 <foxide>	The outcomes of your attempts seem to lend credence to my advice.
+Feb 08 20:19:10 <cmurf>	you guys are both correct :D
+Feb 08 20:19:19 <cmurf>	(a) custom is custom, you're expect to know what you're doing
+Feb 08 20:19:29 <linuxmodder>	cmurf,  or only with a custom ( you shoot yourself at your own risk, experts only) for efi bootloader
+Feb 08 20:19:32 <akik>	foxide: the attempts ended when i found the reason for the problem from bugzilla
+Feb 08 20:19:34 <cmurf>	(b) bootloader stuff is esoteric and should not be exposed to users in GUI installers
+Feb 08 20:20:26 <cmurf>	linuxmodder: yeah i agree although i also think bootloader stuff is sufficiently esoteric (being eyeballs deep in this territory for over 10 years) that not even experts understand it well enough to expose them to this torture
+Feb 08 20:20:49 <foxide>	cmurf: Speak for yourself. :P
+Feb 08 20:21:01 <linuxmodder>	cmurf,  fair
+Feb 08 20:21:09 <linuxmodder>	foxide,  seriously get off it
+Feb 08 20:21:29 <foxide>	linuxmodder: Wasn't talking to you. At all.
+Feb 08 20:21:33 <linuxmodder>	just because you appear to hate on mac or custom setups is no right to be so nasty
+Feb 08 20:21:49 <foxide>	Uh, what? I've run Fedora on every mac I've owned for 11 years. Nice assumption. :P
+Feb 08 20:22:00 <cmurf>	so anyway...
+Feb 08 20:22:22 <cmurf>	did everyone see that lkml link i posted about M1 macs? :D
+Feb 08 20:22:27 *	cmurf quickly changes the subject
+Feb 08 20:22:28 <foxide>	cmurf: I did not!
+Feb 08 20:22:36 <linuxmodder>	cmurf,  heard you mention it never saw it tho
+Feb 08 20:22:56 <foxide>	linuxmodder: I never appeared to hate on Macs or custom setups. I DID say that you're expected to know what you're doing. So, get off it. :)
+Feb 08 20:23:02 <linuxmodder>	not gonna lie the m1 might be enough for me to justify the $$$ of macs
+Feb 08 20:23:03 <cmurf>	https://lkml.org/lkml/2021/2/4/1177
+Feb 08 20:23:45 <linuxmodder>	cmurf,  nice
+Feb 08 20:23:49 <foxide>	cmurf: I'm not even through the first part of this and I'm encountering terms I've NEVER seen before.
+Feb 08 20:24:55 <linuxmodder>	tl'dr insane mobile desktop chip for once that uses arm logic
+Feb 08 20:25:41 <linuxmodder>	I love how macs sip on resources but that $$ has been a sticking point the m1 might be enough for me to jump that hurdle tho
+Feb 08 20:26:22 <linuxmodder>	iphone 12 can pretty much out do the current macs efficiency wise the m1 is slated to change that
+Feb 08 20:27:08 <foxide>	That said, I am nowhere near as knowledgeable on ARM stuff.
+Feb 08 20:27:40 <cmurf>	i bought a 13" hp spectre to run fedora on about 4.5 years ago, 2.4 pounds - mainly because the macbook pro 2011 is like 6 pounds
+Feb 08 20:27:51 <foxide>	Yeah, it was a hoss.
+Feb 08 20:28:16 <cmurf>	but the 2011 mac has held up better, except for the discrete GPU which is kaput, than the hp which has keys dying
+Feb 08 20:28:36 <slop>	Hey! is this Fedora channel or no? :D
+Feb 08 20:28:49 <cmurf>	and this USB-C power business, which seems like a good idea to have one plug to rule them all; but in practice it's annoying
+Feb 08 20:28:52 <foxide>	slop: Sure. Fedora is an amazing distro for Mac hardware.
+Feb 08 20:28:53 <cmurf>	fragile
+Feb 08 20:29:09 <slop>	oh snap hehe
+Feb 08 20:29:10 <foxide>	I've had better luck running Fedora on Mac hardware than any other distro.
+Feb 08 20:29:40 <cmurf>	Intel NUC: fedora; MacbookPro: fedora, hp laptop: fedora
+Feb 08 20:29:42 <Amgine[m]>	It is certainly keeping this 2013 Macbook Air running as a daily.
+Feb 08 20:30:46 <cmurf>	BTW anyone who runs into the amd gpu problem, there's a way to have GRUB power it off so the kernel doesn't even see it
+Feb 08 20:31:11 <cmurf>	runs i915 graphics just fine
+Feb 08 20:32:30 <Amgine[m]>	cmurf: do you have the FacetimeHD camera running on your Macbook?
+Feb 08 20:33:01 <cmurf>	i don't think this macbookpro has a facetimehd camera but it does have a camera and it is working
+Feb 08 20:33:02 <linuxmodder>	cmurf,  what soem grub line voodoo?
+Feb 08 20:33:13 <cmurf>	i used it for bluejeans worstation working group meetings
+Feb 08 20:33:18 <linuxmodder>	rd.amd_blacklist style
+Feb 08 20:33:29 <cmurf>	linuxmodder: no, way weirder
+Feb 08 20:33:37 <linuxmodder>	oh lovely
+Feb 08 20:33:40 <akik>	cmurf: which kernel parameter is it?
+Feb 08 20:34:09 <akik>	i could test it on the imac even though the radeon is working fine
+Feb 08 20:34:40 <cmurf>	https://bugzilla.redhat.com/show_bug.cgi?id=765954#c65
+Feb 08 20:34:43 <slop>	I love how clean gnome is for Fedora. just so clean.
+Feb 08 20:35:22 <akik>	cmurf: oh it's a bit more than just a kernel parameter
+Feb 08 20:35:33 <cmurf>	oh yeah :P
+Feb 08 20:35:40 <slop>	Ive installed other ....big name.. distros and was like whoa thats a lot of bloat. I keep coming back to red hat/fedora since before fedora was a thing. Same with freenode really.
+Feb 08 20:35:43 <linuxmodder>	too resource hungry but looks sexy indeed
+Feb 08 20:37:44 <foxide>	RHL 7.1, baby
+Feb 08 20:38:04 <cmurf>	what i can't answer is if you have working amd graphics, whether switcheroo always uses i915 graphics unconditionally
+Feb 08 20:38:10 <linuxmodder>	oh lord that is ancient
+Feb 08 20:38:11 <cmurf>	i'm not sure that it switches
+Feb 08 20:38:12 <slop>	is there any thoughts of adding gnome-tweaks as a default install?
+Feb 08 20:38:36 <cmurf>	slop: not likely to happen
+Feb 08 20:46:24 *	Disconnected ()
+**** ENDING LOGGING AT Mon Feb  8 20:46:24 2021
+
+**** BEGIN LOGGING AT Mon Feb  8 20:46:53 2021
+
+Feb 08 20:46:53 *	Now talking on #fedora
+Feb 08 20:46:53 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 08 20:46:53 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 08 20:46:53 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 08 20:47:09 *	cmurf goes for lunch
+Feb 08 20:47:34 <linuxmodder>	kde i can deal with yast not so much
+Feb 08 20:47:39 <linuxmodder>	cmurf,  bon appetit
+Feb 08 20:47:46 <foxide>	YAST: Yikes, A Software Travesty
+Feb 08 20:48:50 <linuxmodder>	love it
+Feb 08 20:49:39 <slop>	ha thats great. I will never look at it the same
+Feb 08 20:50:35 *	sincorchetes is now known as Guest61163
+Feb 08 20:52:58 <alexandercormi4[>	👋
