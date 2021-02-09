@@ -4663,3 +4663,79 @@ T 1612817282 20*	Disconnected (20)
 T 1612817310 19*	Now talking on 22#alacritty
 T 1612817310 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
 T 1612817310 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Jan  9 12:42:04 2021)
+T 1612824411 20*	Disconnected (20)
+T 1612824436 19*	Now talking on 22#alacritty
+T 1612824436 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+T 1612824436 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Jan  9 12:42:04 2021)
+T 1612825041 20*	Disconnected (20)
+T 1612875589 19*	Now talking on 22#alacritty
+T 1612875589 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+T 1612875589 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Jan  9 12:42:04 2021)
+T 1612875950 20*	Disconnected (20)
+T 1612875978 19*	Now talking on 22#alacritty
+T 1612875978 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+T 1612875978 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Jan  9 12:42:04 2021)
+T 1612879650 18<22nixpulvis18>	Hey. Thought I'd swing by today, sorry I have been slow on responding to #4768. I'm still reading it over and testing some basic things. I have a few comments so far, but I'll try and write them up on the PR later today.
+T 1612880024 18<24UndeadLeech18>	nixpulvis: Glad you came here to comment, I was about to give it another review myself and just merge it since you didn't say anything.
+T 1612880415 18<22nixpulvis18>	Yea, sorry I've been a bit MIA. Life has been getting in the way.
+T 1612880441 18<24UndeadLeech18>	I mean you have no obligation to be around lol. Just nice to have a second opinion.
+T 1612880519 18<22nixpulvis18>	On an unrelated note, did you see this: https://bradbarrows.com/post/alacrittytabs
+T 1612880551 18<24UndeadLeech18>	If that's related to the PR I've seen the other day, I'd rather not look at it.
+T 1612880559 18<22nixpulvis18>	It's a shame he didn't just figure out how macOS tabs work.
+T 1612880581 18<22nixpulvis18>	fair enough. I was very confused by the PR at a glance too.
+T 1612880599 18<24UndeadLeech18>	It was very strange indeed.
+T 1612880639 18<24UndeadLeech18>	Also reading the description here, that sounds completely unfunctional lol.
+T 1612880640 18<22nixpulvis18>	He claims performanve improvements by testing with `time find ~/repos/llvm-project`.
+T 1612880652 18<24UndeadLeech18>	Yeah that's not a test.
+T 1612880672 18<24UndeadLeech18>	And it sounds like he's trying to write without synchronization with the terminal (no locking), which will prevent things like ctrl+c from working properly.
+T 1612880677 18<24UndeadLeech18>	It just doesn't work like that.
+T 1612880699 18<22nixpulvis18>	I didn't even bother trying it out TBH.
+T 1612880713 18<24UndeadLeech18>	I mean it doesn't build, I didn't try it either.
+T 1612880720 18<24UndeadLeech18>	But the changes make little sense.
+T 1612880744 18<22nixpulvis18>	even if they made sense, tabs should really be at a higher level than the grid.
+T 1612880819 18<24UndeadLeech18>	I mean yeah, alacritty_terminal shouldn't be touched.
+T 1612880849 18<22nixpulvis18>	Anyway, I might try and be around here more IDK. But let me at least figure out this sync escape thing now.
+T 1612880877 18<24UndeadLeech18>	Whatever floats your boat. You're aware of the escape sequence and how it should work?
+T 1612880894 18<24UndeadLeech18>	I haven't given it a full test after sending the PR iirc, so it might still be somewhat broken.
+T 1612880916 18<24UndeadLeech18>	I'm mostly concerned about performance problems because I've been playing around with different versions for months with zero progress.
+T 1612880949 18<24UndeadLeech18>	Since unfortunately I see no way to do this other than branching in every byte of the parser, which is obviously very expensive.
+T 1612882067 18<22nixpulvis18>	I think I understand how this works now, more or less.
+T 1612882083 18<24UndeadLeech18>	Hah, you mean my code or the escape sequence itself?
+T 1612882095 18<22nixpulvis18>	I want to give it a quick sanity check, but I fear I'm messing up my DSC string.
+T 1612882099 18<22nixpulvis18>	Both ;)
+T 1612882167 18<22nixpulvis18>	Would there be a way to avoid the conditional with another vtable lookup?
+T 1612882207 18<22nixpulvis18>	essentially dynamic dispatch on the `parser`? 
+T 1612882260 18<22nixpulvis18>	I'm not even sure that would actually be any faster in this case.
+T 1612882446 18<24UndeadLeech18>	Dynamic dispatch is slower than branching. 
+T 1612882458 18<24UndeadLeech18>	Had the same idea, expected the lookup to be slower so I tested it. It is indeed.
+T 1612882580 20*	Disconnected (20)
+T 1612882640 20*	Disconnected (20Remote host closed socket)
+T 1612882716 20*	Disconnected (20Remote host closed socket)
+T 1612882760 20*	Disconnected (20Remote host closed socket)
+T 1612882788 19*	Now talking on 22#alacritty
+T 1612882788 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+T 1612882788 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Jan  9 12:42:04 2021)
+T 1612882790 18<24UndeadLeech18>	That's why I think doing it in the parser is the only solution.
+T 1612882797 18<22nixpulvis18>	Wait... if you *are* frozen, you should be fine.
+T 1612882809 18<24UndeadLeech18>	No, because you might be frozen too early.
+T 1612882825 18<22nixpulvis18>	Oh I see what you mean
+T 1612882827 18<24UndeadLeech18>	Imagine someone writes content synchronized, then a popup, then freezes until the user does input.
+T 1612882837 18<24UndeadLeech18>	You might never see that popup if you freeze on the first frame.
+T 1612882851 18<22nixpulvis18>	you need the conditional in the parser one way or another to keep the most forward frozen state.
+T 1612882853 18<24UndeadLeech18>	So the application would wait for user feedback and the user would wait for application feedback.
+T 1612882858 18<24UndeadLeech18>	Yeah.
+T 1612882914 18<22nixpulvis18>	Quick sanity check: `echo -e '\eP=1s'` should enable, and s/1/2 should disable fully?
+T 1612882931 18<22nixpulvis18>	oh plus the '\\` at the end of each.
+T 1612882943 18<22nixpulvis18>	I still feel like I'm not terminating correctly.
+T 1612882951 18<24UndeadLeech18>	You need ST at the end, so \e\\.
+T 1612882956 18<22nixpulvis18>	OH
+T 1612882960 18<22nixpulvis18>	\e\\ is ST.
+T 1612882974 18<24UndeadLeech18>	But you should probably do \e\x5c, because bash seems to struggle with recognizing what you're escaping when you do \e\\"
+T 1612882986 18<24UndeadLeech18>	Well zsh, not bash.
+T 1612882987 18<22nixpulvis18>	smart
+T 1612883000 18<22nixpulvis18>	though, fish doesn't care
+T 1612883014 18<24UndeadLeech18>	It would have been smart if I managed to figure it out before running into the issue like 9 times.
+T 1612883061 18<24UndeadLeech18>	Ah, it's stuff like `\eP=1s\e\\test` that creates troubles.
+T 1612883102 18<22nixpulvis18>	ah. I'm writing seperate echos with some sleeps in between atm.
+T 1612883117 18<22nixpulvis18>	confirmed iTerm works at least at a basic level ;)
+T 1612883131 18<24UndeadLeech18>	Might work too. Just saying I've completely switched to \x5c because I'm not having half my tests invalidated because the escape sequence wasn't parsed properly.

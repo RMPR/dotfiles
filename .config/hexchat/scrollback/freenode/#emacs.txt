@@ -5509,3 +5509,100 @@ T 1612817310 19*	Now talking on 22#emacs
 T 1612817310 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
 T 1612817310 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:36 2021)
 T 1612817310 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1612824411 20*	Disconnected (20)
+T 1612824437 19*	Now talking on 22#emacs
+T 1612824437 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1612824437 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:20 2021)
+T 1612824437 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1612824458 18<28mwnaylor18>	fsbot: What isn't better than visual basic?
+T 1612824459 18<22fsbot18>	Try: dlgs-phrases lebowski-data shit#emacssays
+T 1612824476 18<20p4r4kovsky18>	guys how to make dired sort folders by size
+T 1612824480 18<20p4r4kovsky18>	it shows fixed size on linux
+T 1612824486 18<20p4r4kovsky18>	4096
+T 1612824771 18<28mwnaylor18>	fwiw, I think all directories are the same "size", as they are just a special kind of file in *nix file system, uused to track child files. The os/utility has to recurively descend and sum up the sizes of "real" files contained in the directory tree.
+T 1612824777 18<25spikemaster18>	using a mac for the first time. Finder doesnt' let you browse your directory structure?  Thank god for emacs dired.
+T 1612824831 18<20p4r4kovsky18>	so any way to make dired display actual size
+T 1612824842 18<20p4r4kovsky18>	kinda intresting problem 
+T 1612824920 18<28mwnaylor18>	what file system for the partition containing the directory? not that it helps me, but others may with more info.
+T 1612825041 20*	Disconnected (20)
+T 1612875590 19*	Now talking on 22#emacs
+T 1612875590 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1612875590 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:20 2021)
+T 1612875590 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1612875789 18<24deego18>	Dabuti: does kill-rectangle even go in the kill-ring? i'm prob. on an older emacs
+T 1612875950 20*	Disconnected (20)
+T 1612875979 19*	Now talking on 22#emacs
+T 1612875979 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1612875979 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:20 2021)
+T 1612875979 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1612875982 18<29quiliro18>	Dabuti: Did you check?: C-h d last killed rectangle
+T 1612876363 18<24indicator18>	How come when I eval-expression in a scratch buffer on a hash table, I get: #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data ("joe" 19)) , but when I try the same (with a different hash) in edebug, I get Result: #<hash-table equal 3/65 0x1573df578ecd>?
+T 1612876366 18<19wrycode18>	lxsameer: what's up?
+T 1612876398 18<20lxsameer18>	wrycode: are you still looking for setting the class name on the main html tag of ox-html ?
+T 1612876421 18<19wrycode18>	nah I gave up a long time ago
+T 1612876445 18<24indicator18>	I guess the e key in edebug uses some other function to print the result.  Is there a way of getting similar output to what I get in a scratch buffer?
+T 1612876471 18<19wrycode18>	lxsameer: unless you figured it out? Then I'd like to jknow for future reference
+T 1612876498 18<24indicator18>	If I try just running eval-expression, I get dumped out of edebug
+T 1612876539 18<20lxsameer18>	wrycode: i send a patch to org the other day but after a while i figure out that it's not what i need, so i created a very simple backend based on ox-html which uses mustache to add a template to org file
+T 1612876547 18<20lxsameer18>	it's super simple
+T 1612876697 18<24indicator18>	ah I can use princ I see
+T 1612878616 18<28Dabuti18>	quiliro: yeah, but last-killed-rectangle won't be nil after a normal kill-ring-save
+T 1612878679 18<29quiliro18>	Dabuti: How aboout comparing them?
+T 1612878704 18<29quiliro18>	Dabuti: then you will know
+T 1612878719 18<28Dabuti18>	You mean with the last item in kill-ring I guess
+T 1612878756 18<29quiliro18>	yes!
+T 1612878825 18<28Dabuti18>	Just checked and kill-ring does not have the entire rectangle, only one line :(
+T 1612878873 18<29quiliro18>	ouch!
+T 1612879761 18<29quiliro18>	Dabuti: I have no idea, then.  You might check the forums
+T 1612879834 18<29quiliro18>	Dabuti: I am just a newbie!
+T 1612879888 18*	29quiliro is playing with the kill-ring variable
+T 1612879982 18<29quiliro18>	I cannot copy-paste correctly with non-emacs programs inside EXWM.
+T 1612880004 18<29quiliro18>	Te middle mouse button works as expected, though.
+T 1612880011 18<29quiliro18>	The middle mouse button works as expected, though.
+T 1612880027 18<28Dabuti18>	There was a variable to allow the X clipboard
+T 1612880046 18<29wgreenhouse18>	quiliro: what happens when you try, exactly?
+T 1612880083 18<29quiliro18>	I am not sure, I have not been able to identify the exact behaviour...will check now again...
+T 1612880088 18<28Dabuti18>	In linux you can try xclip
+T 1612880107 18<29wgreenhouse18>	there should not be any need for a clipboard helper like xclip in modern emacs
+T 1612880125 18<29wgreenhouse18>	for the past 10 years or so the default behavior is to also use the clipboard when kill ring changes
+T 1612880167 18<28Dabuti18>	https://www.gnu.org/software/emacs/manual/html_node/emacs/Clipboard.html
+T 1612880171 18<28Dabuti18>	true
+T 1612880186 18<26aggin18>	quiliro: do exwm-input-send-next-key and then try running the copy-paste key combination
+T 1612880561 18<29quiliro18>	aggin: I have the problem the other way around.  But I cannot reproduce it yet.
+T 1612880605 18<29quiliro18>	aggin: My problem is copying from a non-emacs application and pasting to Emacs
+T 1612880661 18<29quiliro18>	Maybe I do not understand exwm-input-send-next-key correctly.
+T 1612880805 18<29wgreenhouse18>	I think we need more info before we keep guessing
+T 1612881118 18<29quiliro18>	yes...I was reading the manual page
+T 1612882414 18<20edgar-rft18>	rudybot: I am the nothing of the universe!
+T 1612882438 18<24rudybot18>	edgar-rft: QUITERS SAVE THE UNIVERSE! AGAIN! BY DOING NOTHING! AGAIN!
+T 1612882580 20*	Disconnected (20)
+T 1612882640 20*	Disconnected (20Remote host closed socket)
+T 1612882716 20*	Disconnected (20Remote host closed socket)
+T 1612882760 20*	Disconnected (20Remote host closed socket)
+T 1612882789 19*	Now talking on 22#emacs
+T 1612882789 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1612882789 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:20 2021)
+T 1612882789 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1612882845 18<29quiliro18>	I used to open gtk-youube-viewer.  Then I pressed the right button on any video.  I chose to show details of the video.  Then I pressed the right button on the link to the video.  I chose to copy the link to the video.  Then I tryed to paste it after closing the video detail's window.  But I could not yank it.  I had to paste it on gtk-youtube-viewer and copy it again.  Then I could yank it on Emacs.
+T 1612882932 18<29quiliro18>	wgreenhouse: that is a fairly complete description of my workflow.  But I cannot copy the link to the video that way for some reason now.  The right mouse button does not bring the contextual menu on the auxiliary window
+T 1612882945 18<29quiliro18>	will test by making windows float
+T 1612882970 18<19rdrg10918>	I want to insert all characters whose name start with "ROMAN NUMERAL", but I don't know how to iterate through all the available characters.
+T 1612882988 18<29quiliro18>	https://yewtu.be/watch?v=R1nEKJCwdd4
+T 1612882989 18<29wgreenhouse18>	quiliro: hm, so the right-mouse-button action in the X window doesn't work?
+T 1612883014 18<29quiliro18>	weird...with the keyboard it works...even if it is not visible
+T 1612883049 18<29quiliro18>	on the child window of the X window
+T 1612883066 18<29quiliro18>	but remember this is all in EXWM
+T 1612883102 18<29quiliro18>	so child windows block any other window while they are open
+T 1612883132 18<29quiliro18>	I must close the child window first to change buffers
+T 1612883140 18<29wgreenhouse18>	yes--floating windows steal focus
+T 1612883148 18<29quiliro18>	but the problem is not reproducing now
+T 1612883180 18<29quiliro18>	there is another problem now....the contextual menu is not visible
+T 1612883255 18<19rdrg10918>	Do any of you know what's the character which have the highest decimal value? I am asking this because I want to iterate through all the characters so I want to know what's the highest decimal number I must consider
+T 1612883255 18<29quiliro18>	i don't think the problem is related with the mouse, since I could select to copy with the keyboard in the contextual menu
+T 1612883303 18<27grym18>	rdrg109: U+10FFFF, by definition 
+T 1612883326 18<27grym18>	rdrg109: i don't know how much of that space is actually mapped yet ... 
+T 1612883326 18<20pjb18>	rdrg109: emacs doesn't seem to have a char-name function. It has a char-from-name in mule-cmds.
+T 1612883327 18<29quiliro18>	wgreenhouse: perhaps I am missing something in the description of my problem...I will keep testing
+T 1612883328 18<20pjb18>	rdrg109: char-from-name uses the (ucs-names) hash-table. 
+T 1612883330 18<19rdrg10918>	I was able to get the name by doing: (get-char-code-property ?a 'name) -> "LATIN SMALL LETTER A"
+T 1612883348 FiSHLiM plugin unloaded

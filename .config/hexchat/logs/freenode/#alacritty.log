@@ -5330,3 +5330,94 @@ Feb 08 21:48:02 *	Disconnected ()
 Feb 08 21:48:30 *	Now talking on #alacritty
 Feb 08 21:48:30 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
 Feb 08 21:48:30 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Jan  9 12:42:04 2021)
+Feb 08 23:46:51 *	Disconnected ()
+**** ENDING LOGGING AT Mon Feb  8 23:46:51 2021
+
+**** BEGIN LOGGING AT Mon Feb  8 23:47:16 2021
+
+Feb 08 23:47:16 *	Now talking on #alacritty
+Feb 08 23:47:16 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+Feb 08 23:47:16 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Jan  9 12:42:04 2021)
+Feb 08 23:57:21 *	Disconnected ()
+**** ENDING LOGGING AT Mon Feb  8 23:57:21 2021
+
+**** BEGIN LOGGING AT Tue Feb  9 13:59:49 2021
+
+Feb 09 13:59:49 *	Now talking on #alacritty
+Feb 09 13:59:49 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+Feb 09 13:59:49 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Jan  9 12:42:04 2021)
+Feb 09 14:05:50 *	Disconnected ()
+**** ENDING LOGGING AT Tue Feb  9 14:05:50 2021
+
+**** BEGIN LOGGING AT Tue Feb  9 14:06:18 2021
+
+Feb 09 14:06:18 *	Now talking on #alacritty
+Feb 09 14:06:18 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+Feb 09 14:06:18 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Jan  9 12:42:04 2021)
+Feb 09 15:07:30 <nixpulvis>	Hey. Thought I'd swing by today, sorry I have been slow on responding to #4768. I'm still reading it over and testing some basic things. I have a few comments so far, but I'll try and write them up on the PR later today.
+Feb 09 15:13:44 <UndeadLeech>	nixpulvis: Glad you came here to comment, I was about to give it another review myself and just merge it since you didn't say anything.
+Feb 09 15:20:15 <nixpulvis>	Yea, sorry I've been a bit MIA. Life has been getting in the way.
+Feb 09 15:20:41 <UndeadLeech>	I mean you have no obligation to be around lol. Just nice to have a second opinion.
+Feb 09 15:21:59 <nixpulvis>	On an unrelated note, did you see this: https://bradbarrows.com/post/alacrittytabs
+Feb 09 15:22:31 <UndeadLeech>	If that's related to the PR I've seen the other day, I'd rather not look at it.
+Feb 09 15:22:39 <nixpulvis>	It's a shame he didn't just figure out how macOS tabs work.
+Feb 09 15:23:01 <nixpulvis>	fair enough. I was very confused by the PR at a glance too.
+Feb 09 15:23:19 <UndeadLeech>	It was very strange indeed.
+Feb 09 15:23:59 <UndeadLeech>	Also reading the description here, that sounds completely unfunctional lol.
+Feb 09 15:24:00 <nixpulvis>	He claims performanve improvements by testing with `time find ~/repos/llvm-project`.
+Feb 09 15:24:12 <UndeadLeech>	Yeah that's not a test.
+Feb 09 15:24:32 <UndeadLeech>	And it sounds like he's trying to write without synchronization with the terminal (no locking), which will prevent things like ctrl+c from working properly.
+Feb 09 15:24:37 <UndeadLeech>	It just doesn't work like that.
+Feb 09 15:24:59 <nixpulvis>	I didn't even bother trying it out TBH.
+Feb 09 15:25:13 <UndeadLeech>	I mean it doesn't build, I didn't try it either.
+Feb 09 15:25:20 <UndeadLeech>	But the changes make little sense.
+Feb 09 15:25:44 <nixpulvis>	even if they made sense, tabs should really be at a higher level than the grid.
+Feb 09 15:26:59 <UndeadLeech>	I mean yeah, alacritty_terminal shouldn't be touched.
+Feb 09 15:27:29 <nixpulvis>	Anyway, I might try and be around here more IDK. But let me at least figure out this sync escape thing now.
+Feb 09 15:27:57 <UndeadLeech>	Whatever floats your boat. You're aware of the escape sequence and how it should work?
+Feb 09 15:28:14 <UndeadLeech>	I haven't given it a full test after sending the PR iirc, so it might still be somewhat broken.
+Feb 09 15:28:36 <UndeadLeech>	I'm mostly concerned about performance problems because I've been playing around with different versions for months with zero progress.
+Feb 09 15:29:09 <UndeadLeech>	Since unfortunately I see no way to do this other than branching in every byte of the parser, which is obviously very expensive.
+Feb 09 15:47:47 <nixpulvis>	I think I understand how this works now, more or less.
+Feb 09 15:48:03 <UndeadLeech>	Hah, you mean my code or the escape sequence itself?
+Feb 09 15:48:15 <nixpulvis>	I want to give it a quick sanity check, but I fear I'm messing up my DSC string.
+Feb 09 15:48:19 <nixpulvis>	Both ;)
+Feb 09 15:49:27 <nixpulvis>	Would there be a way to avoid the conditional with another vtable lookup?
+Feb 09 15:50:07 <nixpulvis>	essentially dynamic dispatch on the `parser`? 
+Feb 09 15:51:00 <nixpulvis>	I'm not even sure that would actually be any faster in this case.
+Feb 09 15:54:06 <UndeadLeech>	Dynamic dispatch is slower than branching. 
+Feb 09 15:54:18 <UndeadLeech>	Had the same idea, expected the lookup to be slower so I tested it. It is indeed.
+Feb 09 15:56:20 *	Disconnected ()
+**** ENDING LOGGING AT Tue Feb  9 15:56:20 2021
+
+**** BEGIN LOGGING AT Tue Feb  9 15:59:48 2021
+
+Feb 09 15:59:48 *	Now talking on #alacritty
+Feb 09 15:59:48 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+Feb 09 15:59:48 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Jan  9 12:42:04 2021)
+Feb 09 15:59:50 <UndeadLeech>	That's why I think doing it in the parser is the only solution.
+Feb 09 15:59:57 <nixpulvis>	Wait... if you *are* frozen, you should be fine.
+Feb 09 16:00:09 <UndeadLeech>	No, because you might be frozen too early.
+Feb 09 16:00:25 <nixpulvis>	Oh I see what you mean
+Feb 09 16:00:27 <UndeadLeech>	Imagine someone writes content synchronized, then a popup, then freezes until the user does input.
+Feb 09 16:00:37 <UndeadLeech>	You might never see that popup if you freeze on the first frame.
+Feb 09 16:00:51 <nixpulvis>	you need the conditional in the parser one way or another to keep the most forward frozen state.
+Feb 09 16:00:53 <UndeadLeech>	So the application would wait for user feedback and the user would wait for application feedback.
+Feb 09 16:00:58 <UndeadLeech>	Yeah.
+Feb 09 16:01:54 <nixpulvis>	Quick sanity check: `echo -e '\eP=1s'` should enable, and s/1/2 should disable fully?
+Feb 09 16:02:11 <nixpulvis>	oh plus the '\\` at the end of each.
+Feb 09 16:02:23 <nixpulvis>	I still feel like I'm not terminating correctly.
+Feb 09 16:02:31 <UndeadLeech>	You need ST at the end, so \e\\.
+Feb 09 16:02:36 <nixpulvis>	OH
+Feb 09 16:02:40 <nixpulvis>	\e\\ is ST.
+Feb 09 16:02:54 <UndeadLeech>	But you should probably do \e\x5c, because bash seems to struggle with recognizing what you're escaping when you do \e\\"
+Feb 09 16:03:06 <UndeadLeech>	Well zsh, not bash.
+Feb 09 16:03:07 <nixpulvis>	smart
+Feb 09 16:03:20 <nixpulvis>	though, fish doesn't care
+Feb 09 16:03:34 <UndeadLeech>	It would have been smart if I managed to figure it out before running into the issue like 9 times.
+Feb 09 16:04:21 <UndeadLeech>	Ah, it's stuff like `\eP=1s\e\\test` that creates troubles.
+Feb 09 16:05:02 <nixpulvis>	ah. I'm writing seperate echos with some sleeps in between atm.
+Feb 09 16:05:17 <nixpulvis>	confirmed iTerm works at least at a basic level ;)
+Feb 09 16:05:31 <UndeadLeech>	Might work too. Just saying I've completely switched to \x5c because I'm not having half my tests invalidated because the escape sequence wasn't parsed properly.
+**** ENDING LOGGING AT Tue Feb  9 16:09:08 2021
+
