@@ -4739,3 +4739,59 @@ T 1612883061 18<24UndeadLeech18>	Ah, it's stuff like `\eP=1s\e\\test` th
 T 1612883102 18<22nixpulvis18>	ah. I'm writing seperate echos with some sleeps in between atm.
 T 1612883117 18<22nixpulvis18>	confirmed iTerm works at least at a basic level ;)
 T 1612883131 18<24UndeadLeech18>	Might work too. Just saying I've completely switched to \x5c because I'm not having half my tests invalidated because the escape sequence wasn't parsed properly.
+T 1612959582 19*	Now talking on 22#alacritty
+T 1612959582 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+T 1612959582 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Jan  9 12:42:04 2021)
+T 1612960708 20*	Disconnected (20)
+T 1612960763 20*	Disconnected (20Remote host closed socket)
+T 1612960806 20*	Disconnected (20Remote host closed socket)
+T 1612960862 20*	Disconnected (20Remote host closed socket)
+T 1612960890 19*	Now talking on 22#alacritty
+T 1612960890 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+T 1612960890 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Jan  9 12:42:04 2021)
+T 1612962426 18<27Corvus`yJ18>	/!\ this channel has moved to ##hamradio /!\
+T 1612962451 18<24UndeadLeech18>	lol
+T 1612962455 18<27danielhuman18>	/!\ this channel has moved to ##hamradio /!\
+T 1612962464 22*	26UndeadLeech sets mode 24+r on 22#alacritty
+T 1612963887 18<25peschk_l18>	hello :)  the last alacritty version (0.7.1) caused my cursor to always blink when I'm using emacs, even with "cursor.style.blinking" set to "Never". I never had this issue with another terminal emulator (tried gnome-terminal, lxterminal amd xterm). In the end, the fix was a specific option in the emacs config. Since I suspect that other people
+T 1612963888 18<25peschk_l18>	might get this issue as well, so I'd like to add this information to the documentation, if that's okay with the maintainers. What would the right place be ? A comment in the reference config file ? Or maybe in a Q&A section in the wiki ?
+T 1612964477 18<19rcf18>	peschk_l: open an issue, it's definitely a bug. 
+T 1612964512 18<19rcf18>	If never is even an option, it should only exist to prevent cvvis from having an effect. 
+T 1612964691 18<25peschk_l18>	rcf: I dont know, looks like emacs does some weid stuff with the cursor: https://www.emacswiki.org/emacs/NonBlinkingCursor . Maybe it hides the terminal's cursor to provide its own ? But you're right I'll open an issue, so can at least have the fix written down somewhere
+T 1612964746 18<19rcf18>	peschk_l: you can reproduce the issue at a normal prompt with `tput cvvis`
+T 1612964827 18<19rcf18>	Or rather, can you do this? 
+T 1612964878 20*	Disconnected (20)
+T 1612964924 20*	Disconnected (20Remote host closed socket)
+T 1612964980 20*	Disconnected (20Remote host closed socket)
+T 1612965037 20*	Disconnected (20Remote host closed socket)
+T 1612965088 20*	Disconnected (20Remote host closed socket)
+T 1612965114 19*	Now talking on 22#alacritty
+T 1612965114 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+T 1612965114 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Jan  9 12:42:04 2021)
+T 1612965321 18<25peschk_l18>	I can't find docs about what exactly emacs does with the cursor... But there's a n-nbc/--no-blinking-cursor option. I'll add relevant links and notes to the issue
+T 1612965376 18<25peschk_l18>	(btw it's the only minor issue I've had with alacritty, been using it for over a year now... So congrats for that!)
+T 1612965404 18<24UndeadLeech18>	Unless you can reproduce it outside of Alacritty, there's no point in opening an issue.
+T 1612965409 18<24UndeadLeech18>	Outside of emacs*
+T 1612965448 18<19rcf18>	UndeadLeech: that's what the tput cvvis is for. 
+T 1612965544 18<24UndeadLeech18>	I missed that part.
+T 1612965549 18<24UndeadLeech18>	Config's probably just fucked.
+T 1612965667 18<19rcf18>	peschk_l: are you absolutely sure you set it properly in the config? 
+T 1612965701 18<25peschk_l18>	UndeadLeech: my config hasn't much changes from the original: https://pastebin.com/mhGrTw6t
+T 1612965720 18<24UndeadLeech18>	Yeah that's wrong.
+T 1612965725 18<25peschk_l18>	I can try to reproduce with the reference config
+T 1612965766 18<24UndeadLeech18>	I mean it's jut wrong. Please see the default config for documentation on how to disable blinking.
+T 1612965839 18<19rcf18>	peschk_l: you set cursor.blinking, not cursor.style.blinking. 
+T 1612965873 18<25peschk_l18>	argh crap, indeed. Must've f*ed up when updating config to 0.7.1. Sorry I annoyed you
+T 1612965881 18<24UndeadLeech18>	np
+T 1612965886 22*	26UndeadLeech sets mode 24-r on 22#alacritty
+T 1612965900 18*	19rcf waits for more bizarre hamradio spam
+T 1612965976 18<24UndeadLeech18>	IRC spam is something different.
+T 1612965984 18<24UndeadLeech18>	You just don't get that kind of spam anywhere else.
+T 1612972678 20*	Disconnected (20)
+T 1612972730 20*	Disconnected (20Remote host closed socket)
+T 1612972771 20*	Disconnected (20Remote host closed socket)
+T 1612972820 20*	Disconnected (20Remote host closed socket)
+T 1612972847 19*	Now talking on 22#alacritty
+T 1612972847 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+T 1612972847 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Jan  9 12:42:04 2021)
+T 1612984469 18<24UndeadLeech18>	nixpulvis: You still around? Curious how you feel about configuration of regex "hints" one can launch with the configuration. I'd imagine it would be nice if the same hints would be used for URL highlighting with the mouse.

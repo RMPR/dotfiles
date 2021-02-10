@@ -5421,3 +5421,63 @@ Feb 09 16:05:17 <nixpulvis>	confirmed iTerm works at least at a basic level ;)
 Feb 09 16:05:31 <UndeadLeech>	Might work too. Just saying I've completely switched to \x5c because I'm not having half my tests invalidated because the escape sequence wasn't parsed properly.
 **** ENDING LOGGING AT Tue Feb  9 16:09:08 2021
 
+**** BEGIN LOGGING AT Wed Feb 10 13:19:42 2021
+
+Feb 10 13:19:42 *	Now talking on #alacritty
+Feb 10 13:19:42 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+Feb 10 13:19:42 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Jan  9 12:42:04 2021)
+Feb 10 13:38:28 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb 10 13:38:28 2021
+
+**** BEGIN LOGGING AT Wed Feb 10 13:41:30 2021
+
+Feb 10 13:41:30 *	Now talking on #alacritty
+Feb 10 13:41:30 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+Feb 10 13:41:30 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Jan  9 12:42:04 2021)
+Feb 10 14:07:06 <Corvus`yJ>	/!\ this channel has moved to ##hamradio /!\
+Feb 10 14:07:31 <UndeadLeech>	lol
+Feb 10 14:07:35 <danielhuman>	/!\ this channel has moved to ##hamradio /!\
+Feb 10 14:07:44 *	UndeadLeech sets mode +r on #alacritty
+Feb 10 14:31:27 <peschk_l>	hello :)  the last alacritty version (0.7.1) caused my cursor to always blink when I'm using emacs, even with "cursor.style.blinking" set to "Never". I never had this issue with another terminal emulator (tried gnome-terminal, lxterminal amd xterm). In the end, the fix was a specific option in the emacs config. Since I suspect that other people
+Feb 10 14:31:28 <peschk_l>	might get this issue as well, so I'd like to add this information to the documentation, if that's okay with the maintainers. What would the right place be ? A comment in the reference config file ? Or maybe in a Q&A section in the wiki ?
+Feb 10 14:41:17 <rcf>	peschk_l: open an issue, it's definitely a bug. 
+Feb 10 14:41:52 <rcf>	If never is even an option, it should only exist to prevent cvvis from having an effect. 
+Feb 10 14:44:51 <peschk_l>	rcf: I dont know, looks like emacs does some weid stuff with the cursor: https://www.emacswiki.org/emacs/NonBlinkingCursor . Maybe it hides the terminal's cursor to provide its own ? But you're right I'll open an issue, so can at least have the fix written down somewhere
+Feb 10 14:45:46 <rcf>	peschk_l: you can reproduce the issue at a normal prompt with `tput cvvis`
+Feb 10 14:47:07 <rcf>	Or rather, can you do this? 
+Feb 10 14:47:58 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb 10 14:47:58 2021
+
+**** BEGIN LOGGING AT Wed Feb 10 14:51:54 2021
+
+Feb 10 14:51:54 *	Now talking on #alacritty
+Feb 10 14:51:54 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+Feb 10 14:51:54 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Jan  9 12:42:04 2021)
+Feb 10 14:55:21 <peschk_l>	I can't find docs about what exactly emacs does with the cursor... But there's a n-nbc/--no-blinking-cursor option. I'll add relevant links and notes to the issue
+Feb 10 14:56:16 <peschk_l>	(btw it's the only minor issue I've had with alacritty, been using it for over a year now... So congrats for that!)
+Feb 10 14:56:44 <UndeadLeech>	Unless you can reproduce it outside of Alacritty, there's no point in opening an issue.
+Feb 10 14:56:49 <UndeadLeech>	Outside of emacs*
+Feb 10 14:57:28 <rcf>	UndeadLeech: that's what the tput cvvis is for. 
+Feb 10 14:59:04 <UndeadLeech>	I missed that part.
+Feb 10 14:59:09 <UndeadLeech>	Config's probably just fucked.
+Feb 10 15:01:07 <rcf>	peschk_l: are you absolutely sure you set it properly in the config? 
+Feb 10 15:01:41 <peschk_l>	UndeadLeech: my config hasn't much changes from the original: https://pastebin.com/mhGrTw6t
+Feb 10 15:02:00 <UndeadLeech>	Yeah that's wrong.
+Feb 10 15:02:05 <peschk_l>	I can try to reproduce with the reference config
+Feb 10 15:02:46 <UndeadLeech>	I mean it's jut wrong. Please see the default config for documentation on how to disable blinking.
+Feb 10 15:03:59 <rcf>	peschk_l: you set cursor.blinking, not cursor.style.blinking. 
+Feb 10 15:04:33 <peschk_l>	argh crap, indeed. Must've f*ed up when updating config to 0.7.1. Sorry I annoyed you
+Feb 10 15:04:41 <UndeadLeech>	np
+Feb 10 15:04:46 *	UndeadLeech sets mode -r on #alacritty
+Feb 10 15:05:00 *	rcf waits for more bizarre hamradio spam
+Feb 10 15:06:16 <UndeadLeech>	IRC spam is something different.
+Feb 10 15:06:24 <UndeadLeech>	You just don't get that kind of spam anywhere else.
+Feb 10 16:57:58 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb 10 16:57:58 2021
+
+**** BEGIN LOGGING AT Wed Feb 10 17:00:47 2021
+
+Feb 10 17:00:47 *	Now talking on #alacritty
+Feb 10 17:00:47 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+Feb 10 17:00:47 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Jan  9 12:42:04 2021)
+Feb 10 20:14:29 <UndeadLeech>	nixpulvis: You still around? Curious how you feel about configuration of regex "hints" one can launch with the configuration. I'd imagine it would be nice if the same hints would be used for URL highlighting with the mouse.

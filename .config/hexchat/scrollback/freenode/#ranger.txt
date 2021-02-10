@@ -1,303 +1,3 @@
-T 1586565331 18<27vifon18>	Basically copy one of the simple existing ones, rename it and replace the execute() method with your code.
-T 1586565360 18<19dice18>	mmmm seems straightforward 
-T 1586565384 18<19dice18>	I'll give it a shott
-T 1586566887 20*	Disconnected (20)
-T 1586591601 19*	Now talking on 22#ranger
-T 1586591601 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1586591601 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1586599772 18<26zaeph18>	Submitted a quick PR to a Zotero addon.  My influence is spreading. 🕷️
-T 1586599986 18<26zaeph18>	Now I can be ever more insufferable with my citations!
-T 1586600297 18<27vifon18>	Damn, that's bad.
-T 1586600713 18<27vifon18>	rnmhdn: I hope you were able to recover this file?
-T 1586600735 18<26zaeph18>	Are we liable?
-T 1586600740 18<26zaeph18>	…Are we the baddies?
-T 1586600764 18<26zaeph18>	Welp, we've had a good run.  Let's get Microsoft to buy us out and call it a day.
-T 1586600775 18<27vifon18>	Or Facebook.
-T 1586600790 18<26zaeph18>	Could be a joint venture, 50/50.
-T 1586600806 18<26zaeph18>	Just to make it Extra Evil™.
-T 1586601500 18<22__monty__18>	Isn't that Google's slogan?
-T 1586601516 18<22__monty__18>	Don't add copyright infringement on top of the charges!
-T 1586601525 18<22__monty__18>	What happened though?
-T 1586601546 18<26zaeph18>	__monty__: https://paste.xinu.at/y8HNJ/plain
-T 1586601548 18<22__monty__18>	:bulkrename induced sadness?
-T 1586601577 18<22__monty__18>	Ah, the off-by-one rifle numbering bug, *again*.
-T 1586601589 18<22__monty__18>	That's like the end boss that won't die.
-T 1586601604 18<22__monty__18>	vifon: Didn't you fix this most recently?
-T 1586601615 18<26zaeph18>	Looks like someone forgot that arrays start at 0!
-T 1586601628 18<26zaeph18>	(I don't even know if that's the case in Python.)
-T 1586601636 18<22__monty__18>	Good thing we didn't add `rm -- $@` to rifle.
-T 1586601637 18<26zaeph18>	(And I *know* it's more complicated than that.)
-T 1586601655 18<22__monty__18>	The problem is the "ask" entry, zaeph.
-T 1586601697 18<27vifon18>	__monty__: I think so.  Maybe not fully.
-T 1586601839 18<22__monty__18>	I take it you'll do the responsible thing?
-T 1586601846 18<22__monty__18>	I.e., seppuku?
-T 1586601888 18<22__monty__18>	; p Could you look into it though?
-T 1586601905 18<22__monty__18>	Or have zaeph do it cause he's flaunting his contributions around anyway.
-T 1586601920 18<22__monty__18>	Like a true flossy.
-T 1586601921 18<27vifon18>	I didn't introduce the hiding.
-T 1586601922 18<27vifon18>	;
-T 1586601924 18<27vifon18>	;)
-T 1586601939 18<26zaeph18>	If maintainers were to seppuku upon every bug, our species would have gone instinct a long time ago.
-T 1586601946 18<27vifon18>	\o/
-T 1586601953 18<27vifon18>	Let's do it then.
-T 1586601954 18<26zaeph18>	OK, I'll help: I'll git blame.
-T 1586601962 18<26zaeph18>	'Cause blaming is much more fun than doing.
-T 1586601974 18<22__monty__18>	Hmm, I don't remember touching the ask stuff, uh oh.
-T 1586602101 18<27vifon18>	https://github.com/ranger/ranger/pull/1341
-T 1586602103 18<25RoboBobob18>	vifon: Do not include "ask" in open_with options (fixes #1047) by GermainZ · Pull Request #1341 · ranger/ranger · GitHub
-T 1586602106 18<27vifon18>	I blame GermainZ.
-T 1586602108 18<22RoboBob18>	(RoboBobob) Issue #1047 (4Closed by toonn on 2019-05-20): https://github.com/ranger/ranger/issues/1047 | "ask" includes "ask" in its options
-T 1586602108 18<22RoboBob18>	PR #1341 (4Closed by toonn on 2019-05-20) 3+5 4-2, 2 files changed: https://github.com/ranger/ranger/pull/1341 | Do not include "ask" in open_with options (fixes #1047)
-T 1586602114 18<27vifon18>	For trying to help.
-T 1586602130 18<27vifon18>	Thanks, Bobs.
-T 1586602135 18<26zaeph18>	Man, you were faster.  I'd just found the def. :(
-T 1586602154 18*	22__monty__ shakes his fist at GermainZ!
-T 1586602178 18<26zaeph18>	__monty__: You merged!
-T 1586602183 18*	26zaeph shakes his fist at __monty__!
-T 1586602195 18<22__monty__18>	Of course I merged.
-T 1586602202 18<22__monty__18>	You think I do any amount of QC?! HAH!
-T 1586602216 18<26zaeph18>	Our maintainer, gentlemen!
-T 1586602227 18<26zaeph18>	(One of them*, I should say.)
-T 1586604548 18<22__monty__18>	vifon: You agree on #1910, right? We treat symlinks as their targets all over the place so imo it shouldn't just be an option but a default.
-T 1586604550 18<22RoboBob18>	(__monty__) Issue #1910 (3Opened by brolyxxx on 2020-04-09): https://github.com/ranger/ranger/issues/1910 | Flat not working with symlinks
-T 1586604622 18<26zaeph18>	Plus, we could create recursion in the symlinks and make the whole thing go kaboom.
-T 1586604670 18<26zaeph18>	How to get your feature request processed in reasonable time: `great, thanks for considering the implementation, ranger is by far my favourite file manager out there`.
-T 1586604684 18<26zaeph18>	Eh, you know what they say: flattery is the mother of all virtues.
-T 1586604698 18<26zaeph18>	Or maybe I'm misremembering it.
-T 1586604758 18<22__monty__18>	If it weren't for this damn kid!
-T 1586604763 18*	22__monty__ shakes a fist
-T 1586604773 18<22__monty__18>	Revealing my evil plans : /
-T 1586604796 18<26zaeph18>	Eheh.
-T 1586604807 18<22__monty__18>	zaeph: Don't be mistaken, I'm not working on this, it's going in the Queue of Unlimited Depth muahahaha!
-T 1586604861 18<26zaeph18>	Please let me know how you've liked the article that *you* have linked to me by 2023, OK?
-T 1586604915 18<26zaeph18>	It'd be a shame if you waited until I become too famous to bother answering. (✿ᵔ⌣ᵔ)
-T 1586606553 18<22__monty__18>	>.<
-T 1586606578 18<22__monty__18>	zaeph: Here's notes by someone else I shared it to and got excited: https://gist.github.com/msteen/d437c76f04ce5f2c1a52282d594d7d7a
-T 1586606579 18<25RoboBobob18>	__monty__: tagdown.md · GitHub
-T 1586606586 18<22__monty__18>	Not on the article or method per se.
-T 1586606594 18<22__monty__18>	But their take on it basically.
-T 1586606627 18<26zaeph18>	You mean the article on slip-box/zettelkästen?
-T 1586606631 18<22__monty__18>	ldlework claims to be working on something similar based on org-brain.
-T 1586606635 18<22__monty__18>	Yeah.
-T 1586606650 18<26zaeph18>	Man, why is the topic so en vogue right now?  Have I missed something?
-T 1586606658 18<22__monty__18>	I just have a book to finish before I get to that article >.<
-T 1586606671 18<22__monty__18>	Because I mentioned that article and neuron.
-T 1586606680 18<22__monty__18>	Don't you know I'm an *influencer*?!
-T 1586606688 18<26zaeph18>	I'm almost done with Ahrens, How to Take Smart Notes!
-T 1586606705 18<26zaeph18>	You clearly are, judging by the facts.
-T 1586606712 18<26zaeph18>	I'll have a read soon, finishing a PR.
-T 1586606731 18<26zaeph18>	…I'm gonna stop saying that, makes me sound pretentious.
-T 1586606743 18<26zaeph18>	…Which I am, but one ought to dissimulate it, right?
-T 1586607006 18<22__monty__18>	Nah, people being excited about foss contributions can excite others.
-T 1586607484 18<26zaeph18>	All right, done with the PR.  Time to read.
-T 1586607492 18<26GermainZ18>	I'm sorry vifon, I'm sorry __monty__ 
-T 1586607494 18*	26GermainZ commits seppuku
-T 1586607498 18<26zaeph18>	RIP.
-T 1586607563 18<22__monty__18>	GermainZ: You're grounded. Go to your room, mister!
-T 1586607583 18*	22__monty__ assumes an angry mom stance. Hands on hips, tapping foot and look of disapproval.
-T 1586607606 18<26zaeph18>	ಠ_ಠ
-T 1586607609 18<26GermainZ18>	can't go to my room if I'm dead!
-T 1586607618 18<26zaeph18>	#existentialism
-T 1586608431 18<26zaeph18>	__monty__: I've read about a third of the post you've linked.  Interesting idea about the fact that knowledge management system would need constant improvement in the syntax for representing new approaches to knowledge.
-T 1586608467 18<26zaeph18>	i.e., for the sake of argument, creating a tag for delimiting irony in a note.
-T 1586608560 18<26zaeph18>	But I'm not too sold on the idea.  A point that is made in Ahrens (2017) is that restrictions facilitates creativity, which is a little counterintuitive.  It's the usual argument that you have to think inside the box before thinking outside of it.
-T 1586608649 18<26zaeph18>	The author also makes the point that you should have a minimal set of 'tags' (to reuse the GH's post terminology) and stick to it.  Links between ideas/notes are essential in the slip-box system, and that's pretty much the only thing you need.
-T 1586608670 18<26zaeph18>	So although I like the idea, I prefer the direction in which org-roam, the slip-box implementation I'm following, is going.
-T 1586609133 18<22__monty__18>	I invited ldlework to come talk about it fyi.
-T 1586609169 18<26zaeph18>	We're doomed!
-T 1586609232 18<22__monty__18>	He might not join ; )
-T 1586611997 18<26zaeph18>	Yay, filed my first issue on GitLab!
-T 1586614527 18<26zaeph18>	Okay, Inkscape rent:
-T 1586614555 18<26zaeph18>	Why can I only define the center of gravity when skewing and rotating, and not when I'm scaling?  Also, why does setting the point of gravity in skewing mode activates it for scaling mode?
-T 1586614563 18<26zaeph18>	(I obviously meant rant*.)
-T 1586614565 18<26zaeph18>	/rant
-T 1586615442 18<26zaeph18>	Man, ranger's filters are great.  Haven't used them much before, but they're proving particularly useful today.
-T 1586615671 18<22__monty__18>	The filter stack?
-T 1586615681 18<26zaeph18>	Whatever's accessed via zf.
-T 1586615685 18<22__monty__18>	It's cool and you should use it rather than the legacy filters.
-T 1586615688 18<22__monty__18>	Ugh, gross!
-T 1586615695 18<26zaeph18>	You're gross!
-T 1586615697 18*	26zaeph sulks.
-T 1586615709 18<27Thermoriax18>	Filter cooties!
-T 1586617244 18<26zaeph18>	Doesn't seem that ldlework accepted your invitation.
-T 1586617250 18<26zaeph18>	Friendship ended with ldlework?
-T 1586617261 18<26zaeph18>	(There might be an s, I don't remember.)
-T 1586617711 18<22__monty__18>	I think he was still traumatized by his experiences here : )
-T 1586619034 18<26zaeph18>	Why is it always so confusing to know whether to make a directory name singular or plural. -.-
-T 1586619047 18<26zaeph18>	Like, 'refs' fill all well and good, it's abbreviated after all.
-T 1586619053 18<26zaeph18>	But 'indexes'?  Plain ugly!
-T 1586619066 18<26zaeph18>	'inds'?  Not even in your dreams!
-T 1586619073 18<22__monty__18>	Probably because it's indices, not indexes, english major : P
-T 1586619074 18<26zaeph18>	'index'?  Then it's not consistent.
-T 1586619087 18<26zaeph18>	Oh I'm an idiot.
-T 1586619098 18<26zaeph18>	I just got schooled. (๑°⌓°๑)
-T 1586619138 18<22__monty__18>	zaeph: Book is also nice. book/Pride & Prejudice.epub
-T 1586619152 18<22__monty__18>	I do plurals though.
-T 1586619177 18<26zaeph18>	It's like with tags: should they be singular or plurals?  My folders are so inconsistent because of this.
-T 1586619186 18<22__monty__18>	I'm pretty sure both plurals of index are valid btw. Just to be clear : )
-T 1586619207 18<26zaeph18>	(They are, but they are preferences depending on the acception.  Checking the OED right now.)
-T 1586619225 18<22__monty__18>	Thing with index is it seems to imply the directory *is* the index, rather than containing some.
-T 1586619257 18<26zaeph18>	But is an index of indexes not an index itself?
-T 1586619282 18<22__monty__18>	Clearly it's turtles all the way down -_-
-T 1586619295 18<26zaeph18>	Yuuup.
-T 1586619475 18<26zaeph18>	All right, just returned to my notes, and I got it wrong.  You only have *one* index for your slip-box, so no need to make a folder out of it.
-T 1586619481 18<22__monty__18>	Hmm, lets take a page out of Linnaeus', Apid*ae*.
-T 1586619519 18<26zaeph18>	I thought that 'subject notes' which are supposed to give an overview of a topic are still considered to be notes, which makes sense.  They're just higher-level, withut necessarily talking of hierarchy.
-T 1586619601 18<26zaeph18>	That's such a nitpick, I'd never noticed Apidae/Apidea.
-T 1586619646 18<26zaeph18>	Oh wait, I thought that was a thing, but that was just me mistyping it on my first Google search.
-T 1586619697 18<26zaeph18>	And I got convinced by an article on researchgate.net which makes the mistake. -.-  https://www.researchgate.net/publication/28201482_Galleria_mellonella_Linnaeus_1758_lepidoptera_galleriinaepyralidae_parasito_de_Apis_mellifera_iberica_Linnaeus_Hymenoptera_Apidea
-T 1586619719 18<26zaeph18>	inb4 you tell me 'that's how you spell it in $lang!'
-T 1586620087 18<26GermainZ18>	zaeph: that's how you spell it in $lang
-T 1586620099 18<26zaeph18>	GermainZ: Thanks for clarifying.
-T 1586620104 18<26GermainZ18>	zaeph: you're welcome
-T 1586620167 18<26zaeph18>	A random thought: You know me, I'm bad at committing to anything.  I'll style-over-substance myself into oblivion before I achieve anything significant in my life.  But:
-T 1586620210 18<26GermainZ18>	zaeph: committing is easy, it's a single command
-T 1586620223 18<26zaeph18>	I like working on my org-mode/Emacs setup.  And I've gotten to the point where, even though I'm afraid of stuff breaking, I think I have the knowledge to repair it if it happens, and that the project I rely upon is abandoned.
-T 1586620240 18<26GermainZ18>	zaeph: \o/
-T 1586620245 18<26zaeph18>	It's a comforting feeling to know that you've accrued enough experience to ensure that something works.  I guess you get a similar feeling when you learn how to repair stuff IRL.
-T 1586620245 18<26GermainZ18>	zaeph: which project?
-T 1586620284 18<26zaeph18>	GermainZ: I was mostly thinking of org-roam, a package for writing notes and relating them to one another with backrefs.
-T 1586620308 18<26GermainZ18>	sounds nice
-T 1586620328 18<26zaeph18>	But I didn't want to commit into it at the beginning of the week because those projects tend to come and go as fall leaves, as the Japanese would say.
-T 1586620380 18<26zaeph18>	GermainZ: Here's an article which explains the method if you want to browse: https://writingcooperative.com/zettelkasten-how-one-german-scholar-was-so-freakishly-productive-997e4e0ca125
-T 1586620382 18<25RoboBobob18>	zaeph: Zettelkasten — How One German Scholar Was So Freakishly Productive
-T 1586620385 18<26zaeph18>	(Yes, __monty__, it's the same article.)
-T 1586620458 18<26GermainZ18>	thanks!
-T 1586620469 18<26zaeph18>	Any time!
-T 1586620574 18<26GermainZ18>	so essentially tagged notes with cross-referencing?
-T 1586620589 18<26zaeph18>	Yup.  That's the beauty of it, it's very simple.
-T 1586620610 18<26GermainZ18>	I imagine they'd like Wikipedia :D
-T 1586620619 18<26zaeph18>	org-roam implements that idea with a sql database, which makes it fairly optimised as well.
-T 1586620652 18<26GermainZ18>	I like how simple it is
-T 1586620666 18<26GermainZ18>	You can implement it with notepad and a manual index if all else fails
-T 1586620669 18<26zaeph18>	Wikipedia is taken as an example in a book I'm reading on a topic, but it's a little different.  The goal of the slip-box (that's the translation of Zettelkasten) if to help you think by writing concise notes.  It shouldn't be exhaustive as Wikipedia is.
-T 1586620684 18<26GermainZ18>	but of course proper support makes it much easier
-T 1586620687 18<26zaeph18>	Yeah, definitely.  And if it's plain-text, it's not like it was going to break beyond recognition.
-T 1586620704 18<26zaeph18>	You could still see where each file points too without needing the software.
-T 1586620723 18<26GermainZ18>	zaeph: yeah, ideas/short connections rather than full explanations
-T 1586620762 18<26zaeph18>	Feel free to browse the wiki if you want to get an idea of how org-roam implements it: https://org-roam.readthedocs.io/en/master/
-T 1586620762 18<25RoboBobob18>	zaeph: Org-roam
-T 1586620778 18<26GermainZ18>	RoboBobob: thank you
-T 1586620784 18<26GermainZ18>	you too, human zaeph 
-T 1586620794 18<26zaeph18>	I live to serve.
-T 1586629228 18<26zaeph18>	My i7 sticker on my laptop is coming off. :<
-T 1586629244 18<26zaeph18>	Time to change.
-T 1586634395 18<22__monty__18>	I hate those stickers.
-T 1586634411 18<26zaeph18>	I removed it.
-T 1586634421 18<26zaeph18>	Lasted a lot longer than the one on my previous laptop, I'm impressed.
-T 1586634427 18<26zaeph18>	Wait no.
-T 1586634444 18<26zaeph18>	Man, my old laptop is already 10yo. '_'
-T 1586634478 18<22__monty__18>	I love how easy developer tools make it to edit CSS live.
-T 1586634496 18<22__monty__18>	You can make such sweeping changes to improve readability.
-T 1586634515 18<26zaeph18>	I just spam C-+ until my fingers go numb.
-T 1586634748 18<22__monty__18>	https://imgur.com/a/NjYv1aC
-T 1586634749 18<25RoboBobob18>	__monty__: 5 lines of CSS - Album on Imgur
-T 1586634850 18<26zaeph18>	Don't forgot optimizeLegibility
-T 1586634856 18<26zaeph18>	Or whatever it's called.
-T 1586634891 18<26zaeph18>	Looks like it's already on, judging by the ligatures.
-T 1586634928 18<26zaeph18>	I don't understand why the guy bolded the 'I will now'.
-T 1586634963 18<26zaeph18>	Bah, go figure.  He's Swedish, they're weird.
-T 1586635065 18<22__monty__18>	If optimizeLegibility is a firefox option or an addon I don't have it active.
-T 1586635096 18<22__monty__18>	Btw, apparently darkreader's a pretty awesome extension.
-T 1586635111 18<22__monty__18>	Haven't been able to try it because the version for safari is paid.
-T 1586635116 18<26zaeph18>	Does it enforce dark-mode on most websites?
-T 1586635150 18<26zaeph18>	I'm gonna try it out.
-T 1586635155 18<22__monty__18>	Yeah but it tries to be smart about it.
-T 1586635195 18<26zaeph18>	What's it with FOSS taxing Apple users?  Same thing with Anki.
-T 1586635231 18<22__monty__18>	100$/year to be an apple dev.
-T 1586635365 18<26zaeph18>	The doc's great for darkreader.
-T 1586635396 18<26zaeph18>	Gotta figure out how to make the loading page dark, though.
-T 1586635411 18<22__monty__18>	Mozilla pages block addons
-T 1586635418 18<22__monty__18>	So you'll have to configure firefox.
-T 1586635423 18<22__monty__18>	I always make that black.
-T 1586635427 18<26zaeph18>	Yeah, I figured.  Probably something in about:config to d that.
-T 1586635440 18<22__monty__18>	I actually have some great styling in my userStyle.css.
-T 1586635451 18<22__monty__18>	To make the entire firefox UI dark and minimal.
-T 1586635463 18<22__monty__18>	Even the popup with the link suggestions and stuff.
-T 1586635497 18<26zaeph18>	Aight, let me try my hand at modifying mine.
-T 1586635716 18<26zaeph18>	It works!
-T 1586635724 18<26zaeph18>	Here's a link for those interested: https://gist.github.com/gmolveau/a802ded1320a7591a289fb7abd0d6c45
-T 1586635725 18<25RoboBobob18>	zaeph: Firefox dark background / theme for new tab and loading screen · GitHub
-T 1586635741 18<26zaeph18>	And darkreader works great, thank you for the recommendation!
-T 1586636376 18<26zaeph18>	I'm looking for the CSS option to disable those pesky links at the bottom left of firefox when you're hovering on a link or loading a page.
-T 1586636380 18<26zaeph18>	They keep flashing white, it's distracting.
-T 1586636393 18<26zaeph18>	First two propositions from Google didn't work.  Going down the list.
-T 1586636406 18<22__monty__18>	I think I styled that too.
-T 1586636453 18<22__monty__18>	Hmm, don't have access to the file rn.
-T 1586636459 18<22__monty__18>	I could dig it up tomorrow.
-T 1586636474 18<26zaeph18>	Don't worry, I've got something that seems to be working.  Just gotta tweak it.
-T 1586636515 18<22__monty__18>	Seems covid got to John Conway.
-T 1586636573 18<26zaeph18>	Sad.  Didn't know him, but I see that he's done a number of videos with Numberphile.
-T 1586636650 18<22__monty__18>	Most famously known for Life, a.k.a. the Conway's Game of Life.
-T 1586636842 18<26zaeph18>	Oh yeah, I remember you linking something about it here.
-T 1586636855 18<26zaeph18>	The gif made me think of it.
-T 1586636861 18<26zaeph18>	Or was it an avatar generator?
-T 1586636922 18<22__monty__18>	I may have linked you a gif of a GoL configuration based on my github gravatar.
-T 1586637425 18<26zaeph18>	That was probably it.
-T 1586637448 18<26zaeph18>	Damn, I've almost got it, but the HTML5 transition are not willing to cooperate, even with `transition: none!important`.
-T 1586637503 18<26zaeph18>	I'll try the scattershot with all the different browser supported settings.
-T 1586638104 18<26zaeph18>	Got it! ✌️
-T 1586638138 18<22__monty__18>	Good job!
-T 1586638201 18<26zaeph18>	Here's the code for those who are interested on Firefox: https://paste.xinu.at/DRhq/css
-T 1586638204 18<25RoboBobob18>	zaeph: snippet-XOo8amE44V.txt
-T 1586638243 18<26zaeph18>	All I need now is to customize the right click menu and I'll have eradicated all the whiteys.
-T 1586638256 18<26zaeph18>	Surely that'll make for a better environment. :>
-T 1586638259 18<22__monty__18>	I probably have that.
-T 1586638271 18<26zaeph18>	*What* don't you have?
-T 1586638297 18<22__monty__18>	All my stuff organized and backed up?
-T 1586638305 18<26zaeph18>	:o
-T 1586638308 18<26zaeph18>	You madman!
-T 1586638314 18<22__monty__18>	Also, physical stuff in general.
-T 1586638343 18<26zaeph18>	I'm a hoarder.  I managed to quarantine that trait on the virtual for the most part, but yeah.
-T 1586638359 18<26GermainZ18>	zaeph: I just use Shadowfox
-T 1586638366 18<26GermainZ18>	and Dark Reader
-T 1586638391 18<26GermainZ18>	Shadowfox handles all the browser-stuff (toolbars, about:blank, about:addons, etc), Dark Reader the web pages
-T 1586638409 18<26zaeph18>	I have a Dark Theme enabled, but it isn't Shadowfox.
-T 1586638414 18<26GermainZ18>	zaeph: it also makes those pesky link previews dark
-T 1586638417 18<26zaeph18>	I'll try it out, thanks!
-T 1586638445 18<26GermainZ18>	Yeah I saw, but that one's really simple and won't cover all things
-T 1586638453 18<26GermainZ18>	I've tried a bunch before settling on Shadowfox
-T 1586638461 18<26GermainZ18>	https://github.com/SrKomodo/shadowfox-updater
-T 1586638462 18<25RoboBobob18>	GermainZ: GitHub - SrKomodo/shadowfox-updater: An auto-updater for ShadowFox
-T 1586638472 18<26GermainZ18>	RoboBobob: thank you
-T 1586638474 18<26zaeph18>	I'm getting the AUR package.
-T 1586638549 18<26GermainZ18>	Yeah it's what I did too
-T 1586638684 20*	Disconnected (20)
-T 1586639218 19*	Now talking on 22#ranger
-T 1586639218 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1586639218 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1586639494 20*	Disconnected (20)
-T 1586639514 19*	Now talking on 22#ranger
-T 1586639514 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1586639514 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1586639519 18<26zaeph18>	I had deepin-dark installed, probably form an early tryst at the beginning of my Arch journey on that laptop.
-T 1586639529 18<26GermainZ18>	and arc-kde for Qt, I think
-T 1586639571 18<26GermainZ18>	yup
-T 1586639600 18<26zaeph18>	Bah, I can't be arsed to select mine.  I'll trust your judgement and use yours.
-T 1586639616 18<26GermainZ18>	:D
-T 1586639957 20*	Disconnected (20Connection reset by peer)
-T 1586639979 19*	Now talking on 22#ranger
-T 1586639979 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1586639979 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1586640005 18<26zaeph18>	How do you even set the Qt theme?  I'm browsing, but I haven't found anything so far.
-T 1586640275 18<26zaeph18>	Ah, wait, there was a dep I didn't see during the installation.
-T 1586640962 18<26zaeph18>	Welp, I've created a monster: https://paste.xinu.at/4uJh/
-T 1586641153 18<22__monty__18>	Ooo, that's not great.
-T 1586641358 18<26zaeph18>	I'm working on it
-T 1586641382 18<26zaeph18>	Inkscape does look quite nice, though: https://paste.xinu.at/ahhf/
-T 1586641540 18<22__monty__18>	Anyone here with an inactive dropbox account got a mail about it being "safe and active?"
-T 1586641564 18<26zaeph18>	I haven't.
-T 1586641566 18<22__monty__18>	This would be a very ironic email if it was caused by a compromised account...
-T 1586641681 18<26zaeph18>	All right, fuck it, I'm giving up on Goldendict's dark theme.
-T 1586641688 18<26zaeph18>	The code is so antiquated it's not even funny.
-T 1586641702 18<26zaeph18>	And it keeps segfault on large entries anyway. -.-
-T 1586641733 18<22__monty__18>	MacOS does have very nice dictionary integration. You get a popup for the word at cursor when pressing ctrl-cmd-d.
-T 1586641785 18<22__monty__18>	nn, peoples
-T 1586641786 18<26zaeph18>	Yeah, I think you've already told me of this a while ago.  I use a lot of dictionaries, though, and I doubt I'd be able to have them all accessible as conveniently as it is with Goldendict.
-T 1586641789 18<26zaeph18>	B-bye!
-T 1586641822 18<22__monty__18>	I'm not so sure about that. MacOS' Dictionary app is pretty good.
-T 1586641836 18<26zaeph18>	For shits and giggles, the list: https://paste.xinu.at/FQ1/
-T 1586641843 18<26zaeph18>	(Sorry for the faded colours, it's all fucked.
 T 1586641847 18<22__monty__18>	And also integrated with Spotlight.
 T 1586641873 18<22__monty__18>	Oh, I was expecting and actually long list.
 T 1586641896 18<26zaeph18>	Well, it's pretty decent already.
@@ -5297,3 +4997,238 @@ T 1612882760 20*	Disconnected (20Remote host closed socket)
 T 1612882789 19*	Now talking on 22#ranger
 T 1612882789 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
 T 1612882789 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1612959582 19*	Now talking on 22#ranger
+T 1612959582 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1612959582 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1612959592 18<28Luyin18>	vifon: there is a nice video series (in German only, unfortunately) about everyday racism. the gist is, nobody wants to be racist (except a few, obviously), but we're all making racist statements at some points - not deliberately, but accidentally - and it will still hurt people.
+T 1612959600 18<28Pepe_vulgaris18>	my two cents: words are not good or evil, etymolgically or otherwise, it all depends on the context, eg what the speaker meant
+T 1612959620 18<25ldlework18>	"Nice. Shield yourself from having to justify your ideas by blocking people. That's healthy behavior, and as your internet friend, I approve."
+T 1612959625 18<28Luyin18>	and it's not a problem to do that, because that's just normal human "error", but we can do our best to change it when we're confronted with it
+T 1612959629 18*	25ldlework shudders.
+T 1612959660 18<27vifon18>	Luyin: Agreed in general but some cases are backfiring. Like this master branch thing.
+T 1612959666 18<28Pepe_vulgaris18>	what does an audio engineer do when they prepare an album for production?
+T 1612959689 18<25ldlework18>	Imagine thinking that because you have a contradiction or inconsistency in something you say, therefore the people who push back want to be racist, don't fundamentally agree with you, etc.
+T 1612959701 18<27vifon18>	Pepe_vulgaris: Buy a few slaves to do it for him?
+T 1612959708 18<24eyJhb18>	ldlework: Some just do it as it is easier...
+T 1612959714 18<24eyJhb18>	vifon: Maybe zaeph is into that
+T 1612959716 18<28Luyin18>	well it has technical repercussions, yes, but does that mean we should just leave everything as it is? no of course not. I think pointing to "renaming master breaks things" is not an excuse. it's like saying "renaming the apothecary around the corner to something not racist will confuse people"
+T 1612959740 18<25ldlework18>	Like, is Luyin fundamentally correct about lingering racist cultural artifacts. Of course.
+T 1612959745 18<28Luyin18>	Pepe_vulgaris: and yet we avoid certain words to avoid hurting people, don't we?
+T 1612959748 18<28Luyin18>	or phrases
+T 1612959748 18<27vifon18>	Master in this case has no slavery undertones.
+T 1612959754 18<25ldlework18>	Are they indeed inconsistent on whitelist vs whitespace. Yes, they are inconsistent.
+T 1612959771 18<27vifon18>	There are no slaves. It's a different meaning of this word.
+T 1612959772 18<26zaeph18>	eyJhb: Well, technically, I'm a civil servant. ¯\_(ツ)_/¯
+T 1612959772 18<25ldlework18>	When facing this inconsistency, instead of confronting it, they just assume the person pointing it out wants to continue the racism.
+T 1612959778 18<27vifon18>	Like the master's degree.
+T 1612959781 18<24eyJhb18>	zaeph: slave.
+T 1612959788 18<24eyJhb18>	I am trying to find a scifi short about blocking people
+T 1612959794 18<24eyJhb18>	But I can't fucking find it
+T 1612959796 18<25ldlework18>	And then people who want to harm Luyin by helping them not confront it. Will say things like "Nice"
+T 1612959798 18<25ldlework18>	When they self-harm.
+T 1612959802 18<27vifon18>	Blacklist is more legitimate.
+T 1612959843 18<27vifon18>	ldlework: Oh come on, it was just a joke. Don't take it either way.
+T 1612959851 18<25ldlework18>	"Dont confront the feelings of holding an inconsistent position so you can eventually remedy the inconsistency, just feel good right now in the moment."
+T 1612959855 18<28Luyin18>	vifon: whether or not the word itself is _supposed_ to mean that is not the problem
+T 1612959858 18<25ldlework18>	vifon: it was snide as fuck
+T 1612959869 18<28Luyin18>	*to be meant as an insult, sorry
+T 1612959910 18<25ldlework18>	Pepe_vulgaris: ^
+T 1612959911 18<28Luyin18>	I'm out of spoons for this discussion now, gotta retreat. I just wish for our happy little world to be happy not only for white people. I'm open to suggestions how else we could work towards that :)
+T 1612959920 18<25ldlework18>	This is a fundamental difference I see.
+T 1612959937 18<25ldlework18>	Whether or not intent is a variable in the calculus of crime.
+T 1612960052 18<27vifon18>	Luyin: Can you stay a few more minutes?
+T 1612960060 18<28Luyin18>	just one more link: https://news-sap-com.cdn.ampproject.org/c/s/news.sap.com/2020/09/inclusive-language-more-inclusive-software-industry/amp/
+T 1612960069 18<28Luyin18>	vifon: I wasn't going to leave, just not looking into the channel anymore :)
+T 1612960074 18<27vifon18>	Let me just do a quick reboot, some issues.
+T 1612960076 18<28Luyin18>	I've grown up a bit, too!
+T 1612960099 18<27vifon18>	I mean, I wanted to make a quick counter-argument.
+T 1612960219 18<27vifon18>	Luyin: In Polish we use the same word for a castle and a lock: "zamek".  Even if people in the past were legitimately oppressed by the people living in castles, it's no reason to change the word for a lock.
+T 1612960248 18<28Pepe_vulgaris18>	I hate when people do that, tho.
+T 1612960248 18<27vifon18>	This is how I see this "master" case.
+T 1612960257 18<28Luyin18>	vifon: that's really not the point of the argument
+T 1612960263 18<27vifon18>	Like I said, blacklist/whitelist is more legitimate.
+T 1612960297 18<25ldlework18>	The point of the argument is, some people feel negatively from those words. Regardless of the etymology or history, we should work to make everyone feel as included as possible.
+T 1612960301 18<27vifon18>	But chasing cases like "master" (or my hypothetical Polish "zamek") just makes the whole endeavor look silly.
+T 1612960327 18<28Luyin18>	I don't think so
+T 1612960345 18<27vifon18>	Hell, the word very similar to "collaborator" has very negative meaning in Polish.
+T 1612960350 18<27vifon18>	Older people constantly notice it.
+T 1612960353 18<25ldlework18>	Imagine getting mad at your friend because they used your stereo, or tv while you were not home. 
+T 1612960354 18<24eyJhb18>	vifon: slaving?
+T 1612960360 18<25ldlework18>	You may feel very strongly about them doing that.
+T 1612960362 18<27vifon18>	eyJhb: Cooperating with nazis.
+T 1612960367 18<28Luyin18>	I think whenever we can do a small change to include people more equally, and it's not a huge thing to ask, why shouldn't we do it? isn't it worth having to change our behaviour a little for others to feel more welcome?
+T 1612960370 18<24eyJhb18>	vifon: You polish are WEIRD
+T 1612960383 18<28Pepe_vulgaris18>	vifon: in hungarian, we only use that word in that sense
+T 1612960385 18<26zaeph18>	vifon: 'collaborator' has the same undertones in French-speaking European countries as well, especially France.
+T 1612960385 18<27vifon18>	Well, we did have some Nazi problems.
+T 1612960424 18<25ldlework18>	Imagine getting mad at your friend because they used your stereo, or tv while you were not home. You may feel very strongly about them doing that. But if they had no expectation of you feeling this way, and therefore had no intent to cause you negative experience, then how can you genuinely, in the philosophically ethical sense, be mad *at* them. As in holding them accountable for how you feel.
+T 1612960428 18<20isene18>	Anyone like to take my terminal RPN calculator for a test run? https://github.com/isene/T-REX
+T 1612960446 18<25ldlework18>	You don't give your friend any ethical leeway, in consideration of what your friend actually intended by using your TV.
+T 1612960452 18<27vifon18>	isene: Consider me interested.
+T 1612960461 18<25ldlework18>	You simply look at what your friend *did*, and hold them to the nose for it.
+T 1612960463 18<24eyJhb18>	isene: You have to join the debat before we can. We need a solution
+T 1612960478 18<25ldlework18>	Imagine if criminal law worked this way.
+T 1612960480 18<27vifon18>	And the last one at that, right, eyJhb?
+T 1612960492 18<25ldlework18>	Imagine if minor social interactions between strangers worked this way....
+T 1612960499 18<24eyJhb18>	vifon: The single conclunsion that everybody holds true
+T 1612960501 18<24eyJhb18>	SST
+T 1612960505 18<25ldlework18>	Imagine if the naming of technical terms worked this way...
+T 1612960545 18<26zaeph18>	isene: Hi there, it's been a while.  You'd have a hard time convincing an Emacser to use any other RPN calculator. :)
+T 1612960580 18<26zaeph18>	The code looks very clean.
+T 1612960708 20*	Disconnected (20)
+T 1612960763 20*	Disconnected (20Remote host closed socket)
+T 1612960806 20*	Disconnected (20Remote host closed socket)
+T 1612960862 20*	Disconnected (20Remote host closed socket)
+T 1612960891 19*	Now talking on 22#ranger
+T 1612960891 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1612960891 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1612960905 18<28Pepe_vulgaris18>	array index
+T 1612960926 18<28Pepe_vulgaris18>	unless there are complex numbers
+T 1612960934 18<25ldlework18>	that's syntactically what's being assigned to it
+T 1612960941 18<25ldlework18>	what is the semantic meaning of i within this function
+T 1612960955 18<25ldlework18>	anyway your time is up
+T 1612960979 18<24eyJhb18>	What is it then?
+T 1612960983 18<25ldlework18>	who knows?
+T 1612960991 18<25ldlework18>	it depends on other single-letter variables
+T 1612960996 18<25ldlework18>	and the function is just named "entry"
+T 1612961035 18<25ldlework18>	well "num_format" I was looking at "entry" earlier
+T 1612961042 18<25ldlework18>	nevertheless :)
+T 1612961045 18<28Pepe_vulgaris18>	having a string operation done on it is rather fishy, yes
+T 1612961056 18<28Pepe_vulgaris18>	s/on /to 
+T 1612961227 18<24eyJhb18>	Those fuckers killed all my chickens in Minecraft. I only had like 2.000 :(
+T 1612961309 18<27vifon18>	<ldlework> agreed, though there is a lot of single-letter variables 
+T 1612961310 18<27vifon18>	http://www.matusiak.eu/numerodix/blog/2012/12/2/math-explained/
+T 1612961336 18<24eyJhb18>	That just makes it more confusing if the none math ones are single as well :D
+T 1612961353 18<26zaeph18>	eyJhb: https://youtu.be/HFVuAW9q1SQ?t=9
+T 1612961489 18<24eyJhb18>	MERICA'?
+T 1612961539 18<25ldlework18>	vifon: XD
+T 1612961573 18<27vifon18>	2/10 letters, ldlework.
+T 1612961602 18<27vifon18>	Also, usually we spell it as "dx".
+T 1612961617 18<27vifon18>	It's not a multiplication, please don't swap them.
+T 1612961707 18<20isene18>	ldlework: It's a short form inside that small function - "i" stands for the integer part of the number, "f" is the fractional part.
+T 1612961734 18<20isene18>	eyJhb: Gimme a one-liner for the debate
+T 1612961753 18<24eyJhb18>	vifon: DON'T TELL ME WHAT TO DO :D 
+T 1612961755 18<25ldlework18>	isene: why not name it integerPart
+T 1612961772 18<24eyJhb18>	isene: I have none, just saw that there was a lot of them in the code :p And didn't really tell me much
+T 1612961776 18<24eyJhb18>	Also! I should be doing exam stuff
+T 1612961822 18<20isene18>	I'm getting terser by the minute, that's why. Also, intermediate variable inside a small function...
+T 1612961850 18<25ldlework18>	is that a small function?
+T 1612961855 18<25ldlework18>	i was just going to recommend refactoring it
+T 1612961857 18<20isene18>	I used to do lots of descriptive variable names, but for T-REX... he eats long variable names for breakfast
+T 1612961862 18<27vifon18>	<isene> eyJhb: Gimme a one-liner for the debate
+T 1612961864 18<27vifon18>	Ironic.
+T 1612961871 18<20isene18>	:-)
+T 1612961896 18<24eyJhb18>	You can have this? https://i.imgur.com/Md6eMmi.png
+T 1612961907 18<24eyJhb18>	And then guess where this is used in wireless communication
+T 1612961924 18<20isene18>	ldlework: it's only 21 lines of code (= small function)
+T 1612961944 18<25ldlework18>	isene: from a testing perspective, i can't test just the parsing of "integer parts" nor "fractional parts", I must test the whole of number parsing (or whatever this function is doing in totality) at once
+T 1612961955 18<25ldlework18>	a function is small when you cannot extract another function from it
+T 1612961987 18<20isene18>	so, small-ish
+T 1612962026 18<25ldlework18>	so small it took discussion on an IRC channel and description by the original author to figure out what it does
+T 1612962034 18<20isene18>	eyJhb: That's kinda like a one-liner, but what's the debating I hear about?
+T 1612962092 18<20isene18>	ldlework: Figuring out what it does is simple, talking about it is what breeds complexity
+T 1612962110 18*	25ldlework raises his eyebrows.
+T 1612962526 18<27czdDp18>	/!\ this channel has moved to ##hamradio /!\
+T 1612962576 18<26zaeph18>	czdDp: I beg your pardon?
+T 1612962589 18<25ldlework18>	happening all over
+T 1612962597 18<26zaeph18>	Huh.
+T 1612962810 18<28dStructaA18>	/!\ this channel has moved to #nyymit /!\
+T 1612962817 18<22HobbyBx18>	/!\ this channel has moved to #nyymit /!\
+T 1612963015 18<20danmackay18>	/!\ this channel has moved to #nyymit /!\
+T 1612963033 18<28bluszcz18>	/!\ this channel has moved to #nyymit /!\
+T 1612963542 18<26GermainZ18>	__monty__: yes since it's rounding to 0 so it appears like a perfectly flat line when it's not. The example given is exaggerated but it shows the rounding issue well, I think. (Same for the absolute/relative scale)
+T 1612963718 18<26GermainZ18>	I don't think the example is useful for actual analysis/comparisons, just to show the point
+T 1612963940 18<27vifon18>	What the hell.
+T 1612964292 18<24eyJhb18>	vifon: why didn't you tell us about the move?
+T 1612964415 18<27vifon18>	eyJhb: It was a surprise.
+T 1612964440 18<27vifon18>	eyJhb: You're a Vim boy, right?
+T 1612964513 22*	26vifon gives channel operator status to 18Wydrek
+T 1612964517 18<27vifon18>	Say hello to my bot.
+T 1612964531 18<27vifon18>	Try mistyping :wq or a similar Vim thing here. :)
+T 1612964567 18<28Pepe_vulgaris18>	ZZ
+T 1612964571 18<27vifon18>	Oh come on…
+T 1612964578 18<28Pepe_vulgaris18>	:z
+T 1612964580 18<28Pepe_vulgaris18>	:x
+T 1612964586 18<28Pepe_vulgaris18>	:qw
+T 1612964610 18<28Pepe_vulgaris18>	A man :q -s out of a bar
+T 1612964638 18<27vifon18>	*sigh* Fine, try again.
+T 1612964651 18<28Pepe_vulgaris18>	:q?
+T 1612964651 18<27vifon18>	V:
+T 1612964657 18<28Pepe_vulgaris18>	:q
+T 1612964657 18<27vifon18>	* :V
+T 1612964683 18<24eyJhb18>	:q
+T 1612964684 18<26zaeph18>	C-x C-c
+T 1612964691 18<26zaeph18>	Hah, got'em.
+T 1612964691 18<24eyJhb18>	:penis
+T 1612964697 18<27vifon18>	zaeph: It doesn't make sense here as you don't confirm with an Enter.
+T 1612964701 18<27vifon18>	ZZ likewise.
+T 1612964701 18<28Pepe_vulgaris18>	hmm, but it's not a kick
+T 1612964716 18<28Pepe_vulgaris18>	how do you do that?
+T 1612964721 18<26zaeph18>	M-x save-buffers-kill-terminal
+T 1612964750 18<26zaeph18>	I'm waiting for my customised kick.
+T 1612964752 18<26zaeph18>	Come on.
+T 1612964784 18<26zaeph18>	Also, why Wydrek?
+T 1612964796 18<28Pepe_vulgaris18>	ah
+T 1612964878 20*	Disconnected (20)
+T 1612964924 20*	Disconnected (20Remote host closed socket)
+T 1612964980 20*	Disconnected (20Remote host closed socket)
+T 1612965037 20*	Disconnected (20Remote host closed socket)
+T 1612965088 20*	Disconnected (20Remote host closed socket)
+T 1612965114 19*	Now talking on 22#ranger
+T 1612965114 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1612965114 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1612965663 18<28Pepe_vulgaris18>	isene: ah I remember, you're the yaml-like mindmap in vim to graphwiz guy, right?
+T 1612965827 18<27vifon18>	He is.
+T 1612966922 18<20isene18>	I am
+T 1612969860 18<24eyJhb18>	Is whitenoise OK to use?
+T 1612969865 18<24eyJhb18>	Or should that be blanknoise?
+T 1612969870 18<24eyJhb18>	Or womennoise?
+T 1612970029 18<27vifon18>	Stahp.
+T 1612970658 18<28Pepe_vulgaris18>	what about whitewash?
+T 1612970727 18<27vifon18>	*sigh*
+T 1612970789 18<26zaeph18>	It must be nice for you to only have to think about those issues when you're trying to come up with puns or foster a sense of wit.
+T 1612970976 18<26zaeph18>	Strawmaning is an awfully convenient way to keep your personal cocoon cozy, roomy, but also very samey.  It's getting a little tiring to discuss those issues in #ranger, and I'd be happier if we could tone it down.  I'm not asking you to change your mind, but merely to keep the toxic interactions to a better standard.
+T 1612971043 18<22__monty__18>	Everyone please just stop.
+T 1612971059 18<26zaeph18>	Oh *now* you show up!
+T 1612971073 18<22__monty__18>	isene: Were you into running and emulating old HP calculators and stuff?
+T 1612971088 18<22__monty__18>	I vaguely remember someone interested in that.
+T 1612971095 18<22__monty__18>	FichteFoll maybe?
+T 1612971116 18<26zaeph18>	__monty__: I think that was isene, yes.
+T 1612971121 18<24eyJhb18>	zaeph: Disagree to agree, still the topic stands :) Whitenoise however is easier to fix however
+T 1612971135 18<26zaeph18>	I remember a discussion going on between vifon and isene about buying a particular device.
+T 1612971135 18<22__monty__18>	eyJhb: Stop, seriously.
+T 1612971155 18<28Pepe_vulgaris18>	I weren't (just) trolling, I do believe that debating these issues is important. I accept that it has nothing to do with ranger.
+T 1612971207 18<22__monty__18>	Let that be the last comment re this stuff today, please. Just let the topic cool down.
+T 1612971274 18<24eyJhb18>	__monty__: That was not trolling the last part.... It was actually more of a informing thing, saying that whitenoise comes from the meaning of white light...... But OK
+T 1612971371 18<27vifon18>	zaeph: In the end nothing came out of it.  I… don't think I can actually justify a fancy calculator. :D
+T 1612971465 18<26zaeph18>	vifon: Probably wise; but on the other hand, if it sparks joy (#dontsuememarykondo), a flight of momentary folly has only killed a fraction of people.
+T 1612972143 18<22__monty__18>	eyJhb: It's white noise, not whitenoise. And it's not contributing anything to #ranger.
+T 1612972678 20*	Disconnected (20)
+T 1612972730 20*	Disconnected (20Remote host closed socket)
+T 1612972771 20*	Disconnected (20Remote host closed socket)
+T 1612972820 20*	Disconnected (20Remote host closed socket)
+T 1612972848 19*	Now talking on 22#ranger
+T 1612972848 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1612972848 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1612972854 18<20isene18>	HP calculators; https://isene.org/hp-41/
+T 1612973061 18<24eyJhb18>	isene: ^ THat is the calculator my dad has
+T 1612984594 18<26GermainZ18>	isene: yaml-like mindmap in vim to graphviz?
+T 1612984984 18<26GermainZ18>	Ah, hypergraph
+T 1612985076 18<26GermainZ18>	isene: "You may graph your HyperLists online over at isene.org." / "For an online version of Hypergraph, see http://isene.org/" -- these seem to be outdated considering isene.org is just the blog now
+T 1612985100 18<26GermainZ18>	(the former is a quote from the blog article about hyperlists, the latter from the hypergraphs README)
+T 1612985545 18<20isene18>	GermainZ: Thanks. Will fix.
+T 1612985564 18<20isene18>	eyJhb: Neat :-)
+T 1612985892 18<24eyJhb18>	isene: I haven't been allowed to borrow it, ever
+T 1612986005 18<20isene18>	eyJhb: Understandable ;-P
+T 1612986708 18<19grobi18>	GermainZ: mindmap in vim ??
+T 1612986869 18<28Pepe_vulgaris18>	https://isene.me/hyperlist/
+T 1612986977 18<20isene18>	GermainZ: I updated the Readme.md on HyperGraph, but where did you find the sentence "You may graph your HyperLists online over at isene.org."? Link?
+T 1612987055 18<19grobi18>	isene wow 
+T 1612987086 18<19grobi18>	looks like gvim only??
+T 1612987357 18<20isene18>	grobi: Not at all. I never use gvim - but there is menus for gvim to accomodate for those users
+T 1612987389 18<19grobi18>	aha so it's still commandline usage?
+T 1612987410 18<19grobi18>	that'd be very nice
+T 1612987516 18<19grobi18>	your DL for 'HyperList document (PDF)' is supposed to lead to a pdf-manual?
+T 1612987649 18<19grobi18>	it gives me an error: 'The server does not have the requested data'
+T 1612987792 18<19grobi18>	i try to install with vundle/vim now
+T 1612988262 18<19grobi18>	isene: i assume it's the same pdf-file as that in your docs anyway..

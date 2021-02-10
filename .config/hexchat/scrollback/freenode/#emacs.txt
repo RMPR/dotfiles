@@ -1,612 +1,3 @@
-T 1602880767 18<29johnjay18>	the utility of which hopefully is apparent from the name
-T 1602880794 18<19wasamasa18>	not exactly
-T 1602880800 18<20bpalmer18>	johnjay: I agree it's a huge limiting factor, but note that emacs allows up to 15 lines without any assignment.
-T 1602880820 18<29johnjay18>	or is there a way to do this with mapcar?
-T 1602880837 18<20pjb18>	there are mapfiles mapdirectories and dolines in pjb-emacs.el…
-T 1602880847 18<29johnjay18>	say you want to put ABC at the start of each line. then you'd write something like (dolines (x) (setq x (concat "ABC" x)))
-T 1602880855 18<20pjb18>	johnjay: ^ and http://github.com/informatimago/emacs
-T 1602880860 18<29johnjay18>	pjb:!
-T 1602880875 18<19wasamasa18>	hm, that doesn't exactly seem emacsy
-T 1602880897 18<29johnjay18>	(defmacro* dolines (start-end &body body)
-T 1602880900 18<29johnjay18>	  "Executes the body with start-var and end-var bound to the start and the end of each lines of the current buffer in turn."
-T 1602880931 18<29johnjay18>	no it's a perlism
-T 1602880944 18<20pjb18>	what can be more emacsy than that? Working directly in the buffer!
-T 1602880954 18<20pjb18>	And it's written in emacs lisp!
-T 1602880964 18<29johnjay18>	perl automatically wraps your input in a while(<>) loop so it goes the whole file
-T 1602880980 18<19wasamasa18>	http://ix.io/2AXJ
-T 1602881016 18<19wasamasa18>	or maybe drop the save-excursion, it doesn't make much sense anyway once you start editing the buffer
-T 1602881023 18<20bpalmer18>	johnjay: note that requires certain command-line flags.
-T 1602881040 18<29johnjay18>	right
-T 1602881061 18<19wasamasa18>	here's what happens when a freedom-denying person denies your freedom via MELPA: https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg01048.html
-T 1602881066 18<19wasamasa18>	- Hey brother... I made here one spectacular Emacs package.
-T 1602881070 18<20bpalmer18>	wasamasa: I don't see why not, although you might be better off using an (let ((p (point-marker))) (unwind-protect (progn ...) (goto-char p)))
-T 1602881093 18<29johnjay18>	yes that's the version I wrote as well
-T 1602881153 18<19wasamasa18>	the closest I've seen to that scenario was someone recommending the tabnine package to someone asking how to auto-complete sentences
-T 1602881194 18<20bpalmer18>	I've never thought to put on a trenchcoat and hang out in alleys offering my emacs warez 
-T 1602881205 18<29johnjay18>	probably because you wouldn't make money doing that
-T 1602881245 18<29wgreenhouse18>	wasamasa: someone should turn those last few lines of that email into a comic
-T 1602881253 18<20bpalmer18>	I'll lure people in and then hook them on my proprietary substances.
-T 1602881282 18<20bpalmer18>	at any rate. 
-T 1602881404 18<19wasamasa18>	lol: https://github.com/codota/TabNine/issues/4
-T 1602881430 18<27grym18>	"personal hate promotion" is it 
-T 1602881469 18<20bpalmer18>	but before I go, I'd suggest rather than a setq approach, if you do write such a macro to iterate over and mutate, that it be something like (defmacro* dolines (line-sym &optional replace-sym) ...) so that you can do (dolines (x replace-line) (replace-line (concat "abc: " x))) , where replace-sym defaults to something like replace-line
-T 1602881507 18<20bpalmer18>	It strikes me as a very unusual interface to treat mutating x as a sign to flush it out; almost ORM-like in hidden behavior.
-T 1602881579 18<19wasamasa18>	wgreenhouse: too bad I can only badly imitate existing art
-T 1602881598 18<20bpalmer18>	although allowing it to be a random symbol means that you might need a codewalker. Hmm.
-T 1602881602 18<19wasamasa18>	wgreenhouse: though, maybe we could convince sachac to do it
-T 1602881625 18<20bpalmer18>	It might be better to just always locally bind replace-line to a function; that way elisp's normal semantics/reader apply.
-T 1602881644 18<20pjb18>	johnjay: granted, a maplines could be a better idea.  (defun* maplines (fun &optional (buffer (current-buffer))) (let ((result '())) (with-current-buffer buffer (dolines (start end) (push (funcall fun (buffer-substring start end)) result))) result))  (reduce 'max (maplines 'length (current-buffer)) :initial-value 0)  --> 493
-T 1602881756 18<20pjb18>	bpalmer: but dolines let you use the usual buffer mutation operators.  (dolines (start end)  (goto-char start) (insert "{") (goto-char end) (insert "}")) ; start and end are markers.
-T 1602881783 18<20bpalmer18>	pjb: I haven't looked at your code, simply johnjay's proposed interface above.
-T 1602882306 18<20bpalmer18>	And I guess the functional route would be to pass a callback function 
-T 1602882462 18<29johnjay18>	>I have noticed that some packages like lastpass or helm-lastpass guide users to non-free or proprietary software, thousands of such packages have been downloaded thus putting MELPA users at greater risks.
-T 1602882513 18<29johnjay18>	pjb: hrm you can't use the buffer functions in a callback with maplines?
-T 1602883076 18<20pjb18>	johnjay: you could pass start and end as additionnal parameters to the fun.
-T 1602883112 18<19wrycode18>	IME tabnine provides no major advantage over well-configured dabbrev, capf, etc.
-T 1602883144 18<20pjb18>	johnjay: my dolines macro leaves the point at the end-of-line, but it doesn't offer this guarantee. You have to use the start and end markers. 
-T 1602885623 18<28winny18>	hmm seems like occur i missing some nice binds like navigating between entries while not switching buffers or navigating with simply n and p
-T 1602886392 18<29johnjay18>	winny: i thought you could navigate in it, try C-n and C-p?
-T 1602886437 18<28winny18>	indeed
-T 1602886449 18<28winny18>	wondering if anybody recommended a minor mode or alternate occur
-T 1602886518 18<29johnjay18>	ouch
-T 1602886660 18<29johnjay18>	weird apparently C-x ` is the command to go to next entry
-T 1602886732 18<29johnjay18>	i'm not sure why next-error works with occur
-T 1602886807 18<20shafox18>	I am using (vanilla emacs) lsp-mode with lsp-jedi, how do I know which python it is using for running jedi ? 
-T 1602886897 18<29johnjay18>	usually python shows its version when you run it. is it running behind the scenes?
-T 1602886917 18<29johnjay18>	if it's an ongoing process you can do ps -e maybe to find which one
-T 1602886970 18<24laertus18>	you could probably lsof it too
-T 1602887028 18<24laertus18>	but probably better than all of these is to find out how lsp-mode or lsp-jedi are calling python.. so then you know how to change that configuration
-T 1602887076 18<24laertus18>	you may need to search through their docs, configs, or source for that..
-T 1602887081 18<20shafox18>	johnjay, its running as background process.
-T 1602887097 18<24laertus18>	oh yeah, something else that might help is M-x list-processes
-T 1602887681 18<29mplsCorwin18>	Dmitry Gutov.  Nuff said.
-T 1602888056 18<29mplsCorwin18>	Ok.  Totally *not* crazy.  If you look at the email to the ML one hour back from Drew Adams you will see the super-short fill length I was talking about.
-T 1602888090 18<24laertus18>	link?
-T 1602888112 18<24laertus18>	also, i believe you.. i was just saying that i didn't see it in my own correspondence with him
-T 1602888115 18<29mplsCorwin18>	If I'd had the link handy I woudn't have given the topic name and time frame instead?
-T 1602888122 18<29mplsCorwin18>	lol nw
-T 1602888155 18<29mplsCorwin18>	I'll find a link in a little if you are still looking.  Power was down a bunch and it's working out to be a bad hair day for tech.
-T 1602888186 18<24laertus18>	i was just curious
-T 1602888199 18<24laertus18>	not worth troubling yourself over it
-T 1602888255 18<29mplsCorwin18>	laertus: thanks.  sorry about that.  wierd nerves today.  Found it, anyway: https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg01058.html
-T 1602888342 18<24laertus18>	that's not 15 columns
-T 1602888344 18<24laertus18>	looks like 52
-T 1602888357 18<24laertus18>	(not including the text he quoted
-T 1602888378 18<29mplsCorwin18>	I'll grant I was being dramaitc
-T 1602888388 18<24laertus18>	and if i had to guess, he was probably using 52 to try to be compatible with people who have trouble reading wider text
-T 1602888403 18<24laertus18>	probably a holdover from older days when some such might have actually existed
-T 1602888458 18<25bandali18>	using shorter fill lengths can be pretty fun :-p https://lists.gnu.org/r/emacsconf-discuss/2019-11/msg00002.html
-T 1602888489 18<25bandali18>	that was 47
-T 1602888498 18<25bandali18>	these days i mostly use the standard 72 tho
-T 1602888512 18<24laertus18>	i need to post a message all in one column
-T 1602888552 18<24laertus18>	though it'd probably break some mail readers..
-T 1602888580 18<29mplsCorwin18>	THe ML forcing things to plan text creates an imporant use-case for filling in email since MX will essencially fill the text if we don't this lets us control the display more effectively
-T 1602888617 18<29mplsCorwin18>	counterpoint being that this is something of a self-created purpose as allowing HTML mails would mean the context would wrap to people's displays.
-T 1602888657 18<29mplsCorwin18>	Anyway, like I said last night - it's doesn't really bug me, it's just odd.
-T 1602888705 18<24laertus18>	this reminds me of "format flowed" emails
-T 1602888727 18<24laertus18>	https://joeclark.org/ffaq.html
-T 1602889192 18<19bbuccianti18>	how do you read atom feeds?
-T 1602889240 18<24laertus18>	with an rss reader
-T 1602889282 18<24laertus18>	i personally use a non-emacs rss reader called newsboat
-T 1602889327 18<24laertus18>	i've been tempted to try el-feed, but from what i can tell it made some design decisions that i don't like, and i'm not sure how easy it would be to change it to my liking
-T 1602889358 18<24laertus18>	but a lot of people are very happy with it, so you might want to give it a go
-T 1602889380 18<19bbuccianti18>	sure thing
-T 1602890569 18<24laertus18>	in the customize gui, is there any way to get the symbol of the variable at point that's being customized?
-T 1602890667 18<22loganlee18>	hi
-T 1602892801 18<20shafox18>	To setup the venvPath in pyright lsp, there is a variable, lsp-pyright-venv-path, I am using poetry to manage env. the path to venv is the result of this "poetry env list --path", how do I set the variable value which is the result of that command  ?
-T 1602892876 20*	Disconnected (20)
-T 1602893262 19*	Now talking on 22#emacs
-T 1602893262 22*	Topic for 22#emacs is: Gul Dukat says upgrade to 27.1: https://i.imgflip.com/4hpvlw.jpg | Emacs questions take priority over off-topic chatter, so ask! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
-T 1602893262 22*	Topic for 22#emacs set by 26wgreenhouse!wgreenhous@fsf/member/wgreenhouse (24Thu Oct  8 00:50:34 2020)
-T 1602893262 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
-T 1602893356 18<20slondr18>	Hmm, this is a good poem 
-T 1602894488 18<19refusenick18>	ryouma: poetry is life-saving
-T 1602894500 18<19refusenick18>	also pyenv and pipx
-T 1602894506 18<27grym18>	slondr: do you know The One Rude TS Poem 
-T 1602894623 18<24ryouma18>	so that poem is basically the nerd in the breakfast club who did all the work and did not do any of the interesting stuff the couples did?
-T 1602894689 18<27grym18>	https://genius.com/Ts-eliot-the-triumph-of-bullshit-annotated 
-T 1602894697 18<27grym18>	at least he knew what he was :) 
-T 1602894713 18<27grym18>	(i'm very fond of some of his other works, but this one really humanizes him a bunch)
-T 1602895433 18<20bpalmer18>	Let's mine metadata for gold
-T 1602895474 18<29mplsCorwin18>	rudybot: what are my odds of finding a golden ticket inside my copy of GNU Emacs?
-T 1602895480 18<24rudybot18>	mplsCorwin: Yeah, what are the odds.  :p
-T 1602895495 18*	29mplsCorwin *slow clap*
-T 1602895615 18<20bpalmer18>	Is it time for a heartwarming film about a ruthless industrialist wreaking his revenge on children and industrial spies?
-T 1602895696 18<29mplsCorwin18>	oh shit.
-T 1602895738 18<29mplsCorwin18>	I just realized what it is that the whole fiasco with the ML is reminding me of so much.  And it perfectly explains why it is so under my skin and I can't let it go.
-T 1602895828 18<20bpalmer18>	oh?
-T 1602895840 18<29mplsCorwin18>	It is left-wing US politics.  fighting for issue dominance because identity puritanism 
-T 1602895899 18<29mplsCorwin18>	There's no clear way forward on the actual issues (in our case corp. dominance of key platform spaces), so we just fight over issues of purity.
-T 1602895932 18<29mplsCorwin18>	I'm done. That was my epiphany, such as it was. #fin 
-T 1602895975 18<24ryouma18>	what fiasco?
-T 1602895978 18<27grym18>	mplsCorwin: per earlier conversation: yes, of course, it's the same people. 
-T 1602895980 18<24ryouma18>	a mailing list?
-T 1602896008 18<29mplsCorwin18>	grym: that seems true.
-T 1602896015 18<27grym18>	mplsCorwin: also, "in the tolkein, not endriconological, sense, Randy was a dwarf ... " is evergreen 
-T 1602896022 18<27grym18>	s/i/e/
-T 1602896029 18<24ryouma18>	something on emacs-devel?
-T 1602896048 18<29mplsCorwin18>	ryouma: are you seriously asking?  There are a dozen links shared and conversations had in channel -- yes, about emacs-devel -- daily.
-T 1602896087 18<29mplsCorwin18>	ryouma: sorry for tone there.  Not quite sure what's been up with me today.  I do believe I should log for a bit.
-T 1602896092 18<24ryouma18>	i am most of the time out of the loop
-T 1602896104 18<24ryouma18>	i logged into channel just recently
-T 1602896128 18<27grym18>	mplsCorwin: can i interest you in this fine pamphlet about "bicycling until the internet stops mattering for a minute"
-T 1602896129 18<29mplsCorwin18>	ryouma: I already think of u as a regular tho :)
-T 1602896155 18<29mplsCorwin18>	grym: do you have an audiobook of that?  I gotta do a thing..
-T 1602896171 18<27grym18>	mplsCorwin: it is, sadly, a fictitious pamphlet 
-T 1602896185 18<29mplsCorwin18>	iknowiknow
-T 1602896187 18<27grym18>	the audiobook version of cryptonomicon, though, is very good 
-T 1602896198 18<24ryouma18>	mplsCorwin: i frequently log into the channel but do not always stay lgged in or log in
-T 1602896216 18<20bpalmer18>	ryouma: there is a current thread in emacs-devel , with original subject "Proposal for an Emacs User Survey", which has gotten a fair amount of attention in the channel, particularly with regards to whether any such survey should acknowledge the existence of MELPA
-T 1602896234 18<27grym18>	"bikeshedding, with _knives_"
-T 1602896241 18<20bpalmer18>	ryouma: And, if it does acknowledge it, whether it should be denounced.
-T 1602896248 18<24ryouma18>	ah thanks for overview
-T 1602896257 18<27grym18>	(is my halfassed tl;dr as at this point i now i think actively want to never be on that mailing list)
-T 1602896300 18<29mplsCorwin18>	Today's installment feature various messages discussing the disregard in which redditers at large are ascribed for RMS.
-T 1602896304 18<20slondr18>	grym: I hadn't seen that, hahah
-T 1602896327 18<20bpalmer18>	grym: is it , though? I tried getting through The Fall, which is a sequel of sorts of Cryptonomicon, and I think I'm steadily growing less enchanted with Stephenson's more technothriller/literary works
-T 1602896335 18<29mplsCorwin18>	ok.  I really am logging.  I can grammar longer not.
-T 1602896347 18<25bandali18>	mplsCorwin, on emacs-devel?
-T 1602896349 18<24ryouma18>	i stopped partway throuhgh the system of the world
-T 1602896353 18<29mplsCorwin18>	bandali: yes.
-T 1602896377 18<25bandali18>	i plan to (try to, at least) catch up with my ~2k backlog of it this weekend :-p
-T 1602896377 18<24ryouma18>	so this is worse than the `' thread?
-T 1602896400 18<20bpalmer18>	oh, the smart quotes one. That, too, was "fun."
-T 1602896404 18<24ryouma18>	i guess i shouldn't have asked that.  that probably wasn't acrimonous.
-T 1602896445 18<29mplsCorwin18>	bandali: it would absolutely nuts for you to try to catch up on the ML now.
-T 1602896453 18<29mplsCorwin18>	bandali: and I say that with love.
-T 1602896499 18<25bandali18>	mplsCorwin, ahaha :-p
-T 1602896503 18<25bandali18>	i mean i kinda agree
-T 1602896504 18<27grym18>	bpalmer: seveneves and the fall were kind of meh 
-T 1602896510 18<25bandali18>	i'm not gonna be reading every single message
-T 1602896520 18<25bandali18>	mostly skimming / breezing through them with the help of gnus
-T 1602896527 18<25bandali18>	and only read through (some of) the most interesting ones
-T 1602896532 18<25bandali18>	and flagging a bunch for later
-T 1602896542 18<29mplsCorwin18>	bandali: I've been racking my brains how to use all the energy around this in some positive way for Emacsconf.  Frank conversation, roundtable sort of thing.  Everything I can think seems like it quite likely would be terrible
-T 1602896568 18<27grym18>	mplsCorwin: zoom boffers just don't work 
-T 1602896625 18<25bandali18>	mplsCorwin, ha! if you have any ideas, please, don't hesitate to write to emacsconf-discuss and/or emacsconf-org, or even better, add them to https://emacsconf.org/2020/ideas/ or https://emacsconf.org/2020/planning/
-T 1602896630 18<25bandali18>	i'd very much appreciate that
-T 1602896634 18<20bpalmer18>	grym: seveneves I'm torn on. First, it was two different stories: a novel followed by a novella. I threw the book aside when it got to the novella at the end.
-T 1602896651 18<29mplsCorwin18>	bandali: *two thumbs up*
-T 1602896660 18<20bpalmer18>	grym: But the novel had some absolutely fantastic parts and it still drifts into my mind every few months.
-T 1602896672 18<27grym18>	bpalmer: i finished it, but i kept waiting for jad to show up 
-T 1602896680 18<20bpalmer18>	jad?
-T 1602896680 18<22fsbot18>	jad is the fast Java decompiler at http://www.kpdus.com/jad.html
-T 1602896689 18<27grym18>	bpalmer: the thousander from Anathem 
-T 1602896706 18<20bpalmer18>	Ah. I liked Anathem, but very little of it has stuck with me.
-T 1602896729 18<27grym18>	bpalmer: it's way high up on my list. 
-T 1602896754 18<27grym18>	the fall was getting a bit close to heinlein writing himself into his own multiverse
-T 1602896791 18<27grym18>	bpalmer: you do have to give the novella section the benefit of the most absurd Stephenson Name, which is a high accomplishment 
-T 1602896803 18<20bpalmer18>	oh, what is it?
-T 1602896808 18<27grym18>	Sonar Taxlaw
-T 1602896818 18<20bpalmer18>	...
-T 1602896834 18<27grym18>	she's named after the piece of the encyclopedia her family line was entrusted with memorizing! :) 
-T 1602896895 18<20bpalmer18>	That's something, all right.
-T 1602896913 18<27grym18>	i am at least somewhat convinced he has that plotline there just for the name 
-T 1602896979 18<20bpalmer18>	Maybe I'll be able to dip in and read that section now; at the time I was just so angry that he'd splice a story in like that.
-T 1602897087 18<27grym18>	i have a real thin background in grownup physics, so i was able to read the first bits easily in the sense that i wasn't fretting about errors.  but i know the biotech side of things reasonably well, and so the epigenetics mechanic is harder to read seriously 
-T 1602897123 18<27grym18>	it makes sense because he did that research in 2006-7, and extrapolated fine, its just that in the time it took to get the book published the science didn't bear that trajectory out 
-T 1602897646 18<20aidalgol18>	Moooom! The reactionaries are leaking into my YouTube recommendations again!
-T 1602897660 18<20aidalgol18>	"The Karen's, The SJW's, the posers, the political provocateur's, and their doormen Bad Robot all want a piece of Lord of the Rings on Prime and with all this come some rumors that aren't surprising leaving us with questions."
-T 1602897661 18<20aidalgol18>	wut?
-T 1602897722 18<20bpalmer18>	What is the entity possessed by Karens? Is it the same as that possessed by the provocateurs?
-T 1602897781 18<20aidalgol18>	Um...  Can I phone a friend?
-T 1602897788 18<20aidalgol18>	No, wait, ask the audience!
-T 1602897804 18<27grym18>	,yow
-T 1602897805 18<22fsbot18>	I'm RELIGIOUS!!  I love a man with a HAIRPIECE!!  Equip me with MISSILES!!
-T 1602897816 18<27grym18>	let's do what the madman says
-T 1602897984 18<20bpalmer18>	rudybot: missiles are outdated when rocks can be dropped from orbital platforms.
-T 1602897987 18<24rudybot18>	bpalmer: "Orbital fucking missiles?!!"
-T 1602898003 18<27grym18>	bpalmer: into volcanoes
-T 1602898025 18<20bpalmer18>	hold on, here. LOTR would be very different if you had that sort of intercontinental ballistic capability.
-T 1602898066 18<20aidalgol18>	bpalmer: That was the main plot device in one of the Call of Duty games.
-T 1602898083 18<27grym18>	bpalmer: i meant anathem,
-T 1602898460 18<20bpalmer18>	rudybot: has anybody established how many knots a giant eagle can do with a top gun nazgul on its tail?
-T 1602898466 18<24rudybot18>	bpalmer: Quando c'era Sauron, i Nazgul partivano in orario.
-T 1602898603 18<20bpalmer18>	rudybot: I assume the ainur could teach top-notch dog-fighting skills at the academy, and hand out lenses to those Tellurians deserving of one.
-T 1602898606 18<24rudybot18>	bpalmer: The ainur were literally created to be musicians. I am doubtful of this chronology
-T 1602898610 18<24ryouma18>	mm you can add advice to a function before that function is loaded, without getting any warnings or errors.  i /think/ that is good.
-T 1602898639 18<20bpalmer18>	grym: clearly, I need to re-read.
-T 1602898673 18<20bpalmer18>	I'll put it at the bottom of my pile, so I'll get to it in. hmm. This is supposed to be a finite collection, isn't it?
-T 1602898714 18<27grym18>	bpalmer: much more than some other authors i can name, at least the man doesn't write neverending series
-T 1602898745 18<27grym18>	cough cough grrm sanderson jordan rothfuss
-T 1602898763 18<20bpalmer18>	rothfuss's series has rather ended, it seems.
-T 1602898772 18<27grym18>	a shame.  good magic system 
-T 1602898813 18<20bpalmer18>	And Sanderson ... well, he's actually quite prolific. If he weren't intent on this terrible, terrible interlinked world system, I'd actually cite him as a counterexample.
-T 1602898820 18<27grym18>	speaking of good magic systems and trilogies, the audiobook versions of the garth nix books are done by tim curry :) 
-T 1602898830 18<20bpalmer18>	wow.
-T 1602898845 18<20bpalmer18>	(There are 4 books in the Sabriel series now, btw)
-T 1602898849 18<27grym18>	he does a mean mogget
-T 1602898857 18<27grym18>	5, i think 
-T 1602898862 18<20bpalmer18>	5
-T 1602898864 18<20bpalmer18>	You're right.
-T 1602898874 18<27grym18>	but the core 3 are enough for me.  clariel was good though
-T 1602898916 18<20bpalmer18>	I wasn't a big fan of Goldenhand.
-T 1602898923 18<20bpalmer18>	Definitely felt extra.
-T 1602898947 18<27grym18>	yeah that's what i heard; i haven't bothered to read it as a result 
-T 1602898998 18<20bpalmer18>	As for Rothfuss: while he may yet write his third book, the time it has taken has let me re-read the other books in the world, and allowed me to see some truly self-indulgent bits.
-T 1602899025 18<27grym18>	yeah.  i feel that way a lot about scott lynch 
-T 1602899032 18<27grym18>	who i found about the same time as rothfuss
-T 1602899155 18<19wrycode18>	mbrumlow: heads up I think your ssl certs are old
-T 1602899184 18<27grym18>	the first book was good, the second was okay, and by book three it was pretty clear that we were in "scott lynch is processing his divorce by writing a book"
-T 1602899234 18<27grym18>	or do i have this completely wrong? i expect to be schooled by someone else here in short order :P
-T 1602899263 18<27grym18>	ah, no, i was right
-T 1602899285 18<20bpalmer18>	I don't know much about Lynch's background. I have only read books 1 and 3 and thought each were good with something a litle lacking, so they weren't quite as good as I would have expected.
-T 1602899320 18<20bpalmer18>	I think it was mostly tied to structural elements of the flashback and ongoing plot.
-T 1602899432 18<20bpalmer18>	But the Dresden Files, that seems to be the consensus for how some aspects of the book series are done: Jim Butcher apparently talked about getting into weightlifting, and all of a sudden workouts started showing up 
-T 1602899484 18<27grym18>	hah
-T 1602899492 18<27grym18>	i read the first ~4 or so 
-T 1602899502 18<27grym18>	apparently there's a lot now 
-T 1602899574 18<20bpalmer18>	Yes. 17 books in the series; a definite mixed bag where some are good and many are uneven.
-T 1602899925 18<27grym18>	that's a bunch, yep 
-T 1602900175 18<20bpalmer18>	I just bought a humble bundle of books by R.A. Salvatore last week; apparently the multiple series featuring his character Drizzt Do'Urden is up to the 30s now
-T 1602900278 18<27grym18>	i was always more forgotten realms than dragonlance
-T 1602900285 18<27grym18>	friggin' mopey emo mages
-T 1602900323 18<20bpalmer18>	Drizzt is set in the Forgotten Realms
-T 1602900359 18<27grym18>	yep
-T 1602900367 18<27grym18>	i read a few of them, long ago 
-T 1602900731 18<19wrycode18>	I used to love the legend of drizzt
-T 1602900755 18<19wrycode18>	30 books? jesus
-T 1602900777 18<27grym18>	those scimitars just can't get enough 
-T 1602901002 18<20bpalmer18>	rudybot: once you start your campaign, you may discover you're locked in for life.
-T 1602901006 18<24rudybot18>	bpalmer: is pleasantly surprised to discover (accidentally) that some of the Bernie Sanders campaign organization's bespoke software is AGPLed
-T 1602903354 18<22dannylee18>	thor might be Jesus real father
-T 1602903392 18<22dannylee18>	i'm just out of emacs question
-T 1602904240 18<20bpalmer18>	rudybot: i'm here to chew bubblegum and walk, and I can't do both at the same time.
-T 1602904244 18<24rudybot18>	bpalmer: stupid babies... can't even walk and chew bubblegum at the same time
-T 1602904735 18<19elisper18>	Anyone know how I can change my slime-completion so that it makes a drop-down, instead of a new buffer, the way it does here? https://github.com/anwyn/slime-company/blob/master/slime-company.png
-T 1602905619 18<24laertus18>	from elisp, how do i open an info buffer to an info topic that's *not* part of the emacs nor elisp info manual?
-T 1602905669 18<24ryouma18>	laertus: you make sure those are on your system or you set the info path
-T 1602905675 18<24ryouma18>	the top level is info manuals
-T 1602905677 18<24ryouma18>	c-h i
-T 1602905692 18<24laertus18>	they are in my info manuals
-T 1602905702 18<24laertus18>	but i'm looking to get to a particular one from elisp
-T 1602905717 18<24laertus18>	not through interactive use of emacs
-T 1602905768 18<24laertus18>	i can already get to it through interactive use, so i know emacs has access to it
-T 1602905770 18<24ryouma18>	(info "Bash")
-T 1602905775 18<24laertus18>	ok, thanks
-T 1602905942 18<24laertus18>	and for something a bit tricker...
-T 1602905973 18<24laertus18>	any way to check for the existence and acessibility to emacs of a particular info manual?
-T 1602905989 18<24laertus18>	i'd like to do something like (infop "Bash")
-T 1602906057 18<24ryouma18>	,utsl
-T 1602906058 18<24laertus18>	hmm.. i guess i could wrap a condition-case around (info "Bash")
-T 1602906058 18<22fsbot18>	UTSL is [0] an abbreviation for Use The Source, Luke!
-T 1602906059 18<22fsbot18>	[1] an alternative to rtfm when there is no fm to r.
-T 1602906059 18<22fsbot18>	[2] "When I want to understand what is happening today or try to decide what will happen tomorrow, I look at the source code." -- Omar Khayyám
-T 1602906086 18<24ryouma18>	that is what i did to answer your question
-T 1602906119 18<24ryouma18>	it surely looks for it so it will have code that looks for it so you can find that code so you will have your answer
-T 1602906136 18*	24laertus nods
-T 1602906139 18<24laertus18>	thanks
-T 1602908815 18<20bpalmer18>	rudybot: the clock draws near to midnight; are you prepared to repent before it's too late?
-T 1602908830 18<24rudybot18>	bpalmer: I call upon rudybot to repent
-T 1602909600 18<20aidalgol18>	What are the downsides to wildcart SSL certs?
-T 1602909616 18<22sam_18>	expensive
-T 1602909623 18<20aidalgol18>	sam_: how?
-T 1602909624 18<22sam_18>	you could argue it's "eggs in one basket"
-T 1602909639 18<22sam_18>	I mean, practically, at least last time I checked, you had to pay a ridiculous amount to a CA for one
-T 1602909645 18<22sam_18>	maybe LE offers them now
-T 1602909651 18<22sam_18>	they're not technically expensive
-T 1602909660 18<20aidalgol18>	ah
-T 1602909666 18<20aidalgol18>	I mean aside from economics.
-T 1602910992 18<20pjb18>	hi! So, with (emacs-version) --> "GNU Emacs 27.1 (build 1, x86_64-apple-darwin18.7.0, NS appkit-1671.60 Version 10.14.6 (Build 18G95)) of 2020-08-12", when I try to use a customization variable, eg. erc-autojoin-channels-alist  with eval-last-sexp, it gives (mapcar 'erc-join-channel (cdr (assoc "freenode.org" erc-autojoin-channels-alist))) -> Lisp error: (void-variable erc-autojoin-channels-alist)
-T 1602910998 18<20pjb18>	how do we access customization variables now?
-T 1602911005 18<20pjb18>	Why this incompatible change?
-T 1602911080 18<29mplsCorwin18>	Hrm.  I didn't have to update erc-autojoin-channel-alist conf when I went fromn 26.3 to 27.1, that I recall..
-T 1602911173 18<29mplsCorwin18>	pjb: what happens when you M-x customize-variable RET erc-autojoin-channels-alist RET ?
-T 1602911187 18<20bpalmer18>	pjb: sounds like you haven't loaded the library that defvars/defcustoms it.
-T 1602911242 18<20bpalmer18>	pjb: or, what is the top-level form you're trying to eval ?
-T 1602911250 18<20bpalmer18>	custom-set-variable?
-T 1602911260 18<20bpalmer18>	customize-set-variable, rather, or custom-set-variables ?
-T 1602911270 18<20pjb18>	Yes, I set it with custom-set-variables
-T 1602911283 18<20pjb18>	(and a ton of others. I'd have to require a lot of files…)
-T 1602911348 18<20bpalmer18>	pjb: you don't need to require them if you set the variable absolutely without trying to read it.
-T 1602911357 18<20pjb18>	So how we have to require stuff in each buffer where we use a custom variable…
-T 1602911369 18<20bpalmer18>	no, only if you try to *read* the variable, when it's not set.
-T 1602911374 18<20pjb18>	This wil break a lot of commands.
-T 1602911389 18<20pjb18>	It's set, since I customize it in my rc files.
-T 1602911400 18<20pjb18>	And also I try to evaluate it in a erc-mode buffer…
-T 1602911412 18<20bpalmer18>	pjb: is erc-autojoin in the erc-modules list?
-T 1602911453 18<20bpalmer18>	but, unless there's some very serious bug, i suspect something is failing to set it and the module is also not being loaded.
-T 1602911468 18<20pjb18>	No, I removed it, because I want to autojoin manually…
-T 1602911511 18<20bpalmer18>	pjb: you need to load the library to have the variables it defines; having it in the erc-modules list has a side effect of loading it as well as activating it.
-T 1602911521 18<20pjb18>	So I guess I have to load erc-autojoin, without adding it to erc-modules so that autojoin is not done, but I can access it. Ok. Thanks.
-T 1602911569 18<20pjb18>	Let's see if it works.
-T 1602912236 18<20pjb18>	Didn't work. Well, after all I don't want to autojoin, so I will use my own variable. There's no reason to use that erc customization variable…
-T 1602912341 18<29mplsCorwin18>	I wonder if this is a case for eval-after-load, as in (eval-after-load 'erc-autojoin-mode (setq ...))
-T 1602912677 18<20pjb18>	When I try to follow a doc link to C sources of emacs, it asks me for the directory of emacs sources, but I have set source-directory in my rc file. with (setq source-directory (format "/usr/local/src/emacs-%s/src" emacs-version))
-T 1602914413 18<26buhman18>	I just started reading LFN and my mind is completely blown away by this black magic: https://gist.github.com/buhman/a856392c5b772564797d8585961d45dc (a lisp-1 interpreter written in lisp-1, with trivial glue to in turn port the interpreter to scheme)
-T 1602914882 18<20pjb18>	buhman: don't worry, Dijkstra ever could understand lisp either.  
-T 1602914889 18<20pjb18>	buhman: but this xeval is the core of lisp.
-T 1602914902 18<20pjb18>	buhman: lisp is defined by an evaluation function written in lisp itself.
-T 1602914934 18<20pjb18>	buhman: this means that introspection and reflexivity is built in the core of lisp.
-T 1602914955 18<20pjb18>	externally, this shows by the fact that lisp programs are not written as code, but as data.
-T 1602914973 18<20pjb18>	buhman: the syntax of sexp, is a syntax for DATA. Symbolic Expressions are data.
-T 1602915009 18<20pjb18>	buhman: so this xeval function can take some data, a sexp, that represents a lisp form, some code. But since it's data, it can process it and interpret it.
-T 1602915028 18<20pjb18>	buhman: now the thing is that this xeval is expressed as a sexp too in this file!
-T 1602915040 18<20pjb18>	buhman: so we need something to bootstrap the system.
-T 1602915072 18<26buhman18>	yeah, quite cool there's no parsing involved; xeval is effectivenly being passed a pre-parsed ast.
-T 1602915073 18<20pjb18>	buhman: Russel, a student of McCarthy showed that it could be written as a "simple" 7090 assembler program. It was LISP 1.
-T 1602915087 18<20pjb18>	buhman: but of course, you can also use a lisp (scheme) to bootstrap it too.
-T 1602915089 18<26buhman18>	super excited to read the rest of this, for the bootstrapping stuff too
-T 1602915104 18<20pjb18>	buhman: well, it's not exactly an AST, but close enough.
-T 1602915136 18<20pjb18>	buhman: there's sometimes some "syntax" inside the sexps, that can be "parsed".
-T 1602915163 18<26buhman18>	you mean, if the interpreter implemented macros?
-T 1602915175 18<20pjb18>	For example.
-T 1602915215 18<20pjb18>	This is because we write data that we need this QUOTE operator, to tell xeval that we have here a sexp literal, instead of a sexp that represents code to be interpreted.
-T 1602915265 18<20pjb18>	McCarthy originally planed to have M-expressions for the code.  car([A,B,C]) -> A  instead of (CAR (QUOTE (A B C))).
-T 1602915282 18<20pjb18>	Have a look at http://informatimago.com/develop/lisp/com/informatimago/small-cl-pgms/m-expression/index.html
-T 1602915331 18<20pjb18>	This didn't add anything. Using sexps was simplier, and once we have macros (invented in 1964), (and before that there was already fexprs), it locked in the sexps.
-T 1602916765 18<29johnjay18>	pjb: but what about that old thing from lisp machines where it used proper names
-T 1602916777 18<29johnjay18>	like instead of this-is-a-function it was M-x This Is A Function <RET>
-T 1602916788 18<29johnjay18>	i'm sure i saw that in a video demo
-T 1602916950 18<29mplsCorwin18>	could be done just with an overlay in M-:, I'd think
-T 1602916956 18<29mplsCorwin18>	oops, M-x
-T 1602916993 18<20pjb18>	johnjay: this is something you can do in emacs too. (all emacsen I know too).
-T 1602917051 18<20pjb18>	johnjay: but indeed, early sexps used the comma to separate atoms, not the space, Hence in my example, car[(A,B,C)] (I interchanged () with []).
-T 1602917067 18<20pjb18>	Because it was (ONE SYMBOL,ANOTHER SYMBOL,A THIRD SYMBOL)
-T 1602917096 18<20pjb18>	But in the first implementation of LISP, it was already  (ONE-SYMBOL ANOTHER-SYMBOL A-THIRD-SYMBOL)
-T 1602917140 18<20pjb18>	I don't know if the possibility to enter commands with spaces in emacsen comes from that, I doubt it. It probably come from the same ergonomic and user-friendly reasons.
-T 1602917191 18<20pjb18>	That said if you type a space in M-x it actually just completes the text, and inserts dashes, instead of a space.
-T 1602917210 18<20pjb18>	but Zwei and Hemlock explicitely define commands using strings with spaces.
-T 1602917219 18<29mplsCorwin18>	I wonder if there's already an option to give "Friendly Caps" and hide the spaces, e.g. with an overlay.
-T 1602917256 18<20pjb18>	mplsCorwin: M-x whitespace-mode RET ?
-T 1602917389 18<29johnjay18>	oh yeah it was zweo
-T 1602917391 18<29mplsCorwin18>	Sorta the exact opposite of that? ;)
-T 1602917395 18<29johnjay18>	er zwei
-T 1602917566 18<20pjb18>	mplsCorwin: C-- M-x whitespace-mode RET ?
-T 1602917581 18<20pjb18>	Or C-u - M-x whitespace-mode RET 
-T 1602917743 18<29mplsCorwin18>	pjb: :)  I'm good to toggle the mode.  I was thinking that it might be interesting to have M-x *show* Camel Case with hyphens presented as space.
-T 1602917776 18<20pjb18>	Oh, I see. 
-T 1602917785 18<20pjb18>	Yes, you could do that with compose-region.
-T 1602917797 18<20pjb18>	and font-lock-keywords.
-T 1602917809 18<29mplsCorwin18>	could you, then ;)
-T 1602917836 18<29mplsCorwin18>	In fact, we could change the prompt from the cryptic M-x to "Enter Command:".
-T 1602917889 18<29mplsCorwin18>	No idea if that's actually less intimating for anyone.
-T 1602917976 18<29mplsCorwin18>	pjb: if you seriously think that's easy, and also think some people would want it, would you be interested to try making a POC patch or something?
-T 1602917991 18<29mplsCorwin18>	GO screw yourself is a perfectly fair answer :)
-T 1602918235 18<26kudahtor22818>	are there any devops channels?
-T 1602918280 18<19wasamasa18>	/msg alis list devops
-T 1602918333 18<26kudahtor22818>	thanks
-T 1602918391 18<19wasamasa18>	I guess MELPA isn't interested in becoming spokespeople for GNU and their free software policies
-T 1602918412 18<29mplsCorwin18>	Are you quoting Jean, by chance?
-T 1602918435 18<19wasamasa18>	Jean is involved: https://github.com/melpa/melpa/issues/7185
-T 1602918457 18<19wasamasa18>	played out exactly as I've expected
-T 1602918500 18<29mplsCorwin18>	There's really nothing about that which isn't dissapointing.
-T 1602918516 18<19wasamasa18>	"This would be infighting" - "Let's see whether they change for the sake of the greater good" - "Great, you've intensified the infighting!" - "If they're truly good, they'll change for our sake"
-T 1602918523 18<19wasamasa18>	surprise, they won't
-T 1602918546 18<29mplsCorwin18>	> To be clear, it seems that @gnusupport is "Jean Louis," a frequent, strongly opinionated poster on the Emacs mailing list
-T 1602918563 18<19wasamasa18>	I was surprised to learn though that it's supposed to be support.gnu which makes a lot more sense
-T 1602918599 18<29mplsCorwin18>	yeah, that'd read quite a bit better.
-T 1602918664 18<20pjb18>	mplsCorwin: it's easy enough. It may be costly because you have to build a character/composition rule vector for each symbol, but the composition rules allow the juxtaposition of characters, so possible…
-T 1602918702 18<19wasamasa18>	later Jean conflates freedom and security which is, wow
-T 1602918729 18<19wasamasa18>	and doesn't like #emacs either :D
-T 1602918734 18<29mplsCorwin18>	pjb: it strikes me that should be acceptable given this is implicitly a interactive, user-attention demanding thing, and probably said user's fingers the bottlenecks. wdyt?
-T 1602918754 18<29mplsCorwin18>	wasamasa: this is the point I've been stewing on, yes.
-T 1602918911 18<29mplsCorwin18>	"please assume good faith"
-T 1602918954 18<19wasamasa18>	at least this made RMS spell out what exactly MELPA needs to do to be mentionable in surveys without denunciation: https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg01074.html
-T 1602918976 18<19wasamasa18>	I don't see that happen either though
-T 1602919006 18<19wasamasa18>	if they won't delete packages wrapping software considered unethical, they won't do away with github's preferred workflow either
-T 1602919017 18<26buhman18>	"why we must not inform people about MELPA" ... wat
-T 1602919029 18<19wasamasa18>	he hopes it's not widely known
-T 1602919040 18<19wasamasa18>	but just in case it is, https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg01083.html
-T 1602919050 18<29mplsCorwin18>	Maybe it's too bad Jean didn't let things play out.
-T 1602919066 18<26buhman18>	uhh, I thought everyone used melpa
-T 1602919081 18<19wasamasa18>	freedom-abiding citizens wouldn't
-T 1602919097 18<29mplsCorwin18>	buhman: true, and papa ain't happy.
-T 1602919099 18<19wasamasa18>	just as they won't use debian because it has the audacity of coming with a non-free repository and instructions how to use it
-T 1602919127 18<19wasamasa18>	to the effect of "If you're having wifi issues, consider installing firmware from the non-free repo as follows"
-T 1602919141 18<19wasamasa18>	this is considered inacceptable by true GNU adherents
-T 1602919166 18<29mplsCorwin18>	"Please use less of your computer while volunteers reverse engineer an ever growing amarda of hardware" doesn't feel like a real plan to win the hearts and minds.
-T 1602919181 18<29mplsCorwin18>	armada*
-T 1602919184 18<26buhman18>	doesn't torvalds/linux include "something something nonfree firmware" somewhere in /Documentation ?
-T 1602919196 18<26buhman18>	why does linux get a pass?
-T 1602919201 18<19wasamasa18>	doesn't matter if it's excised by FSF-endorsed distros
-T 1602919232 18<19wasamasa18>	you see, as long as you remove parts threatening your freedoms while loudly denunciating them, you're in the clear
-T 1602919250 18<20pjb18>	mplsCorwin: however, editing a buffer full of multi-letter composition is difficult.  It would be better to write a reader macro to read whitespaced camel-case symbols as lisp symbols.
-T 1602919322 18<29mplsCorwin18>	pjb: what about completion? Wouldn't that become somewhat brittle?
-T 1602919347 18<20pjb18>	Of course it could have wide repercutions.
-T 1602919368 18<19wasamasa18>	buhman: anyway, the point is there's freedom (you can do whatever you want and share it for whatever reason) and freedom (you must bring freedom to as many as possible while ensuring it cannot be subverted by someone else, yourself not included)
-T 1602919369 18<20pjb18>	But why would you want it anyways, everybody knows that camel-case is horrible and the right way is the lisp-case.
-T 1602919391 18<29mplsCorwin18>	that is an exceptionally valid point
-T 1602919427 18<19wasamasa18>	perhaps libredom is the better term for the latter (libre, domination)
-T 1602919443 18<26buhman18>	"If we KNEW that almost all users of Emacs did know about Melpa, that would change our policy towards it." what does this even mean?
-T 1602919459 18<19wasamasa18>	if a non-free thing is mostly unknown, ignore it
-T 1602919469 18<19wasamasa18>	if a non-free thing is widely known, mention it casually
-T 1602919507 18<26buhman18>	oh, I didn't realize "policy" referred to "the policy for under what circumstances we publicly denounce something".
-T 1602919508 18<19wasamasa18>	the problem with that approach is being unaware of your surroundings until you fall into a hole because you didn't pay attention to them
-T 1602919558 18<26buhman18>	I thought "policy" meant "the policy to decide whether a given sitation is blessed by The Church"
-T 1602919579 18<19wasamasa18>	see https://www.gnu.org/prep/standards/html_node/References.html#References for a treatise
-T 1602919590 18<19wasamasa18>	> If a non-free program or system is obscure in your program’s domain, your program should not mention or support it at all, since doing so would tend to popularize the non-free program more than it popularizes your program.
-T 1602919601 18<19wasamasa18>	> When a non-free program or system is well known, you can mention it in passing—that is harmless, since users who might want to use it probably already know about it.
-T 1602919672 18<19wasamasa18>	anyway, not all is bad about emacs-devel
-T 1602919682 18<19wasamasa18>	for example there's this fun demo: https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg01086.html
-T 1602919689 18<29mplsCorwin18>	We are in such a hole.  Proprietary platforms dominate except in the consumer spaces that are dominated by corporate.  This is particularly true in the case of mobile, where our entire tool-chain (the one where we rightly expect to know what's going on within the device) runs the risk of being, basically, a toy running in a VM.
-T 1602919758 18<29mplsCorwin18>	Worse, we are at a cross-roads in terms of civilly and faithfully carrying on the conversation, as evidenced by AP basically calling J out on those grounds.
-T 1602919860 18<29mplsCorwin18>	But I think there's some good news, too.  Free software is pretty well known to be at the forefront of our pulling of a major coup of surviving a mass-migration to work-from-home.  We're not zoom, but all nerds talk about open source even if they don't appreciate FLOSS.
-T 1602919878 18<29mplsCorwin18>	And I think a plurality do appreciate FLOSS.
-T 1602919901 18<29mplsCorwin18>	But probably not enough to get radically less done during our precious lives.
-T 1602919906 18<19wasamasa18>	I appreciate FLOSS, but I don't appreciate the infighting
-T 1602919919 18<29mplsCorwin18>	100%
-T 1602919930 18<29mplsCorwin18>	We fail to face that, we are screwed.
-T 1602919939 18<26kudahtor22818>	You can simplify it to "more good practices applied >> finer you do"
-T 1602919944 18<19wasamasa18>	and honestly, I wouldn't be surprised if the result of this is something like debian happening in response
-T 1602920029 18<29mplsCorwin18>	./insert-shrug
-T 1602920051 18<29mplsCorwin18>	not uncaring, I just haven't the foggiest.  I can't seem past the moment.
-T 1602920063 18<29mplsCorwin18>	s/eem/ee
-T 1602920152 18<24ryouma18>	rt.live has its sources on github fwiw
-T 1602920248 18<19wasamasa18>	actually, my emacs-devel org file has a previous statement on RMS not believing MELPA is popular: https://lists.gnu.org/archive/html/emacs-devel/2014-09/msg00526.html
-T 1602920261 18<19wasamasa18>	would be fun if I could find enough of them to complete the grief cycle
-T 1602920381 18<29mplsCorwin18>	┏━┓┏━┓┏━┓ ︵ /(^.^/)
-T 1602920460 18<29mplsCorwin18>	le sigh.  I got nuthin.  But I've been writing about this so eventually I shall have *lots* of nothing to say about this.
-T 1602920484 18<24ryouma18>	is the discussion on a specific decision that makes a huge difference?  or is the problem that it is disappointing regardless of what it is on?
-T 1602920524 18<29mplsCorwin18>	So today's development in the on-going saga of trash talking MELPA on E-D, vs trashing talking E-D/RMS on Reddit, here, is..
-T 1602920548 18<29mplsCorwin18>	<wasamasa> Jean is involved: https://github.com/melpa/melpa/issues/7185
-T 1602920577 18<29mplsCorwin18>	The homework for which was this: https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg01015.html
-T 1602920595 18<29mplsCorwin18>	But honestly, screw all that.  Read this: https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg01041.html
-T 1602920669 18<29mplsCorwin18>	And then we've been around the room on that the problem is (a) epic (b) about behavior as much as anything
-T 1602920739 18<29mplsCorwin18>	Full disclosure.  Poor spelling, that's me.  I'ma sack.  Thanks all. Night wasamasa 
-T 1602920984 18<19wasamasa18>	good night
-T 1602921000 18<19wasamasa18>	time to break some eggs and play CTF
-T 1602922423 18<26buhman18>	yeah, why does emacs have Windows and OSX support anyway? isn't that sacrilege?
-T 1602922529 18<20pjb18>	buhman: because it's free software, so users were free to patch it to make it work on those platforms.
-T 1602922587 18<26buhman18>	doesn't the source code of emacs as distributed on gnu.org contain that code though?
-T 1602922607 18<20pjb18>	this has been done a long time ago.
-T 1602922690 18<26buhman18>	seems like according to the arguments on this thread, emacs itself is in violation of fsf policies.
-T 1602922836 18<20aidalgol18>	mplsCorwin: As I've been saying for years, the thing e-d is best at is tarpitting itself.
-T 1602923168 18<19wasamasa18>	buhman: read the references page again, they explain this
-T 1602923202 18<19wasamasa18>	buhman: it's all about promoting free software ultimately, so as long as you don't go overboard with support of a non-free platform by implementing exclusive things there that don't work on free platforms, it's all good
-T 1602923223 18<19wasamasa18>	buhman: which happened with color emoji on macos some time ago
-T 1602923232 18<19wasamasa18>	buhman: as soon as that worked on linux, it got reenabled
-T 1602923430 18<20aidalgol18>	buhman: Real FSF policy is to stroke certain egos
-T 1602923520 18<19wasamasa18>	if this reminds you of a specific monty python sketch, you're not alone
-T 1602924892 18<20zeroed18>	 /w 11
-T 1602924972 18<19wasamasa18>	could someone with a twitter account please tell https://twitter.com/holocronweaver that the wikemacs certificate has expired more than a year ago?
-T 1602924972 18*	20zeroed apologies for typing random characters
-T 1602924985 18<19wasamasa18>	I mean, I doubt anyone gives a shit really, but it's linked rather prominently on r/emacs
-T 1602926231 18<24ksynwa18>	Not entirely related to emacs but I have a bunch of essays as *.org file. The files are hard wrapped. If I want to search for a term like "The Selfish Gene", how can I take into account the fact that it might occur as "The Selfish\nGene" at some places? Any tools like grep, ripgrep, etc. suggestions are fine too.
-T 1602926639 18<22thblt18>	ksynwa: In my Emacs, C-s works accross line breaks in org for some reason.
-T 1602926682 18<24ksynwa18>	thblt: What is C-s mapped to? Just wondering if it's something different in your setup.
-T 1602926700 18<19wasamasa18>	there's a whitespace folding flag in isearch for that purpose
-T 1602926701 18<20aidalgol18>	wasamasa: Which sketch?
-T 1602926704 18<22thblt18>	ksynwa: isearch-forward
-T 1602926716 18<19wasamasa18>	aidalgol: judean people's front
-T 1602926734 18<20pjb18>	ksynwa: (re-search-forward "\\<The\\W+Selfish\\W+Gene\\>" nil t)
-T 1602926745 18<22thblt18>	But it may be something in my config indeed.
-T 1602926754 18<24ksynwa18>	Thanks a lot thblt and pjb 
-T 1602926778 18<22thblt18>	No, not my config, it works from -q
-T 1602926782 18<22thblt18>	ksynwa: ^
-T 1602926790 18<20pjb18>	ksynwa: interactively, you can use search-forward-regexp C-c C-s and type \<The\W+Selfish\W+Gene\>
-T 1602926803 18<24ksynwa18>	Noted. Thanks again. :)
-T 1602926815 18<24ksynwa18>	What does \< denote pjb ?
-T 1602926827 18<20pjb18>	ksynwa: you can also use M-x occur RET \<The\W+Selfish\W+Gene\> RET
-T 1602926827 18<22thblt18>	word delimiter
-T 1602926832 18<20pjb18>	\< is begin of word. 
-T 1602926842 18<20pjb18>	\W is any non-word character. 
-T 1602926858 18<24ksynwa18>	Got it. Thanks. That is very cool. I will read up more on this regex.
-T 1602926860 18<22thblt18>	pjb: don't C-s the selfish gene RET works for you?
-T 1602926861 18<20pjb18>	so it also match the,selfish: gene  etc…
-T 1602926873 18<22thblt18>	Ho OK, your solution is broader.
-T 1602926882 18<20pjb18>	thblt: nope, not if it's spread over several lines.
-T 1602926891 18<22thblt18>	pjb: weird, it's the default for me.
-T 1602926901 18<20pjb18>	Perhaps there's a global option for that.
-T 1602926910 18<20pjb18>	or perhaps it depends on the mode of the buffer.
-T 1602926917 18<20pjb18>	I've not tested in org buffers.
-T 1602926928 18<20pjb18>	ksynwa: you may like M-x occur
-T 1602926930 18<20aidalgol18>	wasamasa: Ah, I never remember that film very well.
-T 1602926933 18<22thblt18>	I tried emacs -q, create an org buffer, Typed: "Hello I love\nyou won't you\ntell me your name", C-s you tell me RET it finds lines 2-3 immediately.
-T 1602926966 18<22thblt18>	On 27.1
-T 1602926977 18<20pjb18>	interesting.
-T 1602927005 18<20pjb18>	indeed, in org mode, C-s uses isearch and matches across lines.
-T 1602927056 18<24ksynwa18>	yeah that's very handy. just tried it myself.
-T 1602927084 18<24ksynwa18>	case insensitive too by default so that's good for me too
-T 1602927116 18<22thblt18>	Default is case-smart (or something like that) I think: if you use uppercase it becomes case-sensitive.
-T 1602927974 18<24rwhoops18>	TRAMP is included natively in emacs, right? 
-T 1602927998 18<19wasamasa18>	yes
-T 1602928003 18<24rwhoops18>	cool ty! 
-T 1602929110 18<20aidalgol18>	Hmm, tramp could be used to connect to servers running non-free software.
-T 1602929268 18<22thblt18>	aidalgol: let's write a free license that forbids it.
-T 1602929481 18<20aidalgol18>	No, we should implement a LibreJS-like extension to the SSH protocol, and only connect to servers advertising that they do not use or steer users towards non-free software.
-T 1602929593 18<25ldlework18>	wierd that the dash doc sets for javascript include a bunch of nonsense at the top
-T 1602929657 18<22thblt18>	conversion bug?
-T 1602929704 18<22thblt18>	rms has fascinating workflows https://lists.gnu.org/archive/html/emacs-devel/2020-10/msg01077.html
-T 1602929773 18<25ldlework18>	darn both devdocs packages on melpa are busted too
-T 1602929776 18<25ldlework18>	fooey
-T 1602929877 18<22thblt18>	ldlework: looks good in zeal
-T 1602930105 18<25ldlework18>	what's zeal
-T 1602930124 18<25ldlework18>	i see
-T 1602930132 18*	25ldlework nix-env -i zeal
-T 1602930288 18<25ldlework18>	thblt: yeah, i guess it's just that in eww all that crud at the top takes up a lot more space
-T 1602930480 18<22thblt18>	ldlework: also you can try it first with `nix run nixpkgs.zeal` :)
-T 1602930500 18<25ldlework18>	oh i didn't realize that was possible
-T 1602930512 18<25ldlework18>	nix-shell is obvious, but that's even cooler
-T 1602930539 18<25ldlework18>	it's so nice that nix is becoming so popular
-T 1602930545 18<25ldlework18>	picking up tips in #emacs ;P
-T 1602930593 18<19Pickchea18>	Hello people, I have a question about electric-pair-mode. When combined with org-mode (and only then) it pairs < with > and I really don't want that. Neither electric-pair-pairs nor electric-pair-text-pairs contains < and >. How can I turn this off? #org-mode couldn't help ATM.
-T 1602930636 18<22thblt18>	ldlework: another quick tip, lookup in nix is expensive, nix-env -iA will often be a lot faster than -i
-T 1602930657 18<22thblt18>	(with full path to derivation of course: nix-env -iA nixos.zeal)
-T 1602930760 18<22thblt18>	eg with zeal: -iA 0.731s total -i 8.304s
-T 1602935602 18<29wgreenhouse18>	ldlework: re "nonsense at the top," try tapping R in eww
-T 1602937720 18<20jlf18>	,shit#emacssays is also we should implement a LibreJS-like extension to the SSH protocol, and only connect to servers advertising that they do not use or steer users towards non-free software.
-T 1602937723 18<22fsbot18>	Added note [227] for term "shit#emacssays"
-T 1602938416 20*	Disconnected (20)
-T 1602938492 19*	Now talking on 22#emacs
-T 1602938492 22*	Topic for 22#emacs is: Gul Dukat says upgrade to 27.1: https://i.imgflip.com/4hpvlw.jpg | Emacs questions take priority over off-topic chatter, so ask! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
-T 1602938492 22*	Topic for 22#emacs set by 26wgreenhouse!wgreenhous@fsf/member/wgreenhouse (24Thu Oct  8 00:50:34 2020)
-T 1602938492 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
-T 1602938807 18<29atw18>	does dto's cell-mode support formulas? has anyone tried integrating it with calc?
-T 1602940059 18<29wgreenhouse18>	,channel-wisdom
-T 1602940061 18<22fsbot18>	gah I can't by the life of me figure out how to add two pointers in c
-T 1602942499 18<19bremner18>	rudybot: you'd think a bot would know about nasal demons
-T 1602942509 18<24rudybot18>	bremner: Accursed nasal demons...
-T 1602942655 18<25Demosthenex18>	is there a way for mu4e to alert if there isn't an email at a scheduled time?
-T 1602946341 18<26Wafficus18>	Hi there, question about my Emacs config https://termbin.com/yn6l2
-T 1602946362 18<26Wafficus18>	I have it stored within ~/.emacs.d/config.org
-T 1602946384 18<26Wafficus18>	if I wanted to activate that and make it become actually part of my config from converting the .org file to a config, how do I go about doing that?
-T 1602947802 18<26Wafficus18>	I updated my .init.org file here: https://termbin.com/35vx2
-T 1602947822 18<26Wafficus18>	I'm wondering though, if I'm going to go for a literal config like this, do I store this in ~/.emacs.d
-T 1602947839 18<26Wafficus18>	but have the output file be ~/.emacs ?
-T 1602947877 18<26Wafficus18>	I ask because this is kind of the first time I'm doing any modifications to my config, so I'm a bit lost on how the organization of this should actually be using this org mode to config conversion method
-T 1602947987 18<29johnjay18>	Wafficus: the best i've been able to figure out is .emacs overrides init.el
-T 1602947999 18<29johnjay18>	so typically you would have a call in .emacs to load .emacs.d/init.el
-T 1602948018 18<27grym18>	Wafficus: org-based configs have to be tangled into .el files 
-T 1602948024 18<26Wafficus18>	hmm
-T 1602948024 18<29johnjay18>	^
-T 1602948027 18<26Wafficus18>	so its a ping pong effect
-T 1602948031 18<26Wafficus18>	interesting
-T 1602948035 18<26Wafficus18>	I KIND of get it
-T 1602948038 18<19wasamasa18>	or loaded from a cleverly written .el file
-T 1602948041 18<19wasamasa18>	your choice
-T 1602948045 18<26Wafficus18>	but that's my noobish op right now
-T 1602948051 18<26Wafficus18>	I think I should just seek out another couple of vids
-T 1602948058 18<26Wafficus18>	the reason why I was gonna mess around with doing this
-T 1602948066 18<26Wafficus18>	is that I wanted a single config across three separate machines
-T 1602948081 18<26Wafficus18>	and more so, because I checked out a video on Hydras, and Helm, to the point where I've been blown away
-T 1602948090 18<26Wafficus18>	and I'd like to start configin' it up ;)
-T 1602948103 18<29johnjay18>	is one of those files config.org?
-T 1602948108 18<29johnjay18>	or is config.org a huge file
-T 1602948112 18<26Wafficus18>	well
-T 1602948119 18<26Wafficus18>	I renamed it
-T 1602948121 18<26Wafficus18>	one sec
-T 1602948129 18<26Wafficus18>	I renamed it to ~/.emacs.d/init.org
-T 1602948133 18<26Wafficus18>	however
-T 1602948134 18<29johnjay18>	well there's a table of contents but i don't see anything else
-T 1602948144 18<26Wafficus18>	now I'm confused, maybe I should rename it to ~/.emacs.d/.emacs.org
-T 1602948146 18<26Wafficus18>	lol
-T 1602948150 18<29johnjay18>	like you say treemacs, treemacs-projectile, hydra, dashboard
-T 1602948160 18<26Wafficus18>	right that's more of what I plan on adding later
-T 1602948169 18<26Wafficus18>	the "initialization" part at the top
-T 1602948174 18<29johnjay18>	ok well if that's all you have then you don't have to do anything
-T 1602948176 18<26Wafficus18>	that's where I'm trying to figure out directories on output
-T 1602948184 18<29johnjay18>	just transfer that block of code to .emacs or init.el as you want
-T 1602948197 18<26Wafficus18>	interesting
-T 1602948200 18<26Wafficus18>	so they're in tandem then?
-T 1602948211 18<29johnjay18>	no .emacs overrides init.el
-T 1602948214 18<26Wafficus18>	I thought you could literally have everything in the same .org file
-T 1602948225 18<29johnjay18>	so you need a call to (load "/home/blah/.emacs.d/init.el) in your .emacs
-T 1602948243 18<29johnjay18>	or skip .emacs and just have init.el
-T 1602948258 18<29johnjay18>	it doesn't matter how you do it. emacs just tries each thing in order trying to find your init file
-T 1602948284 18<26Wafficus18>	well, I understand your point in terms of the .emacs config overriding everything
-T 1602948295 18<26Wafficus18>	that makes sense because my current config setup is literally just ~/.emacs right now
-T 1602948305 18<26Wafficus18>	anyway, to make it less confusing
-T 1602948315 18<26Wafficus18>	I renamed it to: ~/.emacs.d/emacs.org
-T 1602948326 18<26Wafficus18>	because eventually I would want the emacs.org file to become ~/.emacs
-T 1602948328 18<26Wafficus18>	upon startup of Emacs
-T 1602948422 18<29johnjay18>	well. i don't really understand your problem.
-T 1602948431 18<29johnjay18>	you just have a small file with a few lines of code
-T 1602948445 18<29johnjay18>	just put it in ~/.emacs.d/init.el and presto you have a literal setup
-T 1602948494 18<29johnjay18>	or by literal you mean literate lol?
-T 1602948508 18<29johnjay18>	then i suppose you would write init.el to call org mode to process your "literate" .org files
-T 1602948561 18<20jlf18>	Wafficus: https://harryrschwartz.com/2016/02/15/switching-to-a-literate-emacs-configuration
-T 1602948977 18<26Wafficus18>	jlf: ah yes, that dude is based
-T 1602948983 18<26Wafficus18>	his Org Mode talk is what got me into Emacs
-T 1602949001 18<26Wafficus18>	perfect, thanks for that reference
-T 1602949004 18<26Wafficus18>	cool stuff mate
-T 1602949024 18<20jlf18>	np
-T 1602951051 18<25BerndP18>	shit#emacssays
-T 1602951193 18<29johnjay18>	hrm how does org mode enable literate programming?
-T 1602951225 18<29johnjay18>	i thought in a literate program you could like add chunks anywhere
-T 1602951225 18<27hodapp18>	babel.
-T 1602951228 18<29johnjay18>	maybe that's wrong
-T 1602951237 18<29johnjay18>	like you could say "insert the following block of code at line 27"
 T 1602951257 18<27hodapp18>	you can use named blocks of code that are tangled/woven as needed
 T 1602951293 18<29johnjay18>	although most literate programs look like this i guess
 T 1602951301 18<29johnjay18>	https://www-cs-faculty.stanford.edu/~knuth/programs/ulam.w
@@ -5606,3 +4997,481 @@ T 1612883327 18<29quiliro18>	wgreenhouse: perhaps I am missing something
 T 1612883328 18<20pjb18>	rdrg109: char-from-name uses the (ucs-names) hash-table. 
 T 1612883330 18<19rdrg10918>	I was able to get the name by doing: (get-char-code-property ?a 'name) -> "LATIN SMALL LETTER A"
 T 1612883348 FiSHLiM plugin unloaded
+T 1612959581 19*	Now talking on 22#emacs
+T 1612959581 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1612959581 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:20 2021)
+T 1612959582 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1612960708 20*	Disconnected (20)
+T 1612960763 20*	Disconnected (20Remote host closed socket)
+T 1612960806 20*	Disconnected (20Remote host closed socket)
+T 1612960862 20*	Disconnected (20Remote host closed socket)
+T 1612960891 19*	Now talking on 22#emacs
+T 1612960891 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1612960891 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:20 2021)
+T 1612960891 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1612964878 20*	Disconnected (20)
+T 1612964924 20*	Disconnected (20Remote host closed socket)
+T 1612964980 20*	Disconnected (20Remote host closed socket)
+T 1612965037 20*	Disconnected (20Remote host closed socket)
+T 1612965088 20*	Disconnected (20Remote host closed socket)
+T 1612965114 19*	Now talking on 22#emacs
+T 1612965114 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1612965114 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:20 2021)
+T 1612965114 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1612965905 18<28andinus18>	can i set a different font for org headings and body?
+T 1612965941 18<28andinus18>	'variable-pitch font is set to "A", but i want "B" font for org body
+T 1612967010 18<19parsnip18>	rudybot: hello, i received your unsolicited email, but i don't see where you have an email to return the favor.
+T 1612967012 18<19parsnip18>	the irony
+T 1612967066 18<24rudybot18>	parsnip: "email which has been subscribed to and is therefore not unsolicited, but is often unread by the recipient for a long period of time"
+T 1612967101 18<19parsnip18>	O.O
+T 1612968138 24*	28cosimone_ is now known as 18cosimone
+T 1612969930 24*	28cosimone_ is now known as 18cosimone
+T 1612970523 18<22zmagii18>	wasamasa: What are good PDF viewers for GNU/Linux?
+T 1612970570 18<19bbuccianti18>	mupdf
+T 1612970699 18<27grym18>	evince seems fine 
+T 1612970712 18<22zmagii18>	bbuccianti: Thanks, didn't know that one.
+T 1612970846 18<22zmagii18>	grym: I'll just try them all! gawd dmnt at least this is not WINDOGE.
+T 1612970884 18<27grym18>	zmagii: oh yeah i guess sumatra and foxit are still around too huh 
+T 1612970909 18<22zmagii18>	Sumatra is great but it's Windows only, isn't it...?
+T 1612970934 18<28rgr18>	Annual totally fail to use EMMS day again. And... yup. Fail.
+T 1612970991 18<27grym18>	is it? 
+T 1612971003 18<27grym18>	oh i guess it is 
+T 1612971117 18<22zmagii18>	I was totally on board for trying EAF and then...
+T 1612971519 18<22contrapunctus18>	EAF??
+T 1612971520 18<22fsbot18>	Outlook not so good
+T 1612971524 18<26bqv18>	the downside to emacs-webkit, is that when emacs crashes, the "browser" does too... :(
+T 1612971553 18<22contrapunctus18>	bqv: you mean when the browser crashes, Emacs does too?
+T 1612971561 18<26bqv18>	no
+T 1612971564 18<26bqv18>	i mean what i said
+T 1612971585 18<22contrapunctus18>	I mean...I've rarely seen Emacs crash.
+T 1612971618 18<26bqv18>	either you use it far less than me, or you're on a much most stable dist
+T 1612971630 18<28rgr18>	emms doesnt seems to have a playlist directory setting. It can take a playlist file. But wont except a playlist root directory from which I can complete. Anyone have workaround?
+T 1612971688 18<26bqv18>	crashing is actually the reason i stopped using exwm. i like that without exwm, if emacs crashes, i still have *some* stuff open. but now, all i ever have open besides emacs is a browser, so is it worth it
+T 1612971691 18<22zmagii18>	contrapunctus: Yeah, on the Emacs Wiki it says: "EAF Browser -- extensible, customisable, full-featured modern browser embedded in Emacs."
+T 1612971710 18<26bqv18>	zmagii: i would definitely look at emacs-webkit instead
+T 1612971718 18<22zmagii18>	And then it also said it does PDF somewhere.
+T 1612971735 18<26bqv18>	in my mind at least, it deprecates EAF browser...
+T 1612971798 18<22zmagii18>	So in the Wiki it doesn't seem to say much about "WebKit" other than "visit EmacsApplicationFramework"
+T 1612971805 18<26bqv18>	https://github.com/akirakyle/emacs-webkit
+T 1612971835 18<26bqv18>	EAF is a spooky hack based on smushing X11 windows into other X11 windows
+T 1612971839 18<22zmagii18>	fsbot is on point today
+T 1612971842 18<26bqv18>	emacs-webkit is ..not
+T 1612971859 18<22zmagii18>	Damn. One less spooky hack in the toolbox.
+T 1612971888 18<22contrapunctus18>	99 spooky hacks left in the box
+T 1612971908 18<22contrapunctus18>	fsbot: EAF is Emacs Application Framework
+T 1612971908 18<26bqv18>	it's spooky hacks down to the last logic gate
+T 1612971909 18<22fsbot18>	err..[set term] eaf is already something else.. Use ’is also’.. 
+T 1612971909 18<22fsbot18>	 Currently: Emacs Application Framework https://github.com/manateelazycat/emacs-application-framework
+T 1612971946 18<26bqv18>	fsbot: emacs-webkit is An Emacs Dynamic Module for WebKit, aka a fully fledged browser inside emacs https://github.com/akirakyle/emacs-webkit
+T 1612971947 18<22fsbot18>	Created new note for "emacs-webkit"
+T 1612972018 18<22zmagii18>	bqv: Thanks for telling me about the next big thing. (Of course, after Emacs, which still is the next big thing.)
+T 1612972070 18<28rgr18>	oh of course. lol let bind. wrap the one source directory
+T 1612972211 18<22zmagii18>	I know I am preaching to the choir, but damn this week has been a detour back to closed source, Microsoft, MS Exchange, and lots and lots of crap that somehow pay a lot of salaries for people that eventually just use EMACS and listen to wave ocean sounds to get to sleep after writing closed source code.
+T 1612972254 18<22zmagii18>	It's not like I am trying to Free the World, but man like we need some new kinds of business models.
+T 1612972333 18<28rgr18>	what on earth are you rabbiting on about? eventually just use emacs? Much as I love emacs very few salaried MS programmers drpo it all and use emacs... 
+T 1612972424 18<22zmagii18>	rgr: Maybe you know better than me?
+T 1612972426 18<22zmagii18>	I just assumed that as people get older they appreciate better things.
+T 1612972551 18<22zmagii18>	I guess then MS coders must be using VS Code? But why would you switch to VS Code if you have been working for say 20+ years in something else? Or would you just be using MS products and building MS porducts on them?
+T 1612972564 18<27grym18>	you use the tools that solve your problems
+T 1612972678 20*	Disconnected (20)
+T 1612972730 20*	Disconnected (20Remote host closed socket)
+T 1612972771 20*	Disconnected (20Remote host closed socket)
+T 1612972820 20*	Disconnected (20Remote host closed socket)
+T 1612972848 19*	Now talking on 22#emacs
+T 1612972848 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1612972848 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:20 2021)
+T 1612972848 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1612972890 18<22zmagii18>	Oh yes, theres the Microsoft C Programming Language. I tend to forget about that.
+T 1612972934 18<27grym18>	as if c# has anything to do with C at all 
+T 1612972940 18<22zmagii18>	It doesn't?
+T 1612972942 18<27grym18>	no
+T 1612972948 18<27grym18>	it's a .NET java killer
+T 1612972966 18<27grym18>	you can tell: i can write c# without hating myself; C makes me insane 
+T 1612973075 18<22zmagii18>	The thing that really gripes me is actually something else, which is that MS grants legitimacy to things by appeal to authority. "We don't experience this issue with any of our other partners, perhaps the issue is on your side [sell your soul to MS, and die], have a nice day, Sir."
+T 1612973155 18<22zmagii18>	So, C# is not bad?
+T 1612973167 18<27grym18>	as a language i enjoy it the most of its kind 
+T 1612973189 18<27grym18>	obligate-OO, lots of braces, everything has to be a class, etc.  languages
+T 1612973229 18<27hodapp18>	part of why I hated C++ is because for a long while C++ was pretty much just that, on top of a language that felt like someone tried to put a candy shell over C
+T 1612973248 18<27hodapp18>	"Look, it's just as good as any other high level la... Segmentation fault (core dumped)"
+T 1612973252 18<27grym18>	is it petty that i don't like c++ because of all this :: nonsense and it just looks like line noise to me 
+T 1612973283 18<27hodapp18>	namespacing bothers me the least I gueess
+T 1612973371 18<27grym18>	also i can pretty routinely find memory leaks and segfaults and stuff in our core c++ codebase by wrapping it in python and poking at it 
+T 1612973378 18<27grym18>	and this does not really instill confidence
+T 1612973650 18<22zmagii18>	What do you mean "by wrapping it in Python"?
+T 1612973668 18<27grym18>	*twitch* SWIG
+T 1612973713 18<27grym18>	The Secret Sauce at my employer is a classifier that sucks less
+T 1612973718 18<27grym18>	it's all c++
+T 1612973727 18<27grym18>	i own the python bindings for it
+T 1612973779 18<27grym18>	they're good enough to have shipped a bunch, which is kind of fun 
+T 1612973961 18<19rpav18>	grym: ergh, sounds like something needs a rewrite
+T 1612974151 18<22zmagii18>	Hmm, SWIG.
+T 1612974194 18<19rpav18>	swig is so terrible i spent a few months writing something to replace it once, and it wasn't even hard ;/
+T 1612974234 18<22zmagii18>	I don't really understand the wiki or the website where they explain what SWIG is.
+T 1612974238 18<19rpav18>	(to be fair, clang wasn't around in the early swig days, and my code clearly didn't do any of the heavy lifting ;)
+T 1612974261 18<19rpav18>	zmagii: SWIG looks at headers and generates definitions you can use for language wrappers
+T 1612974272 18<19rpav18>	it does so rather poorly, because it's not a complete parser
+T 1612974297 18<19rpav18>	and also rather than generating a useful medium, tends to rely on plugins that generate target-language code
+T 1612974298 18<22zmagii18>	So it's like an sort of time saving tool if you want to write a wrapper to something.
+T 1612974303 18<19rpav18>	basically
+T 1612974332 18<22zmagii18>	Luckily I don't do that.
+T 1612974340 18<19rpav18>	but (shameless plug) https://github.com/rpav/c2ffi is a better solutin imnsho ;)
+T 1612974381 18<19rpav18>	yeah you typically don't need to unless you're a library author in a multi-language facility, or you're doing something probably you could avoid by picking better tools
+T 1612974444 18<22zmagii18>	In my mind APIs are interacting software, but I guess wrappers are more of a practical necessity. Kind of like that XKCD about standards.
+T 1612974472 18<19rpav18>	well, it *is* a bit silly to rewrite a bunch of stuff when you could access a well-tested library to do so
+T 1612974478 18<22zmagii18>	In my world this would be the fact that R lang uses a lot of C code.
+T 1612974489 18<19rpav18>	and FFI is a lot nicer than a language-side wrapper
+T 1612974492 18<22zmagii18>	Or Python, for that matter. And then Julia was invented to "solve" this.
+T 1612974546 18<27hodapp18>	the hard+soft pattern has a long history and there is a famous paper from when people started to note this: https://www.tcl.tk/doc/scripting.html
+T 1612974587 18<19rpav18>	oh man i was just thinking of tcl/tk last night
+T 1612974593 18<27hodapp18>	on purpose?!
+T 1612974627 18<22zmagii18>	FFI would be rpy2 which yes, you are correct, works pretty well.
+T 1612974631 18<19rpav18>	i liked those :( and itcl/itk
+T 1612974660 18<19rpav18>	i vaguely recall writing some thing back when .. but i don't remember what. still have the ousterhout book on the shelf too.
+T 1612974712 18<19rpav18>	i mean consider the kind of gui you could whip out and with what ease in the mid-90s with tcl/tk .. alternatives then were like, VB
+T 1612974760 18<27grym18>	rpav: i've been trying to get people to switch to cpppy or something similar, but that's someone else's team 
+T 1612974772 18<27grym18>	not my circus, not my monkeys, gimmie *.so and we'll call it good
+T 1612974779 18<19rpav18>	grym: it doesn't sound like the python end is the real problem though ;/
+T 1612974786 18<27grym18>	rpav: it isn't :) 
+T 1612974786 18<19rpav18>	heh yeah
+T 1612974810 18<27grym18>	rpav: did you see that dabeaz found videotape of his probably first swig talk 
+T 1612974826 18<19rpav18>	nah
+T 1612974838 18<27grym18>	if you want to see him in his PFY grad student years https://www.youtube.com/watch?v=d5f9-Y3Wtbc 
+T 1612974846 18<19rpav18>	swig was definitely pretty neat back in the day, even if it wasn't perfect
+T 1612974855 18<19rpav18>	cool
+T 1612974862 18<27grym18>	sure, it was cooked up by a half-crazed physics grad student
+T 1612974871 18<27grym18>	this is about what you'd expect to get :P
+T 1612974880 18<27hodapp18>	it is arguably better than OpenCV's half-assed ad-hoc binding system
+T 1612974888 18<19rpav18>	it was a solution that was more-working than other options, what can you do 
+T 1612974904 18<27grym18>	openCV defines a lot of things 
+T 1612974908 18<19rpav18>	though if gcc had been implemented with an accessible API early on .. ;P
+T 1612974909 18<27grym18>	most of them are ... bad things 
+T 1612974941 18<27hodapp18>	yeah, unfortunately OpenCV is one of the only libraries in existence for a lot of tasks
+T 1612974951 18<27hodapp18>	and almost always the fastest
+T 1612974988 18<27grym18>	doesn't mean i don't want to cause physical harm to their documentation/bindings team with sufficient application of a banana pudding though 
+T 1612975021 18<27grym18>	at least they finally ship wheels
+T 1612975049 18<22zmagii18>	Tcl was a scripting language?
+T 1612975060 18<27hodapp18>	yes
+T 1612975075 18<27grym18>	inasmuch as that is a distinction that has a difference
+T 1612975080 18<19rpav18>	a sortof interesting macro/command language
+T 1612975159 18<22zmagii18>	According to its Wiki it looks pretty active.
+T 1612975180 24*	28radu2427 is now known as 18radu242
+T 1612975191 18<27tromey18>	Tcl was nicer than what people make it out to be
+T 1612975204 18<27tromey18>	and it's implementation was first class, one of the better programs I've ever read
+T 1612975282 18<22zmagii18>	If I didn't have the point of view that life it ultimately a sequence of useless actions, then I might have been sad today.
+T 1612975331 18<22zmagii18>	Kind of makes me feel OK if time is always going to be wasted and we just choose how to waste it.
+T 1612975361 18<27grym18>	staring into that void, huh 
+T 1612975450 18<22zmagii18>	Expanding into it, hopefully.
+T 1612975477 18<27grym18>	it's just an illusion too 
+T 1612975482 18<27grym18>	maya's tricksome like that 
+T 1612975491 18<22zmagii18>	Maya?
+T 1612975558 18<27grym18>	https://en.wikipedia.org/wiki/Maya_(religion)
+T 1612975581 18<27grym18>	lots of fingers to point at that moon, so to speak 
+T 1612975594 18<27grym18>	(everyone else also came up with that idea and gave it a separate name, naturally)
+T 1612975663 18<22zmagii18>	rpav: Your company works with LibreOffice?
+T 1612975710 18<22zmagii18>	grym: Which idea do you mean?
+T 1612975721 18<27grym18>	zmagii: the void 
+T 1612975758 18<22zmagii18>	Oh. Well, you can build up sets from the empty set.
+T 1612975774 18<27grym18>	that won't help us at all :) 
+T 1612975788 18<22zmagii18>	Why not? All of mathematics is modelled by set theory.
+T 1612975816 18<27grym18>	that was the dream, anyway
+T 1612975826 18<22sam_18>	:)
+T 1612975829 18<22zmagii18>	You mean, set theory was the dream?
+T 1612975857 18<22zmagii18>	It kind of still is. Toposes are just the same as sets but a bit more, ehm, arrow-y.
+T 1612975897 18<22zmagii18>	There is the whole consistency thing, but it didn't stop people from still running with the, er, dream.
+T 1612975897 18<27grym18>	i'm merely pointing out that russell and whitehead bit off more than they could chew and the history of mathematics for the first half of the 20th century is roughly summarised as "oh, goddammit."
+T 1612975909 18<22jamik18>	IMO life is simple and infinitely complex at the same time. The only thing(s) that are "real" are what you are experiencing right now - all else is a memory or an idea which is still being experienced now. This doesn't say anything about whether the nature of the universe is stateful or consistent though. Maybe it is, maybe not
+T 1612975925 18<22zmagii18>	I personally like the outcome of that era, but that may be a personality thing.
+T 1612975931 18<27grym18>	zmagii: i'm OK with it 
+T 1612975945 18<19bremner18>	Let's ban undergrad philosophy classes as part of our economic recovery plan
+T 1612975955 18<27grym18>	my technical background is biological systems; if you aren't comfortable with ambiguity, you wash out fast 
+T 1612976002 18<22zmagii18>	jamik: If you look at those pictures of future and past cone with hyperplane of the present, the present is kind of literally a now thing and not a time sequence thing.
+T 1612976022 18<27grym18>	"time is an illusion; lunchtime, doubly so."
+T 1612976070 18<27grym18>	alternatively 
+T 1612976074 18<22jamik18>	zmagii: I think you're saying what I'm saying
+T 1612976075 18<22zmagii18>	I always thought it was just an analogy, but that time cone is the result of an algebraic structure with (t,x,y,z) or t + ai + bj + ck where i^=-1, j^2=1, k^=1.
+T 1612976076 18<27grym18>	"time is an illusion, and so are pants"
+T 1612976099 18<19rpav18>	zmagii: ?? definitely not
+T 1612976103 18<22zmagii18>	Sorry there are 2s missing there.
+T 1612976123 18<22jamik18>	grym: I like that lol
+T 1612976126 18<22zmagii18>	It's called "split quaternions".
+T 1612976138 18<27grym18>	jamik: avatar is an underrated show 
+T 1612976141 18<19rpav18>	(though if you googled my name, there is some other guy with the same name and similar interests, weirdly; we've never met)
+T 1612976149 18<22zmagii18>	But you can do it with 2x2 matrices, like, apparently, anything in the universe.
+T 1612976179 18<27grym18>	zmagii: i did leave signals and controls with this unstated belief that the world is just RLC circuits all the way down :P
+T 1612976184 18<22zmagii18>	rpav: Oh, well there is some guy with your name working in Oxford with open source software and LibreOffice in particular.
+T 1612976198 18<27grym18>	but that's because EE's taught the class 
+T 1612976199 18<19rpav18>	ah, yeah that's not me
+T 1612976214 18<27grym18>	and the first thing you do, if you're an EE, is linearize around a convenient fixed point 
+T 1612976220 18<22zmagii18>	grym: As long as you don't make "celebrity" physics statements like Elon Musk.
+T 1612976246 18<27grym18>	zmagii: as long as he keeps his stupid fat head out of spaceX like a good boy... 
+T 1612976317 18<25cvandusen18>	let's dabble in macroeconomics 
+T 1612976365 18<19bremner18>	let's use macros economically
+T 1612976392 18<19rpav18>	defeconomic
+T 1612976766 18<27hodapp18>	let's say really naive, emphatic things and insist that anyone who disagrees "doesn't understand basic economics"
+T 1612976789 18<22zmagii18>	I have a question about money.
+T 1612976809 18<22zmagii18>	Like, don't say I "don't understand basic economics".
+T 1612976841 18<22zmagii18>	When money gets created, who is the first beneficiary. I've been trying to figure this out for a month now.
+T 1612976854 18<19ville18>	in ivy how do i open all the files in a directory, or some pattern, during (find-file)?
+T 1612976904 18<22zmagii18>	The economic sort of people keep telling me to "read about M0 M1 and M2" but my question is still who gets the first usage benefit. In Bitcoin the miners are the first befeficiaries.
+T 1612976908 18<25cvandusen18>	ville: Interesting. I know you can open the directory in dired via ivy, but haven't heard of opening all files.
+T 1612976912 18<22zmagii18>	Or in gold for that matter.
+T 1612976943 18<19ville18>	cvandusen: yeah i don't want a dired buffer
+T 1612976991 18<25cvandusen18>	I could see it being added via ivy-add-action, but would take some coding. 
+T 1612977010 18<20dale18>	You can multi-select, I believe.  I just have to look up how...
+T 1612977069 18<25cvandusen18>	There's also ivy-dispatching-call, but that won't scale to several files.
+T 1612977074 18<20dale18>	You can probably also hold down C-M-n I suppose.
+T 1612977125 18<19ville18>	that's too slow
+T 1612977205 18<25cvandusen18>	Then I guess you get to forge a new path.
+T 1612977228 18<20dale18>	ville: I just saw ivy-toggle-marks, "Toggle mark for all narrowed candidates."
+T 1612977231 18<22jamik18>	zmagii: Miners don't get money when it's created, only when a block is validated, so miners receive their money (which is a slice of the transactions in the block) at the same time as recipients of the transactions in a block. I think your point stands though - now I'm wondering.
+T 1612977262 18<20dale18>	ville: I wonder if you could just use that then... I think just regular ivy-call.
+T 1612977275 18<20dale18>	ville: To my surprise, ivy-mark and friends don't seem to be on any keys by default, so you'll probably need to bind them.
+T 1612977315 18<19ville18>	let's see. i'd just wish there was some way to escape ivy building the regex and allow you to write the exact regex
+T 1612977331 18<20dale18>	ville: There is, you just use that matcher
+T 1612977353 18<19ville18>	dale: what is "the matcher"?
+T 1612977401 18<19rpav18>	zmagii: i'm not sure what you mean by first beneficiary
+T 1612977409 18<20dale18>	ville: Oh, I take it back, I don't think there is a literal regexp matcher.  I did make one myself, but it's not quite the same: https://github.com/dsedivec/dot-emacs-d/blob/master/recipes/ivy-regex-plus-or-literal-regex.el
+T 1612977410 18<19ville18>	dale: do you mean the re-builder: 
+T 1612977426 18<20dale18>	ville: Yeah, I did mean re-builder, sorry.
+T 1612977431 18<19rpav18>	zmagii: like, value in general is simply person A convincing person B that A's thing is worth trading for B's thing
+T 1612977450 18<19rpav18>	B may already be convinced of this in many cases
+T 1612977478 18<20dale18>	ville: You can probably just slip 'identity into ivy-re-builders-alist, right?
+T 1612977519 18<19ville18>	dale: so whilst the minibuffer is open for (find-file) i can still choose/switch the re-builder
+T 1612977522 18<19ville18>	?
+T 1612977540 18<20dale18>	ville: If you put it in ivy-preferred-re-builders then you can rotate through re-builders if you bind ivy-rotate-preferred-builders to a key (or use ivy-hydra).
+T 1612977547 18<20dale18>	ville: Indeed!
+T 1612977575 18<20dale18>	ville: I have tended to make my own custom re-builders that switch behavior based on the input, but I have thought of just using key bindings to change the re-builder on the fly instead.
+T 1612977593 18<22zmagii18>	rpav: Sure, but my question is more concrete in this case. I can't seem to get a good explanation of it. Banks are supposed to be able to source "new money" when issuing loans for money that they don't have in deposits. But do the banks ultimately only make interest on such loans, or do they make the full amount (for free) plus interest (for their services as with deposited money).
+T 1612977615 18<19ville18>	i'll look at what the preferred builders is about
+T 1612977618 18<20dale18>	ville: The one I linked above is an example of an re-builder that changes to literal regexp if it sees \( in the input, for example, but otherwise acts like ivy--regex-plus or whatever.
+T 1612977720 18<20dale18>	ville: In case it helps, here's most of my Ivy config, including the setup of ivy-preferred-re-builders and binding ivy-rotate-preferred-builders to M-r: https://github.com/dsedivec/dot-emacs-d/blob/master/init.el#L2368-L2423
+T 1612977841 18<22zmagii18>	One way I think would be to view money and debt as +x_i and -y_j for I and J where sigma(I)=-sigma(J) and then the bank can just give you a loan of say $100 while registered to their account -$100. But this would mean that money gets "destroyed" at the end of repayment.
+T 1612977873 18<22zmagii18>	sigma meaning sum here
+T 1612977876 18<19ville18>	dale: ok thanks i'll take a look
+T 1612977966 18<19rpav18>	zmagii: the loan question should be easy to answer; i don't know the details, but knowing FDIC exists, there must definitely exist the ability of banks to overcommit in some way
+T 1612977971 18<20bpalmer18>	zmagii: in the US, the first beneficiary for expanded money is (assuming I understand it and you correctly) the government (the fed can buy government securities) and banks (the fed buys bank bonds)
+T 1612977993 18<19rpav18>	i'm not sure how the loan thing applies to the other, but i'm not an economics person
+T 1612978027 18<20bpalmer18>	Once a bank has sold a bond, it has a revenue stream like any other revenue stream.
+T 1612978176 18<20bpalmer18>	zmagii: as for "overcommitting", banks are typically 'fractional reserve banks'; the minimum amount they have to keep in reserve is set by the federal reserve (so, say they normally have to keep 25% in reserve; that means if they have $100 , they are legally allowed to lend out $400. 
+T 1612978217 18<20bpalmer18>	if the Fed says they have to keep 33% in reserve, that means they have to stop giving out so many loans, so the free supply of money in circulation goes down; if the fed says they only need to keep 20%, they suddenly have more money to lend out.
+T 1612978220 18<22zmagii18>	So why do the banks get free money (assuming it works like say Bitcoin miners).
+T 1612978284 18<22zmagii18>	I mean that means if I start a bank today called EmacsBank I can put in $100 of my own and then loan out $400 to my friend Patsy.
+T 1612978306 18<19rpav18>	i think they still have to actually have $400, just not like, liquid
+T 1612978340 18<20bpalmer18>	zmagii: in your new bank, where do you get $400 to start out with?
+T 1612978355 18<22zmagii18>	bpalmer: From EmacsGovernment.
+T 1612978359 18<19rpav18>	like, if you have $400, and invest $300, and have $100 liquid, and lend out $400, but i'm not sure
+T 1612978406 18<20bpalmer18>	zmagii: if you sold a $100 bond to the government, you have to make regular payments to the government, and at the end of it, give the government back $100.
+T 1612978443 18<20bpalmer18>	zmagii: a bond is basically a loan.
+T 1612978480 18<22zmagii18>	I am happy with that, but does it then mean that the reserve bank work on the "detructive" money mechanism I layed out above?
+T 1612978495 18<19rpav18>	i thought bonds were payouts at the end for less up front
+T 1612978495 18<22zmagii18>	(Happy that bonds are loans.)
+T 1612978520 18<22zmagii18>	Sorry, *destructive
+T 1612978619 18<19ville18>	dale: ok sort of got it working. just putting identity in the preferred-re-builders, and binding a key works, but it will also pick up the . and .., so opening a dired for them.
+T 1612978637 18<19ville18>	if i could just kill dired somehow that the whole fucking thing didn't exist. life would be so much better. sun would shine every day
+T 1612978655 18<20dale18>	lol
+T 1612978675 18<20bpalmer18>	ville: hm? you can unbind the dired function
+T 1612978682 18<19ville18>	i've used emacs for quite few years and i've never opened a dired buffer on purpose
+T 1612978697 18<19ville18>	bpalmer: tell me more. i've money
+T 1612978699 18<19rpav18>	i didn't for *so long*, now i use it a bunch
+T 1612978714 18<20dale18>	bpalmer: I adore your sincerity.
+T 1612978715 18<20bpalmer18>	(fmakunbound 'foo) undefines the function foo . 
+T 1612978731 18<19rpav18>	emacs on windows is especially nice because you have all the toys without like adding a bunch of crfut
+T 1612978735 18<20bpalmer18>	that may not work with ivy (as I read the backscroll) since ivy may assume the function exists
+T 1612978759 18<20bpalmer18>	you can also just redefine it to do somethin else: (defun dired (&rest r) (beep))
+T 1612978769 18<20pjb18>	Well, (fmakunbound 'foo) does not "undefines" whatever that make mean.  It just removes the binding between the name foo and the function that is currently bound to it.
+T 1612978796 18<19bremner18>	clearly nobody else should be able to use dired either. be reasonable.
+T 1612978802 18<20pjb18>	The function object still exists, and will as long as other references to it exist (wherever they may come from, stack frames, variables, other function bindings, etc).
+T 1612978803 18*	20bpalmer acknowledges a more precise statement without planning to change the terminology used.
+T 1612978819 18<20dale18>	You could even advise find-file or counsel-find-file to temporarily unbind dired's function slot.
+T 1612978828 18<20dale18>	Or, like bpalmer said, just bind it to noop.
+T 1612978834 18<20dale18>	'ignore I guess.
+T 1612978838 18<25cvandusen18>	or use defalias
+T 1612978856 18<20bpalmer18>	I would never ignore when I could beep beep I'm a sheep. 
+T 1612978898 18<19rpav18>	i feel like the real problem is whatever's treating . and .. as files to open unnecessarily
+T 1612978926 18<20dale18>	Hm, I guess it's find-file itself that will open dired when given a directory.
+T 1612978931 18<19rpav18>	like does it also treat / as such? 
+T 1612978940 18<25cvandusen18>	,tias 
+T 1612978941 18<22fsbot18>	Try it and see! (then tell us what you saw)
+T 1612978949 18<19rpav18>	yeah .. why is find-file being called here? or what is calling it; perhaps directory-p it before doing so
+T 1612978961 18<20dale18>	Heh, you can (setq find-file-run-dired nil) but then you get an error when you try to find a directory.
+T 1612978962 18<19ville18>	on further look, it just opens a single dired buffer for '.', and doesn't open a buffer for anything else although all of them should match .*
+T 1612978973 18<19rpav18>	well, i don't know what's actually calling find-file (which of course opens dired by default) 
+T 1612978986 18<20dale18>	rpav: Ivy/Counsel
+T 1612979030 18<19rpav18>	isn't that the selection mechanism? something must be invoking it?
+T 1612979066 18<19ville18>	i am hitting C-f, but does enabling ivy-mode hijack that?
+T 1612979072 18<19ville18>	err C-x C-f
+T 1612979077 18<20dale18>	rpav: I don't understand the question?  If ville is using Ivy without Counsel then Ivy is being used for completion I think, then Ivy is calling find-file probably.
+T 1612979139 18<19rpav18>	ivy is the thing that takes a list-of-things and does nice selection .. something must invoke it with a list, and act on the result (though perhaps it does find-file by default, but i don't recall that)
+T 1612979211 18<22jamik18>	I like dired and use it as my file manager but I've been wondering if I can make it handle the "drag from FM to application" functionality that some graphical programs have. The alternatives are going through some random built-in toolkit's FM (huge waste of time) or not using the graphical application in question (not always possible or desireable).
+T 1612979212 18<20dale18>	rpav: Ivy is plugging in to read-file-name.
+T 1612979216 18<19rpav18>	oh, counsel is not a similar thing, it's what's calling ivy
+T 1612979232 18<20dale18>	rpav: So I suppose find-file → read-file-name → ivy-completing-read
+T 1612979244 18<19ville18>	but yeah looks like ivy's selection is singular unless i do something in additional?
+T 1612979267 18<20dale18>	ville: You can bind ivy-mark, ivy-unmark, ivy-toggle-marks I think.
+T 1612979270 18<20dale18>	ville: Or use ivy-hydra.
+T 1612979423 18<19rpav18>	i mean there's counsel-find-file-ignore-regexp but i feel like that was considered above, if not explicitly stated (and/or i can't read)
+T 1612979481 18<19ville18>	dale: not sure what ivy-toggle-marks is supposed to do? just adds a > in front of everything and then tries to open things with a name including the >
+T 1612979511 18<20dale18>	ville: Right, you said "ivy's selection is singular", I think this makes it "multiple"?
+T 1612979523 18<20dale18>	ville: I mentioned it since it sounded like you wanted a selection other than singular.
+T 1612979537 18<20dale18>	Oh, unless "singular" meant something more like "bespoke" there?
+T 1612979565 18<19ville18>	dale: yeah i think i want that to be the case, but ivy-toggle-marks seems to something else
+T 1612979577 18<20dale18>	ville: Docstring says it should basically invert marked/unmarked.
+T 1612979580 18<20dale18>	For everything.
+T 1612979620 18<19ville18>	all the candidates in the list get prefixed by '>' for me, and when i hit enter it tries to open with that literal name including the '>'
+T 1612979643 18<20dale18>	ville: Different track: what if you (setq ivy-extra-directories nil) to take . and .. out of the candidates list?
+T 1612979655 18<20dale18>	ville: Oh, surely that's a bug, including the > in the file name.
+T 1612979712 18<26frdg18>	with erc if I close my emacs without killing the freenode buffer when i sign in next time I am frdg` or frdg`` or frdg``` etc. Is it possible to prevent this from happening? 
+T 1612979760 18<20dale18>	ville: Yup, can reproduce that here.
+T 1612979795 18<19ville18>	dale: ok so at least it's not just my incompatibility with lisp then
+T 1612979835 18<29pyc18>	Evil-mode users, how do you work with other packages? Every package introduces their own vanilla Emacs style key-bindings. Do you now manually add configuration to create evil-mode style key bindings for those packages?
+T 1612979892 18<20dale18>	I do feel that abo-abo kind of reluctantly added marking multiple candidates.
+T 1612979908 18<19bremner18>	pyc: I guess spacemacs layers are one answer to that (not a user myself)
+T 1612979910 18<26frdg18>	pyc: I use evil-define-key. Here is an example: http://dpaste.com/3G7TYBN2J
+T 1612979929 18<26frdg18>	this lets you define keybindings for both an evil-state and an emacs mode
+T 1612979941 18<22jamik18>	pyc: doom emacs is another solution like spacemacs but lighter
+T 1612979948 18<29pyc18>	bremner: Does spacemacs define evil-mode style keybindings for all the myriad packages out there?
+T 1612979955 18<19bremner18>	no idea
+T 1612979974 18<22jamik18>	pyc: doom does for almost everything I've used
+T 1612979974 18<19bremner18>	I only know from being annoyed by bug reports from spacemacs users
+T 1612979988 18<29pyc18>	frdg: so that means that for every new package that I add, I need to define my own evil-mode like key bindings, right?
+T 1612979989 18<26frdg18>	pyc: there is also evil-collection which you can set up to work globally (but I found it intrusive and only use it for some modes)
+T 1612980017 18<20dale18>	ville: It just occurred to me that, if you're just using regular find-file, I don't think it will be prepared to open multiple things at once.  It's just calling read-file-name, which must return only a single file.
+T 1612980028 18<20dale18>	ville: Really Ivy shouldn't allow you to mark multiple candidates in this context.
+T 1612980070 18<19ville18>	dale: ok makes sense
+T 1612980086 18<26frdg18>	pyc: Yes but only a few modes have made me have to define many bindings, as evil works in all text-mode buffers. Basically you dont need to redefine j and k over and over or anything like that. 
+T 1612980119 18<29pyc18>	frdg: okay thanks
+T 1612980162 18<29pyc18>	do evil-mode users really use :e, :b, etc. to open new files and switch buffers? does it not take away the auto-completion efficiency of ido-mode?
+T 1612980172 18<20dale18>	ville: So if you install counsel, a companion to ivy, and turn on counsel-mode (or just use counsel-find-file instead of find-file), you can actually mark multiple candidates, hit enter, and it opens all of them.
+T 1612980219 18<26frdg18>	pyc: I never use the `:` stuff
+T 1612980236 18<20dale18>	ville: I just tested this in a fresh Emacs, along with (setq ivy-extra-directories nil): C-x C-f, then M-a to toggle marks on everything (default binding, apparently), then just hit RET.
+T 1612980238 18<29pyc18>	frdg: thanks. that is good to know.
+T 1612980267 18<26frdg18>	but it can be useful because you can define mappings for it but I just haven't gottten around to it
+T 1612980279 18<20dale18>	pyc: Last I checked, yes, Spacemacs does try to make Vim-like bindings for many, many packages.
+T 1612980296 18<22jamik18>	pyc: I've never used : since vim
+T 1612980332 18<22jamik18>	emacs provides much better ways to do that stuff
+T 1612980355 18<19ville18>	dale: ok i'll give counsil a go. is there a way to have ivy sort its candidates based on how "left" the match happens. so for example for execute-extended-command/M-x if you type in "pa li" it would put things matching ^pa.*li before things matching .+pa.*li?
+T 1612980370 18<20dale18>	pyc: Randomly chosen example: https://github.com/syl20bnr/spacemacs/blob/develop/layers/%2Blang/python/packages.el#L212-L218
+T 1612980422 18<20dale18>	ville: Offhand I don't know.  You could try looking at ,,prescient,, which includes ivy-prescient which *may* do what you want.  That project's README may also mention alternatives, I can't remember.
+T 1612980424 18<22fsbot18>	Chicken Little only has to be right once.
+T 1612980440 18<20dale18>	,prescient is https://github.com/raxod502/prescient.el
+T 1612980442 18<22fsbot18>	Created new note for "prescient"
+T 1612980511 18<20dale18>	ville: IIRC that just plugs in as an Ivy sort function in ivy-sort-functions-alist, so you could always write your own instead, I suppose.
+T 1612980529 18<19ville18>	dale: i am happy to punt on writing lisp
+T 1612981067 18<26frdg18>	If I am on my guest network and try to use tramp to ssh to my server that isn't on the guest network, my emacs hangs on on `waiting for prompt` and I forced to restart emacs. How can I protect from this happening? 
+T 1612981122 18<19bremner18>	fix the prompt on the remote host?
+T 1612981138 18<19libfud18>	use ssh keys
+T 1612981152 18<19bremner18>	also, make sure you can actually ssh to the server, but I'm guessing you did that already
+T 1612981170 18<26frdg18>	I dont expect to connect. I just dont want to crash
+T 1612981184 18*	19bremner looks confused
+T 1612981222 18<19bremner18>	so repeated C-g doesn't un-stick emacs?
+T 1612981227 18<26frdg18>	I cannot ssh from any terminal, that isn't the problem. The problem is that my emacs hangs.
+T 1612981232 18<26frdg18>	correct 
+T 1612981259 18<19bremner18>	and kill -USR1?
+T 1612981284 18<26frdg18>	ill try
+T 1612981525 18<26frdg18>	bremner: that works thanks
+T 1612981714 18<19bremner18>	,cheers
+T 1612981716 18<22fsbot18>	Are you making all this up as you go along?
+T 1612981718 18<19bremner18>	yes!
+T 1612981839 18<20bpalmer18>	rudybot: artists don't need to have vision; they just need to paint fast.
+T 1612981848 18<24rudybot18>	bpalmer: less to paint, artists are lazy
+T 1612981855 18<20edgar-rft18>	rudybot: let's kill -USSR
+T 1612981857 18<24rudybot18>	edgar-rft: the Chinese and the then-USSR have both done successful, if highly choreographed, anti-satellite missions against their own disabled satellites. the Chinese mission is particularly interesting since they did it with a reprogrammed (and unarmed) ICBM as a giant kinetic kill vehicle. but these missions required months of planning, and also still resulted in unintended space debris.
+T 1612981946 18<20edgar-rft18>	rudybot: I have ssh keys littered all over my keyboard
+T 1612981951 18<24rudybot18>	edgar-rft: I do like gnus, but boy is it messy. files littered everywhere.... nnml, nndraft argh.
+T 1612981983 18<25cvandusen18>	hmm, not familiar with argh files.
+T 1612982066 18<20bpalmer18>	7-zip can probably handle argh archives.
+T 1612982108 18<20edgar-rft18>	cvandusen: (defun bullshit (argh) (ignore argh) nil)
+T 1612982263 18<22contrapunctus18>	edgar-rft: lmao
+T 1612982831 18<19wasamasa18>	zmagii: well, it doesn't really matter, I slightly prefer mupdf over poppler for silly reasons (it took less space installed)
+T 1612982842 18<19wasamasa18>	zmagii: pdf viewers on linux tend to use either library
+T 1612982858 18<19wasamasa18>	zmagii: so I picked llpp, a less-like pdf pager (using mupdf)
+T 1612982883 18<19wasamasa18>	zmagii: if you also like the space argument, pick one using whatever your linux installation has installed for GUI applications (like okular on a KDE desktop)
+T 1612983086 18<22zmagii18>	My main argument should be legibility, esp. for scanned PDFs.
+T 1612983098 18<19wasamasa18>	well, I doubt you'll see a difference
+T 1612983103 18<22zmagii18>	(Sumatra on Windows is great in this respect.)
+T 1612983104 18<19wasamasa18>	unless you use docview, then you will :D
+T 1612983111 18<22zmagii18>	What is docview?
+T 1612983112 18<22fsbot18>	[->] doc-view is [0] a viewer for pdf/ps/dvi files within an emacs window ;;[ ,more / ,dump]
+T 1612983120 18<19wasamasa18>	it's the built-in emacs pdf thing
+T 1612983126 18<22zmagii18>	And it's bad?
+T 1612983140 18<19wasamasa18>	it defaults to a ridiculously low resolution when rendering a pdf to images, yes
+T 1612983157 18<22zmagii18>	Yeah, Xfce has Atril built in...
+T 1612983191 18<22zmagii18>	It's not bad, was just thinking about making sure.
+T 1612983223 18<19wasamasa18>	poppler is the more featureful library, mupdf is more performant
+T 1612983248 18<19wasamasa18>	for example poppler is used in pdf-tools to have annotation support in emacs
+T 1612983271 18<22zmagii18>	Hmm, okay thanks.
+T 1612983289 18*	27hodapp stabs Detectron2 in the face
+T 1612983310 18<19wasamasa18>	my choice for llpp happened while I was using a netbook :D
+T 1612983325 18<19wasamasa18>	some years later mupdf grew an opengl-accelerated viewer
+T 1612983343 18<19wasamasa18>	so I could just use that instead
+T 1612983434 18<27grym18>	hodapp: oh, you too?
+T 1612983436 18<22contrapunctus18>	hodapp: Detectron2??
+T 1612983436 18<22fsbot18>	Ask yourself, do you really want to know?
+T 1612983454 18<27grym18>	contrapunctus: a neural network architecture that's mostly facebook's fault 
+T 1612983458 18<27grym18>	https://github.com/facebookresearch/detectron2 
+T 1612983472 18<27grym18>	"draw boxes on stuff"
+T 1612983507 18<29wgreenhouse18>	way to name a thing "ironically" like people's worst nightmare about the thing
+T 1612983541 18<27grym18>	wgreenhouse: does it help or hurt that i could say with a straight face "well it's just maskrcnn plus stuff"
+T 1612983544 18<27grym18>	>.> 
+T 1612983559 18<29wgreenhouse18>	"stuff" is ominous, as usual
+T 1612983623 18<26jrm18>	,pdftools
+T 1612983624 18<22fsbot18>	jrm, [->] pdf-tools: a replacement of DocView for PDF files, consisting of a C (poppler)-based server and elisp client. https://github.com/politza/pdf-tools
+T 1612983787 18<27grym18>	currently i've been kicking detectron2 in the head because it's fucking up on onnx 
+T 1612983810 18<27grym18>	and by kicking it in the head i mean "commented it out of our pipeline until they patch it"
+T 1612984079 18<19rdrg10918>	How can I search the selected region? In other words, how can I make the region to be searched with "C-s" or "C-r"?
+T 1612984130 18<27grym18>	you could narrow to it
+T 1612984173 18<27hodapp18>	grym: the annoyance I'm stuck on is how much of a pain it is to figure out the actual actual *actual* behavior and definition of a model
+T 1612984182 18<27grym18>	hodapp: ahahhaha rip 
+T 1612984219 18<27hodapp18>	there are YAML configurations that refer to other YAML files, there is code that defines more of that configuration, there is code for the model itself and it's strewn across multiple classes (often in a hierarchy), and there is a registry of models
+T 1612984285 18<27grym18>	yeah
+T 1612984303 18<27grym18>	hodapp: i got that t-shirt with~ https://github.com/mahyarnajibi/SNIPER 
+T 1612984306 18<27grym18>	no thank you 
+T 1612985121 18<27grym18>	sniper has the worst god-dict i've seen in some years, to boot
+T 1612985763 18<22contrapunctus18>	grym: the worst what now?
+T 1612986574 18<27grym18>	contrapunctus: global state key-value store
+T 1612986990 18<20kickingvegas18>	hmm. seems like tab-bar-mode breaks fn keys for multi-tty+GUI emacsclient setups
+T 1612987022 18<20kickingvegas18>	GUI works fine, tty breaks
+T 1612987040 18<27grym18>	contrapunctus: in this case, they deserialize their YAML config for all the dials and knobs on the model into a dictionary, and then mutate it willy-nilly all over the damn place and it's usually the first argument to every function 
+T 1612987048 18<27grym18>	tracing their code is ... nontrivial 
+T 1612987102 18<27hodapp18>	uggggh people are fucking horrible at explaining what RoIAlign is in any sort of concrete way
+T 1612987117 18<27grym18>	because noone knows, ayyyy
+T 1612987167 18<27hodapp18>	like, I am 99% sure that from the perspective of actual arrays, it is dirt-simple
+T 1612987184 18<27hodapp18>	and the explanations are all just so. fucking. bad.
+T 1612987195 18<27grym18>	"you gotta shimmy the box a little"
+T 1612987196 18<27grym18>	... thanks
+T 1612987217 18<27grym18>	hodapp: over the summer we read the "maxpool is horseshit" apepr 
+T 1612987218 18<27grym18>	paper*
+T 1612987334 18<27grym18>	hodapp: "explained" my shiny metal robotic tuchis https://everitt257.github.io/blog/2019/02/07/RoI-Explained.html 
+T 1612987455 18<22contrapunctus18>	grym: hm...so what's a better way? 🤔
+T 1612987531 18<27grym18>	contrapunctus: not a giant bag of mutable state ack thpbbt
+T 1612987554 18<22contrapunctus18>	grym: yeah, okay...so what instead?
+T 1612987586 18<22contrapunctus18>	(Interested in learning about better designs)
+T 1612987601 18<27grym18>	contrapunctus: in the specific case of SNIPER: burn it down and never think about it again 
+T 1612987608 18<22contrapunctus18>	,laugh
+T 1612987611 18<22fsbot18>	BAAAAHAHAHAHAH HaHAHAA HA HA HHHHA AH *snort* HA HHA HAHAHA HA HAH HAH HAH HAHAH HAH HAH oh man HAH AH HAAAAAHAAAHHH *cough* *cough* *cough* hah hehhh hehhhhh geez.. *cough*
+T 1612987621 18<22contrapunctus18>	grym: for real now? :\
+T 1612987637 18<27grym18>	in general though, there's something to be said for this whole "functional purity" thing, where functions take in immutable data and return immutable data
+T 1612987674 18<27grym18>	i'm not a fetishist for this, but explicitly controlling where mutations happen make things significantly less insane to debug because you can trust that all you need to know about the 20 line function you're debugging is those 20 lines 
+T 1612987698 18<22contrapunctus18>	That's also been my experience, yes 🤔
+T 1612987780 18<22contrapunctus18>	I've slowly moved Chronometrist from 'most functions have side effects' to 'make as many functions pure as you can'
+T 1612987837 18<27grym18>	it's also a lot easier to test!
+T 1612987844 18<22contrapunctus18>	Indeed
+T 1612987856 18<27grym18>	brandon rhoades goes for that point with python: https://www.youtube.com/watch?v=DJtef410XaM 
+T 1612987859 18<27grym18>	"promote I/
+T 1612987866 18<27grym18>	O to management" is a nice pithy line 
+T 1612987866 18<22contrapunctus18>	I'm super lazy about writing tests, so anything that cuts down the friction helps
+T 1612987883 18<27grym18>	i am a not-actually-kidding adherent of bug-driven testing 
+T 1612987901 18<27grym18>	i write tests, mostly, as i go along 
+T 1612987907 18<27grym18>	but i write a test for every bug i fix
+T 1612987912 18<27grym18>	"never again, ok?!"
+T 1612987940 18<19wasamasa18>	I really like how the act of writing documentation or porting or actually trying to use some ill-specified software shakes out so many bugs and oversights
+T 1612987967 18<27grym18>	yup.  or giving it to domain users who didn't write it 
+T 1612987980 18<27grym18>	i learn soooo much about my own code when i give it to my team and watch them be utterlyh baffling monkeys with it 
+T 1612987988 18<27grym18>	"you're not supposed to do that!!" is _very_ educational 
+T 1612988090 18<19wasamasa18>	on the other hand, other people using my software can be maddening
+T 1612988102 18<19wasamasa18>	like, why do they expect me to make it usable for them
+T 1612988104 18<27grym18>	i'm tightly coupled to most of my important users, which is happy 
+T 1612988112 18<19wasamasa18>	that wasn't the plan in the first place, lol
+T 1612988139 18<27grym18>	my plan was to write a stalking horse for broader python adoption at work 
+T 1612988141 18<27grym18>	it worked
+T 1612988317 24*	28watkinsr6 is now known as 18watkinsr
