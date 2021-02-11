@@ -8090,3 +8090,164 @@ Feb 10 21:05:16 <grobi>	your DL for 'HyperList document (PDF)' is supposed to le
 Feb 10 21:07:29 <grobi>	it gives me an error: 'The server does not have the requested data'
 Feb 10 21:09:52 <grobi>	i try to install with vundle/vim now
 Feb 10 21:17:42 <grobi>	isene: i assume it's the same pdf-file as that in your docs anyway..
+Feb 10 21:21:58 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb 10 21:21:58 2021
+
+**** BEGIN LOGGING AT Thu Feb 11 07:52:17 2021
+
+Feb 11 07:52:17 *	Now talking on #ranger
+Feb 11 07:52:17 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Feb 11 07:52:17 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Feb 11 08:28:31 <Luyin>	hi!
+Feb 11 08:43:24 <zaeph>	'Morning
+Feb 11 08:47:19 <energizer>	what is tilda?
+Feb 11 08:48:05 <zaeph>	energizer: https://github.com/lanoxx/tilda
+Feb 11 08:48:52 <energizer>	ah
+Feb 11 08:49:46 <zaeph>	isomari: Probably because noone got around to writing an image-preview script for it.  Chances are you could write something with w3m by refactoring some of the code, but I'd more readily advise you to consider *why* you're sticking with tilda.
+Feb 11 08:50:20 <zaeph>	You might be interested in checking other terminal emulators like kitty.
+Feb 11 08:51:11 <zaeph>	If you're attached to the non-window specificity of tilda, you can probably script something similar in your desktop-/window-manager.
+Feb 11 08:51:27 <zaeph>	(I do that by storing a terminal in an i3 scratchpad.)
+Feb 11 10:41:15 <blawiz>	https://www.youtube.com/watch?v=I3BeqX1xOL8
+Feb 11 10:49:12 *	Disconnected ()
+**** ENDING LOGGING AT Thu Feb 11 10:49:12 2021
+
+**** BEGIN LOGGING AT Thu Feb 11 10:49:38 2021
+
+Feb 11 10:49:38 *	Now talking on #ranger
+Feb 11 10:49:38 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Feb 11 10:49:38 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Feb 11 11:01:42 <grobi>	hello, rangers !:)
+Feb 11 11:01:51 <zaeph>	grobi: Heya.
+Feb 11 11:02:06 <grobi>	nice to meet you zaeph :)
+Feb 11 11:03:08 <zaeph>	grobi: How's life?
+Feb 11 11:03:18 <Luyin>	hi grobi zaeph \o/
+Feb 11 11:05:28 *	grobi highfives Luyin. zaeph fine actually :)
+Feb 11 11:08:53 <grobi>	we are snowed in, zaeph 
+Feb 11 11:09:38 <Pepe_vulgaris>	what image "protocol" does tilda use?
+Feb 11 11:09:54 <grobi>	and a part of the city has no heating
+Feb 11 11:10:35 <Pepe_vulgaris>	hmm, it's VTE based so w3m preview should work anyways
+Feb 11 11:13:31 <grobi>	tilda does not work with wayland as i could see..
+Feb 11 11:14:03 <grobi>	did you try ueberzug Pepe_vulgaris ?
+Feb 11 11:14:45 <Pepe_vulgaris>	grobi: nah, I find that too much of a hack
+Feb 11 11:14:59 <__monty__>	VTE terminals work very poorly if at all with w3mimgdisplay.
+Feb 11 11:15:16 <Pepe_vulgaris>	I have no problems with xfce4-terminal
+Feb 11 11:15:31 <Pepe_vulgaris>	still better performance than urxvt, sadly
+Feb 11 11:15:32 <__monty__>	That's great. But it's more luck than anything.
+Feb 11 11:16:00 <Luyin>	termite \o/
+Feb 11 11:16:00 <__monty__>	Best image support for the moment is terminology and kitty, with iTerm2 a close third.
+Feb 11 11:16:11 <Luyin>	although termite's always a bit of a hassle when you ssh to a new server
+Feb 11 11:16:33 <__monty__>	Luyin: You should be able to just install the termite terminfo though?
+Feb 11 11:16:40 <Luyin>	sure
+Feb 11 11:16:46 <Luyin>	but I always forget how to do that
+Feb 11 11:16:52 <Luyin>	have to look it up, waste time... oh well
+Feb 11 11:18:59 <__monty__>	Maybe take a look at kitty's ssh/terminfo/whatever-the-name kitten. It copies the terminfo over while connecting over ssh.
+Feb 11 11:21:57 <Pepe_vulgaris>	you mean automatically?
+Feb 11 11:24:17 <__monty__>	Well, you do have to explicitly use the kitten.
+Feb 11 11:24:23 <__monty__>	But pretty much automatically.
+Feb 11 11:26:19 <Luyin>	__monty__: I'm sure I'd just forget it again the next time I connect to a new server, so I'll look it up again anyway :D
+Feb 11 11:26:28 <Luyin>	but it's actually a good idea to copy it over, yes
+Feb 11 11:26:50 <__monty__>	You could alias or wrap ssh to always use the kitten though.
+Feb 11 11:27:13 <Pepe_vulgaris>	I had a similar script for urxvt
+Feb 11 11:31:01 <Luyin>	I'm not using kitten
+Feb 11 11:32:55 <__monty__>	Luyin: I mean the kitten-equivalent script or whatever.
+Feb 11 11:33:05 <__monty__>	Why do people always take words so literally?
+Feb 11 11:34:01 <Luyin>	:D sorry, since I don't know what kitten is I wasn't aware you wanted me to transfer
+Feb 11 11:36:28 <__monty__>	I said take a look at the kitten to then base a script off of that if you want to stick with termite (don't recommend termite though tbh, didn't have a positive experience when I was testing a score of terminals for ranger).
+Feb 11 11:36:45 <__monty__>	Kitty has "kittens" which are python scripts that extend its functionality.
+Feb 11 11:46:12 *	Disconnected ()
+**** ENDING LOGGING AT Thu Feb 11 11:46:12 2021
+
+**** BEGIN LOGGING AT Thu Feb 11 11:49:32 2021
+
+Feb 11 11:49:32 *	Now talking on #ranger
+Feb 11 11:49:32 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Feb 11 11:49:32 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Feb 11 11:53:59 <__monty__>	vifon prefers alacritty btw.
+Feb 11 11:54:16 <__monty__>	And I highly recommend terminology too.
+Feb 11 11:54:31 <__monty__>	Kitty comes with, shall we say, quirks.
+Feb 11 11:56:35 <__monty__>	Two of its redeeming qualities are the fantastic hinting and unicode input kittens though.
+Feb 11 12:14:21 <Luyin>	you've already converted me to fish, now stop making more suggestions to my tech stack! I can't keep up
+Feb 11 12:14:33 <Luyin>	having some fish trouble btw with PATH *sigh*
+Feb 11 12:14:44 <grobi>	lol
+Feb 11 12:16:09 *	__monty__ whispers NixOS can take away all your worries into the wind...
+Feb 11 12:16:19 <__monty__>	What troubles, setting it?
+Feb 11 12:17:11 <grobi>	*SPLITTER*
+Feb 11 12:18:29 <zaeph>	.cookie grobi
+Feb 11 12:18:32 <zaeph>	Fuck you, Bob.
+Feb 11 12:19:22 <grobi>	__monty__ strangled BoB zaeph ..
+Feb 11 12:20:31 <grobi>	he didn't agree happily enough to his suggestions.. so be aware Luyin ;)
+Feb 11 12:21:03 <zaeph>	A fitting end, considering how Bob was as moody as Commodus itself.
+Feb 11 12:21:23 <zaeph>	For the non-connoisseur: https://en.wikipedia.org/wiki/Commodus#Assassination_(192)
+Feb 11 12:21:28 <__monty__>	I don't understand why it's been *this* unstable lately.
+Feb 11 12:25:58 <grobi>	.q RoboBob 3
+Feb 11 12:25:58 <RoboBob>	(grobi) [3/3] <robobob> I'LL BE BACK
+Feb 11 12:26:33 <zaeph>	.q zaeph -1
+Feb 11 12:26:33 <RoboBob>	(zaeph) [11/11] <zaeph> You folks can interbreed, so as far as I'm concerned, you speak the same language.
+Feb 11 12:26:43 <zaeph>	.q zaeph -0
+Feb 11 12:26:43 <RoboBob>	(zaeph) [8/11] <zaeph> It's kinda small, though.
+Feb 11 12:26:48 <zaeph>	Clever girl.
+Feb 11 12:29:10 *	ChanServ gives channel operator status to hut
+Feb 11 12:35:20 <grobi>	.q RoboBob 5
+Feb 11 12:35:22 <RoboBob>	(grobi) [5/5] <robobob> 4 zaeph: An intelligent hell would be better than a stupid paradise !:)
+Feb 11 12:36:54 <zaeph>	I have no recollection of that one. 🤔
+Feb 11 12:41:19 <grobi>	zaeph: take 5
+Feb 11 12:42:03 <zaeph>	We don't accept Jazz in here, sorry.
+Feb 11 12:42:09 <grobi>	now take 6
+Feb 11 13:19:09 <Luyin>	__monty__: crossposted from #fish: 
+Feb 11 13:19:12 <Luyin>	10:30 <Luyin> I think I screwed up my $PATH variable
+Feb 11 13:19:13 <Luyin>	10:31 <Luyin> config.fish contains this: `set -x PATH ~/.bin ~/Code/telekom_url_convert $PATH`; echo $PATH in fish (I start it with `fish` out of zsh, not sure that's relevant so I thought I added it): https://paste.xinu.at/dVO/
+Feb 11 13:19:15 <Luyin>	10:31 <Luyin> so everything is doubled
+Feb 11 13:29:57 <__monty__>	I don't see any doubles?
+Feb 11 13:30:30 <__monty__>	And if your zsh PATH is already fine you don't need to add anything in the fish config.
+Feb 11 13:31:43 <zaeph>	For fuck sake. -.-
+Feb 11 13:32:17 <zaeph>	Now the French admin is telling me that I've used the wrong form.  Couldn't they tell me that the first time? -.-
+Feb 11 13:32:52 <zaeph>	Bureaucracy at its finest.
+Feb 11 13:33:43 <zaeph>	Honestly, it's making me feel less miserable about my line of work leading to the destruction of jobs in the sector.
+Feb 11 13:34:03 <Luyin>	__monty__: oh right, it's not actually doubled, the telekom_url_convert has two paths...
+Feb 11 13:34:40 <Luyin>	__monty__: actually I'd like to get away from starting zsh and then stating fish explicitly. I'd rather start with fish right away and only keep zsh as a fall-back in case something isn't working out
+Feb 11 13:35:06 <Luyin>	so I'd like my PATH to be handled by fish completely. is that possible?
+Feb 11 13:36:54 <Luyin>	btw, /home/alex/.bin appears twice
+Feb 11 16:32:42 *	Disconnected ()
+**** ENDING LOGGING AT Thu Feb 11 16:32:42 2021
+
+**** BEGIN LOGGING AT Thu Feb 11 16:33:11 2021
+
+Feb 11 16:33:11 *	Now talking on #ranger
+Feb 11 16:33:11 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Feb 11 16:33:11 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Feb 11 17:02:15 <eyJhb>	Just putting this here as well - https://github.com/stephen304/castblock
+Feb 11 17:02:43 <eyJhb>	Kinda cool, just tested it. And fore __monty__ and vifon , hopefully there will be a pkg of it tomorrow for Nixpkgs! (not like you can't use it atm. just in a nicer way)
+Feb 11 17:03:40 <vifon>	I don't think I need it but thanks.
+Feb 11 17:05:24 <eyJhb>	I didn't really mind the sponsor stuff normally, but atm. I am viewing a channel on Youtube which has 1 minute at the start of the video with sponsor stuff + 1-2 minute at the end, in a 7-9 minute video..
+Feb 11 17:05:30 <eyJhb>	That's just too much...
+Feb 11 17:10:16 <vifon>	Why bother?
+Feb 11 17:11:18 <eyJhb>	Bother watching it, or bother setting it up?
+Feb 11 17:11:58 <eyJhb>	Watching it - pretty fun animation channel. Setting it up - it is a simple fire and forget script, I can actually run it right now :p Doesn't depend on much
+Feb 11 17:19:18 <eyJhb>	Luyin: Surely you meant to thank __monty__ for all the fish, because on the internet, nobody knows if you are a dolphin!
+Feb 11 17:37:00 <vifon>	The former.
+Feb 11 18:11:41 <grobi>	Huh, were is __monty__ ? 
+Feb 11 18:14:44 <eyJhb>	vifon: It is just really chill - https://www.youtube.com/watch?v=70dplWEKqow , ran out of theOdds1out, ie. Soubway stories
+Feb 11 18:14:59 <eyJhb>	grobi: sacrificed.
+Feb 11 18:15:20 <grobi>	to whoooom eyJhb ?
+Feb 11 18:15:37 <vifon>	eyJhb: The first 30 seconds sounds like me.
+Feb 11 18:16:32 <eyJhb>	vifon: I know that feeling...
+Feb 11 18:16:40 <eyJhb>	AND NOW! You can be addicted to that guys youtube
+Feb 11 18:16:48 <eyJhb>	grobi: RoboBob. :D
+Feb 11 18:16:55 <vifon>	I'm already addicted to Sseth since Saturday.
+Feb 11 18:18:01 <vifon>	eyJhb: https://einval.eu/upload/V3kGSFI6vW7gyWY3VpTFm5dr.png
+Feb 11 18:18:32 <grobi>	.q partybeast
+Feb 11 18:18:32 <RoboBob>	(grobi) [1/1] <partybeast> 🍕🍺🍺🍺🍺⚗️🌶️🎵
+Feb 11 18:19:10 <vifon>	Also, I just learned mpv has a --sub-ass-force-style flag.
+Feb 11 18:19:42 <grobi>	vifon: translation please :)
+Feb 11 18:19:57 <eyJhb>	vifon: https://youtu.be/rOJdDvf-tUs?t=320
+Feb 11 18:20:00 <eyJhb>	The hel
+Feb 11 18:20:18 <vifon>	Damn, grepping `man mpv` for "force" is a trip…
+Feb 11 18:20:54 <vifon>	eyJhb: What the…
+Feb 11 18:22:09 <eyJhb>	I DON'T KNOW!
+Feb 11 18:22:13 <grobi>	vifon: you wrote that book?
+Feb 11 18:22:19 <eyJhb>	I searched for SSeth, and that was what came up
+Feb 11 18:22:23 <vifon>	grobi: What book?
+Feb 11 18:22:37 <grobi>	mpv's man pages?
+Feb 11 18:23:47 <vifon>	Why would I be writing it?
+Feb 11 18:24:20 <grobi>	sorry i got that wrong :°
+Feb 11 18:25:14 <grobi>	ah. force=a_game

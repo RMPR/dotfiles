@@ -5232,3 +5232,156 @@ T 1612987516 18<19grobi18>	your DL for 'HyperList document (PDF)' is sup
 T 1612987649 18<19grobi18>	it gives me an error: 'The server does not have the requested data'
 T 1612987792 18<19grobi18>	i try to install with vundle/vim now
 T 1612988262 18<19grobi18>	isene: i assume it's the same pdf-file as that in your docs anyway..
+T 1612988518 20*	Disconnected (20)
+T 1613026309 20*	Disconnected (20Connection timed out)
+T 1613026337 19*	Now talking on 22#ranger
+T 1613026337 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1613026337 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1613028511 18<28Luyin18>	hi!
+T 1613029404 18<26zaeph18>	'Morning
+T 1613029639 18<29energizer18>	what is tilda?
+T 1613029685 18<26zaeph18>	energizer: https://github.com/lanoxx/tilda
+T 1613029732 18<29energizer18>	ah
+T 1613029786 18<26zaeph18>	isomari: Probably because noone got around to writing an image-preview script for it.  Chances are you could write something with w3m by refactoring some of the code, but I'd more readily advise you to consider *why* you're sticking with tilda.
+T 1613029820 18<26zaeph18>	You might be interested in checking other terminal emulators like kitty.
+T 1613029871 18<26zaeph18>	If you're attached to the non-window specificity of tilda, you can probably script something similar in your desktop-/window-manager.
+T 1613029887 18<26zaeph18>	(I do that by storing a terminal in an i3 scratchpad.)
+T 1613036475 18<20blawiz18>	https://www.youtube.com/watch?v=I3BeqX1xOL8
+T 1613036952 20*	Disconnected (20)
+T 1613036978 19*	Now talking on 22#ranger
+T 1613036978 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1613036978 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1613037702 18<19grobi18>	hello, rangers !:)
+T 1613037711 18<26zaeph18>	grobi: Heya.
+T 1613037726 18<19grobi18>	nice to meet you zaeph :)
+T 1613037788 18<26zaeph18>	grobi: How's life?
+T 1613037798 18<28Luyin18>	hi grobi zaeph \o/
+T 1613037928 18*	19grobi highfives Luyin. zaeph fine actually :)
+T 1613038133 18<19grobi18>	we are snowed in, zaeph 
+T 1613038178 18<28Pepe_vulgaris18>	what image "protocol" does tilda use?
+T 1613038194 18<19grobi18>	and a part of the city has no heating
+T 1613038235 18<28Pepe_vulgaris18>	hmm, it's VTE based so w3m preview should work anyways
+T 1613038411 18<19grobi18>	tilda does not work with wayland as i could see..
+T 1613038443 18<19grobi18>	did you try ueberzug Pepe_vulgaris ?
+T 1613038485 18<28Pepe_vulgaris18>	grobi: nah, I find that too much of a hack
+T 1613038499 18<22__monty__18>	VTE terminals work very poorly if at all with w3mimgdisplay.
+T 1613038516 18<28Pepe_vulgaris18>	I have no problems with xfce4-terminal
+T 1613038531 18<28Pepe_vulgaris18>	still better performance than urxvt, sadly
+T 1613038532 18<22__monty__18>	That's great. But it's more luck than anything.
+T 1613038560 18<28Luyin18>	termite \o/
+T 1613038560 18<22__monty__18>	Best image support for the moment is terminology and kitty, with iTerm2 a close third.
+T 1613038571 18<28Luyin18>	although termite's always a bit of a hassle when you ssh to a new server
+T 1613038593 18<22__monty__18>	Luyin: You should be able to just install the termite terminfo though?
+T 1613038600 18<28Luyin18>	sure
+T 1613038606 18<28Luyin18>	but I always forget how to do that
+T 1613038612 18<28Luyin18>	have to look it up, waste time... oh well
+T 1613038739 18<22__monty__18>	Maybe take a look at kitty's ssh/terminfo/whatever-the-name kitten. It copies the terminfo over while connecting over ssh.
+T 1613038917 18<28Pepe_vulgaris18>	you mean automatically?
+T 1613039057 18<22__monty__18>	Well, you do have to explicitly use the kitten.
+T 1613039063 18<22__monty__18>	But pretty much automatically.
+T 1613039179 18<28Luyin18>	__monty__: I'm sure I'd just forget it again the next time I connect to a new server, so I'll look it up again anyway :D
+T 1613039188 18<28Luyin18>	but it's actually a good idea to copy it over, yes
+T 1613039210 18<22__monty__18>	You could alias or wrap ssh to always use the kitten though.
+T 1613039233 18<28Pepe_vulgaris18>	I had a similar script for urxvt
+T 1613039461 18<28Luyin18>	I'm not using kitten
+T 1613039575 18<22__monty__18>	Luyin: I mean the kitten-equivalent script or whatever.
+T 1613039585 18<22__monty__18>	Why do people always take words so literally?
+T 1613039641 18<28Luyin18>	:D sorry, since I don't know what kitten is I wasn't aware you wanted me to transfer
+T 1613039788 18<22__monty__18>	I said take a look at the kitten to then base a script off of that if you want to stick with termite (don't recommend termite though tbh, didn't have a positive experience when I was testing a score of terminals for ranger).
+T 1613039805 18<22__monty__18>	Kitty has "kittens" which are python scripts that extend its functionality.
+T 1613040372 20*	Disconnected (20)
+T 1613040439 20*	Disconnected (20Remote host closed socket)
+T 1613040490 20*	Disconnected (20Remote host closed socket)
+T 1613040539 20*	Disconnected (20Remote host closed socket)
+T 1613040572 19*	Now talking on 22#ranger
+T 1613040572 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1613040572 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1613040839 18<22__monty__18>	vifon prefers alacritty btw.
+T 1613040856 18<22__monty__18>	And I highly recommend terminology too.
+T 1613040871 18<22__monty__18>	Kitty comes with, shall we say, quirks.
+T 1613040995 18<22__monty__18>	Two of its redeeming qualities are the fantastic hinting and unicode input kittens though.
+T 1613042061 18<28Luyin18>	you've already converted me to fish, now stop making more suggestions to my tech stack! I can't keep up
+T 1613042073 18<28Luyin18>	having some fish trouble btw with PATH *sigh*
+T 1613042084 18<19grobi18>	lol
+T 1613042169 18*	22__monty__ whispers NixOS can take away all your worries into the wind...
+T 1613042179 18<22__monty__18>	What troubles, setting it?
+T 1613042231 18<19grobi18>	*SPLITTER*
+T 1613042309 18<26zaeph18>	.cookie grobi
+T 1613042312 18<26zaeph18>	Fuck you, Bob.
+T 1613042362 18<19grobi18>	__monty__ strangled BoB zaeph ..
+T 1613042431 18<19grobi18>	he didn't agree happily enough to his suggestions.. so be aware Luyin ;)
+T 1613042463 18<26zaeph18>	A fitting end, considering how Bob was as moody as Commodus itself.
+T 1613042483 18<26zaeph18>	For the non-connoisseur: https://en.wikipedia.org/wiki/Commodus#Assassination_(192)
+T 1613042488 18<22__monty__18>	I don't understand why it's been *this* unstable lately.
+T 1613042758 18<19grobi18>	.q RoboBob 3
+T 1613042758 18<22RoboBob18>	(grobi) [3/3] <robobob> I'LL BE BACK
+T 1613042793 18<26zaeph18>	.q zaeph -1
+T 1613042793 18<22RoboBob18>	(zaeph) [11/11] <zaeph> You folks can interbreed, so as far as I'm concerned, you speak the same language.
+T 1613042803 18<26zaeph18>	.q zaeph -0
+T 1613042803 18<22RoboBob18>	(zaeph) [8/11] <zaeph> It's kinda small, though.
+T 1613042808 18<26zaeph18>	Clever girl.
+T 1613042950 22*	26ChanServ gives channel operator status to 18hut
+T 1613043320 18<19grobi18>	.q RoboBob 5
+T 1613043322 18<22RoboBob18>	(grobi) [5/5] <robobob> 4 zaeph: An intelligent hell would be better than a stupid paradise !:)
+T 1613043414 18<26zaeph18>	I have no recollection of that one. 🤔
+T 1613043679 18<19grobi18>	zaeph: take 5
+T 1613043723 18<26zaeph18>	We don't accept Jazz in here, sorry.
+T 1613043729 18<19grobi18>	now take 6
+T 1613045949 18<28Luyin18>	__monty__: crossposted from #fish: 
+T 1613045952 18<28Luyin18>	10:30 <Luyin> I think I screwed up my $PATH variable
+T 1613045953 18<28Luyin18>	10:31 <Luyin> config.fish contains this: `set -x PATH ~/.bin ~/Code/telekom_url_convert $PATH`; echo $PATH in fish (I start it with `fish` out of zsh, not sure that's relevant so I thought I added it): https://paste.xinu.at/dVO/
+T 1613045955 18<28Luyin18>	10:31 <Luyin> so everything is doubled
+T 1613046597 18<22__monty__18>	I don't see any doubles?
+T 1613046630 18<22__monty__18>	And if your zsh PATH is already fine you don't need to add anything in the fish config.
+T 1613046703 18<26zaeph18>	For fuck sake. -.-
+T 1613046737 18<26zaeph18>	Now the French admin is telling me that I've used the wrong form.  Couldn't they tell me that the first time? -.-
+T 1613046772 18<26zaeph18>	Bureaucracy at its finest.
+T 1613046823 18<26zaeph18>	Honestly, it's making me feel less miserable about my line of work leading to the destruction of jobs in the sector.
+T 1613046843 18<28Luyin18>	__monty__: oh right, it's not actually doubled, the telekom_url_convert has two paths...
+T 1613046880 18<28Luyin18>	__monty__: actually I'd like to get away from starting zsh and then stating fish explicitly. I'd rather start with fish right away and only keep zsh as a fall-back in case something isn't working out
+T 1613046906 18<28Luyin18>	so I'd like my PATH to be handled by fish completely. is that possible?
+T 1613047014 18<28Luyin18>	btw, /home/alex/.bin appears twice
+T 1613057562 20*	Disconnected (20)
+T 1613057584 22*	26RMPR sets mode 24+Z on 22RMPR
+T 1613057584 22*	26RMPR sets mode 24+i on 22RMPR
+T 1613057584 -18freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
+T 1613057584 24*	Received a CTCP 24VERSION from 18freenode-connect
+T 1613057591 19*	Now talking on 22#ranger
+T 1613057591 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1613057591 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1613059335 18<24eyJhb18>	Just putting this here as well - https://github.com/stephen304/castblock
+T 1613059363 18<24eyJhb18>	Kinda cool, just tested it. And fore __monty__ and vifon , hopefully there will be a pkg of it tomorrow for Nixpkgs! (not like you can't use it atm. just in a nicer way)
+T 1613059420 18<27vifon18>	I don't think I need it but thanks.
+T 1613059524 18<24eyJhb18>	I didn't really mind the sponsor stuff normally, but atm. I am viewing a channel on Youtube which has 1 minute at the start of the video with sponsor stuff + 1-2 minute at the end, in a 7-9 minute video..
+T 1613059530 18<24eyJhb18>	That's just too much...
+T 1613059816 18<27vifon18>	Why bother?
+T 1613059878 18<24eyJhb18>	Bother watching it, or bother setting it up?
+T 1613059918 18<24eyJhb18>	Watching it - pretty fun animation channel. Setting it up - it is a simple fire and forget script, I can actually run it right now :p Doesn't depend on much
+T 1613060358 18<24eyJhb18>	Luyin: Surely you meant to thank __monty__ for all the fish, because on the internet, nobody knows if you are a dolphin!
+T 1613061420 18<27vifon18>	The former.
+T 1613063501 18<19grobi18>	Huh, were is __monty__ ? 
+T 1613063684 18<24eyJhb18>	vifon: It is just really chill - https://www.youtube.com/watch?v=70dplWEKqow , ran out of theOdds1out, ie. Soubway stories
+T 1613063699 18<24eyJhb18>	grobi: sacrificed.
+T 1613063720 18<19grobi18>	to whoooom eyJhb ?
+T 1613063737 18<27vifon18>	eyJhb: The first 30 seconds sounds like me.
+T 1613063792 18<24eyJhb18>	vifon: I know that feeling...
+T 1613063800 18<24eyJhb18>	AND NOW! You can be addicted to that guys youtube
+T 1613063808 18<24eyJhb18>	grobi: RoboBob. :D
+T 1613063815 18<27vifon18>	I'm already addicted to Sseth since Saturday.
+T 1613063881 18<27vifon18>	eyJhb: https://einval.eu/upload/V3kGSFI6vW7gyWY3VpTFm5dr.png
+T 1613063912 18<19grobi18>	.q partybeast
+T 1613063912 18<22RoboBob18>	(grobi) [1/1] <partybeast> 🍕🍺🍺🍺🍺⚗️🌶️🎵
+T 1613063950 18<27vifon18>	Also, I just learned mpv has a --sub-ass-force-style flag.
+T 1613063982 18<19grobi18>	vifon: translation please :)
+T 1613063997 18<24eyJhb18>	vifon: https://youtu.be/rOJdDvf-tUs?t=320
+T 1613064000 18<24eyJhb18>	The hel
+T 1613064018 18<27vifon18>	Damn, grepping `man mpv` for "force" is a trip…
+T 1613064054 18<27vifon18>	eyJhb: What the…
+T 1613064129 18<24eyJhb18>	I DON'T KNOW!
+T 1613064133 18<19grobi18>	vifon: you wrote that book?
+T 1613064139 18<24eyJhb18>	I searched for SSeth, and that was what came up
+T 1613064143 18<27vifon18>	grobi: What book?
+T 1613064157 18<19grobi18>	mpv's man pages?
+T 1613064227 18<27vifon18>	Why would I be writing it?
+T 1613064260 18<19grobi18>	sorry i got that wrong :°
+T 1613064314 18<19grobi18>	ah. force=a_game

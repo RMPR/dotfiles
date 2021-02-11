@@ -5481,3 +5481,81 @@ Feb 10 17:00:47 *	Now talking on #alacritty
 Feb 10 17:00:47 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
 Feb 10 17:00:47 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Jan  9 12:42:04 2021)
 Feb 10 20:14:29 <UndeadLeech>	nixpulvis: You still around? Curious how you feel about configuration of regex "hints" one can launch with the configuration. I'd imagine it would be nice if the same hints would be used for URL highlighting with the mouse.
+Feb 10 21:21:58 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb 10 21:21:58 2021
+
+**** BEGIN LOGGING AT Thu Feb 11 07:52:17 2021
+
+Feb 11 07:52:17 *	Now talking on #alacritty
+Feb 11 07:52:17 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+Feb 11 07:52:17 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Jan  9 12:42:04 2021)
+Feb 11 10:49:11 *	Disconnected ()
+**** ENDING LOGGING AT Thu Feb 11 10:49:11 2021
+
+**** BEGIN LOGGING AT Thu Feb 11 10:49:38 2021
+
+Feb 11 10:49:38 *	Now talking on #alacritty
+Feb 11 10:49:38 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+Feb 11 10:49:38 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Jan  9 12:42:04 2021)
+Feb 11 11:46:12 *	Disconnected ()
+**** ENDING LOGGING AT Thu Feb 11 11:46:12 2021
+
+**** BEGIN LOGGING AT Thu Feb 11 11:49:32 2021
+
+Feb 11 11:49:32 *	Now talking on #alacritty
+Feb 11 11:49:32 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+Feb 11 11:49:32 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Jan  9 12:42:04 2021)
+Feb 11 16:32:42 *	Disconnected ()
+**** ENDING LOGGING AT Thu Feb 11 16:32:42 2021
+
+**** BEGIN LOGGING AT Thu Feb 11 16:33:10 2021
+
+Feb 11 16:33:10 *	Now talking on #alacritty
+Feb 11 16:33:10 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+Feb 11 16:33:10 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Jan  9 12:42:04 2021)
+Feb 11 20:27:20 <Yaniel>	belak: Terminus is a bitmap font IIRC so the obvious answer would be that you set its size in px
+Feb 11 20:33:06 <belak>	Yaniel: yes, terminus is a bitmap font, however it does the exact same thing with the Terminus (TTF) version
+Feb 11 20:33:39 *	Yaniel ¯\_(ツ)_/¯
+Feb 11 20:33:50 <Yaniel>	also, does xft know your DPI or does alacritty get it from somewhere else?
+Feb 11 20:34:03 <belak>	I haven't set my DPI anywhere explicitly
+Feb 11 20:35:14 <belak>	Gnome applications, KDE applications, Emacs, all need 12 set for the size... Alacritty for some reason needs it to be 7 to match everything else...
+Feb 11 20:35:32 <belak>	That's Xft, Pango, and whatever KDE uses
+Feb 11 20:36:25 <belak>	I think something is off with Alacritty because even Source Code Pro at size 12 is massive
+Feb 11 20:37:26 <Yaniel>	I have uhh
+Feb 11 20:37:48 <Yaniel>	Hack at 11.0 in alacritty
+Feb 11 20:39:42 <belak>	1 sec, I'll post a screenshot
+Feb 11 20:40:17 <belak>	https://thelounge.elwert.cloud/uploads/d03ed0ad454db519/2021-02-11-113927_1920x1080_scrot.png 
+Feb 11 20:40:58 <belak>	That seems... huge
+Feb 11 20:41:33 <Yaniel>	can you get some console output from alacritty
+Feb 11 20:41:50 <Yaniel>	that looks a lot like it's getting a DPI scale factor of 2 from somewhere
+Feb 11 20:42:21 <belak>	What log level?
+Feb 11 20:42:40 <Yaniel>	and fwiw, forcing a random piece of text to use the same font and same pt size in firefox dev tools makes it the same size as in alacritty for me
+Feb 11 20:43:11 <belak>	Yeah, device pixel ratio 1.66666667
+Feb 11 20:43:14 <belak>	Good call
+Feb 11 20:43:33 <Yaniel>	there we go
+Feb 11 20:43:46 <belak>	That seems off
+Feb 11 20:45:55 <belak>	Wait, is alacritty a Wayland app?
+Feb 11 20:46:03 <belak>	I wonder if running it inside X is confusing it somehow
+Feb 11 20:46:23 <belak>	Ah, no I see || is_x11
+Feb 11 20:46:28 <Yaniel>	alacritty can use either
+Feb 11 20:46:52 <Yaniel>	but xwayland may be confused about the device pixel ratio
+Feb 11 20:47:11 <Yaniel>	are your reference applications running on native wayland?
+Feb 11 20:48:32 <belak>	I'm running in X and I don't think I have Xwayland set up
+Feb 11 20:49:10 <belak>	I can try adding some extra logging
+Feb 11 20:49:34 <Yaniel>	just need to find where alacritty is getting that DPR from now
+Feb 11 20:50:01 <belak>	Ok, yeah, is_x11 is true
+Feb 11 20:55:13 <Yaniel>	does xrandr report your screen's physical dimensions correctly?
+Feb 11 20:57:06 <Yaniel>	either way you can override it with the WINIT_X11_SCALE_FACTOR env variable
+Feb 11 20:57:43 <belak>	It looks like it...    1920x1080     60.00*+  59.93    48.00  
+Feb 11 20:57:57 <Yaniel>	no I mean the physical size
+Feb 11 20:57:59 <Yaniel>	not pixel size
+Feb 11 20:59:50 <belak>	Yeah, 300mm x 170mm - it's not exact, but they're off by less than 5mm each
+Feb 11 21:00:14 <belak>	eDP1 connected primary 1920x1080+0+0 (normal left inverted right x axis y axis) 300mm x 170mm
+Feb 11 21:01:15 <belak>	Yes, forcing the scale factor to 1 seems to have the intended result
+Feb 11 21:01:50 <Yaniel>	maybe other applications just ignore the screen size vs resolution, while alacritty adjusts itself to account for that
+Feb 11 21:01:59 <Yaniel>	I recall X11 being absolute garbage when it comes to this
+Feb 11 21:02:17 <belak>	From what I can tell, the ratio comes directly from the monitor itself
+Feb 11 21:02:50 <belak>	https://github.com/alacritty/alacritty/blob/master/alacritty/src/display/mod.rs#L196
+Feb 11 21:03:58 <belak>	Both estimated dpr, and dpr are the same
+Feb 11 21:04:07 <belak>	At least for this case
+Feb 11 21:14:25 <belak>	I have to admit, I'm not particularly sure where this value is coming from
