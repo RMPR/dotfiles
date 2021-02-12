@@ -9039,3 +9039,648 @@ Feb 11 21:18:25 <rustysysdev_>	cmurf, Interesting, and thanks! Its seems to be t
 Feb 11 21:18:44 <cmurf>	humm
 Feb 11 21:19:06 <cmurf>	i wonder if that's part of Server related kickstart stuff
 Feb 11 21:19:53 <cmurf>	i think originally it was ext4 /boot and xfs /
+Feb 11 21:20:05 <cmurf>	maybe it got changed to xfs for both
+Feb 11 21:20:27 <cmurf>	and now with btrfs preset it defers to the Server kickstart for /boot
+Feb 11 21:20:54 <rustysysdev_>	not sure, but if the bootloader cannot indeed do replay then it indeed should be changed.. I wonder if the bootloader can somehow do replay now?
+Feb 11 21:21:04 <cmurf>	nope
+Feb 11 21:21:08 <cmurf>	not for ext4 either
+Feb 11 21:22:44 <cmurf>	it's just to complicated to have two different places to maintain journal replay code, so far no one is interested in doing it
+Feb 11 21:23:17 <cmurf>	in no particular order, use FAT, ext2, ext4 with journaling disabled, or btrfs
+Feb 11 21:23:23 <slop>	This community here is so nice. Ive been in other channels that people are very..... impatient? snipe-ish?
+Feb 11 21:23:46 <rustysysdev_>	I have been using netinstaller for everything since fedora 21.. possibly before then.. but cannot remember. I remember it used to provision ext2, and then ext4, and now even on my 32 install its xfs
+Feb 11 21:23:55 <cmurf>	i can't remember either
+Feb 11 21:24:25 <cmurf>	yeah almost no chance you run into this, because also dracut does an FIFREEZE/FITHAW on /boot on xfs
+Feb 11 21:24:45 <cmurf>	that flushes the journal to the fs, so that the bootloader has a consistent view
+Feb 11 21:25:11 <cmurf>	so this teeny tiny issue probably won't ever happen in the usual case
+Feb 11 21:25:20 <cmurf>	s/usual case/normal usage/
+Feb 11 21:26:35 <cmurf>	also systemd does a umount of /boot which also flushes journal to fs metadata
+Feb 11 21:27:52 <rustysysdev_>	so not a huge issue, in that the file system should never see an unclean state.. but probably better to switch.. I think ill move it to ext4 with journaling disabled.
+Feb 11 21:27:53 <cmurf>	so the only time you might get in trouble is: (a) modify anything related to the current default boot files, such as /boot/loader/entries files (b) reboot -f or sysrq+b or crash
+Feb 11 21:28:09 <cmurf>	not a huge issue
+Feb 11 21:28:12 <cmurf>	teeny tiny
+Feb 11 21:28:34 <rustysysdev_>	got it! and thanks agian!
+Feb 11 21:29:00 <cmurf>	which means my review of your kickstart is weak :P
+Feb 11 21:29:07 <cmurf>	someone else should look at it for something more serious
+Feb 11 21:29:40 <rustysysdev_>	:D well, i will take any review over none!
+Feb 11 21:41:24 <slop>	cmurf, how did you learn the items above?
+Feb 11 21:44:54 <cmurf>	slop: suffering
+Feb 11 21:44:56 <cmurf>	haha
+Feb 11 21:45:18 <cmurf>	i dunno the whole story but someone filed a bug, they had /boot as a directory on an XFS /
+Feb 11 21:45:41 <cmurf>	and something was consistently preventing the usual behavior of / being remounted ro
+Feb 11 21:46:04 <cmurf>	/ can't be unmounted on a reboot, but it should be remounted ro, which also flushes the journal
+Feb 11 21:46:50 <cmurf>	even though it wasn't remounted ro, the system was rebooted anyway rather than hang (which we could have a lot of legit debate about what to do about this)
+Feb 11 21:47:17 <cmurf>	but the consequence was, the bootloader didn't see the changes in /boot - it saw a 0 byte grub.cfg following kernel upgrades
+Feb 11 21:47:23 <slop>	haha :) very impressed no joke
+Feb 11 21:47:28 <cmurf>	so it face planted
+Feb 11 21:48:07 <cmurf>	and if all you did was boot from a usb rescue, and mount the file system, journal replay happened, the grub.cfg was fine
+Feb 11 21:48:28 <cmurf>	but if you mounted root ro,nologreplay - it was 0 bytes
+Feb 11 21:48:54 <cmurf>	so yeah, fixing it was just mount normally and then reboot, grub works now
+Feb 11 21:49:17 <cmurf>	but the key thing is you want to prevent these things in the first place :)
+Feb 11 21:49:23 <slop>	nice, I wouldve missed that completely. nice work
+Feb 11 21:49:33 <cmurf>	oh it drove me nuts
+Feb 11 21:50:00 <cmurf>	and it turns into a bit of head butting upstream, like the bootloader doing the wrong thing, the file system doing the wrong thing, on and on
+Feb 11 21:50:08 <cmurf>	you know, finger pointing
+Feb 11 21:50:37 <cmurf>	as it turns out, everyone is right but that doesn't solve the problem
+Feb 11 21:52:00 <d9k>	if that would happen with bls you would just not get the entry for the next kernel i think
+Feb 11 21:52:18 <d9k>	since all the bits are generated from the conf at /loader and grub.cfg is untouched
+Feb 11 21:52:19 <cmurf>	i think so
+Feb 11 21:52:22 <d9k>	should be untouched..
+Feb 11 21:52:25 <cmurf>	right
+Feb 11 21:52:27 <cmurf>	good point
+Feb 11 21:52:46 <cmurf>	this might be totally obsoleted by bls
+Feb 11 21:52:49 <slop>	cmurf, I get that completely -  thank you
+Feb 11 21:53:39 <cmurf>	the last write should be to write a new bls file, and it should either be present or not
+Feb 11 21:54:10 <cmurf>	from the perspective of the bootloader
+Feb 11 21:54:17 <d9k>	if a new grub.cfg is moved in its place to replace it and only the metadata update happened then you would be in the same situation
+Feb 11 21:54:44 <d9k>	even if it is the same data just written over
+Feb 11 21:54:56 <cmurf>	right
+Feb 11 21:55:07 <cmurf>	in that case it's involving rename
+Feb 11 21:55:32 <d9k>	chattr +i grub.cfg problem solved hehe
+Feb 11 21:55:51 <cmurf>	so you can end up with 0 length files because the journal contains the rename, not yet flushed to the fs itself which is all the bootloader sees
+Feb 11 21:56:09 <d9k>	yeah
+Feb 11 21:56:27 <cmurf>	in practice, nothing changes grub.cfg anymore but a sysadmin
+Feb 11 21:58:26 <cmurf>	maybe one day i'll try to sabotage this again and see if i can break anything
+Feb 11 21:58:56 <cmurf>	dm-log-writes would be a better way to do it
+Feb 11 21:59:39 <cmurf>	it breaks down all changes so we can see whether a crash at each step results in an undesirable/unmanagable view of the filesystem
+Feb 11 22:01:32 <cmurf>	dm-log-writes is really cool, one of the btrfs maintainers wrote that for power fail testing, now the xfstests that are used by all linux file systems includes tests using dm-log-writes
+Feb 11 22:05:40 *	cberg goes and disables journaling on his ext4 /boot
+Feb 11 22:05:44 <cmurf>	lol
+Feb 11 22:06:08 <rustysysdev_>	trying to figure out how to do that from kickstart right now
+Feb 11 22:06:34 <rustysysdev_>	I am guessing its an fsoption but cant find the specific option
+Feb 11 22:06:36 <cmurf>	rustysysdev_: i think you're looking for --mkfsopts
+Feb 11 22:06:46 <cmurf>	and it's -O ^journal something something
+Feb 11 22:06:53 <rustysysdev_>	lol
+Feb 11 22:06:54 <d9k>	that reminded me that i still have a btrfs crash to report, one of these days im gonna do it https://0x0.st/-H7i.txt
+Feb 11 22:07:11 <d9k>	5.10.5 still works
+Feb 11 22:07:14 <rustysysdev_>	Thanks! Ill see if I can find it!
+Feb 11 22:07:39 <cmurf>	d9k check line 2
+Feb 11 22:07:41 <cmurf>	# BTRFS critical (device ram0): corrupt leaf: block=1815937024 slot=85 extent bytenr=67174400 len=1007496933805460773 invalid extent data ref hash, item has 0x0dfb591f93c50d24 key has 0x0dfb591f93c50d25
+Feb 11 22:07:56 <cmurf>	bit flip of the checksum itself
+Feb 11 22:07:59 <d9k>	yeah i know, lots and lots of shared extents
+Feb 11 22:08:02 <d9k>	the file is very big
+Feb 11 22:08:22 <cmurf>	i didn't even get that far
+Feb 11 22:08:37 <cmurf>	the corrupt leaf is metadata corruption, that's a big deal
+Feb 11 22:08:42 <cmurf>	this looks like xxhash?
+Feb 11 22:08:53 <d9k>	no
+Feb 11 22:09:02 <d9k>	the mkfs is right there
+Feb 11 22:09:42 <cmurf>	this is reproducible?
+Feb 11 22:09:44 <d9k>	very
+Feb 11 22:09:49 <d9k>	that is the reproducer
+Feb 11 22:09:58 <d9k>	happens very fast
+Feb 11 22:10:16 <cmurf>	line 4, the write time tree checker sees it
+Feb 11 22:10:23 <cmurf>	and goes ro to prevent further corruption
+Feb 11 22:10:44 <cmurf>	a reproducible bit flip in the checksum - that's curious
+Feb 11 22:11:44 <d9k>	that generates a initramfs image that you can run in qemu with -kernel -initrd
+Feb 11 22:12:42 <cmurf>	this is cool, wish i understood it better
+Feb 11 22:13:05 <cmurf>	yeah so just file a bug containing this whole thing in the description, file against kernel
+Feb 11 22:13:23 <d9k>	https://github.com/tlahdekorpi/archivegen/tree/aligned + https://github.com/tlahdekorpi/mkinitcpio-ag
+Feb 11 22:13:32 <cmurf>	once it's submitted, you should be able to change the assignee field to ...
+Feb 11 22:13:49 <d9k>	im very bad at submitting bug reports
+Feb 11 22:13:58 <cmurf>	fedora-kernel-btrfs@fedoraproject.org
+Feb 11 22:14:21 <cmurf>	this doesn't need much explanation i think?
+Feb 11 22:14:49 <cmurf>	i mean, even post it on linux-btrfs@, subject "reproducible bit flip?" haha
+Feb 11 22:16:57 <d9k>	https://0x0.st/-H7K.txt
+Feb 11 22:18:02 <cmurf>	i like the other one better
+Feb 11 22:18:22 <cmurf>	line 8 has an anomaly
+Feb 11 22:18:31 <cmurf>	Filesystem size: is followed by a single dmesg line
+Feb 11 22:18:39 <d9k>	its qemu output
+Feb 11 22:18:41 <d9k>	i copied
+Feb 11 22:19:22 <rustysysdev_>	cmurf, sorry to inturrupt your conversation with d9k, but how is this: `part /boot --fstype="ext4" --mkfsoptions="-O ^has_journal" --ondisk=sda --size=1024`
+Feb 11 22:19:41 <cmurf>	looks correct
+Feb 11 22:19:49 <rustysysdev_>	Thanks!
+Feb 11 22:20:18 <cmurf>	the idea of journal replay is to avoid lengthy fsck, it doesn't inherently make the fs safer
+Feb 11 22:20:39 <cmurf>	and an unclean shutdown means ext4 gets an fsck, it's pretty fast on a dedicated /boot volume
+Feb 11 22:21:07 <cmurf>	and chances are the bootloader won't get confused, either old or new file will be there
+Feb 11 22:21:21 <cmurf>	:P
+Feb 11 22:21:37 <rustysysdev_>	got it! testing the install now!
+Feb 11 22:21:39 <rustysysdev_>	:)
+Feb 11 22:21:39 <cmurf>	we are in the territory of how many angels dance on headpins
+Feb 11 22:21:42 <rustysysdev_>	lol
+Feb 11 22:21:54 *	Guest53040 is now known as piter
+Feb 11 22:21:56 <d9k>	you can run this yourself, also submit if you feel like it. i did the same thing backwards with c and libarchive and ran into another bug
+Feb 11 22:22:06 <d9k>	https://0x0.st/iOnY.txt this a few months ago
+Feb 11 22:22:12 *	piter is now known as peter
+Feb 11 22:22:32 *	peter is now known as piterpan
+Feb 11 22:22:55 <d9k>	not that reproducible than the other one
+Feb 11 22:23:09 <cmurf>	and that's a loop device
+Feb 11 22:24:02 <d9k>	yes?, i dont want to crash my rootfs
+Feb 11 22:24:47 <d9k>	https://0x0.st/iOnI.c this is the c bits
+Feb 11 22:25:03 <d9k>	now that only works on a very specific looking tars
+Feb 11 22:25:41 <cmurf>	yeah i just mean it's not isolated to some sort of ramdisk weirdness
+Feb 11 22:27:04 <d9k>	i tried to do a small reproducer in c but failed
+Feb 11 22:27:11 <cmurf>	either upstream email list, or file a rhbz bug with the assignee changed
+Feb 11 22:27:26 <cmurf>	if the assignee can't be changed you can put in cc: field or ping me and i'll change it
+Feb 11 22:27:46 <cmurf>	and then the right people get informed
+Feb 11 22:28:23 <cmurf>	so is the bit flip something you're inducing? i don't follow that
+Feb 11 22:28:34 <cmurf>	or it something that just happens?
+Feb 11 22:28:46 <d9k>	im literally creating a tar with shared extents over and over of the same file
+Feb 11 22:28:52 <cmurf>	the bit flip isn't normal, but the file system doing a hard stop is normal
+Feb 11 22:30:20 <cmurf>	do you think the examples are all related?
+Feb 11 22:31:09 <d9k>	https://0x0.st/iVeT.txt this happened once doing the extract backwards but i cant reproduce
+Feb 11 22:32:22 <d9k>	its all something to do with enospc i think
+Feb 11 22:32:50 <d9k>	but not completely certain
+Feb 11 22:33:00 <cmurf>	include kernel version
+Feb 11 22:33:08 <cmurf>	these are all 5.10?
+Feb 11 22:33:18 <d9k>	just the latest
+Feb 11 22:33:31 <d9k>	5.10.15
+Feb 11 22:34:13 <cmurf>	there are definitely dark corners related to enospc still, but i'm not aware of any of them that results in bitflips
+Feb 11 22:36:18 <d9k>	can you reproduce that?
+Feb 11 22:37:17 <cmurf>	i can't code my way out of a hat
+Feb 11 22:38:06 <cmurf>	and this looks like someone who can, would be able to reproduce if it's reproducible
+Feb 11 22:38:59 <cmurf>	if i've got descrete steps then  yeah i'd run it on 5.11-rc7+debug and see if it reproduces
+Feb 11 22:45:32 <cmurf>	d9k: the very first one https://0x0.st/-H7i.txt
+Feb 11 22:45:50 <cmurf>	you always git a bit flip? or does the problem vary?
+Feb 11 22:45:51 <d9k>	im making instructions
+Feb 11 22:45:54 <d9k>	always
+Feb 11 22:45:56 <d9k>	100%
+Feb 11 22:46:28 <cmurf>	and are you using btrfs elsewhere like for sysroot? and you never have btrfs report issues there?
+Feb 11 22:46:39 <cmurf>	(on the same computer)
+Feb 11 22:47:15 <d9k>	yes, and im not doing funny stuff like sharing too many extents
+Feb 11 22:47:28 <d9k>	and no issues
+Feb 11 22:47:31 <d9k>	recently
+Feb 11 22:48:02 <cmurf>	well sharing many exents is something btrfs just does, sorta baked into the game
+Feb 11 22:48:10 <TheHermann>	what is the best way to install discord?
+Feb 11 22:48:18 <cmurf>	you snapshot / and 100% of the extents are now shared
+Feb 11 22:49:09 <cmurf>	but it doesn't matter how much of an edge case your test is, if it's reproducible it's probably a bug somewhere, not sure where
+Feb 11 22:49:23 <linuxmodder>	TheHermann, in rpmfusion or flatpak
+Feb 11 22:50:07 <d9k>	so what the point of that whole feature is to make cpios where all the files are shared extents and the archive only takes a few kb
+Feb 11 22:50:17 <d9k>	for initramfs images, instead of compression and copying
+Feb 11 22:50:23 <d9k>	it works fine, btrfs just crashes
+Feb 11 22:55:46 <TheHermann>	linuxmodder, thanks :)
+Feb 11 22:57:38 <d9k>	https://0x0.st/-H7V.txt now it actually crashed
+Feb 11 23:06:09 <d9k>	cmurf: instructions https://0x0.st/-H7w.txt, im sure you'll manage
+Feb 11 23:16:22 <slop>	with my level of experience.. would be a reload  :D
+Feb 11 23:19:29 <cmurf>	d9k: what all should i install on top of f34 (branched rawhide now) for this?
+Feb 11 23:19:34 <cmurf>	do i need go?
+Feb 11 23:19:37 <d9k>	only go
+Feb 11 23:19:43 <d9k>	and gawk?
+Feb 11 23:22:12 <cmurf>	not sure what $ # modify mkinitcpio to contain the archivegen binary in PATH means
+Feb 11 23:22:35 <d9k>	the mkinitcpio script has a PATH variable at the top, point it to the cloned archivegen directory
+Feb 11 23:22:50 <d9k>	so it can generate the reprocuder and include itself in it
+Feb 11 23:23:02 <d9k>	or preprend to the beginning!
+Feb 11 23:24:12 <cmurf>	relative or absolute path?
+Feb 11 23:24:15 <cmurf>	../archivegen/archivegen
+Feb 11 23:24:17 <d9k>	absolute
+Feb 11 23:24:25 <d9k>	it doesnt matter
+Feb 11 23:24:35 <d9k>	but just make it absolute
+Feb 11 23:24:38 <cmurf>	does ~/ count or should it be strictly absolute
+Feb 11 23:24:45 <d9k>	path doesnt expand ~
+Feb 11 23:24:49 <d9k>	i think?
+Feb 11 23:25:10 <cmurf>	*shrug* i'll do /home/chris/playground.test/archivegen/archivegen
+Feb 11 23:25:38 <d9k>	oh it does
+Feb 11 23:26:39 <digup>	hey guys, I have problem opening gnome-boxes
+Feb 11 23:26:49 <d9k>	https://0x0.st/-H75.txt, now i know
+Feb 11 23:27:18 <foxide>	You can also use $HOME
+Feb 11 23:27:39 <cmurf>	where is PATH in the mkinitcpio file? i see export PATH
+Feb 11 23:27:48 <d9k>	exactly that
+Feb 11 23:28:07 <cmurf>	replace what's there or add to the end?
+Feb 11 23:28:26 <d9k>	foxide: it is expanded by the shell using normal convention, so '$HOME' wont work, ~ is special case
+Feb 11 23:28:47 <d9k>	it doesnt matter since it only is used for looking up the archivegen binary
+Feb 11 23:29:00 <foxide>	d9k: Bet you you're wrong.
+Feb 11 23:29:10 <cmurf>	 24 export PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/chris/playground.test/archivegen/archivegen'
+Feb 11 23:29:14 <d9k>	yeah
+Feb 11 23:29:28 <d9k>	make sure thats the directory
+Feb 11 23:29:31 <d9k>	not the binary
+Feb 11 23:29:53 <foxide>	d9k: https://bpa.st/IJSA
+Feb 11 23:30:07 <d9k>	foxide: try PATH='$HOME' type -P .bashrc
+Feb 11 23:30:20 <d9k>	you are expanding the $HOME variable inside ""
+Feb 11 23:30:23 <d9k>	use literals
+Feb 11 23:30:48 <cmurf>	ok so next i go to https://0x0.st/-H7i.txt save all that out as a file named reproducer
+Feb 11 23:31:03 <d9k>	literally copy paste the command i had in the instructions
+Feb 11 23:31:27 <d9k>	yes
+Feb 11 23:31:45 <cmurf>	i'm copying the whole thing unless that's wrong
+Feb 11 23:31:52 <d9k>	the entire thing
+Feb 11 23:31:54 <cmurf>	into mkinitcpio-ag/
+Feb 11 23:32:12 <d9k>	into your $PWD
+Feb 11 23:32:29 <d9k>	literally curl the-url > reproducer
+Feb 11 23:32:51 <cmurf>	well i'm still in mkinitcpio-ag
+Feb 11 23:32:59 <d9k>	dont move!
+Feb 11 23:33:00 <cmurf>	so i assume in there
+Feb 11 23:33:04 <d9k>	yes
+Feb 11 23:33:42 <d9k>	ah right you need busybox ofc
+Feb 11 23:33:56 <cmurf>	$ head -n1 reproducer
+Feb 11 23:33:57 <cmurf>	# mkinitcpio -o busybox -K btrfs,brd - < btrfs-crash > out
+Feb 11 23:34:40 <cmurf>	installing busybox, do i need to repeat the head command afterward?
+Feb 11 23:34:48 <d9k>	thats just a reminder what to run
+Feb 11 23:35:38 <cmurf>	ok so i should run ./mkinitcpio -o busybox -K btrfs,brd - < reproducer > out
+Feb 11 23:35:52 <d9k>	yes
+Feb 11 23:36:12 <cmurf>	./mkinitcpio: line 494: archivegen: command not found
+Feb 11 23:36:13 <cmurf>	hmm
+Feb 11 23:36:30 <d9k>	did you put the path to the binary instead of the directory containing the binary
+Feb 11 23:37:20 <cmurf>	yes
+Feb 11 23:37:29 <d9k>	are you sure?
+Feb 11 23:38:06 <cmurf>	pretty sure
+Feb 11 23:38:08 <cmurf>	https://paste.centos.org/view/0077f2f3
+Feb 11 23:38:20 <d9k>	thats the binary
+Feb 11 23:38:23 <d9k>	not the directory
+Feb 11 23:38:54 <d9k>	PATH works in directories, '/home/chris/playground.test/archivegen' is what you want
+Feb 11 23:39:48 <cmurf>	soexport PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/chris/playground.test/archivegen'
+Feb 11 23:39:53 <d9k>	yes!
+Feb 11 23:39:54 <cmurf>	that works now
+Feb 11 23:40:22 <cmurf>	ok so for the qemu command...
+Feb 11 23:40:47 <cmurf>	should i at some point virsh console to watch it blow up or will it dump to stdout in the terminal window?
+Feb 11 23:41:10 <d9k>	nope just qemu will do
+Feb 11 23:42:03 <cmurf>	https://paste.centos.org/view/84f4186e
+Feb 11 23:42:45 <d9k>	your kernel is /boot/vmlinuz-$(uname -r)
+Feb 11 23:42:46 <cmurf>	where is the path to kernel file so i can change it
+Feb 11 23:43:01 <cmurf>	oh i'm a literal idiot
+Feb 11 23:43:02 <cmurf>	haha
+Feb 11 23:43:59 <cmurf>	https://paste.centos.org/view/15e7d6bd
+Feb 11 23:44:36 <d9k>	you can use -curses
+Feb 11 23:44:38 <cmurf>	is gtk in this case a reference to gtk2? that's not included in f34 by default
+Feb 11 23:44:44 <d9k>	or -nographic should work too
+Feb 11 23:46:06 <d9k>	instead of '-serial stdio -vga none' you can just -nographic
+Feb 11 23:47:44 <cmurf>	oooooo it's running!
+Feb 11 23:49:06 <cmurf>	reproduces
+Feb 11 23:49:18 <cmurf>	but slightly different or maybe the line is cut off
+Feb 11 23:49:22 <d9k>	nice, did it crash or write time corruption
+Feb 11 23:49:24 <cmurf>	this line looks cut off
+Feb 11 23:49:28 <cmurf>	write time corruption
+Feb 11 23:49:58 <d9k>	you can ctrl-a + c to bring up the monitor
+Feb 11 23:50:03 <d9k>	quit to quit and reset to run again!
+Feb 11 23:50:12 <d9k>	system_reset
+Feb 11 23:50:31 <cmurf>	there is a line cut off
+Feb 11 23:50:32 <cmurf>	[   38.448497] BTRFS critical (device ram0): corrupt leaf: block=1606582272 slot=54 extent bytenr=67174400 len=1007496932279426349 invalid extent data ref had
+Feb 11 23:50:52 <cmurf>	may not matter
+Feb 11 23:50:56 <d9k>	use dmesg
+Feb 11 23:50:58 <d9k>	the command
+Feb 11 23:51:11 <cmurf>	?
+Feb 11 23:51:13 <cmurf>	where
+Feb 11 23:51:17 <d9k>	im the vm
+Feb 11 23:51:23 <d9k>	in*
+Feb 11 23:51:44 <cmurf>	no prompt
+Feb 11 23:52:03 <cmurf>	ctrl-a + c ?
+Feb 11 23:52:15 <d9k>	are in the monitor console?
+Feb 11 23:52:37 <d9k>	its a toggle for entering the monitor mode
+Feb 11 23:52:48 <cmurf>	i see - no idea what that is
+Feb 11 23:52:55 <cmurf>	i can do dmesg but it too is cutoff
+Feb 11 23:53:13 <d9k>	it should drop you into a bash shell
+Feb 11 23:53:26 <d9k>	spam enter
+Feb 11 23:53:31 <d9k>	ctrl-c
+Feb 11 23:53:42 <cmurf>	no scp
+Feb 11 23:53:42 <cmurf>	haha
+Feb 11 23:53:44 <cmurf>	old habit
+Feb 11 23:54:01 <cmurf>	yeah i'm at a bash shell but dmesg has the same issue here, it's cut off
+Feb 11 23:54:09 <d9k>	use less
+Feb 11 23:54:19 <cmurf>	?
+Feb 11 23:54:22 <d9k>	dmesg|less
+Feb 11 23:55:15 <cmurf>	ahh
+Feb 11 23:55:20 <cmurf>	yeah that does work
+Feb 11 23:56:41 <cmurf>	oh i see why i'm confused the kernel buffer is full
+Feb 11 23:56:49 <cmurf>	starts at 41s
+Feb 11 23:57:24 <cmurf>	but yeah anyway it's the same thing
+Feb 11 23:57:25 <cmurf>	[   74.086701] BTRFS critical (device ram0): corrupt leaf: block=1714552832 slot=34 extent bytenr=1464860672 len=1007496932187790328 invalid extent data ref h
+Feb 11 23:57:27 <cmurf>	ash, item has 0x0dfb591f33595bf7 key has 0x0dfb591f33595bf8
+Feb 11 23:57:29 <cmurf>	bit flip
+Feb 11 23:57:40 <d9k>	more like off by 1
+Feb 11 23:57:41 <cmurf>	that is awesome
+Feb 11 23:57:47 <cmurf>	or yeah off by one
+Feb 11 23:57:54 <cmurf>	weird
+Feb 11 23:57:57 <cmurf>	no idea
+Feb 11 23:58:34 <cmurf>	wish i could get this dmesg file out of the vm
+Feb 11 23:59:35 <d9k>	i always just copy the relevant bits from terminal bit you can mount a file rw and just dmesg > /dev/vda
+Feb 12 00:00:36 <cmurf>	mount a file
+Feb 12 00:00:54 <d9k>	ahem, a disk like with -hda
+Feb 12 00:01:24 <cmurf>	ahh ok so start over
+Feb 12 00:01:38 <cmurf>	add a disk, write to it as a disk in the vm but it's a file outside the vm
+Feb 12 00:05:36 <cmurf>	how far back does this go? you tried it with 5.8?
+Feb 12 00:06:18 <d9k>	a year?
+Feb 12 00:07:34 <d9k>	you dont need to use just qemu, virt-manager can do all the vm bits if thats more comfortable
+Feb 12 00:07:39 <d9k>	qemu directly*
+Feb 12 00:08:18 <d9k>	you need to add virtio-blk to the image
+Feb 12 00:08:51 <d9k>	so -K virtio-blk,btrfs,brd
+Feb 12 00:08:51 <cmurf>	what device does -hda become in the vm?
+Feb 12 00:08:54 <d9k>	sda
+Feb 12 00:09:04 <cmurf>	i see sda but writing to it doesn't show up in the host
+Feb 12 00:09:15 <cmurf>	the file is still 0 length
+Feb 12 00:09:20 <d9k>	write caching?
+Feb 12 00:09:34 <cmurf>	*shrug*
+Feb 12 00:09:37 <cmurf>	still 0
+Feb 12 00:09:39 <cmurf>	been a while
+Feb 12 00:09:49 <d9k>	do a mkfs.btrfs and write a real file in there
+Feb 12 00:10:38 <cmurf>	there's a hint, it's not sparse, it's literally 0 so it can't be written to, even mkfs fails haha
+Feb 12 00:14:01 <cmurf>	ok that is doing what i want
+Feb 12 00:14:06 <cmurf>	and i don't have to mkfs
+Feb 12 00:14:24 <d9k>	this is just a minimal reprocuder i made to run in a unattended vm but you can run the for loop ofc on your running kernel
+Feb 12 00:14:28 <d9k>	NOT on your own rootfs
+Feb 12 00:14:44 <d9k>	that would be bad
+Feb 12 00:15:53 <d9k>	a separate kernel is just help with not crashing your running system accidentally, or corrupting anything
+Feb 12 00:16:15 <cmurf>	yeah
+Feb 12 00:16:38 <cmurf>	this is one reason why i use subvolumes/rw snapshots to isolate things
+Feb 12 00:16:59 <cmurf>	it's still shared trees for everything but that file tree
+Feb 12 00:17:50 <cmurf>	but if the corruption can be trimmed out by just deleting a subvolume, it just dereferences nodes that contain the problem rather than cow
+Feb 12 00:18:03 <cmurf>	if it read it, to cow, it'd hit the corruption and faceplant
+Feb 12 00:18:08 <cmurf>	just like in qemu
+Feb 12 00:18:27 <cmurf>	but oh ignore what i just wrote - the root file system would go read only because of this
+Feb 12 00:19:00 <cmurf>	the question is whether the write time tree check stopped it before it was written out, and i think the answer to that is yes
+Feb 12 00:19:06 <cmurf>	might be cool to prove it
+Feb 12 00:19:08 <cmurf>	:D
+Feb 12 00:19:13 <d9k>	umount and mount again
+Feb 12 00:19:15 <d9k>	files are gone
+Feb 12 00:19:31 <cmurf>	i think you'd have to reboot
+Feb 12 00:19:35 <d9k>	no no
+Feb 12 00:19:39 <d9k>	just umount after the crash
+Feb 12 00:19:44 <cmurf>	unmount what
+Feb 12 00:19:49 <cmurf>	unmount /
+Feb 12 00:19:54 <cmurf>	i'm talking about doing this NOT in qemu
+Feb 12 00:19:59 <d9k>	oh
+Feb 12 00:20:02 <d9k>	ohh
+Feb 12 00:20:02 <cmurf>	on baremetal with my real file system
+Feb 12 00:20:15 <cmurf>	come on i'm a saboture
+Feb 12 00:20:35 <cmurf>	saboteur even :P
+Feb 12 00:21:19 <cmurf>	but yeah what you describe is what i expect, you'd reboot, and things would be fine you'd just lose whatever happened since the last 30s commit
+Feb 12 00:22:13 <cmurf>	ok i'll ask one of the maintainers about it and if they need more info
+Feb 12 00:22:54 <d9k>	since this is a quick reprocuder i imagine it wouldnt be too hard to debug, since reproducing is always the hard bit
+Feb 12 00:23:03 <cmurf>	do you know if this uses o_direct?
+Feb 12 00:23:15 <cmurf>	well the backing file is memory so this can be that bug hmm
+Feb 12 00:23:27 <d9k>	i think so
+Feb 12 00:23:42 <d9k>	or what you mean
+Feb 12 00:23:49 <cmurf>	so
+Feb 12 00:24:28 <cmurf>	consider a more persistent virt-manager setup, raw backing file, and you use a cache mode that supports o_direct like none
+Feb 12 00:24:39 <cmurf>	or directsync
+Feb 12 00:25:07 <cmurf>	and if that raw backing file is on btrfs, and is datacow, your raw backing file is being checksummed
+Feb 12 00:25:45 <cmurf>	o_direct allows file systems to do inflight changes of buffered data, there's no enforcement for stable writes
+Feb 12 00:26:22 <cmurf>	so we get a write and checksum for the write in the raw file; and a subsequent inflight write changes the data does not update the csum and we start seeing csum errors
+Feb 12 00:27:24 <cmurf>	part of why the default is nodatacow for raw/qcow2 files on btrfs with libvirt, and the default cache mode is writeback
+Feb 12 00:27:28 <cmurf>	problem doesn't happen with either of those
+Feb 12 00:27:43 <cmurf>	i have a bug for that
+Feb 12 00:28:35 <cmurf>	https://bugzilla.redhat.com/show_bug.cgi?id=1914433
+Feb 12 08:00:13 *	Disconnected ()
+**** ENDING LOGGING AT Fri Feb 12 08:00:13 2021
+
+**** BEGIN LOGGING AT Fri Feb 12 08:00:38 2021
+
+Feb 12 08:00:38 *	Now talking on #fedora
+Feb 12 08:00:38 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 12 08:00:38 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 12 08:00:38 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 12 08:21:05 <mkowalski_>	Good morning
+Feb 12 08:21:52 <mkowalski_>	Question about reporting such a problem - dmesg for `input` shows a device name with the typo; what would be the best place to report such an issue?
+Feb 12 08:22:27 <mkowalski_>	Does it belong under xlibinput or is it something more for the OS itself?
+Feb 12 08:23:19 <chrisawi>	are you sure it's not coming from the device itself? what is the typo exactly?
+Feb 12 08:24:06 <mkowalski_>	Ok, so yesterday I've been updating kernel and some other packages. Before I had `'Logitech MX Ergo Mouse'` which now became `'Logitech MX Ergo Multi-Device Trackball '` <-- note the space at the end
+Feb 12 08:24:26 <mkowalski_>	Given that it's the same device, it's not something that would be coming from it I guess (otherwise why would the name change)
+Feb 12 08:36:28 <chrisawi>	maybe the logitech unifying receiver got a firmware update via fwupd?
+Feb 12 08:37:18 <mkowalski_>	It's a bluetooth device and no fw update happened in between
+Feb 12 08:37:28 <mkowalski_>	https://pastebin.com/raw/phbLsLun <-- some info if anything would help here, but I doubt
+Feb 12 08:37:49 <mkowalski_>	From the bluetoothctl perspective its name is only "MX Ergo", so I wonder where exactly the full name comes from
+Feb 12 08:39:48 <mkowalski_>	From the update log I see that it's been kernel upgrading to 5.10.13 and libevdev to 1.11.0, so I wonder if that could be coming from the latter
+Feb 12 08:43:08 <mkowalski_>	In the kernel itself I have only managed to find this commit -- https://github.com/torvalds/linux/commit/7de843dbaaa68aa514090e6226ed7c6374fd7e49 -- but it does not seem to be included in 5.10.13, thus probably irrelevant
+Feb 12 11:29:40 <mrvenkman>	Hi. Using Gnome boxes - I have found that deleting the box via the right click menu, there is no warning, but there is a "undo delete" that pops up straight away.
+Feb 12 11:30:54 <mrvenkman>	Clicking on "undo delete" doesn't undo deleting the box. It is deleted. LUCKILY I knew this behaviour and backed up the image. However, restoring the images into ./local/gnome-boxes/images - the option to use that box still isn't available. I presume I need to also restore some meta data.
+Feb 12 11:31:14 <mrvenkman>	Anyone know where this meta data is normally stored and what it needs to contain?
+Feb 12 11:35:28 <mrvenkman>	https://docs.fedoraproject.org/en-US/Fedora/25/html/Virtualization_Getting_Started_Guide/delete-box.html
+Feb 12 11:35:48 <mrvenkman>	" Click the X on the confirmation notification if you are sure you have deleted the correct boxes. Or click UNDO if you made a mistake. "
+Feb 12 11:36:31 <mrvenkman>	Fedora 33 - clicking undo definitely doesn't undo it. If you click undo, then close gnome boxes and reopen gnome boxes, the image is gone.
+Feb 12 11:53:13 *	Disconnected ()
+**** ENDING LOGGING AT Fri Feb 12 11:53:13 2021
+
+**** BEGIN LOGGING AT Fri Feb 12 13:22:47 2021
+
+Feb 12 13:22:47 *	Now talking on #fedora
+Feb 12 13:22:47 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 12 13:22:47 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 12 13:22:48 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 12 15:57:27 *	Disconnected ()
+**** ENDING LOGGING AT Fri Feb 12 15:57:27 2021
+
+**** BEGIN LOGGING AT Fri Feb 12 15:57:56 2021
+
+Feb 12 15:57:56 *	Now talking on #fedora
+Feb 12 15:57:56 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 12 15:57:56 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 12 15:57:56 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 12 15:58:45 <Khaytsus>	Nope, it does not use dkms.
+Feb 12 15:59:03 <AlwaysLivid>	uninstalling and making sure that i'll use rpmfusion instead
+Feb 12 15:59:13 <AlwaysLivid>	although i think i replaced it specifically for that reason
+Feb 12 15:59:28 <AlwaysLivid>	i couldn't downgrade using rpmfusion because the bleeding edge drivers broke it, i downgraded through the .run package
+Feb 12 15:59:37 <AlwaysLivid>	and nothing really happened
+Feb 12 15:59:39 <Khaytsus>	Oh lord.
+Feb 12 15:59:50 <AlwaysLivid>	eh, it's fine, i already cleaned up
+Feb 12 15:59:53 <Khaytsus>	I specifically asked about the .run package.  You said you used rpmfusion.
+Feb 12 15:59:57 <Southern_Gentlem>	no you havent
+Feb 12 16:00:00 <Khaytsus>	So clean all that up and if you have trouble ask again.
+Feb 12 16:00:27 <AlwaysLivid>	I mean, I originally used RPMFusion when the problem happened.
+Feb 12 16:00:54 <AlwaysLivid>	then disclosed that I switched to the "local repository thing"
+Feb 12 16:00:56 <AlwaysLivid>	but yeah, will do
+Feb 12 16:01:34 <Southern_Gentlem>	so clean up by the rpmfusion documentation
+Feb 12 16:01:48 <Southern_Gentlem>	reinstall to the rpmfusion documentation
+Feb 12 16:02:29 <AlwaysLivid>	Are the Cuda drivers installable with RPMFusion?
+Feb 12 16:02:40 <AlwaysLivid>	(as in with the software libraries and everything)
+Feb 12 16:02:45 <Southern_Gentlem>	read their documentation
+Feb 12 16:03:47 <AlwaysLivid>	yeah i already tried to look that up extensively, was weirdened out about how i have to combine rpmfusion with nvidia's own repositories: https://rpmfusion.org/Howto/CUDA
+Feb 12 16:04:02 <Southern_Gentlem>	https://rpmfusion.org/Howto/NVIDIA?highlight=%28%5CbCategoryHowto%5Cb%29
+Feb 12 16:05:18 <Khaytsus>	Yes CUDA is in rpmfusion by default afaik
+Feb 12 16:05:39 <AlwaysLivid>	understood, was weirdened out because i also installed the package named in that document but had some issues with compiling a project
+Feb 12 16:05:47 <osezer>	Yes cuda is in rpmfusion*
+Feb 12 16:05:48 <AlwaysLivid>	i'll hack around with it later after i get nvidia working again for starters
+Feb 12 16:06:12 <toxane>	no takers of my permissions problem?
+Feb 12 16:06:30 <AlwaysLivid>	apologies for stealing the spotlight :P
+Feb 12 16:06:39 <toxane>	hehe :P
+Feb 12 16:07:09 <Khaytsus>	toxane: Not sure what your question; it should just work as long as you're using defaults.  Any diferent ports will need selinux tweaks.
+Feb 12 16:07:16 <osezer>	toxane:  default nginx just need firewall perm "no selinux" stuff required.
+Feb 12 16:07:36 <toxane>	strange
+Feb 12 16:07:42 <osezer>	It is already set (selinıx config for nginx)  just start service and give perm to firewall and done
+Feb 12 16:07:54 <Khaytsus>	Again, unless he's using different ports than default.
+Feb 12 16:07:54 <osezer>	That's all I do nothing else
+Feb 12 16:08:16 <toxane>	index.html has 0644 and for the directory 0755
+Feb 12 16:08:20 <Khaytsus>	http_port_t defines what ports it can use.
+Feb 12 16:08:27 <osezer>	Khaytsus:  yes, true
+Feb 12 16:08:40 <toxane>	and i use default ports
+Feb 12 16:08:42 <Khaytsus>	toxane: I guses you'll have to look at the audit log to make sure it's not selinux, it'd show up there...  and otherwise, nginx logs
+Feb 12 16:08:59 <toxane>	ah, audit log
+Feb 12 16:09:44 <AlwaysLivid>	I studied https://arewewaylandyet.com/ and was also surprised to see that NVIDIA worked under Wayland in Fedora, wasn't too keen to see it break. The docs also mention disabling Wayland for the time being, so I presume that I'm also supposed to do that, right?
+Feb 12 16:10:17 <Southern_Gentlem>	so basicly run gnome on X yes
+Feb 12 16:10:21 <Khaytsus>	wayland does not work with nvidia to my knowledge
+Feb 12 16:10:58 <osezer>	Khaytsus:  they sent a patch for "kde" and "wayland" team for in order to work. (hopefully work)
+Feb 12 16:10:59 <AlwaysLivid>	yeah it's pretty much broken most of the time but it did work under optimus (which means that it was using my intel igpu but sometimes. for some windows. it used the nvidia card) to my pleasant surprise
+Feb 12 16:11:16 <AlwaysLivid>	until it didn't :P
+Feb 12 16:11:31 <Khaytsus>	Let me restate; I would not attempt to use wayland with nvidia yet.
+Feb 12 16:11:50 <AlwaysLivid>	yeahhhhhh, me neither
+Feb 12 16:11:57 <AlwaysLivid>	reason: i did
+Feb 12 16:16:01 <ComputerKid>	Hello all! I have a question. Would it be possible to/has anyone tried running to instances of Fedora on the same BTRFS pool, but with seperate root and home sub vols?
+Feb 12 16:18:20 <Southern_Gentlem>	ComputerKid, thats not going to work the way you asked the quesiton
+Feb 12 16:18:24 <Southern_Gentlem>	question
+Feb 12 16:18:46 <ComputerKid>	How come?
+Feb 12 16:19:13 <Southern_Gentlem>	the way you wrote that is multiple verson of fedora in the same pool
+Feb 12 16:19:25 <ComputerKid>	yup
+Feb 12 16:19:40 <Southern_Gentlem>	so the same pool will be using the same subvolumes
+Feb 12 16:19:55 <Southern_Gentlem>	so no it will be one version of fedora
+Feb 12 16:20:05 <ComputerKid>	why?
+Feb 12 16:20:16 <ComputerKid>	I'm sorry, I don't understand
+Feb 12 16:20:36 <Southern_Gentlem>	the pool is a subvolume of / and a subvolume of /home
+Feb 12 16:20:59 <Southern_Gentlem>	you would need separate subvolumes for each fedora version
+Feb 12 16:21:16 <Southern_Gentlem>	you would need separate / subvolumes for each fedora version
+Feb 12 16:21:31 <Southern_Gentlem>	home could be shared
+Feb 12 16:21:54 <ComputerKid>	Okay, that's what I meant. I thought that the pool was the top layer, and the subvols were under it
+Feb 12 16:22:09 <Southern_Gentlem>	the pool is all
+Feb 12 16:22:15 <ComputerKid>	okay
+Feb 12 16:22:29 <ComputerKid>	I could share the home but I wonder if that would cause issues
+Feb 12 16:22:32 <Southern_Gentlem>	you would need a separate subvolume for each /
+Feb 12 16:22:46 <ComputerKid>	👍
+Feb 12 16:23:12 <Southern_Gentlem>	also you will have to edit grub to boot each release per subvolume
+Feb 12 16:23:32 <Southern_Gentlem>	so you will have more than one pool for this to happen IMHO
+Feb 12 16:23:46 <Southern_Gentlem>	i will defer to cmurf when he comes in
+Feb 12 16:24:43 <ComputerKid>	So would it be better to have multiple BTRFS partitions?
+Feb 12 16:24:54 <ComputerKid>	And have my boot partition point to both?
+Feb 12 16:27:29 <Khaytsus>	That seems like a mess to me honestly..  Will a VM not do what you need?
+Feb 12 16:30:32 <Southern_Gentlem>	ComputerKid, i suggest setting up vms and test
+Feb 12 16:31:12 <Southern_Gentlem>	and as i said before I defer to cmurf
+Feb 12 16:31:21 <Southern_Gentlem>	he is the btrfs expert
+Feb 12 16:32:19 <Southern_Gentlem>	ComputerKid, besides vms the easy way would be dual booting the machine
+Feb 12 16:32:26 <ComputerKid>	So, the issue I am solving for is that I run my OS in a way where I break stuff. all the time. and I just live with it, I guess I am in a learning phase. But also I need to get stuff done sometime, without interruptions
+Feb 12 16:32:39 <ComputerKid>	Southern_Gentlem Dual booting was my idea
+Feb 12 16:32:52 <ComputerKid>	I just didn't know if I needed 1 or 2 BTRFS partitions
+Feb 12 16:33:15 <Southern_Gentlem>	you will need a btrfs pool for each release
+Feb 12 16:33:27 <Khaytsus>	VM sounds perfect for you then
+Feb 12 16:33:35 <Southern_Gentlem>	but for the issue you stated build a VM
+Feb 12 16:33:35 <Khaytsus>	You can snapshot it and uh..  do whatever dumb stuff you're doing...  and restore snapshot if you break it
+Feb 12 16:33:46 <Southern_Gentlem>	play in the VM and leave your host stable
+Feb 12 16:33:49 <ComputerKid>	Khaytsus do whatever dumb stuff 🤣 XD
+Feb 12 16:33:59 <Khaytsus>	I mean seriously..  I haven't broken a system in many years
+Feb 12 16:34:29 <ComputerKid>	Okay
+Feb 12 16:34:55 <ComputerKid>	I may need to reinstall again, I still have some random cruft floating around on my system
+Feb 12 16:35:10 <ComputerKid>	*radom broken cruft
+Feb 12 16:35:10 <Southern_Gentlem>	*** F33-20210129 updated lives available: https://tinyurl.com/Live-respins2  Built by the Fedora Respin Sig more info #fedora-respins  ***
+Feb 12 16:41:56 <toxane>	i dont get it. i gave "0775" to the nginx user, still permission denied
+Feb 12 16:42:38 <toxane>	the error log says permission denied aswell without further info why
+Feb 12 16:43:27 <Southern_Gentlem>	service running?
+Feb 12 16:43:40 <toxane>	it could not write to the log otherwise :)
+Feb 12 16:44:17 <toxane>	it sees my requests
+Feb 12 16:44:34 <Southern_Gentlem>	google fedora selinux nginx
+Feb 12 16:44:46 <Southern_Gentlem>	i am seeing several pages
+Feb 12 16:44:51 <toxane>	i did, tried a few things. problem persists
+Feb 12 16:45:02 <Southern_Gentlem>	so did you try setenforce 0
+Feb 12 16:45:23 <toxane>	no, because selinux is the reason why i selected fedora
+Feb 12 16:45:43 <Southern_Gentlem>	that way you can see if selinux is blocking or not
+Feb 12 16:46:01 <Southern_Gentlem>	also if it is it should generate errors you can fix
+Feb 12 16:46:16 <toxane>	but why does audit.log contain no single hint?
+Feb 12 16:46:19 <Southern_Gentlem>	setroubleshoot
+Feb 12 16:46:50 <Southern_Gentlem>	no idea but try selinux in permissive so that is one thing that can be ruled out
+Feb 12 16:47:17 <Khaytsus>	Enforcing would still show in audit logs in most cases, but..
+Feb 12 16:47:40 <Khaytsus>	Did you even look in the audit log yet toxane?  It was the first thing i suggested.
+Feb 12 16:47:46 <Southern_Gentlem>	setenforce 0 is a easy quick test
+Feb 12 16:48:09 <Southern_Gentlem>	Khaytsus, <toxane> but why does audit.log contain no single hint?
+Feb 12 16:48:22 <toxane>	am i still here? *poke, poke*
+Feb 12 16:49:11 <toxane>	all terminals to the server frozen. it gets better and better :)
+Feb 12 16:55:08 <toxane>	permissive and "no enforcement" did not chance
+Feb 12 16:55:08 <dowdle>	toxane: No, you are in another universe.
+Feb 12 16:55:18 <toxane>	heh
+Feb 12 16:56:38 <Southern_Gentlem>	so its not selinux, so go back and look at what you changed
+Feb 12 17:12:10 <AlwaysLivid>	hey, i disabled the nvidia repository on rpmfusion to use the .run binary but i forgot how to uhhh re-enable it
+Feb 12 17:12:59 <FranciscoD>	AlwaysLivid: https://docs.fedoraproject.org/en-US/quick-docs/adding-or-removing-software-repositories-in-fedora/#enabling-repositories
+Feb 12 17:13:30 <AlwaysLivid>	uh i should rephrase; what's the repository name of the nvidia repository?
+Feb 12 17:14:00 <FranciscoD>	AlwaysLivid: ls /etc/yum.repos.d/ should show you
+Feb 12 17:14:11 <FranciscoD>	I don't have it here, no nvidia hardware :/
+Feb 12 17:14:21 <AlwaysLivid>	appreciated ^--^
+Feb 12 17:15:04 <Southern_Gentlem>	https://rpmfusion.org/Howto/NVIDIA?highlight=%28%5CbCategoryHowto%5Cb%29
+Feb 12 17:15:09 <Southern_Gentlem>	AlwaysLivid, ^^
+Feb 12 17:15:52 <Khaytsus>	Using the .run binary again!?
+Feb 12 17:15:57 <AlwaysLivid>	why would i
+Feb 12 17:16:16 <AlwaysLivid>	apparently you were right, i didn't manage to clean up the entire thing :P https://dpaste.com/87BYVKV5G
+Feb 12 17:17:07 <AlwaysLivid>	rpmfusion-nonfree-nvidia-driver seems to be enabled (enabled=1, enabled_metadata=1)
+Feb 12 17:19:05 <Southern_Gentlem>	AlwaysLivid, use fpaste please
+Feb 12 17:19:42 <AlwaysLivid>	https://paste.centos.org/view/9f6d6cac
+Feb 12 17:20:17 <Khaytsus>	AlwaysLivid: Okay I misread your statement a few ago..  I thought you said "I disabled rpmfusion to use the .run file" but I see what you meant now.
+Feb 12 17:20:44 <AlwaysLivid>	yeah, pretty much tried a bunch of stuff
+Feb 12 17:20:46 <AlwaysLivid>	some of which i vehemently regret now
+Feb 12 17:22:16 <MathAkemi[m]>	I haven't gotten wine to work on SIlverblue yet.
+Feb 12 17:27:18 <AlwaysLivid>	does installing nouveau (which i've blocked) automatically block you from installing akmod-nvidia?
+Feb 12 17:30:17 <Khaytsus>	AlwaysLivid: nouveau should not be touched at any time
+Feb 12 17:30:21 <Khaytsus>	Not the package, not the module...
+Feb 12 17:30:35 <Khaytsus>	the nvidia rpmfusion packages handle anything necessary
+Feb 12 17:30:52 <AlwaysLivid>	fair, i'll remove the modprobe rule
+Feb 12 17:31:09 <AlwaysLivid>	what do i do about not being able to install the package though
+Feb 12 17:32:13 <ledeni>	AlwaysLivid➡ which package?
+Feb 12 17:32:26 <AlwaysLivid>	https://paste.centos.org/view/9f6d6cac
+Feb 12 17:32:29 <AlwaysLivid>	akmod-nvidia
+Feb 12 17:33:52 <AlwaysLivid>	or xorg-x11-drv-nvidia
+Feb 12 17:38:22 <ledeni>	AlwaysLivid➡  can you give us ls /etc/yum.repos.d/ | fpaste
+Feb 12 17:39:21 <AlwaysLivid>	https://paste.centos.org/view/0e11e2dd ledeni
+Feb 12 17:43:57 <AlwaysLivid>	what's wrong?
+Feb 12 17:47:17 <ledeni>	AlwaysLivid➡ for me repos look alright
+Feb 12 17:47:34 <AlwaysLivid>	enabled module_hotfixes=true for the nvidia repository (disabled modular filtering for the repository), seems to work alright now
+Feb 12 19:06:00 <atrus>	running an efi fedora 33 system, and trying to change some boot options, I ran "grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg" -- but now /boot/efi/EFI/fedora/grub.cfg seems to be missing any menuentry-items for fedora -- no rescue or kernel  entries at all.
+Feb 12 19:07:03 *	noidea__ is now known as noidea_
+Feb 12 19:09:27 <atrus>	i've reverted the change to /etc/default/grub, but it's still not showing any menuentry for fedora at all, so now i'm a little terrified of rebooting.
+Feb 12 19:15:43 <linuxmodder>	what did you change before the grub2-mkconfig ?
+Feb 12 19:16:20 <elagost>	run 'dnf list --installed|grep kernel' and see if you removed your kernels somehow?
+Feb 12 19:16:57 <atrus>	added an option to GRUB_CMDLINE_LINUX=, "systemd.unified_cgroup_hierarchy=0" i believe
+Feb 12 19:17:07 <atrus>	linuxmodder: ^
+Feb 12 19:18:12 <linuxmodder>	might try removing them all and rebuild, then add one at a time
+Feb 12 19:18:27 <atrus>	since the /etc/default/grub file is back the way it was -- i'm not sure if my change actually was related to this not working right any more.
+Feb 12 19:20:37 <atrus>	so the only option currently in GRUB_CMDLINE_LINUX is: GRUB_CMDLINE_LINUX="rd.luks.uuid=luks-c1fe26fd-6da3-4c85-a28f-5ddb7ad7c5a7 rhgb quiet
+Feb 12 19:20:59 <atrus>	(with a double-quote at the end i missed copying :p
+Feb 12 19:21:03 <atrus>	)
+Feb 12 19:22:26 <cmurf>	ComputerKid: hi, yes i do it all the time, doing it right now in fact
+Feb 12 19:23:16 <cmurf>	there are multiple strategies but about the least complicated so far: https://paste.centos.org/view/fe27d9b8
+Feb 12 19:24:16 <cmurf>	all the file systems are shared between f33 and f34, the 'home' subvolume is also shared
+Feb 12 19:24:54 <cmurf>	and it's the BLS snippet in /boot/loader/entries that decides which subvol is mounted at /sysroot
+Feb 12 19:26:14 <atrus>	linuxmodder: are you on an efi system? if so, does 'sudo grub2-mkconfig  | grep menuentry' show fedora entries for you? I'm wondering if i'm just running it wrong.
+Feb 12 19:26:46 <cmurf>	atrus: it won't, they're not in grub.cfg anymore, they're snippets in /boot/loader/entries/
+Feb 12 19:27:03 <atrus>	cmurf: aha
+Feb 12 19:27:39 <linuxmodder>	atrus, [linuxmodder@workstation]~% sudo ls /boot/efi
+Feb 12 19:27:39 <linuxmodder>	EFI  mach_kernel  System
+Feb 12 19:27:49 <linuxmodder>	and one sec for the fpaste of grub2-mkconfig
+Feb 12 19:27:57 <linuxmodder>	[linuxmodder@workstation]~% sudo ls /boot/efi
+Feb 12 19:27:58 <linuxmodder>	EFI  mach_kernel  System
+Feb 12 19:28:36 <atrus>	cmurf: thank you, i think this is the new information i was missing :) and thanks linuxmodder for helping me poke around too.
+Feb 12 19:28:38 *	crankslider is now known as slidercrank
+Feb 12 19:29:00 <cmurf>	also, just a heads up, feature in F34, grub.cfg will be in /boot/grub2 on both UEFI and BIOS
+Feb 12 19:29:14 <atrus>	cmurf: NEAT.
+Feb 12 19:30:28 <cmurf>	grub.cfg is intended to be static going forward, you won't need to recreate it unless something significant has changed, like file system or drive change
+Feb 12 19:30:52 <elagost>	is it not now?
+Feb 12 19:31:14 <cmurf>	it is now, since ~f31
+Feb 12 19:31:50 <cmurf>	oops Fedora 30
+Feb 12 19:32:12 <elagost>	So on new kernel installs we don't need to regenerate grub? How does that work?
+Feb 12 19:33:05 <elagost>	in my understanding grub scans /boot for kernels and shows a menu based on that; is it dynamic these days?
+Feb 12 19:33:07 <cmurf>	regenerating grub.cfg was never done on fedora since i can remember, grub2-mkconfig was one time at installation and from then on it was always modified by grubby using precise insertion and removal
+Feb 12 19:34:11 <cmurf>	that grubby became grubby-deprecated in fedora 30, the grubby we have now is a shell script for some tasks folks may be familiar with like setting default kernel to boot instead of using e.g. grub2-set-default or grub2-editenv directly
+Feb 12 19:34:39 <cmurf>	the grub.cfg still contains os-prober entries like Windows and non-Fedora OS's
+Feb 12 19:35:21 <cmurf>	but there's a command in there, blscfg, that executes a GRUB module of the same name, which then parses the snippets in /boot/loader/entries and inserts them into the boot menu
+Feb 12 19:36:30 <cmurf>	you can still change command line options in /etc/default/grub, and run grub2-mkconfig (with or without -o, doesn't matter) and part of that script will modify just the options line in each bls snippet
+Feb 12 19:36:37 <cmurf>	it doesn't recreate the snippets from scratch
+Feb 12 19:36:49 <elagost>	interesting. Haven't had to manually touch grub in a long time, just curious. Thanks for the info!
+Feb 12 19:37:13 <elagost>	grub2-mkconfig without -o will appropriately find and update grub.cfg on both BIOS and UEFI systems then?
+Feb 12 19:37:44 <cmurf>	no, if you do it without -o, it only modifies the command line options in bls snippets - whether BIOS or UEFI
+Feb 12 19:38:10 <cmurf>	i know it's a bit confusing but you can just do it the way you have been
+Feb 12 19:38:18 <cmurf>	there's nothing wrong with overwriting the grub.cfg
+Feb 12 19:38:39 <cmurf>	but what's really happening when you change command line options is, the bls snippets get modified
+Feb 12 19:39:37 <cmurf>	the bls snippets contain all knowledge about each boot entry, the grub.cfg is intended to be GRUB specific stuff
+Feb 12 19:39:48 <cmurf>	where the BLS snippets are intended to be standardized across all bootloaders
+Feb 12 19:44:22 <cmurf>	ComputerKid: if you're willing to hand edit the GRUB menu entry you can change rootflags=subvol=root34 to whatever subvol you want to boot (as root)
+Feb 12 19:44:53 <cmurf>	so you can do it that way or create separate bls snippets for each subvolume you want to boot, give them their own title and whatever
+Feb 12 19:45:33 <cmurf>	i have to tell you, it does get confusing to have two computers each with just f33 and f34 roots
+Feb 12 19:46:43 <cmurf>	maybe it's just by short term memory :P but the other day i was like "wth! this bodhi update isn't available!" and as it turns out i was booted the wrong release versions and ... yeah
+Feb 12 19:46:49 <cmurf>	s/by/my/
+Feb 12 19:48:04 <cmurf>	the other tweaks i made that aren't critical, but nice, putting logs on their own subvolume means they always go forward instead of being rolled back
+Feb 12 19:49:27 <cmurf>	and it is possible to share system flatpaks, the mere existence of /var/lib/flatpaks apparently populates the listing of apps in Activities *shrug* color me surprised
+Feb 12 19:49:36 <rindolf>	Hi all! what can i do about this message on pidgin on fedora 33 x86-64: https://www.shlomifish.org/Files/files/images/pidgin--Screenshot_20201013_194807--cropped.png ; i tried 'deny', 'authorize' - nothing worked.
+Feb 12 19:49:49 *	cmurf sneaks away
+Feb 12 19:50:34 <cmurf>	oh d9k got a btrfs dev looking at ur bug, more later
+Feb 12 20:03:09 <fmlatghor>	special device dose not exist? I'm trying mount something in a vg that I've activated
+Feb 12 20:03:28 <fmlatghor>	`sudo mount /mnt/test /dev/fedora_server/root
+Feb 12 20:03:37 <fmlatghor>	mount: /dev/mapper/fedora_server-root: special device /mnt/test does not exist.
+Feb 12 20:13:01 <cmurf>	fmlatghor: reverse them
+Feb 12 20:13:06 <fmlatghor>	thath didn't work either cmurf
+Feb 12 20:13:10 <cmurf>	device first, mount point second
+Feb 12 20:13:52 <cmurf>	does /mnt/test exist?
+Feb 12 20:14:35 <fmlatghor>	cmurf: yes it does
+Feb 12 20:16:15 <cmurf>	show the command you used and the error you get
+Feb 12 20:18:28 <fmlatghor>	no wait it didn't exist. I thought it did. I created the wrong dir in /mnt thanks cmurf
+Feb 12 20:18:58 <fmlatghor>	ah yes now I can get all my data
+Feb 12 20:20:24 <cmurf>	i named a snapshot yesterday root34.tets and got confused why booting root34.test faceplanted, :P
+Feb 12 20:21:25 *	crankslider is now known as slidercrank
+Feb 12 20:22:20 <dbristow>	cmurf: I just tested a preliminary F34 CINN image and called it MATE by mistake.
+Feb 12 20:25:41 <d9k>	cmurf: nice, and thanks
+Feb 12 20:30:40 <cmurf>	d9k: he already reproduced it, didn't have to explain any steps to him LOL
+Feb 12 20:31:17 <cmurf>	"that's super cool"
+Feb 12 20:58:57 *	Disconnected ()
+**** ENDING LOGGING AT Fri Feb 12 20:58:57 2021
+
+**** BEGIN LOGGING AT Fri Feb 12 21:02:24 2021
+
+Feb 12 21:02:24 *	Now talking on #fedora
+Feb 12 21:02:24 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 12 21:02:24 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 12 21:02:26 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.

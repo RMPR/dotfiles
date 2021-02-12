@@ -5768,3 +5768,633 @@ T 1613074705 18<28rustysysdev_18>	cmurf, Interesting, and thanks! Its se
 T 1613074724 18<20cmurf18>	humm
 T 1613074746 18<20cmurf18>	i wonder if that's part of Server related kickstart stuff
 T 1613074793 18<20cmurf18>	i think originally it was ext4 /boot and xfs /
+T 1613074805 18<20cmurf18>	maybe it got changed to xfs for both
+T 1613074827 18<20cmurf18>	and now with btrfs preset it defers to the Server kickstart for /boot
+T 1613074854 18<28rustysysdev_18>	not sure, but if the bootloader cannot indeed do replay then it indeed should be changed.. I wonder if the bootloader can somehow do replay now?
+T 1613074864 18<20cmurf18>	nope
+T 1613074868 18<20cmurf18>	not for ext4 either
+T 1613074964 18<20cmurf18>	it's just to complicated to have two different places to maintain journal replay code, so far no one is interested in doing it
+T 1613074997 18<20cmurf18>	in no particular order, use FAT, ext2, ext4 with journaling disabled, or btrfs
+T 1613075003 18<26slop18>	This community here is so nice. Ive been in other channels that people are very..... impatient? snipe-ish?
+T 1613075026 18<28rustysysdev_18>	I have been using netinstaller for everything since fedora 21.. possibly before then.. but cannot remember. I remember it used to provision ext2, and then ext4, and now even on my 32 install its xfs
+T 1613075035 18<20cmurf18>	i can't remember either
+T 1613075065 18<20cmurf18>	yeah almost no chance you run into this, because also dracut does an FIFREEZE/FITHAW on /boot on xfs
+T 1613075085 18<20cmurf18>	that flushes the journal to the fs, so that the bootloader has a consistent view
+T 1613075111 18<20cmurf18>	so this teeny tiny issue probably won't ever happen in the usual case
+T 1613075120 18<20cmurf18>	s/usual case/normal usage/
+T 1613075195 18<20cmurf18>	also systemd does a umount of /boot which also flushes journal to fs metadata
+T 1613075272 18<28rustysysdev_18>	so not a huge issue, in that the file system should never see an unclean state.. but probably better to switch.. I think ill move it to ext4 with journaling disabled.
+T 1613075273 18<20cmurf18>	so the only time you might get in trouble is: (a) modify anything related to the current default boot files, such as /boot/loader/entries files (b) reboot -f or sysrq+b or crash
+T 1613075289 18<20cmurf18>	not a huge issue
+T 1613075292 18<20cmurf18>	teeny tiny
+T 1613075314 18<28rustysysdev_18>	got it! and thanks agian!
+T 1613075340 18<20cmurf18>	which means my review of your kickstart is weak :P
+T 1613075347 18<20cmurf18>	someone else should look at it for something more serious
+T 1613075380 18<28rustysysdev_18>	:D well, i will take any review over none!
+T 1613076084 18<26slop18>	cmurf, how did you learn the items above?
+T 1613076294 18<20cmurf18>	slop: suffering
+T 1613076296 18<20cmurf18>	haha
+T 1613076318 18<20cmurf18>	i dunno the whole story but someone filed a bug, they had /boot as a directory on an XFS /
+T 1613076341 18<20cmurf18>	and something was consistently preventing the usual behavior of / being remounted ro
+T 1613076364 18<20cmurf18>	/ can't be unmounted on a reboot, but it should be remounted ro, which also flushes the journal
+T 1613076410 18<20cmurf18>	even though it wasn't remounted ro, the system was rebooted anyway rather than hang (which we could have a lot of legit debate about what to do about this)
+T 1613076437 18<20cmurf18>	but the consequence was, the bootloader didn't see the changes in /boot - it saw a 0 byte grub.cfg following kernel upgrades
+T 1613076443 18<26slop18>	haha :) very impressed no joke
+T 1613076448 18<20cmurf18>	so it face planted
+T 1613076487 18<20cmurf18>	and if all you did was boot from a usb rescue, and mount the file system, journal replay happened, the grub.cfg was fine
+T 1613076508 18<20cmurf18>	but if you mounted root ro,nologreplay - it was 0 bytes
+T 1613076534 18<20cmurf18>	so yeah, fixing it was just mount normally and then reboot, grub works now
+T 1613076557 18<20cmurf18>	but the key thing is you want to prevent these things in the first place :)
+T 1613076563 18<26slop18>	nice, I wouldve missed that completely. nice work
+T 1613076573 18<20cmurf18>	oh it drove me nuts
+T 1613076600 18<20cmurf18>	and it turns into a bit of head butting upstream, like the bootloader doing the wrong thing, the file system doing the wrong thing, on and on
+T 1613076608 18<20cmurf18>	you know, finger pointing
+T 1613076637 18<20cmurf18>	as it turns out, everyone is right but that doesn't solve the problem
+T 1613076720 18<24d9k18>	if that would happen with bls you would just not get the entry for the next kernel i think
+T 1613076738 18<24d9k18>	since all the bits are generated from the conf at /loader and grub.cfg is untouched
+T 1613076739 18<20cmurf18>	i think so
+T 1613076742 18<24d9k18>	should be untouched..
+T 1613076745 18<20cmurf18>	right
+T 1613076747 18<20cmurf18>	good point
+T 1613076766 18<20cmurf18>	this might be totally obsoleted by bls
+T 1613076769 18<26slop18>	cmurf, I get that completely -  thank you
+T 1613076819 18<20cmurf18>	the last write should be to write a new bls file, and it should either be present or not
+T 1613076850 18<20cmurf18>	from the perspective of the bootloader
+T 1613076857 18<24d9k18>	if a new grub.cfg is moved in its place to replace it and only the metadata update happened then you would be in the same situation
+T 1613076884 18<24d9k18>	even if it is the same data just written over
+T 1613076896 18<20cmurf18>	right
+T 1613076907 18<20cmurf18>	in that case it's involving rename
+T 1613076932 18<24d9k18>	chattr +i grub.cfg problem solved hehe
+T 1613076951 18<20cmurf18>	so you can end up with 0 length files because the journal contains the rename, not yet flushed to the fs itself which is all the bootloader sees
+T 1613076969 18<24d9k18>	yeah
+T 1613076987 18<20cmurf18>	in practice, nothing changes grub.cfg anymore but a sysadmin
+T 1613077106 18<20cmurf18>	maybe one day i'll try to sabotage this again and see if i can break anything
+T 1613077136 18<20cmurf18>	dm-log-writes would be a better way to do it
+T 1613077179 18<20cmurf18>	it breaks down all changes so we can see whether a crash at each step results in an undesirable/unmanagable view of the filesystem
+T 1613077292 18<20cmurf18>	dm-log-writes is really cool, one of the btrfs maintainers wrote that for power fail testing, now the xfstests that are used by all linux file systems includes tests using dm-log-writes
+T 1613077540 18*	22cberg goes and disables journaling on his ext4 /boot
+T 1613077544 18<20cmurf18>	lol
+T 1613077568 18<28rustysysdev_18>	trying to figure out how to do that from kickstart right now
+T 1613077594 18<28rustysysdev_18>	I am guessing its an fsoption but cant find the specific option
+T 1613077596 18<20cmurf18>	rustysysdev_: i think you're looking for --mkfsopts
+T 1613077606 18<20cmurf18>	and it's -O ^journal something something
+T 1613077613 18<28rustysysdev_18>	lol
+T 1613077614 18<24d9k18>	that reminded me that i still have a btrfs crash to report, one of these days im gonna do it https://0x0.st/-H7i.txt
+T 1613077631 18<24d9k18>	5.10.5 still works
+T 1613077634 18<28rustysysdev_18>	Thanks! Ill see if I can find it!
+T 1613077659 18<20cmurf18>	d9k check line 2
+T 1613077661 18<20cmurf18>	# BTRFS critical (device ram0): corrupt leaf: block=1815937024 slot=85 extent bytenr=67174400 len=1007496933805460773 invalid extent data ref hash, item has 0x0dfb591f93c50d24 key has 0x0dfb591f93c50d25
+T 1613077676 18<20cmurf18>	bit flip of the checksum itself
+T 1613077679 18<24d9k18>	yeah i know, lots and lots of shared extents
+T 1613077682 18<24d9k18>	the file is very big
+T 1613077702 18<20cmurf18>	i didn't even get that far
+T 1613077717 18<20cmurf18>	the corrupt leaf is metadata corruption, that's a big deal
+T 1613077722 18<20cmurf18>	this looks like xxhash?
+T 1613077733 18<24d9k18>	no
+T 1613077742 18<24d9k18>	the mkfs is right there
+T 1613077782 18<20cmurf18>	this is reproducible?
+T 1613077784 18<24d9k18>	very
+T 1613077789 18<24d9k18>	that is the reproducer
+T 1613077798 18<24d9k18>	happens very fast
+T 1613077816 18<20cmurf18>	line 4, the write time tree checker sees it
+T 1613077823 18<20cmurf18>	and goes ro to prevent further corruption
+T 1613077844 18<20cmurf18>	a reproducible bit flip in the checksum - that's curious
+T 1613077904 18<24d9k18>	that generates a initramfs image that you can run in qemu with -kernel -initrd
+T 1613077962 18<20cmurf18>	this is cool, wish i understood it better
+T 1613077985 18<20cmurf18>	yeah so just file a bug containing this whole thing in the description, file against kernel
+T 1613078003 18<24d9k18>	https://github.com/tlahdekorpi/archivegen/tree/aligned + https://github.com/tlahdekorpi/mkinitcpio-ag
+T 1613078012 18<20cmurf18>	once it's submitted, you should be able to change the assignee field to ...
+T 1613078029 18<24d9k18>	im very bad at submitting bug reports
+T 1613078038 18<20cmurf18>	fedora-kernel-btrfs@fedoraproject.org
+T 1613078061 18<20cmurf18>	this doesn't need much explanation i think?
+T 1613078089 18<20cmurf18>	i mean, even post it on linux-btrfs@, subject "reproducible bit flip?" haha
+T 1613078217 18<24d9k18>	https://0x0.st/-H7K.txt
+T 1613078282 18<20cmurf18>	i like the other one better
+T 1613078302 18<20cmurf18>	line 8 has an anomaly
+T 1613078311 18<20cmurf18>	Filesystem size: is followed by a single dmesg line
+T 1613078319 18<24d9k18>	its qemu output
+T 1613078321 18<24d9k18>	i copied
+T 1613078362 18<28rustysysdev_18>	cmurf, sorry to inturrupt your conversation with d9k, but how is this: `part /boot --fstype="ext4" --mkfsoptions="-O ^has_journal" --ondisk=sda --size=1024`
+T 1613078381 18<20cmurf18>	looks correct
+T 1613078389 18<28rustysysdev_18>	Thanks!
+T 1613078418 18<20cmurf18>	the idea of journal replay is to avoid lengthy fsck, it doesn't inherently make the fs safer
+T 1613078439 18<20cmurf18>	and an unclean shutdown means ext4 gets an fsck, it's pretty fast on a dedicated /boot volume
+T 1613078467 18<20cmurf18>	and chances are the bootloader won't get confused, either old or new file will be there
+T 1613078481 18<20cmurf18>	:P
+T 1613078497 18<28rustysysdev_18>	got it! testing the install now!
+T 1613078499 18<28rustysysdev_18>	:)
+T 1613078499 18<20cmurf18>	we are in the territory of how many angels dance on headpins
+T 1613078502 18<28rustysysdev_18>	lol
+T 1613078514 24*	28Guest53040 is now known as 18piter
+T 1613078516 18<24d9k18>	you can run this yourself, also submit if you feel like it. i did the same thing backwards with c and libarchive and ran into another bug
+T 1613078526 18<24d9k18>	https://0x0.st/iOnY.txt this a few months ago
+T 1613078532 24*	28piter is now known as 18peter
+T 1613078552 24*	28peter is now known as 18piterpan
+T 1613078575 18<24d9k18>	not that reproducible than the other one
+T 1613078589 18<20cmurf18>	and that's a loop device
+T 1613078642 18<24d9k18>	yes?, i dont want to crash my rootfs
+T 1613078687 18<24d9k18>	https://0x0.st/iOnI.c this is the c bits
+T 1613078703 18<24d9k18>	now that only works on a very specific looking tars
+T 1613078741 18<20cmurf18>	yeah i just mean it's not isolated to some sort of ramdisk weirdness
+T 1613078824 18<24d9k18>	i tried to do a small reproducer in c but failed
+T 1613078831 18<20cmurf18>	either upstream email list, or file a rhbz bug with the assignee changed
+T 1613078846 18<20cmurf18>	if the assignee can't be changed you can put in cc: field or ping me and i'll change it
+T 1613078866 18<20cmurf18>	and then the right people get informed
+T 1613078903 18<20cmurf18>	so is the bit flip something you're inducing? i don't follow that
+T 1613078914 18<20cmurf18>	or it something that just happens?
+T 1613078926 18<24d9k18>	im literally creating a tar with shared extents over and over of the same file
+T 1613078932 18<20cmurf18>	the bit flip isn't normal, but the file system doing a hard stop is normal
+T 1613079020 18<20cmurf18>	do you think the examples are all related?
+T 1613079069 18<24d9k18>	https://0x0.st/iVeT.txt this happened once doing the extract backwards but i cant reproduce
+T 1613079142 18<24d9k18>	its all something to do with enospc i think
+T 1613079170 18<24d9k18>	but not completely certain
+T 1613079180 18<20cmurf18>	include kernel version
+T 1613079188 18<20cmurf18>	these are all 5.10?
+T 1613079198 18<24d9k18>	just the latest
+T 1613079211 18<24d9k18>	5.10.15
+T 1613079253 18<20cmurf18>	there are definitely dark corners related to enospc still, but i'm not aware of any of them that results in bitflips
+T 1613079378 18<24d9k18>	can you reproduce that?
+T 1613079437 18<20cmurf18>	i can't code my way out of a hat
+T 1613079486 18<20cmurf18>	and this looks like someone who can, would be able to reproduce if it's reproducible
+T 1613079539 18<20cmurf18>	if i've got descrete steps then  yeah i'd run it on 5.11-rc7+debug and see if it reproduces
+T 1613079932 18<20cmurf18>	d9k: the very first one https://0x0.st/-H7i.txt
+T 1613079950 18<20cmurf18>	you always git a bit flip? or does the problem vary?
+T 1613079951 18<24d9k18>	im making instructions
+T 1613079954 18<24d9k18>	always
+T 1613079956 18<24d9k18>	100%
+T 1613079988 18<20cmurf18>	and are you using btrfs elsewhere like for sysroot? and you never have btrfs report issues there?
+T 1613079999 18<20cmurf18>	(on the same computer)
+T 1613080035 18<24d9k18>	yes, and im not doing funny stuff like sharing too many extents
+T 1613080048 18<24d9k18>	and no issues
+T 1613080051 18<24d9k18>	recently
+T 1613080082 18<20cmurf18>	well sharing many exents is something btrfs just does, sorta baked into the game
+T 1613080090 18<24TheHermann18>	what is the best way to install discord?
+T 1613080098 18<20cmurf18>	you snapshot / and 100% of the extents are now shared
+T 1613080149 18<20cmurf18>	but it doesn't matter how much of an edge case your test is, if it's reproducible it's probably a bug somewhere, not sure where
+T 1613080163 18<28linuxmodder18>	TheHermann, in rpmfusion or flatpak
+T 1613080207 18<24d9k18>	so what the point of that whole feature is to make cpios where all the files are shared extents and the archive only takes a few kb
+T 1613080217 18<24d9k18>	for initramfs images, instead of compression and copying
+T 1613080223 18<24d9k18>	it works fine, btrfs just crashes
+T 1613080546 18<24TheHermann18>	linuxmodder, thanks :)
+T 1613080658 18<24d9k18>	https://0x0.st/-H7V.txt now it actually crashed
+T 1613081169 18<24d9k18>	cmurf: instructions https://0x0.st/-H7w.txt, im sure you'll manage
+T 1613081782 18<26slop18>	with my level of experience.. would be a reload  :D
+T 1613081969 18<20cmurf18>	d9k: what all should i install on top of f34 (branched rawhide now) for this?
+T 1613081974 18<20cmurf18>	do i need go?
+T 1613081977 18<24d9k18>	only go
+T 1613081983 18<24d9k18>	and gawk?
+T 1613082132 18<20cmurf18>	not sure what $ # modify mkinitcpio to contain the archivegen binary in PATH means
+T 1613082155 18<24d9k18>	the mkinitcpio script has a PATH variable at the top, point it to the cloned archivegen directory
+T 1613082170 18<24d9k18>	so it can generate the reprocuder and include itself in it
+T 1613082182 18<24d9k18>	or preprend to the beginning!
+T 1613082252 18<20cmurf18>	relative or absolute path?
+T 1613082255 18<20cmurf18>	../archivegen/archivegen
+T 1613082257 18<24d9k18>	absolute
+T 1613082265 18<24d9k18>	it doesnt matter
+T 1613082275 18<24d9k18>	but just make it absolute
+T 1613082278 18<20cmurf18>	does ~/ count or should it be strictly absolute
+T 1613082285 18<24d9k18>	path doesnt expand ~
+T 1613082289 18<24d9k18>	i think?
+T 1613082310 18<20cmurf18>	*shrug* i'll do /home/chris/playground.test/archivegen/archivegen
+T 1613082338 18<24d9k18>	oh it does
+T 1613082399 18<27digup18>	hey guys, I have problem opening gnome-boxes
+T 1613082409 18<24d9k18>	https://0x0.st/-H75.txt, now i know
+T 1613082438 18<19foxide18>	You can also use $HOME
+T 1613082459 18<20cmurf18>	where is PATH in the mkinitcpio file? i see export PATH
+T 1613082468 18<24d9k18>	exactly that
+T 1613082487 18<20cmurf18>	replace what's there or add to the end?
+T 1613082506 18<24d9k18>	foxide: it is expanded by the shell using normal convention, so '$HOME' wont work, ~ is special case
+T 1613082527 18<24d9k18>	it doesnt matter since it only is used for looking up the archivegen binary
+T 1613082540 18<19foxide18>	d9k: Bet you you're wrong.
+T 1613082550 18<20cmurf18>	 24 export PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/chris/playground.test/archivegen/archivegen'
+T 1613082554 18<24d9k18>	yeah
+T 1613082568 18<24d9k18>	make sure thats the directory
+T 1613082571 18<24d9k18>	not the binary
+T 1613082593 18<19foxide18>	d9k: https://bpa.st/IJSA
+T 1613082607 18<24d9k18>	foxide: try PATH='$HOME' type -P .bashrc
+T 1613082620 18<24d9k18>	you are expanding the $HOME variable inside ""
+T 1613082623 18<24d9k18>	use literals
+T 1613082648 18<20cmurf18>	ok so next i go to https://0x0.st/-H7i.txt save all that out as a file named reproducer
+T 1613082663 18<24d9k18>	literally copy paste the command i had in the instructions
+T 1613082687 18<24d9k18>	yes
+T 1613082705 18<20cmurf18>	i'm copying the whole thing unless that's wrong
+T 1613082712 18<24d9k18>	the entire thing
+T 1613082714 18<20cmurf18>	into mkinitcpio-ag/
+T 1613082732 18<24d9k18>	into your $PWD
+T 1613082749 18<24d9k18>	literally curl the-url > reproducer
+T 1613082771 18<20cmurf18>	well i'm still in mkinitcpio-ag
+T 1613082779 18<24d9k18>	dont move!
+T 1613082780 18<20cmurf18>	so i assume in there
+T 1613082784 18<24d9k18>	yes
+T 1613082822 18<24d9k18>	ah right you need busybox ofc
+T 1613082836 18<20cmurf18>	$ head -n1 reproducer
+T 1613082837 18<20cmurf18>	# mkinitcpio -o busybox -K btrfs,brd - < btrfs-crash > out
+T 1613082880 18<20cmurf18>	installing busybox, do i need to repeat the head command afterward?
+T 1613082888 18<24d9k18>	thats just a reminder what to run
+T 1613082938 18<20cmurf18>	ok so i should run ./mkinitcpio -o busybox -K btrfs,brd - < reproducer > out
+T 1613082952 18<24d9k18>	yes
+T 1613082972 18<20cmurf18>	./mkinitcpio: line 494: archivegen: command not found
+T 1613082973 18<20cmurf18>	hmm
+T 1613082990 18<24d9k18>	did you put the path to the binary instead of the directory containing the binary
+T 1613083040 18<20cmurf18>	yes
+T 1613083049 18<24d9k18>	are you sure?
+T 1613083086 18<20cmurf18>	pretty sure
+T 1613083088 18<20cmurf18>	https://paste.centos.org/view/0077f2f3
+T 1613083100 18<24d9k18>	thats the binary
+T 1613083103 18<24d9k18>	not the directory
+T 1613083134 18<24d9k18>	PATH works in directories, '/home/chris/playground.test/archivegen' is what you want
+T 1613083188 18<20cmurf18>	soexport PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/chris/playground.test/archivegen'
+T 1613083193 18<24d9k18>	yes!
+T 1613083194 18<20cmurf18>	that works now
+T 1613083222 18<20cmurf18>	ok so for the qemu command...
+T 1613083247 18<20cmurf18>	should i at some point virsh console to watch it blow up or will it dump to stdout in the terminal window?
+T 1613083270 18<24d9k18>	nope just qemu will do
+T 1613083323 18<20cmurf18>	https://paste.centos.org/view/84f4186e
+T 1613083365 18<24d9k18>	your kernel is /boot/vmlinuz-$(uname -r)
+T 1613083366 18<20cmurf18>	where is the path to kernel file so i can change it
+T 1613083381 18<20cmurf18>	oh i'm a literal idiot
+T 1613083382 18<20cmurf18>	haha
+T 1613083439 18<20cmurf18>	https://paste.centos.org/view/15e7d6bd
+T 1613083476 18<24d9k18>	you can use -curses
+T 1613083478 18<20cmurf18>	is gtk in this case a reference to gtk2? that's not included in f34 by default
+T 1613083484 18<24d9k18>	or -nographic should work too
+T 1613083566 18<24d9k18>	instead of '-serial stdio -vga none' you can just -nographic
+T 1613083664 18<20cmurf18>	oooooo it's running!
+T 1613083746 18<20cmurf18>	reproduces
+T 1613083758 18<20cmurf18>	but slightly different or maybe the line is cut off
+T 1613083762 18<24d9k18>	nice, did it crash or write time corruption
+T 1613083764 18<20cmurf18>	this line looks cut off
+T 1613083768 18<20cmurf18>	write time corruption
+T 1613083798 18<24d9k18>	you can ctrl-a + c to bring up the monitor
+T 1613083803 18<24d9k18>	quit to quit and reset to run again!
+T 1613083812 18<24d9k18>	system_reset
+T 1613083831 18<20cmurf18>	there is a line cut off
+T 1613083832 18<20cmurf18>	[   38.448497] BTRFS critical (device ram0): corrupt leaf: block=1606582272 slot=54 extent bytenr=67174400 len=1007496932279426349 invalid extent data ref had
+T 1613083852 18<20cmurf18>	may not matter
+T 1613083856 18<24d9k18>	use dmesg
+T 1613083858 18<24d9k18>	the command
+T 1613083871 18<20cmurf18>	?
+T 1613083873 18<20cmurf18>	where
+T 1613083877 18<24d9k18>	im the vm
+T 1613083883 18<24d9k18>	in*
+T 1613083904 18<20cmurf18>	no prompt
+T 1613083923 18<20cmurf18>	ctrl-a + c ?
+T 1613083935 18<24d9k18>	are in the monitor console?
+T 1613083957 18<24d9k18>	its a toggle for entering the monitor mode
+T 1613083968 18<20cmurf18>	i see - no idea what that is
+T 1613083975 18<20cmurf18>	i can do dmesg but it too is cutoff
+T 1613083993 18<24d9k18>	it should drop you into a bash shell
+T 1613084006 18<24d9k18>	spam enter
+T 1613084011 18<24d9k18>	ctrl-c
+T 1613084022 18<20cmurf18>	no scp
+T 1613084022 18<20cmurf18>	haha
+T 1613084024 18<20cmurf18>	old habit
+T 1613084041 18<20cmurf18>	yeah i'm at a bash shell but dmesg has the same issue here, it's cut off
+T 1613084049 18<24d9k18>	use less
+T 1613084059 18<20cmurf18>	?
+T 1613084062 18<24d9k18>	dmesg|less
+T 1613084115 18<20cmurf18>	ahh
+T 1613084120 18<20cmurf18>	yeah that does work
+T 1613084201 18<20cmurf18>	oh i see why i'm confused the kernel buffer is full
+T 1613084209 18<20cmurf18>	starts at 41s
+T 1613084244 18<20cmurf18>	but yeah anyway it's the same thing
+T 1613084245 18<20cmurf18>	[   74.086701] BTRFS critical (device ram0): corrupt leaf: block=1714552832 slot=34 extent bytenr=1464860672 len=1007496932187790328 invalid extent data ref h
+T 1613084247 18<20cmurf18>	ash, item has 0x0dfb591f33595bf7 key has 0x0dfb591f33595bf8
+T 1613084249 18<20cmurf18>	bit flip
+T 1613084260 18<24d9k18>	more like off by 1
+T 1613084261 18<20cmurf18>	that is awesome
+T 1613084267 18<20cmurf18>	or yeah off by one
+T 1613084274 18<20cmurf18>	weird
+T 1613084277 18<20cmurf18>	no idea
+T 1613084314 18<20cmurf18>	wish i could get this dmesg file out of the vm
+T 1613084375 18<24d9k18>	i always just copy the relevant bits from terminal bit you can mount a file rw and just dmesg > /dev/vda
+T 1613084436 18<20cmurf18>	mount a file
+T 1613084454 18<24d9k18>	ahem, a disk like with -hda
+T 1613084484 18<20cmurf18>	ahh ok so start over
+T 1613084498 18<20cmurf18>	add a disk, write to it as a disk in the vm but it's a file outside the vm
+T 1613084736 18<20cmurf18>	how far back does this go? you tried it with 5.8?
+T 1613084778 18<24d9k18>	a year?
+T 1613084854 18<24d9k18>	you dont need to use just qemu, virt-manager can do all the vm bits if thats more comfortable
+T 1613084859 18<24d9k18>	qemu directly*
+T 1613084898 18<24d9k18>	you need to add virtio-blk to the image
+T 1613084931 18<24d9k18>	so -K virtio-blk,btrfs,brd
+T 1613084931 18<20cmurf18>	what device does -hda become in the vm?
+T 1613084934 18<24d9k18>	sda
+T 1613084944 18<20cmurf18>	i see sda but writing to it doesn't show up in the host
+T 1613084955 18<20cmurf18>	the file is still 0 length
+T 1613084960 18<24d9k18>	write caching?
+T 1613084974 18<20cmurf18>	*shrug*
+T 1613084977 18<20cmurf18>	still 0
+T 1613084979 18<20cmurf18>	been a while
+T 1613084989 18<24d9k18>	do a mkfs.btrfs and write a real file in there
+T 1613085038 18<20cmurf18>	there's a hint, it's not sparse, it's literally 0 so it can't be written to, even mkfs fails haha
+T 1613085241 18<20cmurf18>	ok that is doing what i want
+T 1613085246 18<20cmurf18>	and i don't have to mkfs
+T 1613085264 18<24d9k18>	this is just a minimal reprocuder i made to run in a unattended vm but you can run the for loop ofc on your running kernel
+T 1613085268 18<24d9k18>	NOT on your own rootfs
+T 1613085284 18<24d9k18>	that would be bad
+T 1613085353 18<24d9k18>	a separate kernel is just help with not crashing your running system accidentally, or corrupting anything
+T 1613085375 18<20cmurf18>	yeah
+T 1613085398 18<20cmurf18>	this is one reason why i use subvolumes/rw snapshots to isolate things
+T 1613085419 18<20cmurf18>	it's still shared trees for everything but that file tree
+T 1613085470 18<20cmurf18>	but if the corruption can be trimmed out by just deleting a subvolume, it just dereferences nodes that contain the problem rather than cow
+T 1613085483 18<20cmurf18>	if it read it, to cow, it'd hit the corruption and faceplant
+T 1613085488 18<20cmurf18>	just like in qemu
+T 1613085507 18<20cmurf18>	but oh ignore what i just wrote - the root file system would go read only because of this
+T 1613085540 18<20cmurf18>	the question is whether the write time tree check stopped it before it was written out, and i think the answer to that is yes
+T 1613085546 18<20cmurf18>	might be cool to prove it
+T 1613085548 18<20cmurf18>	:D
+T 1613085553 18<24d9k18>	umount and mount again
+T 1613085555 18<24d9k18>	files are gone
+T 1613085571 18<20cmurf18>	i think you'd have to reboot
+T 1613085575 18<24d9k18>	no no
+T 1613085579 18<24d9k18>	just umount after the crash
+T 1613085584 18<20cmurf18>	unmount what
+T 1613085589 18<20cmurf18>	unmount /
+T 1613085594 18<20cmurf18>	i'm talking about doing this NOT in qemu
+T 1613085599 18<24d9k18>	oh
+T 1613085602 18<24d9k18>	ohh
+T 1613085602 18<20cmurf18>	on baremetal with my real file system
+T 1613085615 18<20cmurf18>	come on i'm a saboture
+T 1613085635 18<20cmurf18>	saboteur even :P
+T 1613085679 18<20cmurf18>	but yeah what you describe is what i expect, you'd reboot, and things would be fine you'd just lose whatever happened since the last 30s commit
+T 1613085733 18<20cmurf18>	ok i'll ask one of the maintainers about it and if they need more info
+T 1613085774 18<24d9k18>	since this is a quick reprocuder i imagine it wouldnt be too hard to debug, since reproducing is always the hard bit
+T 1613085783 18<20cmurf18>	do you know if this uses o_direct?
+T 1613085795 18<20cmurf18>	well the backing file is memory so this can be that bug hmm
+T 1613085807 18<24d9k18>	i think so
+T 1613085822 18<24d9k18>	or what you mean
+T 1613085829 18<20cmurf18>	so
+T 1613085868 18<20cmurf18>	consider a more persistent virt-manager setup, raw backing file, and you use a cache mode that supports o_direct like none
+T 1613085879 18<20cmurf18>	or directsync
+T 1613085907 18<20cmurf18>	and if that raw backing file is on btrfs, and is datacow, your raw backing file is being checksummed
+T 1613085945 18<20cmurf18>	o_direct allows file systems to do inflight changes of buffered data, there's no enforcement for stable writes
+T 1613085982 18<20cmurf18>	so we get a write and checksum for the write in the raw file; and a subsequent inflight write changes the data does not update the csum and we start seeing csum errors
+T 1613086044 18<20cmurf18>	part of why the default is nodatacow for raw/qcow2 files on btrfs with libvirt, and the default cache mode is writeback
+T 1613086048 18<20cmurf18>	problem doesn't happen with either of those
+T 1613086063 18<20cmurf18>	i have a bug for that
+T 1613086115 18<20cmurf18>	https://bugzilla.redhat.com/show_bug.cgi?id=1914433
+T 1613113213 20*	Disconnected (20)
+T 1613113238 19*	Now talking on 22#fedora
+T 1613113238 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1613113238 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1613113238 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1613114465 18<22mkowalski_18>	Good morning
+T 1613114512 18<22mkowalski_18>	Question about reporting such a problem - dmesg for `input` shows a device name with the typo; what would be the best place to report such an issue?
+T 1613114547 18<22mkowalski_18>	Does it belong under xlibinput or is it something more for the OS itself?
+T 1613114599 18<24chrisawi18>	are you sure it's not coming from the device itself? what is the typo exactly?
+T 1613114646 18<22mkowalski_18>	Ok, so yesterday I've been updating kernel and some other packages. Before I had `'Logitech MX Ergo Mouse'` which now became `'Logitech MX Ergo Multi-Device Trackball '` <-- note the space at the end
+T 1613114666 18<22mkowalski_18>	Given that it's the same device, it's not something that would be coming from it I guess (otherwise why would the name change)
+T 1613115388 18<24chrisawi18>	maybe the logitech unifying receiver got a firmware update via fwupd?
+T 1613115438 18<22mkowalski_18>	It's a bluetooth device and no fw update happened in between
+T 1613115448 18<22mkowalski_18>	https://pastebin.com/raw/phbLsLun <-- some info if anything would help here, but I doubt
+T 1613115469 18<22mkowalski_18>	From the bluetoothctl perspective its name is only "MX Ergo", so I wonder where exactly the full name comes from
+T 1613115588 18<22mkowalski_18>	From the update log I see that it's been kernel upgrading to 5.10.13 and libevdev to 1.11.0, so I wonder if that could be coming from the latter
+T 1613115788 18<22mkowalski_18>	In the kernel itself I have only managed to find this commit -- https://github.com/torvalds/linux/commit/7de843dbaaa68aa514090e6226ed7c6374fd7e49 -- but it does not seem to be included in 5.10.13, thus probably irrelevant
+T 1613125780 18<24mrvenkman18>	Hi. Using Gnome boxes - I have found that deleting the box via the right click menu, there is no warning, but there is a "undo delete" that pops up straight away.
+T 1613125854 18<24mrvenkman18>	Clicking on "undo delete" doesn't undo deleting the box. It is deleted. LUCKILY I knew this behaviour and backed up the image. However, restoring the images into ./local/gnome-boxes/images - the option to use that box still isn't available. I presume I need to also restore some meta data.
+T 1613125874 18<24mrvenkman18>	Anyone know where this meta data is normally stored and what it needs to contain?
+T 1613126128 18<24mrvenkman18>	https://docs.fedoraproject.org/en-US/Fedora/25/html/Virtualization_Getting_Started_Guide/delete-box.html
+T 1613126148 18<24mrvenkman18>	" Click the X on the confirmation notification if you are sure you have deleted the correct boxes. Or click UNDO if you made a mistake. "
+T 1613126191 18<24mrvenkman18>	Fedora 33 - clicking undo definitely doesn't undo it. If you click undo, then close gnome boxes and reopen gnome boxes, the image is gone.
+T 1613127193 20*	Disconnected (20)
+T 1613132567 19*	Now talking on 22#fedora
+T 1613132567 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1613132567 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1613132568 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1613141847 20*	Disconnected (20)
+T 1613141876 19*	Now talking on 22#fedora
+T 1613141876 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1613141876 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1613141876 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1613141925 18<26Khaytsus18>	Nope, it does not use dkms.
+T 1613141943 18<25AlwaysLivid18>	uninstalling and making sure that i'll use rpmfusion instead
+T 1613141953 18<25AlwaysLivid18>	although i think i replaced it specifically for that reason
+T 1613141968 18<25AlwaysLivid18>	i couldn't downgrade using rpmfusion because the bleeding edge drivers broke it, i downgraded through the .run package
+T 1613141977 18<25AlwaysLivid18>	and nothing really happened
+T 1613141979 18<26Khaytsus18>	Oh lord.
+T 1613141990 18<25AlwaysLivid18>	eh, it's fine, i already cleaned up
+T 1613141993 18<26Khaytsus18>	I specifically asked about the .run package.  You said you used rpmfusion.
+T 1613141997 18<22Southern_Gentlem18>	no you havent
+T 1613142000 18<26Khaytsus18>	So clean all that up and if you have trouble ask again.
+T 1613142027 18<25AlwaysLivid18>	I mean, I originally used RPMFusion when the problem happened.
+T 1613142054 18<25AlwaysLivid18>	then disclosed that I switched to the "local repository thing"
+T 1613142056 18<25AlwaysLivid18>	but yeah, will do
+T 1613142094 18<22Southern_Gentlem18>	so clean up by the rpmfusion documentation
+T 1613142108 18<22Southern_Gentlem18>	reinstall to the rpmfusion documentation
+T 1613142149 18<25AlwaysLivid18>	Are the Cuda drivers installable with RPMFusion?
+T 1613142160 18<25AlwaysLivid18>	(as in with the software libraries and everything)
+T 1613142165 18<22Southern_Gentlem18>	read their documentation
+T 1613142227 18<25AlwaysLivid18>	yeah i already tried to look that up extensively, was weirdened out about how i have to combine rpmfusion with nvidia's own repositories: https://rpmfusion.org/Howto/CUDA
+T 1613142242 18<22Southern_Gentlem18>	https://rpmfusion.org/Howto/NVIDIA?highlight=%28%5CbCategoryHowto%5Cb%29
+T 1613142318 18<26Khaytsus18>	Yes CUDA is in rpmfusion by default afaik
+T 1613142339 18<25AlwaysLivid18>	understood, was weirdened out because i also installed the package named in that document but had some issues with compiling a project
+T 1613142347 18<28osezer18>	Yes cuda is in rpmfusion*
+T 1613142348 18<25AlwaysLivid18>	i'll hack around with it later after i get nvidia working again for starters
+T 1613142372 18<28toxane18>	no takers of my permissions problem?
+T 1613142390 18<25AlwaysLivid18>	apologies for stealing the spotlight :P
+T 1613142399 18<28toxane18>	hehe :P
+T 1613142429 18<26Khaytsus18>	toxane: Not sure what your question; it should just work as long as you're using defaults.  Any diferent ports will need selinux tweaks.
+T 1613142436 18<28osezer18>	toxane:  default nginx just need firewall perm "no selinux" stuff required.
+T 1613142456 18<28toxane18>	strange
+T 1613142462 18<28osezer18>	It is already set (selinıx config for nginx)  just start service and give perm to firewall and done
+T 1613142474 18<26Khaytsus18>	Again, unless he's using different ports than default.
+T 1613142474 18<28osezer18>	That's all I do nothing else
+T 1613142496 18<28toxane18>	index.html has 0644 and for the directory 0755
+T 1613142500 18<26Khaytsus18>	http_port_t defines what ports it can use.
+T 1613142507 18<28osezer18>	Khaytsus:  yes, true
+T 1613142520 18<28toxane18>	and i use default ports
+T 1613142522 18<26Khaytsus18>	toxane: I guses you'll have to look at the audit log to make sure it's not selinux, it'd show up there...  and otherwise, nginx logs
+T 1613142539 18<28toxane18>	ah, audit log
+T 1613142584 18<25AlwaysLivid18>	I studied https://arewewaylandyet.com/ and was also surprised to see that NVIDIA worked under Wayland in Fedora, wasn't too keen to see it break. The docs also mention disabling Wayland for the time being, so I presume that I'm also supposed to do that, right?
+T 1613142617 18<22Southern_Gentlem18>	so basicly run gnome on X yes
+T 1613142621 18<26Khaytsus18>	wayland does not work with nvidia to my knowledge
+T 1613142658 18<28osezer18>	Khaytsus:  they sent a patch for "kde" and "wayland" team for in order to work. (hopefully work)
+T 1613142659 18<25AlwaysLivid18>	yeah it's pretty much broken most of the time but it did work under optimus (which means that it was using my intel igpu but sometimes. for some windows. it used the nvidia card) to my pleasant surprise
+T 1613142676 18<25AlwaysLivid18>	until it didn't :P
+T 1613142691 18<26Khaytsus18>	Let me restate; I would not attempt to use wayland with nvidia yet.
+T 1613142710 18<25AlwaysLivid18>	yeahhhhhh, me neither
+T 1613142717 18<25AlwaysLivid18>	reason: i did
+T 1613142961 18<22ComputerKid18>	Hello all! I have a question. Would it be possible to/has anyone tried running to instances of Fedora on the same BTRFS pool, but with seperate root and home sub vols?
+T 1613143100 18<22Southern_Gentlem18>	ComputerKid, thats not going to work the way you asked the quesiton
+T 1613143104 18<22Southern_Gentlem18>	question
+T 1613143126 18<22ComputerKid18>	How come?
+T 1613143153 18<22Southern_Gentlem18>	the way you wrote that is multiple verson of fedora in the same pool
+T 1613143165 18<22ComputerKid18>	yup
+T 1613143180 18<22Southern_Gentlem18>	so the same pool will be using the same subvolumes
+T 1613143195 18<22Southern_Gentlem18>	so no it will be one version of fedora
+T 1613143205 18<22ComputerKid18>	why?
+T 1613143216 18<22ComputerKid18>	I'm sorry, I don't understand
+T 1613143236 18<22Southern_Gentlem18>	the pool is a subvolume of / and a subvolume of /home
+T 1613143259 18<22Southern_Gentlem18>	you would need separate subvolumes for each fedora version
+T 1613143276 18<22Southern_Gentlem18>	you would need separate / subvolumes for each fedora version
+T 1613143291 18<22Southern_Gentlem18>	home could be shared
+T 1613143314 18<22ComputerKid18>	Okay, that's what I meant. I thought that the pool was the top layer, and the subvols were under it
+T 1613143329 18<22Southern_Gentlem18>	the pool is all
+T 1613143335 18<22ComputerKid18>	okay
+T 1613143349 18<22ComputerKid18>	I could share the home but I wonder if that would cause issues
+T 1613143352 18<22Southern_Gentlem18>	you would need a separate subvolume for each /
+T 1613143366 18<22ComputerKid18>	👍
+T 1613143392 18<22Southern_Gentlem18>	also you will have to edit grub to boot each release per subvolume
+T 1613143412 18<22Southern_Gentlem18>	so you will have more than one pool for this to happen IMHO
+T 1613143426 18<22Southern_Gentlem18>	i will defer to cmurf when he comes in
+T 1613143483 18<22ComputerKid18>	So would it be better to have multiple BTRFS partitions?
+T 1613143494 18<22ComputerKid18>	And have my boot partition point to both?
+T 1613143649 18<26Khaytsus18>	That seems like a mess to me honestly..  Will a VM not do what you need?
+T 1613143832 18<22Southern_Gentlem18>	ComputerKid, i suggest setting up vms and test
+T 1613143872 18<22Southern_Gentlem18>	and as i said before I defer to cmurf
+T 1613143881 18<22Southern_Gentlem18>	he is the btrfs expert
+T 1613143939 18<22Southern_Gentlem18>	ComputerKid, besides vms the easy way would be dual booting the machine
+T 1613143946 18<22ComputerKid18>	So, the issue I am solving for is that I run my OS in a way where I break stuff. all the time. and I just live with it, I guess I am in a learning phase. But also I need to get stuff done sometime, without interruptions
+T 1613143959 18<22ComputerKid18>	Southern_Gentlem Dual booting was my idea
+T 1613143972 18<22ComputerKid18>	I just didn't know if I needed 1 or 2 BTRFS partitions
+T 1613143995 18<22Southern_Gentlem18>	you will need a btrfs pool for each release
+T 1613144007 18<26Khaytsus18>	VM sounds perfect for you then
+T 1613144015 18<22Southern_Gentlem18>	but for the issue you stated build a VM
+T 1613144015 18<26Khaytsus18>	You can snapshot it and uh..  do whatever dumb stuff you're doing...  and restore snapshot if you break it
+T 1613144026 18<22Southern_Gentlem18>	play in the VM and leave your host stable
+T 1613144029 18<22ComputerKid18>	Khaytsus do whatever dumb stuff 🤣 XD
+T 1613144039 18<26Khaytsus18>	I mean seriously..  I haven't broken a system in many years
+T 1613144069 18<22ComputerKid18>	Okay
+T 1613144095 18<22ComputerKid18>	I may need to reinstall again, I still have some random cruft floating around on my system
+T 1613144110 18<22ComputerKid18>	*radom broken cruft
+T 1613144110 18<22Southern_Gentlem18>	*** F33-20210129 updated lives available: https://tinyurl.com/Live-respins2  Built by the Fedora Respin Sig more info #fedora-respins  ***
+T 1613144516 18<28toxane18>	i dont get it. i gave "0775" to the nginx user, still permission denied
+T 1613144558 18<28toxane18>	the error log says permission denied aswell without further info why
+T 1613144607 18<22Southern_Gentlem18>	service running?
+T 1613144620 18<28toxane18>	it could not write to the log otherwise :)
+T 1613144657 18<28toxane18>	it sees my requests
+T 1613144674 18<22Southern_Gentlem18>	google fedora selinux nginx
+T 1613144686 18<22Southern_Gentlem18>	i am seeing several pages
+T 1613144691 18<28toxane18>	i did, tried a few things. problem persists
+T 1613144702 18<22Southern_Gentlem18>	so did you try setenforce 0
+T 1613144723 18<28toxane18>	no, because selinux is the reason why i selected fedora
+T 1613144743 18<22Southern_Gentlem18>	that way you can see if selinux is blocking or not
+T 1613144761 18<22Southern_Gentlem18>	also if it is it should generate errors you can fix
+T 1613144776 18<28toxane18>	but why does audit.log contain no single hint?
+T 1613144779 18<22Southern_Gentlem18>	setroubleshoot
+T 1613144810 18<22Southern_Gentlem18>	no idea but try selinux in permissive so that is one thing that can be ruled out
+T 1613144837 18<26Khaytsus18>	Enforcing would still show in audit logs in most cases, but..
+T 1613144860 18<26Khaytsus18>	Did you even look in the audit log yet toxane?  It was the first thing i suggested.
+T 1613144866 18<22Southern_Gentlem18>	setenforce 0 is a easy quick test
+T 1613144889 18<22Southern_Gentlem18>	Khaytsus, <toxane> but why does audit.log contain no single hint?
+T 1613144902 18<28toxane18>	am i still here? *poke, poke*
+T 1613144951 18<28toxane18>	all terminals to the server frozen. it gets better and better :)
+T 1613145308 18<28toxane18>	permissive and "no enforcement" did not chance
+T 1613145308 18<19dowdle18>	toxane: No, you are in another universe.
+T 1613145318 18<28toxane18>	heh
+T 1613145398 18<22Southern_Gentlem18>	so its not selinux, so go back and look at what you changed
+T 1613146330 18<25AlwaysLivid18>	hey, i disabled the nvidia repository on rpmfusion to use the .run binary but i forgot how to uhhh re-enable it
+T 1613146379 18<28FranciscoD18>	AlwaysLivid: https://docs.fedoraproject.org/en-US/quick-docs/adding-or-removing-software-repositories-in-fedora/#enabling-repositories
+T 1613146410 18<25AlwaysLivid18>	uh i should rephrase; what's the repository name of the nvidia repository?
+T 1613146440 18<28FranciscoD18>	AlwaysLivid: ls /etc/yum.repos.d/ should show you
+T 1613146451 18<28FranciscoD18>	I don't have it here, no nvidia hardware :/
+T 1613146461 18<25AlwaysLivid18>	appreciated ^--^
+T 1613146504 18<22Southern_Gentlem18>	https://rpmfusion.org/Howto/NVIDIA?highlight=%28%5CbCategoryHowto%5Cb%29
+T 1613146509 18<22Southern_Gentlem18>	AlwaysLivid, ^^
+T 1613146552 18<26Khaytsus18>	Using the .run binary again!?
+T 1613146557 18<25AlwaysLivid18>	why would i
+T 1613146576 18<25AlwaysLivid18>	apparently you were right, i didn't manage to clean up the entire thing :P https://dpaste.com/87BYVKV5G
+T 1613146627 18<25AlwaysLivid18>	rpmfusion-nonfree-nvidia-driver seems to be enabled (enabled=1, enabled_metadata=1)
+T 1613146745 18<22Southern_Gentlem18>	AlwaysLivid, use fpaste please
+T 1613146782 18<25AlwaysLivid18>	https://paste.centos.org/view/9f6d6cac
+T 1613146817 18<26Khaytsus18>	AlwaysLivid: Okay I misread your statement a few ago..  I thought you said "I disabled rpmfusion to use the .run file" but I see what you meant now.
+T 1613146844 18<25AlwaysLivid18>	yeah, pretty much tried a bunch of stuff
+T 1613146846 18<25AlwaysLivid18>	some of which i vehemently regret now
+T 1613146936 18<25MathAkemi[m]18>	I haven't gotten wine to work on SIlverblue yet.
+T 1613147238 18<25AlwaysLivid18>	does installing nouveau (which i've blocked) automatically block you from installing akmod-nvidia?
+T 1613147417 18<26Khaytsus18>	AlwaysLivid: nouveau should not be touched at any time
+T 1613147421 18<26Khaytsus18>	Not the package, not the module...
+T 1613147435 18<26Khaytsus18>	the nvidia rpmfusion packages handle anything necessary
+T 1613147452 18<25AlwaysLivid18>	fair, i'll remove the modprobe rule
+T 1613147469 18<25AlwaysLivid18>	what do i do about not being able to install the package though
+T 1613147533 18<25ledeni18>	AlwaysLivid➡ which package?
+T 1613147546 18<25AlwaysLivid18>	https://paste.centos.org/view/9f6d6cac
+T 1613147549 18<25AlwaysLivid18>	akmod-nvidia
+T 1613147632 18<25AlwaysLivid18>	or xorg-x11-drv-nvidia
+T 1613147902 18<25ledeni18>	AlwaysLivid➡  can you give us ls /etc/yum.repos.d/ | fpaste
+T 1613147961 18<25AlwaysLivid18>	https://paste.centos.org/view/0e11e2dd ledeni
+T 1613148237 18<25AlwaysLivid18>	what's wrong?
+T 1613148437 18<25ledeni18>	AlwaysLivid➡ for me repos look alright
+T 1613148454 18<25AlwaysLivid18>	enabled module_hotfixes=true for the nvidia repository (disabled modular filtering for the repository), seems to work alright now
+T 1613153160 18<20atrus18>	running an efi fedora 33 system, and trying to change some boot options, I ran "grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg" -- but now /boot/efi/EFI/fedora/grub.cfg seems to be missing any menuentry-items for fedora -- no rescue or kernel  entries at all.
+T 1613153223 24*	28noidea__ is now known as 18noidea_
+T 1613153367 18<20atrus18>	i've reverted the change to /etc/default/grub, but it's still not showing any menuentry for fedora at all, so now i'm a little terrified of rebooting.
+T 1613153743 18<28linuxmodder18>	what did you change before the grub2-mkconfig ?
+T 1613153780 18<25elagost18>	run 'dnf list --installed|grep kernel' and see if you removed your kernels somehow?
+T 1613153817 18<20atrus18>	added an option to GRUB_CMDLINE_LINUX=, "systemd.unified_cgroup_hierarchy=0" i believe
+T 1613153827 18<20atrus18>	linuxmodder: ^
+T 1613153892 18<28linuxmodder18>	might try removing them all and rebuild, then add one at a time
+T 1613153907 18<20atrus18>	since the /etc/default/grub file is back the way it was -- i'm not sure if my change actually was related to this not working right any more.
+T 1613154037 18<20atrus18>	so the only option currently in GRUB_CMDLINE_LINUX is: GRUB_CMDLINE_LINUX="rd.luks.uuid=luks-c1fe26fd-6da3-4c85-a28f-5ddb7ad7c5a7 rhgb quiet
+T 1613154059 18<20atrus18>	(with a double-quote at the end i missed copying :p
+T 1613154063 18<20atrus18>	)
+T 1613154146 18<20cmurf18>	ComputerKid: hi, yes i do it all the time, doing it right now in fact
+T 1613154196 18<20cmurf18>	there are multiple strategies but about the least complicated so far: https://paste.centos.org/view/fe27d9b8
+T 1613154256 18<20cmurf18>	all the file systems are shared between f33 and f34, the 'home' subvolume is also shared
+T 1613154294 18<20cmurf18>	and it's the BLS snippet in /boot/loader/entries that decides which subvol is mounted at /sysroot
+T 1613154374 18<20atrus18>	linuxmodder: are you on an efi system? if so, does 'sudo grub2-mkconfig  | grep menuentry' show fedora entries for you? I'm wondering if i'm just running it wrong.
+T 1613154406 18<20cmurf18>	atrus: it won't, they're not in grub.cfg anymore, they're snippets in /boot/loader/entries/
+T 1613154423 18<20atrus18>	cmurf: aha
+T 1613154459 18<28linuxmodder18>	atrus, [linuxmodder@workstation]~% sudo ls /boot/efi
+T 1613154459 18<28linuxmodder18>	EFI  mach_kernel  System
+T 1613154469 18<28linuxmodder18>	and one sec for the fpaste of grub2-mkconfig
+T 1613154477 18<28linuxmodder18>	[linuxmodder@workstation]~% sudo ls /boot/efi
+T 1613154478 18<28linuxmodder18>	EFI  mach_kernel  System
+T 1613154516 18<20atrus18>	cmurf: thank you, i think this is the new information i was missing :) and thanks linuxmodder for helping me poke around too.
+T 1613154518 24*	28crankslider is now known as 18slidercrank
+T 1613154540 18<20cmurf18>	also, just a heads up, feature in F34, grub.cfg will be in /boot/grub2 on both UEFI and BIOS
+T 1613154554 18<20atrus18>	cmurf: NEAT.
+T 1613154628 18<20cmurf18>	grub.cfg is intended to be static going forward, you won't need to recreate it unless something significant has changed, like file system or drive change
+T 1613154652 18<25elagost18>	is it not now?
+T 1613154674 18<20cmurf18>	it is now, since ~f31
+T 1613154710 18<20cmurf18>	oops Fedora 30
+T 1613154732 18<25elagost18>	So on new kernel installs we don't need to regenerate grub? How does that work?
+T 1613154785 18<25elagost18>	in my understanding grub scans /boot for kernels and shows a menu based on that; is it dynamic these days?
+T 1613154787 18<20cmurf18>	regenerating grub.cfg was never done on fedora since i can remember, grub2-mkconfig was one time at installation and from then on it was always modified by grubby using precise insertion and removal
+T 1613154851 18<20cmurf18>	that grubby became grubby-deprecated in fedora 30, the grubby we have now is a shell script for some tasks folks may be familiar with like setting default kernel to boot instead of using e.g. grub2-set-default or grub2-editenv directly
+T 1613154879 18<20cmurf18>	the grub.cfg still contains os-prober entries like Windows and non-Fedora OS's
+T 1613154921 18<20cmurf18>	but there's a command in there, blscfg, that executes a GRUB module of the same name, which then parses the snippets in /boot/loader/entries and inserts them into the boot menu
+T 1613154990 18<20cmurf18>	you can still change command line options in /etc/default/grub, and run grub2-mkconfig (with or without -o, doesn't matter) and part of that script will modify just the options line in each bls snippet
+T 1613154997 18<20cmurf18>	it doesn't recreate the snippets from scratch
+T 1613155009 18<25elagost18>	interesting. Haven't had to manually touch grub in a long time, just curious. Thanks for the info!
+T 1613155033 18<25elagost18>	grub2-mkconfig without -o will appropriately find and update grub.cfg on both BIOS and UEFI systems then?
+T 1613155064 18<20cmurf18>	no, if you do it without -o, it only modifies the command line options in bls snippets - whether BIOS or UEFI
+T 1613155090 18<20cmurf18>	i know it's a bit confusing but you can just do it the way you have been
+T 1613155098 18<20cmurf18>	there's nothing wrong with overwriting the grub.cfg
+T 1613155119 18<20cmurf18>	but what's really happening when you change command line options is, the bls snippets get modified
+T 1613155177 18<20cmurf18>	the bls snippets contain all knowledge about each boot entry, the grub.cfg is intended to be GRUB specific stuff
+T 1613155188 18<20cmurf18>	where the BLS snippets are intended to be standardized across all bootloaders
+T 1613155462 18<20cmurf18>	ComputerKid: if you're willing to hand edit the GRUB menu entry you can change rootflags=subvol=root34 to whatever subvol you want to boot (as root)
+T 1613155493 18<20cmurf18>	so you can do it that way or create separate bls snippets for each subvolume you want to boot, give them their own title and whatever
+T 1613155533 18<20cmurf18>	i have to tell you, it does get confusing to have two computers each with just f33 and f34 roots
+T 1613155603 18<20cmurf18>	maybe it's just by short term memory :P but the other day i was like "wth! this bodhi update isn't available!" and as it turns out i was booted the wrong release versions and ... yeah
+T 1613155609 18<20cmurf18>	s/by/my/
+T 1613155684 18<20cmurf18>	the other tweaks i made that aren't critical, but nice, putting logs on their own subvolume means they always go forward instead of being rolled back
+T 1613155767 18<20cmurf18>	and it is possible to share system flatpaks, the mere existence of /var/lib/flatpaks apparently populates the listing of apps in Activities *shrug* color me surprised
+T 1613155776 18<24rindolf18>	Hi all! what can i do about this message on pidgin on fedora 33 x86-64: https://www.shlomifish.org/Files/files/images/pidgin--Screenshot_20201013_194807--cropped.png ; i tried 'deny', 'authorize' - nothing worked.
+T 1613155789 18*	20cmurf sneaks away
+T 1613155834 18<20cmurf18>	oh d9k got a btrfs dev looking at ur bug, more later
+T 1613156589 18<20fmlatghor18>	special device dose not exist? I'm trying mount something in a vg that I've activated
+T 1613156608 18<20fmlatghor18>	`sudo mount /mnt/test /dev/fedora_server/root
+T 1613156617 18<20fmlatghor18>	mount: /dev/mapper/fedora_server-root: special device /mnt/test does not exist.
+T 1613157181 18<20cmurf18>	fmlatghor: reverse them
+T 1613157186 18<20fmlatghor18>	thath didn't work either cmurf
+T 1613157190 18<20cmurf18>	device first, mount point second
+T 1613157232 18<20cmurf18>	does /mnt/test exist?
+T 1613157275 18<20fmlatghor18>	cmurf: yes it does
+T 1613157375 18<20cmurf18>	show the command you used and the error you get
+T 1613157508 18<20fmlatghor18>	no wait it didn't exist. I thought it did. I created the wrong dir in /mnt thanks cmurf
+T 1613157538 18<20fmlatghor18>	ah yes now I can get all my data
+T 1613157624 18<20cmurf18>	i named a snapshot yesterday root34.tets and got confused why booting root34.test faceplanted, :P
+T 1613157685 24*	28crankslider is now known as 18slidercrank
+T 1613157740 18<26dbristow18>	cmurf: I just tested a preliminary F34 CINN image and called it MATE by mistake.
+T 1613157941 18<24d9k18>	cmurf: nice, and thanks
+T 1613158240 18<20cmurf18>	d9k: he already reproduced it, didn't have to explain any steps to him LOL
+T 1613158277 18<20cmurf18>	"that's super cool"
+T 1613159937 20*	Disconnected (20)
+T 1613160011 20*	Disconnected (20Remote host closed socket)
+T 1613160144 19*	Now talking on 22#fedora
+T 1613160144 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1613160144 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1613160146 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.

@@ -5559,3 +5559,91 @@ Feb 11 21:02:50 <belak>	https://github.com/alacritty/alacritty/blob/master/alacr
 Feb 11 21:03:58 <belak>	Both estimated dpr, and dpr are the same
 Feb 11 21:04:07 <belak>	At least for this case
 Feb 11 21:14:25 <belak>	I have to admit, I'm not particularly sure where this value is coming from
+Feb 11 21:26:22 <belak>	All this FFI stuff is a bit obtuse... there's nothing in the underlying X11 lib that references scale_factor
+Feb 11 21:45:52 <belak>	It looks like the code is in winit for anyone looking for it... The calc_dpi_factor function seems like a bunch of magic variables (at least without comments)
+Feb 11 21:51:59 <belak>	I think someone misplaced a decimal in winit
+Feb 11 21:53:33 <belak>	Is there a way in rust to replace a dep with a local copy?
+Feb 11 21:58:24 <belak>	That was it
+Feb 11 21:59:06 <belak>	Wait, maybe not
+Feb 11 22:08:37 <belak>	Ok, it looks like your guess was right Yaniel - winit (and in extension alacritty) calculates a scaling factor based on the size of the display and the resolution... for some reason, nothing else seems to respect this
+Feb 11 22:09:07 <belak>	The calculations are right (but I thought they were wrong because of a weird decimal in some unit conversion)
+Feb 11 22:14:38 <belak>	I think for a while GTK didn't have fractional scaling, so I wonder if they just floored the calculated scaling factor rather than rounding to the nearest 1/12 like winit does
+Feb 11 22:23:17 <belak>	Is there a way to specify different fonts on different platforms?
+Feb 11 22:47:32 <frebib>	I managed to make Alacritty DPI behave fine on X11
+Feb 11 22:47:56 <frebib>	belak: Did you set Xft.dpi in xrdb?
+Feb 11 22:48:22 <belak>	I just overrode the WINIT_X11_SCALE_FACTOR environment variable
+Feb 11 22:48:57 <frebib>	If you don't care about changing the DPI ever, then I suppose that works.
+Feb 11 22:53:10 <frebib>	If you care about correctness or reasoning, this might help
+Feb 11 22:53:10 <frebib>	https://github.com/rust-windowing/winit/commit/4515b77aa51c98f49387c0118de0bfecf3634422
+Feb 11 23:24:25 <belak>	I'll care about that eventually, but this fixes it for now and I don't have the time to keep fighting it lol
+Feb 11 23:24:39 <belak>	I don't currently have any monitors that need to be at higher DPIs
+Feb 12 00:08:29 <UndeadLeech>	QT has the option to calculate the DPR too, but alacritty is the only X11 app I'm aware of that does it by default.
+Feb 12 08:00:13 *	Disconnected ()
+**** ENDING LOGGING AT Fri Feb 12 08:00:13 2021
+
+**** BEGIN LOGGING AT Fri Feb 12 08:00:38 2021
+
+Feb 12 08:00:38 *	Now talking on #alacritty
+Feb 12 08:00:38 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+Feb 12 08:00:38 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Jan  9 12:42:04 2021)
+Feb 12 10:28:35 <betaboon>	hello #alacritty, I'm running sway and just noticed that setting $XCURSOR_SIZE results in the cursor being half as big in alacritty than everywhere else. what could be the reason for that ? 
+Feb 12 10:29:21 <UndeadLeech>	You mean by setting the cursor size, the cursor size changed?
+Feb 12 10:30:23 <betaboon>	UndeadLeech: i mean when running `XCURSOR_SIZE=50 alacritty` the cursor size ends up being half as big as on other programs that are started with `XCURSOR_SIZE=50`
+Feb 12 10:30:38 <UndeadLeech>	Which version?
+Feb 12 10:32:05 <betaboon>	built against PR4763
+Feb 12 10:32:56 <betaboon>	which is 4 commits ahead of master
+Feb 12 10:33:47 <UndeadLeech>	Which "other applications" are you testing with?
+Feb 12 10:35:42 <betaboon>	UndeadLeech: swaybg, waybar, firefox (in wayland mode), pcmanfm and several electron-based applications running in xwayland mode
+Feb 12 10:36:07 <betaboon>	and wofi
+Feb 12 10:36:35 <UndeadLeech>	Levanx any idea? Most of that seems to be GTK stuff though, which might have a separate configuration option for cursor size.
+Feb 12 10:37:06 <Levanx>	Is it on an hidpi monitor ?
+Feb 12 10:37:34 <betaboon>	UndeadLeech: yeah all the gtk-applications are configured using gsettings, but the xwayland applications should use XCURSOR_SIZE
+Feb 12 10:37:37 <UndeadLeech>	Does sctk scale the cursor size by dpi when other applications do not?
+Feb 12 10:37:54 <betaboon>	Levanx: 1080p
+Feb 12 10:37:57 <UndeadLeech>	xwayland always sounds fishy.
+Feb 12 10:38:24 <UndeadLeech>	DPI is all about pixels per inch, so 1080p alone says nothing.
+Feb 12 10:38:55 <Levanx>	I mean, the screen scale factor is 1
+Feb 12 10:39:03 <Levanx>	so it's not an hidpi issue
+Feb 12 10:39:22 <Levanx>	(things being half the expected size often sound like hidpi issues)
+Feb 12 10:39:51 <betaboon>	UndeadLeech: sorry. i always get confused in the hidpi area. my screen has 166ppi
+Feb 12 10:40:12 <UndeadLeech>	In sway you have to set the DPI manually, right? So the actual monitor DPI shouldn't matter?
+Feb 12 10:41:38 <betaboon>	UndeadLeech: i dont have the dpi set manually anywhere. i would expect sway/wlroots to detect that automatically
+Feb 12 10:42:08 <UndeadLeech>	I'm not sure it does, but I don't use sway. I know you can set it manually if you want to though.
+Feb 12 10:46:39 <betaboon>	XCURSOR_SIZE is being consumed by sctk, right ?
+Feb 12 10:47:23 <UndeadLeech>	It might not be sctk directly, but somewhere in that chain.
+Feb 12 10:47:56 <betaboon>	found it, its in sctk
+Feb 12 10:48:29 <betaboon>	https://github.com/Smithay/client-toolkit/blob/master/src/seat/pointer/theme.rs#L148
+Feb 12 10:56:11 <betaboon>	maybe I'm running into this, wouldnt know tho: https://github.com/Smithay/client-toolkit/blob/master/src/seat/pointer/theme.rs#L77
+Feb 12 11:53:13 *	Disconnected ()
+**** ENDING LOGGING AT Fri Feb 12 11:53:13 2021
+
+**** BEGIN LOGGING AT Fri Feb 12 13:22:47 2021
+
+Feb 12 13:22:47 *	Now talking on #alacritty
+Feb 12 13:22:47 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+Feb 12 13:22:47 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Jan  9 12:42:04 2021)
+Feb 12 13:25:05 <Levanx>	It chooses the image withe the closest total number of pixels. It was introduced as a reasonable way to handle non-square cursor images
+Feb 12 13:25:30 <Levanx>	But this biases it in favor of choosing smaller images
+Feb 12 15:57:27 *	Disconnected ()
+**** ENDING LOGGING AT Fri Feb 12 15:57:27 2021
+
+**** BEGIN LOGGING AT Fri Feb 12 15:57:56 2021
+
+Feb 12 15:57:56 *	Now talking on #alacritty
+Feb 12 15:57:56 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+Feb 12 15:57:56 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Jan  9 12:42:04 2021)
+Feb 12 20:27:12 <UndeadLeech>	Levanx: Good job, thanks for the help.
+Feb 12 20:58:57 *	Disconnected ()
+**** ENDING LOGGING AT Fri Feb 12 20:58:57 2021
+
+**** BEGIN LOGGING AT Fri Feb 12 21:02:24 2021
+
+Feb 12 21:02:24 *	Now talking on #alacritty
+Feb 12 21:02:24 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+Feb 12 21:02:24 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Jan  9 12:42:04 2021)
+Feb 12 21:11:19 <capin>	i'm trying to map `C-S-M` in tmux that's control+shift+meta ie. alt on a mbp keyboard in tmux as my prefix2, presently it's not working. how would i get al to pass that keybinding forward to tmux?
+Feb 12 21:16:02 <UndeadLeech>	Option on macOS is a bit broken.
+Feb 12 21:18:29 <capin>	not sure what that means? i posted this a while back, https://github.com/alacritty/alacritty/issues/93#issuecomment-429651216 and have had success using option aka meta on macos in the past. is there a way i can further troubleshoot this?
+Feb 12 21:19:16 <UndeadLeech>	Wait, what are you trying to map ctrl+shift+alt to?
+Feb 12 21:19:27 <UndeadLeech>	That's just modifiers.
+Feb 12 21:19:52 <capin>	ohhh are you saying i can't just map modifiers by themselves?

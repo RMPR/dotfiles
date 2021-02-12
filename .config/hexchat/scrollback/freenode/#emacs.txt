@@ -5941,3 +5941,752 @@ T 1613074320 18<29untoreh18>	emacs-async uses processes afaik
 T 1613074328 18<20bpalmer18>	Yeah, I think I mixed them up.
 T 1613074404 18<20bpalmer18>	untoreh: at any rate, you probably just need to make sure (with-current-buffer (point)) is evaluated at synchronously; also, be aware that the point may move by the time asynchronous code kicks in.
 T 1613074438 18<22Minall18>	I'm using async... But I really didn't got what you said untoreh 
+T 1613074829 24*	28JordiGH is now known as 18JordiGitHate
+T 1613075310 24*	28JordiGitHate is now known as 18JordiGH
+T 1613075393 22*	26jrm has changed the topic to: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1613075450 18<26jrm18>	Hopefully the melpa bug has been closed long enough that the note in the topic can be removed.  If not, "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312" can be re-added.
+T 1613075554 18<26jrm18>	Maybe someday we can get the topic down to under 200 characters some day.
+T 1613075606 18<19parsnip18>	are we permanently putting various versions of emacs in the /topic now?
+T 1613075675 18<19bremner18>	19.2!
+T 1613075725 18<19parsnip18>	will we every make it to emacs version 2.0
+T 1613075742 18<19bremner18>	yes. that's the one with JS
+T 1613075760 18<19parsnip18>	,tableflip
+T 1613075761 18<22fsbot18>	(╯°□°）╯︵ ┻━┻
+T 1613075780 18<19bremner18>	look, only wgreenhouse's tableflips get instant action today
+T 1613075786 18<26tali71318>	if we have less characters in the topic, that means we can add longer quotations.
+T 1613075807 18<19bremner18>	but if we have less characters in the channel then we are sad
+T 1613075823 18<29wgreenhouse18>	bremner: I don't know how to feel about the coincidence that I tableflipped and then buster-backports got emacs27
+T 1613075872 18<19bremner18>	mad with power?
+T 1613075883 18<20aidalgol18>	What, really??
+T 1613075883 18<22fsbot18>	Without a doubt
+T 1613075894 18<20aidalgol18>	,capf
+T 1613075896 18<22fsbot18>	aidalgol: capf is a completion-at-point-function
+T 1613076898 18<20bpalmer18>	that URL could be shortened/redirected.
+T 1613077368 18<20aidalgol18>	bpalmer: What's a privacy-friendly one?  I used to use ur1.ca, but they daid.
+T 1613077528 18<20aidalgol18>	My quick searching has come up with https://chl.li/about and https://miny.app/about
+T 1613077806 18<19devon18>	Anyone here know the Emacs-Lisp to get the path of the currently running Emacs executable?
+T 1613077898 18<20bpalmer18>	none occurs to me; executable-find on car command-line-args would probably work most of the time.
+T 1613077920 18<20bpalmer18>	If on a system that implements procfs , you could interrogate files under /proc/self
+T 1613077996 18<20bpalmer18>	(e.g., (resolve-leftmost-symlink (resolve-leftmost-symlink "/proc/self/exe")))
+T 1613078027 18<29wgreenhouse18>	aidalgol: 0x0.st or another instance thereof
+T 1613078042 18<20bpalmer18>	oh, sorry, I think r-l-s is not a standard function.
+T 1613078116 18<20bpalmer18>	file-chase-links is better anyway.
+T 1613078167 18<20bpalmer18>	I think at this point procfs is pretty established across the unix-like systems.
+T 1613078215 18<20bpalmer18>	looks like it was removed on openbsd a few years ago; interesting.
+T 1613078217 18<19devon18>	I could start with (emacs-pid) if that exists on all systems, followed by special purpose code for each and every OS.
+T 1613079224 18<26trewq18>	I am not too emacs savvy and I have this in the .emacs file (running gnu emacs on windows 10) https://pastebin.com/raw/syKMRP3H and I get "eval-buffer: Cannot open load file: No such file or directory, hnb-mode"
+T 1613079251 18<26trewq18>	I am trying to use this package: hnb.el http://nullman.net/emacs/files/local-modules/hnb.el.html
+T 1613079294 18<26trewq18>	right before I get that message I get "Loading c:/Users/bob/AppData/Roaming/.emacs.d/hnb/hnb.el (source)...done"
+T 1613079303 18<26trewq18>	I am not sure what it cannot load..
+T 1613079328 18<26trewq18>	I would be grateful for any assistance
+T 1613079343 18<19devon18>	Try adding "C:/Users/bob/AppData/Roaming/.emacs.d/hnb/" to your load-path
+T 1613079369 18<19devon18>	What's in your load-path now?
+T 1613079499 18<26trewq18>	devon:  I did  ‘C-h v load-path RET’ and got a bunch of paths.. I do not see that there.. trying to add it
+T 1613079511 18<20p4r4kovsky18>	hi nerds
+T 1613079560 18<19devon18>	Hi p4r4kovsky
+T 1613079604 18<26trewq18>	devon: I now get eval-buffer: Cannot open load file: No such file or directory, hnb-mode
+T 1613079613 18<26trewq18>	checking to see if the path is there
+T 1613079647 18<26trewq18>	yes, my path is there in the load path - the very first one
+T 1613079647 18<19devon18>	It should be first (or last) after add-to-list
+T 1613079702 18<26trewq18>	I wonder if it is some dos-windows line ending char issue..
+T 1613079721 18<19devon18>	trewq: unlikely
+T 1613079753 18<26trewq18>	Cannot open load file: No such file or directory, hnb-mode .. what is the "load file"
+T 1613079758 18<26trewq18>	that it cannot open
+T 1613079768 18<19devon18>	Are you sure C:/Users/bob/AppData/Roaming/.emacs.d/hnb/hnb-mode.el (or .elc) actually exists?
+T 1613079810 18<26trewq18>	duh - I have called it hnb.el 
+T 1613079812 18<26trewq18>	will rename it
+T 1613079849 18<26trewq18>	yay - loaded it
+T 1613079868 18<19devon18>	Does it (provide 'hnb) or (provide 'hnb-mode) or both?
+T 1613079877 18<26trewq18>	lol - now I get hnb/hnb-mode.el failed to provide feature ‘hnb-mode’
+T 1613079917 18<26trewq18>	I followed directions.. it said Put `hnb.el' where you keep your elisp files and add the following to your
+T 1613079933 18<26trewq18>	it is from here: http://nullman.net/emacs/files/local-modules/hnb.el.html 
+T 1613079938 18<19devon18>	It should be enough to add load-path, autoload and auto-mode-alist, no need for load, require nor when.
+T 1613079999 18<26trewq18>	ahh ok - I deleted everything except for the load-path
+T 1613080002 18<26trewq18>	checking now
+T 1613080062 18<19devon18>	You might want to (autoload 'hnb-mode "hnb" ...) and name the file hnb.el
+T 1613080097 18<26trewq18>	devon: I am able to load the mode!
+T 1613080104 18<26trewq18>	thank you
+T 1613080135 18<19devon18>	LOL, you are very welcome.  Writing good instructions is an art.
+T 1613080137 18<26trewq18>	this hnb seems to be written for emacs experts.. 
+T 1613080334 18<19devon18>	After using Emacs for a decade I got hired to work on it and to my amazement I discovered I know only a tiny fraction of a vaste expanse of fine sofware (along with hacks & kludges)
+T 1613080389 18<19parsnip18>	,nerd
+T 1613080392 18<22fsbot18>	A boy named Gerald McGrew made a large number of delightfully extravagant claims as to what he would do, if he were in charge at the zoo. Among these was that he would bring a creature known as a Nerd from the land of Ka-Troo.
+T 1613080392 18<27hodapp18>	you got hired to work on it?
+T 1613080395 18<27hodapp18>	like... on purpose?
+T 1613080419 18<19parsnip18>	fsbot: tell p4r4kovsky about nerd
+T 1613080421 18<22fsbot18>	p4r4kovsky: A boy named Gerald McGrew made a large number of delightfully extravagant claims as to what he would do, if he were in charge at the zoo. Among these was that he would bring a creature known as a Nerd from the land of Ka-Troo.
+T 1613080743 18<20aidalgol18>	wgreenhouse: thanks
+T 1613080897 18<19devon18>	bpalmer: (car command-line-args) ; got the full path of the currently running executable under MacOSX but nothing but "emacs" under Debian.  Oh well.
+T 1613081674 18<27triska18>	I'm dropping by only to say how great Emacs is and how grateful I am for it. Increasingly, other programs feel like parodies of what software should be. But Emacs has stayed great throughout so many years, and is even consistently improving. Thank you all who contributed, I hope you are all doing OK!
+T 1613081691 18<27grym18>	,praise
+T 1613081691 18<22fsbot18>	His is the kingdom of the elispland and the editland.  He ordains life and death and has power over all things.
+T 1613081780 18<26quippy18>	hey guys is there a way to make a function in emacs-lisp take any number of arguments?
+T 1613081835 18<28zdm18>	quippy: &rest 
+T 1613081852 18<26quippy18>	yeah I just tried that and I still get "wrong number of arguments"
+T 1613081853 18<28zdm18>	if you mean defining your own function
+T 1613081856 18<26quippy18>	yeah I do
+T 1613081879 18<26quippy18>	I have a function that I am calling as advice and it doesn't need arguments and doesn't take any but I guess something is passing it an arugment somtimes?
+T 1613081884 18<26quippy18>	I just want to ignore the argument
+T 1613081890 18<26quippy18>	but instead Emacs throws an error
+T 1613081901 18<26quippy18>	"Wrong number of arguments: 1"
+T 1613081919 18<28zdm18>	you want to accept any number of arguments but ignore them?
+T 1613081925 18<26quippy18>	yeah lol
+T 1613081938 18<26quippy18>	all the function does is toggle a global variable
+T 1613081940 18<26quippy18>	it's a hack
+T 1613081971 18<29wgreenhouse18>	quippy: The function's arglist should contain something like (&rest _ignore)
+T 1613081978 18<26quippy18>	ohhhh it needs a name
+T 1613081979 18<26quippy18>	I just did &rest
+T 1613081986 18<29wgreenhouse18>	yep
+T 1613081995 18<28zdm18>	`&rest args' is common scheme
+T 1613081998 18<26quippy18>	that works! thank you
+T 1613082003 18<26quippy18>	lmao what a stupid hack
+T 1613082012 18<26quippy18>	not the &rest part, my whole function is a stupid hack
+T 1613082024 18<29wgreenhouse18>	choosing a name with _ in the front lets the byte compiler know the arg is never used
+T 1613082031 18<29wgreenhouse18>	and can be optimized away
+T 1613082043 18<27natter18>	wgreenhouse: interesting and simultaneously horrifying
+T 1613082049 18<29wgreenhouse18>	lol
+T 1613082052 18<26quippy18>	wait with what in the front? two spaces? my IRC client just shows whitespace
+T 1613082054 18<27grym18>	oh cute 
+T 1613082062 18<27grym18>	quippy: a single underscore
+T 1613082067 18<29wgreenhouse18>	quippy: one underscore character
+T 1613082069 18<26quippy18>	oh weird I can't see it at all
+T 1613082073 18<28zdm18>	quippy: might wanna check your font if you can't see an underscore haha
+T 1613082075 18<26quippy18>	common convention though, thanks
+T 1613082084 18<26quippy18>	yeah idk why it's not showing me an underscore of all things???
+T 1613082085 18<22fsbot18>	Definitely
+T 1613082087 18<27grym18>	_ is about to mean yet another thing in python, hee hee
+T 1613082093 18<26quippy18>	are you serious?
+T 1613082098 18<27grym18>	yes
+T 1613082105 18<26quippy18>	I quit writing Python on a regular basis in 2013 and the language is getting away from me
+T 1613082106 18<27natter18>	rudybot: are you serious??
+T 1613082107 18<22fsbot18>	Signs point to yes
+T 1613082111 18<24rudybot18>	natter: what's scary is that I think "Are you sure 21 years is old enough?" was meant to be serious
+T 1613082116 18<28zdm18>	I stay away from python, life is better :)
+T 1613082120 18<27grym18>	quippy: https://lwn.net/Articles/845480/ 
+T 1613082124 18<27grym18>	closer to lisp every day 
+T 1613082129 18<26quippy18>	I saw this
+T 1613082134 18<29wgreenhouse18>	natter: the jwz quote in the header comment of (find-library "byte-opt") is good to keep in mind whenever interacting with the elisp byte compiler 
+T 1613082135 18<28zdm18>	Closer to Lisp would be good
+T 1613082139 18<26quippy18>	it's fitting anyway, my Python code was always getting more and more FP back when I wrote it often
+T 1613082158 18<26quippy18>	now I write Go primarily and my ethos is practically the opposite
+T 1613082171 18<28zdm18>	But trying to add on features as "closer to lisp" is pretty amusing (terrible)
+T 1613082188 18<27grym18>	_ idiomatically also means "i'm stupid, ignore me", "the value returned by the last thing the REPL saw", and something with text preprocessing i alwasy forget because i never us it 
+T 1613082210 18<27natter18>	wgreenhouse: that is good, I hadn't seen that before
+T 1613082272 18<27natter18>	let's not forget the use of double underscore for name-mangling. A real classic and one that _could_ have been inspired by emacs lisp... (let's get that rumor mill going)
+T 1613082274 18<29shoshin18>	aidalgol: i may have mentioned straight.el at some point. i started using it last year and like it so far
+T 1613082280 18<27hodapp18>	hm, I should learn those generics in Go
+T 1613082287 18<27hodapp18>	considering how much I complained about their lack prior
+T 1613082298 18<27natter18>	hodapp: or find something new to complain about!
+T 1613082303 18<27natter18>	it's less work
+T 1613082305 18<27hodapp18>	I have a list
+T 1613082351 18<27grym18>	shoshin: oh if you want a challenge that came up earlier, try to make straight install org-ref and not drag helm in 
+T 1613082365 18<29shoshin18>	pff
+T 1613082377 18<29shoshin18>	maybe someday
+T 1613082384 18<27grym18>	(this would actually be nice to pull off)
+T 1613082396 18<29shoshin18>	is helm somehow dependent?
+T 1613082401 18<27grym18>	it appears to be 
+T 1613082416 18<27grym18>	but it doesn't actually have to be 
+T 1613082446 18<29shoshin18>	ah yeah. interesting
+T 1613082446 18<27grym18>	oh maybe if you just grab org-ref-core
+T 1613082498 18<20lispmacs[work]18>	hi, I run emacs 27.1 on a Guix system. I cannot get export to Export to ODT to work. C-c C-e o o. I get error message: OpenDocument export failed: Buffer is read-only: #<killed buffer>
+T 1613082514 18<28zdm18>	can straight.el take in arbritary git repos or only ones predefined?
+T 1613082531 18<29shoshin18>	raxod is pretty thorough, i imagine if an issue was raised he'd at least have some idea on how to achieve it. though it might depend on changes to the org-ref repo and/or recipe
+T 1613082540 18<28zdm18>	like i see support specifically for github? but why not just any git repo via http period?
+T 1613082543 18<29shoshin18>	zdm: arbitrary
+T 1613082559 18<29shoshin18>	i believe the github thing is due to melpa's recipe support for it
+T 1613082611 18<27grym18>	zdm: it is not pinned to github at all, but there's some chrome on top to make github easy to get to 
+T 1613082632 18<20lispmacs[work]18>	I found this problem reported on the internet - author fixed it by updating org-mode. But my emacs-org package is already ahead of his, at version 9.4.4
+T 1613082642 18<29shoshin18>	yeah without github its just :type git :repo "http://path.to.repo"
+T 1613082675 18<28zdm18>	lispmacs[work]: maybe poke around with setting debug-on-error to t
+T 1613082689 18<28zdm18>	i dont know specifics of your issue but id start poking around with that maybe
+T 1613082983 18<22adam_erc18>	Is there a function to collapse the property drawer for the current subtree?
+T 1613083009 18<28zdm18>	lispmacs[work]: possibly related to you: https://logs.guix.gnu.org/guix/2019-12-14.log#134216
+T 1613083157 18<28zdm18>	Even more specifically, lispmacs[work] https://issues.guix.gnu.org/38616
+T 1613083455 18<20lispmacs[work]18>	zdm: seems like it would likely be the same issue, but am wondering why my version of emacs-org does have the fix yet. am trying to figure out what version or branch the fix was merged into
+T 1613083658 18<28zdm18>	lispmacs[work]: what does org-version say?
+T 1613083721 18<28ScottPilgrim18>	Hi, can someone help me understand why this function works when evaluated from "*scratch*", but fails if evaluated anywhere else?
+T 1613083725 18<28ScottPilgrim18>	https://pastebin.com/qgyPZU7w
+T 1613083754 18<28ScottPilgrim18>	it complains about recompile-process having a nil value
+T 1613083825 18<20lispmacs[work]18>	zdm: org-version gives release 9.3, though guix tells me the package is 9.4.4
+T 1613083853 18<28zdm18>	ScottPilgrim: Evaluated anywhere else? What do you mean by that, where exactly are you trying, via what means
+T 1613083897 18<28zdm18>	lispmacs[work]: In my own Emacs, its showing 9.4. You might be pulling org from gnu elpa or some other stable repo
+T 1613083900 18<20lispmacs[work]18>	in org-mode git repo, it looks like the patch was merged into release 9.3.1
+T 1613083947 18<20lispmacs[work]18>	zdm: I think that might be it
+T 1613083950 18<28zdm18>	I'm not sure how Guix packages work from within Emacs like that though, I forget, so I'm not much of help on this front
+T 1613083977 18<28zdm18>	But there should be a way of making sure you're using the Guix packages and not from the elpa repo
+T 1613083983 18<28ScottPilgrim18>	zdm: If I C-x,e in *scratch* then run it to compile a c program... it works beautifully.  However when I paste it into its own buffer and do the same thing, it fails with an error about recompile-process being nil.
+T 1613084038 18<28ScottPilgrim18>	zdm: What I mean is, when testing it out in scratch it works just fine, but if (for example) I load it in my .emacs I can't successfully use it to compile anything
+T 1613084082 18<28zdm18>	ScottPilgrim: I hate to ask, but is that other "own buffer" an Emacs Lisp buffer? Since you've evaluated that command, all you need to do is M-x recompile-and-run
+T 1613084104 18<28zdm18>	You don't need to C-x C-e in every buffer to use it
+T 1613084147 18<28zdm18>	You can put that in your init, start emacs, and you'll have the command no matter the buffer in Emacs.
+T 1613084153 18<28zdm18>	Just call M-x recompile-and-run
+T 1613084154 18<28ScottPilgrim18>	zdm: yes, its "own buffer" is an Emacs Lisp buffer. 
+T 1613084215 18<20lispmacs[work]18>	zdm: hmm, emacs-org does not appear to be installed by Guix, but it also does not show up as installed (only available) when I do list-packages
+T 1613084238 18<28ScottPilgrim18>	zdm: That is what I am trying to say. If I start up a fresh Emacs, paste this code into scratch and evaluate, it does exactly what I want. But if put it in my .emacs file it will crash when I invoke it
+T 1613084248 18<20lispmacs[work]18>	maybe I installed it some other way in the past
+T 1613084250 18<28ScottPilgrim18>	(by crash, i mean fail with an error)
+T 1613084324 18<28ScottPilgrim18>	zdm: Does Emacs have some sort of scoping issue I am not aware of that affects only things that are defined in Lisp interaction?
+T 1613084389 18<28ScottPilgrim18>	zdm: The exact error is
+T 1613084398 18<28ScottPilgrim18>	zdm: error in process sentinel: set-buffer: Symbol’s value as variable is void: recompile-process
+T 1613084492 18<20lispmacs[work]18>	zdm: the org lisp files appear to be part of my standard Guix emacs package installation.
+T 1613084575 18<28zdm18>	ScottPilgrim: This is likely due to scoping, as on Emacs 28 your command works fine, on Emacs 27 I get your issue.
+T 1613084614 18<28ScottPilgrim18>	zdm: Oh! Interesting. Thanks for testing that.
+T 1613084637 18<28ScottPilgrim18>	I am indeed using 27.1
+T 1613084683 18<28zdm18>	ScottPilgrim: Try lexical-let*
+T 1613084690 18<28zdm18>	You need to pull in cl first
+T 1613084693 18<28zdm18>	(require 'cl)
+T 1613084715 18<28zdm18>	Ignore the depecration message
+T 1613084785 18<28zdm18>	lispmacs[work]: Though I've used Guix in the package, I'm not that familiar (though soon I hope to change that :P) but I'd recommend asking in #guix, very knowledgeable people
+T 1613084797 18<28zdm18>	As this is sounding more Guix specific
+T 1613084808 18<28zdm18>	s/package/past/
+T 1613085002 18<20lispmacs[work]18>	zdm: okay, thanks for your help. do you know, though, if emacs `configure' has an option to build org-mode into emacs when emacs is compiled?
+T 1613085031 18<28ScottPilgrim18>	zdm: Thank you so much!!! I also had to (lexical-let* (run-command command) to pass command down into the lambda)
+T 1613085050 18<28ScottPilgrim18>	Now it seems to work great :D
+T 1613085165 18<28zdm18>	ScottPilgrim: Enjoy
+T 1613085277 18<28zdm18>	lispmacs[work]: Don't think there's anything like that. As far as I'm aware there's no configure options specific to emacs lisp packages
+T 1613085304 24*	28Abbott` is now known as 18Abbott
+T 1613085374 18<28zdm18>	You can see yourself, lispmacs[work]: git clone --depth 1 https://git.savannah.gnu.org/git/emacs.git && cd emacs && ./configure --help
+T 1613085396 18<19parsnip18>	the most entertaining part of having a custom domain email address, is the confusion when someone asks for an email address and you don't provide a gmail.com address
+T 1613085420 18<20lispmacs[work]18>	zdm: already did, doesn't appear to be an option
+T 1613085422 18<28zdm18>	i look forward to that, since im doing that soon, parsnip 
+T 1613085431 18<19parsnip18>	forfo
+T 1613085431 18<19parsnip18>	olsto
+T 1613085431 18<19parsnip18>	pondero
+T 1613085431 18<19parsnip18>	ver
+T 1613085652 18<19parsnip18>	it's also fun to see how many people can't spell "tangential", even if you spell it for them
+T 1613085708 18<28zdm18>	tangerine
+T 1613085724 18<19parsnip18>	you're doing great!
+T 1613085733 18<28zdm18>	thanks :}
+T 1613085769 18<19wrycode18>	parsnip.cuck
+T 1613085802 18<19wrycode18>	(that's my email domain)
+T 1613085865 18<19parsnip18>	wrycode: i find that a bit inappropriate and directed
+T 1613085919 18<19wrycode18>	parsnip: not sure if you're serious, I was just joking around
+T 1613085926 18<19parsnip18>	wrycode: especially given your participation in a previous issue with sexual innuendo
+T 1613085963 18<19wrycode18>	parsnip: what?
+T 1613085980 18<28zdm18>	its best to avoid that kind of thing unless in a private context among friends where its intent is well understood
+T 1613086005 18<19wrycode18>	I said cuck because I was going to say cock.li but that felt too explicit
+T 1613086016 18<20edgar-rft18>	rudybot: tangential vs. tangerine is like marginal vs. margarine
+T 1613086017 18<24rudybot18>	edgar-rft: margarine??
+T 1613086050 18<20edgar-rft18>	rudybot: yes!
+T 1613086051 18<24rudybot18>	edgar-rft: yes
+T 1613086091 18<20edgar-rft18>	rudybot: I know that I'm right
+T 1613086102 18<24rudybot18>	edgar-rft: my saying that the situation goes against everything I know about child custody law doesn't mean I'm surprised to see it happen. I think a lot of the due process rights in these things get glossed over by most judges, unless the parents or the child are assertive, which, you're right, most are intimidated out of being
+T 1613086116 18<28zdm18>	marginal tangerines are only tangentially margarine
+T 1613086129 18<28zdm18>	i am not in fact a markov chain bot ill have you know
+T 1613086131 18<28zdm18>	ok??
+T 1613086132 18<22fsbot18>	Ask yourself, do you really want to know?
+T 1613086137 18<28zdm18>	no.
+T 1613086158 18<20edgar-rft18>	rudybot: no!
+T 1613086160 18<24rudybot18>	edgar-rft: or would that have no relation to DNS and eww
+T 1613086199 18<19parsnip18>	wrycode: the incident when you questioned why i should be bothered if epony makes innuendo about sex with my mother, after there was some strange long standing beef that was never clarified
+T 1613086202 18<19parsnip18>	wrycode: no DM please
+T 1613086297 18<19wrycode18>	parsnip: I dm'ed you to apologize and clarify, but ok, also I don't really know what you're talking about, it kinda seems like you're reading too much into this
+T 1613086325 18<28rgr18>	heh
+T 1613086894 18<27grym18>	https://github.com/jarred-sumner/git-peek  cute
+T 1613113213 20*	Disconnected (20)
+T 1613113238 19*	Now talking on 22#emacs
+T 1613113238 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1613113238 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
+T 1613113238 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1613113269 18<28zdm18>	dale: If you look through lispy.el, you'll a lot of its definition forms and macros have declare expressions like `(indent 1)'
+T 1613113273 18<19twb18>	antalsz: cp dissertation.tex test.tex
+T 1613113278 18<19antalsz18>	I’ve found a lot of this sort of behavior while editing my dissertation, and I’ve never understood AucTeX well enough to actually figure out what’s going on
+T 1613113281 18<19twb18>	antalsz: then delete 50% and see if problem is still there
+T 1613113303 18<28zdm18>	`(declare (indent 1))' i mean, and similar
+T 1613113303 18<19antalsz18>	twb: Yes, I know how to do a bisection, but I include a number of packages, etc. – and part of the problem seems to be due to the length of the file, which makes it hard to test for in a 5-line MWE
+T 1613113308 18<19twb18>	If the problem only happens on a "long enough" file, change each word to "fuck" or similar
+T 1613113311 18<20dale18>	zdm: Right, which controls how lispy's own forms should be indented, right?
+T 1613113318 18<19antalsz18>	Ah, you understand my mood :-)
+T 1613113330 18<19twb18>	yes fuck | fmt | head -n 10000
+T 1613113349 18<19twb18>	or https://en.wikipedia.org/wiki/lipsum
+T 1613113363 18<19antalsz18>	(I’m also reluctant to try a lot of this because I don’t want to bring down my entire laptop again…)
+T 1613113376 18<19twb18>	,second-one
+T 1613113377 18<22fsbot18>	Did we bring enough BEEF JERKY?
+T 1613113385 18<20dale18>	antalsz: I'm guessing it's something like syntax-propertize-function or something in font-lock going into its own asshole, recursively.
+T 1613113405 18<19antalsz18>	font-lock is going FAR up its own asshole a LOT – I have to interrupt it with kill -USR2
+T 1613113406 18<19twb18>	antalsz: run a second emacs with a prefix like "timeout 5m oomnice nice ionice -c3 chrt --idle 0 emacs test.tex"
+T 1613113414 18<20dale18>	antalsz: I'm curious what OS you're on?  Exwm user or something?  I've never had Emacs bring down my  whole laptop, but maybe if it goes nuts with memory it's possible.
+T 1613113417 18<28zdm18>	dale: From my understanding of what that's doing, it sets how the indent function will work, which for lispy each keybind is mapped to these functions, most of which have those declare forms.
+T 1613113429 18<28zdm18>	Even a simple RET with lispy turned on is mapped to a lispy command/function.
+T 1613113433 18<19antalsz18>	I think it likely has to do with the code highlighting sort of thing
+T 1613113438 18<19twb18>	antalsz: I think you are right
+T 1613113452 18<19twb18>	antalsz: you can easily turn off that component with M-x global-font-lock-mode
+T 1613113462 18<19antalsz18>	dale: Good point – macOS, and likely some interaction with the GUI part because I think I was resizing that window
+T 1613113473 18<19twb18>	antalsz: emacs definitely does NOT deal well with very long lines
+T 1613113482 18<19twb18>	antalsz: MOST font-locking (syntax-highlighting) is per-line
+T 1613113484 18<19antalsz18>	(which also, twb – sadly macos doesn’t have those nice oomnice command)
+T 1613113495 18<19twb18>	antalsz: do you have idprio?
+T 1613113500 18<19antalsz18>	twb: line widths in the document are all ~80 characters.  Maybe some long code samples get up to ~100
+T 1613113512 18<19antalsz18>	twb: Negative
+T 1613113525 18<19twb18>	antalsz: it sounds like auctex's rule is multi-line which is unusual but makes sense for ``...''
+T 1613113549 18<19antalsz18>	there’s slowdown in general around my custom \lstinline-like commands, too, but nothing this bad
+T 1613113564 18<19twb18>	also for the record
+T 1613113565 18<19twb18>	,-q
+T 1613113566 18<22fsbot18>	-q: [0]  runs emacs without user configuration, ideal to test issues caused by your personal config
+T 1613113566 18<22fsbot18>	[1] If starting emacs with "emacs -q" fixes the problem, it's something in your personal config; check your .emacs. If "emacs -q" has problems but "emacs -Q" doesn't, blame your distro or local admin.
+T 1613113566 18<22fsbot18>	[2] it's also possible that you have triggered a bug rather than introduced one, but that is rare. ;;[ ,more / ,dump]
+T 1613113568 18<19antalsz18>	I had some terrible issues a few months ago when I accidentally had a mismatched […] pair somewhere in the document
+T 1613113583 18<24fiete18>	fset
+T 1613113646 18<20dale18>	zdm: I just installed lispy, turned on lispy-mode, and the indentation works correctly after I fixed common-lisp-indent-function as I described above.
+T 1613113648 18<19twb18>	M-x check-parens
+T 1613113679 18<19parsnip18>	huh, wingtask was implemented via Elm
+T 1613113714 18<19antalsz18>	twb: None of that now, but that would have been MUCH nicer than the manual counting I did with grep!
+T 1613113739 18<20dale18>	zdm: The (declare (indent 1)) and such are defining how the macros in lispy should be indented.  For example, lispy-dotimes includes (declare (indent 1) ...), which tells lisp-indent-function to indent the first enclosed form specially, then every successive form will be indented like a body form (IIRC).
+T 1613113748 18<19twb18>	antalsz: you might find a hack like this is sufficient, except check major mode and line length
+T 1613113751 18<26terpri18>	antalsz, i've run into weird problems with syntax-ppss and the like before, on seemingly innocuous files. might be an edge case in syntax highlighting or something that's basically never encountered (just a guess!)
+T 1613113765 18<19twb18>	http://ix.io/1kUd
+T 1613113766 18<20dale18>	zdm: That is, (declare (indent 1) ...) tells Emacs lisp indentation functions how to indent lispy-dotimes itself.
+T 1613113767 18<19twb18>	antalsz: ^
+T 1613113792 18<26terpri18>	i'll second twb's suggestion to copy your dissertation as-is, so that you have the option of debugging/sharing it in the future
+T 1613113793 18<28zdm18>	dale: i see
+T 1613113835 18<26terpri18>	(or obfuscating & sharing, etc.)
+T 1613113868 18<19antalsz18>	twb: It’s not line length, the longest line in the document is 99 characters, but yes
+T 1613113909 18<19antalsz18>	(obfuscate?  are you kidding?  if a bug report means somebody else has to read my thesis, I’d be ecstatic – that’s more readers than most theses ever get! :-P)
+T 1613113922 18<19antalsz18>	but yes, it’s good advice, I’ll copy it/save the git commit hash
+T 1613113938 18<19antalsz18>	terpri: what’s syntax-ppss?
+T 1613113972 18<20dale18>	antalsz: If you really want to spend time tracking this down, you could try stepping through font locking with ,,font-lock-studio,, see if the problem is there.
+T 1613113974 18<22fsbot18>	Good news from afar can bring you a welcome visitor.
+T 1613113991 18<20dale18>	,font-lock-studio is An interactive debugger for font lock keywords
+T 1613113994 18<22fsbot18>	Created new note for "font-lock-studio"
+T 1613113997 18<20dale18>	,font-lock-studio is also https://github.com/Lindydancer/font-lock-studio
+T 1613113999 18<22fsbot18>	Added note [1] for term "font-lock-studio"
+T 1613114068 18<19antalsz18>	dale: I may have to try that again…
+T 1613114079 18<26terpri18>	antalsz, a low-level function that analyzes the syntax near point (are you in a string or comment, how deeply are parens nested, that sort of thing)
+T 1613114085 18<20dale18>	I see a lot of stepping in your future, with a document of taht size. :)
+T 1613114085 18<19antalsz18>	terpri: Thanks!
+T 1613114104 18<19antalsz18>	oh yes.  OH yes -_-
+T 1613114153 18<19antalsz18>	I think the other lesson I take from this is that I should probably have had one file per chapter ::sigh::
+T 1613114277 18<28zdm18>	dale: seems to be working as i wanted it to, thanks so much
+T 1613114280 18<20dale18>	antalsz: That is, unfortunately, what I was thinking.
+T 1613114292 18<20dale18>	zdm: Did you just sub in common-lisp-indent-function?
+T 1613114302 18<19antalsz18>	it’s the sort of thing I hated for papers, but I didn’t appreciate the scale difference when you pass to a dissertation
+T 1613114367 18<28zdm18>	dale: Yeah: (setq lisp-indent-function 'common-lisp-indent-function)
+T 1613114425 18<20dale18>	zdm: Cool, glad to have another convert.  People here have chastised me for this in the past, but my Elisp looks right to me.
+T 1613114450 18<28zdm18>	To hell with tradition! Onward!
+T 1613114510 18<20dale18>	zdm: That said, it will screw up some things.  I think it now does (if) indentation in the traditional Emacs way (second enclosed form is indented more than following forms), but it doesn't do quite as well on a few other things.  I actually use this to set up common-lisp-indent-function for Elisp, in case it helps: https://github.com/dsedivec/dot-emacs-d/blob/master/recipes/indent-elisp-like-common-lisp.el
+T 1613114548 18<20dale18>	zdm: Been a looong time since I wrote that, looks like it really only fixes indentation for define-derived-mode and the various pcase macros.
+T 1613114612 18<19antalsz18>	I’m surprised I can’t find any other record of problems like this online…
+T 1613114616 18<19antalsz18>	dale, twb, terpri: thanks for all the advice
+T 1613114656 18<20dale18>	antalsz: Good luck with your thesis.
+T 1613114672 18<19antalsz18>	Thanks!  It’s almost there!
+T 1613114674 18<28zdm18>	dale: these seems helpful, again much appreciated
+T 1613114679 18<28zdm18>	this*
+T 1613115438 18<26terpri18>	antalsz, np, and good luck! may your emacs uptime be high :)
+T 1613115477 18<20dale18>	As seen on Reddit: I'm trying to change the year in the model description on my MacBook Pro running Mojave from 2019 to 2020 because my grad program requires our laptops to be less than a year old (have to be from 2020/2021). I bought the computer in February 2020 but it still says 2019 so I want to edit [the About this Mac window] so I don't have to shell out for a new laptop.
+T 1613115553 18<28wonko_the_sane18>	dale: That is cooked.
+T 1613115628 18<20dale18>	I'm imagining your professor coming around to everyone's computer in... grad school?  And asking you to show proof that your laptop is 2020 or newer?
+T 1613115713 18<22zmagii18>	Is there a way that I can invert the colour of SVG images in EWW?
+T 1613115758 18<22zmagii18>	The issue is that my background is black. This makes a vector graphic in black thus render black on black.
+T 1613115773 18<22zmagii18>	JPGs are fine, of course, since they do have a background.
+T 1613115802 18<22zmagii18>	This is particularly relevant for mathematics on Wikipedia, most of which I think is SVGs...
+T 1613115845 18<22zmagii18>	EWW is nice to browse Wikipedia, in general.
+T 1613115967 18<19parsnip18>	might be worth a bug report
+T 1613115994 18<19parsnip18>	oh, probably already filed
+T 1613115995 18<19parsnip18>	one sec
+T 1613116023 18<29hmw18>	Hm, wouldn't one like to honor the alpha channel?
+T 1613116066 18<19parsnip18>	bug 37159
+T 1613116151 18<22zmagii18>	dale: What kind of rich kid grad school is this? Eton old boys?
+T 1613116181 18<22zmagii18>	If I were the professor I would require that laptops be at least 10 years old so that those kids better learn to write optimised code.
+T 1613116193 18<19parsnip18>	zmagii: have you tried on emacs master?
+T 1613116211 18<22zmagii18>	parsnip: You mean opening the page in a buffer?
+T 1613116224 18<22zmagii18>	(Sorry, I still don't understand a lot of the terminology.)
+T 1613116239 18<19parsnip18>	i mean have you tried building recent emacs
+T 1613116262 18<19parsnip18>	"master" is main branch of git repo, so the latest version
+T 1613116281 18<19parsnip18>	that bug i pointed to suggested someone patched it about a year ago
+T 1613116284 18<22zmagii18>	Oh. I don't think I did. Most of the time I go with Debian/Ubuntu distro.
+T 1613116288 18<20bpalmer18>	(Didn't emacs rename its main branch recently?)
+T 1613116329 18<19parsnip18>	bpalmer: oops, i'm reading an old thread that suggests pulling master
+T 1613116353 18<22zmagii18>	But why is this a bug?
+T 1613116403 18<22zmagii18>	Oh wait, I think I get it.
+T 1613116407 18<19parsnip18>	idk. if you read that bug report i pointed to, there is mention of wikipedia not specifying foreground and background in svg images. but i didn't read it carefully.
+T 1613116414 18<22zmagii18>	SVG foreground should use your font colour, right.
+T 1613116435 18<20bpalmer18>	I've seen 'recent laptop' requirements for, e.g., med schools, although they usually had more specific requirements
+T 1613116437 18<19parsnip18>	if you have a different scenario, they may be interested to knwo
+T 1613116441 18<19parsnip18>	*to know
+T 1613116457 18<22zmagii18>	My background is not grey, like they say in the thread, but may still be same bug potentially.
+T 1613116471 18<20bpalmer18>	Almost certainly because parts of courses would be online, and they were going to be on the hook to provide tech support ,make sure the students could actually run the programs, etc.
+T 1613116536 18<19parsnip18>	zmagii: what is your emacs version, and what OS are you on?
+T 1613116540 18<22zmagii18>	bpalmer: But this can't be a math department, at least not *pure* math :') The older the better if you're learning about algorithms... IMO
+T 1613116571 18<22zmagii18>	parsnip: 26.3 on Ubuntu 20.04
+T 1613116586 18<19parsnip18>	i didn't notice a part about grey
+T 1613116611 18<20bpalmer18>	rudybot: anything more advanced than a white board is too much.
+T 1613116615 18<19parsnip18>	i saw people talking about issues with white background on Windows, and dark background on some other OS
+T 1613116630 18<22zmagii18>	parsnip: All the way back to the start, there is a comment that says "If trying to render mathematics in wikipedia articles, they appear as small, black images on dark grey background. Virtually unreadable. These are svg images. The theme used (background colour in particular) has no influence on this behaviour."
+T 1613116639 18<24rudybot18>	bpalmer: where "voting with their dollars" might not really make much impact on the board room
+T 1613116653 18<19parsnip18>	zmagii: right, so all the more unreadable if you have a black background, presumably
+T 1613116664 18<19parsnip18>	zmagii: so far your issue seems consistent with the one described there
+T 1613116665 18<22zmagii18>	In my case there is nothing at all, but I can highlight them going over them. (Nothing = black.)
+T 1613116683 18<22zmagii18>	So, I should consider upgrading Emacs?
+T 1613116702 18<19parsnip18>	at least to check if it's fixed
+T 1613116706 18<22zmagii18>	Hmm, first question then is whether EWW is the best option for Wikipedia...
+T 1613116721 18<19parsnip18>	and build it with svg option, i think
+T 1613116758 18<19parsnip18>	i mean yeah, i browse the web almost always in firefox, or chrome, or safari, or internet explorer
+T 1613116773 18<22zmagii18>	I am a bit scared of the "build everything from source" Stallman option, and sometimes find solace in the "everything should be old and stable" Ubuntu mantra.
+T 1613116782 18<19parsnip18>	i used conkeror or whatever the one with emacs bindings, for a short spell
+T 1613116798 18<19parsnip18>	never really found w3m.el or eww to be that ergonomic
+T 1613116807 18<19parsnip18>	nor cli w3m, or links, etc
+T 1613116814 18<19parsnip18>	i've used them rarely
+T 1613116827 18<22zmagii18>	parsnip: Qutebrowser is my new favourite, but Wikipedia remains an exception, as I want to view it as text + images, not as a rich page.
+T 1613116860 18<22zmagii18>	If I know it's all text, I prefer to read it in the same font and colours as my Emacs dev environment.
+T 1613116869 18<19parsnip18>	i don't know what the best solution is for you
+T 1613116894 18<22zmagii18>	There are few pages like that, though, so I should consider perhaps optimising Wikipedia for whatever browser option is good.
+T 1613116899 18<22zmagii18>	Dang, why is simplicity = effort.
+T 1613116913 18<19parsnip18>	define simplicity
+T 1613116922 18<19parsnip18>	trololol
+T 1613116925 18<22zmagii18>	parsnip: Thanks for the help, I would never have thought it to be a bug, come to think of it.
+T 1613116948 18<22zmagii18>	parsnip: Easy, I just define it as "mathematics".
+T 1613116957 18<19parsnip18>	i mean, it looks like the blame is shared by wikipedia. not sure if wikipedia is flying in the face of convention here.
+T 1613116958 18<22zmagii18>	Which is consistent with the effort part :')
+T 1613116978 18<19parsnip18>	first, define the can to be open
+T 1613116989 18<22zmagii18>	I think Wikipedia is more worried about Math Jax or whatever it's called, and thus went for the SVG option.
+T 1613117029 18<22zmagii18>	(Could also be editors of mathe pages rather than Wikipedia policy.)
+T 1613117064 18<19parsnip18>	i wonder if there's documentation somewhere saying, "thou shalt specify foreground and/or background colors for svg on the web"
+T 1613117083 18<19parsnip18>	then you could tell someone they are a bad person and should feel bad
+T 1613117096 18*	19parsnip handwaves
+T 1613117116 18<19parsnip18>	first, define the person to be bad
+T 1613117175 18<19parsnip18>	let's refer to bug mailing list threads as "silk"
+T 1613117243 18<22zmagii18>	parsnip: I'm going to see if I can update Emacs. Thanks for the help.
+T 1613117248 18<19parsnip18>	:)
+T 1613117252 18<19parsnip18>	for science
+T 1613117390 18<28zdm18>	Why do capslock when you could have alt (and more!): https://w1r3.net/TKYPmM.txt
+T 1613117678 24*	28MidAutumnHotaru5 is now known as 18MidAutumnHotaru
+T 1613118014 18<19parsnip18>	what's a wormdo?
+T 1613118015 18<22fsbot18>	Oh, it wriggles along the ground like this.
+T 1613118266 18<19twb18>	parsnip: you know the best joke in that show
+T 1613118278 18<19twb18>	"Oh, that's chicken, sir.  It's that man we found."
+T 1613118369 18<19parsnip18>	putting the episode on to watch now
+T 1613118517 18<19parsnip18>	twb: how can the best joke be in the newer episodes?
+T 1613118529 18<19parsnip18>	heretic
+T 1613118557 18<19parsnip18>	i get confused when rimmer is not wearing khaki
+T 1613118700 18<19parsnip18>	okay i just haven't watched them much
+T 1613118733 18<19parsnip18>	this episode is already starting out great. cameras keep breaking because he tries to explain to future self what's going on
+T 1613119712 18<19parsnip18>	rudybot: special relativity is what happens if you take general relativity to the dry cleaners, without specifying the care instructions
+T 1613119746 18<19twb18>	which esipode is that?
+T 1613119755 18<19twb18>	I watched some rifftrax last night
+T 1613119756 18<24rudybot18>	parsnip: someone mentioned vacuum cleaners? http://www.youtube.com/watch?v=hERLH3Q-hCQ
+T 1613119784 18<19twb18>	Why is the recent Star Wars using Gollum and the Harry Potter bad guy as its character designs
+T 1613119794 18<19twb18>	And why do even the REAL HUMANS in it look like bad 90s CGI
+T 1613119841 18<19twb18>	The whole film felt uncanny valley to me, as if it was made by deepfake
+T 1613119843 18<22zmagii18>	Should I install GNU mailutils?
+T 1613119850 18<19twb18>	zmagii: no
+T 1613119856 18<22zmagii18>	Alrighty.
+T 1613119865 18<19parsnip18>	twb: Tikka to Ride
+T 1613119911 18<19parsnip18>	oh that's the bit at the end of ./configure that seems like you're not supposed to ignore?
+T 1613119912 18<19twb18>	I don't remember the camera part at all
+T 1613119926 18<19parsnip18>	i only recently realized that mailutils is like a discardable message
+T 1613119933 18<19parsnip18>	*mailutils warning or w/e
+T 1613119948 18<22zmagii18>	Hmm, "Does Emacs use -lrsvg-2?  no" 
+T 1613119949 18<19parsnip18>	twb: it's in the first three minutes: https://www.dailymotion.com/video/x6i18fs
+T 1613119958 18<22zmagii18>	Wonder if that is important.
+T 1613119968 18<19parsnip18>	zmagii: i forget, ./configure --help | grep svg might help
+T 1613119982 18<19parsnip18>	but yeah, svg is the only option i had to configure last time i built emacs
+T 1613119998 18<19parsnip18>	just to participate in some discussion here a few weeks ago
+T 1613120010 18<19twb18>	mailutils is only interesting if you have local mail files
+T 1613120017 18<19parsnip18>	but i'm on emacs 27.1, so i think i still have the svg bug
+T 1613120046 18<19parsnip18>	twb: you don't even need it to use gnus or mu4e, etc, right?
+T 1613120049 18<22zmagii18>	twb: I may want to do that in the future, but not today. (Local mail files.)
+T 1613120082 18<19parsnip18>	i'm using mu4e without paying any mind to that ./configure complaint, i think
+T 1613120108 18<19parsnip18>	i forget how it's worded, it just sticks out because it's at the end
+T 1613120112 18<19parsnip18>	kind of disorienting
+T 1613120118 18<19parsnip18>	maybe they should move it to some earlier part
+T 1613120129 18<19parsnip18>	like, it complains _after_ the configure is done, or w/e
+T 1613120148 18<19parsnip18>	so the reflex is to think it's one more _blocking_ error
+T 1613120158 18<19parsnip18>	like if you're missing make or something
+T 1613120206 18<22zmagii18>	parsnip: twb: Does one use GNU mailutils for mu4e?
+T 1613120219 18<22zmagii18>	That's something I want to try out in the future (mu4e).
+T 1613120223 18<19parsnip18>	zmagii: i don't think you need to modify your build to use mu4e
+T 1613120232 18<22zmagii18>	Right.
+T 1613120234 18<19parsnip18>	the svg option should be sufficient
+T 1613120248 18<19twb18>	zmagii: for IMAP/SMTP, I very much doubt it
+T 1613120263 18<22zmagii18>	There is only one option for SVG in options, but that's to build without SVG support.
+T 1613120264 18<19parsnip18>	and i went years without the svg option, i was simply opening svg with M-! or w/e
+T 1613120288 18<22zmagii18>	  --without-rsvg          don't compile with SVG image support
+T 1613120288 18<22zmagii18>	 
+T 1613120292 18<19parsnip18>	zmagii: i think all --without-blah options have a --with-blah version
+T 1613120303 18<19parsnip18>	if you read further up, i think they mention this duality
+T 1613120322 18<19parsnip18>	it's implicit
+T 1613120541 18<22zmagii18>	Hmm, I install librsvg-dev, and now the option is set to yes when reconfiguring.
+T 1613120601 18<22zmagii18>	I tried the flag --with-lrsvg-2 which it didn't recognise, but it added the yes in anyway (I guess due to me install librsvg2-dev.
+T 1613120614 18<19parsnip18>	ah, that makes more sense. i don't know why i seemed to need the --with-blah last time i built
+T 1613120621 18<19parsnip18>	maybe homebrew is dumb
+T 1613120634 18<19parsnip18>	maybe my memory is rubbish
+T 1613120648 18<19parsnip18>	i've only built with svg once
+T 1613120658 18<19parsnip18>	well, in recent history
+T 1613120671 18<19parsnip18>	probably years ago i would add all sorts of things to build options
+T 1613120720 18<22zmagii18>	How is the difference between lib<x> and lib<x>-dev defined? Does it mean "for developers" or does it mean "unstable development version".
+T 1613120824 18<19parsnip18>	good question. i seem to always need the -dev version when building some cloned software.
+T 1613120852 18<22zmagii18>	I mean, sure the two are kind of for the same people, but the meaning is pretty starkly different.
+T 1613120878 18<22zmagii18>	I think at least "nightly" for example is pretty clear. You go to sleep, and when you wake up your software is broken.
+T 1613120940 18<19parsnip18>	-dev includes header files, etc?
+T 1613120949 18<19parsnip18>	but i'm not sure what the versions without the -dev are used for
+T 1613121018 18<20bpalmer18>	Running code that depends on dynamically linking to the libraries.
+T 1613121025 18<19parsnip18>	lol, "and when you wake up your software is broken"
+T 1613121282 18<22zmagii18>	bpalmer: So dynamic linking is the difference?
+T 1613121691 18<20aidalgol18>	parsnip: re. haskell, I think a big part of my problem is the kinds of things I want to do don't fit well with Haskell, at least not for beginners.
+T 1613121699 18<20aidalgol18>	And I don't learn well just doing toy examples.
+T 1613121943 18<19parsnip18>	yeah i've never really used haskell for anything real
+T 1613121998 18<19parsnip18>	i was doing euler problems, and started to run into issues with lack of algorithms knowledge, and found it tough to learn imperative algorithms and monads at the same time
+T 1613122094 18<19parsnip18>	i just saw in scrollback, your mention that they _think_ they know how to teach, but i suspect that  is skewed by the difference in teaching elegant concepts, versus showing how to use haskell in real world
+T 1613122136 18<19parsnip18>	i think the haskell community to some degree does a good job of teaching the powerful elegant concepts
+T 1613122171 18<19parsnip18>	and unfortunately, that may be a prerequisite to however they manage to explain concurrency
+T 1613122177 18<20aidalgol18>	yeah, the abstract shit makes sense
+T 1613122203 18<19parsnip18>	and i don't know they can conjure up a way to explain the real world elegantly
+T 1613122216 18<20aidalgol18>	well with OCaml, I was trying to use the LWT library, and the docs seemed to assume you already had intimate of concurrent ML
+T 1613122242 18<20aidalgol18>	So a library that's supposed to make concurrency easier assumes you already know how to do it the hard way?
+T 1613122255 18*	20aidalgol shakes head
+T 1613122256 18<19parsnip18>	yeah i've mostly pushed out of my brain, any understanding of how to do things in pure functional languages
+T 1613122277 18<20aidalgol18>	I can use functional concepts outside of *pure* functional languages.
+T 1613122291 18<19parsnip18>	yeah, purity can be rather unforgiving
+T 1613122294 18<20aidalgol18>	...and subsequently make me hate the procedural code I have to use at work.
+T 1613122316 18<20aidalgol18>	But I'm paid to suffer through it. :P
+T 1613122587 18<22zmagii18>	I have (elpy-enable) in my init.el, but new Emacs doesn't like it. Why is that...?
+T 1613122746 18<22zmagii18>	I assume I need to reinstall elpy with new Emacs.
+T 1613123072 18<26mananamenos18>	hi, when using `global-display-line-numbers-mode` is there a way to config it to highlight the active line? Using linum mode, there is `hlinum` for that.
+T 1613123292 18<19parsnip18>	mananamenos: i'm not familiar with that feature. does hl-line-mode work?
+T 1613123553 18<26mananamenos18>	parsnip, hi, I don't mean the hl-line-mode way (that hightlights the whole line). I don't only the global-display-line-numbers-mode's column active line highlight. I has an option like "Display Line Numbers Major Tick" but I had no success playing with it 
+T 1613123755 18<19parsnip18>	mananamenos: i guess the hlinum project is suggesting to modify some face: https://github.com/tom-tan/hlinum-mode#notice
+T 1613123819 18<22zmagii18>	parsnip: It worked.
+T 1613123827 18<19parsnip18>	:)
+T 1613123837 18<22zmagii18>	I might want to zoom a bit, though.
+T 1613123927 18<22zmagii18>	Quite funny, the period at the end of each SVG is now a ghostly dot at the bottom. But I have to say I actually like it, I kind of obsess about the period-after-equations-or-not debate LOL
+T 1613123937 18<19parsnip18>	mananamenos: maybe you can somehow query the hl-line-mode face and apply it to line-number-current-line
+T 1613123947 18<19parsnip18>	this might give some clues: https://stackoverflow.com/questions/6874516/relative-line-numbers-in-emacs/6928112#6928112
+T 1613123986 18<19parsnip18>	zmagii: i vaguely recall some mention people complaining about svg breaking lines, or something
+T 1613123999 18<19parsnip18>	might be a "known issue"
+T 1613124050 18<19parsnip18>	zmagii: i did math before any programming, and it irks me how code blocks between paragraphs aren't part of sentences, etc
+T 1613124069 18<19parsnip18>	zmagii: like in math, you go, "and with the following equations,\n\n$$..."
+T 1613124314 18<22zmagii18>	parsnip: The final frontier for me is 1) to finally decide whether I shall adopt the Oxford comma and 2) whether the French indent is sensible or not... :')
+T 1613124361 18<19parsnip18>	i think i mostly stopped using the oxford comma
+T 1613124372 18<19parsnip18>	can't remember if there were situations where i prefer it
+T 1613124393 18<19parsnip18>	longer lists?
+T 1613124463 18<19parsnip18>	i like no indentation in paragraphs
+T 1613124471 18<22zmagii18>	I can't remember now either. But I think both ways have boundary cases that sometimes are difficult to read.
+T 1613124487 18<19parsnip18>	i used to format my latex prose to just have a little space between paragraphs
+T 1613124569 18<24rgr_18>	oxford comman should be mandatory in all situations but most of all in programming languages where you assign a sequnce of elements to eg an array. copy, paste and edit lines therein with no worries about that comma ... it's there .. end element or not ;)
+T 1613124679 18<22Andregrey18>	I'm a big fan of the Oxford comma; but I dislike split infinitives
+T 1613124778 18<22Andregrey18>	"to finally decide"
+T 1613124790 18<22Andregrey18>	"to boldly go"
+T 1613124792 18<22Andregrey18>	etc
+T 1613124888 18<19twb18>	bloody firefox
+T 1613125090 18<26mananamenos18>	parsnip, thanks, that was it. 
+T 1613125101 18<19parsnip18>	:)
+T 1613125219 18<26mananamenos18>	parsnip, now im thinking that it would be nice to line highlight thing ar the whole disply-line-number mode to go away when the buffer is not the active/selected one
+T 1613125334 18<19parsnip18>	some of your sentences are a little challenging to parse, by the way
+T 1613125521 18<20OraNgegUise18>	hello
+T 1613125567 18<19twb18>	How the FUCK do you set up ingress QoS in systemd
+T 1613125585 18<19twb18>	I cannot see how to run "tc filter add" shit anywhere
+T 1613125604 18<19twb18>	Nor can I see how to pass "wash besteffort" to ifb-internet's CAKE
+T 1613126052 18<26mananamenos18>	parsnip, sorry, my bad for writing with so many mistakes. So, once you open two buffers side by side, the active buffer has a different mini buffer background colour, which is only comfortable way to visually get which buffer is active (cause searching for the flashing cursor is too hard). So maybe it would be nice that the highlighted line feature would only work when the buffer is active/focused/selected and would be disable on 
+T 1613126052 18<26mananamenos18>	non-selected buffers. 
+T 1613126682 18<19parsnip18>	,g emacs highlightin line in active window
+T 1613126682 18<22fsbot18>	rudybot: g emacs highlightin line in active window
+T 1613126683 18<24rudybot18>	fsbot: Highlight Current Line - EmacsWiki https://www.emacswiki.org/emacs/HighlightCurrentLine
+T 1613126704 18<19parsnip18>	mananamenos: this seems promising: https://emacs.stackexchange.com/questions/15138/how-to-highlight-current-line-only-in-selected-window
+T 1613126725 18<19parsnip18>	i guess when you said mini buffer, you meant modeline
+T 1613126777 18<19parsnip18>	or mode-line or w/e
+T 1613126811 18<26mananamenos18>	parsnip, nice. yes I meant mode-line :)
+T 1613127193 20*	Disconnected (20)
+T 1613132568 19*	Now talking on 22#emacs
+T 1613132568 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1613132568 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
+T 1613132568 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1613132866 18<28andinus18>	is 'cl-lib the same as 'cl ? 
+T 1613132887 18<28andinus18>	it says 'cl is depreciated
+T 1613133106 18<19parsnip18>	maybe cl-lib is the rewrite. not sure.
+T 1613133250 18<19bremner18>	andinus: cl-lib is the prefixed version
+T 1613133276 18<19bremner18>	so new code should use cl-lib instead of cl
+T 1613133371 18<22zmagii18>	Interestingly, building Emacs from source fixed some config issues I had with ESS.
+T 1613133492 18<22zmagii18>	But added one new issue, which is that the prompt for some reason is doubled: https://imgur.com/WyfmPFm.png.
+T 1613133521 18<22zmagii18>	But that may have been me doing something wrong while using package-install with ESS.
+T 1613141847 20*	Disconnected (20)
+T 1613141876 19*	Now talking on 22#emacs
+T 1613141876 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1613141876 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
+T 1613141876 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1613142398 18<28rgr18>	emacs lucid doesnt like to offer many fonts up in the menu option to set default font. I even recompiled with xft
+T 1613142565 18*	19parsnip rage quits a matrix-littered irc channel
+T 1613142752 18<22sam_18>	motif is being removed?
+T 1613144311 18<26jrm18>	slack and matrix are gentrifying irc
+T 1613144554 18<27grym18>	bold of you to assume there's feed _back_ in that loop 
+T 1613144561 18<27grym18>	(matrix probably)
+T 1613144806 18<19bremner18>	in the same way that AOL gentrified usenet??
+T 1613144807 18<22fsbot18>	Of course not!
+T 1613144812 18<19bremner18>	phew
+T 1613144893 18<19parsnip18>	the most annoying thing about automated emails, is you can't reply to them
+T 1613144917 18<19parsnip18>	if i can't spam you back, where's the fairness?
+T 1613146025 18<19rpav18>	is matrix a slack<->irc bridge?
+T 1613146045 18<25cvandusen18>	,matrix 
+T 1613146046 18<22fsbot18>	matrix is [0/4] "an open standard for decentralised communication, providing simple HTTP APIs and open source reference implementations for securely distributing and persisting JSON over an open federation of servers."
+T 1613146046 18<22fsbot18>	[1] https://en.wikipedia.org/wiki/Matrix_(communication_protocol)
+T 1613146046 18<22fsbot18>	[2] /join #matrix (bridged to the Matrix.org channel)
+T 1613146046 18<22fsbot18>	[3] Like Slack, but an open platform, and with bridges. ;;[ ,more / ,dump]
+T 1613146062 18<25cvandusen18>	,m 
+T 1613146063 18<22fsbot18>	[4] https://github.com/jgkamat/matrix-client-el
+T 1613146064 18<19rpav18>	ah
+T 1613146079 18<25cvandusen18>	huh, no Neo reference?? 
+T 1613146079 18<22fsbot18>	Highly likely.
+T 1613146115 18<19rpav18>	always got to have the fad chat clients .. i wonder what it'll be in the next 5 years
+T 1613146126 18<27grym18>	... irc
+T 1613146132 18<19rpav18>	well, there's *always* irc
+T 1613146237 18<25cvandusen18>	,faint-praise 
+T 1613146239 18<22fsbot18>	well...at least it's better than Slack
+T 1613146245 18<25cvandusen18>	lol 
+T 1613146293 18<27grym18>	perfect timing
+T 1613146593 18<20pjb18>	parsnip: it's not a fatality, there could be a bot to receive responses.  I find it rather rude to send email from no-reply addresses…
+T 1613146703 18<19bremner18>	sure. But most of the internet is pretty rude.
+T 1613146720 18<19bremner18>	either in a technical ignorance sense, or in some other sense.
+T 1613146786 18<19parsnip18>	need a row and column for a matrix reference
+T 1613146803 18<19parsnip18>	rudybot: tensors
+T 1613146803 18<24rudybot18>	parsnip: goes back to his survivor marathon and reading up on tensors
+T 1613146840 18<27hodapp18>	rudybot: tensorflow is like a freight train made out of unnecessary abstractions, and using only reinvented wheels
+T 1613146844 18<25cvandusen18>	rudybot: survivor is like so pre-streaming 
+T 1613146860 18<24rudybot18>	hodapp: the only thing our railroads get used for is freight
+T 1613146863 18<24rudybot18>	cvandusen: let's award all of our collective assets to the last survivor.
+T 1613146893 18<25cvandusen18>	ooooh, a #emacs tontine!
+T 1613146894 18<19parsnip18>	tensors are so 1990s
+T 1613146900 18<27hodapp18>	rudybot: Let's complain about the center of gravity of our toast.
+T 1613146910 18<24rudybot18>	hodapp: You don't know about that perpetual motion machine? Strapping buttered toast to a cat's back?
+T 1613146948 18<27hodapp18>	uhh, tried it, good luck catching your perpetual motion machine when it runs away angrily
+T 1613146998 18<19rpav18>	but it's *buttered*, and cat
+T 1613147041 18<19rpav18>	(assuming it doesn't achieve spin, the cat will be too busy trying to get at the butter to run away)
+T 1613147116 18<27grym18>	"remember guys, when multiplying mattresses, inner dimensions must match.  If not, is boo-boo.  when multiplying ze tensors, allllll inner dimensions must match; otherwise, is _big_ boo-boo."
+T 1613147175 18<19rpav18>	also remember to check whether they're stored column- or row- major, even if row-major seems the obvious choice (problem i literally just fixed)
+T 1613147177 18<19parsnip18>	so two matrices walk into a bar...
+T 1613147261 18<27grym18>	rpav: that quote is from a solid biomechanics course in which we also 'learned' einstein notation 
+T 1613147268 18<27grym18>	i have never used it again, sadluy u
+T 1613147272 18<19rpav18>	grym: fun
+T 1613147289 18<27grym18>	"what if point masses also could be squished, like bones?"
+T 1613147613 18<27hodapp18>	rudybot: do you ever find it weird how many modern 'deep learning' libraries and frameworks are always promoted as being absolutely on the cutting edge, but at the core they are still mostly doing a lot of very haphazard matrix/array math?
+T 1613147646 18<24rudybot18>	hodapp: rudybot has an haphazard one.
+T 1613147747 18<22kayvan18>	help plz! greetings. I use emacs, lsp-scala for my dev work. my workflow is 1) emacs --daemon 2) nohup emacscclient -c >& /dev/null&.  Once I open my Scala projects, the CPU utilization is to %100, and it just stays there. However when I start emacs not as daemon, emacs&, all is well.  I get the same behavior in emacs 27.1 & emacs 28.0.50.  My OS is Linux 5.10.15-arch1-1
+T 1613147814 18<27zenny18>	Hi, what is the equivalent M+x command to "File > Print > Postscript Print Buffer/Region (B+W)" ?
+T 1613148049 18<19parsnip18>	zenny: do you know about C-h k
+T 1613148055 18<19parsnip18>	that should reveal the command
+T 1613148524 18<19rpav18>	even for a menu?
+T 1613148604 18<24npostavs18>	menus are just a funny kind of keybinding
+T 1613148616 18<19rpav18>	sadly even lossage doesn't appear to show menu selections, despite ^
+T 1613148672 18<24npostavs18>	rpav: seems to work for me
+T 1613148728 18<24npostavs18>	though there's a bunch of extra <help-echo>
+T 1613148732 18<19rpav18>	npostavs: are you sure? e.g. i right-click, "Find references", which should add `lsp-find-references` to the lossage, but it only shows clicks and popup menu
+T 1613148762 18<20pjb18>	rpav: in pjb-echo-keys, they appear; eg.: <C-down-mouse-3> <options> <line-wrapping> <truncate> menu-bar--toggle-truncate-long-lines
+T 1613148766 18<19rpav18>	really it's a bit boggling why that's based on *keystroke* rather than interactive call
+T 1613148776 18<24npostavs18>	After opening a file via the menu I have: <help-echo> <help-echo> <help-echo> <help-echo> <menu-bar> <file> <open-file> [menu-find-file-existing] <f1> l [view-lossage]
+T 1613148786 18<19rpav18>	pjb: well apparently everyone should be using that ;)
+T 1613148826 18<19rpav18>	i wonder if it's also different for menus off the menubar
+T 1613148838 18<19rpav18>	i'd test but i don't really feel like enabling the menubar ;P
+T 1613148989 18<19parsnip18>	freakin' finally, got edit working in my app
+T 1613149023 18<19parsnip18>	why programming is so slow, takes forever
+T 1613149094 18<19bremner18>	I blame knuth
+T 1613149162 18<20pjb18>	parsnip: because you need to declare everything to the computer.
+T 1613149198 18<20pjb18>	parsnip: this is why dynamically typed programming languages are nice: you can tell less to the computer, and it will do run-time checks and dispatching to understand what you say.
+T 1613149234 18<19parsnip18>	eww
+T 1613149264 18<19rpav18>	heh
+T 1613149282 18<27grym18>	walks like a duck, talks like a duck, it's an unsigned 32-bit int
+T 1613149283 18<19rpav18>	not really, since it's more just "type inference by default"
+T 1613149310 18<19rpav18>	there's not really a huge difference between dynamic and static languages, except many dynamic languages often can't do static things
+T 1613149585 18<27zenny18>	parsnip: I know you can print with `M-x ps-print-buffer/region-with-faces` in color, but the issue is not in B+W which is equivalent to the menu item "File > Print > Postscript Print Buffer/Region (B+W)"
+T 1613149812 18<19parsnip18>	maybe you need something like (let ((ps-print-color-p 'black-white)) ...)
+T 1613149826 18<19parsnip18>	i'm just sort of randomly searching the source for leads
+T 1613149898 18<19parsnip18>	https://www.gnu.org/software/emacs/manual/html_node/emacs/PostScript-Variables.html
+T 1613150010 18<19parsnip18>	zenny: giving you a mention in case you missed these messages ^
+T 1613150234 18*	26jla has found this nice ... org-download  gem , and...
+T 1613150236 18<19parsnip18>	rpav: i get the impression dynamic languages let you go wild with json, but then programmers switching from dynamic to static language and then trying to parse some json, get annoyed.
+T 1613150272 18<19rpav18>	parsnip: dunno, json isn't terribly hard to deal with in the static languages i've used it in
+T 1613150288 18<19rpav18>	or really, any kind of multi-type decode, even in dumb things like C
+T 1613150304 18<26jla18>	while package-install ... i'm getting 'org-download.el:721:1:Warning: the function ‘url-handler-file-remote-p’ is not known to be defined. ' ...what are we missing here ?
+T 1613150327 18<19parsnip18>	jla: looks like just a warning
+T 1613150338 18<26jla18>	let's try ...though
+T 1613150350 18<19parsnip18>	could be linting, complaining about author not using a defvar or something
+T 1613150352 18<27zenny18>	parsnip: setting ps-print-color-p to nil as described in the link may not work as I have different printers. When I try need to print to a color printer, I would like to use `M-x ps-print-buffer-with-faces` and when I need to print to a monochrome printer, I have to use menu item "File > Print > Postscript Print Buffer/Region (B+W)" which I am trying to avoid.
+T 1613150392 18<19parsnip18>	zenny: yeah so the (let ...) could let you bind it in a custom command
+T 1613150642 18*	26jla says ^^ wonderful org-download !
+T 1613151414 18<27zenny18>	parsnip: appending the let... line didn't help. Anyway thanks!
+T 1613151468 18<19parsnip18>	:(
+T 1613151635 18<20aidalgol18>	,ping
+T 1613151637 18<22fsbot18>	␕
+T 1613151892 18<29sachac18>	In 15 minutes: EmacsSF: Discussion of emacs in general and completion frameworks in particular https://www.meetup.com/Emacs-SF/events/276234974/ Fri Feb 12 1000 Vancouver / 1200 Chicago / 1300 Toronto / 1800 GMT / 1900 Berlin / 2330 Kolkata // Sat Feb 13 0200 Singapore
+T 1613151900 18<26jrm18>	Arg. `reftex-citation' seems to be broken with ivy.  It limits the selection of references using text near the point.
+T 1613151917 24*	28\u is now known as 18meowray
+T 1613152123 18<20lispmacs[work]18>	hi, I used to know a trick to insert some text at the top of a file that would tell emacs to always turn on auto-fill-mode for that document. But I've forgotten
+T 1613152141 18<20lispmacs[work]18>	can somebody point me in the right direction?
+T 1613152177 18<19rpav18>	lispmacs[work]: probably your text-mode has auto-fill, and -*- text -*- ?
+T 1613152178 18<20dale18>	lispmacs[work]: That sounds like M-x add-file-local-variable-prop-line, tell it to add auto-fill-mode with value t.
+T 1613152186 18<19rpav18>	ah or more specifically
+T 1613152187 18<20dale18>	Or, that.
+T 1613152227 18<19rpav18>	*or* if the file has an extension (or full name, e.g. "README") that would be useful to associate with an appropriate mode, you can do that too
+T 1613152284 18<20dale18>	lispmacs[work]: Oh, my bad, I forgot you add minor modes by telling it to add the variable "mode", then value "auto-fill-mode".
+T 1613152297 18<20dale18>	Which adds something like -*- mode: auto-fill; -*-
+T 1613152346 18<20lispmacs[work]18>	dale: thanks, that was what I was looking for
+T 1613152374 18<20lispmacs[work]18>	I wanted the setting to be document specific - not necessarily all my text files doing that
+T 1613152420 18<20dale18>	jrm: I'm surprised reftex-citation ends up using Ivy at all, I'm not using it but reading its code it looks like it wants to pop up a buffer of its own with choices, rather than going through completing-read.
+T 1613152546 18<20lispmacs[work]18>	dale: sorry, another question: when I use that mode: auto-fill line, it seems to also disable org mode
+T 1613152551 18<26jrm18>	dale: I had ivy-bibtex installed, but I get the same behaviour without it.  It's essentially broken, because a regexp cannot be entered.
+T 1613152557 18<20dale18>	lispmacs[work]: Well that's bad.
+T 1613152573 18<20dale18>	jrm: What happens when you enter a regexp?
+T 1613152630 18<26jrm18>	dale: Well.. what I said above was not quite right.  It lets me enter a regexp, but it only matches on a very limited number of choices (usually 1 or none) based on text near point.
+T 1613152649 18<20dale18>	Whoops!  "Do not use the mode keyword for minor modes."  TIL.  https://www.gnu.org/software/emacs/manual/html_node/emacs/Specifying-File-Variables.html
+T 1613152668 18<20lispmacs[work]18>	dale: okay, `# -*- mode: org; mode: auto-fill; -*-' seems to wrok
+T 1613152682 18<20lispmacs[work]18>	gives me (Org Fill) mode
+T 1613152685 18<20dale18>	lispmacs[work]: Per that link you apparently want "eval: (auto-fill-mode 1)", which I assume will give you an annoying warning.
+T 1613152703 18<20dale18>	lispmacs[work]: OK.  On one hand you probably can't rely on that, on the other hand I bet it's unlikely that it'll break anytime soon.
+T 1613152792 18<29sachac18>	Starting now: EmacsSF: Discussion of emacs in general and completion frameworks in particular https://www.meetup.com/Emacs-SF/events/276234974/
+T 1613152822 18<20dale18>	 jrm: Wait, so is reftex-citation the problem or ivy-bibtex?
+T 1613152846 18<26jrm18>	dale: It can't be ivy-bibtex.  I no longer have it installed and the problem persists.
+T 1613152856 18<22jkdufair18>	Is this a good channel to ask elisp questions?
+T 1613152862 18<22sam_18>	sure :)
+T 1613152863 18<20dale18>	jkdufair: Yes.
+T 1613152870 18<26jrm18>	I suspect it's a problem with ivy.
+T 1613152924 18<20dale18>	Hmph, sorry, I don't have anything with a .bib file around on this machine.
+T 1613152939 18<22jkdufair18>	I'm asynchronously inserting a number of images into a buffer in the callback to `url-retrieve`. I'm wondering if there's some way to temporarily suspend redisplay of that buffer until all images are inserted
+T 1613153075 18<26jrm18>	dale: I take that back.  I disabled ivy and the prompt is: 'Regex { && Regex...}: [text near point]:' So it's only matching on text near point?! 
+T 1613153083 18<20dale18>	OK, must be coming from reftex--query-search-regexps.
+T 1613153246 18<20dale18>	jkdufair: There is a variable inhibit-redisplay, and though it's "used for internal purposes", I see lots of the Elisp that comes with Emacs using it.  Maybe that'd do what you want.
+T 1613153280 18<22jkdufair18>	dale thanks! I'll give that a try. No wonder I couldn't find anything in any docs :-)
+T 1613153422 18<20dale18>	jrm: This smells like it's getting the completion list from something deep enough inside AUCTeX that I can't quickly figure it out, sorry. :)
+T 1613154484 18<22jkdufair18>	dale that worked extremely well. Thank you!
+T 1613154509 18<20dale18>	jkdufair: Fantastic.  I could swear there was something like that which was documented, but I didn't quickly find it.
+T 1613154520 18<20dale18>	I've had to this before, I feel sure.
+T 1613155246 18<29shoshin18>	anyone here have an idea why running ert in batch mode on a test file with defined tests results in 0 tests running?
+T 1613155352 18<26jrm18>	dale: No problem.  Thanks for humouring me.  If I find anything useful I'll report back.
+T 1613158743 18<19clyfe18>	(add-hook 'smartparens-mode-hook
+T 1613158744 18<19clyfe18>	          (lambda()
+T 1613158746 18<19clyfe18>	            (local-set-key (kbd "C-<right>") 'sp-forward-sexp)
+T 1613158747 18<19clyfe18>	            (local-set-key (kbd "C-<left>") 'sp-backward-sexp)
+T 1613158749 18<19clyfe18>	            (local-set-key (kbd "M-d") 'sp-kill-hybrid-sexp)))
+T 1613158750 18<19clyfe18>	M-d ok, C-l/r not; how can I debug why?
+T 1613158792 18<28zdm18>	clyfe: errors?
+T 1613158820 18<28zdm18>	clyfe: what does C-h k C-<right> show?
+T 1613158820 18<19clyfe18>	None
+T 1613158825 18<28mwnaylor18>	pastebin, please
+T 1613158851 18<28zdm18>	where smartparens is active
+T 1613158873 18<19clyfe18>	@zdm <C-right> runs the command forward-word
+T 1613159006 18<28zdm18>	clyfe: I installed smartparens, evaluated your hook expression, and then enabled smartparens and it works fine.
+T 1613159029 18<19clyfe18>	works now, apologies!
+T 1613159937 20*	Disconnected (20)
+T 1613160011 20*	Disconnected (20Remote host closed socket)
+T 1613160145 19*	Now talking on 22#emacs
+T 1613160145 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1613160145 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
+T 1613160146 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1613160303 18<20bpalmer18>	Let's assume the impossible.
+T 1613160350 18<25cvandusen18>	inconceivable!
+T 1613160500 18<20bpalmer18>	rudybot: would you watch a tv series with a Sicilian, a Spanish Swordsman, and a Brute Squad being sent on incognito missions? It'd be Mission: Inconceivable.
+T 1613160507 18<24rudybot18>	bpalmer: I liked Rutger's blind swordsman movie maybe just a little more than Zatoichi
+T 1613160537 18<20bpalmer18>	oh, sure, but when *I* blind my lead actor, OSHA sues me.
+T 1613160613 18<25rj18>	Any way I can get emacs to only display ascii symbols? I'm getting tofus for emoji and also quote symbols when using it in the terminal
+T 1613160645 18<27grym18>	rj: easier to make your terminal suck less, i should thihnk 
+T 1613160687 18<22contrapunctus18>	rj: terminal Emacs? just...just...why?
+T 1613160737 18<25rj18>	Mainly because I love my bitmap font
+T 1613160739 18<20bpalmer18>	rj: invisible characters usually lead to more pain than some ugly glyphs.
+T 1613160747 18<19wasamasa18>	contrapunctus: it's a deadly condition
+T 1613160759 18<22contrapunctus18>	wasamasa: XD
+T 1613160764 18<20bpalmer18>	rj: you can use fontsets to display characters in a range (e.g., everything except ascii) in another font.
+T 1613160789 18<25rj18>	I was hoping I could just replace anything non-ascii with a hex code
+T 1613160810 18<22contrapunctus18>	Hm, dafuq...I'm running makem.sh in the Chronometrist project root, and I get a wall of "you should depend on (emacs "X.Y") or the foo package if you need `symbol`"...but I already `require` them and specify them in the package headers???
+T 1613160810 18<22fsbot18>	No
+T 1613160851 18<22contrapunctus18>	Also tried with `-s --install-deps`
+T 1613160881 18<25cvandusen18>	read the source, luke.
+T 1613160889 18<20bpalmer18>	rj: Oh, hmm. that should be doable. Mess with glyphless-char-display-control
+T 1613160910 18<20bpalmer18>	rj: see also (info "(emacs) Text Display") which goes into more details
+T 1613160977 18<20bpalmer18>	you'll want to map things to 'hex-code
+T 1613161080 18<25rj18>	Ouffff that's a a table of glyphs, at least that's fine grained I guess
