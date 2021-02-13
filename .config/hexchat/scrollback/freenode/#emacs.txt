@@ -6690,3 +6690,404 @@ T 1613160889 18<20bpalmer18>	rj: Oh, hmm. that should be doable. Mess wi
 T 1613160910 18<20bpalmer18>	rj: see also (info "(emacs) Text Display") which goes into more details
 T 1613160977 18<20bpalmer18>	you'll want to map things to 'hex-code
 T 1613161080 18<25rj18>	Ouffff that's a a table of glyphs, at least that's fine grained I guess
+T 1613161294 18<20bpalmer18>	rj: customizing glyphless-char-display-control will set the table for you
+T 1613161309 18<25rj18>	yup, that's what i'm reading
+T 1613161326 18<25rj18>	so i'd probably want format-control and no-font to be hex
+T 1613161882 18<25rj18>	Still getting tofus... I wonder if my font is missing some ascii codepoints
+T 1613161913 18<19bremner18>	this usage of "tofu" is unfamiliar to me.
+T 1613161963 18<25rj18>	I learned about it when I looked into the etymology of "noto" fonts
+T 1613161980 18<25rj18>	https://en.wikipedia.org/wiki/Noto_fonts#Etymology
+T 1613162004 18<25rj18>	Is there a more canonical way to refer to them?
+T 1613162090 18<19bremner18>	ah. Perhaps I am just ignorant in this instance.
+T 1613162124 18<25cvandusen18>	rudybot: tofu or spam? 
+T 1613162126 18<24rudybot18>	cvandusen: Or if not a cow, at least some kind of tofu-flavorable-paste-thing.
+T 1613162171 18<25cvandusen18>	What's for dinner, Alex? 
+T 1613162271 18<27grym18>	mojibake begets tofu sometimes
+T 1613162302 18<20bpalmer18>	Baked tofu, with a nice chocolate glaze ...
+T 1613162306 18<27grym18>	https://news.ycombinator.com/item?id=12656702  is actually a pretty cogent explanation 
+T 1613162325 18<27hodapp18>	I actually started to rather like tofu
+T 1613162339 18<27hodapp18>	after a rough start from only trying tofu from people who had no clue how to make it right
+T 1613162361 18<27grym18>	i tend to also think of Curse of Monkey Island here
+T 1613162368 18<27hodapp18>	what about it?
+T 1613162378 18<27grym18>	rudybot: you fool, you've given cheese to a lactose-intolerant volcano god!
+T 1613162381 18<24rudybot18>	grym: well, it's hardly universal. the Mongolians are still mostly lactose-intolerant, even though they live off their herds.
+T 1613162418 18<27grym18>	hodapp: https://pbs.twimg.com/media/EBWlDH0XkAIpS3z.jpg 
+T 1613162475 18<27grym18>	since guybrush's disguise looks a bit like missing-glyph 
+T 1613162481 18<27hodapp18>	hmmm
+T 1613162490 18*	27hodapp goes back to stabbing Detectron2 in the face
+T 1613162505 18<29glyph18>	I'm not missing I'm just busy
+T 1613162508 18<29glyph18>	you know, pandemic and all
+T 1613162515 18<27grym18>	hodapp: i hacked it out of our things earlier
+T 1613162524 18<27grym18>	glyph: i had something witty to say with you in mind last week, but i cannot recall what it was 
+T 1613162529 18<27grym18>	it was good though! honest!
+T 1613162535 18<29glyph18>	grym: I'll trust that it was.
+T 1613162594 18<29johnjay18>	which parts of haskell are hardest to learn?
+T 1613162694 18<25rj18>	Seems like the issue is emacs incorrectly trying to use curved quotes
+T 1613162967 20*	Disconnected (20)
+T 1613163044 20*	Disconnected (20Remote host closed socket)
+T 1613163107 20*	Disconnected (20Remote host closed socket)
+T 1613163148 20*	Disconnected (20Remote host closed socket)
+T 1613163174 19*	Now talking on 22#emacs
+T 1613163174 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1613163174 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
+T 1613163174 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1613163223 18<27grym18>	you can play this trick with most food
+T 1613163224 18<27grym18>	s
+T 1613163282 18<19parsnip18>	bye bye, matrix litter
+T 1613163293 18<27grym18>	parsnip: clumpy!
+T 1613163307 18<19parsnip18>	how do we manage to not see more matrix litter here?
+T 1613163316 18<27grym18>	rudybot: let's not substitute the bentonite litter for the lighter stuff in new mexico again 
+T 1613163332 18<24rudybot18>	grym: if my coworkers are gong to litter the repo with their eclipse crap
+T 1613163469 18<19parsnip18>	the coffee syrup? eww.
+T 1613163624 18<29wgreenhouse18>	> how do we manage to not see more matrix litter here?
+T 1613163624 18<29wgreenhouse18>	parsnip: people too worried about being mocked?
+T 1613163692 18<20aidalgol18>	wgreenhouse: yes, because of the permanent blockchaininess of it.
+T 1613163710 18<20aidalgol18>	(re. is it impossible for matrix to satisfy GDPR)
+T 1613163749 18<29wgreenhouse18>	aidalgol: I don't know. Seems like a nation-state information commissioner's complaint in the waiting
+T 1613163765 18<29wgreenhouse18>	maybe there just hasn't been a complainant yet
+T 1613163784 18<26quippy18>	I've also read that it's impossible to protect yourself from spammers on Matrix
+T 1613163798 18<26quippy18>	the spammer can create infinite identities to spam your server with, from infinite other homeservers
+T 1613163810 18<20aidalgol18>	quippy: sounds like email
+T 1613163817 18<19parsnip18>	i keep getting invited to chats in matrix
+T 1613163823 18<29wgreenhouse18>	quippy: I mean, that's any federated system (email or xmpp) in principle
+T 1613163823 18<19parsnip18>	by people i don't recognize
+T 1613163824 18<26quippy18>	yes, and of course email is largely federated in name only 
+T 1613163830 18<20aidalgol18>	I used to be cheering matrix on, but now I kind of want it to completely bomb so that something better can capture people's attention.
+T 1613163831 18<26quippy18>	and xmpp is dead
+T 1613163839 18<26quippy18>	that's how I feel aidalgol 
+T 1613163848 18<20aidalgol18>	quippy: also all ActivityPub-based systems
+T 1613163855 18<26quippy18>	I also think the CEO of New Vector LLC is a dick, and I don't understand what's taking so long with Dendrite
+T 1613163858 18<29wgreenhouse18>	quippy: in practice I wouldn't worry about it because it's ridiculously expensive to stand up a homeserver
+T 1613163875 18<26quippy18>	lol only because Synapse is such a resource hog
+T 1613163880 18<29wgreenhouse18>	quippy: I'm on xmpp. and there are around 85k xmpp servers according to Shodan
+T 1613163892 18<29wgreenhouse18>	way more than matrix servers
+T 1613163900 18<26quippy18>	yeah I've bumped into some folks on ActivityPub that say they use XMPP but it died for everyone I knew about seven or eight years ago
+T 1613163903 18<20aidalgol18>	wgreenhouse: maybe I should get back on the XMPP train
+T 1613163903 18<26quippy18>	maybe it's making a comeback
+T 1613163921 18<20aidalgol18>	quippy: I haven't had any interaction with them in a long time, but one thing I always admired about the project was their professionalism.
+T 1613163936 18<29wgreenhouse18>	quippy: it is, I think, thanks to new fancy clients and new projects like Snikket to ease onboarding
+T 1613163938 18<26quippy18>	about the Matrix project? professionalism?
+T 1613163939 18<20aidalgol18>	But maybe I only saw the sunny side.
+T 1613163952 18<26quippy18>	lol search HN comments for the user 'Arathorn', that's the New Vector LLC CEO
+T 1613163976 18<20aidalgol18>	Is that Matthew whatshisname, or someone else?
+T 1613163982 18<26quippy18>	he's a lot of things but professional isn't what I'd call a CEO who wades into HN comments to pick fights with users every time his product shows up on the front page
+T 1613163987 18<26quippy18>	I have no idea what his real life name is
+T 1613163999 18<20aidalgol18>	OK, yeah, that's petty.
+T 1613164019 18<19wrycode18>	aidalgol: agreed, let matrix bomb
+T 1613164023 18<20aidalgol18>	Also this was a few years ago.
+T 1613164033 18<26quippy18>	sorry I have a real bad taste in my mouth about Matrix primarily because of that behavior by their CEO lol
+T 1613164051 18<26quippy18>	I'll stop dominating the conversation about it now lolol
+T 1613164056 18<19wrycode18>	I didn't think arathorn was that bad, I just don't think matrix is technically good
+T 1613164081 18<26quippy18>	I tend to agree with that, as well, but my arguments are less concrete and it's more along the lines of "I tried out Synapse and it didn't perform well"
+T 1613164186 18<19wrycode18>	and I will say it's annoying when all discussion of a project tends to revolve around one person like moxie or rms
+T 1613164202 18<19wrycode18>	(not accusing you of this, just an aside)_
+T 1613164240 18<26quippy18>	honestly it'd be fair to accuse me of that
+T 1613164247 18<26quippy18>	and generally I agree so I think it's a fair criticism
+T 1613164252 18<19wrycode18>	haha
+T 1613164318 18<26quippy18>	in on-topic news I configured Emacs to swap between a dark and light theme at sunrise/sunset and it's really awesome
+T 1613164325 18<19wrycode18>	it's bad for the project because it's reductive, but as an outsider it's also bad for the same reason, whether or not you support the project
+T 1613164343 18<19wrycode18>	also guido, poettering
+T 1613164352 18<19wrycode18>	quippy: nice!
+T 1613164356 18<27grym18>	quippy: link! 
+T 1613164367 18<19parsnip18>	quippy: does your terminal do this too?
+T 1613164370 18<26quippy18>	I have to doxx myself to share a link lol
+T 1613164372 18<26quippy18>	no it's just Emacs
+T 1613164377 18<26quippy18>	I can link the code snippet though
+T 1613164405 18<27grym18>	quippy: bpaste.net/+common-lisp
+T 1613164436 18<26quippy18>	oh I lied, I used a feature of the theme I'm using (moe-theme) in combination with (setq calendar-longitude) and (setq calendar-latitude) to my location
+T 1613164440 18<27grym18>	or if by doxx you mean reveal your relatively meaningful latidude and longitude
+T 1613164442 18<26quippy18>	so there's barely even any code
+T 1613164451 18<26quippy18>	nah I mean I have it on my github but my real name is there
+T 1613164479 18<26quippy18>	I'm a professional OSS developer now and all my identities are colliding
+T 1613164488 18<26quippy18>	and I don't know how I feel about it
+T 1613164509 18<26quippy18>	I have some controversial beliefs and I don't want to wind up like fommil
+T 1613164519 18<26quippy18>	poor guy
+T 1613164548 18<26quippy18>	obviously I don't think the beliefs are controversial but I feel like everyone can agree that the Overton Window has been sliding around like crazy lately
+T 1613164573 18<20ShinyRice18>	to the left
+T 1613164575 18<27grym18>	"somewhere something on the internet will probably want to scold you"
+T 1613164591 18<29wgreenhouse18>	grym: lol "something"
+T 1613164601 18<27grym18>	wgreenhouse: oh no that's antipersonalist 
+T 1613164606 18*	27grym goes looking for that hair shirt 
+T 1613164609 18<27grym18>	oh no that's not vegan 
+T 1613164610 18<27grym18>	crap
+T 1613164612 18<26quippy18>	anyway this is the code in the theme that I'm using so that if anybody wants to copy it, they can https://github.com/kuanyui/moe-theme.el/blob/dev/moe-theme-switcher.el#L14
+T 1613164643 18*	29wgreenhouse hands grym a barrel and burlap sack to wear
+T 1613164651 18<26quippy18>	the moe-theme is really a lovely theme, I can't believe how much effort must've gone into it
+T 1613164737 20*	Disconnected (20)
+T 1613164763 19*	Now talking on 22#emacs
+T 1613164763 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1613164763 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
+T 1613164763 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1613164942 18<19parsnip18>	user with nick "ShinyRice" says things are going to the left. shocked.
+T 1613164979 18<20ShinyRice18>	...genuinely do not see what you mean
+T 1613164982 18<19wrycode18>	quippy left before I could cancel them
+T 1613165029 18<19parsnip18>	ShinyRice: presumably your nick reads as something like, "ricing your Windows/Linux desktop"
+T 1613165069 18<19parsnip18>	and it's up to debate on whether ricing is offensive, in the racist direction
+T 1613165080 18<19parsnip18>	and then you suggest the world is moving to the left
+T 1613165088 18<20ShinyRice18>	well no, I didn't choose it due to that, when translated literally to Spanish, it's a pun, sort of
+T 1613165093 18<19parsnip18>	so then the sarcastic, "shocked"
+T 1613165115 18<20ShinyRice18>	ricing offensive? lol
+T 1613165118 18<19parsnip18>	ah, sorry
+T 1613165124 18<19parsnip18>	yes, debated
+T 1613165138 18<19parsnip18>	last i checked, wikipedia is sort of on the fence about it
+T 1613165142 18<19parsnip18>	iirc
+T 1613165160 18<19parsnip18>	maybe i'm thinking of a different source
+T 1613165163 18<19wrycode18>	https://old.reddit.com/r/unixporn/wiki/themeing/dictionary#wiki_rice
+T 1613165190 18<19parsnip18>	i assumed you meant ricing, because people also like their hot rods and windows desktops to be shiny
+T 1613165206 18<27grym18>	i fairly regularly describe my motorcycle as a crumpet-burner
+T 1613165210 18<27grym18>	or crumpet-rocket
+T 1613165214 18<19parsnip18>	maybe the Portuguese pun goes in an entirely different direction
+T 1613165215 18<27grym18>	(it's a triumph)
+T 1613165220 18<29wgreenhouse18>	ricing comes from "rice burner" which was used w/r/t Japanese import cars, as opposed to US muscle cars thst run on...beef?
+T 1613165224 18<28technomancy18>	rudybot: making a note here; huge success
+T 1613165226 18<24rudybot18>	technomancy: this is a triumph. I'm making a note here: "HUGE SUCCESS"
+T 1613165235 18<29wgreenhouse18>	grym: ale-guzzler
+T 1613165246 18<27grym18>	wgreenhouse: when i had a ducati it was, of course, a pastarocket
+T 1613165256 18<19parsnip18>	i guess shiny is usually meant as, "the shiny new thing"
+T 1613165264 18<27grym18>	american muscle cars obviously run on corn
+T 1613165274 18<19parsnip18>	or it looks pretty
+T 1613165275 18<27grym18>	except then people howl about their gaskets melting or something 
+T 1613165290 18<19wrycode18>	they run on mountaintops 
+T 1613165296 18*	19parsnip scurries to meeting
+T 1613165310 18<27grym18>	high-ethanol fuels are a (heh) flash point with bike people 
+T 1613165347 18<27grym18>	especially classic bike owners
+T 1613165376 18<29wgreenhouse18>	> american muscle cars obviously run on corn
+T 1613165377 18<29wgreenhouse18>	grym: that's too close to literally being true because of the aforementioned ethanol thing
+T 1613165395 18<27grym18>	wgreenhouse: i know.  oh, do you know about your state's glorious classic bike legal hack 
+T 1613165416 18<29wgreenhouse18>	no! our dmv is wack tho so I'm bracing myself 
+T 1613165444 18<27grym18>	if you have a barn find bike or another classic whose title was either lost or never existed but you have a bill of sale, you can title a bike in VT by mail 
+T 1613165447 18<27grym18>	and
+T 1613165456 18<27grym18>	your return address does *not* have to be in state
+T 1613165474 18<27grym18>	so 3 weeks and 50 bucks to vermont and you can title your bike anywhere in the US :) 
+T 1613165516 18<27grym18>	i've never had to do it but i've come close 
+T 1613165517 18<29wgreenhouse18>	grym: oh yeah. abandoned vehicle title is pretty sketch here so that scans
+T 1613165534 18<29wgreenhouse18>	towing companies pull related weird crap often
+T 1613165536 18<27grym18>	i've had bikes nearly old enough for that to be a snag
+T 1613165579 18<29wgreenhouse18>	and I guess you're talking about an intersection of abandoned vehicle title + maybe old enough that there wasn't an original title
+T 1613165590 18<29wgreenhouse18>	just a long forgotten bill of sale
+T 1613165595 18<27grym18>	yeah, you'll see guys on forums who have a BMW from 1935 or something insane 
+T 1613165602 18<27grym18>	"what's a title?"
+T 1613165628 18<29wgreenhouse18>	it's your reward for still having a bike in this climate after all this time
+T 1613165632 18<27grym18>	or a farm bike that never got registered in the 60s and has just been scaring sheep for 30 years or whatever 
+T 1613165634 18<29wgreenhouse18>	and not a small lump of rust
+T 1613165667 18<27grym18>	right :) 
+T 1613165707 18<29wgreenhouse18>	grym: my colleague who did social security and ssi cases had to prove to ssa that someone's snowmobile was their primary vehicle for transportation before
+T 1613165714 18<27grym18>	wgreenhouse: haha 
+T 1613165724 18<29wgreenhouse18>	to get the asset exclusion 
+T 1613166306 18<29wgreenhouse18>	(it worked, too)
+T 1613166330 18<27grym18>	as is right and proper
+T 1613166421 18<20bpalmer18>	If you use a horse-drawn carriage, would the horses be included in the asset exclusion, or just the carriage?
+T 1613166506 18<29wgreenhouse18>	bpalmer: a horse is an automobile, according to SSA. https://secure.ssa.gov/poms.nsf/lnx/0501130200
+T 1613166539 18<29wgreenhouse18>	would have to do some secondary reading to figure out if the exclusion would cover both the cart and the beast(s)
+T 1613166596 18<27grym18>	there's probably precedent established to handle the amish, etc., but in a different state 
+T 1613166599 18<27grym18>	so yhpmv
+T 1613166625 18<20bpalmer18>	Huh. I always thought a horse was a horse, of course of course.
+T 1613166714 18<20bpalmer18>	You know, I've never really considered the Amish as taking part in the social security system.
+T 1613166759 18<20bpalmer18>	Ah, that's because they're allowed to opt out of the system.
+T 1613166768 18<27grym18>	yep, they get a special dispensation 
+T 1613166775 18<27grym18>	but they still pay taxes, etc. 
+T 1613166788 18<20bpalmer18>	Just not social security taxes (assuming they apply for a waiver).
+T 1613166867 20*	Disconnected (20)
+T 1613166915 20*	Disconnected (20Remote host closed socket)
+T 1613166970 20*	Disconnected (20Remote host closed socket)
+T 1613167028 20*	Disconnected (20Remote host closed socket)
+T 1613167077 20*	Disconnected (20Remote host closed socket)
+T 1613167100 19*	Now talking on 22#emacs
+T 1613167100 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1613167100 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
+T 1613167101 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1613167720 18<20bpalmer18>	Let's steal immortality from the heavens, then watch the pension system collapse.
+T 1613167756 18<25cvandusen18>	I think the age for retirement just went up a bit. 
+T 1613167779 18<27grym18>	i always briefly misremember the name of the mogwai album as youngblood not young team 
+T 1613168450 24*	28ece38 is now known as 18ece3
+T 1613168818 18<28technomancy18>	did ix.io stop working?
+T 1613168944 18<28technomancy18>	curl gives me no output when I use the example invocations it provides
+T 1613169007 18<20dale18>	It's at least been wonky for me the past week or so.  Slow responses, no syntax highlighting.
+T 1613169023 18<27grym18>	i've never been very happy with it 
+T 1613169047 18<27natter18>	worked for me yesterday, but I don't use it very much to know if that is remarkable
+T 1613169177 18<20dale18>	If there's a better pastebin that has Elisp highlighting, let me know, I'll try and use it.
+T 1613169401 18<27grym18>	dale: bpa.st/+common-lisp
+T 1613169428 18<27grym18>	dale: and if it sucks, you can yell at supakeen in #python about it, it's his baby :) 
+T 1613169438 18<20dale18>	Eh, that's pretty close, but aren't all these places using Pygments?  That has an Elisp language in it, why not expose it?
+T 1613169452 18<27grym18>	you can ask him to 
+T 1613169460 18<27grym18>	(it might be there, i dunno)
+T 1613169486 18<27grym18>	integrating bpa.st into webpaste.el has been something i've wanted to do for a while, pending skill and copious free time
+T 1613169519 18*	20dale nods
+T 1613169534 18<20dale18>	Elisp is there in the drop-down.
+T 1613169548 18<27grym18>	ayyy
+T 1613169607 18<27grym18>	the question is what is its pluscode
+T 1613169628 18<27grym18>	which is the same as its pygments formatter name i think 
+T 1613169689 18<27grym18>	there was a hiccup a while ago when pygments remapped  `python` to mean py3 
+T 1613169690 18<28technomancy18>	,scpaste
+T 1613169691 18<22fsbot18>	scpaste is [0] http://p.hagelb.org
+T 1613169691 18<22fsbot18>	[1] kind of like copying a file to the web
+T 1613169694 18*	20dale looks at adding it real quick.
+T 1613169734 18<27grym18>	dale: https://pinnwand.readthedocs.io/en/latest/  might be useful then 
+T 1613169742 18<20dale18>	grym: Thanks, already there :)
+T 1613169984 18<27grym18>	dale: ahHA, it's bpa.st/+emacs
+T 1613170347 20*	Disconnected (20)
+T 1613201073 19*	Now talking on 22#emacs
+T 1613201073 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1613201073 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
+T 1613201073 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1613201092 18<19wasamasa18>	https://lists.gnu.org/archive/html/emacs-devel/2021-02/msg00844.html
+T 1613201098 18<19wasamasa18>	some nice news for once
+T 1613201408 20*	Disconnected (20)
+T 1613201464 20*	Disconnected (20Remote host closed socket)
+T 1613201533 20*	Disconnected (20Remote host closed socket)
+T 1613201597 20*	Disconnected (20Remote host closed socket)
+T 1613201649 19*	Now talking on 22#emacs
+T 1613201649 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1613201649 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
+T 1613201649 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1613201727 18<20dale18>	Maybe they should try using Spacemacs for a couple months before they decide they want their name on it.  *ducks*
+T 1613202094 18<22dftxbs3e18>	hey, for some reason my magit-status became slow, like with s or g, it take 100% cpu and lags few seconds every time, the last change I've made to my emacs config is add emacs-vterm.
+T 1613202108 18<22dftxbs3e18>	anyone has any idea?
+T 1613202160 18<22codingquark_18>	aidalgol: I tried streaming Sniper Elite 4 from PC to laptop yesterday, and it worked mostly well. The audio became a blur after sometime, but the only variable changed was that my PC was connected via cat5 which presumably gave much better speeds
+T 1613202176 24*	28codingquark_ is now known as 18codingquark
+T 1613202181 18<20aidalgol18>	codingquark: hmmm...
+T 1613202230 18<27codingquark18>	I don't have the PC right now, but next time I get chance, I'll try out Civ5. Though we had version issues as well
+T 1613202283 18<20aidalgol18>	The version issues were because of the macOS port not getting updates.
+T 1613202548 18<27codingquark18>	Ah, right. Since PC runs Ubuntu, it should be alright
+T 1613202657 18<27codingquark18>	Can space lifts be made attached to low earth orbit sats?
+T 1613202674 18<27codingquark18>	I mean, I thought you need to be in geosync orbit for a straight line to remain forever attached
+T 1613202714 18<27codingquark18>	https://en.wikipedia.org/wiki/Space_elevator
+T 1613202764 18<27codingquark18>	Which means, https://en.wikipedia.org/wiki/Space_Sweepers seems to have completely wrong visualization of the first space elevator scene
+T 1613202836 18<27codingquark18>	Unless their ropes are dynamic...
+T 1613202908 20*	Disconnected (20)
+T 1613202978 20*	Disconnected (20Remote host closed socket)
+T 1613203036 20*	Disconnected (20Remote host closed socket)
+T 1613203090 20*	Disconnected (20Remote host closed socket)
+T 1613203147 20*	Disconnected (20Remote host closed socket)
+T 1613203173 19*	Now talking on 22#emacs
+T 1613203173 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1613203173 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
+T 1613203173 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1613203403 18<22dftxbs3e18>	hmm somehow it's not laggy anymore now weird
+T 1613204312 24*	28boughtly- is now known as 18boughtly
+T 1613204528 20*	Disconnected (20)
+T 1613204579 20*	Disconnected (20Remote host closed socket)
+T 1613204649 20*	Disconnected (20Remote host closed socket)
+T 1613204717 20*	Disconnected (20Remote host closed socket)
+T 1613204790 20*	Disconnected (20Remote host closed socket)
+T 1613204855 20*	Disconnected (20Remote host closed socket)
+T 1613204902 20*	Disconnected (20Remote host closed socket)
+T 1613205086 20*	Disconnected (20Remote host closed socket)
+T 1613205147 20*	Disconnected (20Remote host closed socket)
+T 1613205194 20*	Disconnected (20Remote host closed socket)
+T 1613205294 19*	Now talking on 22#emacs
+T 1613205294 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1613205294 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
+T 1613205294 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1613205589 18<20dale18>	aidalgol: In any particular country?  I don't know how much laws vary.
+T 1613205680 18<20dale18>	codingquark: I saw you talking about streaming games to a laptop.  Is that a Mac?
+T 1613205681 18<27codingquark18>	dale: yes, streaming from a Linux computer to macbook pro
+T 1613205727 18<20dale18>	codingquark: Having wireless problems while streaming?  Connection getting blurry or jumpy, maybe every ten seconds or so?
+T 1613205778 18<27codingquark18>	dale: in my previous trials, the computer was connected to wifi via a shitty antenna. This caused steam's stream to fail to start
+T 1613205847 18<27codingquark18>	Yesterday I connected Linux system with an ethernet cable, which worked way better than wifi (mbp remained on wifi)
+T 1613205847 18<20dale18>	codingquark: Ah, OK, so maybe unrelated.  I was going to suggest you make sure to turn off macOS location services.  They tend to cause a wireless network scan every so often (like 10–30 seconds IIRC) which interrupts game streaming.
+T 1613205847 18<20dale18>	codingquark: Huh!  OK, very unrelated then.
+T 1613205910 18<27codingquark18>	dale: I did not know about location services causing issues. I'll turn it off just in case, thanks!
+T 1613205922 18<20dale18>	codingquark: Also, if you have any other Apple devices, turning them on in proximity to your MacBook while streaming can cause connection interruption.
+T 1613205966 18<27codingquark18>	So far, no other Apple devices
+T 1613205985 18<27codingquark18>	But that one sounds rather annoying in this context.
+T 1613206004 18<27codingquark18>	Presumably the scans around other apple devices are for airdrop and similar things to work.
+T 1613206018 24*	28penguwin4 is now known as 18penguwin
+T 1613206048 18<19parsnip18>	i got the nintendo controller
+T 1613206090 18<19parsnip18>	kinda wish i'd gotten the playstation controller
+T 1613206149 24*	28fstd_ is now known as 18fstd
+T 1613206156 18<19parsnip18>	since the d-pad would be more symmetric to the a, b buttons, thus making the classic games i tend to play make more sense
+T 1613206222 18<27codingquark18>	parsnip: nice! Do you use it with your mac?
+T 1613206251 18<19parsnip18>	yes
+T 1613206282 18<26ritsch_master18>	hello guys, i dont want to interrupt, but does anyone of you know a package to show multiple clocks for different time zones?
+T 1613206282 18<26ritsch_master18>	or a time zone map?
+T 1613206282 18<19wasamasa18>	hm, eli doesn't like the discussion of spacemacs having a prominent license remark
+T 1613206282 18<19wasamasa18>	funny
+T 1613206366 18<19parsnip18>	ritsch_master: M-x display-time-world just shows a list
+T 1613206419 18<26ritsch_master18>	parsnip: thanks for that! thats great!!!!!
+T 1613206424 18<19parsnip18>	:)
+T 1613206432 24*	28parisienne_ is now known as 18parisienne
+T 1613206454 18<19parsnip18>	is anyone a fan of small g-shocks with five buttons?
+T 1613206480 18<19parsnip18>	considering adding one to my collection, just for a nice-to-have
+T 1613206519 18<19parsnip18>	in particular, five buttons seems to correlate with having both increment/decrement buttons for adjusting timers, etc
+T 1613238880 20*	Disconnected (20)
+T 1613238905 19*	Now talking on 22#emacs
+T 1613238905 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1613238905 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
+T 1613238905 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1613238924 18<25ldlework18>	full traceback https://gist.github.com/dustinlacewell/53dd51bbb1e5c7912ccd76eff47f354e
+T 1613238977 18<25ldlework18>	i don't understand why the (list 4 8) is getting called like a function
+T 1613239099 18<25ldlework18>	nm i got it
+T 1613239125 18<27grym18>	🦆
+T 1613239371 18<25ldlework18>	what's an indent-function that will simply always indent by 4?
+T 1613239388 18<25ldlework18>	if Diff > Diff[1] then
+T 1613239390 18<25ldlework18>	   PosUp
+T 1613239403 18<25ldlework18>	I have tab-width set to 4 and indent function set to indent-relative
+T 1613239408 18<25ldlework18>	and it indented three spaces here
+T 1613239463 18<25ldlework18>	guh
+T 1613239913 18<25ldlework18>	here i go writing my own indent function god damn it lol
+T 1613240056 18<20pjb18>	ldlework: there's no (list 4 8).  There's a list (4 8). 
+T 1613240071 18<25ldlework18>	I thought (list 4 8) creates a quoted list
+T 1613240074 18<20pjb18>	ldlework: never.
+T 1613240084 18<25ldlework18>	hmm been a few months since i wrote elisp
+T 1613240107 18<25ldlework18>	I tried '(4 8) and (quote 4 8) too
+T 1613240109 18<20pjb18>	quote returns a _literal_, _immutable_ object. list returns a fresh, mutable object.
+T 1613240116 18<20pjb18>	generic-mode-internal calls: (mapc 'funcall '(4 8))
+T 1613240192 18<20pjb18>	ldlework: because the last argument to generic-mode-internal is (4 8) instead of being a list of function, as the name of the parameter, function-list, clearly hinted.
+T 1613240192 18<20pjb18>	ldlework: so the bug seems to be in thinkscript-mode.
+T 1613240214 18<20pjb18>	ldlework: check the source of thinkscript-mode, and how it calls generic-mode-internal.
+T 1613240228 18<25ldlework18>	pjb: yeah i figured out it's a list of functions
+T 1613240252 18<25ldlework18>	fixed that
+T 1613240252 18<20pjb18>	ldlework: quote takes a SINGLE (1) argument.
+T 1613240259 18<20pjb18>	ldlework: use C-h f to learn more about lisp operators!
+T 1613240344 18<25ldlework18>	pjb: don't you remember months ago you helping me write a complex macro. i just haven't touched elisp in a while, forgive me :) 
+T 1613240369 18<20pjb18>	ldlework: you're forgiven, my son.
+T 1613240410 18<20pjb18>	ldlework: ok, I've seen your url above with the source.
+T 1613240433 18<20pjb18>	ldlework: the problem is that the last argument to define-generic-mode is the progn that returns the vsalue of tab-stop-list, which is (4 8).
+T 1613240455 18<20pjb18>	ldlework: you should return a list of function instead!
+T 1613240512 18<25ldlework18>	indeed
+T 1613240525 18<20pjb18>	ldlework: so, if you want your progn to be the body of a function to be called when the mode is activated,  you should wrap it in a: (list (lambda () (set (make-local-variable …) (setq-local tab-stop-list …))))
+T 1613240546 18<20pjb18>	ldlework: list returns the elements computed by the argument. The first and only argument here is a lambda expression which returns an anonymous function.
+T 1613240560 18<20pjb18>	You can skip the progn, since lambda implies an implicit progn.
+T 1613240710 20*	Disconnected (20)
+T 1613240796 20*	Disconnected (20Remote host closed socket)
+T 1613240846 20*	Disconnected (20Remote host closed socket)
+T 1613240889 20*	Disconnected (20Remote host closed socket)
+T 1613240939 20*	Disconnected (20Remote host closed socket)
+T 1613241058 19*	Now talking on 22#emacs
+T 1613241058 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1613241058 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
+T 1613241058 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1613241168 18<25ldlework18>	pjb: do genericm modes come with key maps
+T 1613241251 18<25ldlework18>	ah
+T 1613241374 18<26listen_urs[srg1]18>	looks to be properly to get to be able to use the emacs commands in term is to be in edit mode in bash, nice.
+T 1613241474 18<20pjb18>	ldlework: I guess, you can pass a function in the function-list to set up the key map.
+T 1613243098 18<20lxsameer18>	hey folks, have you ever used, org-mode publish with latex via ox-latex ? do you have your configuration so i can have a look as an example ?
+T 1613244725 18<19wrycode18>	org publish or just export?
+T 1613244802 18<19wrycode18>	IME for latex projects org-publish is a big hassle, easier to write a draft or two in org, export it to latex, and just tweak the latex there
+T 1613244868 18<19wrycode18>	unless you're doing something like writing a blog with Org publish that also provides a pdf for every post
+T 1613245182 18<29johnjay18>	i'm confused. is e2 88 97 not a valid utf character for an asterisk?
+T 1613245197 18<29johnjay18>	i copied some code and that was in the file instead of the * character
+T 1613245221 18<29johnjay18>	which is 2A in ascii apparentl
+T 1613245237 24*	28watkinsr1 is now known as 18watkinsr
+T 1613245240 18<27grym18>	0x2A is * as far as i'm concerned anyway
+T 1613245245 18<29johnjay18>	but when i did C-x 8 RET and entered e2 88 97 it said invalid
+T 1613245259 18<19rdrg10918>	TIL in Org Mode, by default, properties are overriden when they are set in the subheading of a heading. However, you can use "+" to append to the value of the property. Minimal working example: http://0x0.st/-Xak.org
+T 1613245354 18<29johnjay18>	apparently it is valid utf-8 so i'm wrong somehow
+T 1613245362 18<19rdrg10918>	Further information can be found in (info "(org) Property Syntax") just jump to (search-forward "If you want to add to the value")
+T 1613246803 18<20pjb18>	johnjay: It's not clear what you're asking, but E2 88 98 is a UTF-8 sequence that encodes for the code point 8727 and that code point encodes the glyph  "∗".
+T 1613246824 18<29johnjay18>	right i just don't understand UTF-8
+T 1613246833 18<29johnjay18>	i could actually see the difference in size when I typed '*' to replace it
+T 1613246855 18<20pjb18>	johnjay: have a look at https://cliki.net/CloserLookAtCharacters
+T 1613246858 18<29johnjay18>	gcc barfed when i copied some code from a webpage and gave it to it. but all the * were e2 88 97 i think
+T 1613246899 18<20pjb18>	johnjay: you mean, all the ∗ were 8727.
+T 1613246925 18<20pjb18>	e2 88 97 is just an encoding, it's not the code point value of the glyph.
+T 1613246955 18<29johnjay18>	right
+T 1613247046 18<22contrapunctus18>	Still working on tagging each definition in my literate Elisp program. Part of me is like "is this the best way you can think of to improve it?", and the other part of me has a hunch about "changing the system by improving information flows".
+T 1613247072 18<22contrapunctus18>	How do these sound? "Function" - does not refer to external state, return value is significant; "accessor" - refers to external state without modifying it, return value is significant; "mutator" - modifies external state, return value usually not important; "procedure" - any other impure function, return value usually not important.
+T 1613247356 18<29shoshin18>	sound like reasonable definitions, though i know "accessor" means both getter/setter in some language contexts
+T 1613247474 18<22contrapunctus18>	Oh. Indeed, thanks for pointing that out.
+T 1613247493 18<20pjb18>	contrapunctus: an accessor allows you to read and to write.
+T 1613247582 18<19wasamasa18>	CLHS anyone
+T 1613247583 18<26specbot18>	Couldn't find anything for anyone.
+T 1613247586 18<19wasamasa18>	lol

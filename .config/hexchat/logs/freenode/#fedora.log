@@ -9684,3 +9684,208 @@ Feb 12 21:02:24 *	Now talking on #fedora
 Feb 12 21:02:24 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
 Feb 12 21:02:24 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
 Feb 12 21:02:26 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 12 21:29:10 <sdgathman>	I ran system-upgrade from f30->f32, and everything worked fine, except it still boots the old kernel.  grubby --info=DEFAULT shows the new kernel, but that is not what boots...
+Feb 12 21:30:27 <sdgathman>	I'm pretty sure the problem is that /etc/default/grub has GRUB_ENABLE_BLSCFG=false
+Feb 12 21:30:45 <sdgathman>	But the system-upgrade can't seem to deal with that.
+Feb 12 21:31:06 <sdgathman>	And grubby can't seem to deal with it.
+Feb 12 21:31:26 <sdgathman>	So how do I convert to the New Fedora Way ?
+Feb 12 21:32:30 <sdgathman>	The system-upgrade didn't even touch /boot/grub2/grub.cfg
+Feb 12 21:33:59 <cmurf>	d9k msg me your name and email address if you want to be listed as the reporter on this bug
+Feb 12 21:34:30 <cmurf>	turns out it's a false alarm by the tree checker
+Feb 12 21:36:58 <d9k>	there was a bug too
+Feb 12 21:37:05 <d9k>	or warning
+Feb 12 21:37:28 <d9k>	https://0x0.st/-H7V.txt
+Feb 12 21:39:04 <cmurf>	d9k: i never saw that call trace, same reproducer?
+Feb 12 21:39:10 <d9k>	yes
+Feb 12 21:39:10 <cmurf>	or different one
+Feb 12 21:39:12 <cmurf>	ok
+Feb 12 21:40:12 <cmurf>	so that enospc fallout might've been fixed in 5.11-rc1, i'll forward it and we'll check
+Feb 12 21:41:54 <sdgathman>	I manually added the new kernel to grub.cfg as the default.  It boots
+Feb 12 21:44:04 <cmurf>	sdgathman: it's confusing
+Feb 12 21:45:22 <cmurf>	sdgathman: do you have /boot/loader/entries/*.conf files that match up with each fedora menu entry?
+Feb 12 21:46:09 <cmurf>	if the convert script failed for some reason, there may not be a conf per installed kernel, so the options are (a) ignore it and just use the current working one (b) fix it manually at the bls snippet level (c) reinstall the kernels and it'll create the bls entries
+Feb 12 21:46:34 <cmurf>	but there is an order to do things in: /etc/default/grub GRUB_ENABLE_BLSCFG=true
+Feb 12 21:46:47 <cmurf>	then grub2-install (this is BIOS only)
+Feb 12 21:47:11 <cmurf>	then grub2-mkconfig -o /boot/grub2/grub.cfg (also BIOS only currently)
+Feb 12 21:47:36 <cmurf>	but then we need to look at 'sudo grub2-editenv list' and make sure that grubenv is ok
+Feb 12 21:49:27 *	Disconnected ()
+**** ENDING LOGGING AT Fri Feb 12 21:49:27 2021
+
+**** BEGIN LOGGING AT Fri Feb 12 21:52:53 2021
+
+Feb 12 21:52:53 *	Now talking on #fedora
+Feb 12 21:52:53 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 12 21:52:53 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 12 21:52:54 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 12 21:53:01 <sdgathman>	I'll be testing the multiple location part when we move whenever I get a new job.
+Feb 12 21:53:22 <sdgathman>	Then I'll have another FedoraMagazine article or so. :-)
+Feb 12 21:55:13 <cmurf>	sdgathman: yeah so there's a f34 feature to consolidate the configs so that it's possible for installations to be booted either EFI or BIOS
+Feb 12 21:55:47 <cmurf>	basically make the ESP partition contain static info, with a "stub" grub.cfg that merely forwards to the real one at /boot/grub2/grub.cfg
+Feb 12 22:01:53 <cmurf>	d9k awesome job on the btrfs bug report, made it super easy to figure out what was wrong and a fix, and looks like there will be an xfstest based on this exposed bug
+Feb 12 22:02:03 <cmurf>	so it's gonna end up making btrfs and xfs better :)
+Feb 12 22:03:11 <cockingbird_cage>	Could you please tell me the differences between btrfs and zfs?
+Feb 12 22:03:28 <d9k>	i did try that on xfs and it does some funny stuff too, https://0x0.st/iO5c.txt
+Feb 12 22:03:45 <d9k>	couldnt get it to crash
+Feb 12 22:04:29 <cmurf>	cockingbird_cage: that would take a long time, so no, sorry - lots of historical info on their development on various lists and videos from the developers themselves instead of depending on people such as myself to give a hearsay story
+Feb 12 22:04:49 <d9k>	https://0x0.st/iOAe.txt, the space goes up and down, if you get it just right you get ENOSPC until you delete a little and write alot
+Feb 12 22:05:05 <cmurf>	cockingbird_cage: so i mean, if you can be more specific i'll answer but that question is too open ended
+Feb 12 22:05:21 <cmurf>	d9k: oooo
+Feb 12 22:06:12 <cmurf>	d9k: you're getting enospc on xfs also?
+Feb 12 22:06:22 <cmurf>	but no call trace
+Feb 12 22:06:55 <d9k>	no call trace
+Feb 12 22:07:11 <cmurf>	but that's on xfs
+Feb 12 22:07:14 <d9k>	yes
+Feb 12 22:07:56 <d9k>	you can see what it does when it works correctly? on the second paste
+Feb 12 22:09:53 <cmurf>	forwarded, he also works on xfs
+Feb 12 22:10:19 <d9k>	shared extents are a great feature, but apparently very tricky to get right
+Feb 12 22:10:31 <cmurf>	cockingbird_cage: I can tell you what's in common though, what goes moo?!
+Feb 12 22:11:36 <cmurf>	d9k this particular issue in btrfs is tree checker just doing something wrong, when the patch lands you'll see it and you'll understand it better than i will
+Feb 12 22:11:50 <cmurf>	reflinks are fundamental in btrfs since day 1
+Feb 12 22:12:37 <cmurf>	xfs had to be taught datacow before it could do reflinks so it was more work in many ways
+Feb 12 22:15:48 <cockingbird_cage>	Very well then tell me what they have in common. Much appreciated.
+Feb 12 22:17:18 <cockingbird_cage>	cmurf: I heard that one does not need RAIDs anymore...
+Feb 12 22:17:47 <cmurf>	COWs go moo! :D
+Feb 12 22:18:57 *	Disconnected ()
+**** ENDING LOGGING AT Fri Feb 12 22:18:57 2021
+
+**** BEGIN LOGGING AT Fri Feb 12 22:19:23 2021
+
+Feb 12 22:19:23 *	Now talking on #fedora
+Feb 12 22:19:23 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 12 22:19:23 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 12 22:19:23 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 12 22:19:39 <cockingbird_cage>	Oh and what is so good about being a cow?
+Feb 12 22:20:05 <cmurf>	the raid stuff is a bit out of scope, but yeah both have integrated raid
+Feb 12 22:21:02 <cmurf>	in case of a power failure or crash, there's no inconsistency
+Feb 12 22:23:51 <cockingbird_cage>	cmurf: thanks
+Feb 12 22:30:11 <sebbz>	han
+Feb 12 22:30:16 <sebbz>	sry
+Feb 12 22:54:27 *	Disconnected ()
+**** ENDING LOGGING AT Fri Feb 12 22:54:27 2021
+
+**** BEGIN LOGGING AT Fri Feb 12 22:58:20 2021
+
+Feb 12 22:58:20 *	Now talking on #fedora
+Feb 12 22:58:20 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 12 22:58:20 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 12 22:58:21 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 12 23:52:27 *	Disconnected ()
+**** ENDING LOGGING AT Fri Feb 12 23:52:27 2021
+
+**** BEGIN LOGGING AT Sat Feb 13 08:24:33 2021
+
+Feb 13 08:24:33 *	Now talking on #fedora
+Feb 13 08:24:33 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 13 08:24:33 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 13 08:24:33 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 13 08:24:42 <jollyrogue[m]>	Is there a way to add accounts with ssh keys to the Fedora cloud image? I keep finding stuff suggesting cloud-init.
+Feb 13 08:25:34 <toxane>	jollyrogue[m]: does "ssh-copy-id" not work for you?
+Feb 13 08:26:48 <jollyrogue[m]>	I'm sure it will work once I get the system booted, and I can login.
+Feb 13 08:30:08 *	Disconnected ()
+**** ENDING LOGGING AT Sat Feb 13 08:30:08 2021
+
+**** BEGIN LOGGING AT Sat Feb 13 08:34:02 2021
+
+Feb 13 08:34:02 *	Now talking on #fedora
+Feb 13 08:34:02 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 13 08:34:02 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 13 08:34:09 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 13 08:34:38 <toxane>	ah, i interrupted your monologue?
+Feb 13 08:36:13 <jollyrogue[m]>	You didn't. 🙂 I didn't want to add a bunch of stuff if other people knew what I was talking about.
+Feb 13 08:36:46 <toxane>	:)
+Feb 13 08:55:08 *	Disconnected ()
+**** ENDING LOGGING AT Sat Feb 13 08:55:08 2021
+
+**** BEGIN LOGGING AT Sat Feb 13 08:59:33 2021
+
+Feb 13 08:59:33 *	Now talking on #fedora
+Feb 13 08:59:33 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 13 08:59:33 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 13 08:59:33 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 13 09:17:00 <WokeGh>	Hello, i just installed Fedora 33 on my computer but i seem to have some issues with my display. At 1920x1080 my whole screen is not filled and it is skewed to the left. Any advice please ?
+Feb 13 09:22:08 *	Disconnected ()
+**** ENDING LOGGING AT Sat Feb 13 09:22:08 2021
+
+**** BEGIN LOGGING AT Sat Feb 13 09:34:50 2021
+
+Feb 13 09:34:50 *	Now talking on #fedora
+Feb 13 09:34:50 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 13 09:34:50 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 13 09:34:54 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 13 09:35:30 <WokeGh>	Only that, with this config, a section of my screen to the right is not used and its black.
+Feb 13 09:35:30 <toxane>	then you might have to look in the manual how to adjust height, width, etc.
+Feb 13 09:36:37 <toxane>	maybe it has an "auto adjust" feature
+Feb 13 09:37:32 *	retentiveboy_ is now known as retentiveboy
+Feb 13 09:39:22 <WokeGh>	On the monitor, i can adjust the Vertical and Horizontal positions. With that done, the screen is still not filling up the display.
+Feb 13 09:40:40 <toxane>	we need to wait for somebody to join us then, cause i dont know
+Feb 13 09:41:04 <WokeGh>	okay - thanks for your help. At least with it, i have centred the display
+Feb 13 09:41:20 <toxane>	:)
+Feb 13 09:41:44 <WokeGh>	Whilst you are here, i am finding my mouse response is slow, having to double click things etc. anything you have had before ?
+Feb 13 09:48:10 <chrisawi>	WokeGh: are you using HDMI or VGA?
+Feb 13 09:48:38 <WokeGh>	chrisawi: vga
+Feb 13 09:49:24 <chrisawi>	does your computer have any digital video outputs?
+Feb 13 09:50:51 <WokeGh>	no unfortunately
+Feb 13 18:54:40 *	Disconnected ()
+**** ENDING LOGGING AT Sat Feb 13 18:54:40 2021
+
+**** BEGIN LOGGING AT Sat Feb 13 18:55:04 2021
+
+Feb 13 18:55:04 *	Now talking on #fedora
+Feb 13 18:55:04 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 13 18:55:04 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 13 18:55:05 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 13 19:15:13 <Southern_Gentlem>	volga629, what video card
+Feb 13 19:15:34 <Southern_Gentlem>	nm RDP
+Feb 13 19:25:10 *	Disconnected ()
+**** ENDING LOGGING AT Sat Feb 13 19:25:10 2021
+
+**** BEGIN LOGGING AT Sat Feb 13 19:30:44 2021
+
+Feb 13 19:30:44 *	Now talking on #fedora
+Feb 13 19:30:44 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 13 19:30:44 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 13 19:30:58 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 13 19:32:02 <[R]>	khaytsus: where is the option to configure the network in the fedora installer?
+Feb 13 19:32:29 <Khaytsus>	[R]: Ananconda GUI?  Same screen with disk setup etc
+Feb 13 19:32:30 <Khaytsus>	I must be misunderstanding the question
+Feb 13 19:32:54 <[R]>	all i see is Keyboard, Installation Destination, and Time & Date
+Feb 13 19:33:18 <[R]>	there used to be more options...
+Feb 13 19:33:47 <Khaytsus>	hmm, maybe I've missed that change, booting a vm
+Feb 13 19:34:45 <Khaytsus>	i wish I could ifgure out why xfce VM's always screw up my bluetooth connection..  it's like it changes the BT profile, I don't even know what's going on
+Feb 13 19:34:49 <Khaytsus>	anywho
+Feb 13 19:35:16 <Khaytsus>	Nope, "network & hostname"
+Feb 13 19:35:19 <[R]>	wtf...
+Feb 13 19:35:19 <Khaytsus>	https://imgur.com/SoADOQF.png
+Feb 13 19:35:45 <Khaytsus>	Are you using ugghnome?
+Feb 13 19:35:47 <[R]>	is taht 33?
+Feb 13 19:35:47 <Khaytsus>	Yep
+Feb 13 19:35:47 <[R]>	i'm just using the default iso
+Feb 13 19:35:54 <[R]>	lemme take a screenshot
+Feb 13 19:36:02 <Khaytsus>	33 xfce spin
+Feb 13 19:36:45 <Khaytsus>	All the spins should look the same, server and gnome are both unique
+Feb 13 19:37:22 <[R]>	khaytsus: https://imgur.com/a/oZhaIhb
+Feb 13 19:37:46 <Khaytsus>	so yeah guhngnome.. let me look
+Feb 13 19:39:07 <[R]>	the documentation clearly shows more options...
+Feb 13 19:39:27 <[R]>	although it also shows a "fedora server" banner
+Feb 13 19:39:58 <Khaytsus>	I suppose it doesn't need to be online during install anyway does it?
+Feb 13 19:40:22 <[R]>	i wanted to set like hostname and such
+Feb 13 19:40:34 <[R]>	i got it installed and realized i missed settin the hostnam,e so i booted back to the installer, and its no where to be found
+Feb 13 19:41:30 <Southern_Gentlem>	nope [R] thats gnome
+Feb 13 19:41:46 <Southern_Gentlem>	you can do it in gnome settings IIRC
+Feb 13 19:41:59 <Southern_Gentlem>	[R], and hopefully you used the updated iso
+Feb 13 19:41:59 <[R]>	that's a little silly
+Feb 13 19:42:07 <[R]>	no, i used the relesae one
+Feb 13 19:42:10 <[R]>	had like 5000 updates
+Feb 13 19:42:10 <[R]>	haha
+Feb 13 19:42:21 <Southern_Gentlem>	you have 1.1G of updates
+Feb 13 19:43:28 <Southern_Gentlem>	*** F33-20210212 updated lives available: https://tinyurl.com/Live-respins2  Built by the Fedora Respin Sig more info #fedora-respins  ***
+Feb 13 19:43:42 <Southern_Gentlem>	yes i just released a new set today
+Feb 13 19:44:08 <[R]>	so in settings -> about i see a "device name" and its set to 'fedora'
+Feb 13 19:44:22 <[R]>	yet when i type in hostname it says localhost.localdomain
+Feb 13 19:44:56 <Southern_Gentlem>	and you can always set it as before in hosts
+Feb 13 19:45:17 <Khaytsus>	hostnamectl
+Feb 13 20:05:03 *	CushingAr[m] is now known as Cushingar[m]
+Feb 13 20:40:37 *	watkinsr1 is now known as watkinsr
+Feb 13 20:57:10 *	Jason is now known as Guest28869
+Feb 13 21:07:28 *	froqstar_ is now known as froqstar
+Feb 13 21:15:39 *	coetzeer-matrix1 is now known as coetzeer-matrix3

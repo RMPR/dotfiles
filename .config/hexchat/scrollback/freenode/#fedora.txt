@@ -6398,3 +6398,199 @@ T 1613160144 19*	Now talking on 22#fedora
 T 1613160144 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
 T 1613160144 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
 T 1613160146 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1613161750 18<27sdgathman18>	I ran system-upgrade from f30->f32, and everything worked fine, except it still boots the old kernel.  grubby --info=DEFAULT shows the new kernel, but that is not what boots...
+T 1613161827 18<27sdgathman18>	I'm pretty sure the problem is that /etc/default/grub has GRUB_ENABLE_BLSCFG=false
+T 1613161845 18<27sdgathman18>	But the system-upgrade can't seem to deal with that.
+T 1613161866 18<27sdgathman18>	And grubby can't seem to deal with it.
+T 1613161886 18<27sdgathman18>	So how do I convert to the New Fedora Way ?
+T 1613161950 18<27sdgathman18>	The system-upgrade didn't even touch /boot/grub2/grub.cfg
+T 1613162039 18<20cmurf18>	d9k msg me your name and email address if you want to be listed as the reporter on this bug
+T 1613162070 18<20cmurf18>	turns out it's a false alarm by the tree checker
+T 1613162218 18<24d9k18>	there was a bug too
+T 1613162225 18<24d9k18>	or warning
+T 1613162248 18<24d9k18>	https://0x0.st/-H7V.txt
+T 1613162344 18<20cmurf18>	d9k: i never saw that call trace, same reproducer?
+T 1613162350 18<24d9k18>	yes
+T 1613162350 18<20cmurf18>	or different one
+T 1613162352 18<20cmurf18>	ok
+T 1613162412 18<20cmurf18>	so that enospc fallout might've been fixed in 5.11-rc1, i'll forward it and we'll check
+T 1613162514 18<27sdgathman18>	I manually added the new kernel to grub.cfg as the default.  It boots
+T 1613162644 18<20cmurf18>	sdgathman: it's confusing
+T 1613162722 18<20cmurf18>	sdgathman: do you have /boot/loader/entries/*.conf files that match up with each fedora menu entry?
+T 1613162769 18<20cmurf18>	if the convert script failed for some reason, there may not be a conf per installed kernel, so the options are (a) ignore it and just use the current working one (b) fix it manually at the bls snippet level (c) reinstall the kernels and it'll create the bls entries
+T 1613162794 18<20cmurf18>	but there is an order to do things in: /etc/default/grub GRUB_ENABLE_BLSCFG=true
+T 1613162807 18<20cmurf18>	then grub2-install (this is BIOS only)
+T 1613162831 18<20cmurf18>	then grub2-mkconfig -o /boot/grub2/grub.cfg (also BIOS only currently)
+T 1613162856 18<20cmurf18>	but then we need to look at 'sudo grub2-editenv list' and make sure that grubenv is ok
+T 1613162967 20*	Disconnected (20)
+T 1613163044 20*	Disconnected (20Remote host closed socket)
+T 1613163107 20*	Disconnected (20Remote host closed socket)
+T 1613163148 20*	Disconnected (20Remote host closed socket)
+T 1613163173 19*	Now talking on 22#fedora
+T 1613163173 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1613163173 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1613163174 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1613163181 18<27sdgathman18>	I'll be testing the multiple location part when we move whenever I get a new job.
+T 1613163202 18<27sdgathman18>	Then I'll have another FedoraMagazine article or so. :-)
+T 1613163313 18<20cmurf18>	sdgathman: yeah so there's a f34 feature to consolidate the configs so that it's possible for installations to be booted either EFI or BIOS
+T 1613163347 18<20cmurf18>	basically make the ESP partition contain static info, with a "stub" grub.cfg that merely forwards to the real one at /boot/grub2/grub.cfg
+T 1613163713 18<20cmurf18>	d9k awesome job on the btrfs bug report, made it super easy to figure out what was wrong and a fix, and looks like there will be an xfstest based on this exposed bug
+T 1613163723 18<20cmurf18>	so it's gonna end up making btrfs and xfs better :)
+T 1613163791 18<29cockingbird_cage18>	Could you please tell me the differences between btrfs and zfs?
+T 1613163808 18<24d9k18>	i did try that on xfs and it does some funny stuff too, https://0x0.st/iO5c.txt
+T 1613163825 18<24d9k18>	couldnt get it to crash
+T 1613163869 18<20cmurf18>	cockingbird_cage: that would take a long time, so no, sorry - lots of historical info on their development on various lists and videos from the developers themselves instead of depending on people such as myself to give a hearsay story
+T 1613163889 18<24d9k18>	https://0x0.st/iOAe.txt, the space goes up and down, if you get it just right you get ENOSPC until you delete a little and write alot
+T 1613163905 18<20cmurf18>	cockingbird_cage: so i mean, if you can be more specific i'll answer but that question is too open ended
+T 1613163921 18<20cmurf18>	d9k: oooo
+T 1613163972 18<20cmurf18>	d9k: you're getting enospc on xfs also?
+T 1613163982 18<20cmurf18>	but no call trace
+T 1613164015 18<24d9k18>	no call trace
+T 1613164031 18<20cmurf18>	but that's on xfs
+T 1613164034 18<24d9k18>	yes
+T 1613164076 18<24d9k18>	you can see what it does when it works correctly? on the second paste
+T 1613164193 18<20cmurf18>	forwarded, he also works on xfs
+T 1613164219 18<24d9k18>	shared extents are a great feature, but apparently very tricky to get right
+T 1613164231 18<20cmurf18>	cockingbird_cage: I can tell you what's in common though, what goes moo?!
+T 1613164296 18<20cmurf18>	d9k this particular issue in btrfs is tree checker just doing something wrong, when the patch lands you'll see it and you'll understand it better than i will
+T 1613164310 18<20cmurf18>	reflinks are fundamental in btrfs since day 1
+T 1613164357 18<20cmurf18>	xfs had to be taught datacow before it could do reflinks so it was more work in many ways
+T 1613164548 18<29cockingbird_cage18>	Very well then tell me what they have in common. Much appreciated.
+T 1613164638 18<29cockingbird_cage18>	cmurf: I heard that one does not need RAIDs anymore...
+T 1613164667 18<20cmurf18>	COWs go moo! :D
+T 1613164737 20*	Disconnected (20)
+T 1613164763 19*	Now talking on 22#fedora
+T 1613164763 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1613164763 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1613164763 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1613164779 18<29cockingbird_cage18>	Oh and what is so good about being a cow?
+T 1613164805 18<20cmurf18>	the raid stuff is a bit out of scope, but yeah both have integrated raid
+T 1613164862 18<20cmurf18>	in case of a power failure or crash, there's no inconsistency
+T 1613165031 18<29cockingbird_cage18>	cmurf: thanks
+T 1613165411 18<24sebbz18>	han
+T 1613165416 18<24sebbz18>	sry
+T 1613166867 20*	Disconnected (20)
+T 1613166915 20*	Disconnected (20Remote host closed socket)
+T 1613166970 20*	Disconnected (20Remote host closed socket)
+T 1613167028 20*	Disconnected (20Remote host closed socket)
+T 1613167077 20*	Disconnected (20Remote host closed socket)
+T 1613167100 19*	Now talking on 22#fedora
+T 1613167100 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1613167100 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1613167101 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1613170347 20*	Disconnected (20)
+T 1613201073 19*	Now talking on 22#fedora
+T 1613201073 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1613201073 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1613201073 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1613201082 18<28jollyrogue[m]18>	Is there a way to add accounts with ssh keys to the Fedora cloud image? I keep finding stuff suggesting cloud-init.
+T 1613201134 18<28toxane18>	jollyrogue[m]: does "ssh-copy-id" not work for you?
+T 1613201208 18<28jollyrogue[m]18>	I'm sure it will work once I get the system booted, and I can login.
+T 1613201408 20*	Disconnected (20)
+T 1613201464 20*	Disconnected (20Remote host closed socket)
+T 1613201533 20*	Disconnected (20Remote host closed socket)
+T 1613201597 20*	Disconnected (20Remote host closed socket)
+T 1613201642 19*	Now talking on 22#fedora
+T 1613201642 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1613201642 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1613201649 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1613201678 18<28toxane18>	ah, i interrupted your monologue?
+T 1613201773 18<28jollyrogue[m]18>	You didn't. 🙂 I didn't want to add a bunch of stuff if other people knew what I was talking about.
+T 1613201806 18<28toxane18>	:)
+T 1613202908 20*	Disconnected (20)
+T 1613202978 20*	Disconnected (20Remote host closed socket)
+T 1613203036 20*	Disconnected (20Remote host closed socket)
+T 1613203090 20*	Disconnected (20Remote host closed socket)
+T 1613203147 20*	Disconnected (20Remote host closed socket)
+T 1613203173 19*	Now talking on 22#fedora
+T 1613203173 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1613203173 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1613203173 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1613204220 18<26WokeGh18>	Hello, i just installed Fedora 33 on my computer but i seem to have some issues with my display. At 1920x1080 my whole screen is not filled and it is skewed to the left. Any advice please ?
+T 1613204528 20*	Disconnected (20)
+T 1613204579 20*	Disconnected (20Remote host closed socket)
+T 1613204649 20*	Disconnected (20Remote host closed socket)
+T 1613204717 20*	Disconnected (20Remote host closed socket)
+T 1613204790 20*	Disconnected (20Remote host closed socket)
+T 1613204855 20*	Disconnected (20Remote host closed socket)
+T 1613204902 20*	Disconnected (20Remote host closed socket)
+T 1613205086 20*	Disconnected (20Remote host closed socket)
+T 1613205147 20*	Disconnected (20Remote host closed socket)
+T 1613205194 20*	Disconnected (20Remote host closed socket)
+T 1613205290 19*	Now talking on 22#fedora
+T 1613205290 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1613205290 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1613205294 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1613205330 18<26WokeGh18>	Only that, with this config, a section of my screen to the right is not used and its black.
+T 1613205330 18<28toxane18>	then you might have to look in the manual how to adjust height, width, etc.
+T 1613205397 18<28toxane18>	maybe it has an "auto adjust" feature
+T 1613205452 24*	28retentiveboy_ is now known as 18retentiveboy
+T 1613205562 18<26WokeGh18>	On the monitor, i can adjust the Vertical and Horizontal positions. With that done, the screen is still not filling up the display.
+T 1613205640 18<28toxane18>	we need to wait for somebody to join us then, cause i dont know
+T 1613205664 18<26WokeGh18>	okay - thanks for your help. At least with it, i have centred the display
+T 1613205680 18<28toxane18>	:)
+T 1613205704 18<26WokeGh18>	Whilst you are here, i am finding my mouse response is slow, having to double click things etc. anything you have had before ?
+T 1613206090 18<24chrisawi18>	WokeGh: are you using HDMI or VGA?
+T 1613206118 18<26WokeGh18>	chrisawi: vga
+T 1613206164 18<24chrisawi18>	does your computer have any digital video outputs?
+T 1613206251 18<26WokeGh18>	no unfortunately
+T 1613238880 20*	Disconnected (20)
+T 1613238904 19*	Now talking on 22#fedora
+T 1613238904 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1613238904 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1613238905 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1613240113 18<22Southern_Gentlem18>	volga629, what video card
+T 1613240134 18<22Southern_Gentlem18>	nm RDP
+T 1613240710 20*	Disconnected (20)
+T 1613240796 20*	Disconnected (20Remote host closed socket)
+T 1613240846 20*	Disconnected (20Remote host closed socket)
+T 1613240889 20*	Disconnected (20Remote host closed socket)
+T 1613240939 20*	Disconnected (20Remote host closed socket)
+T 1613241044 19*	Now talking on 22#fedora
+T 1613241044 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1613241044 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1613241058 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1613241122 18<26[R]18>	khaytsus: where is the option to configure the network in the fedora installer?
+T 1613241149 18<26Khaytsus18>	[R]: Ananconda GUI?  Same screen with disk setup etc
+T 1613241150 18<26Khaytsus18>	I must be misunderstanding the question
+T 1613241174 18<26[R]18>	all i see is Keyboard, Installation Destination, and Time & Date
+T 1613241198 18<26[R]18>	there used to be more options...
+T 1613241227 18<26Khaytsus18>	hmm, maybe I've missed that change, booting a vm
+T 1613241285 18<26Khaytsus18>	i wish I could ifgure out why xfce VM's always screw up my bluetooth connection..  it's like it changes the BT profile, I don't even know what's going on
+T 1613241289 18<26Khaytsus18>	anywho
+T 1613241316 18<26Khaytsus18>	Nope, "network & hostname"
+T 1613241319 18<26[R]18>	wtf...
+T 1613241319 18<26Khaytsus18>	https://imgur.com/SoADOQF.png
+T 1613241345 18<26Khaytsus18>	Are you using ugghnome?
+T 1613241347 18<26[R]18>	is taht 33?
+T 1613241347 18<26Khaytsus18>	Yep
+T 1613241347 18<26[R]18>	i'm just using the default iso
+T 1613241354 18<26[R]18>	lemme take a screenshot
+T 1613241362 18<26Khaytsus18>	33 xfce spin
+T 1613241405 18<26Khaytsus18>	All the spins should look the same, server and gnome are both unique
+T 1613241442 18<26[R]18>	khaytsus: https://imgur.com/a/oZhaIhb
+T 1613241466 18<26Khaytsus18>	so yeah guhngnome.. let me look
+T 1613241547 18<26[R]18>	the documentation clearly shows more options...
+T 1613241567 18<26[R]18>	although it also shows a "fedora server" banner
+T 1613241598 18<26Khaytsus18>	I suppose it doesn't need to be online during install anyway does it?
+T 1613241622 18<26[R]18>	i wanted to set like hostname and such
+T 1613241634 18<26[R]18>	i got it installed and realized i missed settin the hostnam,e so i booted back to the installer, and its no where to be found
+T 1613241690 18<22Southern_Gentlem18>	nope [R] thats gnome
+T 1613241706 18<22Southern_Gentlem18>	you can do it in gnome settings IIRC
+T 1613241719 18<22Southern_Gentlem18>	[R], and hopefully you used the updated iso
+T 1613241719 18<26[R]18>	that's a little silly
+T 1613241727 18<26[R]18>	no, i used the relesae one
+T 1613241730 18<26[R]18>	had like 5000 updates
+T 1613241730 18<26[R]18>	haha
+T 1613241741 18<22Southern_Gentlem18>	you have 1.1G of updates
+T 1613241808 18<22Southern_Gentlem18>	*** F33-20210212 updated lives available: https://tinyurl.com/Live-respins2  Built by the Fedora Respin Sig more info #fedora-respins  ***
+T 1613241822 18<22Southern_Gentlem18>	yes i just released a new set today
+T 1613241848 18<26[R]18>	so in settings -> about i see a "device name" and its set to 'fedora'
+T 1613241862 18<26[R]18>	yet when i type in hostname it says localhost.localdomain
+T 1613241896 18<22Southern_Gentlem18>	and you can always set it as before in hosts
+T 1613241917 18<26Khaytsus18>	hostnamectl
+T 1613243103 24*	28CushingAr[m] is now known as 18Cushingar[m]
+T 1613245237 24*	28watkinsr1 is now known as 18watkinsr
+T 1613246230 24*	28Jason is now known as 18Guest28869
+T 1613246848 24*	28froqstar_ is now known as 18froqstar
+T 1613247339 24*	28coetzeer-matrix1 is now known as 18coetzeer-matrix3
