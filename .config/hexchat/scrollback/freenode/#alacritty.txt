@@ -5033,3 +5033,102 @@ T 1613241208 18<24UndeadLeech18>	It behaves identically.
 T 1613241213 18<24UndeadLeech18>	And I'd actually encourage to not have anything in your config that you do not want to change.
 T 1613241278 18<22cjoke18>	ahh, I see. thanks! :) 
 T 1613243356 24*	28Guest45203 is now known as 18Reventlov
+T 1613256160 20*	Disconnected (20)
+T 1613313905 19*	Now talking on 22#alacritty
+T 1613313905 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+T 1613313905 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Jan  9 12:42:04 2021)
+T 1613314919 18<24UndeadLeech18>	slby[m]: Use a shell.
+T 1613317136 18*	27slby[m] sent a long message:  < https://matrix.org/_matrix/media/r0/download/matrix.org/uTGTvYpaPPOobIxitLXNMywr/message.txt >
+T 1613317152 18*	27slby[m] sent a long message:  < https://matrix.org/_matrix/media/r0/download/matrix.org/UdfLEkySprnfKtiuwfhncIOx/message.txt >
+T 1613317183 18*	27slby[m] sent a long message:  < https://matrix.org/_matrix/media/r0/download/matrix.org/qSngkUufZbOQXhsuRoDVhGts/message.txt >
+T 1613317190 18*	27slby[m] sent a long message:  < https://matrix.org/_matrix/media/r0/download/matrix.org/RdoCpShvxEueRwsbqKqzmvxY/message.txt >
+T 1613317364 18<24UndeadLeech18>	bash -c "whatever you want"
+T 1613318288 18<27slby[m]18>	Ah, thank you very much!
+T 1613318288 18<27slby[m]18>	I tried bash "-c" "programm" "$(date)" instead of "programm $(date)", now it works!
+T 1613323340 18<22nixpulvis18>	UndeadLeech, if you're around perhaps I can take some of my search/hint/vi mode stuff offline, since it's only partially related to this PR at hand.
+T 1613323389 18<22nixpulvis18>	I hope I'm not coming off overly critical. I'm very happy to see you've implemented link hints.
+T 1613323678 18<24UndeadLeech18>	I am around indeed.
+T 1613323708 18<24UndeadLeech18>	In which scenario would you want to launch this before the stuff you're matching is even visible?
+T 1613323738 18<22nixpulvis18>	Watching a log.
+T 1613323773 18<22nixpulvis18>	I'm not saying I generally would *want* to do this. I just think if my muscle memory triggers the mode before the input is in yet, it should still work.
+T 1613323796 18<24UndeadLeech18>	I honestly think that would just be pointlessly confusing. I don't see much benefit blowing it up to be such a completely separate big "mode" you operate in and have to get back out of.
+T 1613323819 18<22nixpulvis18>	But it already *is*.
+T 1613323829 18<24UndeadLeech18>	I don't see how.
+T 1613323855 18<24UndeadLeech18>	In fact I've actually considered completely freezing the viewport, it's just that it coincidentally works just fine without doing so.
+T 1613323863 18<22nixpulvis18>	If my keys don't act as they normally do, I'm in a mode.
+T 1613323888 18<24UndeadLeech18>	What is normal?
+T 1613323894 18<24UndeadLeech18>	Does launching vim put you in a different terminal mode?
+T 1613323902 18<22nixpulvis18>	~Vi, ~Search...
+T 1613323942 18<22nixpulvis18>	Since launching vim puts me in the Alt buffer, yes. I can have seperate bindings for that mode.
+T 1613323944 18<24UndeadLeech18>	I'd say the way it is right now is much more convenient for someone who's familiar with the feature.
+T 1613323957 18<24UndeadLeech18>	It's supposed to be a quick in and out.
+T 1613323983 18<22nixpulvis18>	Yet unlike Vi mode which I can enter and leave without moving my fingers, I must reach for ESC?
+T 1613324013 18<24UndeadLeech18>	I'm not sure what you mean? By default you should leave this mode by selecting your match.
+T 1613324027 18<24UndeadLeech18>	Pressing escape to get out of it should be the exception. 
+T 1613324027 18<22nixpulvis18>	I'm just saying, there's something fundamentally inconsistent about the way we move around in Alacritty.
+T 1613324036 18<24UndeadLeech18>	Also if you have to move your fingers to press esc, that's on you. :)
+T 1613324056 18<22nixpulvis18>	I have caps-lock = esc.
+T 1613324062 18<24UndeadLeech18>	Consistent or not, this is just the most pratical approach as far as I can see.
+T 1613324092 18<22nixpulvis18>	I don't see how I've made things less practical with my suggestions, just a bit more implementation changes.
+T 1613324106 18<24UndeadLeech18>	It just makes things more cumbersome.
+T 1613324121 18<24UndeadLeech18>	You get stuff into my way that has no pratcical benefit to me.
+T 1613324132 18<22nixpulvis18>	What is in your way?
+T 1613324150 18<24UndeadLeech18>	If I thought there was a match and there is none, I now have to exit explicitly.
+T 1613324170 18<24UndeadLeech18>	I previously was able to see everything, now there's an indicator in my way that doesn't tell me anything I don't know already.
+T 1613324198 18<24UndeadLeech18>	As far as I can see, the changes only do harm.
+T 1613324293 18<22nixpulvis18>	If you thought there was a match and there is none, I would hope to get some kind of negative feedback.
+T 1613324301 18<22nixpulvis18>	Maybe we just ring the bell...
+T 1613324311 18<24UndeadLeech18>	I mean I agree that negative feedback would be helpful, same with search, but it's only helpful if it doesn't annoy the fuck out of me.
+T 1613324311 18<22nixpulvis18>	but I have that turned off...
+T 1613324328 18<24UndeadLeech18>	Like what Kitty does for example is it throws away my entire buffer and prints a message in the top left saying there's no match.
+T 1613324335 18<24UndeadLeech18>	I'd rather have nothing than that.
+T 1613324340 18<22nixpulvis18>	that sounds horrible.
+T 1613324346 18<24UndeadLeech18>	I personally think it is.
+T 1613324363 18<24UndeadLeech18>	But that's an issue that applies both to search and hints I suppose.
+T 1613324387 18<22nixpulvis18>	Plus, what if I want to scroll while hinting?
+T 1613324399 18<24UndeadLeech18>	Also since you mentioned the key_bindings section: In the future I want to add more fields that use these hints for the mouse highlighting.
+T 1613324414 18<22nixpulvis18>	seems easy enough to color the scroll indicator with the hint color or something.
+T 1613324432 18<24UndeadLeech18>	Something like mouse_modifiers which automatically causes hints to be used for the mouse when it is enabled with the specified bindings.
+T 1613324459 18<22nixpulvis18>	wait... I don't think I follow.
+T 1613324459 18<24UndeadLeech18>	That's why I had to move it from the bindings to its own section, originally it was all in key_bindings until I moved it.
+T 1613324466 18<22nixpulvis18>	how are hints and the mouse related?
+T 1613324484 18<24UndeadLeech18>	Currently URLs are hardcoded into Alacritty. I want to change that. I want the hint system to be the thing that is used both for mouse and keyboard opening.
+T 1613324504 18<24UndeadLeech18>	So you'd just define a hint for URLs and then tell Alacritty that you want to be able to open that hint with the mouse too.
+T 1613324528 18<22nixpulvis18>	Oh I see what you mean, removing the `Open` (or whatever it's called) action.
+T 1613324548 18<24UndeadLeech18>	Yeah, pretty much.
+T 1613324565 18<24UndeadLeech18>	Well removing what currently is hardcoded behind "open" and making it dynamic and configurable.
+T 1613324642 18<24UndeadLeech18>	That's one of the reasons why I considered this hints approach, since I think those features integrate well with each other. I don't want to just "tack" something new on.
+T 1613324647 18<24UndeadLeech18>	But I think this PR stands sufficiently well on its own. In the future then I'll write two new PRs for mouse stuff and for custom actions like Copy/Paste instead of command. So people don't need to rely on external tools for that.
+T 1613324647 18<22nixpulvis18>	So this is basically just an action that takes an input, no?
+T 1613324664 18<24UndeadLeech18>	What do you mean by "this"?
+T 1613324768 18<24UndeadLeech18>	Also I think I'm going to write up a 0.7.2 RC today. I think 0.8.0 is a long way out and I want those Wayland fixes shipped.
+T 1613324768 18<22nixpulvis18>	Like, if (just pretend for a sec) hints was a mode, then it would be easy to make the action just configured by a regex.
+T 1613324776 18<24UndeadLeech18>	I don't follow.
+T 1613324942 18<22nixpulvis18>	Let me back up...
+T 1613325063 18<22nixpulvis18>	So the goal is to make the mouse look for "enabled" hints and basically do what we do today in a user configurable way, right?
+T 1613325129 18<24UndeadLeech18>	Basically. Though just to be clear this should always work, not only when the hint is active.
+T 1613325154 18<22nixpulvis18>	if that's the case, then it already seems like the `command` and `regex` should be together, and the `binding` to activate the key-hint-selection state should be elsewhere, I would think part of the `key_bindings`.
+T 1613325256 18<24UndeadLeech18>	Having it in two separate places would just be confusing though.
+T 1613325259 18<22nixpulvis18>	Like, I would describe it as follows: Hints are always active, and the mouse underlining searches for them. You can activate a state (through a key_binding) to quick-select a hint. Since there can be many seperate hint regexes, there can be many seperate key_bindings to activate different states for each.
+T 1613325259 18<24UndeadLeech18>	At that point you'd have to give it a name or an ID or something and then reference that ID.
+T 1613325263 18<24UndeadLeech18>	That just seems much more difficult than necessary.
+T 1613325295 18<22nixpulvis18>	I disagree strongly. But I do agree it's not instantly clear how to best do this.
+T 1613325302 18<24UndeadLeech18>	It's something I've considered, but it sounds like a massive pain to configure.
+T 1613325327 18<22nixpulvis18>	Please don't add key bindings outside the key bindings section :(
+T 1613325347 18<24UndeadLeech18>	We already have mouse bindings outside the mouse bindings section.
+T 1613325358 18<24UndeadLeech18>	I'd say this is much better than any alternative.
+T 1613325370 18<22nixpulvis18>	Though that would also be fixed by this.
+T 1613325375 18<24UndeadLeech18>	If there's a better alternative, I'm all ears.
+T 1613325380 18<22nixpulvis18>	Unless there's more mouse bindings I'm forgetting.
+T 1613325390 18<22nixpulvis18>	I can try to think more about it...
+T 1613325393 18<24UndeadLeech18>	No, so it's basically the same.
+T 1613325432 18<22nixpulvis18>	I'll take the point that you really don't want to bother with an indicator for this state. That's fine, I just think it would be a small nice thing.
+T 1613325480 18<24UndeadLeech18>	I already hate the vi indicator. For vi mode it's just a necessary evil. But here it really isn't necessary.
+T 1613325516 18<22nixpulvis18>	Seperating the "hint" from the "hint activation state" (better name needed) would actually help understanding this feature for newbs too. Since a "hint" is not really something one thinks would open a link, or perform any action itself.
+T 1613325556 18<22nixpulvis18>	I say for newbs, but I litterally just mean for people learning the feature.
+T 1613325826 18<22nixpulvis18>	re 0.7.2 RC: I can try and test it a bit later tonight.
+T 1613332750 20*	Disconnected (20)
+T 1613333724 20*	Disconnected (20No route to host)
+T 1613333751 19*	Now talking on 22#alacritty
+T 1613333751 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+T 1613333751 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Jan  9 12:42:04 2021)

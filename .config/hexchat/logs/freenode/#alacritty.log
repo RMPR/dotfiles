@@ -5756,3 +5756,109 @@ Feb 13 19:33:28 <UndeadLeech>	It behaves identically.
 Feb 13 19:33:33 <UndeadLeech>	And I'd actually encourage to not have anything in your config that you do not want to change.
 Feb 13 19:34:38 <cjoke>	ahh, I see. thanks! :) 
 Feb 13 20:09:16 *	Guest45203 is now known as Reventlov
+Feb 13 23:42:40 *	Disconnected ()
+**** ENDING LOGGING AT Sat Feb 13 23:42:40 2021
+
+**** BEGIN LOGGING AT Sun Feb 14 15:45:05 2021
+
+Feb 14 15:45:05 *	Now talking on #alacritty
+Feb 14 15:45:05 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+Feb 14 15:45:05 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Jan  9 12:42:04 2021)
+Feb 14 16:01:59 <UndeadLeech>	slby[m]: Use a shell.
+Feb 14 16:38:56 *	slby[m] sent a long message:  < https://matrix.org/_matrix/media/r0/download/matrix.org/uTGTvYpaPPOobIxitLXNMywr/message.txt >
+Feb 14 16:39:12 *	slby[m] sent a long message:  < https://matrix.org/_matrix/media/r0/download/matrix.org/UdfLEkySprnfKtiuwfhncIOx/message.txt >
+Feb 14 16:39:43 *	slby[m] sent a long message:  < https://matrix.org/_matrix/media/r0/download/matrix.org/qSngkUufZbOQXhsuRoDVhGts/message.txt >
+Feb 14 16:39:50 *	slby[m] sent a long message:  < https://matrix.org/_matrix/media/r0/download/matrix.org/RdoCpShvxEueRwsbqKqzmvxY/message.txt >
+Feb 14 16:42:44 <UndeadLeech>	bash -c "whatever you want"
+Feb 14 16:58:08 <slby[m]>	Ah, thank you very much!
+Feb 14 16:58:08 <slby[m]>	I tried bash "-c" "programm" "$(date)" instead of "programm $(date)", now it works!
+Feb 14 18:22:20 <nixpulvis>	UndeadLeech, if you're around perhaps I can take some of my search/hint/vi mode stuff offline, since it's only partially related to this PR at hand.
+Feb 14 18:23:09 <nixpulvis>	I hope I'm not coming off overly critical. I'm very happy to see you've implemented link hints.
+Feb 14 18:27:58 <UndeadLeech>	I am around indeed.
+Feb 14 18:28:28 <UndeadLeech>	In which scenario would you want to launch this before the stuff you're matching is even visible?
+Feb 14 18:28:58 <nixpulvis>	Watching a log.
+Feb 14 18:29:33 <nixpulvis>	I'm not saying I generally would *want* to do this. I just think if my muscle memory triggers the mode before the input is in yet, it should still work.
+Feb 14 18:29:56 <UndeadLeech>	I honestly think that would just be pointlessly confusing. I don't see much benefit blowing it up to be such a completely separate big "mode" you operate in and have to get back out of.
+Feb 14 18:30:19 <nixpulvis>	But it already *is*.
+Feb 14 18:30:29 <UndeadLeech>	I don't see how.
+Feb 14 18:30:55 <UndeadLeech>	In fact I've actually considered completely freezing the viewport, it's just that it coincidentally works just fine without doing so.
+Feb 14 18:31:03 <nixpulvis>	If my keys don't act as they normally do, I'm in a mode.
+Feb 14 18:31:28 <UndeadLeech>	What is normal?
+Feb 14 18:31:34 <UndeadLeech>	Does launching vim put you in a different terminal mode?
+Feb 14 18:31:42 <nixpulvis>	~Vi, ~Search...
+Feb 14 18:32:22 <nixpulvis>	Since launching vim puts me in the Alt buffer, yes. I can have seperate bindings for that mode.
+Feb 14 18:32:24 <UndeadLeech>	I'd say the way it is right now is much more convenient for someone who's familiar with the feature.
+Feb 14 18:32:37 <UndeadLeech>	It's supposed to be a quick in and out.
+Feb 14 18:33:03 <nixpulvis>	Yet unlike Vi mode which I can enter and leave without moving my fingers, I must reach for ESC?
+Feb 14 18:33:33 <UndeadLeech>	I'm not sure what you mean? By default you should leave this mode by selecting your match.
+Feb 14 18:33:47 <UndeadLeech>	Pressing escape to get out of it should be the exception. 
+Feb 14 18:33:47 <nixpulvis>	I'm just saying, there's something fundamentally inconsistent about the way we move around in Alacritty.
+Feb 14 18:33:56 <UndeadLeech>	Also if you have to move your fingers to press esc, that's on you. :)
+Feb 14 18:34:16 <nixpulvis>	I have caps-lock = esc.
+Feb 14 18:34:22 <UndeadLeech>	Consistent or not, this is just the most pratical approach as far as I can see.
+Feb 14 18:34:52 <nixpulvis>	I don't see how I've made things less practical with my suggestions, just a bit more implementation changes.
+Feb 14 18:35:06 <UndeadLeech>	It just makes things more cumbersome.
+Feb 14 18:35:21 <UndeadLeech>	You get stuff into my way that has no pratcical benefit to me.
+Feb 14 18:35:32 <nixpulvis>	What is in your way?
+Feb 14 18:35:50 <UndeadLeech>	If I thought there was a match and there is none, I now have to exit explicitly.
+Feb 14 18:36:10 <UndeadLeech>	I previously was able to see everything, now there's an indicator in my way that doesn't tell me anything I don't know already.
+Feb 14 18:36:38 <UndeadLeech>	As far as I can see, the changes only do harm.
+Feb 14 18:38:13 <nixpulvis>	If you thought there was a match and there is none, I would hope to get some kind of negative feedback.
+Feb 14 18:38:21 <nixpulvis>	Maybe we just ring the bell...
+Feb 14 18:38:31 <UndeadLeech>	I mean I agree that negative feedback would be helpful, same with search, but it's only helpful if it doesn't annoy the fuck out of me.
+Feb 14 18:38:31 <nixpulvis>	but I have that turned off...
+Feb 14 18:38:48 <UndeadLeech>	Like what Kitty does for example is it throws away my entire buffer and prints a message in the top left saying there's no match.
+Feb 14 18:38:55 <UndeadLeech>	I'd rather have nothing than that.
+Feb 14 18:39:00 <nixpulvis>	that sounds horrible.
+Feb 14 18:39:06 <UndeadLeech>	I personally think it is.
+Feb 14 18:39:23 <UndeadLeech>	But that's an issue that applies both to search and hints I suppose.
+Feb 14 18:39:47 <nixpulvis>	Plus, what if I want to scroll while hinting?
+Feb 14 18:39:59 <UndeadLeech>	Also since you mentioned the key_bindings section: In the future I want to add more fields that use these hints for the mouse highlighting.
+Feb 14 18:40:14 <nixpulvis>	seems easy enough to color the scroll indicator with the hint color or something.
+Feb 14 18:40:32 <UndeadLeech>	Something like mouse_modifiers which automatically causes hints to be used for the mouse when it is enabled with the specified bindings.
+Feb 14 18:40:59 <nixpulvis>	wait... I don't think I follow.
+Feb 14 18:40:59 <UndeadLeech>	That's why I had to move it from the bindings to its own section, originally it was all in key_bindings until I moved it.
+Feb 14 18:41:06 <nixpulvis>	how are hints and the mouse related?
+Feb 14 18:41:24 <UndeadLeech>	Currently URLs are hardcoded into Alacritty. I want to change that. I want the hint system to be the thing that is used both for mouse and keyboard opening.
+Feb 14 18:41:44 <UndeadLeech>	So you'd just define a hint for URLs and then tell Alacritty that you want to be able to open that hint with the mouse too.
+Feb 14 18:42:08 <nixpulvis>	Oh I see what you mean, removing the `Open` (or whatever it's called) action.
+Feb 14 18:42:28 <UndeadLeech>	Yeah, pretty much.
+Feb 14 18:42:45 <UndeadLeech>	Well removing what currently is hardcoded behind "open" and making it dynamic and configurable.
+Feb 14 18:44:02 <UndeadLeech>	That's one of the reasons why I considered this hints approach, since I think those features integrate well with each other. I don't want to just "tack" something new on.
+Feb 14 18:44:07 <UndeadLeech>	But I think this PR stands sufficiently well on its own. In the future then I'll write two new PRs for mouse stuff and for custom actions like Copy/Paste instead of command. So people don't need to rely on external tools for that.
+Feb 14 18:44:07 <nixpulvis>	So this is basically just an action that takes an input, no?
+Feb 14 18:44:24 <UndeadLeech>	What do you mean by "this"?
+Feb 14 18:46:08 <UndeadLeech>	Also I think I'm going to write up a 0.7.2 RC today. I think 0.8.0 is a long way out and I want those Wayland fixes shipped.
+Feb 14 18:46:08 <nixpulvis>	Like, if (just pretend for a sec) hints was a mode, then it would be easy to make the action just configured by a regex.
+Feb 14 18:46:16 <UndeadLeech>	I don't follow.
+Feb 14 18:49:02 <nixpulvis>	Let me back up...
+Feb 14 18:51:03 <nixpulvis>	So the goal is to make the mouse look for "enabled" hints and basically do what we do today in a user configurable way, right?
+Feb 14 18:52:09 <UndeadLeech>	Basically. Though just to be clear this should always work, not only when the hint is active.
+Feb 14 18:52:34 <nixpulvis>	if that's the case, then it already seems like the `command` and `regex` should be together, and the `binding` to activate the key-hint-selection state should be elsewhere, I would think part of the `key_bindings`.
+Feb 14 18:54:16 <UndeadLeech>	Having it in two separate places would just be confusing though.
+Feb 14 18:54:19 <nixpulvis>	Like, I would describe it as follows: Hints are always active, and the mouse underlining searches for them. You can activate a state (through a key_binding) to quick-select a hint. Since there can be many seperate hint regexes, there can be many seperate key_bindings to activate different states for each.
+Feb 14 18:54:19 <UndeadLeech>	At that point you'd have to give it a name or an ID or something and then reference that ID.
+Feb 14 18:54:23 <UndeadLeech>	That just seems much more difficult than necessary.
+Feb 14 18:54:55 <nixpulvis>	I disagree strongly. But I do agree it's not instantly clear how to best do this.
+Feb 14 18:55:02 <UndeadLeech>	It's something I've considered, but it sounds like a massive pain to configure.
+Feb 14 18:55:27 <nixpulvis>	Please don't add key bindings outside the key bindings section :(
+Feb 14 18:55:47 <UndeadLeech>	We already have mouse bindings outside the mouse bindings section.
+Feb 14 18:55:58 <UndeadLeech>	I'd say this is much better than any alternative.
+Feb 14 18:56:10 <nixpulvis>	Though that would also be fixed by this.
+Feb 14 18:56:15 <UndeadLeech>	If there's a better alternative, I'm all ears.
+Feb 14 18:56:20 <nixpulvis>	Unless there's more mouse bindings I'm forgetting.
+Feb 14 18:56:30 <nixpulvis>	I can try to think more about it...
+Feb 14 18:56:33 <UndeadLeech>	No, so it's basically the same.
+Feb 14 18:57:12 <nixpulvis>	I'll take the point that you really don't want to bother with an indicator for this state. That's fine, I just think it would be a small nice thing.
+Feb 14 18:58:00 <UndeadLeech>	I already hate the vi indicator. For vi mode it's just a necessary evil. But here it really isn't necessary.
+Feb 14 18:58:36 <nixpulvis>	Seperating the "hint" from the "hint activation state" (better name needed) would actually help understanding this feature for newbs too. Since a "hint" is not really something one thinks would open a link, or perform any action itself.
+Feb 14 18:59:16 <nixpulvis>	I say for newbs, but I litterally just mean for people learning the feature.
+Feb 14 19:03:46 <nixpulvis>	re 0.7.2 RC: I can try and test it a bit later tonight.
+Feb 14 20:59:10 *	Disconnected ()
+**** ENDING LOGGING AT Sun Feb 14 20:59:10 2021
+
+**** BEGIN LOGGING AT Sun Feb 14 21:15:51 2021
+
+Feb 14 21:15:51 *	Now talking on #alacritty
+Feb 14 21:15:51 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+Feb 14 21:15:51 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Jan  9 12:42:04 2021)

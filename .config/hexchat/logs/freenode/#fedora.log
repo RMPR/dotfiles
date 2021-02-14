@@ -9889,3 +9889,117 @@ Feb 13 20:40:37 *	watkinsr1 is now known as watkinsr
 Feb 13 20:57:10 *	Jason is now known as Guest28869
 Feb 13 21:07:28 *	froqstar_ is now known as froqstar
 Feb 13 21:15:39 *	coetzeer-matrix1 is now known as coetzeer-matrix3
+Feb 13 21:24:04 *	crankslider is now known as slidercrank
+Feb 13 21:27:32 <akik>	are there updated isos for f32 mate iso?
+Feb 13 21:27:53 <Southern_Gentlem>	about 5 months ago
+Feb 13 21:28:02 <akik>	i have one from june 2020
+Feb 13 21:28:18 <Southern_Gentlem>	that was mostly like the last one
+Feb 13 21:28:22 <akik>	ok thanks
+Feb 13 21:30:21 <Southern_Gentlem>	20201104 was the last one for f32
+Feb 13 21:31:17 <_AnK>	Hello. Q:  Some few years ago I moved from NVIDIA to AMD graphics card to avoid 'black screen' every time kernel is upgraded and NVIDIA driver packages are not yet available. I wonder what is the situation these days i.e. is it still a problem or NVIDIA drivers are readily available. Thanks.
+Feb 13 21:31:19 <Southern_Gentlem>	akik if you really need it i can put it where you can get it
+Feb 13 21:31:41 <akik>	Southern_Gentlem: ok thanks
+Feb 13 21:31:59 <Southern_Gentlem>	Ank thus you use the nvidia from rpmfusion and it builds for you each kernel
+Feb 13 21:32:08 <Southern_Gentlem>	with their akmod-nvidia
+Feb 13 21:32:24 <Southern_Gentlem>	you may have to reboot 2x with the kenrel update
+Feb 13 21:32:31 <_AnK>	yes - that was i was doing. But there was a delay - sometime few weeks ...
+Feb 13 21:32:39 <_AnK>	Is it sttill a problem?
+Feb 13 21:32:43 <_AnK>	stil
+Feb 13 21:33:04 <Southern_Gentlem>	how is there a delay if its building when you boot the new kernel
+Feb 13 21:33:15 <_AnK>	dynamically?
+Feb 13 21:33:31 <Southern_Gentlem>	i havent had issues with nvidia driver for years
+Feb 13 21:33:38 <_AnK>	Excellent.
+Feb 13 21:33:39 <_AnK>	Thanks
+Feb 13 21:33:51 <Southern_Gentlem>	if you use the rpmfusion nvidia drivers
+Feb 13 21:33:58 <_AnK>	Yes, i will.
+Feb 13 21:34:04 <_AnK>	akmod - i remenmber
+Feb 13 21:34:04 <Southern_Gentlem>	_Ank take a look at " http://rpmfusion.org/Howto/nVidia?highlight=_Ank8CategoryHowto_Ank9 "
+Feb 13 21:34:13 <_AnK>	thanks.
+Feb 13 21:42:57 <Southern_Gentlem>	taxi time
+Feb 13 22:13:39 <crash_>	taxi time? :)
+Feb 13 22:36:27 *	msauton_ is now known as msauton
+Feb 13 22:55:55 <linuxmodder>	crash_, as in he's heading home from work
+Feb 13 23:07:16 *	bdaase_ is now known as bdaase
+Feb 13 23:38:29 <hdost3[m]>	So I figured out the issue there' needs to be another selinux policy added for systemservices in snapd. Which package is typically responsible for that? I looked here: https://src.fedoraproject.org/rpms/selinux-policy/tree/rawhide it doesn't appear to be there
+Feb 13 23:38:50 <hdost3[m]>	The issue is only in rawhide to my knowledge, but I was hoping to get a patch in for it
+Feb 13 23:42:40 *	Disconnected ()
+**** ENDING LOGGING AT Sat Feb 13 23:42:40 2021
+
+**** BEGIN LOGGING AT Sun Feb 14 15:45:05 2021
+
+Feb 14 15:45:05 *	Now talking on #fedora
+Feb 14 15:45:05 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 14 15:45:05 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 14 15:45:05 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 14 15:49:06 <fedbot>	*** F33-20210212 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Feb 14 15:50:25 <RusAlex>	hi mates, is it safe to upgrade f31->33 ?
+Feb 14 15:56:21 <luciandesozay_ri>	https://www.stcatharines.ca/en/experiencein/BritishMethodistEpiscopalChurchSalemChapel.asp
+Feb 14 16:01:12 <Khaytsus>	RusAlex: 31->32, clean up, 32->33
+Feb 14 16:01:18 *	Khaytsus points to https://docs.fedoraproject.org/en-US/quick-docs/dnf-system-upgrade
+Feb 14 16:01:25 <RusAlex>	Khaytsus:thanks
+Feb 14 16:01:28 <Khaytsus>	Follow all steps.
+Feb 14 16:03:11 *	ledeni_ is now known as ledeni
+Feb 14 16:11:32 *	luciandesozay_ri uploaded an image: Screenshot_20210214-100846.png (121KiB) < https://matrix.org/_matrix/media/r0/download/matrix.org/hTpPBgUHATzbVIRwqewhWhpn/Screenshot_20210214-100846.png >
+Feb 14 16:11:50 <_AnK>	Hello. Where can i read more about how to connect wireless speakers to my Fedora 33 PC ? What is hardware and software requirements?
+Feb 14 16:16:49 *	ChanServ gives channel operator status to Khaytsus
+Feb 14 16:16:49 *	Khaytsus has kicked luciandesozay_ri from #fedora (Stop that)
+Feb 14 16:16:49 *	Khaytsus removes channel operator status from Khaytsus
+Feb 14 16:17:30 <Khaytsus>	_AnK: Wireless how?  Bluetooth generally just works, I use it on multiple headsets here daily.
+Feb 14 16:19:57 <_AnK>	Understood. Thinking to buy a bluetooth speakers was wondering how difficult it would be to hook them up. Apparently i alread have the packages installed. SO should be no problem. Thanks.
+Feb 14 16:20:58 <_AnK>	But i guess i need bluetooth adapter. Any suggestions?
+Feb 14 16:21:09 <Khaytsus>	Nope, it'll just work.  Put them in pairing mode and look for them in your bluetooth manager of choice.  Use pavucontrol to set your outputs to them.
+Feb 14 16:21:28 <_AnK>	ok. Will try. Thanks.
+Feb 14 16:21:38 <Khaytsus>	Any that work in Linux.  I just look on Amazon for it.
+Feb 14 16:22:38 <Khaytsus>	https://www.amazon.com/gp/product/B08M1VJHVD/    this I so far have NOT had good luck with, however.  It works but everything defaults to the lowest quality and I can't seem to change it.
+Feb 14 16:22:42 <_AnK>	My confusion coming from misunderstanding what hardware piece needs to be present to catch the bluetooth signal.
+Feb 14 16:23:00 <_AnK>	Thanks for the link
+Feb 14 16:23:02 <_AnK>	:-)
+Feb 14 16:23:17 <Khaytsus>	Sure you need a bluetooth radio on your computer...  it might even be built-in.  Or just buy one, they're cheap.
+Feb 14 16:23:39 <_AnK>	I do not know how to check for it
+Feb 14 16:23:44 <Khaytsus>	Check what?
+Feb 14 16:24:18 <Khaytsus>	You could also get a 3.5mm bluetooth "transmitter" which plugs in the normal 3.5mm audio jack
+Feb 14 16:24:26 <Khaytsus>	And no worries of bluetooth compatability at all
+Feb 14 16:27:01 <_AnK>	By Cheking - i meant what if i already have in in motherboard (?) or else and just do not know.... Thanks for the advise. I have somthing to think about now
+Feb 14 16:27:18 <Khaytsus>	I wish they made more that had no battery in them, however, but i guess most people would want them with a battery.  I have a few audio devices that I'd like to "convert" to bluetooth and don't want to have something charging 24/7 but it is what it is.
+Feb 14 16:27:35 <Khaytsus>	_AnK: Just go to your blueooth manager and look.. if you have a bluetooth adaptor it'll show up
+Feb 14 16:27:51 <Khaytsus>	Do a scan, it'll likely see something unless you live in the middle of nowhere
+Feb 14 16:28:12 <_AnK>	I did, It shows none. But I may have disabled it from BIOS. I need to check that too. Thanks
+Feb 14 16:28:44 <_AnK>	Some learning curve for me ....
+Feb 14 16:30:03 <Khaytsus>	My motherboard here supports it, but I don't have the PCI slot bits that have the antenna and some other stuff so it shows up as a controller but it does nothing..
+Feb 14 16:30:35 <_AnK>	How did you check for it  , pls?
+Feb 14 16:30:42 <Khaytsus>	So I have a dongle which works but seems to be off the market anymore
+Feb 14 16:30:48 <Khaytsus>	It shows up in my bluetooth manager, like I said
+Feb 14 16:30:53 <_AnK>	i see
+Feb 14 16:31:02 <_AnK>	understood
+Feb 14 16:31:10 <Khaytsus>	hciconfig -a
+Feb 14 16:31:13 <Khaytsus>	etc
+Feb 14 16:31:41 <_AnK>	hciconfig -a shows nothing for me.
+Feb 14 16:31:55 <_AnK>	I guess i have non internally.
+Feb 14 16:32:40 <_AnK>	I will check the BIOS also. I recall i switched off something related to bluetooth over there.
+Feb 14 16:32:53 <_AnK>	Thanks alot
+Feb 14 16:49:06 <fedbot>	*** F33-20210212 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Feb 14 17:49:07 <fedbot>	*** F33-20210212 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Feb 14 17:52:35 *	wa1em is now known as linuxmodder
+Feb 14 18:48:09 *	tmsmr1 is now known as tmsmr
+Feb 14 18:49:22 <fedbot>	*** F33-20210212 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Feb 14 19:19:52 <cation21>	hi, what is the best place for me to report an issue I think might be related to the kernel? I am running Fedora 32 on my desktop with an AMD Ryzen 5 3600X CPU, and my system started rebooting several minutes after boot since I upgraded from kernel 5.10.8-100 to 5.10.12-100 (and I have the same issue with 5.10.15-100)
+Feb 14 19:20:42 <cation21>	I think it might be the kernel because I do not encounter the issue when I boot back into 5.10.8-100
+Feb 14 19:22:42 <[R]>	the fedora bugzilla...
+Feb 14 19:23:06 <cation21>	ok
+Feb 14 19:29:23 *	adu_ is now known as adu
+Feb 14 19:49:08 <fedbot>	*** F33-20210212 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Feb 14 20:36:44 <johrpan>	Could somebody in here give me a hint on how to crosscompile to windows using meson?
+Feb 14 20:37:01 <johrpan>	I found minge64-meson, but it seems to have a different command line by default.
+Feb 14 20:37:26 <johrpan>	I naively assumed that minw64-meson builddir would magically work
+Feb 14 20:49:09 <fedbot>	*** F33-20210212 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Feb 14 20:59:10 *	Disconnected ()
+**** ENDING LOGGING AT Sun Feb 14 20:59:10 2021
+
+**** BEGIN LOGGING AT Sun Feb 14 21:15:51 2021
+
+Feb 14 21:15:51 *	Now talking on #fedora
+Feb 14 21:15:51 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 14 21:15:51 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 14 21:15:51 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 14 21:18:04 <johrpan>	chrisawi: Thanks, that worked!
+Feb 14 21:18:15 <johrpan>	Didn't know it would automatically find the source dir then.

@@ -7091,3 +7091,334 @@ T 1613247493 18<20pjb18>	contrapunctus: an accessor allows you to read a
 T 1613247582 18<19wasamasa18>	CLHS anyone
 T 1613247583 18<26specbot18>	Couldn't find anything for anyone.
 T 1613247586 18<19wasamasa18>	lol
+T 1613247638 18<19wasamasa18>	I meant to make fun of the peculiar CLHS writing style of having overly specific definitions for everything and discover a bot delivering its sermons to the true believers
+T 1613247679 18<22contrapunctus18>	Yeah, soshin's comment reminded me of CLOS/EIEIO and :accessor
+T 1613247746 18<29shoshin18>	yeah its used the same way for ruby objects
+T 1613247874 18<29shoshin18>	anyone around use ERT?
+T 1613247888 18<22contrapunctus18>	shoshin: I do, what's up?
+T 1613247907 18<29shoshin18>	i'm not able to get it to run in batch mode. it never picks up any tests
+T 1613247924 18<22contrapunctus18>	Oh. Never tried batch mode.
+T 1613247933 18<29shoshin18>	i was going to use ert-runner but its non-elpa
+T 1613247977 18<29shoshin18>	i can just run interactively, i was curious about "best practice" when running tests to make sure i'm not depending on my local emacs state. 
+T 1613248048 18<22contrapunctus18>	That's why I used to use buttercup (and will probably move back to it now that I have a working Emacs 27 and thus a working Cask again)
+T 1613248081 18<29shoshin18>	yeah, i'm working on EMMS which is in ELPA, so i think i may be limited in the testing packages I can use
+T 1613248094 18<22contrapunctus18>	shoshin: oh, maybe makem.sh helps?
+T 1613248095 18<29shoshin18>	at least to commit to the official project
+T 1613248204 18<29shoshin18>	yeah it might. the ERT info manual says i should be able to do this  emacs -Q -batch -l ert emms-tracktag-test.el -f ert-run-tests-batch-and-exit
+T 1613248230 18<29shoshin18>	but it doesn't pick up any tests. idk if i have to like... add the tests to some list in the file?
+T 1613248506 18<29shoshin18>	i think i'm just doing the cli args wrong
+T 1613248527 18<20dale18>	shoshin: I think you need another -l before emms-tracktag-test.el.
+T 1613248532 18<29shoshin18>	indeed
+T 1613248548 18<29shoshin18>	and it needs to be in the load path i think
+T 1613248579 18<22contrapunctus18>	Ah, I was just looking at what makem.sh did and was about to send what dale wrote ^^ 
+T 1613248583 18<20dale18>	I feel like, if you give -l a complete path to a file, that file doesn't need to be on the load path.  But if that file expects to load, say, other EMMS stuff, you probably need at least EMMS on the load path.
+T 1613248632 18<29shoshin18>	oh yeah good point
+T 1613248938 22*	26ChanServ gives channel operator status to 18jlf
+T 1613248942 22*	26jlf removes ban on 18*!*@84.9.26.193
+T 1613248946 22*	26ChanServ removes channel operator status from 18jlf
+T 1613249189 18<22adam_erc18>	Helloooooooo..... emacs! :D
+T 1613249257 18<24davve18>	:p i wonder how many here are ircing from emacs
+T 1613249279 18<22adam_erc18>	davve +1 :D
+T 1613249304 18<22adam_erc18>	ERCing anyway ;)
+T 1613249427 18<20jlf18>	adam_erc: wb, sorry for the ban mixup
+T 1613249434 18<29shoshin18>	contrapunctus dale: thanks for the suggestions, got it working :)
+T 1613249460 18<22adam_erc18>	jlf Ah thanks for getting it sorted!
+T 1613249467 18<22adam_erc18>	jlf... asking too many questions, was I?? :D
+T 1613249467 18<20jlf18>	of course
+T 1613249513 18<22adam_erc18>	jlf was it my IP address?
+T 1613249701 18<22adam_erc18>	If I want to post some elisp for discussion in #emacs are there any goto pasteboard sites?
+T 1613249722 18<24deego18>	,paste
+T 1613249722 18<22adam_erc18>	what does everyone else use?
+T 1613249722 18<22fsbot18>	paste is Please do not paste mutiple lines into the channel. Use a paste services like http://ix.io/, webpaste.el, or https://bpa.st/
+T 1613249722 18<20dale18>	adam_erc: Maybe check out what webpaste.el supports, if only for ease of use.
+T 1613249747 18<22adam_erc18>	awesome, thanks!
+T 1613249753 18<20dale18>	Myself and another were having problems with ix.io past week or two.
+T 1613249834 18<26sybariten18>	so
+T 1613249883 18<22adam_erc18>	dale webpaste.el? Really, there's an Emacs package?? Should have known :D
+T 1613249916 18<26sybariten18>	I feel like emacs and me and shells have never been best friend. Is there a handle-it-all, simple, go-to solution that lets me have exactly the same shell experience from inside emacs, as i do on the outside? (bash)  Right now i'm literally opening and closing emacs over an ssh connection, unless i have two ssh windows open (one with emacs and one with shell)
+T 1613249934 18<20aidalgol18>	adam_erc: I'm really sorry about the screwup with your ban.  That was supposed to only be 5 minutes to break the auto-rejoin cycle. :/
+T 1613249942 18<26sybariten18>	oh and NB, i'm a total beginner when it comes to configuring emacs, unfortunately....  i dont eval much
+T 1613250045 18<26bqv18>	i used to be ircing from emacs
+T 1613250045 18<22adam_erc18>	Hey aidalgol, no worries. Is it a faux paw to ask questions and run (/part)?
+T 1613250045 18<26bqv18>	but then WEECHAT BROKE
+T 1613250056 18<26bqv18>	and i have no solution, yesy
+T 1613250056 18<26bqv18>	*yet
+T 1613250096 18<22sam_18>	adam_erc: it's sometimes nice to hang around but not required
+T 1613250125 18<19wrycode18>	johnjay: wtf I thought utf8 was backwards compatible with ascii, and the ascii encoding for * is 0x2a, shows what I know
+T 1613250125 18<22adam_erc18>	sam_ that's fair. You guys let me back. I can stick around ;)
+T 1613250138 18<20pjb18>	sybariten: for a start, you could just not use a shell outside of emacs.
+T 1613250138 18<22sam_18>	adam_erc: hehe :)
+T 1613250150 18<22sam_18>	adam_erc: you're welcome to go, I just mean, if you make a habit of it, maybe one day stick around
+T 1613250150 18<29shoshin18>	sybariten: i haven't used it but i've heard talk that vterm is the best in terms of getting the "outside" terminal experience
+T 1613250187 18<19wrycode18>	sybariten: vterm, but if you want the exact same shell experience inside of emacs there's almost no point in keeping your shell in emacs
+T 1613250203 18<26sybariten18>	pjb: well
+T 1613250203 18<29shoshin18>	but yeah i just don't expect the same things. if i have something thats going to spew a lot of output, i run it externally. otherwise i just use eshell for all i can possibly do
+T 1613250247 18<20pjb18>	sybariten: otherwise, obviously, configure readline to use the emacs key bindings!   something like: https://termbin.com/2rrb in ~/.inputrc
+T 1613250256 18<26bqv18>	oh cool, webpaste.el is awesome
+T 1613250256 18<26bqv18>	but im amazed it doesn't support termbin.co
+T 1613250256 18<26bqv18>	*termbin.com
+T 1613250390 18<20pjb18>	termbin.com doesn't need much support.  Just a one-line script:  #!/bin/bash \n nc termbin.com 9999 | tr -d '\000'  and M-| tb RET
+T 1613250390 18<20pjb18>	 
+T 1613250390 18<20pjb18>	 
+T 1613250390 18<20pjb18>	 
+T 1613250419 18<26sybariten18>	pjb: merci, but how would it help me more specifically? I dont know readline....
+T 1613250457 18<26bqv18>	pjb: that's what i mean, i use it currently as i just commented on http://github.com/etu/webpaste.el/issues/34
+T 1613250492 18<26bqv18>	it's very, very very easy, but having so many fallbacks via http would be nice
+T 1613250504 18<26bqv18>	i also want to implement ipfs-based hosting, and this would make that very easy
+T 1613250519 18<20pjb18>	sybariten: this ensure that you can use the control keys of emacs to edit the shell command lines in the terminal.
+T 1613250534 18<20pjb18>	sybariten: (and other programs using readline, configured with ~/.inputrc).
+T 1613250583 18<20pjb18>	sybariten: so you will have exactly the same shell experience from inside emacs, as on the outside.
+T 1613250589 18<26sybariten18>	pjb: yuou mean completely outside of emacs?
+T 1613250595 18<20pjb18>	almost.
+T 1613250595 18<20pjb18>	Yes, in the terminal
+T 1613250595 18<20pjb18>	.
+T 1613250620 18<20pjb18>	But again, why would you run a terminal, when you have emacs?
+T 1613250666 18<26sybariten18>	aha.... but for me it was more a matter of being able to do c-x,o and swap between a buffer au dessus au dessous and in one i'm writing some bash code and in the other i'm running it....
+T 1613250694 18<26sybariten18>	brb
+T 1613250698 18<20pjb18>	sybariten: this is not something you can do in a shell! That's not the job of a shell to manage windows abnd buffer.
+T 1613251257 18<22adam_erc18>	dale are there any pastebins that you like for elisp?
+T 1613251313 18<26Wafficus18>	how do I change the fonts for 'vterm', is this done on the system level aka on my Gentoo linux install or is this done in the Emacs config?
+T 1613251376 18<29wgreenhouse18>	Wafficus: vterm uses the same font as the rest of Emacs
+T 1613251395 18<26Wafficus18>	hmm ok, so this would be done on the system level, or the Emacs config level?
+T 1613251409 18<26Wafficus18>	sorry to probe further, but I get what you're saying, just wondering what I should do for next steps if I wanted to change it to a 'hacker' type font
+T 1613251557 18<29shoshin18>	Wafficus: you can config in emacs F10 -> Options -> Set Default Font is one way
+T 1613251557 18<26Wafficus18>	actually, how would I know which font is Emacs currently using anyway?
+T 1613251578 18<26Wafficus18>	ah gotcha, use F10 > Options > Set Default Font, ok will check there
+T 1613251592 18<26Wafficus18>	thanks, checking now
+T 1613251679 18<29shoshin18>	you can also do it in your config with something like   (set-frame-font my-font nil t)
+T 1613251704 18<29shoshin18>	here's mine, for reference   (setq my-font "Victor Mono-14")
+T 1613251776 18<28rgr18>	If I have 2 or 3 bash code blocks in an org file (babel) how do I use a common/global variable set in the org file in this blocks? While very comprehensive, the org docs are like wading trough treacle at times. I'm guessing a header-arg :var statement but havent made it work yet. 
+T 1613251794 18<28rgr18>	eg :header-args: :var file="./test-data/colours.txt" 
+T 1613251837 18<28rgr18>	but $file in a block doesnt pick it up. Maybe that needs enabling?
+T 1613251914 18<29johnjay18>	wrycode: it is backward compatible. it's a * but shaped slightly differently
+T 1613251921 18<29johnjay18>	i noticed it when replacing it.
+T 1613251932 18<26Wafficus18>	Interesting, so the weird thing is that its actually using Liberation Mono font
+T 1613251948 18<26Wafficus18>	why would it be displaying some kind of weird unicode character in my scenario is what I don't get honestly
+T 1613251976 18<26Wafficus18>	its not like some weird monospace font, I would think its a pretty modern font comparatively
+T 1613251990 18<28rgr18>	Wafficus check your .Xresources for something like emacs*font too.
+T 1613251990 18<26Wafficus18>	unless you can force vterm to acknowledge a different font within ~/.Xresources, and its using '~/.Xresource" config files for the font too
+T 1613251995 18<26Wafficus18>	because I think in my ~/.Xresources, I have it set to 'inconsolata'
+T 1613252025 18<19wrycode18>	johnjay: cool. Glad we're not going crazy
+T 1613252079 18<26Wafficus18>	interesting, in my ~/.Xresources, I have "urxvt.font: xft:Inconsolata:pixelsize=18" present
+T 1613252146 18<28rgr18>	which isnt used unless your xinit/whateer is xrdb -merge'ing it.
+T 1613252161 18<29wgreenhouse18>	Wafficus: you can do just *.font: instead of urxvt.font: and it would also influence emacs 
+T 1613252183 18<29wgreenhouse18>	there are like 5 ways to set emacs font
+T 1613252198 18<26Wafficus18>	true, I just get the strong feeling that 'Inconsolata' is causing all this kind weirdness for me as a result
+T 1613252355 18<28rgr18>	look at nerd-fonts if you havent already.
+T 1613252383 18<22adam_erc18>	sybariten if you want a custom vterm face, you can try this https://dpaste.org/CHLe
+T 1613252431 18<29leizy18>	,nerd-fonts
+T 1613252451 18<22fsbot18>	We will turn away their hearts and eyes from the truth since they refused to believe in it at first.  We will leave them to blunder about in their wrongdoing.
+T 1613252468 18<29leizy18>	xD
+T 1613252468 18<29leizy18>	who made this bot
+T 1613252468 18<29shoshin18>	rgr: you might need to put it in a properties block under a shared heading. though i'm not sure. also, if you've added it after having your file loaded, toggle org-mode off and on again (or re-open the file) it might need that to "load" the variables
+T 1613252538 18<29shoshin18>	rgr: here's an example of setting some sql vars. i'm not sure if i have any shell examples but i can mess with it  https://chat.hrlo.world/uploads/cdf37cc275f3e19a/image.png 
+T 1613252616 18<26sybariten18>	adam_erc: i dont even know what vterm is, in relation to emacs....
+T 1613252629 18<22adam_erc18>	Ugh, wrong user!
+T 1613252664 18<22adam_erc18>	Wafficus if you want a custom vterm face, you can try this https://dpaste.org/CHLe
+T 1613252672 18<26sybariten18>	haha ok
+T 1613252713 18<26Wafficus18>	adam_erc: I see, so that would override what's dictated by ~/.Xresources?
+T 1613252722 18<29shoshin18>	rgr:  https://chat.hrlo.world/uploads/d23674c2e876cb7e/image.png 
+T 1613252766 18<26sybariten18>	pjb: hmm... i'm either misunderstanding you, i think, or not explaining very well what i was hoping to achieve. I wanted to be _in_ emacs all the time. One buffer for editing code and one buffer that's bash shell. 
+T 1613252766 18<22adam_erc18>	Wafficus you would add this to your init.el file
+T 1613252791 18<22adam_erc18>	Wafficus not sure about .Xresources?
+T 1613252791 18<26Wafficus18>	adam_erc: that I understand, but would it override the ~/.Xresources file though?
+T 1613252791 18<20pjb18>	sybariten: you seem to be very confuse with the terminology. DO you mean buffer or window?
+T 1613252810 18<26Wafficus18>	ah gotcha, yeah that's gonna matter in terms of overrides
+T 1613252833 18<20pjb18>	sybariten: in emacs you have a bunch of buffers, and some are for editing code, and some can be shells.
+T 1613252833 18<20pjb18>	so what?
+T 1613252846 18<20pjb18>	sybariten: M-x shell RET C-x C-f /tmp/foo.c RET
+T 1613252846 18<20pjb18>	sybariten: there, one buffer that is shell, one buffer for editing code.
+T 1613252899 18<29shoshin18>	sybariten: vterm specifically is based on libvterm written in C and that gives it faster/better capabilities than the other terminal emulators in emacs. but you can go pretty far without that. often there is another way to do things you are used to using the shell for thats more "emacsy"
+T 1613252910 18<28rgr18>	shoshin, thanks, but I found it. Was damn hard to google but seems so obviuous now. :header-args:bash:  :var file="./test-data/colours.txt"
+T 1613252961 18<22adam_erc18>	Wafficus, yeah it should override it, depending on which gets loaded first by init.el. But I don't use the .Xresources-theme
+T 1613252961 18<26Wafficus18>	hmm gotcha
+T 1613252969 18<26Wafficus18>	tricky tricky lol
+T 1613252976 18<26sybariten18>	pjb: yeah, well, shell doesn't (out of the box) behave like my bash sessions on my machines. It has no cursor-up history for instance
+T 1613252989 18<22adam_erc18>	Wafficus I would first try commenting out .Xresources from init to make sure the snippet I gave you works. Then add it back in.
+T 1613253001 18<26Wafficus18>	adam_erc: good iea
+T 1613253020 18<26Wafficus18>	*idea
+T 1613253020 18<20pjb18>	sybariten: emacs maintain its own history. Use M-p and M-n
+T 1613253020 18<28rgr18>	Wafficus, you wouldnt be alone. TBH its bloody complex. face  attributes and only have one custom form or it can screw up.
+T 1613253042 18<26Wafficus18>	Pretty sure that's what causing the weirdness, since the font itself is what I've used literally forever. This makes sense because I used to be very dependent upon ~/.Xresources for tweaking how terminals would look for 'urxvt'
+T 1613253083 18<20pjb18>	sybariten: but note that the lines Meta-p: "\C-p" and Meta-n: "\C-n" in ~/.inputrc ensure that you can also type M-p and M-n in the terminal to access the history, thus having the same experience in both.
+T 1613253088 18<20pjb18>	 
+T 1613253106 18<19parsnip18>	rudybot: if a movie plugs products, why am i paying to see it?
+T 1613253128 18<26sybariten18>	pjb: ah ok so there's no dead-easy way to just mimick the bash behaviour from outside emacs, inside an emacs shell
+T 1613253147 18<20pjb18>	sybariten: type C-h m in the shell buffer to see the bindings of the shell mode.
+T 1613253180 18<20pjb18>	sybariten: there is, but it would be simplier to just use a terminal emulator inside emacs.  M-x term instead of M-x shell
+T 1613253186 18<26sybariten18>	aha!
+T 1613253199 18<20pjb18>	sybariten: but you are asking how to tie your hands behind your back.
+T 1613253221 18<26sybariten18>	now you're speaking very illustratively 
+T 1613253252 18<26Wafficus18>	so this is my mistake for kind of depending on it in the first place. Like if I use Emacs, I should have Emacs dictate everything regardless
+T 1613253306 18<24rudybot18>	parsnip: dabbrev isnt a completion mechanism - its a completion generator. It plugs into the others same as semantic etc.
+T 1613253355 18<22adam_erc18>	I am having trouble using org-element-put-property to set the :path property of a link to an org-id. Here is the snippet https://dpaste.org/q9Nw
+T 1613253355 18<22adam_erc18>	Any ideas?
+T 1613253366 18<26sybariten18>	pjb: esc-x term seems quite promising....! There are some key implications though. It doesnt seem to like me doing ctrl-c to break out of some bash stuff i normally break out of, and on the other hand it doesnt seem to want to do ctrl-x leftcursor or somrthing, to change buffer
+T 1613253377 18<26sybariten18>	maybe this melange is asking a bit too much
+T 1613253703 18<22adam_erc18>	sybariten what OS are you running?
+T 1613253791 18<26sybariten18>	adam_erc: well...i guess you mean on the end machine and that would be ubuntu, typically 1804
+T 1613253791 18<20dale18>	adam_erc: Anything that supports Elisp highlighting.  ix.io does, bpa.st does.
+T 1613253791 18<26sybariten18>	under my fingertips its all Win though
+T 1613253839 18<22adam_erc18>	dale awesome, thanks! Adding to my webpaste config now :D
+T 1613253875 18<20dale18>	adam_erc: webpaste from MELPA doesn't support bpa.st, I have a pull request in process to add it, check on that if you want bpa.st in webpaste.el right now.
+T 1613253894 18<22adam_erc18>	sybariten hmm too bad. If you were on a mac, I could probably wrap some applescript in elisp to help send code out to a terminal session for you...
+T 1613253904 18<26sybariten18>	adam_erc: ah ok that's very kind of you but no i dont have any macs any longer
+T 1613253942 18<22adam_erc18>	dale will do, thx!
+T 1613254075 18<20dale18>	adam_erc: I have this feeling that org-element-put-property just modifies the data in memory, and that you then need to write the modified element back out?
+T 1613254097 18<20dale18>	adam_erc: I don't know, I'm a bit confused reading https://orgmode.org/worg/dev/org-element-api.html#setters.
+T 1613254217 18<22adam_erc18>	dale yeah, me too...
+T 1613254224 18<22ngz18>	org-element-put-property does not modify the buffer.
+T 1613254303 18<22adam_erc18>	ngz how would you modify the :path property for the current link? https://dpaste.org/q9Nw
+T 1613254335 18<22ngz18>	You mean, in the buffer?
+T 1613254335 18<29bad_blue_bull18>	https://www.emacswiki.org/emacs/UnPdf  I get "File mode specification error: (wrong-type-argument stringp t)" on some files
+T 1613254374 18<22adam_erc18>	ngz yeah
+T 1613254401 18<22ngz18>	Match against org-link-bracket-re and replace part of the match?
+T 1613254469 18<22adam_erc18>	ngz yeah, I'll prob go back to a regexp. It seemed from reading the docs that this was supposed to a more efficient approach?
+T 1613254518 18<29bad_blue_bull18>	then if I undo I get contents, althou it's not exactly like what pdftotext returns
+T 1613254610 18<22ngz18>	adam_erc: parsing the full buffer just to get a few links does not sound efficient, unless there are many links.
+T 1613254733 18<22adam_erc18>	ngz it would probably be run once. Idea is to upgrade all [[bracket links]] to the current header with [[id:...][links]] to make them more robust
+T 1613254787 18<22adam_erc18>	so you would need to search throughout to make sure you have them all regardless...?
+T 1613254842 18<20dale18>	org-element parsing is probably doing a lot more work than a regexp search.
+T 1613254879 18<20dale18>	OTOH org-element parsing is probably doing to be smart enough to, say, avoid things that look like links in example/src blocks, whereas I'd imagine detecting those with a regexp will require a bit more work on your part.
+T 1613254891 18<22ngz18>	Then parse the buffer, extract every fuzzy link from the AST (beware, all fuzzy links may not be pointing to a headline), reverse the order, and for each link, goto at :begin position, `looking-at' org-bracket-link-regexp, and do your regexp stuff.
+T 1613254982 18<22ngz18>	I assume all your ID properties are ready beforehand.
+T 1613254995 18<22adam_erc18>	dale yeah, this in the trouble when I tried with a regexp search earlier, the first link that came up was embedden in a code block! How would I exclude these?
+T 1613255014 18<22adam_erc18>	ngz yeah, I specify these in advance with (org-get-create-id)
+T 1613255022 18<22adam_erc18>	ngz ugh (org-id-get-create)
+T 1613255023 18<22ngz18>	With, e.g., (eq 'link (org-element-type (org-element-context)))
+T 1613255095 18<26Wafficus18>	by the way, random part on 'src' blocks in Org-Mode, I was able to easily create my own 'yassnippet' to make them CAPS for the "BEGIN_SRC" and "END_SRC" sections, and the end result is beautiful
+T 1613255099 18<26Wafficus18>	I even set it to '<s" with tab, as God intended
+T 1613255113 18<26Wafficus18>	and made one for Bash with '<b', and its awesome, would recommend if anyone likes snippets in Org-Mode, totally awesome
+T 1613255173 18<22adam_erc18>	Wafficus Ha! Yeah, Yasnippet is awesome. When you start getting more snippets than you can remember, you can combine with helm to search by name
+T 1613255248 18<22adam_erc18>	Wafficus Also, I like to maintain my snippets in babel code blocks in a single snippets.org file. I then auto tangle this on save, so I can easily search and annotate my snippets in one place.
+T 1613255317 18<22adam_erc18>	ngz thanks!
+T 1613255330 18<26Wafficus18>	adam_erc: I usually just do the 'describe-tables' command to figure out what I have, didn't know you can pipe it into Helm
+T 1613255335 18<26Wafficus18>	that's cool, I have Helm / love Helm too
+T 1613255350 18<26Wafficus18>	actually, does anyone know a good cheating command like to remember commands?
+T 1613255355 18<26Wafficus18>	*macros
+T 1613255383 18<22jamik18>	didn't think about managing snippets in org.. I'll have to do that
+T 1613255433 18<26Wafficus18>	yeah check out 'yassnippet' its neat jamik 
+T 1613255433 18<22adam_erc18>	Wafficus if you run yas-insert-snippet from helm it will pull up a list of available snippets (for your current mode) automatically.
+T 1613255433 18<28rgr18>	And to think I sent Carsten a gutschein back in the day. Early investor ;)
+T 1613255482 18<22jamik18>	Wafficus: I use yasnippet, but I don't write the snippets and tangle them with org-babel
+T 1613255498 18<22jamik18>	Which I'm now about to do
+T 1613255532 18<22jamik18>	Also I second picking snippets with helm/ivy
+T 1613255571 18<22adam_erc18>	jamik http://ix.io/2PkS this is the magic that gets it done. Just add it to the bottom of your snippets.org file
+T 1613255619 18<22jamik18>	Thanks! 8)
+T 1613255658 18<22adam_erc18>	jamik Sure! Then I add a tangle command to each snippet to tell org-mode where I want this saved out to, like this http://ix.io/2PkT
+T 1613255776 18<22adam_erc18>	jamik I also use the same technique to manage my code library in code.org. I have headers for elisp, R, python, applescipt, etc. And depending on the language I either have tangle set in the language header or for each snippet.
+T 1613255853 18<22adam_erc18>	jamik oh yeah, same deal for init.el. I save all in a config.org outline with notes, etc. and this auto-tangles to init.el after each save.
+T 1613256004 18<22jamik18>	adam_erc: Yeah, I've just started defining the tangle destinations for the snippets as you'd normally do with babel. As for my init, it just calls org-babel-load-file on my config.org
+T 1613256015 18<19parsnip18>	hmm, i want mouse scroll to work on window under mouse pointer, not necessarily the active window
+T 1613256049 18<19parsnip18>	not particularly annoying, only slightly
+T 1613256068 18<19parsnip18>	hmm, i wonder if one of the custom macos builds does this
+T 1613256082 18<22adam_erc18>	jamik I used to do it that way but found that init.el kept getting corrupted. Once I switched to having it all saved in config.org (or init.org) this became my single source of truth.
+T 1613256160 20*	Disconnected (20)
+T 1613313905 19*	Now talking on 22#emacs
+T 1613313905 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1613313905 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
+T 1613313905 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1613313989 18<26bqv18>	well yeah that's what i mean, for anything that would require a shell i just use emacs's stuff. if i run an async-shell-command instead of reaching for bash, i get a buffer as output, i get integrated history, searchable within emacs, i can script my commands in elisp, and i can flick through old command outputs as buffers rather than trying to figure out how the heck scrolling would even
+T 1613313991 18<26bqv18>	theoretically work in vterm
+T 1613314014 18<26bqv18>	some use eshell for that purpose
+T 1613314019 18<26bqv18>	i'm not a fan of eshell tbh
+T 1613314032 18<26bqv18>	but vterm i reserve for "i have this ncurses app that i can't comint well"
+T 1613314035 18<29bad_blue_bull18>	can I use Midnight Commander from Emacs?
+T 1613314047 18<29bad_blue_bull18>	I mean the hotkeys
+T 1613314049 18<26bqv18>	like that ^ :p
+T 1613314200 18<19wrycode18>	hah
+T 1613314244 18<19wrycode18>	hmm, I haven't tried that workflow, sometimes when building projects I have so many different commands that I assumed it's easier to just keep a terminal or two
+T 1613314269 18<19wrycode18>	bqv: any sort of writeup on that workflow?
+T 1613314357 18<19wrycode18>	I do love this: http://blog.binchen.org/posts/use-ivy-mode-to-search-bash-history.html
+T 1613314863 18<26bqv18>	wrycode: nah, sorry. i'm still trying to work out if i can improve it somehow, but i was vaguely inspired by howard's emacs as a shell thing
+T 1613315157 18<25genevino18>	i actually do the forbidden thing and use emacs exclusively in a termina
+T 1613315163 18<25genevino18>	+l
+T 1613315594 18<22contrapunctus18>	,shoot genevino 
+T 1613315595 18*	22fsbot loads its hipster and snubs genevino
+T 1613315606 18<22contrapunctus18>	Apt 😏
+T 1613315769 18*	20edgar-rft uses emacs for cheap excuses, excusively
+T 1613315876 18<20edgar-rft18>	rudybot: hi rüdyböt!
+T 1613315876 18<24rudybot18>	edgar-rft: hi all, do you use some session mgmt (named buffer/window sets) plugin for emacs, if so - what is it?
+T 1613315958 18<20edgar-rft18>	rudybot: yes, I'm using using session mgmt for gstfznr and srkfz!
+T 1613315963 18<24rudybot18>	edgar-rft: k will look into session mgmt  , thanks legumbre
+T 1613316002 18<29maxigas18>	any idea how can i get a list of faces that apply at point?
+T 1613316028 18<29maxigas18>	i have some white background set somewhere, and trying to debug where it is defined
+T 1613316042 18<29maxigas18>	i kind of need an emacs-inspector, like for CSS in browsers
+T 1613316130 18<20edgar-rft18>	I think M-x describe-char also gives info about faces
+T 1613317167 18<28hal900118>	Good mornoonvning everyone! Does anyone know if there is an Emacs Dynamic Module (dynamically linke library) that exposes the Guile Scheme interpreter API as Emacs Lisp built-in functions?
+T 1613317243 18<22contrapunctus18>	hal9001: you wanna write Emacs extensions in Guile? 🤔
+T 1613317267 18<22contrapunctus18>	Or extend Guile using Elisp? 😏
+T 1613317285 18<28hal900118>	contrapunctus: I was thinking of writing Emacs extensions in Guile.
+T 1613317549 18<25xristos18>	there's nothing besides experimental code that nobody is using
+T 1613317606 18<25xristos18>	and since Emacs Lisp has picked up significantly in both capabilities/new features and hype, imo you'd be wasting your time
+T 1613317617 18<28hal900118>	I know recent advances in Emacs-GCC (JIT compiling Emacs bytecode with libgccjit) will probably make Emacs Lisp a much more efficient language overall. But I personally prefer Scheme over Emacs Lisp, and I'd like to rewrite some of my own Elisp code in Guile.
+T 1613317681 18<25xristos18>	hal9001: you can always embed guile as a dynamic module, should be easy right? after all guile was designed to be an extension language
+T 1613317699 18<25xristos18>	(i'm being sarcastic, guile is terrible at that compared to say lua)
+T 1613317712 18<28hal900118>	xristos: indeed that is exactly what I am asking. Has anyone done this before? Or should I just go ahead and try doing it myself.
+T 1613317762 18<28hal900118>	I've never tried embedding Lua or Guile anywhere, so I don't know how easier one is over the other.
+T 1613317904 18<28surpador18>	Hey, not sure if this is the right place to ask this, but I don't think there's a channel for standalone info: on a Guix system I have, if I type `info readdir`, info somehow understands I want libc documentation, searches for a file called "libc", and shows me the right libc manual node.  On an Ubuntu system, when I type `info readdir`, info searches for a file called "readdir", doesn't find it, and falls back on the manpage.
+T 1613317904 18<28surpador18>	  Same info version.  Anyone know what accounts for the difference?
+T 1613317970 18<25xristos18>	surpador: libc.info
+T 1613318016 18<28surpador18>	Do you just mean the manual being installed?  Because the libc manual is installed on both systems.  Like `info libc readdir` works, just not `info readdir`
+T 1613318064 18<25xristos18>	then the dir file hasn't been created
+T 1613318075 18<25xristos18>	it's like an index for .info files
+T 1613318075 18<20pjb18>	surpador: IIRC, when installing an info file, you need to build an index.
+T 1613318084 18<25xristos18>	man install-info
+T 1613318124 18<28surpador18>	Aaah, ok, I
+T 1613318132 18<28surpador18>	I'll look into that, thanks a lot!
+T 1613318313 18<20pjb18>	Arguably, info could lazily build the index files itself when needed…
+T 1613318577 18<28surpador18>	I would kinda hope whatever dpkg does to install the files originally also builds the index but I guess not
+T 1613318621 18<26bqv18>	wasamasa: https://termbin.com/j22a
+T 1613318627 18<26bqv18>	minrepro :)
+T 1613319678 18<20pjb18>	surpador: but info files could also have been copied in otherwise.
+T 1613319814 18<28surpador18>	pjb: Yeah true, might be nice to have info just deal with it automatically if that's what you're saying
+T 1613320447 18<28surpador18>	Also, feeling kind of stupid now- I've run `install-info` on the libc.info file, and still no luck. Are there entries it skips by default or something?
+T 1613321078 18<28surpador18>	Ok, looks like either Debian or Ubuntu just distributes a glibc manual without the glibc "functions and macros" listings- I just manually copied the info file from another system and added the entries that way :(
+T 1613321602 18<19bremner18>	if I had to guess, there is a GFDL in this story somewhere
+T 1613322525 18<26bqv18>	is it really such a sin to byte-compile your init?
+T 1613322871 18<26bqv18>	nah imma start native compiling my init cause i can
+T 1613323063 18<19bremner18>	knock yerself out
+T 1613323124 18<19bremner18>	rudybot: was GB Shaw sexist when he said "all progress depends on the unreasonable man"?
+T 1613323134 18<24rudybot18>	bremner: the reasonable man quotes shaw. the unreasonable man adapts shaw.
+T 1613323143 18<19bremner18>	well played bot.
+T 1613324319 18<29wdkrnls18>	How do I remove all blank spaces (but keep blank tabs) at the end of a file?
+T 1613324394 18<29wdkrnls18>	The Emacs regular expression variant is confusing me. I would have thought I could could just do a regex replace with `M-% [ ]$`
+T 1613324432 18<29untoreh18>	how do you add documentation support to a function to be used with company-capf?
+T 1613324642 18<27jonathanschlink18>	Hello Am connected to Emacs through SSH. Am unable to 'backspace'. When I press 'backspace' twice (with little interval) some 'help' gets opened. i simply want to use 'backspace'
+T 1613324729 18<29wdkrnls18>	untoreh: I thought that just worked automatically if you define a docstring as the first line of your elisp procedure. Atleast, that seems to be what happens for me.
+T 1613325539 18<24Aurora_v_kosmose18>	How would one obtain the "Shell:no process" line programmatically?
+T 1613325563 18<24Aurora_v_kosmose18>	It's part of the modeline for async shell buffers once the process they were running is dead
+T 1613325756 18<29wdkrnls18>	dumbest idea I can think of is just sending (insert "exit\n")
+T 1613325771 18<29wdkrnls18>	I have not tried to figure out all the complexity
+T 1613325805 18<29wdkrnls18>	I just no that I get shell :no process by doing that :)
+T 1613325872 18<24Aurora_v_kosmose18>	That only seems to work when interactively typing for me.
+T 1613325929 18<29wdkrnls18>	Can you just kill the process with a unix command?
+T 1613325953 18<24Aurora_v_kosmose18>	Presumably, but what I want to do is essentially to filter all such buffers for those with no processes, and kill the buffers.
+T 1613325966 18<24Aurora_v_kosmose18>	While leaving the active ones untouched.
+T 1613325994 18<24Aurora_v_kosmose18>	I can do that via macros on list-buffers, but it's... not exactly a great way to do it.
+T 1613326093 18<24Aurora_v_kosmose18>	Hm, get-buffer-process seems like a usable alternative to searching for a mode-line text entry.
+T 1613326196 18<29wdkrnls18>	jonathanschlink: can you use control-b?
+T 1613326372 18<24Aurora_v_kosmose18>	Ah... there we go.
+T 1613326390 18<24Aurora_v_kosmose18>	(-filter (lambda (buffer) (and (not (get-buffer-process buffer)) (equal (buffer-local-value 'major-mode buffer) 'shell-mode))) (buffer-list))
+T 1613326505 18<27jonathanschlink18>	wdkrnls: thanks. C-b removes that help. but when i use 'backspace' it comes back.
+T 1613326589 24*	28RandyT_ is now known as 18RandyT
+T 1613326815 18<24Aurora_v_kosmose18>	The reason I wanted to do this is that I tend to use Emacs to control media playback a lot, so I end up with dozens of dead async process buffers with sometimes not insignificant amounts of text in them.
+T 1613326855 18<24Aurora_v_kosmose18>	That wouldn't be a problem if Emacs' GC actually released memory, but it rarely ever does.
+T 1613326992 18<29JordiGH18>	The Great Debian Init Debate, part 5: https://www.twitch.tv/hay__
+T 1613330481 18<27nij18>	What's your favorite shell that can be run in a terminal emulator?
+T 1613330815 18<19bremner18>	every shell?
+T 1613330841 18<19bremner18>	what is a "shell" that doesn't work in a terminal emulator? Gnome Shell? Conch Shell?
+T 1613330895 18<27nij18>	can eshell be run i na terminal emulator?
+T 1613330902 18<27nij18>	s/i na/in a
+T 1613331436 18<29gagbo18>	yes ? https://gitlab.com/emacsomancer/equake
+T 1613331602 18<20pjb18>	bremner: a shell is any OS user interface.  That includes programs such as the Finder, the Workspace Manager, or even the Explorer…
+T 1613331672 18<27nij18>	gagbo: IIRC equake aims at creating a drop down emacs frame, in which eshell can happily run.
+T 1613331998 18<19bremner18>	pjb: I find this usage pretty strange. But OK. Obviously Gnome agrees with you.
+T 1613332619 18<29wgreenhouse18>	nij: https://github.com/oilshell/oil/wiki/Alternative-Shells might interest you
+T 1613332626 18<29wgreenhouse18>	a list of current and not-so-current other-than-posix shells
+T 1613332750 20*	Disconnected (20)
+T 1613333724 20*	Disconnected (20No route to host)
+T 1613333751 19*	Now talking on 22#emacs
+T 1613333751 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1613333751 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
+T 1613333751 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
