@@ -7422,3 +7422,123 @@ T 1613333751 19*	Now talking on 22#emacs
 T 1613333751 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
 T 1613333751 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
 T 1613333751 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1613334488 18<29tazjin18>	hmm, is there a good standard file format for translation dictionaries?
+T 1613334508 18<29tazjin18>	(if there is I'd like to make a completing-read mode for it, it'd help with some language learning stuff I'm doing)
+T 1613334638 18<19parsnip18>	there's gettext, but i think that's for translating coded words in an app's UI
+T 1613334686 18<26polezaivsani18>	tazjin: did you check stardict?
+T 1613334691 18<20pjb18>	tazjin: at least, AFAIK< there are standards.
+T 1613334840 18<29tazjin18>	polezaivsani: stardict seems to be using DICT, which I had dismissed originally because it seemed to be for offline dictionaries
+T 1613334845 18<29tazjin18>	but this does seem like a good pointer, thanks for the tip
+T 1613334861 18<29tazjin18>	it also seems like there are RU-EN dictionaries in that format already, which is exactly what I want :) 
+T 1613334924 18<26polezaivsani18>	tazjin: there's also wiktionary which is wiki markup (with a twist though)
+T 1613335313 18<29tazjin18>	oh dear, tarballs from sourceforge, what path am I on here ...
+T 1613336230 20*	Disconnected (20)
+T 1613336277 20*	Disconnected (20Remote host closed socket)
+T 1613336335 20*	Disconnected (20Remote host closed socket)
+T 1613336396 20*	Disconnected (20Remote host closed socket)
+T 1613336455 20*	Disconnected (20Remote host closed socket)
+T 1613336481 19*	Now talking on 22#emacs
+T 1613336481 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1613336481 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
+T 1613336482 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1613341377 20*	Disconnected (20)
+T 1613341410 19*	Now talking on 22#emacs
+T 1613341410 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1613341410 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
+T 1613341410 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1613341414 18<26Wafficus18>	well... lets just say it already works for vterm
+T 1613341423 18<26Wafficus18>	but will Emacs recognize that urxvt is an x program
+T 1613341439 18<26Wafficus18>	or how do I replace 'vterm
+T 1613341457 18<26Wafficus18>	with whatever is needed to let Emacs know its an X program it should be starting up?
+T 1613341646 24*	28radu2429 is now known as 18radu242
+T 1613341684 18<26Wafficus18>	I ask because I can't seem to find anyone else's config for Emacs Window Manager that has tweaked it so that they would run an X program like this
+T 1613341701 18<29wgreenhouse18>	Wafficus: the exwm wiki has examples of how to make such a keybinding
+T 1613341758 18<29wgreenhouse18>	you would need to make a command that runs `start-process` or `start-process-shell-command`
+T 1613341771 18<29wgreenhouse18>	since urxvt is obviously not a lisp function but an external process 
+T 1613341920 18<26Wafficus18>	I just looked on the exwm wiki, I can't find a single instance of them running an X program:
+T 1613341920 18<26Wafficus18>	https://github.com/ch11ng/exwm/wiki
+T 1613341979 18<25bandali18>	mine's at https://git.emacsconf.org/bandali/configs/tree/.emacs.d/lisp/bandali-exwm.el
+T 1613342110 18<26bqv18>	can i make emacs not abbreviate debugger 
+T 1613342135 18<29wgreenhouse18>	see for instance https://github.com/ch11ng/exwm/wiki/Cookbook#run-or-raise
+T 1613342371 18<26Wafficus18>	back
+T 1613342377 18<26Wafficus18>	so basically this didn't work either:
+T 1613342394 18<26Wafficus18>	(global-set-key (kbd "<s-return>") 'start-process-shell-command "urxvt")
+T 1613342490 18<25genevino18>	stupid question maybe, but are you sure you shouldn't do this from your window manager?
+T 1613342546 18<29wgreenhouse18>	Wafficus: start-process-shell-command is not an interactive function so can't be bound to a key, also your syntax is wrong
+T 1613342557 18<29wgreenhouse18>	see the examples bandali and I linked
+T 1613342687 18<29wgreenhouse18>	genevino: emacs is their window manager; that's what they're asking about. just ,,exwm,, things
+T 1613342688 18<22fsbot18>	exwm is an Emacs X window manager, https://github.com/ch11ng/exwm
+T 1613342731 18<25genevino18>	oh ok, i had no idea that exists
+T 1613342740 18<27hodapp18>	pretend you still don't
+T 1613342743 18<27hodapp18>	it's best that way
+T 1613343000 18<25bandali18>	,opinion
+T 1613343000 18<22fsbot18>	Yeah, well, that's just, like, your opinion, man.
+T 1613343025 18<25genevino18>	suddenly, a big lebowski meme appears
+T 1613343033 18<27hodapp18>	boy, that must be exhausting
+T 1613343039 18*	19parsnip tries to contact a filter to catch notifications from a business, versus marketing from a business
+T 1613343063 18<19parsnip18>	i want to know when the order arrives, but not when you have 50% off
+T 1613343138 18<19parsnip18>	hodapp: idgi
+T 1613343185 18<19parsnip18>	let's coin the term, "blood-thirsty marketing"
+T 1613343782 18<26Wafficus18>	wgreenhouse: I didn't see your link
+T 1613343794 18<26Wafficus18>	wgreenhouse: rather *I don't see your link, my IRC got disconnected
+T 1613343802 18<26Wafficus18>	so its not an interactive function, ok, gotcha
+T 1613343863 18<26Wafficus18>	ah I see, so I have to make it trigger as a separate (lambda () ) function block
+T 1613343935 18<29wgreenhouse18>	Wafficus: resendinf https://github.com/ch11ng/exwm/wiki/Cookbook#run-or-raise
+T 1613343998 18<20dieggsy18>	is there an easy way to have emacs set env vars from the output of some command with output like "VAR=...\nVAR2=...". i know i can just manually parse that string and setenv getenv, but if there's a better or builtin way...
+T 1613376599 20*	Disconnected (20)
+T 1613376626 19*	Now talking on 22#emacs
+T 1613376626 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1613376626 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
+T 1613376626 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1613376766 24*	28watkinsr2 is now known as 18watkinsr
+T 1613377117 24*	28boughtly- is now known as 18boughtly
+T 1613378283 18<19twb18>	did adam west and kirk ever fight onscreen
+T 1613378288 18<27codingquark18>	Good morning!
+T 1613378472 18<19twb18>	What does DB-LSP-DISC actually *do*
+T 1613378510 18<26polezaivsani18>	Morning fellows!
+T 1613378514 18<27codingquark18>	:)
+T 1613378523 18<19twb18>	It is basically going "oh hey you're a dropbox user, too?  If you want to download definitely-not-porn.mp4, I already have a copy"
+T 1613378622 18<26polezaivsani18>	dropbox, never got anything good out of it, gotta stop trying
+T 1613378647 18<19wasamasa18>	bqv: I've spent the evening away from the computer after all and didn't regret it a bit
+T 1613378693 18<19wasamasa18>	bqv: so evaluating the file is supposed to raise an error?
+T 1613378713 18<19wasamasa18>	bqv: because M-x eval-buffer doesn't do it for sure
+T 1613378779 18<19wasamasa18>	bqv: if I byte-compile it, then eval the last form, no errors in emacs 27.1 either
+T 1613378937 18<19wasamasa18>	bqv: so you'll have to include reproduction *instructions* as well
+T 1613379678 18<25blahblah44118>	Just wanted to say hi. Been using Emacs for 3 weeks. Becoming a huge fan.
+T 1613380175 18<29holycow18>	hi guys
+T 1613380191 18<29holycow18>	i have been using emacs for a while now and really love it, realy powerful
+T 1613380196 18<29holycow18>	i am running into one problem
+T 1613380252 18<29holycow18>	i am trying to learn to code in lisp.  this means that my workflow is always having a few frames open and having to open / close / re-open the slime repl a lot because i'm a noob that doesn't know what he is doing.
+T 1613380303 18<29holycow18>	the absolutely madenning part about emacs is that opening  up a new slime repl, closing a repl, opening up a new repl ALWAYS ALWAYS ALWAYS opens the repl up in a different frame.
+T 1613380324 18<29holycow18>	the amount of clicks this forces is just unbeleivable and it totally takes me out of my train of thought
+T 1613380390 18<29holycow18>	is there a way to pin certain buffers into certain frames?  is there a way to pin frame layouts into predefined layout grids such that frame 0 --> x are laid out in specific order an such that the slime buffer opens up on a specific buffer all the time and ONLY in that buffer?
+T 1613380420 18<19twb18>	by frame do you mean window?
+T 1613380447 18<29holycow18>	C-x 2, C-x 3, etc.
+T 1613380454 18<19twb18>	yeah those are windows
+T 1613380462 18<19twb18>	OK window popup is arse in emacs
+T 1613380463 18<29holycow18>	oh!
+T 1613380468 18<19twb18>	you can tweak is some but I forget the details
+T 1613380487 18<29holycow18>	aha.  so it isn't me not knowing how to config it properly i guess?
+T 1613380488 18<19twb18>	there's some variable calls something like special-window-names which causes them to be less stupid
+T 1613380500 18<19twb18>	holycow: yeah and also that it's not easy to configure
+T 1613380510 18<19twb18>	holycow: there's no consistency so you have to fiddle-fuck around to get it how you want
+T 1613380514 18<29holycow18>	aha okay.  huh.
+T 1613380525 18<19twb18>	I mean there's no consistency between e.g. foo-mode and bar-mode popups
+T 1613380560 18<19twb18>	special-display-function
+T 1613380563 18<19twb18>	special-display-regexps
+T 1613380569 18<19twb18>	^ I think that's what I am remembering
+T 1613380572 18<29holycow18>	i think it might be time to raise some money and sponsor a pinning feature for emacs windows with perhaps some special rules capability for things like stuffing specific mime content / repls into specific windows
+T 1613380581 18<19twb18>	You set those up so that anything named "slime" pops up in a predictable way
+T 1613380600 18<19twb18>	holycow: there's a few modes like that already --- screen-el was one IIRC
+T 1613380601 18<29holycow18>	oh aha
+T 1613380607 18<19twb18>	holycow: the mailing list people know better than me
+T 1613380628 18<19twb18>	Hrm special-display-buffer-names also looks relevant
+T 1613380709 20*	Disconnected (20)
+T 1613380737 19*	Now talking on 22#emacs
+T 1613380737 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1613380737 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
+T 1613380738 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1613381551 18<22average18>	https://en.wikipedia.org/wiki/Wirth%27s_law
+T 1613381556 18<22average18>	does Wirth's law apply to Emacs ?
+T 1613383918 24*	28watkinsr4 is now known as 18watkinsr
+T 1613388804 20*	Disconnected (20)
