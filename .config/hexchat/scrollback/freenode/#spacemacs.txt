@@ -2953,3 +2953,117 @@ T 1613380737 19*	Now talking on 22#spacemacs
 T 1613380737 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
 T 1613380737 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
 T 1613388804 20*	Disconnected (20)
+T 1613470139 19*	Now talking on 22#spacemacs
+T 1613470139 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1613470139 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1613471091 18<20FromGitter18>	<dalanicolai> @inzouzouwetrust These things started to work here after manually activating `reftex-mode`
+T 1613471170 18<20FromGitter18>	<dalanicolai> I guess this should get (better) documented indeed
+T 1613471506 18<20FromGitter18>	<inzouzouwetrust> @dalanicolai Thanks for your comment :) ⏎ Could you guide me on how to set this up?
+T 1613471549 18<20FromGitter18>	<dalanicolai> Well it was long ago that I set this up
+T 1613471560 18<20FromGitter18>	<dalanicolai> But I see that I used `subfile` to import files in the mainfile
+T 1613471600 18<20FromGitter18>	<dalanicolai> So it does not work when you activate reftex-mode manually in the Latex buffer?
+T 1613471616 18<20FromGitter18>	<dalanicolai> I find it should get activated automatically (there is a hook in the layer)
+T 1613471624 18<20FromGitter18>	<inzouzouwetrust> I had not gone this far last time I tried
+T 1613471635 18<20FromGitter18>	<inzouzouwetrust> I will try and let you know
+T 1613471642 18<20FromGitter18>	<dalanicolai> Yes good...
+T 1613471645 18<20FromGitter18>	<inzouzouwetrust> How do you activate the reftex-mode manually?
+T 1613471656 18<20FromGitter18>	<dalanicolai> Yes
+T 1613471691 18<20FromGitter18>	<dalanicolai> And now it seems to get activated automatically
+T 1613471748 18<20FromGitter18>	<dalanicolai> So I had to do it manually only once (which seems weird to me, but it was the case here)
+T 1613471782 18<20FromGitter18>	<inzouzouwetrust> I get that in a `.tex` buffer I need to press `SPC m r` to get in the `reftex` menu. But what do I need to do once there?
+T 1613471801 18<20FromGitter18>	<dalanicolai> just type `SPC SPC reftex-mode`
+T 1613471854 18<20FromGitter18>	<inzouzouwetrust> Apparently it was activated by default
+T 1613471872 18<20FromGitter18>	<inzouzouwetrust> But still I don't get any suggestion when typing in my `\cite{...}`
+T 1613471874 18<20FromGitter18>	<dalanicolai> Ah yeah... well that is how it should work
+T 1613471898 18<20FromGitter18>	<inzouzouwetrust> am I missing something?
+T 1613471916 18<20FromGitter18>	<dalanicolai> Well I am not sure why it did not work the last time here, maybe because I just installed the latex layer
+T 1613471927 18<20FromGitter18>	<dalanicolai> And then just reopened the file
+T 1613471931 18<20FromGitter18>	<inzouzouwetrust> I must explain that I'm typing this `\cite{...}` command in a `.tex` file that does not contain a bib explicitely
+T 1613471958 18<20FromGitter18>	<inzouzouwetrust> but in a auxialiary `.tex` file that is called (via `\input{}`) in the main `.tex` file
+T 1613471969 18<20FromGitter18>	<dalanicolai> Anyway... now I restarted Emacs, to see if I had again to activate `reftex-mode` manually, and now completion does not work
+T 1613471981 18<20FromGitter18>	<inzouzouwetrust> Did you understand this subtlety?
+T 1613471994 18<20FromGitter18>	<dalanicolai> > but in a auxialiary `.tex` file that is called (via `\input{}`) in the main `.tex` file ⏎  ⏎ Yes I have a similar situation
+T 1613471998 18<20FromGitter18>	<inzouzouwetrust> Great
+T 1613472015 18<20FromGitter18>	<inzouzouwetrust> So something is definitely working as intended, right?
+T 1613472050 18<20FromGitter18>	<dalanicolai> Yeah right
+T 1613472084 18<20FromGitter18>	<dalanicolai> Ah, okay
+T 1613472157 18<20FromGitter18>	<dalanicolai> When I typed `\cite{` I saw in the minibuffer a hint which said this
+T 1613472161 18<20FromGitter18>	<dalanicolai> `cite: info not available, use ‘, R v’ to get it.`
+T 1613472175 18<20FromGitter18>	<dalanicolai> after typing `, R v` things work
+T 1613472251 18<20FromGitter18>	<inzouzouwetrust> I still get a `Cannot display crossref` message after doing what you just described
+T 1613472277 18<20FromGitter18>	<dalanicolai> Yeah... I can not reproduce it here too
+T 1613472294 18<20FromGitter18>	<inzouzouwetrust> what do you mean?
+T 1613472308 18<20FromGitter18>	<dalanicolai> Well I restarted spacemacs... and tried it again
+T 1613472315 18<20FromGitter18>	<dalanicolai> But now it did work
+T 1613472327 18<20FromGitter18>	<dalanicolai> I had typed first part of some reference and put my cursor in it
+T 1613472335 18<20FromGitter18>	<inzouzouwetrust> did or did not?
+T 1613472341 18<20FromGitter18>	<inzouzouwetrust> ok I will try restarting spacemacs
+T 1613472345 18<20FromGitter18>	<dalanicolai> It did work
+T 1613472405 18<20FromGitter18>	<dalanicolai> Ah... my god... the first time it loaded my .bib file and then completion worked
+T 1613472414 18<20FromGitter18>	<inzouzouwetrust> I tried restarting but it did not work
+T 1613472417 18<20FromGitter18>	<inzouzouwetrust> maybe I should update?
+T 1613472429 18<20FromGitter18>	<dalanicolai> But now after `, R v` it does load the some bib file, but completion still does not work
+T 1613472440 18<20FromGitter18>	<inzouzouwetrust> Hahaha
+T 1613472486 18<20FromGitter18>	<dalanicolai> Well updating is nice anyway, because many small improvements get implemented all the time
+T 1613472496 18<20FromGitter18>	<dalanicolai> You are on develop branch?
+T 1613472499 18<20FromGitter18>	<inzouzouwetrust> yes
+T 1613472513 18<20FromGitter18>	<inzouzouwetrust> do I just need to pull the latest develop branch?
+T 1613472519 18<20FromGitter18>	<dalanicolai> Yes
+T 1613472522 18<20FromGitter18>	<inzouzouwetrust> will do
+T 1613472538 18<20FromGitter18>	<dalanicolai> And then after that click the update packages button on your home screen
+T 1613472892 18<20FromGitter18>	<inzouzouwetrust> I did all of what you described but I'm stuck with the `Cannot display crossref` message
+T 1613472933 18<20FromGitter18>	<inzouzouwetrust> I need to go away from the screen for an hour or two. Will come back here and would be glad to debug it then :)
+T 1613472943 18<20FromGitter18>	<dalanicolai> but when you type `\cite{lksjfslkfj}` and put your cursor on between the brackets in normal mode, do you see this message?
+T 1613472953 18<20FromGitter18>	<dalanicolai> to type `, R v`
+T 1613472962 18<20FromGitter18>	<inzouzouwetrust> yes I do
+T 1613472981 18<20FromGitter18>	<dalanicolai> And when you type `, R v` some bibtex file gets loaded?
+T 1613472995 18<20FromGitter18>	<inzouzouwetrust> the `Cannot display crossref` happens right after I press `, R v`
+T 1613473006 18<20FromGitter18>	<inzouzouwetrust> Apparently not
+T 1613473013 18<20FromGitter18>	<dalanicolai> Ah okay
+T 1613473047 18<20FromGitter18>	<inzouzouwetrust> As an intermediate step I will try getting the `crossref` working on the `main.tex` file. I had not tried that
+T 1613473058 18<20FromGitter18>	<dalanicolai> So I simply have these lines in my `main.tex` file
+T 1613473094 18<20FromGitter18>	<dalanicolai> ```\usepackage[backend=biber, backref=true]{biblatex} ⏎ \addbibresource{bibtex.bib}``` [https://gitter.im/syl20bnr/spacemacs?at=602ba551dc108172e77dd294]
+T 1613473164 18<20FromGitter18>	<inzouzouwetrust> I'm using a template so I don't have these lines (I think)
+T 1613473187 18<20FromGitter18>	<inzouzouwetrust> I'm using the `\usepackage[numbers,sort,compress]{natbib}` package but I think this is unrelated
+T 1613473213 18<20FromGitter18>	<dalanicolai> B.t.w., the correct bib file gets loaded, but when trying to autocomplete it says, `no matches`
+T 1613473226 18<20FromGitter18>	<dalanicolai> While I can just read the correct citation from the bib file
+T 1613473258 18<20FromGitter18>	<inzouzouwetrust> This is my code at the bottom of my `main.tex` file. `1.bib` is a valid `bibtex` file ⏎  ⏎ ```{\small ⏎ \bibliographystyle{ieee_fullname} ⏎ \bibliography{1} ⏎ }``` [https://gitter.im/syl20bnr/spacemacs?at=602ba5f57ba8124e546b3a99]
+T 1613473275 18<20FromGitter18>	<dalanicolai> But your project needs to know where is your bib file
+T 1613473279 18<20FromGitter18>	<dalanicolai> I guess
+T 1613473282 18<20FromGitter18>	<dalanicolai> somehow
+T 1613473291 18<20FromGitter18>	<inzouzouwetrust> hmmm, not sure what you mean by that
+T 1613473301 18<20FromGitter18>	<inzouzouwetrust> my `1.bib` is in the `root` of my project
+T 1613473312 18<20FromGitter18>	<inzouzouwetrust> same level as `main.tex`
+T 1613473314 18<20FromGitter18>	<inzouzouwetrust> BUT
+T 1613473317 18<20FromGitter18>	<dalanicolai> Ah... still I guess you need to add something like this
+T 1613473328 18<20FromGitter18>	<inzouzouwetrust> I have the separate input files in a dedicated folder (`sections`)
+T 1613473342 18<20FromGitter18>	<inzouzouwetrust> Therefore they don't have direct access to the `.bib` (it's one folder up the tree)
+T 1613473368 18<20FromGitter18>	<inzouzouwetrust> Could be this issue, yes
+T 1613473375 18<20FromGitter18>	<dalanicolai> I guess you still have to add somewhere some line like this one ⏎ `\addbibresource{bibtex.bib}`
+T 1613473383 18<20FromGitter18>	<inzouzouwetrust> would you advise me to symlink the `.bib` in the section?
+T 1613473385 18<20FromGitter18>	<inzouzouwetrust> in which file?
+T 1613473388 18<20FromGitter18>	<dalanicolai> with the correct path to your .bib file of course
+T 1613473416 18<20FromGitter18>	<dalanicolai> > in which file? ⏎  ⏎ I would say in your main file... or the template
+T 1613473424 18<20FromGitter18>	<dalanicolai> Mine is in my main file
+T 1613473430 18<20FromGitter18>	<inzouzouwetrust> Ok that makes sense
+T 1613473533 18<20FromGitter18>	<dalanicolai> You should check out the bibtex layer and ebib (http://joostkremers.github.io/ebib/) btw
+T 1613473552 18<20FromGitter18>	<dalanicolai> Probably nicer than using some external bibtex manager
+T 1613473622 18<20FromGitter18>	<inzouzouwetrust> Ok I think I will need to dive deeper into this
+T 1613473659 18<20FromGitter18>	<dalanicolai> Yeah me too
+T 1613473660 18<20FromGitter18>	<inzouzouwetrust> seems like I don't have the `biblatex` package you are using
+T 1613473665 18<20FromGitter18>	<inzouzouwetrust> Therefore I get an error
+T 1613473681 18<20FromGitter18>	<inzouzouwetrust> and cannot use `\addbibresource{mybib.bib}`
+T 1613473702 18<20FromGitter18>	<inzouzouwetrust> As I said I have to go, but talk to you later!
+T 1613473706 18<20FromGitter18>	<dalanicolai> It seems in most examples this is not used ⏎ `\addbibresource{bibtex.bib}`
+T 1613473718 18<20FromGitter18>	<dalanicolai> But I think they also do not say where to put the .bib file
+T 1613473734 18<20FromGitter18>	<dalanicolai> (probably it should be in the root ofthe project, but tutorials should mention this)
+T 1613473752 18<20FromGitter18>	<dalanicolai> Well, I went just looking for it quickly of course
+T 1613473766 18<20FromGitter18>	<dalanicolai> Yeah see you later!
+T 1613473992 18<20FromGitter18>	<dalanicolai> @inzouzouwetrust Maybe check this out... https://tex.stackexchange.com/questions/5091/what-to-do-to-switch-to-biblatex
+T 1613474491 18<20FromGitter18>	<dalanicolai> @inzouzouwetrust This (https://stackoverflow.com/questions/3063189/autocompleting-cite-with-emacs-auctex-gives-cite-no-such-database-entry) indeed does work for me
+T 1613474559 18<20FromGitter18>	<dalanicolai> So I can search the citation using a regex
+T 1613474579 18<20FromGitter18>	<dalanicolai> But still I wonder, how the `TAB` completion worked the first time
+T 1613474653 18<20FromGitter18>	<dalanicolai> After I insert some item the first time using `C-c [`, then subsequently `TAB` completion works for that item too
+T 1613475033 18<20FromGitter18>	<dalanicolai> so `C-c [` is equivalent to `, R c` in normal mode or `M-RET R c` in insert mode
+T 1613475294 18<20FromGitter18>	<dalanicolai> Alternatively you can use `helm-bibtex` or `ivy-bibtex` from the bibtex layer
+T 1613475333 18<20FromGitter18>	<dalanicolai> But I remember my citations got automatically checked at some point... so that does not seem to work anymore

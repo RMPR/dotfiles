@@ -10066,3 +10066,35 @@ Feb 15 11:11:58 *	watkinsr4 is now known as watkinsr
 Feb 15 12:33:24 *	Disconnected ()
 **** ENDING LOGGING AT Mon Feb 15 12:33:24 2021
 
+**** BEGIN LOGGING AT Tue Feb 16 11:08:59 2021
+
+Feb 16 11:08:59 *	Now talking on #fedora
+Feb 16 11:08:59 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 16 11:08:59 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 16 11:08:59 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 16 11:11:44 <M0xdeadcat[m]>	Hi, I'
+Feb 16 11:12:39 <M0xdeadcat[m]>	I'm having a problem when I set the volume on my Fedora 33 it doesn't change instantly but there's a slight delay
+Feb 16 11:12:39 <M0xdeadcat[m]>	It doesn't occur on speakers, only on headphones :/
+Feb 16 11:13:26 <M0xdeadcat[m]>	And the speakers are from a monitor, which is connected by DisplayPort if that helps
+Feb 16 11:17:14 *	bdaase_ is now known as bdaase
+Feb 16 11:17:38 <rgp>	are the headphone wireless?
+Feb 16 11:19:00 <M0xdeadcat[m]>	No, they're connected via an audio jack
+Feb 16 11:25:54 <nOps1ed>	anything in the journal about it?
+Feb 16 11:32:07 <M0xdeadcat[m]>	nOps1ed: you mean journalctl?
+Feb 16 11:32:29 <M0xdeadcat[m]>	I've checked, and while changing the sound level no messages appear in there
+Feb 16 11:34:20 <nOps1ed>	yes, thats unfortunate
+Feb 16 11:34:54 <nOps1ed>	any warnings at boot about your audio hardware?
+Feb 16 11:34:57 *	cleanvision[m] is now known as vision[m]
+Feb 16 11:35:04 <M0xdeadcat[m]>	Okay, I don't know how, but now it fixed itself :P
+Feb 16 12:23:56 *	armands_ is now known as armands
+Feb 16 12:24:54 <herlimenezes>	Hello, good morning/evening/night! I'm trying to install Fedora 33, in an AMD Ryzen 5 machine with 120GB in a SSD and 1TB in the HDD. My idea is to use SSD for SO and HDD for programs and data. What is the best solution?
+Feb 16 12:28:35 <[Enrico]>	herlimenezes: static bind mounts of the HDD in the selected mount points where you put the data you want in the HDD
+Feb 16 12:28:54 <[Enrico]>	you can put /home on the HDD for example
+Feb 16 12:29:15 <[Enrico]>	of keep your home fairly clean by default and create a mount in /hdd
+Feb 16 12:42:44 <herlimenezes>	Ty, [Enrico]. Excuse me, but I never did that and I am unsure on how to to it. Since I have no data in HDD, I can reinstall F33.
+Feb 16 12:57:40 <yates>	i am using oracle virtualbox to run an lubuntu 18.04.5 LTS in guest os under fedora 32 and i cannot get the shared clipboard (bidirectional) to work
+Feb 16 12:57:50 <yates>	is this ai known issue?
+Feb 16 12:58:02 <yates>	i've uncovered this in a google search: https://forums.virtualbox.org/viewtopic.php?f=3&t=96309
+Feb 16 12:58:10 <yates>	i did not really see a resolution.
+Feb 16 12:58:25 <herlimenezes>	[Enrico]: do you speak portuguese? may I write in portuguese?
+Feb 16 12:58:37 <yates>	i'm running f32/Cinammon DE

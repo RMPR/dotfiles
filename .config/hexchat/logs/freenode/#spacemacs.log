@@ -3616,3 +3616,119 @@ Feb 15 10:18:57 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon 
 Feb 15 12:33:24 *	Disconnected ()
 **** ENDING LOGGING AT Mon Feb 15 12:33:24 2021
 
+**** BEGIN LOGGING AT Tue Feb 16 11:08:59 2021
+
+Feb 16 11:08:59 *	Now talking on #spacemacs
+Feb 16 11:08:59 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Feb 16 11:08:59 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Feb 16 11:24:51 <FromGitter>	<dalanicolai> @inzouzouwetrust These things started to work here after manually activating `reftex-mode`
+Feb 16 11:26:10 <FromGitter>	<dalanicolai> I guess this should get (better) documented indeed
+Feb 16 11:31:46 <FromGitter>	<inzouzouwetrust> @dalanicolai Thanks for your comment :) ⏎ Could you guide me on how to set this up?
+Feb 16 11:32:29 <FromGitter>	<dalanicolai> Well it was long ago that I set this up
+Feb 16 11:32:40 <FromGitter>	<dalanicolai> But I see that I used `subfile` to import files in the mainfile
+Feb 16 11:33:20 <FromGitter>	<dalanicolai> So it does not work when you activate reftex-mode manually in the Latex buffer?
+Feb 16 11:33:36 <FromGitter>	<dalanicolai> I find it should get activated automatically (there is a hook in the layer)
+Feb 16 11:33:44 <FromGitter>	<inzouzouwetrust> I had not gone this far last time I tried
+Feb 16 11:33:55 <FromGitter>	<inzouzouwetrust> I will try and let you know
+Feb 16 11:34:02 <FromGitter>	<dalanicolai> Yes good...
+Feb 16 11:34:05 <FromGitter>	<inzouzouwetrust> How do you activate the reftex-mode manually?
+Feb 16 11:34:16 <FromGitter>	<dalanicolai> Yes
+Feb 16 11:34:51 <FromGitter>	<dalanicolai> And now it seems to get activated automatically
+Feb 16 11:35:48 <FromGitter>	<dalanicolai> So I had to do it manually only once (which seems weird to me, but it was the case here)
+Feb 16 11:36:22 <FromGitter>	<inzouzouwetrust> I get that in a `.tex` buffer I need to press `SPC m r` to get in the `reftex` menu. But what do I need to do once there?
+Feb 16 11:36:41 <FromGitter>	<dalanicolai> just type `SPC SPC reftex-mode`
+Feb 16 11:37:34 <FromGitter>	<inzouzouwetrust> Apparently it was activated by default
+Feb 16 11:37:52 <FromGitter>	<inzouzouwetrust> But still I don't get any suggestion when typing in my `\cite{...}`
+Feb 16 11:37:54 <FromGitter>	<dalanicolai> Ah yeah... well that is how it should work
+Feb 16 11:38:18 <FromGitter>	<inzouzouwetrust> am I missing something?
+Feb 16 11:38:36 <FromGitter>	<dalanicolai> Well I am not sure why it did not work the last time here, maybe because I just installed the latex layer
+Feb 16 11:38:47 <FromGitter>	<dalanicolai> And then just reopened the file
+Feb 16 11:38:51 <FromGitter>	<inzouzouwetrust> I must explain that I'm typing this `\cite{...}` command in a `.tex` file that does not contain a bib explicitely
+Feb 16 11:39:18 <FromGitter>	<inzouzouwetrust> but in a auxialiary `.tex` file that is called (via `\input{}`) in the main `.tex` file
+Feb 16 11:39:29 <FromGitter>	<dalanicolai> Anyway... now I restarted Emacs, to see if I had again to activate `reftex-mode` manually, and now completion does not work
+Feb 16 11:39:41 <FromGitter>	<inzouzouwetrust> Did you understand this subtlety?
+Feb 16 11:39:54 <FromGitter>	<dalanicolai> > but in a auxialiary `.tex` file that is called (via `\input{}`) in the main `.tex` file ⏎  ⏎ Yes I have a similar situation
+Feb 16 11:39:58 <FromGitter>	<inzouzouwetrust> Great
+Feb 16 11:40:15 <FromGitter>	<inzouzouwetrust> So something is definitely working as intended, right?
+Feb 16 11:40:50 <FromGitter>	<dalanicolai> Yeah right
+Feb 16 11:41:24 <FromGitter>	<dalanicolai> Ah, okay
+Feb 16 11:42:37 <FromGitter>	<dalanicolai> When I typed `\cite{` I saw in the minibuffer a hint which said this
+Feb 16 11:42:41 <FromGitter>	<dalanicolai> `cite: info not available, use ‘, R v’ to get it.`
+Feb 16 11:42:55 <FromGitter>	<dalanicolai> after typing `, R v` things work
+Feb 16 11:44:11 <FromGitter>	<inzouzouwetrust> I still get a `Cannot display crossref` message after doing what you just described
+Feb 16 11:44:37 <FromGitter>	<dalanicolai> Yeah... I can not reproduce it here too
+Feb 16 11:44:54 <FromGitter>	<inzouzouwetrust> what do you mean?
+Feb 16 11:45:08 <FromGitter>	<dalanicolai> Well I restarted spacemacs... and tried it again
+Feb 16 11:45:15 <FromGitter>	<dalanicolai> But now it did work
+Feb 16 11:45:27 <FromGitter>	<dalanicolai> I had typed first part of some reference and put my cursor in it
+Feb 16 11:45:35 <FromGitter>	<inzouzouwetrust> did or did not?
+Feb 16 11:45:41 <FromGitter>	<inzouzouwetrust> ok I will try restarting spacemacs
+Feb 16 11:45:45 <FromGitter>	<dalanicolai> It did work
+Feb 16 11:46:45 <FromGitter>	<dalanicolai> Ah... my god... the first time it loaded my .bib file and then completion worked
+Feb 16 11:46:54 <FromGitter>	<inzouzouwetrust> I tried restarting but it did not work
+Feb 16 11:46:57 <FromGitter>	<inzouzouwetrust> maybe I should update?
+Feb 16 11:47:09 <FromGitter>	<dalanicolai> But now after `, R v` it does load the some bib file, but completion still does not work
+Feb 16 11:47:20 <FromGitter>	<inzouzouwetrust> Hahaha
+Feb 16 11:48:06 <FromGitter>	<dalanicolai> Well updating is nice anyway, because many small improvements get implemented all the time
+Feb 16 11:48:16 <FromGitter>	<dalanicolai> You are on develop branch?
+Feb 16 11:48:19 <FromGitter>	<inzouzouwetrust> yes
+Feb 16 11:48:33 <FromGitter>	<inzouzouwetrust> do I just need to pull the latest develop branch?
+Feb 16 11:48:39 <FromGitter>	<dalanicolai> Yes
+Feb 16 11:48:42 <FromGitter>	<inzouzouwetrust> will do
+Feb 16 11:48:58 <FromGitter>	<dalanicolai> And then after that click the update packages button on your home screen
+Feb 16 11:54:52 <FromGitter>	<inzouzouwetrust> I did all of what you described but I'm stuck with the `Cannot display crossref` message
+Feb 16 11:55:33 <FromGitter>	<inzouzouwetrust> I need to go away from the screen for an hour or two. Will come back here and would be glad to debug it then :)
+Feb 16 11:55:43 <FromGitter>	<dalanicolai> but when you type `\cite{lksjfslkfj}` and put your cursor on between the brackets in normal mode, do you see this message?
+Feb 16 11:55:53 <FromGitter>	<dalanicolai> to type `, R v`
+Feb 16 11:56:02 <FromGitter>	<inzouzouwetrust> yes I do
+Feb 16 11:56:21 <FromGitter>	<dalanicolai> And when you type `, R v` some bibtex file gets loaded?
+Feb 16 11:56:35 <FromGitter>	<inzouzouwetrust> the `Cannot display crossref` happens right after I press `, R v`
+Feb 16 11:56:46 <FromGitter>	<inzouzouwetrust> Apparently not
+Feb 16 11:56:53 <FromGitter>	<dalanicolai> Ah okay
+Feb 16 11:57:27 <FromGitter>	<inzouzouwetrust> As an intermediate step I will try getting the `crossref` working on the `main.tex` file. I had not tried that
+Feb 16 11:57:38 <FromGitter>	<dalanicolai> So I simply have these lines in my `main.tex` file
+Feb 16 11:58:14 <FromGitter>	<dalanicolai> ```\usepackage[backend=biber, backref=true]{biblatex} ⏎ \addbibresource{bibtex.bib}``` [https://gitter.im/syl20bnr/spacemacs?at=602ba551dc108172e77dd294]
+Feb 16 11:59:24 <FromGitter>	<inzouzouwetrust> I'm using a template so I don't have these lines (I think)
+Feb 16 11:59:47 <FromGitter>	<inzouzouwetrust> I'm using the `\usepackage[numbers,sort,compress]{natbib}` package but I think this is unrelated
+Feb 16 12:00:13 <FromGitter>	<dalanicolai> B.t.w., the correct bib file gets loaded, but when trying to autocomplete it says, `no matches`
+Feb 16 12:00:26 <FromGitter>	<dalanicolai> While I can just read the correct citation from the bib file
+Feb 16 12:00:58 <FromGitter>	<inzouzouwetrust> This is my code at the bottom of my `main.tex` file. `1.bib` is a valid `bibtex` file ⏎  ⏎ ```{\small ⏎ \bibliographystyle{ieee_fullname} ⏎ \bibliography{1} ⏎ }``` [https://gitter.im/syl20bnr/spacemacs?at=602ba5f57ba8124e546b3a99]
+Feb 16 12:01:15 <FromGitter>	<dalanicolai> But your project needs to know where is your bib file
+Feb 16 12:01:19 <FromGitter>	<dalanicolai> I guess
+Feb 16 12:01:22 <FromGitter>	<dalanicolai> somehow
+Feb 16 12:01:31 <FromGitter>	<inzouzouwetrust> hmmm, not sure what you mean by that
+Feb 16 12:01:41 <FromGitter>	<inzouzouwetrust> my `1.bib` is in the `root` of my project
+Feb 16 12:01:52 <FromGitter>	<inzouzouwetrust> same level as `main.tex`
+Feb 16 12:01:54 <FromGitter>	<inzouzouwetrust> BUT
+Feb 16 12:01:57 <FromGitter>	<dalanicolai> Ah... still I guess you need to add something like this
+Feb 16 12:02:08 <FromGitter>	<inzouzouwetrust> I have the separate input files in a dedicated folder (`sections`)
+Feb 16 12:02:22 <FromGitter>	<inzouzouwetrust> Therefore they don't have direct access to the `.bib` (it's one folder up the tree)
+Feb 16 12:02:48 <FromGitter>	<inzouzouwetrust> Could be this issue, yes
+Feb 16 12:02:55 <FromGitter>	<dalanicolai> I guess you still have to add somewhere some line like this one ⏎ `\addbibresource{bibtex.bib}`
+Feb 16 12:03:03 <FromGitter>	<inzouzouwetrust> would you advise me to symlink the `.bib` in the section?
+Feb 16 12:03:05 <FromGitter>	<inzouzouwetrust> in which file?
+Feb 16 12:03:08 <FromGitter>	<dalanicolai> with the correct path to your .bib file of course
+Feb 16 12:03:36 <FromGitter>	<dalanicolai> > in which file? ⏎  ⏎ I would say in your main file... or the template
+Feb 16 12:03:44 <FromGitter>	<dalanicolai> Mine is in my main file
+Feb 16 12:03:50 <FromGitter>	<inzouzouwetrust> Ok that makes sense
+Feb 16 12:05:33 <FromGitter>	<dalanicolai> You should check out the bibtex layer and ebib (http://joostkremers.github.io/ebib/) btw
+Feb 16 12:05:52 <FromGitter>	<dalanicolai> Probably nicer than using some external bibtex manager
+Feb 16 12:07:02 <FromGitter>	<inzouzouwetrust> Ok I think I will need to dive deeper into this
+Feb 16 12:07:39 <FromGitter>	<dalanicolai> Yeah me too
+Feb 16 12:07:40 <FromGitter>	<inzouzouwetrust> seems like I don't have the `biblatex` package you are using
+Feb 16 12:07:45 <FromGitter>	<inzouzouwetrust> Therefore I get an error
+Feb 16 12:08:01 <FromGitter>	<inzouzouwetrust> and cannot use `\addbibresource{mybib.bib}`
+Feb 16 12:08:22 <FromGitter>	<inzouzouwetrust> As I said I have to go, but talk to you later!
+Feb 16 12:08:26 <FromGitter>	<dalanicolai> It seems in most examples this is not used ⏎ `\addbibresource{bibtex.bib}`
+Feb 16 12:08:38 <FromGitter>	<dalanicolai> But I think they also do not say where to put the .bib file
+Feb 16 12:08:54 <FromGitter>	<dalanicolai> (probably it should be in the root ofthe project, but tutorials should mention this)
+Feb 16 12:09:12 <FromGitter>	<dalanicolai> Well, I went just looking for it quickly of course
+Feb 16 12:09:26 <FromGitter>	<dalanicolai> Yeah see you later!
+Feb 16 12:13:12 <FromGitter>	<dalanicolai> @inzouzouwetrust Maybe check this out... https://tex.stackexchange.com/questions/5091/what-to-do-to-switch-to-biblatex
+Feb 16 12:21:31 <FromGitter>	<dalanicolai> @inzouzouwetrust This (https://stackoverflow.com/questions/3063189/autocompleting-cite-with-emacs-auctex-gives-cite-no-such-database-entry) indeed does work for me
+Feb 16 12:22:39 <FromGitter>	<dalanicolai> So I can search the citation using a regex
+Feb 16 12:22:59 <FromGitter>	<dalanicolai> But still I wonder, how the `TAB` completion worked the first time
+Feb 16 12:24:13 <FromGitter>	<dalanicolai> After I insert some item the first time using `C-c [`, then subsequently `TAB` completion works for that item too
+Feb 16 12:30:33 <FromGitter>	<dalanicolai> so `C-c [` is equivalent to `, R c` in normal mode or `M-RET R c` in insert mode
+Feb 16 12:34:54 <FromGitter>	<dalanicolai> Alternatively you can use `helm-bibtex` or `ivy-bibtex` from the bibtex layer
+Feb 16 12:35:33 <FromGitter>	<dalanicolai> But I remember my citations got automatically checked at some point... so that does not seem to work anymore
