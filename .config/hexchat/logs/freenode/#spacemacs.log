@@ -3732,3 +3732,79 @@ Feb 16 12:24:13 <FromGitter>	<dalanicolai> After I insert some item the first ti
 Feb 16 12:30:33 <FromGitter>	<dalanicolai> so `C-c [` is equivalent to `, R c` in normal mode or `M-RET R c` in insert mode
 Feb 16 12:34:54 <FromGitter>	<dalanicolai> Alternatively you can use `helm-bibtex` or `ivy-bibtex` from the bibtex layer
 Feb 16 12:35:33 <FromGitter>	<dalanicolai> But I remember my citations got automatically checked at some point... so that does not seem to work anymore
+**** BEGIN LOGGING AT Tue Feb 16 23:11:36 2021
+
+Feb 16 23:11:36 *	Now talking on #spacemacs
+Feb 16 23:11:36 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Feb 16 23:11:36 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Feb 16 23:22:56 <birkoff>	is there an easy way to specify the current buffer file name with M-x load-file
+Feb 16 23:22:58 <birkoff>	?
+Feb 16 23:24:13 <FromGitter>	<dalanicolai> You must use `load-file`? You can not just load the buffer with `, e b`?
+Feb 16 23:28:49 <birkoff>	I have emacs editing-style
+Feb 16 23:28:55 <birkoff>	what would that be ?
+Feb 16 23:29:57 <FromGitter>	<dalanicolai> Haha, I don't know, check with `M-x eval-buffer`
+Feb 16 23:34:27 <birkoff>	can I disable spacemacs contacting melpa on startup ? 
+Feb 16 23:41:24 <FromGitter>	<dalanicolai> Don't know
+Feb 17 00:06:59 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb 17 00:06:59 2021
+
+**** BEGIN LOGGING AT Wed Feb 17 00:23:10 2021
+
+Feb 17 00:23:10 *	Now talking on #spacemacs
+Feb 17 00:23:10 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Feb 17 00:23:10 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Feb 17 09:17:09 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb 17 09:17:09 2021
+
+**** BEGIN LOGGING AT Wed Feb 17 09:17:37 2021
+
+Feb 17 09:17:37 *	Now talking on #spacemacs
+Feb 17 09:17:37 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Feb 17 09:17:37 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Feb 17 09:17:42 <FromGitter>	<inzouzouwetrust> @dalanicolai Here's a follow-up on our discussion from yesterday: ⏎ I went for a (ugly) fix that consists in setting an `org-ref-default-bibliography` in my `dotspacemacs/user-config` that contains ALL my references (used for several different papers) therefore I have access to all my references from any `.tex` file. ⏎ The issue with this is that I use a project dependent `.bib` file therefore some 
+Feb 17 09:17:42 <FromGitter>	... entries that are available in my ALL references `.bib` may not be in my project dependent `.bib`. It requires a double-check on my hand but it already makes my life easier. ⏎ Thanks for stepping in! [https://gitter.im/syl20bnr/spacemacs?at=602cd1269403f11bb58abdd1]
+Feb 17 10:15:38 *	qCactus is now known as prefixcactus
+Feb 17 11:14:36 <FromGitter>	<dalanicolai> @jr0cket I quickly had a look, but markdown-mode seems to work fine here (looks like all major mode bindings are available). I synced with the latest develop branch and restarted Spacemacs before checking it.
+Feb 17 11:19:46 <FromGitter>	<dalanicolai> @inzouzouwetrust Haha, sounds ugly indeed... I would say Spacemacs should be able to determine your project file somehow, it does here at least. And I guess you can still use `, Rc` or `helm-bibtex`.  Anyway, good luck with the fix...
+Feb 17 12:37:34 <FromGitter>	<epixinvites> ok so I'm fairly new to this DAP layer in spacemacs, I have no idea how it works, the documentations doesn't shed much light, so does anyone here can briefly guide through like what I need, how do I set it up, and what config should I have?
+Feb 17 12:38:32 <FromGitter>	<epixinvites> I've added the dap layer and I'm doing C++
+Feb 17 12:40:17 <FromGitter>	<epixinvites> I'm presented with a temporary buffer after I press `SPC d d e` and I'm greeted with this ⏎  ⏎ ```code paste, see link``` [https://gitter.im/syl20bnr/spacemacs?at=602d00a09337c51bc690f691]
+Feb 17 12:40:27 <FromGitter>	<epixinvites> I did try editing a couple of things to see if it would work
+Feb 17 12:40:35 <FromGitter>	<epixinvites> but apparently it doesnt
+Feb 17 12:40:50 <FromGitter>	<epixinvites> I installed gdb btw and I'm running on Arch Linux
+Feb 17 12:45:35 <FromGitter>	<yyoncho> @epixinvites https://emacs-lsp.github.io/lsp-mode/tutorials/CPP-guide/
+Feb 17 12:57:09 <FromGitter>	<epixinvites> hmmmm yes ⏎  ⏎ > dap-mode introduces the notion of debug configuration and debug template. The debug configuration is the settings that are needed by the debug adapter to start the program to debug. Debug template is a template for such configuration which will be populated by the user or by dap-mode. There are two ways to manage debug configuration - using emacs lisp via dap-debug-edit-template and 
+Feb 17 12:57:09 <FromGitter>	... dap-register-debug-template. The second way is using launch.json. Put it in project root and dap-mode will pick it up.
+Feb 17 12:57:28 <FromGitter>	<epixinvites> dap-register-debug-template command not found
+Feb 17 13:00:25 <FromGitter>	<epixinvites> @yyoncho apparently your documentation is a bit lets see out of date
+Feb 17 13:00:49 <FromGitter>	<epixinvites> aaaaaand it is too vague for people who hasn't used it before to understand
+Feb 17 13:01:21 <FromGitter>	<epixinvites> well I'd love to write a simple up to date documentation about it after I know how to use it
+Feb 17 13:01:33 <FromGitter>	<epixinvites> because I find that its lacking a bit of documentation
+Feb 17 13:03:08 <FromGitter>	<epixinvites> can you explain a bit about what `"program": "${workspaceFolder}/src/emacs",` is and what `"cwd": "${workspaceFolder}",` is?
+Feb 17 13:03:46 <FromGitter>	<epixinvites> and pls `dap-register-debug-template` isn't found
+Feb 17 14:41:20 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb 17 14:41:20 2021
+
+**** BEGIN LOGGING AT Wed Feb 17 14:41:48 2021
+
+Feb 17 14:41:48 *	Now talking on #spacemacs
+Feb 17 14:41:48 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Feb 17 14:41:48 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Feb 17 14:42:37 <FromGitter>	<yyoncho> @abhijeetsrivastava last time I checked there was no such option. If metals support that now, you may open feature request in lsp-metals project
+Feb 17 14:43:05 <FromGitter>	<dalanicolai> But I will check a little more, because somewhere something must be wrong then
+Feb 17 14:43:19 <FromGitter>	<yyoncho> other than that - I don't use scala, I use the debugger for java
+Feb 17 14:51:05 <FromGitter>	<dalanicolai> @jr0cket I have also a second installation (with Helm instead of Ivy), so I freshly installed the markdown layer there and updated the packages (where actually markdown-mode got updated, while I just freshly installed the markdown layer)., restarted. But again, I seem to be unable to break markdown-mode...
+Feb 17 14:52:13 <FromGitter>	<dalanicolai> I mean, I see many command bound under `SPC m`. I guess you meant you only see two commands there? But I see them all... (but maybe I got you wrong, I did not test the commands)
+Feb 17 14:53:33 <FromGitter>	<jr0cket> @dalanicolai I can call the commands by name, using `SPC SPC command-name`.  Its the key bindings that are missing...
+Feb 17 14:54:03 <FromGitter>	<dalanicolai> Yeah, you mean they do not show up in which-key?
+Feb 17 14:54:10 <FromGitter>	<dalanicolai> So here they all show up
+Feb 17 14:54:21 <FromGitter>	<dalanicolai> When pressing `SPC m`
+Feb 17 14:54:58 <FromGitter>	<abhijeetsrivastava> > @abhijeetsrivastava last time I checked there was no such option. If metals support that now, you may open feature request in lsp-metals project ⏎  ⏎ ok. thanks! will check
+Feb 17 15:01:15 <FromGitter>	<epixinvites> hmmmm where am I supposed to save the *DAP TEMPLATE*
+**** BEGIN LOGGING AT Wed Feb 17 18:42:35 2021
+
+Feb 17 18:42:35 *	Now talking on #spacemacs
+Feb 17 18:42:35 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Feb 17 18:42:35 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+**** ENDING LOGGING AT Wed Feb 17 19:14:20 2021
+

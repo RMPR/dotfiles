@@ -1,95 +1,3 @@
-T 1587298862 18<28FranciscoD18>	soda2[m]1: it downloads the metadata, then checks for updates
-T 1587298868 18<28FranciscoD18>	dnf runs a timer that updates the cache periodically
-T 1587298884 18<26soda2[m]118>	yup, but why so slow? when i use dnf or yum everything is fast
-T 1587298918 18<28FranciscoD18>	soda2[m]1: if you use `sudo dnf --refresh` it'll also take time: it'll download the metadata again
-T 1587298936 18<26soda2[m]118>	because of this gnome-software seems broken
-T 1587298941 18<27miku18>	FranciscoD, guideline documents tend to be too dense for community outsides to grasp on their first few tries...
-T 1587298942 18<26soda2[m]118>	in my opinion
-T 1587298986 18<28FranciscoD18>	miku: there are lots of other documents: https://fedoraproject.org/wiki/How_to_create_an_RPM_package for example
-T 1587298998 18<28FranciscoD18>	https://fedoraproject.org/wiki/Join_the_package_collection_maintainers is step by step
-T 1587299024 18<27miku18>	a lot like manpages in that they are helpful when you already know a program and seek to improve your utilization of it
-T 1587299034 18<27miku18>	but very frustrating and not much use when you are new to program
-T 1587299048 18<28FranciscoD18>	miku: depends on the man page: most contain examples, which are great for beginners
-T 1587299066 18<28FranciscoD18>	also depends on the person :)
-T 1587299087 18<28FranciscoD18>	soda2[m]1: file bugs, provide information, the developers will see what can be done to improve the user experience
-T 1587299112 18<27miku18>	I definitely do have somewhat of those TL;DR genes
-T 1587299266 18<28tnelis18>	soda2[m]1: Maybe try using pkcon which is a CLI for PackageKit, which is the component behind GNOME Software (if you observe noticably better perf you could exclude PK and focus on the GNOME Software, otherwise it could be a problem in either of these)
-T 1587299343 18<28tnelis18>	soda2[m]1: Note that apparently (per Wikipedia) PK might use hawkey/librepo directly (i.e. not via DNF), meaning it's very possible there are differences between both as you observe.
-T 1587299444 18<28tnelis18>	soda2[m]1: One example you could check: Support for Zchunk added in F30 <https://fedoraproject.org/wiki/Changes/Zchunk_Metadata>. This improved perf immensely for me with DNF, but I'm not sure if it's supported by PK/GNOME Software -- so if not it could explain what you're observing.
-T 1587299551 18<26soda2[m]118>	i was traying run gnome-software by terminal command to check logs but i noticed memory error ;/ probably i cant run this program in terminal
-T 1587299612 18<28tnelis18>	soda2[m]1: Actually that might help figure it out. What kind of error? An OOM condition?
-T 1587299656 18<26soda2[m]118>	Memory protection violation
-T 1587299666 18<26soda2[m]118>	i think this is not related
-T 1587299702 18<28tnelis18>	soda2[m]1: Well if you have some time it'd be great if you could report it still. Regardless of whether you're launching from the CLI or the shell it shouldn't happen.
-T 1587299712 18<26soda2[m]118>	probably conflict with running dnf/yum/gnome-software
-T 1587299746 18<26soda2[m]118>	an you try run gnome-software by terminal?
-T 1587299766 18<26soda2[m]118>	i think you cannot do that, just like me
-T 1587299807 18<28tnelis18>	soda2[m]1: I'll reinstall it and check, but again this shouldn't result in memory violation (that's usually wording for segmentation faults).
-T 1587299873 18<28tnelis18>	soda2[m]1: Assuming it's a subprocess, and nondeterministic, and the app retries repeatedly, then with a little imagination it could also explain your issue (I know, lots of assumptions, but just sayin' ;P)
-T 1587299912 18<26soda2[m]118>	hmm, i wondering how i can check what is up with that wihout command output xd
-T 1587299971 18<28tnelis18>	soda2[m]1: Well again try pkcon, that would give you a chance to split to search in two and exclude one half.
-T 1587300322 18<28tnelis18>	soda2[m]1: Also use pkmon (while using GNOME Software and pkcon) to monitor PackageKit events/transactions.
-T 1587300346 18<26soda2[m]118>	updates check in pkcon is fast too so this is not related
-T 1587300362 18<26soda2[m]118>	ok i will check it
-T 1587300403 18<28tnelis18>	soda2[m]1: Interesting, so it's pkmon + GNOME Software might yield something interesting. For the record I tried launching GNOME Software from the CLI, no problem on my machine, definitely no memory violation.
-T 1587300500 18<26soda2[m]118>	yup! pkmon can show me output so we have step one :D
-T 1587300865 18<26soda2[m]118>	now when i run software-gnome updating is short and i cant reproduce issue. ;/
-T 1587300876 18<26soda2[m]118>	but i know how check it in future :) thx
-T 1587300937 18<28tnelis18>	soda2[m]1: Given launching it from the CLI is supposed to work, it'be extra cool if you could file that memory violation if you still have the log! Otherwise yes, would have to wait until it reappears.
-T 1587300990 18<26soda2[m]118>	ahhh probably i know what is the problem with terminal running
-T 1587301009 18<26soda2[m]118>	when i use suda i recive memory valation
-T 1587301013 18<26soda2[m]118>	sudo*
-T 1587301033 18<26soda2[m]118>	but when i enter just gnome-software all is right
-T 1587301088 18<28tnelis18>	Ah, alrighty!
-T 1587301124 18<26soda2[m]118>	thanks a lot :)
-T 1587307895 18<29jim8718>	Hello! I'm having an issue with an intel I211 ethernet port. On windows I'm able to connect to the router with a 1000Mbps connection, but on linux I'm only able to reach 100mbps
-T 1587307904 18<29jim8718>	How can I sort this out?
-T 1587308174 18<29jim8718>	Somehow autoneg was off and set to 100 Mbps... I've now set autoneg still to off, but 1000 Mbps
-T 1587308179 18<29jim8718>	It's another music :)
-T 1587309244 18<28fedbot18>	*** F31-20200408 updated lives available: https://tinyurl.com/Live-respins2  Built by the Fedora Respin Sig more info #fedora-respins  ***
-T 1587310459 18<26bitlord18>	Hi, have some complex question regarding networking seutp. I have an old box which I use as a hypervisor it has two interfaces in two networks (wifi goes outside), and lan which is used locally. I'm using libvirt and used default firewalld rules. Now I want access to that box and to VMs inside virtual network, to do that I changed default firewalld zone for `virtbr0` to `dmz`, that did solve one issue, but now VMs cannot go to the internet using
-T 1587310459 18<26bitlord18>	that wifi interface. Is there any easy guide on how to achieve something similar?
-T 1587311146 18<22securerootd18>	hello
-T 1587313087 18<19jidar18>	I just switched over to systemd-resolved, did a few things like enable DNSOverTLS, disable DNSSEC, and now I'm trying to understand why something like ping takes forever (roughly 10s) to being pinging my local address. All things point to working, valid, and speedy DNS responses timing dig against 127.0.0.53, and resolvectl query take far less than 1 second; running strace -w, shows me poll is
-T 1587313089 18<19jidar18>	waiting 99.9% of the time, and I note that eventually it calls out to: connect(5, {sa_family=AF_UNIX, sun_path="/var/run/avahi-daemon/socket"}, 110) = 0; but this is > 10 seconds
-T 1587313139 18<19jidar18>	the same can not be said for ping -6, against the same address
-T 1587313473 18<26bitlord18>	does `ping -n` do the same?
-T 1587313582 18<19jidar18>	> time ping b-wing.local -c 1 -n 1
-T 1587313588 18<19jidar18>	> real    0m20.014s
-T 1587313600 18<19jidar18>	> time resolvectl query b-wing.local
-T 1587313606 18<19jidar18>	> real    0m0.012s
-T 1587313687 18<26bitlord18>	oh, I thought you were pinging local IP directly not DNS and I was thinking some reverse lookup maybe took that much :(
-T 1587313714 18<19jidar18>	oh!
-T 1587313734 18<19jidar18>	yeah, I was reading the man page on that going, hurm, not sure what this will do lol
-T 1587313784 18<19jidar18>	time ping -c 1 -6 b-wing.local -> real    0m0.846s
-T 1587313786 18<19jidar18>	just as a FYI
-T 1587314674 18<19jidar18>	ok, it was LLMNR
-T 1587314684 18<19jidar18>	MulticastDNS seems quick, but LLMNR is super super slow
-T 1587316030 18<26soda2[m]118>	i have one question. i am going to buy someking server (hp or lenovo probably). i want to create home lab for learning openstack,openshift,ansible is there something I should pay special attention to? from your experience?
-T 1587316068 18<26soda2[m]118>	buy somekind*
-T 1587316896 18<25ledeni18>	soda2[m], check topic of the channel --> /topic
-T 1587317563 18<29kk4ewt18>	soda2[m]; lots of cpu power (lots of processors min 16) and at least 1-2G of ram per processor (min 32G) and it most be able to do virtualization
-T 1587317590 18<29kk4ewt18>	and with that lots of storage space for VMs
-T 1587317605 18<28\n3p\18>	jidar, what dns server do you use?
-T 1587317759 18<29kk4ewt18>	soda2[m] take a look at "https://docs.fedoraproject.org/en-US/quick-docs/getting-started-with-virtualization/ "
-T 1587318575 18<28fedbot18>	*** F31-20200408 updated lives available: https://tinyurl.com/Live-respins2  Built by the Fedora Respin Sig more info #fedora-respins  ***
-T 1587319056 18<19jidar18>	\n3p\: cloudflairs 1.1.1.1
-T 1587319083 18<28\n3p\18>	jidar, thx
-T 1587320255 18<27Bayesian_Coffee18>	getting an error when trying to use GUI GNOME Software Update: `Unable to download updates: could not do untrusted question as no klass support`
-T 1587320255 18<27Bayesian_Coffee18>	a quick Google search reveals that this has something to do with the repo mirrors being out of sync? what's up with that? why would that not work while `# dnf update` would?
-T 1587320562 18<26Mac10118>	anyone got any suggestions for a really cheap/small portable device to run fedora on?
-T 1587322248 18<29Taim18>	Raspberry PI
-T 1587322281 18<29Taim18>	Just not a PI 4 quite yet.
-T 1587323287 18<24golanv118>	No Pi4 yet?
-T 1587323323 18<28Foxfir318>	Silverblue. How to go about Wine?
-T 1587323354 18<28Foxfir318>	Should wine be run from a toolbox?
-T 1587323678 18<29Taim18>	Golanv: PI 4, It...works-ish....on Fedora 32...sort of.  It still needs some time to mature there, imo.
-T 1587324068 18<24golanv118>	Oh I see.
-T 1587324084 18<24golanv118>	I don't have one (yet).
-T 1587324787 18<28Foxfir318>	so all the guys who were on IRC at work, are now watching Netflix?
-T 1587324834 18<28Foxfir318>	third Silverblue install. in doubt now. Almost no documentation. IRC channel almost dead silent.
-T 1587324873 18<28Foxfir318>	its things like how to install Wine that makes it frustrating. Am I supposed to dump all those packages into the ostree?
-T 1587324916 18<26bitlord18>	probably just not many people here use Silverblue :(
 T 1587325023 18<28Foxfir318>	bitlord: okay. Maybe I invested too early in Silverblue. Its a great idea, but so many things are shaky. Like broken Flatpaks. Seems like there are no money behind the project, and no one writing documentation. I would offer my help, but the Fedora community seems closed.
 T 1587325076 18<26bitlord18>	Foxfir3, have you tried on mailing lists?
 T 1587325102 18<28Foxfir318>	And there is the Gnome bleatware. I dont get the meaning of that. Silverblue is definately not for beginners, so why Gnome? Why not some desktop that is easy to remove.
@@ -5027,3 +4935,72 @@ T 1613476682 18<20yates18>	i've uncovered this in a google search: https
 T 1613476690 18<20yates18>	i did not really see a resolution.
 T 1613476705 18<25herlimenezes18>	[Enrico]: do you speak portuguese? may I write in portuguese?
 T 1613476717 18<20yates18>	i'm running f32/Cinammon DE
+T 1613513496 19*	Now talking on 22#fedora
+T 1613513496 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1613513496 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1613513496 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1613513558 18<27M0xdeadcat[m]18>	Is it possible that I cannot share my screen on Discord, because I've installed it from Flatpak?
+T 1613513590 18<27M0xdeadcat[m]18>	I can only share a few select programs (almost all of them are other Flatpak apps)
+T 1613513626 18<19dowdle18>	davetoo: Using containers I would imagine.  While multiple versions of PHP are available (I think) via modules, you can only have one version installed at a time.
+T 1613513659 18<27Dustin[m]18>	That is probably related to Wayland
+T 1613513689 18<27Dustin[m]18>	0xdeadcat: I believe that it's still not quite working with Wayland but is fixed in the next releases
+T 1613513712 18<27M0xdeadcat[m]18>	Oh... I see
+T 1613513721 18<27Dustin[m]18>	I believe that's the case
+T 1613513744 18<27Dustin[m]18>	I tested screen sharing using Jitsi Meet and it is indeed not working for full screen share
+T 1613513749 18<27Dustin[m]18>	Only windows
+T 1613513763 18<27Dustin[m]18>	But Fedora 34 and GNOME 40 are supposed to have that all fixed and working perfectly
+T 1613513846 18<26drakonan218>	What is the reason for the /run dir?!?!?!
+T 1613513894 18<27M0xdeadcat[m]18>	I was thinking it's because of Flatpak, because when I installed CLion through it, I couldn't use OpenOCD for instance (even though the path was correct and I had it installed) ¯_ (ツ)_/¯
+T 1613513902 18<27M0xdeadcat[m]18>	Dustin:
+T 1613513906 18<27M0xdeadcat[m]18>	That's great to hear
+T 1613514014 18<19dowdle18>	drakonan2: Some stuff is stored under there.  For example, most removable media is automounted somewhere under /run by default by the GUI desktop environments.  /run definitely isn't Fedora specific
+T 1613514247 18<19dowdle18>	drakonan2: /var/run is a symlink to /run so... whatever /var/run was used for. :)
+T 1613514311 18<26drakonan218>	just trying to understand between ubuntu/fedora establish situational awareness since my first thought when i saw that was i was on the livecd heh
+T 1613514771 18<26drakonan218>	dowdle, just confusing since i went to /media which existed... no telling how much time i wasted there
+T 1613514829 18<25vwbusguy[m]18>	drakonan2: `man hier` is helpful for understanding what the top level directories are for
+T 1613515020 18<20yuriLoki18>	Hey guys , installed fedora on my laptop and my microphone (the one that comes in the headset) is not detected ...
+T 1613515030 18<20yuriLoki18>	My laptop is running a single jack
+T 1613515076 18<20yuriLoki18>	Is there any thing I can do ? I already tried following a bazilion of old answers on stack overflow. Any help would be appreciated
+T 1613515102 18<19dowdle18>	drakonan2: Yeah, so there's /mnt, /media, and now stuff under /run/
+T 1613515133 18<19dowdle18>	drakonan2: If your desktop mounts it for you automatically they generally put an icon on the desktop or provide a specific way to get to it in your graphical file manager.
+T 1613516266 24*	28Muvon53_ is now known as 18Muvon53
+T 1613516819 20*	Disconnected (20)
+T 1613517790 19*	Now talking on 22#fedora
+T 1613517790 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1613517790 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1613517790 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1613549829 20*	Disconnected (20)
+T 1613549857 19*	Now talking on 22#fedora
+T 1613549857 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1613549857 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1613549857 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1613550561 24*	28watkinsr2 is now known as 18watkinsr
+T 1613550722 18<29cockingbird_cage18>	hello
+T 1613552012 18<29su__deep18>	ledeni: thanks! The following disables nouveau
+T 1613552012 18<29su__deep18>	# echo "blacklist nouveau" > /etc/modprobe.d/nouveau-blacklist.conf
+T 1613552012 18<29su__deep18>	# grubby --update-kernel=ALL --args="rd.driver.blacklist=nouveau"
+T 1613552012 18<29su__deep18>	# dnf remove xorg-x11-drv-nouveau
+T 1613552012 18<29su__deep18>	# mv /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r)-nouveau.img
+T 1613552013 22*	26fedbot sets quiet on 18*!*@122.177.203.49
+T 1613552045 22*	26fedbot removes quiet on 18*!*@122.177.203.49
+T 1613554567 18<29roberttvarga[m]18>	Hi fellows,
+T 1613554567 18<29roberttvarga[m]18>	Anyone with a little knowledge on connecting issues regarding Seagate Personal Cloud devices?
+T 1613554567 18<29roberttvarga[m]18>	Fedora 33 doesn't seem to like to connect to that wretched thing.
+T 1613555099 24*	28RobertTvarga is now known as 18roberttvarga
+T 1613556045 18<29Kenguru18>	https://dchub.one
+T 1613559915 24*	28_Yoda is now known as 18_Yoda_aw
+T 1613561956 24*	28peaboy[m] is now known as 18plat_[m]
+T 1613563320 18<27zak25618>	Hi. I was wondering why the XMPP application Gajim has not yet been updated to at least version 1.2.2. I see there is a pull-request from 5 months ago. Now version 1.3.0 has been released. Is there anything I can do?
+T 1613563332 18<27zak25618>	https://src.fedoraproject.org/rpms/gajim
+T 1613569280 20*	Disconnected (20)
+T 1613569308 19*	Now talking on 22#fedora
+T 1613569308 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1613569308 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1613569309 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1613583755 19*	Now talking on 22#fedora
+T 1613583755 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1613583755 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1613583756 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1613583776 18<25vwbusguy[m]18>	It's up to you, but I prefer 3rd party stuff to live in /opt instead of /usr, but that also means having to possible set $PATH and $LD_LIBRARY_PATH, etc. accordingly
+T 1613584084 18<27M0xdeadcat[m]18>	I see
+T 1613584090 18<27M0xdeadcat[m]18>	Thanks a lot for your tips!

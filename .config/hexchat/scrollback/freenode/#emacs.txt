@@ -1,281 +1,3 @@
-T 1611771964 18<19seabass18>	(global-set-key (kbd "C-c u") (subed-mpv-playback-speed 1))
-T 1611772037 18<20dale18>	seabass: The second arg to global-set-key should be a command, it doesn't take an arbitrary form to evaluate.
-T 1611772049 18<20dale18>	seabass: A command is just a function that has an (interactive) form.
-T 1611772098 18<20dale18>	seabass: (defun my-mpv-reset-playback-speed () (interactive) (subed-mpv-playback-speed 1)) (global-set-key (kbd "C-c u") 'my-mpv-reset-playback-speed)
-T 1611772201 18<29johnjay18>	i'm a bit surprised emacs doesn't follow the convention of a decimal indicating floating point
-T 1611772207 18<29johnjay18>	,(/ 2.0 5)
-T 1611772207 18<22fsbot18>	0.4  ..(float)
-T 1611772209 18<29johnjay18>	,(/ 2. 5)
-T 1611772210 18<22fsbot18>	0  ..(integer)
-T 1611772292 18<20dale18>	Huh, me too.
-T 1611772311 18<20dale18>	Was floating point always in Emacs, or is it a relatively recent addition?
-T 1611772328 18<29johnjay18>	i assume it was always there
-T 1611772337 18<29johnjay18>	the convention itself is probably more recent
-T 1611772355 18<29johnjay18>	i was playing around in octave and i noticed the code i was reading was inserting the . a lot
-T 1611772366 18<29johnjay18>	but it wasn't necessary because octave doesn't do integer division
-T 1611772394 18<19seabass18>	dale, you are very helpful :)
-T 1611772417 18<19seabass18>	thank you very much. That works now - presumably I'd need to do that for every function that wasn't already interactive
-T 1611772453 18<20dale18>	johnjay: I think you're right that it's been in there a very long time, at least.
-T 1611772466 18<20dale18>	seabass: Yes, or when you need to provide any arguments.
-T 1611772527 18<19seabass18>	Actually, the functions are interactive, so it must have been the latter that was needed
-T 1611772631 18<19seabass18>	has anyone here had RSI? I'm... starting to feel something :/
-T 1611772650 18<19rpav18>	yeah; start by getting a better keyboard
-T 1611772674 18<19seabass18>	A thumb-cluster one would be handy; is that the sort of one you have?
-T 1611772686 18<19seabass18>	lol 'handy' :D
-T 1611772687 18<19rpav18>	well .. start by having everything position right, not reaching too far for mouse, not twisting your hand/finger for ctrl, etc
-T 1611772696 18<19rpav18>	but a good keyboard is probably the 2nd step
-T 1611772723 18<19rpav18>	i have a datahand but sadly you can't get those anymore 
-T 1611772724 18<19seabass18>	Not twising ones hand for ctrl... how do you do that?
-T 1611772732 18<27grym18>	seabass: rebind capslock 
-T 1611772744 18<19seabass18>	grym, I'm on Colemak, so that's backspace
-T 1611772750 18<19seabass18>	'taken'!
-T 1611772753 18<27grym18>	i'm one of the ergodox weirdoes
-T 1611772768 18<19seabass18>	ah, sadly this isn't programable at the hardware level
-T 1611772768 18<19rpav18>	been looking at the ergodox or moonlander thing but only as potential replacement or alternative, but i want super light touch switches
-T 1611772792 18<19rpav18>	seabass: you *can* use an alternate hand, but i remap caps lock to control
-T 1611772817 18<19rpav18>	err yeah what grym said .. you can make it work on console etc even
-T 1611772838 18<27grym18>	rpav: the keyswitches are hot-swappable, it's very good
-T 1611772846 18<27grym18>	you can put many things there
-T 1611772850 18<27natter18>	let's all use footpedals
-T 1611772856 18<19seabass18>	alright, I'll look into rebinding capslock
-T 1611772863 18<19seabass18>	natter, do you play the organ? :)
-T 1611772880 18<27natter18>	no but I have browsed the kinesis catalog
-T 1611772896 18<19seabass18>	ahah :) Well I can just about play the pedals
-T 1611772897 18<19parsnip18>	what's a good way to share a private list of tasks, regarding a github project, ideally with ways to change urgency of a task, or add labels, etc
-T 1611772898 18<27grym18>	i'd probably want an ergodox-ez or moonlander over kinesis 
-T 1611772904 18<27grym18>	for maintainability if nothing else
-T 1611772910 18<19parsnip18>	does microsoft tasks have sharing?
-T 1611772919 18<19parsnip18>	s/tasks/todo/
-T 1611772927 18<27grym18>	parsnip: what's that self-hosted trello clone? 
-T 1611772936 18<19seabass18>	urgh, Microsoft tasks? :P
-T 1611772940 18<27grym18>	libreboard?
-T 1611772960 18<19parsnip18>	it doesn't have to be anti-spyware, just not public
-T 1611772974 18<19parsnip18>	ironically, i would prefer ease of use
-T 1611772979 18<27grym18>	oh, wekan now 
-T 1611772985 18<19seabass18>	grym, the ergodox is nice; what keycaps might you use? I think it has special shaped ones
-T 1611772987 18<27grym18>	parsnip: https://wekan.github.io/ perhaps 
-T 1611772991 18<19parsnip18>	ironic because the github project is a taskwarrior mobile app
-T 1611773001 18<27grym18>	seabass: i have their default keycaps for now, but i have space cadets on order :) 
-T 1611773014 18<19seabass18>	ahah. very retro :)
-T 1611773020 18*	19parsnip looks for demo page
-T 1611773024 18<19seabass18>	you'll have an actual super key then?
-T 1611773025 18<27grym18>	i'm stoked, they look gorgeous 
-T 1611773027 18<19parsnip18>	grym: i think i don't want to self-host
-T 1611773034 18<19parsnip18>	everything else about this project is hard enough
-T 1611773035 18<24db48x18>	seabass: you're not supposed to try to hit two keys with one hand. keyboards have to control keys for a reason
-T 1611773051 18<27grym18>	parsnip: then just use gh projects https://github.com/features/project-management/ 
-T 1611773074 18<19seabass18>	db48x, the right control key is very far away
-T 1611773082 18<19seabass18>	so I have to leave the home row to reach it
-T 1611773083 18<19parsnip18>	can i have complex lists that are not public?
-T 1611773085 18<27grym18>	seabass: renders https://geekhack.org/index.php?topic=105375.0 
-T 1611773090 18<27natter18>	db48x: tell that to C-M-!
-T 1611773105 18<19parsnip18>	oh, maybe a taskwarrior compatible list like trello would be a little funny
-T 1611773113 18<19seabass18>	grym, that's lovely
-T 1611773123 18<24db48x18>	natter: :)
-T 1611773130 18<19seabass18>	looks like the original, but teeny-tiny :)
-T 1611773133 18<27grym18>	seabass: yeah! ordered them in april 2020, they'll probably be here july 2021 ..? 
-T 1611773138 18<19parsnip18>	i'd have to do like `HOME=~/.trello task` or something
-T 1611773148 18<27grym18>	seabass: well, it's just the caps, so they're going on an ergodox
-T 1611773184 18<19seabass18>	grym, ah, another victom of industrial^H^H^H^H^H^H^H^H^H^H coronavirus disease, then
-T 1611773207 18<19parsnip18>	aha: https://docs.github.com/en/github/managing-your-work-on-github/changing-project-board-visibility
-T 1611773211 18<19seabass18>	although I would always prioritise the safety of factory workers over shipping times
-T 1611773211 18<20aidalgol18>	seabass: what?
-T 1611773212 18<27grym18>	seabass: no, small scale keycap manufacturer runs alllllways take a god's age
-T 1611773230 18<19seabass18>	ah, OK grym, so it's nothing unusual if that's the case!
-T 1611773230 18<27grym18>	waiting 3 years for a drop is not unheard of at all 
-T 1611773238 18<19seabass18>	wow, you have to be patient
-T 1611773245 18<27grym18>	seabass: small scale nerd manufacture is like this in any sector you care to name 
-T 1611773251 18<20aidalgol18>	massdrop?
-T 1611773252 18<27grym18>	i know bicycle makers with a 10 year waitlist
-T 1611773252 18<19seabass18>	Amazon would have you believe that one-day delivey is it
-T 1611773263 18<27grym18>	which sucks because peter's 67 or so now 
-T 1611773268 18<19parsnip18>	rudybot: seen oni-on-ion
-T 1611773269 18<24rudybot18>	parsnip: oni-on-ion was seen in #emacs two weeks ago, saying "=)", and then oni-on-ion was seen quitting two weeks ago, saying "Remote host closed the connection"
-T 1611773270 18<27grym18>	so getting in line is a *gamble*
-T 1611773276 18<20aidalgol18>	grym: Who's peter?
-T 1611773282 18<27grym18>	man makes goddamn gorgeous bikes though.  
-T 1611773294 18<19parsnip18>	oni-on-ion got the keyboard i just got, a few weeks before
-T 1611773299 18<27grym18>	aidalgol: the maker of this bike https://www.renehersecycles.com/j-p-weigle-for-the-concours-de-machines/ 
-T 1611773307 18<27grym18>	he doesn't even have a website 
-T 1611773310 18<20aidalgol18>	ah
-T 1611773311 18<27grym18>	he has a flickr page sometimies 
-T 1611773317 18<27grym18>	but you just kind of ... call his house
-T 1611773319 18<27grym18>	send him a check?
-T 1611773321 18<19seabass18>	grym, you clearly like craft goods
-T 1611773321 18<27grym18>	and wait
-T 1611773329 18<19seabass18>	It's a very neat bike
-T 1611773331 18<27grym18>	seabass: when it's worth it, absolutely 
-T 1611773332 18<19parsnip18>	grym: how do i go about making a nice beater/burner bike?
-T 1611773349 18<20aidalgol18>	What's better about a bespoke bike over a manufactured bike?
-T 1611773366 18<19seabass18>	so his workshop must be filled with cutting and forming tools I imagine
-T 1611773371 18<20aidalgol18>	Aside from hipster cred, I mean.
-T 1611773387 18<19parsnip18>	i think custom bikes can potentially fit you better
-T 1611773394 18<27grym18>	parsnip: find your local bike hippie collective masquerading as a bike shop, get a steel frame from the 80s that has at least JIS square taper cranks, and slap a bigass u-lock on it and replace every single quickrelease with a bolt 
-T 1611773397 18<19parsnip18>	and thus be more comfortable and efficient
-T 1611773414 18<19parsnip18>	but fitting a bike is probably more expensive than finding someone that knows how to tune gears
-T 1611773416 18<27grym18>	a bike that fits you will be always better; it doesn't matter much for short trips
-T 1611773423 18<27grym18>	where short is ~50 miles 
-T 1611773432 18<19parsnip18>	yeah, it's not currently worth it for me
-T 1611773438 18<19parsnip18>	i guess
-T 1611773445 18<19parsnip18>	cost/benefit
-T 1611773446 18<27grym18>	but if you're gonna go cross country or something, you do want a bike that's the right shape
-T 1611773463 18<20aidalgol18>	ah, gotcha
-T 1611773478 18<19parsnip18>	i _have_ noticed "man this bike doesn't even feel shaped right"
-T 1611773484 18<27grym18>	aidalgol: peter builds his bikes for randonneurs, who are self supported competitive amateur cyclists who travel very long distances
-T 1611773485 18<19parsnip18>	like, on my previous bike
-T 1611773505 18<20aidalgol18>	grym: Got a question for ya about the AI industry.
-T 1611773505 18<27grym18>	parsnip: yeah i rode a tiny-ass mongoose frame for years; i looked a bit like donkey kong 
-T 1611773509 18<27grym18>	aidalgol: shoot
-T 1611773538 18<20aidalgol18>	grym: You know all those toy apps and websites where you upload your photo and get a silly image generated from it?
-T 1611773539 18<27grym18>	parsnip: wound up putting bullhorns on it just so i could get some stretch out.  my current ride fits me quite well 
-T 1611773539 18<19parsnip18>	grym: is it A Bad Idea to try to be cheap _and_ start by just buying the frame?
-T 1611773550 18<20aidalgol18>	Like faceapp and toonme.
-T 1611773560 18<27grym18>	parsnip: frame-up is usually objectively better but it's not where i'd buy a beater bike at.  how tall are you? 
-T 1611773565 18<27grym18>	parsnip: and what's your inseam?
-T 1611773568 18<20dale18>	grym: Do you have an iPhone?
-T 1611773577 18<27grym18>	dale: i do 
-T 1611773586 18<27grym18>	aidalgol: sure, i know of them 
-T 1611773594 18<20dale18>	grym: Do you take long bike rides in temps of 32°F or lower with your iPhone?
-T 1611773612 18<20aidalgol18>	grym: Are they mostly all honeypots for getting training data for facial recognition products?
-T 1611773617 18<20dale18>	grym: Let's define "long" as "at least thirty minutes, preferably upwards of fourty-five".
-T 1611773618 18<27grym18>	dale: 20-ish miles or so 
-T 1611773623 18<20dale18>	forty-five
-T 1611773625 18<27grym18>	dale: sure. yes, i've done that a bunch
-T 1611773636 18<19seabass18>	I don't know, what would a parsnip riding a bike look like?
-T 1611773643 18<19seabass18>	https://x0.at/tN1.png
-T 1611773647 18<20dale18>	grym: Do you ever pull your iPhone out and have it shut down very shortly afterwards?
-T 1611773658 18<19parsnip18>	lol
-T 1611773679 18<27grym18>	aidalgol: afaik no, it's mostly funded by things like snap or instagram and they want user engagement for eyes for ads more than they want facial recognition as such 
-T 1611773685 18<27grym18>	aidalgol: but you can't rule it out 
-T 1611773777 18<27grym18>	dale: no, i don't see that.  i had that happen when i had navigation on on my phone and it was mounted in direct sun on a hot day
-T 1611773795 18<27grym18>	dale: i tend to ride with it tucked up against the small of my back in a jersey pocket, so it stays fairly warm 
-T 1611773796 18<20dale18>	grym: I regularly have my 6s die on me when I pull it out during a run in cold weather.  Not sure if this is my phone, or the 6s, or just all iPhones, or just any phone with an Li-ion battery.  Accounts on the Internet run the gamut.
-T 1611773820 18<20dale18>	grym: Ah.  I've got mine in a belt pouch on my front.  Sometimes I pull it out to change what I'm listening to.
-T 1611773828 18<27grym18>	dale: i notice a faster battery drain while skiing, but i've never figured out if it's "trying and failing to get a signal all the time" or thermal effects
-T 1611773833 18<20aidalgol18>	grym: So how does it help those businesses?  Because it makes people share the silly generated images on their platforms?
-T 1611773834 18<20dale18>	grym: Thanks for the data point.
-T 1611773837 18<20dale18>	grym: #whynotboth
-T 1611773852 18<27grym18>	dale: i think it's probably both.  i tend to keep it in airplane mode skiing now 
-T 1611773863 18<20dale18>	grym: I will actually lay some blame on YouTube Music, which gets *very* angry when you block doubleclick.net.
-T 1611773982 18<20dale18>	As a side note, if anyone knows of a small "hand warmer" sort of heater in a roughly rectangular phone shape, one that won't set my mostly sealed belt pouch on fire, I'd be glad to have a link to it.
-T 1611773984 18<19parsnip18>	ugh, i hate the threading in gitter
-T 1611774004 18<19parsnip18>	"tepid hand warmer"
-T 1611774006 18<19parsnip18>	;)
-T 1611774015 18<20dale18>	I jammed a chemical hand warmer in with my phone but it doesn't put out enough heat.
-T 1611774050 18<20dale18>	parsnip: I'm mostly worried about putting one of the gas-powered heaters in my pouch.
-T 1611774152 18<27grym18>	dale: there's the... yeah, those 
-T 1611774158 18<27grym18>	they freak me out a bit too 
-T 1611774195 18<20dale18>	I have one or two of the electric heaters, but the ones I have are too bulky and non-rectangular to fit comfortably when jammed against my waist with my phone.
-T 1611774207 18<20dale18>	I would love something vaguely credit card sized.
-T 1611774246 18<20dale18>	I'm 30% surprised that someone doesn't just make heated phone cases for iPhones.  I ran into some Kickstarter/IndieGoGo things that looked mostly unsuccessful.
-T 1611774248 18<29mplsCorwin18>	dale: my son has something like what you describe for track meets and cross-country.  I'll see if I can find out what exactly it is.  It's got some metal things in that you bend then it gets hot.  you boil it to recharge.
-T 1611774283 18<20dale18>	mplsCorwin: Huh, OK, thanks!  He actually uses it to warm a phone or similar?
-T 1611774356 18<29mplsCorwin18>	it's really for his hands but I think he has the phone in his mitten
-T 1611774362 18<20dale18>	I did also get my battery replaced.  It was barely a year old, probably shouldn't have been necessary, but I suspect that also improved the situation for me.  (I'm waiting for it to get super-cold again.)
-T 1611774401 18<20dale18>	mplsCorwin: Phone... in mitten...  Now I want to see the mittens. :)
-T 1611774411 18<20dale18>	And/or the phone.
-T 1611774526 18<20dale18>	Maybe I should try and figure out a better way to keep the phone near my body for warmth.
-T 1611774708 18<27grym18>	aidalgol: i think filters and stuff help snap by keeping users engaged, and we all lie to ourselves that this drives ad clicks 
-T 1611775489 18<27natter18>	rudybot: what is our engagement like here?
-T 1611775499 18<24rudybot18>	natter: Our rules of engagement were extremely strict in both Afghanistan and Iraq, and, speaking for my unit, we followed them to the letter.
-T 1611775544 18<19bremner18>	say what you will about killer-robots, they follow the rules
-T 1611775808 18<26frdg18>	for some reason `auto-complete-mode` always gives me an option for the completion in all caps. I have no idea why or how it does this. For example the menu will popup with both `config` and `CONFIG` I can't find any settings or documentation about this.
-T 1611776022 18<29mplsCorwin18>	dale: they are Hot To Go packs from htglife.com
-T 1611776276 18<20dale18>	mplsCorwin: Thanks, I appreciate it!  Even if they don't work for my phone, maybe I should use those instead of the disposable chemical ones I've been using.
-T 1611776363 18<29mplsCorwin18>	his tip is "get a bunch, they don't last that long"
-T 1611776400 18<20dale18>	Noted
-T 1611777460 18<20aidalgol18>	https://www.theverge.com/22251427/reddit-gamestop-stock-short-wallstreetbets-robinhood-wall-street
-T 1611777464 18<20aidalgol18>	"Stocks are memes now"
-T 1611777566 18<27tromey18>	... they always were
-T 1611777566 18<27grym18>	"always has been"
-T 1611777569 18<27tromey18>	lol
-T 1611777598 18<20aidalgol18>	* grym pulls trigger, shooting tromey in the haid
-T 1611777599 18<29johnjay18>	stocks-mode in emacs seems like it could work
-T 1611777612 18<29johnjay18>	the problem is i don't know how complicated ncurses layouts get
-T 1611777612 18<27tromey18>	haha yeah
-T 1611777628 18<20aidalgol18>	johnjay: If you're going to do that and not name it stonks-mode, then... well, I'll just be very disappointed.
-T 1611777634 18<29johnjay18>	haha
-T 1611777643 18<27grym18>	evil-stonks
-T 1611778912 23*	remby (~remby@bras-base-london1483w-grc-11-76-69-70-199.dsl.bell.ca23) has joined
-T 1611778963 24*	theothornhill has quit (Ping timeout: 260 seconds)
-T 1611778989 24*	cnngimenez has quit (Ping timeout: 246 seconds)
-T 1611778991 18<25beep156018>	Hey guys, are there any guidelines/guides on submitting patches to the Emacs code base?
-T 1611779083 18<24ryouma18>	so that new dvcs, punjab or whatefver it si called is basically like sccs except the patches commute?
-T 1611779148 24*	irek has quit (Ping timeout: 256 seconds)
-T 1611779155 24*	justanotheruser has quit (Ping timeout: 272 seconds)
-T 1611779165 18<24ryouma18>	my understanding from the faq is that basically git is snapshots, while sccs is patches.  and if you cherry pick a snapshot to apply to another, then you are already violating ontology, because you mean to apply the delta from source snapshot to dest snapshot.  which is broken.
-T 1611779198 23*	theothornhill (~user@161.80-203-66.nextgentel.com23) has joined
-T 1611779217 18<24ryouma18>	and making patches commute is an improvement over what git could do because why?
-T 1611779229 24*	rayyyy has quit (Ping timeout: 268 seconds)
-T 1611779262 23*	maxxcan (~user@178.156.58.23323) has joined
-T 1611779283 18<24ryouma18>	pijul
-T 1611779355 18<27grym18>	pijul is like darcs that goes brrr, right
-T 1611779370 18<24ryouma18>	what is darcs's selling point?
-T 1611779383 18<24ryouma18>	is it also patch commute?
-T 1611779439 18<27grym18>	patches are first class
-T 1611779451 18<27grym18>	it's selling point, aiui, is "it's haskell and has lots of quickcheck tests"
-T 1611779505 18<28caoliver18>	Let's rewrite all our working toolset in FOO.
-T 1611779533 18<28caoliver18>	... for sufficiently trendy and annoying values of FOO.
-T 1611779545 18<19bremner18>	so, common lisp?
-T 1611779559 18<28caoliver18>	CL is trendy?
-T 1611779565 18<27tromey18>	surely cl is quux and not foo
-T 1611779582 18<27grym18>	tromey: it'd better be!
-T 1611779597 18<24ryouma18>	psssssssssst: look up the word kludge in the index to cltl2
-T 1611779660 18<24ryouma18>	i kind of want a patch commute dvcs now even though git is so cumbersome i rarely do anything fancy with it
-T 1611779729 18<28caoliver18>	My word.  And spelled with a 'd' too.
-T 1611779732 18<24ryouma18>	though maybe i would use the pijul(/darcs) special features if they had a nice ui for such things as the faq says it provides
-T 1611779762 18*	28caoliver had to dig out the hardcopy CLtL2.  Kludges wasn't in my hypertext.
-T 1611779775 18<24ryouma18>	hehe
-T 1611779798 18<24ryouma18>	there is also a bug in cltl2: it says every day is exactly 86400 seconds long.  that's incorrect.
-T 1611779828 18<24ryouma18>	caoliver: it was plural?
-T 1611779832 18<28caoliver18>	(if (happy) (go think) (become insurance-salesman))
-T 1611779835 18<28caoliver18>	Yup
-T 1611779948 18<27grym18>	"have you considered a career in chartered accountancy"
-T 1611779988 18<26dragestil18>	hello, i have some question about signing and encrypting an email before sending it off
-T 1611780055 18<26dragestil18>	I get "No encrypt key for [recipient's email address]; skip it?" when trying to send it
-T 1611780081 18<26dragestil18>	which is puzzling as i thought i'm signing / encrypting using my key?
-T 1611780150 18<26dragestil18>	i'm trying to do so with the "<#secure method=pgpmime mode=signencrypt>" generated by selecting Attachments > Sign and Encrypt Message
-T 1611780300 18<24npostavs18>	dragestil: you encrypt with the recipient's (public) key, and sign with your (private) key
-T 1611780345 18<26dragestil18>	npostavs: i see. what if the recipient does not have any key? can i encrypt with my private key and attach my public key?
-T 1611780366 18<24npostavs18>	"can i encrypt with my private key" - nope
-T 1611780455 18<26dragestil18>	npostavs: why not, how else can i send an encrypted email to someone who hasn't their own keys
-T 1611780481 18<24npostavs18>	dragestil: basically you can't.  Hence why encrypted email is not very common
-T 1611780482 18<26dragestil18>	npostavs: i remember with thunderbird / enigmail this is possible
-T 1611780497 18<24npostavs18>	dragestil: maybe symmetric encryption with a password?
-T 1611780521 18<24npostavs18>	or the keys were managed without you realizing it
-T 1611780581 18<24npostavs18>	https://en.wikipedia.org/wiki/Autocrypt perhaps?
-T 1611780581 18<26dragestil18>	ok but why not? surely there's a reason not allowing encrypting an email using your own private key
-T 1611780595 18<24npostavs18>	encrypting with a private key is not a thing
-T 1611780626 18<26dragestil18>	why not?
-T 1611780729 18<26dragestil18>	ok, then anyone can read it with the public key...
-T 1611780763 18<26bqv18>	Encrypt it with something you both know like their DoB and MMN
-T 1611780776 18<26bqv18>	Thats your only real hope
-T 1611780788 18<26bqv18>	If theyre total strangers, rot13 it lol
-T 1611780804 18<26dragestil18>	ok thanks...
-T 1611781336 18<20bpalmer18>	encrypting data with a private key and asking users to use a public key is effectively an expensive signature.
-T 1611781373 18<20bpalmer18>	it does allow the people who decrypt it to know it was sent by someone in possession of the private key.
-T 1611781387 18<22notzmv18>	http://smbc-comics.com/comic/understanding-2 anyone sent this one today yet
-T 1611781527 18<20bpalmer18>	dragestil: there are systems that do "identity-based encryption" which would work in that case, but I don't believe pgp supports it. (I don't know of any actual tools that do it in the real world, although I ran across some startups a while back)
-T 1611781931 18<19parsnip18>	hmm, so "github projects" as a todo list does not feel like it really has a notion of labels, like in gmail, or taskwarrior
-T 1611781950 18<27AWizzArd18>	I would like to change the background color of the line my cursor is currently in. I do it like this:  (set-face-background hl-line-face new-rgb)    This works. But I get the complaint:    Warning: reference to free variable `hl-line-face'
-T 1611781951 18<19seabass18>	parsnip, could you use plain text for this?
-T 1611781981 18<27grym18>	parsnip: let's have a separate repo with todo.org in it 
-T 1611781989 18<19parsnip18>	i would prefer something a little shinier, as i want to make sharing todos easier for perhaps a less technical collaborator
-T 1611782001 18<27grym18>	(i figured)
-T 1611783290 20*	Disconnected (20)
-T 1611791627 19*	Now talking on 22#emacs
-T 1611791627 22*	Topic for 22#emacs is: Pretest #1 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.90.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
-T 1611791627 22*	Topic for 22#emacs set by 26Pickchea!~private@unaffiliated/pickchea (24Tue Jan 19 15:08:31 2021)
-T 1611791627 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
-T 1611792664 18<25spikemaster18>	reddit/r/wallstreet bets just went private. Seriousl stuff goign down as shortsellers losing big on gameStop
-T 1611792810 18<24deego18>	the reptilians got to them!
-T 1611792813 18<25spikemaster18>	wallstreet short sellers trying to paint redditors as "hackers". Probabably a last ditch effort to get the government to intervene.
-T 1611792948 18<25spikemaster18>	I was using /r/wallstreetbets for my reading entertainment. Now it's gone dark.
-T 1611792969 18<26bqv18>	so it's true
-T 1611792971 18<26bqv18>	huh
-T 1611793222 18<25spikemaster18>	undercover shortseller agents were making posts on /r/wallstreetbets. that could be part of the reason for going dark.
-T 1611793305 18<20leah218>	https://twitter.com/blueminder/status/1354581015038054404/photo/1
-T 1611793383 18<29mplsCorwin18>	speaking as someone whos made a living mostly in the financial service sector for a couple decades or so: rotflmao
 T 1611793414 18<25spikemaster18>	big money is at stake, so I'd expect every shady trick to be pulled.
 T 1611793434 18<29mplsCorwin18>	^ the daily driver in finsrv
 T 1611793601 18<29spudpnds18>	Haha, watching Wall Street heavy hitters like Melvin and Citadel need a nearly 3 billion dollar cash infusion after getting screwed by an army of Redditors with Robinhood accounts and stimuls checks has been some next-level schadenfreude.
@@ -5023,3 +4745,332 @@ T 1613476188 18<20pjb18>	contrapunctus: for example, to type: CO₂  I t
 T 1613476238 18<22contrapunctus18>	bpalmer: I knew about C-x 8 RET, but not these other C-x 8 bindings :o
 T 1613476371 18<25irek18>	Hello Emacs Wizards.  I found an issue.  After "tramp" is loaded minibuffer no longer returns strings like "~/path/**/*.txt" as a single string.  Instead it returns list of paths.  This makes dired recursive globbing broken.  Any idea how to disable this behavior?
 T 1613476715 18<22contrapunctus18>	pjb, bpalmer: how does one extend the keybindings for `C-x 8 ...`? Other than the `(lambda () (interactive) (insert "..."))` way?
+T 1613513496 19*	Now talking on 22#emacs
+T 1613513496 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1613513496 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
+T 1613513496 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1613513602 18<19refusenick18>	yeah
+T 1613513706 18<24ryouma18>	is there anything in edebug or trace that will tell me when point changes?
+T 1613513743 18<22contrapunctus18>	I've got a significant number of functions in Chronometrist which can be changed to be pure functions, by changing a global variable they refer to into an argument passed to them. Should I do this? 🤔
+T 1613513779 18<22contrapunctus18>	ryouma: `(message "point - %s" (point))`?  😏
+T 1613513886 18<24ryouma18>	well it's a few thousand lines of completely un-understandable code that i did not write (not htat i am incapable or writing un-understandable code) and somewhere, text gets inserted, and then point moves for no discernable reason
+T 1613513887 18<20dale18>	ryouma: https://www.gnu.org/software/emacs/manual/html_node/elisp/Global-Break-Condition.html seems like it might be relevant.
+T 1613513980 18<20dale18>	ryouma: You could try advising insert function with some before-advice that calls debug when inserting into the buffer you're interested in?
+T 1613514098 18<24ryouma18>	that might tell me wher eit inserts, although think i know where it might be inserting.  then i would eval (setq edebug-global-break-condition (/= 0 (point)) and instrument everything and run ... from that point or something?
+T 1613514118 18<24ryouma18>	one thing is certain.  i hate debugging.
+T 1613514340 18<25skyl4rk18>	I'm a newbie when it comes to the emacs debugger, more at home with gdb. I have some trouble understanding the terminology, how do I effectively step over a function call (like gdb "next"), d to step into it and then b to continue until exiting the frame that was stepped into?
+T 1613514416 18<24ryouma18>	dale: thank you
+T 1613514427 18<24ryouma18>	contrapunctus i didn't get context for that but thanks
+T 1613514430 18<24ryouma18>	,chronometrist
+T 1613514431 18<22fsbot18>	chronometrist: [0] an Emacs time tracker with a nice UI
+T 1613514431 18<22fsbot18>	[1] https://melpa.org/#/chronometrist
+T 1613514431 18<22fsbot18>	[2] https://github.com/contrapunctus-1/chronometrist/
+T 1613514517 18<19twb18>	OK guys I have a great idea.  Get a collaboration between Мор. Утопия and Shenmue.
+T 1613514619 18<19twb18>	Both of them involve walking around talking to people a lot, but opposite extremes of unreliable-narrator NPCs
+T 1613514635 18<20bpalmer18>	contrapunctus: in many languages, that's a nice idea; it might depend on whether you would end up changing it everywhere, or some places using a parameter and some places a global.
+T 1613514691 18<25skyl4rk18>	hm, I think I got the hang of it with a bit of experimentation, stuff marked '*' in the debugger will break/enter the debugger when that call returns, so 'c' is enough
+T 1613514886 18<24ryouma18>	should apt-sources.el run prog-mode-hook, text-mode-hook, or conf-mode-hook?  it seems to run none of those.
+T 1613516031 18<19refusenick18>	twb: What's Mor. Utopia?
+T 1613516047 18<19refusenick18>	Isn't Shenmue the forklift operator guy game
+T 1613516048 18<19refusenick18>	?
+T 1613516058 18<19twb18>	refusenick: yes
+T 1613516075 18<19refusenick18>	...Moroznaya Utopia?
+T 1613516080 18<19refusenick18>	(taking random guesses)
+T 1613516118 18<19twb18>	https://youtu.be/E7uKUgire7Y
+T 1613516129 18<19twb18>	I wonder if youtube suppors gopher...
+T 1613516281 18<26bqv18>	does emacs inherit faces from the parent propertize?
+T 1613516293 18<26bqv18>	cause i'm trying to use that, but now everything just looks "default"
+T 1613516369 18<19twb18>	I don't understand the question
+T 1613516440 18<26bqv18>	i may be misunderstanding how text properties work, but if i have (propertize (propertize text 'faceA) 'faceB) will the text inherit from faceB and then faceA, or will it just be faceA?
+T 1613516461 18<26bqv18>	because currently i'm trying it and it seems like the latter is the case, where i'd have assumed the former
+T 1613516531 18<19twb18>	bqv: I *think* if they don't conflict, then both will be used
+T 1613516542 18<19twb18>	i.e. if face A sets only foreground and face B sets only background
+T 1613516557 18<19twb18>	do you use themes?  Because themes fuck up faces badly
+T 1613516559 18<24holomorph18>	wouldn't you be assigning those face symbols to a property like 'font-lock-face, and so overwriting one with the other?
+T 1613516576 18<19twb18>	(usually -- they don't have to, but theme authors tend to be pretty sloppy)
+T 1613516607 18<19twb18>	holomorph: I think their real-world use case is more like italicizing a line and then bolding a word inside it
+T 1613516623 18<24holomorph18>	ah
+T 1613516626 18<19twb18>	holomorph: so that the word ends up with font-style: italic; font-weight: bold
+T 1613516655 18<19twb18>	I haven't dug into propertize much myself because mostly we use font-lock to auto assign faces
+T 1613516819 20*	Disconnected (20)
+T 1613517790 19*	Now talking on 22#emacs
+T 1613517790 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1613517790 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
+T 1613517790 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1613517806 18<19twb18>	it's... not
+T 1613517825 18<26bqv18>	A fresh profile is all but "clear browsing data", emacs -Q is "isolate every bloody piece of code relevant to your case and nothing else in a painstaking process that will take you no less than an hour and probably several"
+T 1613517831 18<19twb18>	firefox -profile new is the same as emacs -q
+T 1613517854 18<19twb18>	it e.g. removes all webexts
+T 1613517878 18<26bqv18>	As you are by all means aware, emacs is very, very not modular
+T 1613517946 18<26bqv18>	hence if asked id use a fresh firefox profile in a heartbeat but making emacs minrepros I feel like I should ask for a salary
+T 1613517988 18<19twb18>	I don't understand why you think that's harder
+T 1613518020 18<19twb18>	Is your bugged code relying on the equivalent of 10000 left-pad.el packages?
+T 1613518188 18<27grym18>	am i missing something or is there no indirect form of dired-find-file-other-window 
+T 1613518196 18<22sam_18>	honestly what's the alternative?
+T 1613518202 18<22sam_18>	people need to isolate it
+T 1613518205 18<22sam_18>	it sucks but it is what it is
+T 1613518264 18<19twb18>	grym: indirect?
+T 1613518308 18<27grym18>	twb: looking for a way to fire that function and keep focus on dired's window not the one it just opened
+T 1613518332 18<27grym18>	i could wrap it in a silly lambda, but if there's a nicer way that'd be handy 
+T 1613518713 18<25genevino18>	so the thing i'm really not comfortable with in emacs is the startup time. this takes about ~4sec on a fast 6 core ryzen. is there any way to speed this up significantly?
+T 1613518721 18<27grym18>	genevino: emacsclient
+T 1613518726 18<27grym18>	this way it only sucks once!
+T 1613518735 18<25genevino18>	O.O
+T 1613518758 18<27grym18>	you can even make it a service if you want and make your init system handle it 
+T 1613518766 18<27grym18>	https://emacsredux.com/blog/2020/07/16/running-emacs-with-systemd/ 
+T 1613518786 18<19twb18>	grym: wrap it in (save-excursion)?
+T 1613518806 18<27grym18>	genevino: if you like, you can also play very careful games with deferred loading, etc. and have snappy init times even with lots of stuff in there 
+T 1613518815 18<27grym18>	genevino: emacs -Q should be snappy everywhere though 
+T 1613518818 18<27grym18>	twb: yeah, i might 
+T 1613518843 18<25genevino18>	ok this still shows the "welcome to emacs" screen when i start emacsclient with a background emacs running with M-x server-start
+T 1613518854 18<25genevino18>	if i could just disable that thing i believe it would get fast :)
+T 1613518880 18<27grym18>	genevino: i have a stupid little shell script named `em` whose contents after the shebang are `exec emacsclient -c -a="" "$@" & > /dev/null` 
+T 1613518895 18<27grym18>	em foo.txt is slow once
+T 1613518903 18<27grym18>	all subsequent em invocations are real quick 
+T 1613518904 18<25genevino18>	grym: ty!!!
+T 1613518923 18<27grym18>	genevino: close em-spawned things with C-x 5 0 
+T 1613518929 18<25genevino18>	yes that's FAST
+T 1613518944 18<27grym18>	aksi
+T 1613518946 18<27grym18>	ererkjgh
+T 1613518952 18<27grym18>	also, buffers are shared among all of them 
+T 1613518966 18<27grym18>	which is (usually) very nice
+T 1613549829 20*	Disconnected (20)
+T 1613549857 19*	Now talking on 22#emacs
+T 1613549857 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1613549857 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
+T 1613549857 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1613550561 24*	28watkinsr2 is now known as 18watkinsr
+T 1613551035 18<20aidalgol18>	ls
+T 1613551041 18<20aidalgol18>	ignore that! >_>
+T 1613551513 18<27FrostyX18>	Hello everyone, please is it possible to workaround quelpa "Error getting PACKAGE-DESC: (error Package lacks a file header)" on my side, or it needs to be addressed by the package maintainer? I am trying to install https://github.com/rougier/mu4e-thread-folding
+T 1613553559 18<29fourier18>	report a bug to maintainer
+T 1613554054 18<27FrostyX18>	ouk
+T 1613554055 18<28jfb418>	what are the benefits of pgtk in the next emacs release
+T 1613554449 18<24pinoaffe18>	so I'm setting up frames that won't have menu bars and the like, so their native height is identical to their outer height, is it possible to specify their native height before they're created, so they don't need to be resized upon creation?
+T 1613554480 18<24pinoaffe18>	I'm using EXWM, creating 14 frames at once during startup, so frame resizing takes up a significant chunk of time
+T 1613554889 18<22contrapunctus18>	aidalgol: cd 😏
+T 1613555034 18<20trevarj18>	can someone help me with doom emacs? i have a problem where it won't install all-the-icons package. i pulled the repo and fixed the URL that it stuck and want to load the local package to try it now 
+T 1613555956 18<26HappyPonyLand18>	pinoaffe: have you tried something like (make-frame '((width . 50) (height . 20))) ?
+T 1613556352 18<26HappyPonyLand18>	maybe you could hijack after-make-frame-functions to call set-frame-size which allows pixel dimensions
+T 1613556425 18<24pinoaffe18>	HappyPonyLand: the width and height arguments are not native pixel dimensions
+T 1613556485 18<26HappyPonyLand18>	seems you can do (set-frame-size (make-frame) 1000 1000 t)
+T 1613556637 18<26HappyPonyLand18>	or something like (let ((frame (make-frame))) (set-frame-position frame 0 0) (set-frame-size frame 300 300 t)) if you want to move it as well
+T 1613557190 18<20pjb18>	you may want to disable after-make-frame-functions if they change the size or position: (let* ((after-make-frame-functions nil) (frame (make-frame))) (set-frame-position frame 0 0) (set-frame-size frame 300 300 t))
+T 1613557350 18*	26jla says morning...
+T 1613557353 18<26jla18>	 do you guys use Markdown in an Orgmode file ? If possible ... How to ?
+T 1613557586 18<19twb18>	aidalgol: MariaDB and Oracle MySQL are both backwards-compatible with real MySQL
+T 1613557670 18<28perrier-jouet18>	hi all
+T 1613557679 18<28perrier-jouet18>	how can I see previous commands ?
+T 1613557691 18<26polezaivsani18>	perrier-jouet: M-p
+T 1613557714 18<26polezaivsani18>	or you mean all of them?
+T 1613557819 18<28perrier-jouet18>	I did like what package I added or deleted ?
+T 1613557831 18<28perrier-jouet18>	show package-install history
+T 1613557835 18<28perrier-jouet18>	is it possible ?
+T 1613557848 18<28perrier-jouet18>	in vim : up arrow shows what we did
+T 1613557856 18<28perrier-jouet18>	how to do the same
+T 1613557889 18<26polezaivsani18>	M-x M-p i suppose is what you're after
+T 1613558007 18<19twb18>	aidalgol: but they are not fully compatible with each other
+T 1613558083 18<28perrier-jouet18>	it shows the command but not the whole thing for exemple I know I did package-install but is it possible to cycle through the last added package and going on ward ?
+T 1613558098 18<28perrier-jouet18>	sorry my english 
+T 1613558114 18<28perrier-jouet18>	I meant the last executed command and up 
+T 1613558185 18<28perrier-jouet18>	package-install history package-install a,b,c etc is it possible in emacs to list a history of commands ? show list of package-install commands executed for exemple ?
+T 1613558214 18<28jfb418>	do you mean (command-history)
+T 1613558256 18<28perrier-jouet18>	maybe
+T 1613558284 18<26polezaivsani18>	jfb4: thanks, didn't know of it
+T 1613558311 18<28perrier-jouet18>	(comamnd-history) gave me a buffer but how I use this ?
+T 1613558366 18<28perrier-jouet18>	https://www.gnu.org/software/emacs/manual/html_node/elisp/Command-History.html
+T 1613558371 18<28perrier-jouet18>	a ha
+T 1613558447 18<26polezaivsani18>	perrier-jouet: you could also use M-p at most (all?) of the prompts to get the previous input
+T 1613558583 18<20lxsameer18>	hey folks, is there any way to set the encoding globally to utf8 ? I need it for org publish
+T 1613558689 18<28perrier-jouet18>	polezaivsani: M-p is undefined
+T 1613558815 18<26polezaivsani18>	perrier-jouet: do you mean C-h C-k M-p says it's not bound, or it just doesn't seem to do anything?
+T 1613558948 18<26polezaivsani18>	perrier-jouet: ops, s/C-h C-k M-p/C-h k M-p/
+T 1613559273 18<28jfb418>	perrier-jouet: are you specifically interested in the history of package installs (which may not be your own commands)?
+T 1613559853 18<27codingquark18>	Hello!
+T 1613559928 18<26polezaivsani18>	Buenos dias codingquark!
+T 1613560149 18<27codingquark18>	:)
+T 1613561926 18<27nij18>	What's the current state of emacs threads? Are they safe?
+T 1613562324 18<27nly18>	which input method is russian jcuken keyboard?
+T 1613562462 18<19twb18>	nly: emacs only has russian-computer and russian-typewriter
+T 1613562711 18<27nly18>	how do you add an input method
+T 1613562884 18<19twb18>	nly: with great difficulty
+T 1613562894 18<19twb18>	nly: if you're using a GUI, recommend you use the GUI's IM
+T 1613562977 18<20pjb18>	nly: an input method is actually an entry in  input-method-alist, named by a string.
+T 1613563000 18<20pjb18>	,dv input-method-alist
+T 1613563000 18<20pjb18>	 
+T 1613563000 18<20pjb18>	Hangul 3-Bulsik 390 input method.")
+T 1613563000 18<22fsbot18>	Alist of input method names vs how to use them.
+T 1613563000 18<22fsbot18>	Each element has the form:
+T 1613563000 18<22fsbot18>	   (INPUT-METHOD LANGUAGE-ENV ACTIVATE-FUNC TITLE DESCRIPTION ARGS...)
+T 1613563000 18<22fsbot18>	See the function ‘register-input-method’ for the meanings of the elements.
+T 1613563000 18<22fsbot18>	Defined in `/usr/share/emacs/26.1/lisp/international/mule-cmds.elc'.
+T 1613563038 18<20pjb18>	You would use ,,df register-input-method  to define one, I guess.
+T 1613563038 18<22fsbot18>	register-input-method is a compiled Lisp function in ‘mule-cmds.el’.
+T 1613563038 18<22fsbot18>	(register-input-method INPUT-METHOD LANG-ENV ACTIVATE-FUNC TITLE
+T 1613563038 18<22fsbot18>	DESCRIPTION &rest ARGS)
+T 1613563038 18<22fsbot18>	Register INPUT-METHOD as an input method for language environment LANG-ENV. ;;[ ,more / ,dump]
+T 1613563096 18<26polezaivsani18>	nly: btw, russian-computer does seem like the jcuken you're after
+T 1613563109 18<20pjb18>	nly: so basically, the input method is defined by the function that activates it.  This function will probably change the key bindings.
+T 1613563120 18<27nly18>	isn't p on g?
+T 1613563124 18<27nly18>	russian P
+T 1613563133 18<27nly18>	dvorak and jcuken
+T 1613563194 18<26polezaivsani18>	'seem' as in i don't actually use it :)
+T 1613563201 18<20pjb18>	No, it's on the [п] key.
+T 1613563264 18<27nly18>	i dont get jcuken i got эбюзна
+T 1613563342 18<26polezaivsani18>	the record in input-method-alist had it as `йцукен' is what led me to that conclusion
+T 1613569280 20*	Disconnected (20)
+T 1613569308 19*	Now talking on 22#emacs
+T 1613569308 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1613569308 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
+T 1613569309 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1613569344 18<24jmares18>	regarding what wasamasa has been discussing, one step forward would be a minimalistic app that won't open links or do absolutely nothing other than send text
+T 1613569359 18<19wasamasa18>	people want features though
+T 1613569366 18<24jmares18>	not older people though
+T 1613569386 18<19wasamasa18>	there's a paper pointing out the greatest way to build mobile malware is to make a messenger
+T 1613569392 18<24jmares18>	I don't know. Just a random idea, using minimalism to simplify the issue with elders
+T 1613569398 18<19wasamasa18>	it needs all the permissions without looking too suspicious
+T 1613569411 18<24jmares18>	wasamasa: damn. that's fascinating
+T 1613569425 18<19wasamasa18>	like, it has become normal for messengers to check your contacts
+T 1613569430 18<26HappyPonyLand18>	anyway, sorry for derailing the infosec discussion with my parents rant
+T 1613569445 18<24jmares18>	HappyPonyLand: I don't think you derailed it at all, IMHO
+T 1613569448 18<19wasamasa18>	same
+T 1613569455 18<24jmares18>	wasamasa: creepy isn't it.
+T 1613569464 18<24jmares18>	wasamasa: are signal Good(TM)?
+T 1613569470 18<19wasamasa18>	I believe trying to educate someone about all the things is a losing battle
+T 1613569491 18<24jmares18>	wasamasa: right. So more returns on effort on just building more restrictive tools?
+T 1613569492 18<19wasamasa18>	teaching them some basic rules can work
+T 1613569505 18<19wasamasa18>	signal seems fine, though there's been signs of dodginess
+T 1613569513 18<24jmares18>	for ex.?
+T 1613569526 18<19wasamasa18>	there has been a lack of commits for the server part on github
+T 1613569532 18<24jmares18>	Displaying your name as available to message to anyone who has your numer?
+T 1613569537 18<19wasamasa18>	but there's been definitely changes to support new features
+T 1613569542 18<24jmares18>	wasamasa: oh, that sounds worse
+T 1613569565 18<24jmares18>	So they may be using non-open software to run the servers
+T 1613569568 18<19wasamasa18>	them doing the move towards backups (a mechanism law enforcement relies on to retrieve messages) using SGX/PINs
+T 1613569580 18<19wasamasa18>	they sort of backed out of that, but still
+T 1613569610 18<24jmares18>	isn't there a way to know for sure the clients are using servers built on the open source server code?
+T 1613569611 18<19wasamasa18>	I can see why they did it to make it less of a pitfall, they promise the backups are encrypted with that PIN and protected via SGX
+T 1613569614 18<19wasamasa18>	but it's still weird
+T 1613569637 18<19wasamasa18>	signal is rather hard-headed on using non-official clients, so nope
+T 1613569638 18<24jmares18>	make what a pitfall? Data loss?
+T 1613569652 18<24jmares18>	So they could be using a Facebook backend server
+T 1613569653 18<27nij18>	Is there an #'lit operator that does (lit a b c d ..) => (lit a b c d ..) in elisp?
+T 1613569681 18<19wasamasa18>	usually backups for instant messengers are not encrypted
+T 1613569694 18<19wasamasa18>	so if you believe the e2e encryption claims, backups undermine that
+T 1613569731 18<24jmares18>	wasamasa: I understood "backups" as "the ability of your Signal client to locally save encrypted backups" not as them being able to backup your data
+T 1613569746 18<19wasamasa18>	no, the remote kind
+T 1613569755 18<24jmares18>	Is that what you mean? "how can they claim e2e when they're capable of backing up your chats"
+T 1613569756 18<19wasamasa18>	nij: if there is, it's in dash-functional
+T 1613569799 18<19wasamasa18>	no, what I mean is that e2e has become a catch-all term for nobody being able to read your communications, but it doesn't matter if someone can read your backups
+T 1613569824 18<19wasamasa18>	which is how law enforcement could figure out whether you're selling guns on whatsapp
+T 1613569879 18<24jmares18>	Oh I see, sorry I didn't know that SGX is what allows backdoors. Now I get it
+T 1613569907 18<24jmares18>	wasamasa: Maybe a bad question but what do you think the EU is gonna do about e2e?
+T 1613569917 18<20pjb18>	nij: if you write #'lit which is read as (function lit) then it's not just an operator, it's a function.
+T 1613569918 18<19wasamasa18>	¯\_(ツ)_/¯
+T 1613569921 18<24jmares18>	:D 
+T 1613569922 18<24jmares18>	good answer
+T 1613569923 18<24jmares18>	hahahahah
+T 1613569940 18<20pjb18>	nij: there is no function that can know what argument you passed to it. Functions only get the values resulting in evaluating their arguments.
+T 1613569954 18<20pjb18>	nij: so the answer to your question is no. (in elisp, and in all lisps).
+T 1613570004 18<20pjb18>	nij: now, if you are just dumb/newbie and wanted an opeartor named lit that does that, you could have a macro: (defmacro lit (&rest args) `'(lit ,@args)) (lit a b c d ..) --> (lit a b c d \.\.)
+T 1613570010 18<27nij18>	pjb: I see. Shouldn't have used "#'".
+T 1613570016 18<20pjb18>	I don't know.
+T 1613570021 18<20pjb18>	What did you want?
+T 1613570030 18<24pinoaffe18>	nij: I don't quite get your question, but you might want to look at (quote (a b c d))
+T 1613570046 18<24pinoaffe18>	or, with the conventional syntactic sugar, '(a b c d)
+T 1613570057 18<20pjb18>	nij: or more precisely, what is the significance in your program of lists starting with the symbol lit?
+T 1613570058 18<27nij18>	(quote (a b c d)) does not return (quote (a b c d)) but rather (a b c d)
+T 1613570093 18<20pjb18>	nij: and why should those lists be made of unevaluated items? (lit three = (+ 1 2)) --> (lit three = (+ 1 2)) What's the point? Is it meaningful in your program?
+T 1613570119 18<27nij18>	pjb: nah I was reading P.G.'s bel spec.. and lit was one of the special forms
+T 1613570132 18<20pjb18>	P.G. has some strange notions about lisp…
+T 1613570174 18<19wasamasa18>	(defmacro quine (&rest args) `'(quine ,@args))
+T 1613570177 18<20pjb18>	nij: you can expect a new lisp language named can or something like that in a couple of years, after arc and bel…
+T 1613570252 18<20pjb18>	nij: also, it seems like you misread what he wrote.  The operator is fn, and it returns a list starting with the lit symbol.
+T 1613570306 18<20pjb18>	nij: since bel only has the four types: symbols, pairs, characters, and streams, structures need to be made with lists, and to distinguish different types of structures, you need to use a discriminating symbol at the head of the list.
+T 1613570387 18<27nij18>	I think that's elegant, because then I can evaluate if to be (lit prim if).
+T 1613570420 18<20pjb18>	nij: in emacs lisp you can do that with defstruct using the :type and :named options: (defstruct (color (:type list) (:named t)) red green blue) (make-color :red 3 :green 42 :blue 66) --> (color 3 42 66)
+T 1613570421 18<27nij18>	Yeah, it's a hack for its having only 4 fundamental types, but I like it.
+T 1613570451 18<20pjb18>	nij: but in practice it's useless. For real programs,  you would just use Common Lisp.
+T 1613570458 18<27nij18>	Yep xD
+T 1613570501 18<20pjb18>	nij: Also, why keep those 4 types? Just lambda is enough, you can build symbols, pairs, characters and streams out of lambda.
+T 1613570563 18<20pjb18>	nij: basically what you're observing here, (and with a lot of other lispers from all grades), is somebody lost in the fascination of the lambda-calculus whirlpool.
+T 1613570566 18<27nij18>	pjb: really? How?!
+T 1613570604 18<27nij18>	pjb: Yeah, I think he knows its impracticality and just treats that as an exercise of his.
+T 1613570614 18<20pjb18>	There is no meaningful set of "primitive" operations or types.  There's lambda-calculus, and you can build everything from there.
+T 1613583755 19*	Now talking on 22#emacs
+T 1613583755 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1613583755 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
+T 1613583756 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1613583756 18<19twb18>	That's basically first generation money
+T 1613583794 18<27hodapp18>	there was some sort of high-profile case where the were the ones who made the actual arrest, not the Feds or something
+T 1613583800 18<27grym18>	hodapp: you can use this to your advantage in tenancy disputes, also 
+T 1613583800 18<27hodapp18>	because it just happened that the case fell under their purview
+T 1613583807 18<27hodapp18>	grym: how's that?
+T 1613583821 18<27grym18>	hodapp: when they say registered mail they _mean_ it and will do things like legally attest to the delivery of a letter
+T 1613583835 18<27grym18>	hodapp: so if you ever need to put the screws on a landlord or something, make 'em sign for it 
+T 1613583846 18<19twb18>	hodapp: USPS *are* feds
+T 1613583849 18<27hodapp18>	grym: huh, good to know
+T 1613583858 18<19twb18>	it's not a devolved matter
+T 1613583871 18<27grym18>	hodapp: i used this fact to seriously annoy a motorcycle company once :) 
+T 1613583877 18<27hodapp18>	twb: whaa, the way I've always seen it, 'Feds' is just shorthand for FBI in specific
+T 1613583888 18<19twb18>	oh ok
+T 1613583893 18<27tromey18>	it depends on context
+T 1613583898 18<27hodapp18>	found the fed
+T 1613583898 18<27grym18>	literally cc'd the board of directors with chapter and verse from state lemon laws, and i had a new motorcycle in 72 hours 
+T 1613583901 18*	27hodapp throws a tomato at tromey
+T 1613583907 18<27tromey18>	true though
+T 1613584047 18<20jlf18>	rudybot: ¿que es mas macho: feds o staties?
+T 1613584049 18<24rudybot18>	jlf: EFF sounds like "write songs for the dead, hang LEDs on your sweater and get tackled by staties, have eerily good lawyers somehow anyway"
+T 1613584073 18<27hodapp18>	my favorite was being at work and having an investigator call me asking if they could ask some questions, as I'd been listed as a reference for someone's security clearance - and they agreed to meet me at my work's office for a short meeting
+T 1613584086 18<27grym18>	 staties merely have their sense of humour removed surgically at graduation from academy 
+T 1613584099 18<27hodapp18>	but this information didn't make it to the secretary who was on hand when he arrived
+T 1613584113 18<27grym18>	hodapp:  ohhh man 
+T 1613584115 18<27hodapp18>	so she came by my desk looking a tad spooked and said "someone just flashed an FBI badge and asked to see you..."
+T 1613584190 18<27grym18>	hah hah hah nice 
+T 1613584266 18<19e1f18>	there's a big bang theory episode like this
+T 1613584280 18<27hodapp18>	I should have shouted "COME BACK WITH A WARRANT" and dove down the nearest stairwell
+T 1613584405 18<19e1f18>	never joke with govt. employees. they can make your life miserable by doing nothing
+T 1613584420 18<27hodapp18>	yeah yeah that was the joke
+T 1613584426 18<27hodapp18>	that one never jokes with them
+T 1613584444 18<20jlf18>	ooh https://www.usatoday.com/story/news/politics/2018/02/21/16-million-postal-service-has-spent-make-satuday-morning-tv-show-turns-postal-inspectors-into-crimef/355986002/
+T 1613584445 18<24rudybot18>	https://teensy.info/qcuv5a7ebB
+T 1613584451 18<19twb18>	I dunno why you wouldn't be polite to the person serving the warrant
+T 1613584582 18<26bqv18>	is there such a thing as a buffer-local alias?
+T 1613584644 18<27grym18>	twb: negative, i am a meat popsicle
+T 1613584665 18<19twb18>	grym: hmmm?
+T 1613584735 18<27grym18>	twb: in terms of what to say to someone serving a warrant 
+T 1613584748 18<19twb18>	I don't understand what that means
+T 1613584767 18<27grym18>	oh.  Fifth Element reference
+T 1613584779 18<27grym18>	https://www.youtube.com/watch?v=jp7e703fPMs
+T 1613584815 18*	26bqv test
+T 1613584894 18<19twb18>	how shit are their riot shields
+T 1613584943 18<27grym18>	twb: designed by jean-paul gautier
+T 1613584948 18<27grym18>	what do you expect
+T 1613584956 18<24npostavs18>	bqv: no, aliasing can't be buffer-local
+T 1613584957 18<20bpalmer18>	bqv: you mean like with defvaralias? I don't htink so
+T 1613584958 18<26bqv18>	damn
+T 1613584972 18<19e1f18>	rush limbaugh †
+T 1613584988 18<20bpalmer18>	bqv: what was your use case?
+T 1613584990 18<26bqv18>	inconvenience
+T 1613585031 18<19twb18>	e1f: I don't think he was crucified
+T 1613585039 18<26bqv18>	(i was hoping to change outline-regexp, but only for a certain major-mode. i know there's better ways but i'm just being lazy)
+T 1613585076 18<20bpalmer18>	bqv: just change the buffer-local value of that variable in the mode hook
+T 1613585083 18<26bqv18>	yes, i do
+T 1613585093 18<26bqv18>	but then if i change it in one buffer the rest don't change in constance
+T 1613585098 18<20bpalmer18>	I don't see how aliasing would come into play.
+T 1613585131 18<26bqv18>	i could alias it to another global value for that mode, so they all still change in unison, but are still set only buffer-locally
+T 1613585203 18<20bpalmer18>	bqv: write a function to handle changing the global value which sweeps in to all these buffers and changes them.
+T 1613585223 18<26bqv18>	"i know there's better ways but i'm just being lazy"
+T 1613585280 18<20bpalmer18>	The heart of the function would be something like (dolist (b (buffer-list)) (when (with-current-buffer b (derived-mode-p 'some-mode)) (set (make-local-variable 'outline-regexp) "whatever")))
+T 1613585323 18<26bqv18>	oh my god please stop talking
+T 1613585329 18<20bpalmer18>	although I believe newer versions of emacs have a new idiom for (with-current-buffer b (derived-mode-p ...))
+T 1613585329 18<26bqv18>	i know how to do that
+T 1613585341 18<26bqv18>	i was asking about aliasing because i thought it might be neater
+T 1613585348 18<20bpalmer18>	bqv: ...
+T 1613585348 18<26bqv18>	you asked me why, i explained why
+T 1613585348 18<26bqv18>	i am happy
+T 1613585348 18<20bpalmer18>	ok.
+T 1613585356 18*	20bpalmer will ignore bqv for a while
+T 1613585384 18<20bpalmer18>	simplifies my life.
+T 1613585596 18<26bqv18>	oh huh, damien elmes (creator of anki) is an emacs user...
+T 1613585660 FiSHLiM plugin unloaded

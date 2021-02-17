@@ -10098,3 +10098,90 @@ Feb 16 12:58:02 <yates>	i've uncovered this in a google search: https://forums.v
 Feb 16 12:58:10 <yates>	i did not really see a resolution.
 Feb 16 12:58:25 <herlimenezes>	[Enrico]: do you speak portuguese? may I write in portuguese?
 Feb 16 12:58:37 <yates>	i'm running f32/Cinammon DE
+**** BEGIN LOGGING AT Tue Feb 16 23:11:36 2021
+
+Feb 16 23:11:36 *	Now talking on #fedora
+Feb 16 23:11:36 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 16 23:11:36 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 16 23:11:36 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 16 23:12:38 <M0xdeadcat[m]>	Is it possible that I cannot share my screen on Discord, because I've installed it from Flatpak?
+Feb 16 23:13:10 <M0xdeadcat[m]>	I can only share a few select programs (almost all of them are other Flatpak apps)
+Feb 16 23:13:46 <dowdle>	davetoo: Using containers I would imagine.  While multiple versions of PHP are available (I think) via modules, you can only have one version installed at a time.
+Feb 16 23:14:19 <Dustin[m]>	That is probably related to Wayland
+Feb 16 23:14:49 <Dustin[m]>	0xdeadcat: I believe that it's still not quite working with Wayland but is fixed in the next releases
+Feb 16 23:15:12 <M0xdeadcat[m]>	Oh... I see
+Feb 16 23:15:21 <Dustin[m]>	I believe that's the case
+Feb 16 23:15:44 <Dustin[m]>	I tested screen sharing using Jitsi Meet and it is indeed not working for full screen share
+Feb 16 23:15:49 <Dustin[m]>	Only windows
+Feb 16 23:16:03 <Dustin[m]>	But Fedora 34 and GNOME 40 are supposed to have that all fixed and working perfectly
+Feb 16 23:17:26 <drakonan2>	What is the reason for the /run dir?!?!?!
+Feb 16 23:18:14 <M0xdeadcat[m]>	I was thinking it's because of Flatpak, because when I installed CLion through it, I couldn't use OpenOCD for instance (even though the path was correct and I had it installed) ¯_ (ツ)_/¯
+Feb 16 23:18:22 <M0xdeadcat[m]>	Dustin:
+Feb 16 23:18:26 <M0xdeadcat[m]>	That's great to hear
+Feb 16 23:20:14 <dowdle>	drakonan2: Some stuff is stored under there.  For example, most removable media is automounted somewhere under /run by default by the GUI desktop environments.  /run definitely isn't Fedora specific
+Feb 16 23:24:07 <dowdle>	drakonan2: /var/run is a symlink to /run so... whatever /var/run was used for. :)
+Feb 16 23:25:11 <drakonan2>	just trying to understand between ubuntu/fedora establish situational awareness since my first thought when i saw that was i was on the livecd heh
+Feb 16 23:32:51 <drakonan2>	dowdle, just confusing since i went to /media which existed... no telling how much time i wasted there
+Feb 16 23:33:49 <vwbusguy[m]>	drakonan2: `man hier` is helpful for understanding what the top level directories are for
+Feb 16 23:37:00 <yuriLoki>	Hey guys , installed fedora on my laptop and my microphone (the one that comes in the headset) is not detected ...
+Feb 16 23:37:10 <yuriLoki>	My laptop is running a single jack
+Feb 16 23:37:56 <yuriLoki>	Is there any thing I can do ? I already tried following a bazilion of old answers on stack overflow. Any help would be appreciated
+Feb 16 23:38:22 <dowdle>	drakonan2: Yeah, so there's /mnt, /media, and now stuff under /run/
+Feb 16 23:38:53 <dowdle>	drakonan2: If your desktop mounts it for you automatically they generally put an icon on the desktop or provide a specific way to get to it in your graphical file manager.
+Feb 16 23:57:46 *	Muvon53_ is now known as Muvon53
+Feb 17 00:06:59 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb 17 00:06:59 2021
+
+**** BEGIN LOGGING AT Wed Feb 17 00:23:10 2021
+
+Feb 17 00:23:10 *	Now talking on #fedora
+Feb 17 00:23:10 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 17 00:23:10 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 17 00:23:10 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 17 09:17:09 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb 17 09:17:09 2021
+
+**** BEGIN LOGGING AT Wed Feb 17 09:17:37 2021
+
+Feb 17 09:17:37 *	Now talking on #fedora
+Feb 17 09:17:37 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 17 09:17:37 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 17 09:17:37 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 17 09:29:21 *	watkinsr2 is now known as watkinsr
+Feb 17 09:32:02 <cockingbird_cage>	hello
+Feb 17 09:53:32 <su__deep>	ledeni: thanks! The following disables nouveau
+Feb 17 09:53:32 <su__deep>	# echo "blacklist nouveau" > /etc/modprobe.d/nouveau-blacklist.conf
+Feb 17 09:53:32 <su__deep>	# grubby --update-kernel=ALL --args="rd.driver.blacklist=nouveau"
+Feb 17 09:53:32 <su__deep>	# dnf remove xorg-x11-drv-nouveau
+Feb 17 09:53:32 <su__deep>	# mv /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r)-nouveau.img
+Feb 17 09:53:33 *	fedbot sets quiet on *!*@122.177.203.49
+Feb 17 09:54:05 *	fedbot removes quiet on *!*@122.177.203.49
+Feb 17 10:36:07 <roberttvarga[m]>	Hi fellows,
+Feb 17 10:36:07 <roberttvarga[m]>	Anyone with a little knowledge on connecting issues regarding Seagate Personal Cloud devices?
+Feb 17 10:36:07 <roberttvarga[m]>	Fedora 33 doesn't seem to like to connect to that wretched thing.
+Feb 17 10:44:59 *	RobertTvarga is now known as roberttvarga
+Feb 17 11:00:45 <Kenguru>	https://dchub.one
+Feb 17 12:05:15 *	_Yoda is now known as _Yoda_aw
+Feb 17 12:39:16 *	peaboy[m] is now known as plat_[m]
+Feb 17 13:02:00 <zak256>	Hi. I was wondering why the XMPP application Gajim has not yet been updated to at least version 1.2.2. I see there is a pull-request from 5 months ago. Now version 1.3.0 has been released. Is there anything I can do?
+Feb 17 13:02:12 <zak256>	https://src.fedoraproject.org/rpms/gajim
+Feb 17 14:41:20 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb 17 14:41:20 2021
+
+**** BEGIN LOGGING AT Wed Feb 17 14:41:48 2021
+
+Feb 17 14:41:48 *	Now talking on #fedora
+Feb 17 14:41:48 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 17 14:41:48 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 17 14:41:49 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+**** BEGIN LOGGING AT Wed Feb 17 18:42:35 2021
+
+Feb 17 18:42:35 *	Now talking on #fedora
+Feb 17 18:42:35 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 17 18:42:35 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 17 18:42:36 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 17 18:42:56 <vwbusguy[m]>	It's up to you, but I prefer 3rd party stuff to live in /opt instead of /usr, but that also means having to possible set $PATH and $LD_LIBRARY_PATH, etc. accordingly
+Feb 17 18:48:04 <M0xdeadcat[m]>	I see
+Feb 17 18:48:10 <M0xdeadcat[m]>	Thanks a lot for your tips!
+**** ENDING LOGGING AT Wed Feb 17 19:14:20 2021
+

@@ -2741,3 +2741,74 @@ Feb 16 11:45:26 adityasri adtac akay amk aml amolith andi- anjan Ankhers aparcar
 Feb 16 11:45:26 adityasri adtac akay amk aml amolith andi- anjan Ankhers aparcar[m] arolle` arza astroanax avoidr azazell0 
 Feb 16 11:45:35 bookworm bandali bcheng bdju bgianf blfr botsunyuu brauner brenns10 
 Feb 16 11:45:39 c_tapia cg505 chadc ChanServ chiastre coder_kalyan craigp crest cuerbot cwarden 
+**** BEGIN LOGGING AT Tue Feb 16 23:11:36 2021
+
+Feb 16 23:11:36 *	Now talking on #aerc
+Feb 16 23:11:36 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Feb 16 23:11:36 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Feb 16 23:21:36 <erikh>	:save <filename> -f doesn't work like you'd expect it to, fwiw.
+Feb 16 23:26:46 <bookworm>	and you'd expect what?
+Feb 16 23:28:28 <bookworm>	for st arters :save <filename> $flag is invalid
+Feb 16 23:28:49 <bookworm>	as the proper command is :save [-fp] <path>
+Feb 16 23:29:26 <bookworm>	else what you give is multiple arguments to :save, <filename> and "-f"
+Feb 16 23:29:30 <bookworm>	which is, well, garbage
+Feb 16 23:31:07 <bookworm>	to get the icing on the cake, specifying multiple arguments to save will helpfully concatenate the strings to a single file path
+Feb 16 23:31:29 <bookworm>	that's intended to save people from having to quote paths containing spaces
+Feb 16 23:32:51 <bookworm>	so what you get from `:save /happy/thoughts/ -f` is actually (in shell speak) `$getThing > "happy/thoughts/ -f"`
+Feb 16 23:42:40 <erikh>	actually in most shells those take two positions in argv
+Feb 16 23:43:02 <erikh>	but maybe I was a little confused by the presence of prefix-notated flags.
+Feb 16 23:43:15 <erikh>	no idea why
+Feb 16 23:43:55 <bookworm>	🤷‍♂️ we get the behavior from getopt
+Feb 16 23:45:31 <erikh>	so if I make this work less like a shell from the 1980's, will you accept a patch or not
+Feb 16 23:45:42 <bookworm>	ehm, why?
+Feb 16 23:45:47 <erikh>	ok, understood
+Feb 16 23:46:00 <bookworm>	that's how most option parsing interfaces behave no?
+Feb 16 23:47:12 <bookworm>	also if you want to change the behavior you don't need to talk to us, talk to upstream: git.sr.ht/~sircmpwn/getopt
+Feb 17 00:06:59 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb 17 00:06:59 2021
+
+**** BEGIN LOGGING AT Wed Feb 17 00:23:10 2021
+
+Feb 17 00:23:10 *	Now talking on #aerc
+Feb 17 00:23:10 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Feb 17 00:23:10 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Feb 17 00:24:47 <bookworm>	http://ix.io/2PG1 <-- python
+Feb 17 00:25:45 <bookworm>	removed for malware due to pasting go code? ix.io? you're drunk, go home
+Feb 17 09:17:09 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb 17 09:17:09 2021
+
+**** BEGIN LOGGING AT Wed Feb 17 09:17:37 2021
+
+Feb 17 09:17:37 *	Now talking on #aerc
+Feb 17 09:17:37 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Feb 17 09:17:37 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Feb 17 09:26:34 *	grobi is now known as Guest16792
+Feb 17 10:11:07 *	grobi1 is now known as grobi
+Feb 17 10:11:36 *	grobi is now known as Guest91469
+Feb 17 10:14:13 *	Guest91469 is now known as grobi
+Feb 17 10:14:43 *	grobi is now known as Guest95669
+Feb 17 10:17:33 *	Guest95669 is now known as grobi
+Feb 17 11:34:34 <bookworm>	fourstepper: to answer your question on the tracker: yes... but that's probably not what you really want to ask considering that the question was true from the point of my latest reply
+Feb 17 11:35:11 <bookworm>	in other words, what's your actual question?
+Feb 17 11:35:58 <fourstepper>	eh, idk what happened but I have lost the message of mine and probably your first answer before "to answer"
+Feb 17 11:36:22 <fourstepper>	could you please resend it? sorry about that
+Feb 17 11:39:07 <bookworm>	I don't quite understand you... the tracker is a webpage https://todo.sr.ht/~sircmpwn/aerc2/58#event-72428
+Feb 17 11:45:09 <fourstepper>	oh i get it now :D i was considering messaging here on IRC and then thought that I actually did and just lost the message that you are replying to. Anyway yeah, I think the issue is still there, aerc doesn't reconnect automatically. Sometimes it also happens that it sends an e-mail without copying it to the Sent folder, which is pretty annoying as well  
+Feb 17 11:48:37 <bookworm>	sure that never had a patch either
+Feb 17 11:48:56 <bookworm>	the we drop messages was fixed as we check the error now
+Feb 17 12:03:05 <fourstepper>	ok thanks
+Feb 17 14:41:20 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb 17 14:41:20 2021
+
+**** BEGIN LOGGING AT Wed Feb 17 14:41:48 2021
+
+Feb 17 14:41:48 *	Now talking on #aerc
+Feb 17 14:41:48 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Feb 17 14:41:48 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+**** BEGIN LOGGING AT Wed Feb 17 18:42:35 2021
+
+Feb 17 18:42:35 *	Now talking on #aerc
+Feb 17 18:42:35 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Feb 17 18:42:35 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+**** ENDING LOGGING AT Wed Feb 17 19:14:20 2021
+

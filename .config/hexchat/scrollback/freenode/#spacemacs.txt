@@ -3067,3 +3067,61 @@ T 1613474653 18<20FromGitter18>	<dalanicolai> After I insert some item
 T 1613475033 18<20FromGitter18>	<dalanicolai> so `C-c [` is equivalent to `, R c` in normal mode or `M-RET R c` in insert mode
 T 1613475294 18<20FromGitter18>	<dalanicolai> Alternatively you can use `helm-bibtex` or `ivy-bibtex` from the bibtex layer
 T 1613475333 18<20FromGitter18>	<dalanicolai> But I remember my citations got automatically checked at some point... so that does not seem to work anymore
+T 1613513496 19*	Now talking on 22#spacemacs
+T 1613513496 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1613513496 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1613514176 18<20birkoff18>	is there an easy way to specify the current buffer file name with M-x load-file
+T 1613514178 18<20birkoff18>	?
+T 1613514253 18<20FromGitter18>	<dalanicolai> You must use `load-file`? You can not just load the buffer with `, e b`?
+T 1613514529 18<20birkoff18>	I have emacs editing-style
+T 1613514535 18<20birkoff18>	what would that be ?
+T 1613514597 18<20FromGitter18>	<dalanicolai> Haha, I don't know, check with `M-x eval-buffer`
+T 1613514867 18<20birkoff18>	can I disable spacemacs contacting melpa on startup ? 
+T 1613515284 18<20FromGitter18>	<dalanicolai> Don't know
+T 1613516819 20*	Disconnected (20)
+T 1613517790 19*	Now talking on 22#spacemacs
+T 1613517790 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1613517790 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1613549829 20*	Disconnected (20)
+T 1613549857 19*	Now talking on 22#spacemacs
+T 1613549857 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1613549857 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1613549862 18<20FromGitter18>	<inzouzouwetrust> @dalanicolai Here's a follow-up on our discussion from yesterday: ⏎ I went for a (ugly) fix that consists in setting an `org-ref-default-bibliography` in my `dotspacemacs/user-config` that contains ALL my references (used for several different papers) therefore I have access to all my references from any `.tex` file. ⏎ The issue with this is that I use a project dependent `.bib` file therefore some 
+T 1613549862 18<20FromGitter18>	... entries that are available in my ALL references `.bib` may not be in my project dependent `.bib`. It requires a double-check on my hand but it already makes my life easier. ⏎ Thanks for stepping in! [https://gitter.im/syl20bnr/spacemacs?at=602cd1269403f11bb58abdd1]
+T 1613553338 24*	28qCactus is now known as 18prefixcactus
+T 1613556876 18<20FromGitter18>	<dalanicolai> @jr0cket I quickly had a look, but markdown-mode seems to work fine here (looks like all major mode bindings are available). I synced with the latest develop branch and restarted Spacemacs before checking it.
+T 1613557186 18<20FromGitter18>	<dalanicolai> @inzouzouwetrust Haha, sounds ugly indeed... I would say Spacemacs should be able to determine your project file somehow, it does here at least. And I guess you can still use `, Rc` or `helm-bibtex`.  Anyway, good luck with the fix...
+T 1613561854 18<20FromGitter18>	<epixinvites> ok so I'm fairly new to this DAP layer in spacemacs, I have no idea how it works, the documentations doesn't shed much light, so does anyone here can briefly guide through like what I need, how do I set it up, and what config should I have?
+T 1613561912 18<20FromGitter18>	<epixinvites> I've added the dap layer and I'm doing C++
+T 1613562017 18<20FromGitter18>	<epixinvites> I'm presented with a temporary buffer after I press `SPC d d e` and I'm greeted with this ⏎  ⏎ ```code paste, see link``` [https://gitter.im/syl20bnr/spacemacs?at=602d00a09337c51bc690f691]
+T 1613562027 18<20FromGitter18>	<epixinvites> I did try editing a couple of things to see if it would work
+T 1613562035 18<20FromGitter18>	<epixinvites> but apparently it doesnt
+T 1613562050 18<20FromGitter18>	<epixinvites> I installed gdb btw and I'm running on Arch Linux
+T 1613562335 18<20FromGitter18>	<yyoncho> @epixinvites https://emacs-lsp.github.io/lsp-mode/tutorials/CPP-guide/
+T 1613563029 18<20FromGitter18>	<epixinvites> hmmmm yes ⏎  ⏎ > dap-mode introduces the notion of debug configuration and debug template. The debug configuration is the settings that are needed by the debug adapter to start the program to debug. Debug template is a template for such configuration which will be populated by the user or by dap-mode. There are two ways to manage debug configuration - using emacs lisp via dap-debug-edit-template and 
+T 1613563029 18<20FromGitter18>	... dap-register-debug-template. The second way is using launch.json. Put it in project root and dap-mode will pick it up.
+T 1613563048 18<20FromGitter18>	<epixinvites> dap-register-debug-template command not found
+T 1613563225 18<20FromGitter18>	<epixinvites> @yyoncho apparently your documentation is a bit lets see out of date
+T 1613563249 18<20FromGitter18>	<epixinvites> aaaaaand it is too vague for people who hasn't used it before to understand
+T 1613563281 18<20FromGitter18>	<epixinvites> well I'd love to write a simple up to date documentation about it after I know how to use it
+T 1613563293 18<20FromGitter18>	<epixinvites> because I find that its lacking a bit of documentation
+T 1613563388 18<20FromGitter18>	<epixinvites> can you explain a bit about what `"program": "${workspaceFolder}/src/emacs",` is and what `"cwd": "${workspaceFolder}",` is?
+T 1613563426 18<20FromGitter18>	<epixinvites> and pls `dap-register-debug-template` isn't found
+T 1613569280 20*	Disconnected (20)
+T 1613569308 19*	Now talking on 22#spacemacs
+T 1613569308 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1613569308 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1613569357 18<20FromGitter18>	<yyoncho> @abhijeetsrivastava last time I checked there was no such option. If metals support that now, you may open feature request in lsp-metals project
+T 1613569385 18<20FromGitter18>	<dalanicolai> But I will check a little more, because somewhere something must be wrong then
+T 1613569399 18<20FromGitter18>	<yyoncho> other than that - I don't use scala, I use the debugger for java
+T 1613569865 18<20FromGitter18>	<dalanicolai> @jr0cket I have also a second installation (with Helm instead of Ivy), so I freshly installed the markdown layer there and updated the packages (where actually markdown-mode got updated, while I just freshly installed the markdown layer)., restarted. But again, I seem to be unable to break markdown-mode...
+T 1613569933 18<20FromGitter18>	<dalanicolai> I mean, I see many command bound under `SPC m`. I guess you meant you only see two commands there? But I see them all... (but maybe I got you wrong, I did not test the commands)
+T 1613570013 18<20FromGitter18>	<jr0cket> @dalanicolai I can call the commands by name, using `SPC SPC command-name`.  Its the key bindings that are missing...
+T 1613570043 18<20FromGitter18>	<dalanicolai> Yeah, you mean they do not show up in which-key?
+T 1613570050 18<20FromGitter18>	<dalanicolai> So here they all show up
+T 1613570061 18<20FromGitter18>	<dalanicolai> When pressing `SPC m`
+T 1613570098 18<20FromGitter18>	<abhijeetsrivastava> > @abhijeetsrivastava last time I checked there was no such option. If metals support that now, you may open feature request in lsp-metals project ⏎  ⏎ ok. thanks! will check
+T 1613570475 18<20FromGitter18>	<epixinvites> hmmmm where am I supposed to save the *DAP TEMPLATE*
+T 1613583755 19*	Now talking on 22#spacemacs
+T 1613583755 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1613583755 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)

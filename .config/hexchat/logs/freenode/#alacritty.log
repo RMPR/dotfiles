@@ -5903,3 +5903,74 @@ Feb 16 11:08:59 *	Now talking on #alacritty
 Feb 16 11:08:59 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
 Feb 16 11:08:59 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Jan  9 12:42:04 2021)
 Feb 16 12:19:30 <Nahuser>	Hi, I now use Alacritty :)
+**** BEGIN LOGGING AT Tue Feb 16 23:11:36 2021
+
+Feb 16 23:11:36 *	Now talking on #alacritty
+Feb 16 23:11:36 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+Feb 16 23:11:36 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Jan  9 12:42:04 2021)
+Feb 16 23:11:49 <UndeadLeech>	with the current default it's like what? 10 matches or more and you'll get multiple.
+Feb 16 23:13:42 <nixpulvis>	OK, let me try and construct a regex to test this.
+Feb 16 23:13:50 <nixpulvis>	it didn't like ".+".
+Feb 16 23:13:59 <UndeadLeech>	Why not?
+Feb 16 23:14:14 <UndeadLeech>	That should have one match per line?
+Feb 16 23:15:27 <nixpulvis>	IDK, maybe I'm doing something wrong.
+Feb 16 23:15:53 <nixpulvis>	Oh boy...
+Feb 16 23:15:55 <UndeadLeech>	I think you might have found a bug.
+Feb 16 23:15:58 <nixpulvis>	I froze alacritty.
+Feb 16 23:16:02 <UndeadLeech>	I'm not sure why this doesn't work anymore.
+Feb 16 23:16:31 <UndeadLeech>	Same applies to search.
+Feb 16 23:16:52 <UndeadLeech>	It must be the regex matching though, because I can't imagine the DFA is difficult to build.
+Feb 16 23:17:35 <nixpulvis>	.* in search works for me in the RC.
+Feb 16 23:17:46 <UndeadLeech>	What about .+?
+Feb 16 23:17:59 <nixpulvis>	seems fine.
+Feb 16 23:18:09 <UndeadLeech>	Huh.
+Feb 16 23:18:21 <UndeadLeech>	It's probably my UI/terminal overhaul.
+Feb 16 23:18:23 <nixpulvis>	idk why .+ is matching every line... but it's not hanging.
+Feb 16 23:18:44 <UndeadLeech>	I'm on .8-dev and both hang for me.
+Feb 16 23:18:47 <nixpulvis>	I guess ' ' is a .?
+Feb 16 23:18:56 <UndeadLeech>	Of course, yes.
+Feb 16 23:18:59 <UndeadLeech>	Space.
+Feb 16 23:19:00 <nixpulvis>	right lol
+Feb 16 23:19:13 <nixpulvis>	took me a second to remember what I'm doing here.
+Feb 16 23:19:28 <UndeadLeech>	I mean it doesn't make much sense, but this definitely shouldn't freeze Alacritty.
+Feb 16 23:19:36 <UndeadLeech>	I'm not sure what is hanging here.
+Feb 16 23:19:41 <UndeadLeech>	Other than Alacritty of course.
+Feb 16 23:21:37 <UndeadLeech>	#4800.
+Feb 16 23:21:39 <nixpulvis>	yea, freezing on master,
+Feb 16 23:22:19 <UndeadLeech>	Not much of a surprise that this commit broke a bunch of stuff, so it's kinda nice to cut a 0.7.2 and give this a bunch more testing.
+Feb 16 23:23:53 <nixpulvis>	yea makes sense.
+Feb 16 23:24:06 <nixpulvis>	Glad I can help find random bugs.
+Feb 16 23:58:19 <ftpd>	Hi. iterm: https://files.insomniac.pl/Screenshot_2021-02-16_at_11.50.07_PM.png vs alacritty: https://files.insomniac.pl/Screenshot_2021-02-16_at_11.51.01_PM.png. Is there a way to leave this ~1px of space near the borders, like iterm does? I can't see anything related in default yaml config file.
+Feb 17 00:01:40 <UndeadLeech>	window.padding
+Feb 17 00:02:55 <ftpd>	Thanks!
+Feb 17 00:06:59 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb 17 00:06:59 2021
+
+**** BEGIN LOGGING AT Wed Feb 17 00:23:10 2021
+
+Feb 17 00:23:10 *	Now talking on #alacritty
+Feb 17 00:23:10 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+Feb 17 00:23:10 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Jan  9 12:42:04 2021)
+Feb 17 09:17:09 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb 17 09:17:09 2021
+
+**** BEGIN LOGGING AT Wed Feb 17 09:17:37 2021
+
+Feb 17 09:17:37 *	Now talking on #alacritty
+Feb 17 09:17:37 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+Feb 17 09:17:37 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Jan  9 12:42:04 2021)
+Feb 17 14:41:20 *	Disconnected ()
+**** ENDING LOGGING AT Wed Feb 17 14:41:20 2021
+
+**** BEGIN LOGGING AT Wed Feb 17 14:41:48 2021
+
+Feb 17 14:41:48 *	Now talking on #alacritty
+Feb 17 14:41:48 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+Feb 17 14:41:48 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Jan  9 12:42:04 2021)
+**** BEGIN LOGGING AT Wed Feb 17 18:42:36 2021
+
+Feb 17 18:42:36 *	Now talking on #alacritty
+Feb 17 18:42:36 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+Feb 17 18:42:36 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Jan  9 12:42:04 2021)
+**** ENDING LOGGING AT Wed Feb 17 19:14:20 2021
+

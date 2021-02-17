@@ -1,57 +1,3 @@
-T 1577982227 18<24UndeadLeech18>	What do we do that prevents us from downsampling this? Seems like we're messing something up.
-T 1577982238 18<29kchibisov18>	It doesn't has color...
-T 1577982245 18<29kchibisov18>	s/has/have
-T 1577982246 18<20Levanx18>	(This pretty clearly should be the repo image for alacritty imho :D)
-T 1577982289 18<29kchibisov18>	Levanx: true, I already tried to convince UndeadLeech to change a picture to something more fun.
-T 1577982329 18<24UndeadLeech18>	Levanx: You're not the first one to say that.
-T 1577982344 18<24UndeadLeech18>	Though last time it was a big thinking emoji. :P
-T 1577982369 18<24UndeadLeech18>	kchibisov: So currently we only scale it, if it has color? In retrospect, that very clearly seems wrong.
-T 1577982377 18<29kchibisov18>	yeah.
-T 1577982396 18<24UndeadLeech18>	And you're saying it's only possible to make these emojis monochrome in Alacritty? Not in fontconfig?
-T 1577982412 18<24UndeadLeech18>	Sounds strange.
-T 1577982419 18<29kchibisov18>	Yeah, I wasn't able to make them monochrome in fontconfig
-T 1577982448 18<24UndeadLeech18>	Huh.
-T 1577982458 18<29kchibisov18>	Our handling seems fine tbh.
-T 1577982459 18<24UndeadLeech18>	Well, proper monochrome emoji fonts are going to look better anyways I suppose.
-T 1577982485 18<24UndeadLeech18>	What do you mean it seems fine? How is color a good way to determine if a glyph needs to be scaled?
-T 1577982486 18<29kchibisov18>	`let color = pat.color().next().unwrap_or(false);`
-T 1577982495 18<29kchibisov18>	no, I'm about fontconfig check
-T 1577982507 18<24UndeadLeech18>	You mean the embedded bitmap crash?
-T 1577982512 18<29kchibisov18>	No color check
-T 1577982528 18<29kchibisov18>	I mean I should be able to disable the thing
-T 1577982544 18<24UndeadLeech18>	Oh, you mean that you should be able to set it from fontconfig, gotcha.
-T 1577982547 18<29kchibisov18>	it's even default to false.
-T 1577982599 18<29kchibisov18>	Well we can't strip an alpha channel from this non colored emojis
-T 1577982613 18<24UndeadLeech18>	What do you mean?
-T 1577982625 18<29kchibisov18>	I mean they do have alpha.
-T 1577982641 18<24UndeadLeech18>	How is that a problem?
-T 1577982681 18<29kchibisov18>	I mean do you want to color them with escape or not afterwards?
-T 1577982720 18<24UndeadLeech18>	Ouh that's a really good question.
-T 1577982734 18<24UndeadLeech18>	You mean since they come in a BGRA buffer, we'd basically handle them like colored emojis?
-T 1577982739 18<29kchibisov18>	yes
-T 1577982751 18<29kchibisov18>	I mean their pixels are RGBA
-T 1577982757 18<29kchibisov18>	so it's a colored thing for our renderer
-T 1577982759 18<24UndeadLeech18>	Does that happen with them right now already?
-T 1577982767 18<29kchibisov18>	yeah.
-T 1577982773 18<24UndeadLeech18>	I'd just keep it that way, but scale them tbh.
-T 1577982788 18<24UndeadLeech18>	I doubt anyone would use them, but if they do, we at least don't have them massive.
-T 1577982793 18<29kchibisov18>	Well, it seems like they're being colored properly tbh
-T 1577982807 18<24UndeadLeech18>	But BGRA aren't colored, right?
-T 1577982811 18<24UndeadLeech18>	RGBA*
-T 1577982819 18<24UndeadLeech18>	We use that to determine color, aren't we?
-T 1577982825 18<29kchibisov18>	yes
-T 1577982843 18<29kchibisov18>	I feel like there's something odd with this thing.
-T 1577982849 18<29kchibisov18>	like I don't understand it.
-T 1577982862 18<24UndeadLeech18>	I mean in theory converting to alpha mask should be trivial, but it's work that probably is never going to pay off.
-T 1577982865 18<29kchibisov18>	we're setting #ffffff color for them, but you can still color it.
-T 1577982877 18<24UndeadLeech18>	It seems very odd then, yeah.
-T 1577982886 18<24UndeadLeech18>	With a black background?
-T 1577982890 18<29kchibisov18>	yes
-T 1577982925 18<24UndeadLeech18>	I mean it's the only place where we pass color to the renderer. So it should be impossible.
-T 1577982934 18<29kchibisov18>	magic.
-T 1577982943 18<29kchibisov18>	wait.
-T 1577982945 18<24UndeadLeech18>	That's what it sounds like. Unless it's not an RGBA buffer.
-T 1577982955 18*	24UndeadLeech waits.
 T 1577983201 18<29kchibisov18>	It's not BGRA...
 T 1577983227 18<29kchibisov18>	It's GRAY.
 T 1577983371 18<29kchibisov18>	Ehm, now it's interesting, we should downscale gray thing.
@@ -5001,3 +4947,56 @@ T 1613470139 19*	Now talking on 22#alacritty
 T 1613470139 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
 T 1613470139 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Jan  9 12:42:04 2021)
 T 1613474370 18<27Nahuser18>	Hi, I now use Alacritty :)
+T 1613513496 19*	Now talking on 22#alacritty
+T 1613513496 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+T 1613513496 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Jan  9 12:42:04 2021)
+T 1613513509 18<24UndeadLeech18>	with the current default it's like what? 10 matches or more and you'll get multiple.
+T 1613513622 18<22nixpulvis18>	OK, let me try and construct a regex to test this.
+T 1613513630 18<22nixpulvis18>	it didn't like ".+".
+T 1613513639 18<24UndeadLeech18>	Why not?
+T 1613513654 18<24UndeadLeech18>	That should have one match per line?
+T 1613513727 18<22nixpulvis18>	IDK, maybe I'm doing something wrong.
+T 1613513753 18<22nixpulvis18>	Oh boy...
+T 1613513755 18<24UndeadLeech18>	I think you might have found a bug.
+T 1613513758 18<22nixpulvis18>	I froze alacritty.
+T 1613513762 18<24UndeadLeech18>	I'm not sure why this doesn't work anymore.
+T 1613513791 18<24UndeadLeech18>	Same applies to search.
+T 1613513812 18<24UndeadLeech18>	It must be the regex matching though, because I can't imagine the DFA is difficult to build.
+T 1613513855 18<22nixpulvis18>	.* in search works for me in the RC.
+T 1613513866 18<24UndeadLeech18>	What about .+?
+T 1613513879 18<22nixpulvis18>	seems fine.
+T 1613513889 18<24UndeadLeech18>	Huh.
+T 1613513901 18<24UndeadLeech18>	It's probably my UI/terminal overhaul.
+T 1613513903 18<22nixpulvis18>	idk why .+ is matching every line... but it's not hanging.
+T 1613513924 18<24UndeadLeech18>	I'm on .8-dev and both hang for me.
+T 1613513927 18<22nixpulvis18>	I guess ' ' is a .?
+T 1613513936 18<24UndeadLeech18>	Of course, yes.
+T 1613513939 18<24UndeadLeech18>	Space.
+T 1613513940 18<22nixpulvis18>	right lol
+T 1613513953 18<22nixpulvis18>	took me a second to remember what I'm doing here.
+T 1613513968 18<24UndeadLeech18>	I mean it doesn't make much sense, but this definitely shouldn't freeze Alacritty.
+T 1613513976 18<24UndeadLeech18>	I'm not sure what is hanging here.
+T 1613513981 18<24UndeadLeech18>	Other than Alacritty of course.
+T 1613514097 18<24UndeadLeech18>	#4800.
+T 1613514099 18<22nixpulvis18>	yea, freezing on master,
+T 1613514139 18<24UndeadLeech18>	Not much of a surprise that this commit broke a bunch of stuff, so it's kinda nice to cut a 0.7.2 and give this a bunch more testing.
+T 1613514233 18<22nixpulvis18>	yea makes sense.
+T 1613514246 18<22nixpulvis18>	Glad I can help find random bugs.
+T 1613516299 18<28ftpd18>	Hi. iterm: https://files.insomniac.pl/Screenshot_2021-02-16_at_11.50.07_PM.png vs alacritty: https://files.insomniac.pl/Screenshot_2021-02-16_at_11.51.01_PM.png. Is there a way to leave this ~1px of space near the borders, like iterm does? I can't see anything related in default yaml config file.
+T 1613516500 18<24UndeadLeech18>	window.padding
+T 1613516575 18<28ftpd18>	Thanks!
+T 1613516819 20*	Disconnected (20)
+T 1613517790 19*	Now talking on 22#alacritty
+T 1613517790 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+T 1613517790 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Jan  9 12:42:04 2021)
+T 1613549829 20*	Disconnected (20)
+T 1613549857 19*	Now talking on 22#alacritty
+T 1613549857 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+T 1613549857 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Jan  9 12:42:04 2021)
+T 1613569280 20*	Disconnected (20)
+T 1613569308 19*	Now talking on 22#alacritty
+T 1613569308 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+T 1613569308 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Jan  9 12:42:04 2021)
+T 1613583756 19*	Now talking on 22#alacritty
+T 1613583756 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+T 1613583756 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Jan  9 12:42:04 2021)

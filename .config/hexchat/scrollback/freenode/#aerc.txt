@@ -2108,3 +2108,64 @@ T 1613472326 adityasri adtac akay amk aml amolith andi- anjan Ankhers aparcar[m]
 T 1613472326 adityasri adtac akay amk aml amolith andi- anjan Ankhers aparcar[m] arolle` arza astroanax avoidr azazell0 
 T 1613472335 bookworm bandali bcheng bdju bgianf blfr botsunyuu brauner brenns10 
 T 1613472339 c_tapia cg505 chadc ChanServ chiastre coder_kalyan craigp crest cuerbot cwarden 
+T 1613513496 19*	Now talking on 22#aerc
+T 1613513496 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1613513496 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1613514096 18<19erikh18>	:save <filename> -f doesn't work like you'd expect it to, fwiw.
+T 1613514406 18<28bookworm18>	and you'd expect what?
+T 1613514508 18<28bookworm18>	for st arters :save <filename> $flag is invalid
+T 1613514529 18<28bookworm18>	as the proper command is :save [-fp] <path>
+T 1613514566 18<28bookworm18>	else what you give is multiple arguments to :save, <filename> and "-f"
+T 1613514570 18<28bookworm18>	which is, well, garbage
+T 1613514667 18<28bookworm18>	to get the icing on the cake, specifying multiple arguments to save will helpfully concatenate the strings to a single file path
+T 1613514689 18<28bookworm18>	that's intended to save people from having to quote paths containing spaces
+T 1613514771 18<28bookworm18>	so what you get from `:save /happy/thoughts/ -f` is actually (in shell speak) `$getThing > "happy/thoughts/ -f"`
+T 1613515360 18<19erikh18>	actually in most shells those take two positions in argv
+T 1613515382 18<19erikh18>	but maybe I was a little confused by the presence of prefix-notated flags.
+T 1613515395 18<19erikh18>	no idea why
+T 1613515435 18<28bookworm18>	🤷‍♂️ we get the behavior from getopt
+T 1613515531 18<19erikh18>	so if I make this work less like a shell from the 1980's, will you accept a patch or not
+T 1613515542 18<28bookworm18>	ehm, why?
+T 1613515547 18<19erikh18>	ok, understood
+T 1613515560 18<28bookworm18>	that's how most option parsing interfaces behave no?
+T 1613515632 18<28bookworm18>	also if you want to change the behavior you don't need to talk to us, talk to upstream: git.sr.ht/~sircmpwn/getopt
+T 1613516819 20*	Disconnected (20)
+T 1613517784 22*	26RMPR sets mode 24+Z on 22RMPR
+T 1613517784 22*	26RMPR sets mode 24+i on 22RMPR
+T 1613517784 -18freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
+T 1613517784 24*	Received a CTCP 24VERSION from 18freenode-connect
+T 1613517790 19*	Now talking on 22#aerc
+T 1613517790 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1613517790 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1613517887 18<28bookworm18>	http://ix.io/2PG1 <-- python
+T 1613517945 18<28bookworm18>	removed for malware due to pasting go code? ix.io? you're drunk, go home
+T 1613549829 20*	Disconnected (20)
+T 1613549851 22*	26RMPR sets mode 24+Z on 22RMPR
+T 1613549851 22*	26RMPR sets mode 24+i on 22RMPR
+T 1613549852 -18freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
+T 1613549852 24*	Received a CTCP 24VERSION from 18freenode-connect
+T 1613549857 19*	Now talking on 22#aerc
+T 1613549857 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1613549857 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1613550394 24*	28grobi is now known as 18Guest16792
+T 1613553067 24*	28grobi1 is now known as 18grobi
+T 1613553096 24*	28grobi is now known as 18Guest91469
+T 1613553253 24*	28Guest91469 is now known as 18grobi
+T 1613553283 24*	28grobi is now known as 18Guest95669
+T 1613553453 24*	28Guest95669 is now known as 18grobi
+T 1613558074 18<28bookworm18>	fourstepper: to answer your question on the tracker: yes... but that's probably not what you really want to ask considering that the question was true from the point of my latest reply
+T 1613558111 18<28bookworm18>	in other words, what's your actual question?
+T 1613558158 18<19fourstepper18>	eh, idk what happened but I have lost the message of mine and probably your first answer before "to answer"
+T 1613558182 18<19fourstepper18>	could you please resend it? sorry about that
+T 1613558347 18<28bookworm18>	I don't quite understand you... the tracker is a webpage https://todo.sr.ht/~sircmpwn/aerc2/58#event-72428
+T 1613558709 18<19fourstepper18>	oh i get it now :D i was considering messaging here on IRC and then thought that I actually did and just lost the message that you are replying to. Anyway yeah, I think the issue is still there, aerc doesn't reconnect automatically. Sometimes it also happens that it sends an e-mail without copying it to the Sent folder, which is pretty annoying as well  
+T 1613558917 18<28bookworm18>	sure that never had a patch either
+T 1613558936 18<28bookworm18>	the we drop messages was fixed as we check the error now
+T 1613559785 18<19fourstepper18>	ok thanks
+T 1613569280 20*	Disconnected (20)
+T 1613569308 19*	Now talking on 22#aerc
+T 1613569308 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1613569308 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1613583755 19*	Now talking on 22#aerc
+T 1613583755 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1613583755 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
