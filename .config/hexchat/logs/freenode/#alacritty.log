@@ -5974,3 +5974,71 @@ Feb 17 18:42:36 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL 
 Feb 17 18:42:36 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Jan  9 12:42:04 2021)
 **** ENDING LOGGING AT Wed Feb 17 19:14:20 2021
 
+**** BEGIN LOGGING AT Fri Feb 19 10:26:09 2021
+
+Feb 19 10:26:09 *	Now talking on #alacritty
+Feb 19 10:26:09 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+Feb 19 10:26:09 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Jan  9 12:42:04 2021)
+Feb 19 10:26:31 <UndeadLeech>	It uses the search colors.
+Feb 19 10:26:40 <UndeadLeech>	I don't think that's documented.
+Feb 19 10:26:43 <UndeadLeech>	colors.search.bar
+Feb 19 10:34:34 <belak>	I was curious about that as well... why doesn't Gnome use the normal window decorations on Alacritty windows?
+Feb 19 10:34:49 <UndeadLeech>	Because it doesn't support SSDs.
+Feb 19 10:35:19 <belak>	client side decorations vs server side decorations?
+Feb 19 10:35:27 <belak>	I'm not familiar with the term in this context
+Feb 19 10:35:35 <UndeadLeech>	Correct.
+Feb 19 10:36:42 <belak>	Blargh, yay Wayland.
+Feb 19 10:36:58 <belak>	(and Gnome, they're not blameless in this either)
+Feb 19 10:37:42 <UndeadLeech>	I mean gnome are literally the only ones forcing this on users.
+Feb 19 10:37:50 <UndeadLeech>	Nothing to do with Wayland at a protocol level.
+Feb 19 10:38:36 <belak>	I'm seriously wondering how Lagrange works then... it uses SDL and shouldn't have any specified decorations (since it doesn't use Gtk), but the titlebar is styled correctly
+Feb 19 10:39:35 <belak>	Though I may be misunderstanding the problem
+Feb 19 10:44:24 <belak>	My frustration with Wayland is around how much it pushes to places where they need to be implemented in multiple places. Things like client-side-decorations and moving more functionality into the compositor rather than a shared component are just examples.
+Feb 19 10:45:06 <rcf>	belak: they can choose to style things differently on a per-compositor basis, or just use gtk to draw the decorations. 
+Feb 19 10:45:36 <belak>	And while this specific example may be Gnome more than Wayland, it's still indirectly because of where Wayland pushes the complexity
+Feb 19 10:45:46 <rcf>	I wouldn't say that. 
+Feb 19 10:46:14 <rcf>	KDE and sway manage just fine. 
+Feb 19 10:47:27 <rcf>	My only complain is that text rendering in the weirdly-styled CSD is now broken, which is distinct from CSD being perhaps visually unappealing and an actual bug. 
+Feb 19 10:49:57 <belak>	Right, but that's my point - window drawing is now something that needs to be implemented in tons of places (once for each windowing toolkit that supports wayland) because SSD is still a protocol extension. And now because it's in 10 different places rather than relying on a window manager to draw the window decorations, they don't all line up.
+Feb 19 10:51:20 <rcf>	SSD was always a protocol extension, though. No X11 window manager needs to provide it, and I would genuinely be surprised if GNOME (before dropping X entirely) did not remove it from mutter. 
+Feb 19 10:53:42 <belak>	Interesting, I didn't know that
+Feb 19 10:54:43 <belak>	So, why did it work in X for a Window to be decorated by the WM? I always assumed that was the default and the clients had to ask to disable it.
+Feb 19 10:55:53 <belak>	I was looking at https://gitlab.gnome.org/GNOME/mutter/-/issues/217 which seems to have devolved a bit, but there are some helpful comments in there
+Feb 19 10:57:18 <rcf>	Because window manager developers were not rabidly opposed to adopting the extensions as they are today. And that's largely because X11 does not try to segregate clients, and because -- being the developers of the display server itself, now -- window manager developers now need to consider whether they want the simplest possible handling of surfaces or to cater to people not using the One True
+Feb 19 10:57:19 <rcf>	Toolkit™. 
+Feb 19 10:57:47 <UndeadLeech>	rcf: Is it just broken for you in general?
+Feb 19 10:59:13 <rcf>	UndeadLeech: strictly alacritty. It has been a common complaint among everyone reporting CSD issues, but it is often mixed up in the styling itself being off, which is indeed not a bug (or at least not one that would be reasonably solved in alacritty itself) 
+Feb 19 10:59:42 <UndeadLeech>	I've only seen it in a single screenshot and that issue was complaining about it being CSDs.
+Feb 19 10:59:47 <UndeadLeech>	Has this never worked for you?
+Feb 19 11:00:24 <rcf>	I believe it worked in the past, given commit histories discussing (for example) default font choices for CSD titles. 
+Feb 19 11:00:26 <belak>	So, the decorations in alacritty are the fallback decorations for whatever windowing toolkit alacritty uses if the Wayland compositor doesn't support whatever protocol extension is needed for SSDs?
+Feb 19 11:00:36 <rcf>	belak: exactly. 
+Feb 19 11:00:49 <belak>	Fun
+Feb 19 11:00:51 <UndeadLeech>	I'm pretty sure CSDs texts work just fine for most people.
+Feb 19 11:01:05 <UndeadLeech>	All we changed recently was prevent a crash from completely taking down alacritty when the font couldn't be loaded.
+Feb 19 11:01:48 <belak>	I use a Gnome extension which hides the window titlebars when the window is tiled or maximized... and this doesn't work with Alacritty. That's how I noticed it.
+Feb 19 11:02:15 <belak>	If they disappeared like other windows, it wouldn't even bother me.
+Feb 19 11:02:15 <UndeadLeech>	It works just fine for me for example rcf.
+Feb 19 11:02:27 <rcf>	UndeadLeech: I suppose it's the questionable font code you'd mentioned in that one issue. 
+Feb 19 11:03:02 <UndeadLeech>	The thing is it shouldn't be a problem unless you have a messed up fontconfig on your system.
+Feb 19 11:03:20 <rcf>	I don't actually mind too much, of course, given that I normally use sway. 
+Feb 19 11:03:59 <rcf>	I just notice it when I see people complain about it now. 
+Feb 19 11:05:50 <rcf>	belak: the ideal solution would be 'libdecor' or something like that which imposes no hard dependencies and does nothing but render decoration in the compositor's style on a surface. 
+Feb 19 11:06:09 <UndeadLeech>	Would be nice to see if this is a consistent issue you also have with previous versions.
+Feb 19 11:06:09 <belak>	Sway is another fun thing... because wlroots can't support nvidia chips (because of limitations in the proprietary nvidia driver) I can't actually use it
+Feb 19 11:11:08 <rcf>	UndeadLeech: I'll definitely have a go at reproducing it with older versions and more varied (i.e. distro default) configurations and open a proper issue for it at some point. 
+Feb 19 11:11:48 <belak>	rcf: hey, thanks for sticking around and giving me some background - I really appreciate it
+Feb 19 11:13:53 <UndeadLeech>	rcf: Thanks.
+Feb 19 11:14:28 <rcf>	belak: wlroots chose to avoid modularity to make a political statement on that matter as far as I'm concerned, but then I don't run any proprietary drivers so it doesn't bother me too much, and I"m certainly not going to try to write an eglstream backend for it. 
+Feb 19 11:15:42 <belak>	rcf: I'm stuck running proprietary drivers until I can find a graphics card in stock somewhere :/
+Feb 19 11:15:54 <rcf>	Of course there are massive limitations even on GNOME as far as I know -- anyone using Wine to run games, for example, is stuck with xwayland, and that means software rendering. 
+Feb 19 11:15:56 <UndeadLeech>	lol, good luck with that.
+Feb 19 11:16:21 <belak>	UndeadLeech: yeah, I know, lol. It's why I'm still on my 1080 from 4-ish years ago
+Feb 19 11:16:41 <belak>	I've been looking semi-seriously for about 4 months now
+Feb 19 11:16:46 <UndeadLeech>	I've also wanted to get a new GPU this year since I'm running a 390.
+Feb 19 11:16:51 <UndeadLeech>	Though right now it's pointless.
+Feb 19 11:18:50 <belak>	I assume something like a 390 would be old enough that nouveau would support it at least.
+Feb 19 11:19:04 <UndeadLeech>	R9 390 is an AMD gpu, so I doubt it.
+Feb 19 11:19:13 <belak>	Oh, lol
+Feb 19 11:19:19 <UndeadLeech>	:)
+Feb 19 11:20:02 <belak>	That's a bit better than a GTX 390 which seems to be a 10+ year old nvidia card

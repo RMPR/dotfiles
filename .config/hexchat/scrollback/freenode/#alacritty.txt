@@ -1,6 +1,3 @@
-T 1577983201 18<29kchibisov18>	It's not BGRA...
-T 1577983227 18<29kchibisov18>	It's GRAY.
-T 1577983371 18<29kchibisov18>	Ehm, now it's interesting, we should downscale gray thing.
 T 1577983786 18<29kchibisov18>	What do you thing about downsampling everything with fixupfactor less then a 1?
 T 1577983791 18<29kchibisov18>	s/thing/think
 T 1577991065 18<24UndeadLeech18>	I'd have to check how we compute the fixup factor again. Is that computed at all?
@@ -5000,3 +4997,69 @@ T 1613569308 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@ala
 T 1613583756 19*	Now talking on 22#alacritty
 T 1613583756 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
 T 1613583756 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Jan  9 12:42:04 2021)
+T 1613726769 19*	Now talking on 22#alacritty
+T 1613726769 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.1 - https://github.com/alacritty/alacritty/releases/latest
+T 1613726769 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Jan  9 12:42:04 2021)
+T 1613726791 18<24UndeadLeech18>	It uses the search colors.
+T 1613726800 18<24UndeadLeech18>	I don't think that's documented.
+T 1613726803 18<24UndeadLeech18>	colors.search.bar
+T 1613727274 18<28belak18>	I was curious about that as well... why doesn't Gnome use the normal window decorations on Alacritty windows?
+T 1613727289 18<24UndeadLeech18>	Because it doesn't support SSDs.
+T 1613727319 18<28belak18>	client side decorations vs server side decorations?
+T 1613727327 18<28belak18>	I'm not familiar with the term in this context
+T 1613727335 18<24UndeadLeech18>	Correct.
+T 1613727402 18<28belak18>	Blargh, yay Wayland.
+T 1613727418 18<28belak18>	(and Gnome, they're not blameless in this either)
+T 1613727462 18<24UndeadLeech18>	I mean gnome are literally the only ones forcing this on users.
+T 1613727470 18<24UndeadLeech18>	Nothing to do with Wayland at a protocol level.
+T 1613727516 18<28belak18>	I'm seriously wondering how Lagrange works then... it uses SDL and shouldn't have any specified decorations (since it doesn't use Gtk), but the titlebar is styled correctly
+T 1613727575 18<28belak18>	Though I may be misunderstanding the problem
+T 1613727864 18<28belak18>	My frustration with Wayland is around how much it pushes to places where they need to be implemented in multiple places. Things like client-side-decorations and moving more functionality into the compositor rather than a shared component are just examples.
+T 1613727906 18<19rcf18>	belak: they can choose to style things differently on a per-compositor basis, or just use gtk to draw the decorations. 
+T 1613727936 18<28belak18>	And while this specific example may be Gnome more than Wayland, it's still indirectly because of where Wayland pushes the complexity
+T 1613727946 18<19rcf18>	I wouldn't say that. 
+T 1613727974 18<19rcf18>	KDE and sway manage just fine. 
+T 1613728047 18<19rcf18>	My only complain is that text rendering in the weirdly-styled CSD is now broken, which is distinct from CSD being perhaps visually unappealing and an actual bug. 
+T 1613728197 18<28belak18>	Right, but that's my point - window drawing is now something that needs to be implemented in tons of places (once for each windowing toolkit that supports wayland) because SSD is still a protocol extension. And now because it's in 10 different places rather than relying on a window manager to draw the window decorations, they don't all line up.
+T 1613728280 18<19rcf18>	SSD was always a protocol extension, though. No X11 window manager needs to provide it, and I would genuinely be surprised if GNOME (before dropping X entirely) did not remove it from mutter. 
+T 1613728422 18<28belak18>	Interesting, I didn't know that
+T 1613728483 18<28belak18>	So, why did it work in X for a Window to be decorated by the WM? I always assumed that was the default and the clients had to ask to disable it.
+T 1613728553 18<28belak18>	I was looking at https://gitlab.gnome.org/GNOME/mutter/-/issues/217 which seems to have devolved a bit, but there are some helpful comments in there
+T 1613728638 18<19rcf18>	Because window manager developers were not rabidly opposed to adopting the extensions as they are today. And that's largely because X11 does not try to segregate clients, and because -- being the developers of the display server itself, now -- window manager developers now need to consider whether they want the simplest possible handling of surfaces or to cater to people not using the One True
+T 1613728639 18<19rcf18>	Toolkit™. 
+T 1613728667 18<24UndeadLeech18>	rcf: Is it just broken for you in general?
+T 1613728753 18<19rcf18>	UndeadLeech: strictly alacritty. It has been a common complaint among everyone reporting CSD issues, but it is often mixed up in the styling itself being off, which is indeed not a bug (or at least not one that would be reasonably solved in alacritty itself) 
+T 1613728782 18<24UndeadLeech18>	I've only seen it in a single screenshot and that issue was complaining about it being CSDs.
+T 1613728787 18<24UndeadLeech18>	Has this never worked for you?
+T 1613728824 18<19rcf18>	I believe it worked in the past, given commit histories discussing (for example) default font choices for CSD titles. 
+T 1613728826 18<28belak18>	So, the decorations in alacritty are the fallback decorations for whatever windowing toolkit alacritty uses if the Wayland compositor doesn't support whatever protocol extension is needed for SSDs?
+T 1613728836 18<19rcf18>	belak: exactly. 
+T 1613728849 18<28belak18>	Fun
+T 1613728851 18<24UndeadLeech18>	I'm pretty sure CSDs texts work just fine for most people.
+T 1613728865 18<24UndeadLeech18>	All we changed recently was prevent a crash from completely taking down alacritty when the font couldn't be loaded.
+T 1613728908 18<28belak18>	I use a Gnome extension which hides the window titlebars when the window is tiled or maximized... and this doesn't work with Alacritty. That's how I noticed it.
+T 1613728935 18<28belak18>	If they disappeared like other windows, it wouldn't even bother me.
+T 1613728935 18<24UndeadLeech18>	It works just fine for me for example rcf.
+T 1613728947 18<19rcf18>	UndeadLeech: I suppose it's the questionable font code you'd mentioned in that one issue. 
+T 1613728982 18<24UndeadLeech18>	The thing is it shouldn't be a problem unless you have a messed up fontconfig on your system.
+T 1613729000 18<19rcf18>	I don't actually mind too much, of course, given that I normally use sway. 
+T 1613729039 18<19rcf18>	I just notice it when I see people complain about it now. 
+T 1613729150 18<19rcf18>	belak: the ideal solution would be 'libdecor' or something like that which imposes no hard dependencies and does nothing but render decoration in the compositor's style on a surface. 
+T 1613729169 18<24UndeadLeech18>	Would be nice to see if this is a consistent issue you also have with previous versions.
+T 1613729169 18<28belak18>	Sway is another fun thing... because wlroots can't support nvidia chips (because of limitations in the proprietary nvidia driver) I can't actually use it
+T 1613729468 18<19rcf18>	UndeadLeech: I'll definitely have a go at reproducing it with older versions and more varied (i.e. distro default) configurations and open a proper issue for it at some point. 
+T 1613729508 18<28belak18>	rcf: hey, thanks for sticking around and giving me some background - I really appreciate it
+T 1613729633 18<24UndeadLeech18>	rcf: Thanks.
+T 1613729668 18<19rcf18>	belak: wlroots chose to avoid modularity to make a political statement on that matter as far as I'm concerned, but then I don't run any proprietary drivers so it doesn't bother me too much, and I"m certainly not going to try to write an eglstream backend for it. 
+T 1613729742 18<28belak18>	rcf: I'm stuck running proprietary drivers until I can find a graphics card in stock somewhere :/
+T 1613729754 18<19rcf18>	Of course there are massive limitations even on GNOME as far as I know -- anyone using Wine to run games, for example, is stuck with xwayland, and that means software rendering. 
+T 1613729756 18<24UndeadLeech18>	lol, good luck with that.
+T 1613729781 18<28belak18>	UndeadLeech: yeah, I know, lol. It's why I'm still on my 1080 from 4-ish years ago
+T 1613729801 18<28belak18>	I've been looking semi-seriously for about 4 months now
+T 1613729806 18<24UndeadLeech18>	I've also wanted to get a new GPU this year since I'm running a 390.
+T 1613729811 18<24UndeadLeech18>	Though right now it's pointless.
+T 1613729930 18<28belak18>	I assume something like a 390 would be old enough that nouveau would support it at least.
+T 1613729944 18<24UndeadLeech18>	R9 390 is an AMD gpu, so I doubt it.
+T 1613729953 18<28belak18>	Oh, lol
+T 1613729959 18<24UndeadLeech18>	:)
+T 1613730002 18<28belak18>	That's a bit better than a GTX 390 which seems to be a 10+ year old nvidia card
