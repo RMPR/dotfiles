@@ -1,16 +1,3 @@
-T 1587325197 18<28Foxfir318>	okay. So thats the trouble. There is money behind CoreOS, but not Silverblue.
-T 1587325272 18<26bitlord18>	Foxfir3, https://silverblue.fedoraproject.org/contribute I hope those are valid still
-T 1587325316 18<26bitlord18>	Foxfir3, so it seems there is a forum like platform, instead of mailing list
-T 1587325404 18<28tnelis18>	Yeah I receive digests from the community forum, most of the discussion is about Silverblue.
-T 1587325471 18<28tnelis18>	https://discussion.fedoraproject.org/c/desktop/silverblue
-T 1587325620 20*	Disconnected (20)
-T 1587325815 19*	Now talking on 22#fedora
-T 1587325815 22*	Topic for 22#fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
-T 1587325815 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Mar 17 14:11:59 2020)
-T 1587325816 -18ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
-T 1587326138 18<25ledeni18>	Foxfir3, for you #silverblue
-T 1587327030 20*	Disconnected (20)
-T 1587327932 19*	Now talking on 22#fedora
 T 1587327932 22*	Topic for 22#fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
 T 1587327932 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Mar 17 14:11:59 2020)
 T 1587327932 -18ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
@@ -5010,3 +4997,103 @@ T 1613735079 18<22BlackWolfie18>	do you have any problem to install pack
 T 1613735460 24*	28Muvon53_ is now known as 18Muvon53
 T 1613735533 24*	28thinkofher0 is now known as 18thinkofher
 T 1613735544 18<22BlackWolfie18>	do you have any idea how to install packet tracer?
+T 1613848335 19*	Now talking on 22#fedora
+T 1613848335 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1613848335 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1613848335 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1613848516 18<19davidfetter18>	hi
+T 1613848573 18<19davidfetter18>	is there a way to get xdg-open (or something similar) to choose among only terminal-based applications for opening a file/url?
+T 1613848672 18<19davidfetter18>	I tried setting $DISPLAY to an empty string, but that failed pretty hard
+T 1613848708 18<26[R]18>	huh?
+T 1613848849 18<26Khaytsus18>	I think xdg-open implies GUI apps, at least that's all I've ever seen it used for
+T 1613848868 18<22bagira18>	davidfetter, https://unix.stackexchange.com/questions/257158/change-default-web-browser-to-lynx-from-terminal
+T 1613848900 18<22bagira18>	you just use the execute switch against your favorite term in the Exec line
+T 1613848915 18<26Khaytsus18>	I think he wants to use xdg-open all the time, console or GUI.   NOt just "change web browser to lynx"
+T 1613848937 18<26Khaytsus18>	xdg-open in console on a text file, vi..  in X11, gedit.. or whatever
+T 1613848947 18<22bagira18>	right, this will do that
+T 1613848969 18<26Khaytsus18>	um..  k
+T 1613849358 18<27mkoncek18>	i am using Fedora 33, (Lenovo T480S) for quite some time i am noticing very sporadic (once per hour) screen flickering, like 5 flickers of slight brithness change, then returns to normal. Afaik this happens both on the laptop screen as well as external screen connected via HDMI
+T 1613849413 18<27mkoncek18>	it is mostly visible when the screen background is white
+T 1613849456 18<22bagira18>	going to be a driver or hardware issue
+T 1613849578 18<22bagira18>	davidfetter, Khaytsus i apologize, i missed something in that answer...xdg-mime is also needed there: https://askubuntu.com/questions/62585/how-do-i-set-a-new-xdg-open-setting
+T 1613849640 18<27mkoncek18>	i did some basic search, like this: https://askubuntu.com/questions/1146236/intel-hd-520-graphics-flickering-screen
+T 1613849674 18<27mkoncek18>	how do enries in /etc/X11/xorg.conf.d/ work?
+T 1613849690 18<27mkoncek18>	add an entry, then reboot for it to take effect?
+T 1613849697 18<22bagira18>	or restart X
+T 1613849713 18<27mkoncek18>	are all entries read? does the name matter?
+T 1613849736 18<22bagira18>	the names are arbitrary, but, use something you'll remember what it is by reading it
+T 1613849756 18<22bagira18>	most of that is to signal to you that you did something 2 years later when you're troubleshooting and forgot you did this lol
+T 1613849780 22*	26ChanServ gives channel operator status to 18fedbot
+T 1613849784 18<27mkoncek18>	yeah, definitely
+T 1613849846 18<22bagira18>	imo they shouldn't have split it up into multiple files like that....X11 configuration has changed alot over the last 10 years or so
+T 1613849882 18<27mkoncek18>	someone other suggested playing around with Compositor
+T 1613849895 18<27mkoncek18>	vsync -> Full screen repaints
+T 1613849897 18<22bagira18>	which one are you using?
+T 1613849922 18<27mkoncek18>	i have been using KDE, automatic...
+T 1613849928 18<22bagira18>	and does it happen when you're not running th compositor?
+T 1613849931 18<27mkoncek18>	opengl 3.1
+T 1613849947 18<27mkoncek18>	i am only ever running GUI, so i can't tell
+T 1613849970 18<27mkoncek18>	and it happens so infrequently that i cannot wait around to see it
+T 1613849975 18<22bagira18>	try running xfce for a while with no compositor, they're usually an external binary to the DE, couldn't comment on kde
+T 1613849982 18<22bagira18>	if it still happens, it's not the compositor
+T 1613849993 18<22bagira18>	but it's not the compositor
+T 1613850000 18<27mkoncek18>	i mean, i can disable compositor also in KDE
+T 1613850038 18<22bagira18>	would be a good way to rule out the compositor
+T 1613850047 18<20cmurf18>	linuxmodder: geeky_gecko[m] what do you want to know?
+T 1613850070 18<27mkoncek18>	well, the page says "screen tearing" that is different
+T 1613850079 18<20cmurf18>	e.g. my remote backup command looks like
+T 1613850086 18<20cmurf18>	sudo btrfs send -p home.20210126 home.20210218 | ssh chris@fnuc.local "sudo btrfs receive /srv/scratch/backups/flap/"
+T 1613850152 18<20cmurf18>	i have ssh pki setup, and also on the remote server that user chris has a sudoers.d dropin file
+T 1613850196 18<27mkoncek18>	also, why is there xorg.conf.d both in /etc/X11 as well as in /usr/share/X11?
+T 1613850198 18<20cmurf18>	cat /etc/sudoers.d/1chris    chris ALL = NOPASSWD: /usr/sbin/btrfs
+T 1613850321 18<22bagira18>	mkoncek, developer arbitration but there are some hints as to why in `man hier`
+T 1613850387 18<27mkoncek18>	well, i should know that...
+T 1613850406 18<27mkoncek18>	btw. Intel Corporation UHD Graphics 620 (rev 07)
+T 1613850708 18<27mkoncek18>	also, i am using Redlight provided by KDE
+T 1613850721 18<27mkoncek18>	many things where the problem could be hidden
+T 1613850735 18<22bagira18>	it's almost certainly a hardware or driver issue
+T 1613850812 18<27mkoncek18>	unfortunately
+T 1613850819 18<22bagira18>	i would try those xorg device options where others have had some success in case it can be accounted for.  the intel drivers are "bad".
+T 1613850846 18<22bagira18>	s/drivers/chips/
+T 1613850902 18<27mkoncek18>	really? i was under the impression that intel gpus work pretty well on linux
+T 1613850936 18<22bagira18>	ive never had one i didn't have some tweaking necessary due to glitches just like you're describing
+T 1613851026 18<22bagira18>	mkoncek, btw do you have xorg-x11-drv-intel installed?
+T 1613851040 18<27mkoncek18>	(it just happened again)
+T 1613851104 18<27mkoncek18>	yes, xorg-x11-drv-intel-2.99.917-48.20200205.fc33.src.rpm
+T 1613851120 18<22bagira18>	ok
+T 1613851233 18<27mkoncek18>	i will try restarting X
+T 1613851260 18<27mkoncek18>	unfortunately KDE does not play well with systemctl restart display-manager
+T 1613851287 18<19davidfetter18>	Khaytsus, bagira, sorry, got called away by kid duty. Maybe I didn't quite explain it. Let's imagine I've logged into a terminal on a box that doesn't have a GUI installed at all. There are lots of terminal-based programs it's possible to open files with, some using very clever ASCII art renderings.
+T 1613851327 18<19davidfetter18>	I want to arrange it so I'm only choosing among those options, but only sometimes.
+T 1613851328 18<27mkoncek18>	chafa
+T 1613851342 18<22bagira18>	davidfetter, https://linux.die.net/man/1/xdg-mime should do what you're describing
+T 1613851386 18<19davidfetter18>	bagira, not quite. When I do have a setting for $DISPLAY, I'll get the GUI app whether I wanted it or not. I only want it sometimes.
+T 1613851528 18<27mkoncek18>	so basically i tried: 1) use that config from askubuntu, 2) disable compositor 3) disable Redlight
+T 1613851533 18<19davidfetter18>	bagira, there doesn't appear to be anything in the xdg ecosystem, or at least I haven't found anything, that says, "use the non-GUI choices even when GUI choices exist"
+T 1613851543 18<27mkoncek18>	i am getting blinded by the bright light
+T 1613851555 18<22bagira18>	davidfetter, im not sure i understand your use case now.  you want xdg-open 'file:///|http[s]://$path' to open urls and files in a terminal, lynx for example for urls and vim for example for files right?
+T 1613851597 18<22bagira18>	davidfetter, if that's what you want, then your preferred applications need to be set using the first link, and your mimes need to be set using the second link
+T 1613851616 18<19davidfetter18>	bagira, I know xdg-open doesn't have this, but what I want it along the lines of xdg-open --no-gui [gizmo]
+T 1613851630 18<22bagira18>	oh you want to have ad-hoc selection of gui or not
+T 1613851636 18<19davidfetter18>	exactly :)
+T 1613851648 18<22bagira18>	i have no idea and im interested in what you find out
+T 1613851697 18<19davidfetter18>	thanks :)
+T 1613851735 18<27mkoncek18>	till this day, i still don't know what the compositor does
+T 1613851735 18<25s34n18>	sshd allows me to sftp with a key sometimes, but requires a password other times
+T 1613851753 18<22bagira18>	davidfetter, i know xdg-open will cycle through associated 'openers' in succession, so, for example `xdg-open /` on my machine will cycle through www-browser,links2,elinks,lynx,w3m in succession
+T 1613851774 18<25s34n18>	The difference is if I change the ChrootDirectory
+T 1613851784 18<25s34n18>	why would that affect authentication?
+T 1613851796 18<22bagira18>	davidfetter, if no native xdg feature is found you could write a wrapper script that chooses based on whether DISPLAY is set?
+T 1613851806 18<19davidfetter18>	"cycle," as in the next call to it will use the next one in the loop of apps?
+T 1613851829 18<22bagira18>	davidfetter, no it'll oscillate through associated openers with that type until it finds one
+T 1613851838 18<22bagira18>	s/oscillate/iterate
+T 1613851872 18<22bagira18>	i need coffee and my uvula is swollen; brb
+T 1613851876 18<19davidfetter18>	so until there's an option earlier on the list, it'll always hit the same on, though
+T 1613851885 18<22bagira18>	correct
+T 1613851895 18<19davidfetter18>	one*
+T 1613851923 24*	28tnewman9 is now known as 18tnewman
+T 1613852103 18<22bagira18>	davidfetter, for example, here's output from xdg-open on my netflix-ish kiosk in the living room: http://paste.silogroup.org/uxivipaviy | it'll cycle through that list until it finds one or fail if none of them are there
+T 1613852155 18<22bagira18>	i think you can bypass that behaviour by setting them all to a wrapper script and then having the wrapper script do some alternative routing based on whether $DISPLAY is set
+T 1613852219 18<22bagira18>	or better you could have a wrapper for just that mime type, so, urls get a url wrapper/router, files get one, etc that way you don't lose all the miming xdg provides
+T 1613852225 18<25s34n18>	And why won't ChrootDirectory %h allow me to authenticate at all?
+T 1613852319 18<22bagira18>	s34n, strong recommendation to use vsftpd

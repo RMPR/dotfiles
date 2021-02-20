@@ -10200,3 +10200,105 @@ Feb 19 12:44:39 <BlackWolfie>	do you have any problem to install packet tracer?
 Feb 19 12:51:00 *	Muvon53_ is now known as Muvon53
 Feb 19 12:52:13 *	thinkofher0 is now known as thinkofher
 Feb 19 12:52:24 <BlackWolfie>	do you have any idea how to install packet tracer?
+**** BEGIN LOGGING AT Sat Feb 20 20:12:15 2021
+
+Feb 20 20:12:15 *	Now talking on #fedora
+Feb 20 20:12:15 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 20 20:12:15 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 20 20:12:15 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 20 20:15:16 <davidfetter>	hi
+Feb 20 20:16:13 <davidfetter>	is there a way to get xdg-open (or something similar) to choose among only terminal-based applications for opening a file/url?
+Feb 20 20:17:52 <davidfetter>	I tried setting $DISPLAY to an empty string, but that failed pretty hard
+Feb 20 20:18:28 <[R]>	huh?
+Feb 20 20:20:49 <Khaytsus>	I think xdg-open implies GUI apps, at least that's all I've ever seen it used for
+Feb 20 20:21:08 <bagira>	davidfetter, https://unix.stackexchange.com/questions/257158/change-default-web-browser-to-lynx-from-terminal
+Feb 20 20:21:40 <bagira>	you just use the execute switch against your favorite term in the Exec line
+Feb 20 20:21:55 <Khaytsus>	I think he wants to use xdg-open all the time, console or GUI.   NOt just "change web browser to lynx"
+Feb 20 20:22:17 <Khaytsus>	xdg-open in console on a text file, vi..  in X11, gedit.. or whatever
+Feb 20 20:22:27 <bagira>	right, this will do that
+Feb 20 20:22:49 <Khaytsus>	um..  k
+Feb 20 20:29:18 <mkoncek>	i am using Fedora 33, (Lenovo T480S) for quite some time i am noticing very sporadic (once per hour) screen flickering, like 5 flickers of slight brithness change, then returns to normal. Afaik this happens both on the laptop screen as well as external screen connected via HDMI
+Feb 20 20:30:13 <mkoncek>	it is mostly visible when the screen background is white
+Feb 20 20:30:56 <bagira>	going to be a driver or hardware issue
+Feb 20 20:32:58 <bagira>	davidfetter, Khaytsus i apologize, i missed something in that answer...xdg-mime is also needed there: https://askubuntu.com/questions/62585/how-do-i-set-a-new-xdg-open-setting
+Feb 20 20:34:00 <mkoncek>	i did some basic search, like this: https://askubuntu.com/questions/1146236/intel-hd-520-graphics-flickering-screen
+Feb 20 20:34:34 <mkoncek>	how do enries in /etc/X11/xorg.conf.d/ work?
+Feb 20 20:34:50 <mkoncek>	add an entry, then reboot for it to take effect?
+Feb 20 20:34:57 <bagira>	or restart X
+Feb 20 20:35:13 <mkoncek>	are all entries read? does the name matter?
+Feb 20 20:35:36 <bagira>	the names are arbitrary, but, use something you'll remember what it is by reading it
+Feb 20 20:35:56 <bagira>	most of that is to signal to you that you did something 2 years later when you're troubleshooting and forgot you did this lol
+Feb 20 20:36:20 *	ChanServ gives channel operator status to fedbot
+Feb 20 20:36:24 <mkoncek>	yeah, definitely
+Feb 20 20:37:26 <bagira>	imo they shouldn't have split it up into multiple files like that....X11 configuration has changed alot over the last 10 years or so
+Feb 20 20:38:02 <mkoncek>	someone other suggested playing around with Compositor
+Feb 20 20:38:15 <mkoncek>	vsync -> Full screen repaints
+Feb 20 20:38:17 <bagira>	which one are you using?
+Feb 20 20:38:42 <mkoncek>	i have been using KDE, automatic...
+Feb 20 20:38:48 <bagira>	and does it happen when you're not running th compositor?
+Feb 20 20:38:51 <mkoncek>	opengl 3.1
+Feb 20 20:39:07 <mkoncek>	i am only ever running GUI, so i can't tell
+Feb 20 20:39:30 <mkoncek>	and it happens so infrequently that i cannot wait around to see it
+Feb 20 20:39:35 <bagira>	try running xfce for a while with no compositor, they're usually an external binary to the DE, couldn't comment on kde
+Feb 20 20:39:42 <bagira>	if it still happens, it's not the compositor
+Feb 20 20:39:53 <bagira>	but it's not the compositor
+Feb 20 20:40:00 <mkoncek>	i mean, i can disable compositor also in KDE
+Feb 20 20:40:38 <bagira>	would be a good way to rule out the compositor
+Feb 20 20:40:47 <cmurf>	linuxmodder: geeky_gecko[m] what do you want to know?
+Feb 20 20:41:10 <mkoncek>	well, the page says "screen tearing" that is different
+Feb 20 20:41:19 <cmurf>	e.g. my remote backup command looks like
+Feb 20 20:41:26 <cmurf>	sudo btrfs send -p home.20210126 home.20210218 | ssh chris@fnuc.local "sudo btrfs receive /srv/scratch/backups/flap/"
+Feb 20 20:42:32 <cmurf>	i have ssh pki setup, and also on the remote server that user chris has a sudoers.d dropin file
+Feb 20 20:43:16 <mkoncek>	also, why is there xorg.conf.d both in /etc/X11 as well as in /usr/share/X11?
+Feb 20 20:43:18 <cmurf>	cat /etc/sudoers.d/1chris    chris ALL = NOPASSWD: /usr/sbin/btrfs
+Feb 20 20:45:21 <bagira>	mkoncek, developer arbitration but there are some hints as to why in `man hier`
+Feb 20 20:46:27 <mkoncek>	well, i should know that...
+Feb 20 20:46:46 <mkoncek>	btw. Intel Corporation UHD Graphics 620 (rev 07)
+Feb 20 20:51:48 <mkoncek>	also, i am using Redlight provided by KDE
+Feb 20 20:52:01 <mkoncek>	many things where the problem could be hidden
+Feb 20 20:52:15 <bagira>	it's almost certainly a hardware or driver issue
+Feb 20 20:53:32 <mkoncek>	unfortunately
+Feb 20 20:53:39 <bagira>	i would try those xorg device options where others have had some success in case it can be accounted for.  the intel drivers are "bad".
+Feb 20 20:54:06 <bagira>	s/drivers/chips/
+Feb 20 20:55:02 <mkoncek>	really? i was under the impression that intel gpus work pretty well on linux
+Feb 20 20:55:36 <bagira>	ive never had one i didn't have some tweaking necessary due to glitches just like you're describing
+Feb 20 20:57:06 <bagira>	mkoncek, btw do you have xorg-x11-drv-intel installed?
+Feb 20 20:57:20 <mkoncek>	(it just happened again)
+Feb 20 20:58:24 <mkoncek>	yes, xorg-x11-drv-intel-2.99.917-48.20200205.fc33.src.rpm
+Feb 20 20:58:40 <bagira>	ok
+Feb 20 21:00:33 <mkoncek>	i will try restarting X
+Feb 20 21:01:00 <mkoncek>	unfortunately KDE does not play well with systemctl restart display-manager
+Feb 20 21:01:27 <davidfetter>	Khaytsus, bagira, sorry, got called away by kid duty. Maybe I didn't quite explain it. Let's imagine I've logged into a terminal on a box that doesn't have a GUI installed at all. There are lots of terminal-based programs it's possible to open files with, some using very clever ASCII art renderings.
+Feb 20 21:02:07 <davidfetter>	I want to arrange it so I'm only choosing among those options, but only sometimes.
+Feb 20 21:02:08 <mkoncek>	chafa
+Feb 20 21:02:22 <bagira>	davidfetter, https://linux.die.net/man/1/xdg-mime should do what you're describing
+Feb 20 21:03:06 <davidfetter>	bagira, not quite. When I do have a setting for $DISPLAY, I'll get the GUI app whether I wanted it or not. I only want it sometimes.
+Feb 20 21:05:28 <mkoncek>	so basically i tried: 1) use that config from askubuntu, 2) disable compositor 3) disable Redlight
+Feb 20 21:05:33 <davidfetter>	bagira, there doesn't appear to be anything in the xdg ecosystem, or at least I haven't found anything, that says, "use the non-GUI choices even when GUI choices exist"
+Feb 20 21:05:43 <mkoncek>	i am getting blinded by the bright light
+Feb 20 21:05:55 <bagira>	davidfetter, im not sure i understand your use case now.  you want xdg-open 'file:///|http[s]://$path' to open urls and files in a terminal, lynx for example for urls and vim for example for files right?
+Feb 20 21:06:37 <bagira>	davidfetter, if that's what you want, then your preferred applications need to be set using the first link, and your mimes need to be set using the second link
+Feb 20 21:06:56 <davidfetter>	bagira, I know xdg-open doesn't have this, but what I want it along the lines of xdg-open --no-gui [gizmo]
+Feb 20 21:07:10 <bagira>	oh you want to have ad-hoc selection of gui or not
+Feb 20 21:07:16 <davidfetter>	exactly :)
+Feb 20 21:07:28 <bagira>	i have no idea and im interested in what you find out
+Feb 20 21:08:17 <davidfetter>	thanks :)
+Feb 20 21:08:55 <mkoncek>	till this day, i still don't know what the compositor does
+Feb 20 21:08:55 <s34n>	sshd allows me to sftp with a key sometimes, but requires a password other times
+Feb 20 21:09:13 <bagira>	davidfetter, i know xdg-open will cycle through associated 'openers' in succession, so, for example `xdg-open /` on my machine will cycle through www-browser,links2,elinks,lynx,w3m in succession
+Feb 20 21:09:34 <s34n>	The difference is if I change the ChrootDirectory
+Feb 20 21:09:44 <s34n>	why would that affect authentication?
+Feb 20 21:09:56 <bagira>	davidfetter, if no native xdg feature is found you could write a wrapper script that chooses based on whether DISPLAY is set?
+Feb 20 21:10:06 <davidfetter>	"cycle," as in the next call to it will use the next one in the loop of apps?
+Feb 20 21:10:29 <bagira>	davidfetter, no it'll oscillate through associated openers with that type until it finds one
+Feb 20 21:10:38 <bagira>	s/oscillate/iterate
+Feb 20 21:11:12 <bagira>	i need coffee and my uvula is swollen; brb
+Feb 20 21:11:16 <davidfetter>	so until there's an option earlier on the list, it'll always hit the same on, though
+Feb 20 21:11:25 <bagira>	correct
+Feb 20 21:11:35 <davidfetter>	one*
+Feb 20 21:12:03 *	tnewman9 is now known as tnewman
+Feb 20 21:15:03 <bagira>	davidfetter, for example, here's output from xdg-open on my netflix-ish kiosk in the living room: http://paste.silogroup.org/uxivipaviy | it'll cycle through that list until it finds one or fail if none of them are there
+Feb 20 21:15:55 <bagira>	i think you can bypass that behaviour by setting them all to a wrapper script and then having the wrapper script do some alternative routing based on whether $DISPLAY is set
+Feb 20 21:16:59 <bagira>	or better you could have a wrapper for just that mime type, so, urls get a url wrapper/router, files get one, etc that way you don't lose all the miming xdg provides
+Feb 20 21:17:05 <s34n>	And why won't ChrootDirectory %h allow me to authenticate at all?
+Feb 20 21:18:39 <bagira>	s34n, strong recommendation to use vsftpd
