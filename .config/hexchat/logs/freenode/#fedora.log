@@ -10302,3 +10302,31 @@ Feb 20 21:15:55 <bagira>	i think you can bypass that behaviour by setting them a
 Feb 20 21:16:59 <bagira>	or better you could have a wrapper for just that mime type, so, urls get a url wrapper/router, files get one, etc that way you don't lose all the miming xdg provides
 Feb 20 21:17:05 <s34n>	And why won't ChrootDirectory %h allow me to authenticate at all?
 Feb 20 21:18:39 <bagira>	s34n, strong recommendation to use vsftpd
+Feb 20 21:22:13 <s34n>	bagira: how you sftp with vsftp?
+Feb 20 21:23:10 <bagira>	s34n, old link but first google result: https://www.liquidweb.com/kb/how-to-install-and-configure-vsftpd-on-fedora-20/ | steps should still work fine
+Feb 20 21:25:13 <bagira>	also if you're using sftp in 2021 you probably have better options available
+Feb 20 21:25:14 <davidfetter>	TIL: vsftpd can be configured to require TLS
+Feb 20 21:25:35 <bagira>	there are few good reasons to use it these days
+Feb 20 21:26:34 <davidfetter>	on the client side, I use lftp sftp://
+Feb 20 21:28:05 <Khaytsus>	I have a printer that scans to ftp and inside my lan I still feel dirty
+Feb 20 21:28:51 <davidfetter>	Khaytsus, is there a way to configure the printer so it doesn't do that?
+Feb 20 21:29:43 <Khaytsus>	davidfetter: Use dumb windows-only software, or scan to ftp.  Those are the options.
+Feb 20 21:30:53 <davidfetter>	Khaytsus, that's a shame. I don't suppose that windows-only software gets in touch with it via a network protocol that something else could use...
+Feb 20 21:31:10 <Khaytsus>	Never looked..  it's fine.
+Feb 20 21:31:52 <davidfetter>	Just out of curiosity, which printer is it?
+Feb 20 21:34:02 *	davidfetter has occasional flashes of paranoia about the IoT devices he didn't know were IoT in his house that he sees on his LAN
+Feb 20 21:34:13 <bagira>	as you should
+Feb 20 21:35:49 <davidfetter>	"WhyTF is the thermostat trying to get on the WiFi?"
+Feb 20 21:36:24 <davidfetter>	"What would it do if it succeeded?"
+Feb 20 21:36:53 <bagira>	if you ever want to get real scared, put your phone on an isolated lan and watch the traffic
+Feb 20 21:37:14 <akik>	fedora recognizes my external display. springdale el8 doesn't. what's the magic?
+Feb 20 21:37:45 <bagira>	akik, sounds like a RHEL question
+Feb 20 21:37:57 <akik>	could it be some nvidia thing as this laptop has it
+Feb 20 21:40:15 <bagira>	is anyone aware of a channel for fedRAMP dicusssions?
+Feb 20 21:41:57 <Khaytsus>	My air fryer wants to get on the wifi so the 80 meg app can sent out a notification when the thing finishes, as if the BEEEEEEEP BEEEEEEEEEEP BEEEEEEEEEEEP isn't enough.  #howaboutno
+Feb 20 21:43:18 <bagira>	lol would be cool if you could make it post your food on facebook too
+Feb 20 21:43:38 <Khaytsus>	davidfetter: Older Brother.  The email option was super flakey, forgot it had that..  I tried to use it and it randomly timed out on big scans.
+Feb 20 21:46:39 <davidfetter>	Khaytsus, sounds like it's got a pretty large attack surface :/
+Feb 20 21:53:07 <Khaytsus>	davidfetter: From who, me?
+Feb 20 21:53:16 <Khaytsus>	It's in my lan.
+Feb 20 22:01:02 <akik>	ok it was some modeset difference since the last install. set nouveau.modeset=1 and i915.modeset=0 and now the external display works

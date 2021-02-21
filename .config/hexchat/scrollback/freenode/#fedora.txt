@@ -5097,3 +5097,31 @@ T 1613852155 18<22bagira18>	i think you can bypass that behaviour by set
 T 1613852219 18<22bagira18>	or better you could have a wrapper for just that mime type, so, urls get a url wrapper/router, files get one, etc that way you don't lose all the miming xdg provides
 T 1613852225 18<25s34n18>	And why won't ChrootDirectory %h allow me to authenticate at all?
 T 1613852319 18<22bagira18>	s34n, strong recommendation to use vsftpd
+T 1613852533 18<25s34n18>	bagira: how you sftp with vsftp?
+T 1613852590 18<22bagira18>	s34n, old link but first google result: https://www.liquidweb.com/kb/how-to-install-and-configure-vsftpd-on-fedora-20/ | steps should still work fine
+T 1613852713 18<22bagira18>	also if you're using sftp in 2021 you probably have better options available
+T 1613852714 18<19davidfetter18>	TIL: vsftpd can be configured to require TLS
+T 1613852735 18<22bagira18>	there are few good reasons to use it these days
+T 1613852794 18<19davidfetter18>	on the client side, I use lftp sftp://
+T 1613852885 18<26Khaytsus18>	I have a printer that scans to ftp and inside my lan I still feel dirty
+T 1613852931 18<19davidfetter18>	Khaytsus, is there a way to configure the printer so it doesn't do that?
+T 1613852983 18<26Khaytsus18>	davidfetter: Use dumb windows-only software, or scan to ftp.  Those are the options.
+T 1613853053 18<19davidfetter18>	Khaytsus, that's a shame. I don't suppose that windows-only software gets in touch with it via a network protocol that something else could use...
+T 1613853070 18<26Khaytsus18>	Never looked..  it's fine.
+T 1613853112 18<19davidfetter18>	Just out of curiosity, which printer is it?
+T 1613853242 18*	19davidfetter has occasional flashes of paranoia about the IoT devices he didn't know were IoT in his house that he sees on his LAN
+T 1613853253 18<22bagira18>	as you should
+T 1613853349 18<19davidfetter18>	"WhyTF is the thermostat trying to get on the WiFi?"
+T 1613853384 18<19davidfetter18>	"What would it do if it succeeded?"
+T 1613853413 18<22bagira18>	if you ever want to get real scared, put your phone on an isolated lan and watch the traffic
+T 1613853434 18<22akik18>	fedora recognizes my external display. springdale el8 doesn't. what's the magic?
+T 1613853465 18<22bagira18>	akik, sounds like a RHEL question
+T 1613853477 18<22akik18>	could it be some nvidia thing as this laptop has it
+T 1613853615 18<22bagira18>	is anyone aware of a channel for fedRAMP dicusssions?
+T 1613853717 18<26Khaytsus18>	My air fryer wants to get on the wifi so the 80 meg app can sent out a notification when the thing finishes, as if the BEEEEEEEP BEEEEEEEEEEP BEEEEEEEEEEEP isn't enough.  #howaboutno
+T 1613853798 18<22bagira18>	lol would be cool if you could make it post your food on facebook too
+T 1613853818 18<26Khaytsus18>	davidfetter: Older Brother.  The email option was super flakey, forgot it had that..  I tried to use it and it randomly timed out on big scans.
+T 1613853999 18<19davidfetter18>	Khaytsus, sounds like it's got a pretty large attack surface :/
+T 1613854387 18<26Khaytsus18>	davidfetter: From who, me?
+T 1613854396 18<26Khaytsus18>	It's in my lan.
+T 1613854862 18<22akik18>	ok it was some modeset difference since the last install. set nouveau.modeset=1 and i915.modeset=0 and now the external display works
