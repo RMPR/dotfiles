@@ -1,24 +1,3 @@
-T 1611828343 22*	Topic for 22#emacs is: Pretest #1 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.90.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
-T 1611828343 22*	Topic for 22#emacs set by 26Pickchea!~private@unaffiliated/pickchea (24Tue Jan 19 15:08:29 2021)
-T 1611828343 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
-T 1611828367 18<26dragestil18>	C-y paste from CLIPBOARD, but i want to keep that and have a separte key to paste from PRIMARY
-T 1611828729 18<26polezaivsani18>	dragestil: you could DIY, see C-h f mouse-yank-primary
-T 1611828812 18<26dragestil18>	polezaivsani: thanks a lot! i wanted to find the function by C-h k, but didn't know how to tell C-h k about middle click
-T 1611828939 18<26dragestil18>	and i just realised i can do that by simply middle click...
-T 1611828959 18<26polezaivsani18>	dragestil: yep, just tried it too :)
-T 1611829210 18<25beep156018>	Anyone knows how to add the current song to the playlist?
-T 1611829220 18<25beep156018>	in "M-x mpc"?
-T 1611829245 18<25beep156018>	*current song -> the song where the cursor is
-T 1611829413 18<25beep156018>	Found it! "M-x mpc-playlist-add"
-T 1611829508 24*	28Lord_of_Life_ is now known as 18Lord_of_Life
-T 1611830882 18<19gearnode18>	https://github.com/asyncapi/asyncapi
-T 1611831084 20*	Disconnected (20)
-T 1611999311 19*	Now talking on 22#emacs
-T 1611999311 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
-T 1611999311 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Fri Jan 29 17:22:51 2021)
-T 1611999312 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
-T 1612002418 18<19parsnip18>	rudybot: seen rudybot
-T 1612002470 24*	28Lord_of_Life_ is now known as 18Lord_of_Life
 T 1612003224 18<26polezaivsani18>	Is there anything in default Emacs to increase the font size in a buffer?
 T 1612003343 18<25beep156018>	polezaivsani: C-x C-=
 T 1612003355 18<25beep156018>	Oh, in a buffer
@@ -5018,3 +4997,160 @@ T 1613855171 18<22ozzloy18>	while still having paredit structural editin
 T 1613855941 18<28VincentVega18>	ozzloy: maybe paredit-space-for-delimiter-predicates?
 T 1613857301 18<29zooey18>	hrmm, i too miss paredit whenever i don't have it, never thought to enable it outside of lispy things
 T 1613857377 18<29zooey18>	but if i had a penny for every time i tried to muscle-memory slurp or barf something in non-lisp code, i'd have a bunch of pennies
+T 1614000236 19*	Now talking on 22#emacs
+T 1614000236 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1614000236 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
+T 1614000237 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1614000347 18<27flypaper-ultimat18>	unluckyshrubbery: this works in a vanilla emacs: http://ix.io/2QlN/elisp
+T 1614000410 18<27unluckyshrubbery18>	thanks flypaper-ultimat, i will look during a break :)
+T 1614000412 18<27unluckyshrubbery18>	i appreciate it
+T 1614000692 18<27flypaper-ultimat18>	lockywolf: seems to fail if i try to move a file at point created with "echo foo; echo bar| xargs -0 touch"
+T 1614000745 18<26lockywolf18>	thank you
+T 1614000807 18<27flypaper-ultimat18>	lockywolf: it indeed seems to think that the file is called "foo", and you'll get a file-missing error
+T 1614002216 18<27hodapp18>	Let's try to set the world record for the least-hot chili pepper.
+T 1614002370 18<27unluckyshrubbery18>	bell pepper?
+T 1614002405 18<27hodapp18>	trace capsaicin is still too much capsaicin
+T 1614002407 18<27unluckyshrubbery18>	black peppers lol
+T 1614002419 18<27hodapp18>	and we haven't even looked for capsinoids that activate the same receptors
+T 1614002435 18<27hodapp18>	black pepper isn't even remotely close to being a chili pepper :P
+T 1614002448 18<27unluckyshrubbery18>	haha
+T 1614002504 18<27hodapp18>	different family of plants and everything
+T 1614002549 18<27flypaper-ultimat18>	unluckyshrubbery: regarding DEL, my bad i was confusing DEL (which translates from <backspace>) with the Delete key (<delete>). in the file  i send you, it does remap DEL; it was the same problem of a "level 2" rebind.  search for "^(org-remap" in (find-library org-keys)) to see that its the case/how its done. for the more general case if you press C-h m or C-h b you can see which functions are remapped: those are the bindin
+T 1614002549 18<27flypaper-ultimat18>	with <remap> <function-that-they-remap-from>
+T 1614002676 18<27unluckyshrubbery18>	looks like it uses an org-defkey, flypaper-ultimat
+T 1614002678 18<27unluckyshrubbery18>	thanks
+T 1614002841 18<27thomasb0618>	hello. Magit is just installed with Melpa, but C-x g says is undefined. What did I miss? Maybe I need to manually add the path the elpa?
+T 1614002931 18<27thomasb0618>	*elpa directory
+T 1614003049 18<27unluckyshrubbery18>	thanks, flypaper-ultimat. that worked.
+T 1614003138 18<22MysteriousSilver18>	thomasb06: how did you install magit
+T 1614003390 18<27thomasb0618>	MysteriousSilver: with M-x package-install RET magit
+T 1614003454 18<27thomasb0618>	it seems the only line that changed is package-selected-packages
+T 1614003503 18<27thomasb0618>	the magit directory was created in my elpa directory, but there is no path to it in my .emacs
+T 1614003517 18<27flypaper-ultimat18>	thomasb06: can you do "M-x magit-status" ?
+T 1614003559 18<27thomasb0618>	flypaper-ultimat: perfect: Untracked files (7)
+T 1614003709 18<27thomasb0618>	sorry, I closed emacs...
+T 1614003736 18<27thomasb0618>	It seems I missed something, flypaper-ultimat you were saying something?
+T 1614003741 18<27flypaper-ultimat18>	you missed nothing.okay, so its just the binding thats not bound. Now that you've restarted, see if its bound now, otherwise  run (magit-maybe-define-global-key-bindings)
+T 1614003779 18<27thomasb0618>	still undefined, running your command
+T 1614003790 18<29fourier18>	is there a way to prevent magit from defining global key bindings ?
+T 1614003813 18<27flypaper-ultimat18>	also check C-h v magit-define-global-key-bindings
+T 1614003829 18<29chipps18>	Hey everyone! How can I get relative numbering in emacs? I'm a complete beginner, so please be gentle
+T 1614003831 18<27flypaper-ultimat18>	fourier: yes, setting magit-define-global-key-bindings to nil
+T 1614003856 18<29fourier18>	thanks
+T 1614003868 18<27thomasb0618>	flypaper-ultimat: the variable is not define, should I add a setq in my .emacs?
+T 1614003995 18<27flypaper-ultimat18>	thomasb06: if you can M-x magit-status, you could just add (define-key global-map (kbd "C-x g") 'magit-status) to your .emacs, that would be the easiest solution.
+T 1614004021 18<29chipps18>	I have '(setq display-line-numbers 'relative)' in my .emacs, but 
+T 1614004034 18<27thomasb0618>	flypaper-ultimat: sold
+T 1614004203 18<27flypaper-ultimat18>	chipps: you'd also need to add (global-display-line-numbers-mode) to your .emacs
+T 1614004249 18<27thomasb0618>	the command "(define-key global-map (kbd "C-x g") 'magit-file-dispatch)" worked and the magit popup appears. Thank you very much
+T 1614004458 18<29chipps18>	flypaper-ultimat: for a minimal setup, just these two lines in my emacs config doesn't work
+T 1614004605 18<27flypaper-ultimat18>	thomasb06: glad to help! 
+T 1614004614 18<27thomasb0618>	;p
+T 1614004682 18<27flypaper-ultimat18>	chipps: ah i found where it goes wrong ,for your init file you have to set (display-line-numbers-type 'relative)
+T 1614004780 18<22knarkzel18>	heya
+T 1614004800 18<29chipps18>	11,99flypaper-ultimat:99,99 I get the error Symbol function definition is void: display-line-numbers-type
+T 1614004820 18<20bpalmer18>	it's not a function; it's a variable.
+T 1614004833 18<27flypaper-ultimat18>	chipps: sorry typo (setq display-line-numbers-type 'relative)
+T 1614004876 18<22knarkzel18>	anyone know why the following modifies all lines of the vector?
+T 1614004878 18<22knarkzel18>	(setq chip8-buffer-content (make-vector 32 (make-string 64 ?.)))
+T 1614004878 18<22knarkzel18>	(aset (aref chip8-buffer-content 0) 10 ?a)
+T 1614004878 18<22knarkzel18>	 
+T 1614004893 18<29chipps18>	It works thanks flypaper-ultimat! 
+T 1614004932 18<20bpalmer18>	knarkzel: because each slot of the vector contains a pointer to the same string.
+T 1614004954 18<22knarkzel18>	why doesnt it create unique strings?
+T 1614004958 18<27flypaper-ultimat18>	chipps: the docs say to use display-line-numbers-type to modify the behaviour before activating the minor mode, and display-line-numbers (which can be gbuffer local) to change behaviour while the mode is active
+T 1614004980 18<20bpalmer18>	knarkzel: because you created a single string, and then assigned it everywhere.
+T 1614004990 18<22knarkzel18>	hmm i see.
+T 1614004992 18<20bpalmer18>	knarkzel: you didn't tell it to create multiple strings.
+T 1614005001 18<22knarkzel18>	how do i make it allocate unique strings?
+T 1614005009 18<20bpalmer18>	loop.
+T 1614005036 18<22knarkzel18>	loop and push?
+T 1614005059 18<22knarkzel18>	or loop each and create string?
+T 1614005090 18<20bpalmer18>	the latter. You'll want to create a new string each time. Or, alternatively, don't use aset to change the string values.
+T 1614005179 18<22knarkzel18>	(setq chip8-buffer-content (make-vector 32 0))
+T 1614005179 18<22knarkzel18>	(dotimes (i 32)
+T 1614005179 18<22knarkzel18>	  (aset chip8-buffer-content i (make-string 64 ?.)))
+T 1614005179 18<22knarkzel18>	 
+T 1614005190 18<22knarkzel18>	this works
+T 1614005555 18<29chipps18>	How do I go back to the last file that I was editing
+T 1614005574 18<20bpalmer18>	chipps: C-x b , probably. Depends what you did to move away from it.
+T 1614005584 18<29MrFantastik18>	M-x previous-buffer
+T 1614005587 18<29MrFantastik18>	maybe
+T 1614005635 18<29chipps18>	Or more generally how can I cycle through the open buffers in order of last time opened?
+T 1614005654 18<27flypaper-ultimat18>	knarkzel: alternatively (setq chip8-buffer-content (vconcat (mapcar (lambda (i) (make-string 64 ?.)) (number-sequence 1 32))))
+T 1614005694 18<27flypaper-ultimat18>	chipps: with C-x <left>, C-x <right>
+T 1614005710 18<20bpalmer18>	chipps: by default, buffers will be organized in order of use in buffer-list, so previous-buffer / next-buffer (bound to the C-x arrows as flypaper-ultimat says) should do
+T 1614005807 18<20bpalmer18>	chipps: many people just use buffer switching mechanisms for C-x b (for example, iswitchb (which has been declared obsolete in favor of something I don't remember), helm, ivy, and more)
+T 1614005839 18<27grym18>	ibuffer is also handy, but a little heavy for quick switching 
+T 1614005839 18<20bpalmer18>	there's also buffer overview packages, like M-x ibuffer RET  (which I like enough to rebind C-x C-b  to invoke)
+T 1614005843 18<27grym18>	nicie for cleanup :) 
+T 1614005853 18<27grym18>	jinx!
+T 1614005887 18<20bpalmer18>	rudybot: somebody owes a coke.
+T 1614005897 18<24rudybot18>	bpalmer: somebody owes somebody a coke
+T 1614005969 18<29chipps18>	I see thanks guys
+T 1614006000 18<20bpalmer18>	I suppose I should try helm one day.
+T 1614006073 18<29MrFantastik18>	i think helm is no longer maintained
+T 1614006098 18<25cvandusen18>	rudybot: no one at the helm 
+T 1614006103 18<29MrFantastik18>	heh
+T 1614006114 18<24rudybot18>	cvandusen: I have no idea where it /should/ come from. of course, I don't care about helm at all, but that function is a new one for me.
+T 1614006114 18<29MrFantastik18>	https://github.com/emacs-helm/helm
+T 1614006134 18<29MrFantastik18>	it looks like a MR came in 10 days ago so i guess I'm mistaken
+T 1614006151 18<29MrFantastik18>	I remember reading somewhere that the maintainer was stepping down or something
+T 1614006176 18<20bpalmer18>	You never hear about unmaintained planes crashing, now do you ? It's only the ones that people are messing with that have trouble.
+T 1614006221 18<29MrFantastik18>	galaxy brain
+T 1614006254 18<27hodapp18>	rudybot: The United States military has an official mariachi band in the New Mexico National Guard, called Mariachi Nuevo México; this pays homage to the state of New Mexico's Hispano and Mexican-American heritage.
+T 1614006269 18<29MrFantastik18>	regular brain -> using up to date software
+T 1614006281 18<29MrFantastik18>	exploding brain -> last update 10 years ago
+T 1614006298 18<29MrFantastik18>	galaxy brain -> copy pasted snippet from stack overflow
+T 1614006302 18<24rudybot18>	hodapp: and a lot of other lusitano, hispano, italiano, and franco- speaking countries.
+T 1614006319 18<29MrFantastik18>	universe brain -> random pastebin curl | bash
+T 1614006401 18<20bpalmer18>	oh, hey, good news, everybody! Microsoft Word is getting text predictions next month.
+T 1614006514 18<25cvandusen18>	,fanfare Word 
+T 1614006515 18*	22fsbot hastily assembles a brass ensemble and plays a stirring fanfare in Word's general direction
+T 1614006547 18<20bpalmer18>	one wonders what the response will be for those pushing emacs as the next big word processor.
+T 1614006626 18<25cvandusen18>	blood lust 
+T 1614006645 18<22Minall18>	When opening a code snippet, I of course get the snippet
+T 1614006645 18<22Minall18>	                      in place, but when I close it, my 'layout' is now only
+T 1614006646 18<22Minall18>	                      the org file, even though I had like 3 different frames
+T 1614006648 18<22Minall18>	                      opened... How can I prevent this from happening?
+T 1614006651 18<22Minall18>	Sorry for that, really
+T 1614006700 18<25cvandusen18>	frames or windows? 
+T 1614006768 18<20bpalmer18>	what do you mean by 'open a code snippet' ?
+T 1614006976 18<29chipps18>	How can I map a c-i to org-cycle in org-mode files?
+T 1614007012 18<27flypaper-ultimat18>	Minall: you can customize the behaviour based on the value of org-src-window-setup, M-x customize-value org-src-window-setup, try some of the values and see which one you like
+T 1614007091 18<27flypaper-ultimat18>	chipps: thats already by default, C-i is the same as pressing TAB for emacs
+T 1614007113 18<29chipps18>	That doesn't work in the gui
+T 1614007154 18<29chipps18>	Anyways just for my info, how does one set key mappings for specific modes?
+T 1614007262 18<27flypaper-ultimat18>	chipps: what's your os? what do you get if you press C-h k C-i? To answer your general case  question you can use (define-key org-mode-map (kbd "C-i") 'org-cycle)
+T 1614007263 18<20jlf18>	(add-hook 'foo-mode-hook (lambda () (local-set-key (kbd "C-c C-o') 'some-fn))) is one way
+T 1614007277 18<20bpalmer18>	chipps: if you're just temporarily doing it, go to a buffer in that mode and M-x local-set-key RET  (this will usually work)
+T 1614007324 18<20jlf18>	s/o'/o"/
+T 1614007471 18<27flypaper-ultimat18>	chipps: i would recommend using use-package to bind keys, the former solution requires the variable org-mode-map to exist, if you dont want to use use-package you can add (eval-after-load "org" `(define-key org-mode-map (kbd "C-i") 'org-cycle))
+T 1614007513 18<20bpalmer18>	no need to backquote there.
+T 1614007609 18<27flypaper-ultimat18>	bpalmer: as opposed to normal quote? true, but you do need to the second arg right?
+T 1614007635 18<29chipps18>	flypaper-ultimat: I'm using evil-mode, so seems like evil-mode is mapping C-i to evil-jump-forward
+T 1614007652 18<20bpalmer18>	Right. Nowadays, with-eval-after-load is more common, to simplify quoting and providing an implicit progn
+T 1614007662 18<20bpalmer18>	(with-eval-after-load "org" (do1) (do2) (do3))
+T 1614022958 20*	Disconnected (20)
+T 1614022992 19*	Now talking on 22#emacs
+T 1614022992 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1614022992 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
+T 1614022992 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1614023520 18<20birkoff18>	i'm looking for a snippet that will transform org-mode url links titles to their actual webpage title
+T 1614024138 18<19e1f18>	the cameras were't go-pros
+T 1614024138 18<19e1f18>	weren't
+T 1614024188 20*	Disconnected (20)
+T 1614024235 20*	Disconnected (20Remote host closed socket)
+T 1614024285 20*	Disconnected (20Remote host closed socket)
+T 1614024345 20*	Disconnected (20Remote host closed socket)
+T 1614024403 20*	Disconnected (20Remote host closed socket)
+T 1614024465 20*	Disconnected (20Remote host closed socket)
+T 1614024493 19*	Now talking on 22#emacs
+T 1614024493 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1614024493 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
+T 1614024493 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1614024498 18<19e1f18>	rover has a computer running linux for ffmpeg compression
+T 1614024978 24*	28ShibaInu is now known as 18Shibe
+T 1614025118 18<27hodapp18>	the dog?
+T 1614025191 18<19bremner18>	bad dog. leave the rpi along
+T 1614025194 18<19bremner18>	alone

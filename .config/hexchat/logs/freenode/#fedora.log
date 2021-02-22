@@ -10330,3 +10330,114 @@ Feb 20 21:46:39 <davidfetter>	Khaytsus, sounds like it's got a pretty large atta
 Feb 20 21:53:07 <Khaytsus>	davidfetter: From who, me?
 Feb 20 21:53:16 <Khaytsus>	It's in my lan.
 Feb 20 22:01:02 <akik>	ok it was some modeset difference since the last install. set nouveau.modeset=1 and i915.modeset=0 and now the external display works
+**** BEGIN LOGGING AT Mon Feb 22 14:23:56 2021
+
+Feb 22 14:23:56 *	Now talking on #fedora
+Feb 22 14:23:56 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 22 14:23:56 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 22 14:23:57 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 22 14:32:58 *	bdaase_ is now known as bdaase
+Feb 22 14:34:01 <bendem>	how can I list the weak dependencies of a package I have installed?
+Feb 22 14:35:01 <Southern_Gentlem>	Anvil, ssds but doing good, still making the updated isos etc
+Feb 22 14:35:52 <bendem>	I see repoquery is supposed to have "--weak-requires", but running it, I get "dnf repoquery: error: unrecognized arguments: --weak-requires"
+Feb 22 14:39:13 <Khaytsus>	bendem: Where?  NOthing in the man page
+Feb 22 14:40:11 <bendem>	Khaytsus, https://man7.org/linux/man-pages/man1/repoquery.1.html
+Feb 22 14:40:17 <Khaytsus>	... no
+Feb 22 14:40:34 <bendem>	I also see install-weakdep is supposed to be a thing in https://fedoraproject.org/wiki/PackagingDrafts/WeakDependencies
+Feb 22 14:40:53 <bendem>	but it's not
+Feb 22 14:41:07 <Khaytsus>	That page is 5 years old
+Feb 22 14:41:30 <Khaytsus>	Panu Matilainen              17 October 2005                repoquery(1)
+Feb 22 14:41:41 <Khaytsus>	bendem: What's the actual question here?
+Feb 22 14:46:03 <bendem>	Khaytsus, how can I list the weak dependencies of a package?
+Feb 22 14:46:16 <bendem>	I'm not sure how I can make the question clearer
+Feb 22 14:47:47 <bendem>	what I'm saying is, there used to be an obvious way, there isn't anymore and the internet is not helping, thus, I'm asking here
+Feb 22 14:47:55 <Khaytsus>	bendem: Your questions have been "why is this 15 year old man page not matching current"
+Feb 22 14:48:17 <bendem>	Khaytsus, 14:34:01 <bendem> how can I list the weak dependencies of a package I have installed?
+Feb 22 14:48:43 <bendem>	this is the only sentence that ends with a question mark, you can be pedant, but please read then
+Feb 22 14:49:24 <Khaytsus>	Or not and move on
+Feb 22 14:49:28 *	Khaytsus &
+Feb 22 14:49:38 <Southern_Gentlem>	bendem,  i am not seeing a way to list weak deps only all deps
+Feb 22 14:50:00 <FranciscoD>	For an installed package, one should be able to use --recomments/--suggests
+Feb 22 14:50:05 <FranciscoD>	s/recomments/recommends/
+Feb 22 14:50:09 <FranciscoD>	with rpm, that is
+Feb 22 14:50:13 <FranciscoD>	man rpm has them
+Feb 22 14:50:49 <FranciscoD>	for a package that isn't installed, I'd expect dnf repoquery to match these options too
+Feb 22 14:51:10 <FranciscoD>	man dnf lists them, so yeh
+Feb 22 14:52:31 <bendem>	what's the relationship between recommends/suggests and weak? I thought they were separate concepts, but I'm not so sure now
+Feb 22 14:53:00 <FranciscoD>	bendem: https://docs.fedoraproject.org/en-US/packaging-guidelines/WeakDependencies/
+Feb 22 14:53:26 <FranciscoD>	they're types of weak deps: forward/backwared
+Feb 22 14:53:30 <FranciscoD>	s/backwared/backward/
+Feb 22 14:53:58 <bendem>	ok, that makes sense
+Feb 22 14:54:32 <bendem>	ah, I see, Suggests is actually just part of the spec, it's ignored by dnf
+Feb 22 14:54:45 <bendem>	thanks FranciscoD
+Feb 22 14:54:56 <FranciscoD>	np :)
+Feb 22 14:56:09 <mar555>	hello
+Feb 22 14:56:09 <mar555>	Do you know when the repos will be updated and 0ad will be in wersion 0.24
+Feb 22 14:56:10 <mar555>	?
+Feb 22 14:56:31 <mar555>	i mean https://play0ad.com/
+Feb 22 14:56:46 <Khaytsus>	mar555: https://koji.fedoraproject.org/koji/packageinfo?packageID=14762
+Feb 22 14:56:57 <Khaytsus>	Does not look like there's anything in progress yet
+Feb 22 14:57:15 <FranciscoD>	I see a bug, but nothing there yet either: https://bugzilla.redhat.com/show_bug.cgi?id=1930912
+Feb 22 14:57:21 <Khaytsus>	It was updated 2 days ago, seems a bit early to be inquring about it
+Feb 22 14:57:30 <FranciscoD>	yeh XD
+Feb 22 14:57:47 <FranciscoD>	mar555: you can cc yourself to the bug, that way you'll get updates from it
+Feb 22 14:58:01 <FranciscoD>	also feel free to comment there to communicate directly with the maintainer
+Feb 22 14:58:14 <FranciscoD>	(you can log in to bugzilla using your Fedora Account)
+Feb 22 14:58:19 <mar555>	ok
+Feb 22 14:58:23 <mar555>	thanks
+Feb 22 15:00:12 <mkoncek>	i still cannot figure out the weird behaviour of wine graphical applications: my keyboard key 2 is registered as 6 and 6 is not registered at all, this happens both with my laptop keyboard as well as my external keyboard
+Feb 22 15:01:06 <Southern_Gentlem>	mkoncek,  i saw a bunch of wine updates this morning
+Feb 22 15:02:14 <mkoncek>	i mean, i am having this for 2 years...
+Feb 22 15:03:08 <Southern_Gentlem>	and you havent complained until now
+Feb 22 15:03:17 <Khaytsus>	A quick google says "wrong keyboard layout" in Wine, whatever that means..  can one set a keyboard layout in Wine?  (people stil use Wine??)
+Feb 22 15:04:07 <Khaytsus>	https://bugs.winehq.org/show_bug.cgi?id=30984    similar issue
+Feb 22 15:08:19 <mkoncek>	i did once somewhere on wine channel, but did not find help... whar is their channel again?
+Feb 22 15:09:11 <mkoncek>	speaking of wine, i constantly have to exclude wine-dxvk from dnf updates because it breaks 3D applications
+Feb 22 15:09:15 <Khaytsus>	https://www.winehq.org/irc
+Feb 22 15:11:20 <mkoncek>	thanks
+Feb 22 15:40:30 <_AnK>	Hello. On FC33 I am running Windows 10 virtual  qemu/kvm. Got new monitor with higher resolution. Win10 stuck on the low resolution mode. I thought it is as easy as downloading Win10 driver and installing it in virtual pc. But no - installer refusing to install as it  sees Spice Display instead not recognizing real monitor. Any guidance will be greatly appreciated. Thanks.  
+Feb 22 15:42:23 <Khaytsus>	_AnK: Shouldn't have to do anything, should just work.  What's the problem?  Windows only lets you pick smaller resolutions?
+Feb 22 15:42:50 <_AnK>	yes, exactly.
+Feb 22 15:43:25 <_AnK>	Perhaps some parameters need o be passed to qemu/kvm?
+Feb 22 15:44:32 <_AnK>	But thanks - knowing that no need to install any driver on Win side - is good information.
+Feb 22 15:44:32 <_AnK>	I will tweak qem/kvm instead
+Feb 22 15:44:40 <_AnK>	Thanks
+Feb 22 15:46:52 <Khaytsus>	I use libvirt as a viewer here on a Windows 10 vm and it resizes dynamically
+Feb 22 15:47:00 <Khaytsus>	Whatever size I make the window, it just works
+Feb 22 15:47:39 <_AnK>	On my older display - work the same way. .... Never had any problems. Thanks
+Feb 22 15:48:07 <ledeni>	_AnK➡ do you run with vmm you need to set video model to virtio and tick 3d accer...
+Feb 22 15:48:27 <_AnK>	I see let me try. Thanks
+Feb 22 15:51:40 <Anvil>	Southern_Gentlem : (ssds ?). I often use those isos when I need to install, thanks.
+Feb 22 15:54:05 <_AnK>	ledeni: Same result I stuck on 2560:1600 instead of 3440:1440. Thanks
+Feb 22 16:03:56 *	Ajinkya_1 is now known as mitoushuki
+Feb 22 16:04:03 *	mitoushuki is now known as mitoshuki
+Feb 22 16:04:43 <Southern_Gentlem>	Anvil, SSDD
+Feb 22 16:04:57 <Southern_Gentlem>	Same Stuff Different Day
+Feb 22 20:42:38 *	Disconnected ()
+**** ENDING LOGGING AT Mon Feb 22 20:42:38 2021
+
+**** BEGIN LOGGING AT Mon Feb 22 20:43:11 2021
+
+Feb 22 20:43:11 *	Now talking on #fedora
+Feb 22 20:43:11 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 22 20:43:11 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 22 20:43:12 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 22 20:48:13 <bkircher>	Hey there
+Feb 22 20:48:30 <bkircher>	anyone knows of a Golang library to parse RPM spec files?
+Feb 22 21:03:08 *	Disconnected ()
+**** ENDING LOGGING AT Mon Feb 22 21:03:08 2021
+
+**** BEGIN LOGGING AT Mon Feb 22 21:08:12 2021
+
+Feb 22 21:08:12 *	Now talking on #fedora
+Feb 22 21:08:12 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 22 21:08:12 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 22 21:08:13 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 22 21:08:46 <geeky_gecko[m]>	Ok! Recently talked to him.
+Feb 22 21:10:44 *	geeky_gecko[m] uploaded an image: ima_8af714c.jpeg (163KiB) < https://matrix.org/_matrix/media/r0/download/matrix.org/RBrPkYbnFGWWXwnunfWUJtgU/ima_8af714c.jpeg >
+Feb 22 21:11:56 <Southern_Gentlem>	geeky_gecko[m], use an imagebin please we cant manipulate so we can even read that on matrix
+Feb 22 21:12:19 <geeky_gecko[m]>	Ok
+Feb 22 21:13:44 <geeky_gecko[m]>	HTTPS://paste.centos.org/view/6ecc351c
+Feb 22 21:16:56 <Southern_Gentlem>	thats better so as cmurf comes up from air pounce on him
+Feb 22 21:17:03 <geeky_gecko[m]>	My idea was to mount the pool and restore the system with the latest snapshot.
+Feb 22 21:18:42 <geeky_gecko[m]>	Thanks S_G!
