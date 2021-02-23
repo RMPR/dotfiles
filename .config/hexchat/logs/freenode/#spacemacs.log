@@ -3843,3 +3843,99 @@ Feb 22 21:03:08 *	Disconnected ()
 Feb 22 21:08:13 *	Now talking on #spacemacs
 Feb 22 21:08:13 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
 Feb 22 21:08:13 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Feb 22 21:32:08 <FromGitter>	<andreicristianpetcu> > @andreicristianpetcu did you try `SPC g f f`? ⏎  ⏎ yes. I'm not using git, I'm using hg. That only works with git.
+Feb 22 21:36:18 <FromGitter>	<andreicristianpetcu> Hmmm I installed this but I don't know how to use it exactly https://github.com/emacs-helm/helm-ls-hg
+Feb 22 22:23:10 <FromGitter>	<andreicristianpetcu> I added the package here https://github.com/andreicristianpetcu/dotfiles/blob/50b744615e681e051ff38e6be3048af7f18a58b5/spacemacs#L67 ⏎ I tried to use with `SPC SPC` and then `helm-ls-hg` but nothing happened. It's not one of the emacs commands.
+Feb 22 23:06:38 *	Disconnected ()
+**** ENDING LOGGING AT Mon Feb 22 23:06:38 2021
+
+**** BEGIN LOGGING AT Mon Feb 22 23:26:18 2021
+
+Feb 22 23:26:18 *	Now talking on #spacemacs
+Feb 22 23:26:18 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Feb 22 23:26:18 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Feb 22 23:31:08 *	Disconnected ()
+**** ENDING LOGGING AT Mon Feb 22 23:31:08 2021
+
+**** BEGIN LOGGING AT Mon Feb 22 23:37:30 2021
+
+Feb 22 23:37:30 *	Now talking on #spacemacs
+Feb 22 23:37:30 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Feb 22 23:37:30 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Feb 22 23:39:08 *	Disconnected ()
+**** ENDING LOGGING AT Mon Feb 22 23:39:08 2021
+
+**** BEGIN LOGGING AT Tue Feb 23 09:59:31 2021
+
+Feb 23 09:59:31 *	Now talking on #spacemacs
+Feb 23 09:59:31 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Feb 23 09:59:31 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Feb 23 12:54:34 <FromGitter>	<iliekprogrammar> greetings, probably a noobish question: in emacs lisp, how do i choose a different value if one value is nil? e.g. `(choose-non-nil (could-evaluate-to-nil) (always-non-nil))`. ⏎ For context, Im trying to handle an optional argument for a function.
+Feb 23 12:56:51 <FromGitter>	<dalanicolai> @iliekprogrammar I guess you are looking for `or`?
+Feb 23 12:57:36 <FromGitter>	<iliekprogrammar> oh it works like in lua. quite nice.
+Feb 23 12:58:09 <FromGitter>	<dalanicolai> Ah... don't know lua
+Feb 23 12:59:09 <FromGitter>	<iliekprogrammar> it's a neat language. I learnt it for neovim's new support for lua configurations.
+Feb 23 13:00:09 <FromGitter>	<iliekprogrammar> but the way emacs' built is just miles better than lua support
+Feb 23 13:00:55 <FromGitter>	<dalanicolai> Yeah I quickly had a look at lua, when I read positive things about it
+Feb 23 13:01:17 <FromGitter>	<dalanicolai> But I think I remember it looked like python, just little less nice
+Feb 23 13:01:54 <FromGitter>	<iliekprogrammar> metatables sold it for me
+Feb 23 13:02:24 <FromGitter>	<dalanicolai> Yeah... the introspection in emacs is great. And lisp is a beautiful language too
+Feb 23 13:03:00 <FromGitter>	<iliekprogrammar> never would i have ever thought to love parenthesis abuse
+Feb 23 13:04:06 <FromGitter>	<dalanicolai> Haha... maybe it is not abuse after all
+Feb 23 13:05:12 <FromGitter>	<dalanicolai> I quickly searched for `metatable`... from the explanation in Wikipedia (https://en.wikipedia.org/wiki/Metatable) it sounds like lisp is all metatable...
+Feb 23 13:06:07 <FromGitter>	<dalanicolai> But I do not really know what I am talking about... just the 'holding data that acts as source code' part
+Feb 23 13:07:41 <FromGitter>	<iliekprogrammar> in lua, it basically means you change how operations interact with the object/table. ⏎  ⏎ say i want union operation for sets. I can override the + operator using metatables.
+Feb 23 13:09:06 <FromGitter>	<iliekprogrammar> the table holds the data, acting as the source code, that defines its behaviour.
+Feb 23 13:09:21 <FromGitter>	<iliekprogrammar> pretty OOP-like, really
+Feb 23 13:09:54 <FromGitter>	<dalanicolai> Ah... I have read that lisp offers plenty of tricks for that I think... but I still need to learn those tricks
+Feb 23 13:11:29 <FromGitter>	<iliekprogrammar> another way to use metatable is to create builders or prototypes
+Feb 23 13:12:11 <FromGitter>	<dalanicolai> Haha... okay I still need to learn a lot... I am only a hobby programmer
+Feb 23 13:12:26 <FromGitter>	<iliekprogrammar> but of course, the thing that people remember most about lua is that its 1-indexed
+Feb 23 13:13:02 <FromGitter>	<iliekprogrammar> and many fail to hint the fact that metatables can change that to the more sensible 2-indexed system
+Feb 23 13:13:53 <FromGitter>	<dalanicolai> Ah don't know what that means
+Feb 23 13:14:05 <FromGitter>	<dalanicolai> I thought you meant 1 vs 0-indexed
+Feb 23 13:14:10 <FromGitter>	<dalanicolai> But 2-indexed?
+Feb 23 13:14:17 <FromGitter>	<iliekprogrammar> yes, that's correct
+Feb 23 13:14:27 <FromGitter>	<iliekprogrammar> metatables results in any-indexed
+Feb 23 13:14:58 <FromGitter>	<dalanicolai> Haha sounds confuding
+Feb 23 13:14:58 <FromGitter>	<iliekprogrammar> truly a powerful feature :D
+Feb 23 13:16:19 <FromGitter>	<dalanicolai> I will believe you on your word :)
+Feb 23 13:17:25 <FromGitter>	<iliekprogrammar> i wonder what cursed things you can do in lisp, given how simple and flexible this beast is
+Feb 23 13:20:55 <FromGitter>	<dalanicolai> Yes... me too... but I have seen some sophisticated looking code already... I wish I had understood it also
+Feb 23 13:55:45 *	Disconnected ()
+**** ENDING LOGGING AT Tue Feb 23 13:55:45 2021
+
+**** BEGIN LOGGING AT Tue Feb 23 16:20:29 2021
+
+Feb 23 16:20:29 *	Now talking on #spacemacs
+Feb 23 16:20:29 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Feb 23 16:20:29 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Feb 23 18:16:08 <FromGitter>	<sektor:matrix.hunterjozwiak.com> Is there a Matrix layer for Spacemacs? Getting back into the Emacs life and loving it.
+Feb 23 18:22:22 *	Disconnected ()
+**** ENDING LOGGING AT Tue Feb 23 18:22:22 2021
+
+**** BEGIN LOGGING AT Tue Feb 23 18:22:55 2021
+
+Feb 23 18:22:55 *	Now talking on #spacemacs
+Feb 23 18:22:55 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Feb 23 18:22:55 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Feb 23 18:51:06 <FromGitter>	<andreicristianpetcu> How can I force a file to use a specific syntax highlight? I have a Fluet file (something.ftl) and I want the syntax to be the same for properties files.
+Feb 23 19:20:12 *	Disconnected ()
+**** ENDING LOGGING AT Tue Feb 23 19:20:12 2021
+
+**** BEGIN LOGGING AT Tue Feb 23 19:20:42 2021
+
+Feb 23 19:20:42 *	Now talking on #spacemacs
+Feb 23 19:20:42 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Feb 23 19:20:42 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Feb 23 19:44:19 *	Disconnected ()
+**** ENDING LOGGING AT Tue Feb 23 19:44:19 2021
+
+**** BEGIN LOGGING AT Tue Feb 23 19:44:48 2021
+
+Feb 23 19:44:48 *	Now talking on #spacemacs
+Feb 23 19:44:48 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Feb 23 19:44:48 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Feb 23 20:17:49 *	Disconnected ()
+**** ENDING LOGGING AT Tue Feb 23 20:17:49 2021
+

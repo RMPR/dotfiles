@@ -1,180 +1,3 @@
-T 1587392994 18<22Southern_Gentlem18>	or click applications at the top left
-T 1587393015 18<22Southern_Gentlem18>	dowdle, **tag your it*
-T 1587393018 18*	22Southern_Gentlem runs away
-T 1587393019 18<27corshmock18>	I've got firewall configuration running.  Sorry nothing happening on f2 or windows key
-T 1587393113 18<27corshmock18>	Should I add port 15000 (the one that's closed)?
-T 1587393129 18<26Khaytsus18>	I thought you just clicked the applications text at the top, because ya know, that's obvious user design
-T 1587393148 18<22Southern_Gentlem18>	corshmock,  you need 2234
-T 1587393159 18<22Southern_Gentlem18>	tcp open that under public
-T 1587393164 18<27corshmock18>	Yep
-T 1587393231 18<27corshmock18>	I've added 2234 into ports, but it isn't showing up.  No errors
-T 1587393451 18<22Southern_Gentlem18>	2234 select tcp enter
-T 1587393461 18<27corshmock18>	So I've added that into public
-T 1587393465 18<22Southern_Gentlem18>	and restart the firewall
-T 1587393470 18<27corshmock18>	and it's showing up as entered
-T 1587393478 18<22Southern_Gentlem18>	now test with nicotine
-T 1587393640 18<27corshmock18>	I add the port, then reload firewalld, and the port disappears.  Still not connecting in nicotine+
-T 1587393679 18<22Southern_Gentlem18>	in the firewall select permanet
-T 1587393689 18<22Southern_Gentlem18>	public
-T 1587393697 18<22Southern_Gentlem18>	port 2234 tcp
-T 1587393756 18<22Southern_Gentlem18>	corshmock, why have you not updated this computer in over a month
-T 1587393775 18<22Southern_Gentlem18>	you are still on the 5.4 kernel
-T 1587393929 18<27corshmock18>	Southern_Gentlem: afraid that it might break :(  Do you update regularly?
-T 1587393966 18<27corshmock18>	So I've restarted with systemctl restart firewall d, but still no joy
-T 1587394013 18<26Khaytsus18>	Southern_Gentlem: That is funny, firewall-config is not on the WS spin, but is on XFCE.  That seems quite odd.  Maybe gnome has some other specific firewall tool I'm unaware of?
-T 1587394158 18<27corshmock18>	It's not saving the port I add.  If I restart firewalld, or the firewall config app, port 2234 disappears
-T 1587394175 18<27corshmock18>	I wonder could I add 2234 through cli?
-T 1587394217 18<26Khaytsus18>	Perhaps you didn't tell it persistent or whatever it is in firewalld
-T 1587394273 18<27corshmock18>	Ah
-T 1587394284 18<27corshmock18>	Does anyone know the exact command?
-T 1587394293 18<19jidar18>	--permanent
-T 1587394322 18<19jidar18>	which doesn't make it immediate, you need to restart it after that iirc
-T 1587394417 18<20plarsen18>	Khaytsus, it was my understanding that the "gui tools" for administration was part of Cockpit now ... now specific to a DE?
-T 1587394434 18<20plarsen18>	s/now specific/not specific/
-T 1587394514 18<26Khaytsus18>	plarsen: huh..  interesting.  Let me look
-T 1587394615 18<26Khaytsus18>	plarsen: I wonder how one discovers cockpit.  It's not a default link in Firefox, it's not in the menus, etc
-T 1587394651 18<26Khaytsus18>	And cockpit isn't enabled by default anyway
-T 1587394654 18<20plarsen18>	It's definitely a separate install; like so many other things, it's stuff you need to understand
-T 1587394657 18<20plarsen18>	to ue
-T 1587394658 18<20plarsen18>	use*
-T 1587394663 18<20plarsen18>	grrr - fingers are on strike!
-T 1587394664 18<27corshmock18>	sudo firewall-cmd --zone=dmz --add-port=2234/tcp --permanent - success
-T 1587394688 18<26Khaytsus18>	plarsen: So no I can't imagine they'd use that as the default administration since it isn't even installed.  Being able to adjust a firewall seems like a pretty common thing to me for users.
-T 1587394689 18<27corshmock18>	But systemctl restart firewalld fail - timeout
-T 1587394698 18<26Khaytsus18>	Perhaps less than it used to be, with firewall and dynamic ports etc, but
-T 1587394700 18<20plarsen18>	That said, Cockpit has definitely been enhanced a lot over the last few years - tons of articles and more to explain how to use it.
-T 1587394727 18<26Khaytsus18>	plarsen: I am not really referring to cockpits function/disfunction, rather its end-user discoverability.  How would a user even know to use it.
-T 1587394747 18<20plarsen18>	Khaytsus, it's a question if you need to reinvent the wheel for every DE and even a TUI interface, or have a single web interface that works regardless of how you have things installed/setup
-T 1587394787 18<20plarsen18>	I'm sure something could be done to help users to find it. Red Hat definitely uses Cockpit to show how 'user friendly'  RHEL is to a Windows user.
-T 1587394799 18<20plarsen18>	That said - I rarely use it .... :D
-T 1587394812 18<26Khaytsus18>	If it's replacing the GUI tools, then it should be installed by default and have links in the menus.  That simple.
-T 1587394884 18<20plarsen18>	Khaytsus, most of the GUI tools we used to have are gone. With the exception of NetworkManager, you don't have GUI tools for partitioning, boot management, DE configuration etc.  the few that we have, are ancient left-overs?
-T 1587394915 18<26Khaytsus18>	Given most of those arne't needed anymore...
-T 1587394923 18<26Khaytsus18>	gparted works fine for partitions, the rest.. useless
-T 1587394943 18<20plarsen18>	I haven't used GUI tools to configure a server for ages ...
-T 1587394960 18<20plarsen18>	So I can only tell you I don't see the tools listed anymore when I look for packages
-T 1587394997 18<20plarsen18>	Fedora used to have an admin menu with all kinds of "control panel" gui apps for everything from users, networking, disks etc.
-T 1587395008 18<20plarsen18>	Do anyone use the "disk administrator" gui??
-T 1587395015 18<20plarsen18>	It's AWFUL ....
-T 1587395034 18<20plarsen18>	Hasn't changed in a long long time
-T 1587395171 18<28Piston18>	hi folks, I getting following error while connecting via nm , any pointers would help..
-T 1587395183 18<20plarsen18>	Khaytsus, it's announcements/requests like this I remember: https://fedoraproject.org/wiki/Changes/CockpitManagementConsole
-T 1587395186 18<28Piston18>	nmcli device wifi connect "Dragon Warrior" password passwd
-T 1587395194 18<28Piston18>	Error: Connection activation failed: (39) Device disconnected by user or client.
-T 1587395217 18<26Khaytsus18>	Piston: rfkill
-T 1587395220 18<26Khaytsus18>	See if it says blocked
-T 1587395239 18<28Piston18>	unblocked
-T 1587412784 20*	Disconnected (20)
-T 1587412828 19*	Now talking on 22#fedora
-T 1587412828 22*	Topic for 22#fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
-T 1587412828 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Mar 17 14:11:59 2020)
-T 1587412829 -18ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
-T 1587412850 18<20paint-it-black18>	.. yes I have seen that for using xfce4
-T 1587412871 18<20paint-it-black18>	I used to always use xfce4 but got tired of fighting the default install
-T 1587412871 18<27corshmock18>	Southern_Gentlem: I think you're under a bit of pressure today.  Don't mind about mind stuff.  It's not life threatening :)
-T 1587412874 20*	Disconnected (20)
-T 1587412906 20*	Disconnected (20Remote host closed socket)
-T 1587412930 19*	Now talking on 22#fedora
-T 1587412930 22*	Topic for 22#fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
-T 1587412930 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Mar 17 14:11:59 2020)
-T 1587412934 -18ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
-T 1587413074 18<22Southern_Gentlem18>	corshmock, so yes you do have rpmfusion installed
-T 1587413080 18<22Southern_Gentlem18>	so dnf search kodi
-T 1587413093 18<22Southern_Gentlem18>	and look at all the addons there are for it
-T 1587413279 18<19dowdle18>	corshmock: I've been using the less free Plex Media Server for a number of years.
-T 1587413520 18<28fedbot18>	*** F31-20200420 updated lives available: https://tinyurl.com/Live-respins2  Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1587413529 18<22Southern_Gentlem18>	happy dobie day
-T 1587414325 18<20paint-it-black18>	Southern_Gentlem  yes! screenshots are no longer blue!  thanks!  hmm I wonder if shutter works now ...
-T 1587414327 18<20paint-it-black18>	thanks!
-T 1587414330 18<20paint-it-black18>	have a good one
-T 1587415263 18<27corshmock18>	Sorry but I really don't know about dependencies.  Do I need to download each one individually?  Please excuse my ignorance.  https://paste.centos.org/view/a6722f4e
-T 1587415580 18<25allizom18>	corshmock: are you running fedora?
-T 1587417828 18<19oppiet3018>	allizona, he must be, he did a paste bin link.
-T 1587417844 18<19oppiet3018>	allizom, he must be, he did a paste bin link.
-T 1587418934 20*	Disconnected (20)
-T 1587423294 19*	Now talking on 22#fedora
-T 1587423294 22*	Topic for 22#fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
-T 1587423294 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Mar 17 14:11:59 2020)
-T 1587423295 -18ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
-T 1587430146 18<25gambl0re18>	what's the most straight forward to install postgresql?
-T 1587430185 18<27Sokel18>	dnf...
-T 1587430212 18<20plarsen18>	gambl0re, dnf install postgresql
-T 1587430239 18<20plarsen18>	ehhh + -server.. So, dnf install postgresql-server
-T 1587430246 18<25gambl0re18>	is that all it takes? why am i reading docs online that i have to do all these other steps
-T 1587430275 18<27Sokel18>	you install it, init the database, start it up.
-T 1587430276 18<27Sokel18>	done
-T 1587430277 18<20plarsen18>	Depends on what exactly you want, the type of features, libraries you need available to different programming languages etc.
-T 1587430322 18<25gambl0re18>	https://fedoraproject.org/wiki/PostgreSQL
-T 1587430337 18<29mutk18>	gambl0re, https://developer.fedoraproject.org/tech/database/postgresql/about.html     is best.
-T 1587430346 18<29mutk18>	Its a good recipe
-T 1587430380 18<25gambl0re18>	mutk: thanks
-T 1587430427 18<25gambl0re18>	if i run this command...$ sudo dnf install postgresql-server postgresql-contrib
-T 1587430440 18<25gambl0re18>	what's the difference if i just did $ dnf install postgresql?
-T 1587430485 18<27Sokel18>	you need sudo unless you're running the command as root, obviously.
-T 1587430516 18<25gambl0re18>	i'm not talking about sudo.
-T 1587430526 18<25gambl0re18>	postgresql-server postgresql-contrib
-T 1587430559 18<29mutk18>	postgresql-server   is the SERVER package.  postgresql-contrib  is a package that has a lot of useful contributed tools for postgres.
-T 1587430627 18<25gambl0re18>	does dnf install postgresql include both server and contrib?
-T 1587430635 18<29mutk18>	gambl0re, I don't know
-T 1587430636 18<27Sokel18>	no, it doesn't.
-T 1587430651 18<29mutk18>	gambl0re,   dnf info postgresql-contrib         have a look
-T 1587430653 18<27Sokel18>	dnf info explains that postgresql is not the server package.
-T 1587430654 18<25gambl0re18>	then why wouldnt the docs just say to do 'dnf install postgresql'?
-T 1587430702 18<27Sokel18>	the postgresql package is for the client portion.
-T 1587430709 18<20plarsen18>	gambl0re, because that's not the database. That's tools/software to connect and use database
-T 1587430713 18<27Sokel18>	Summary      : PostgreSQL client programs
-T 1587430757 18<27Sokel18>	dnf info postgresql-server: Summary      : The programs needed to create and run a PostgreSQL server
-T 1587430936 18<25gambl0re18>	is postgresql-server the actual postgres database?
-T 1587430958 18<25gambl0re18>	im confused with which packages to install. there's postgres postgres-contrib postgres-server postgres-client
-T 1587430969 18<25gambl0re18>	i just want to install postgres db on my computer
-T 1587430973 18<29mutk18>	gambl0re, dnf info  tells you
-T 1587431002 18<29mutk18>	You have already had this explained :0
-T 1587431011 18<25gambl0re18>	ok nevermind. thanks anyways
-T 1587431016 18<20plarsen18>	gambl0re, you can see what each package contains like this: https://paste.centos.org/view/65bddbb6
-T 1587431059 18<25gambl0re18>	yea i get. what makes me confused is when i do a google search on how to install postgres i'll get like 4 different answers
-T 1587431091 18<20plarsen18>	Welcome to Linux - where having one way to do things is NEVER good enough :D
-T 1587431145 18<20plarsen18>	gambl0re, you need to consider the distribution, when things were written up (things change) and what the actual goal is.  Some guides assume a specific type of installation/setup of the database and include more stuff than you may need to
-T 1587431156 18<25gambl0re18>	plarsen: you use centos?
-T 1587431164 18<20plarsen18>	Among others, yes
-T 1587431168 18<25gambl0re18>	but why?
-T 1587431223 18<27Sokel18>	...because it's an enterprise distro?
-T 1587431357 18<20plarsen18>	gambl0re, one of the reasons I found Linux so helpful back in the days was that it's not just done one way. There are options for EVERYTHING.   Not just between distributions, but within them. It makes it possible for you to pick the right tool for the right project
-T 1587431421 18<20plarsen18>	I use Fedora every day on my workstations. It's very current with things, I get to use great virtualization and containerization tools right out of the standard/official repos.  With CentOS I know what I design today will work 5 years from now. Unmodified (well, people probably wouldn't use it if I didn't keep it up to date though)
-T 1587432189 18<26sonik_hex18>	plarsen, that pastebin is a great example of a dnf search.  very useful
-T 1587432297 18<25gambl0re18>	how do i search packages in rpm fusion?
-T 1587432346 18<25gambl0re18>	anyone know how i can install pgadmin, i dont see it in software management when i searched
-T 1587432374 18<20plarsen18>	gambl0re, install the repo(s) and use the command I showed you. You can add --enablerepo and --disablerepo to control which repos it will query
-T 1587432432 18<28tnelis18>	gambl0re: Did you _really_ look? ;) <https://apps.fedoraproject.org/packages/s/pgadmin>
-T 1587432471 18<20zuvy18>	gambl0re: rtfm
-T 1587432490 18<25gambl0re18>	tnelis: yea when i searched in software manager for pgadmin, it returned empty
-T 1587432538 18<25gambl0re18>	https://i.imgur.com/5c8Aj8v.png
-T 1587432546 18<25gambl0re18>	just in case you don't believe me
-T 1587432663 18<27Sokel18>	https://paste.centos.org/view/a5a76c27
-T 1587432760 18<20zuvy18>	You cannot trust output from KDE Discovery or from Gnoma Software, do a real dnf search
-T 1587432774 18<25gambl0re18>	zuvy: why not?
-T 1587432779 18<26sonik_hex18>	gambl0re, $ dnf search pgadmin
-T 1587432790 18<27Sokel18>	pgadmin3 is the package.
-T 1587432801 18<27Sokel18>	I would never rely on the software centers of a DE, ever.
-T 1587432803 18<26sonik_hex18>	gambl0re, $ dnf info pgadmin3.x86_64
-T 1587432839 18<28tnelis18>	gambl0re: Indeed. I think not all packages are considered "applications" as in "AppStream" apps. It's not a question of trust or anything IMO; it's just that they're like "app stores", not for low-level components/packages or server software.
-T 1587432863 18<20zuvy18>	gambl0re: years decades of use
-T 1587432892 18*	26sonik_hex nods
-T 1587432977 18<25gambl0re18>	zuvy: oh
-T 1587433010 18<20zuvy18>	gambl0re: see tnelis comment above
-T 1587433077 18<28tnelis18>	gambl0re: I just realized pgAdmin 4 is not packaged yet, yet that's perhaps the only one with a Qt implementation. If pgAdmin 3 is strictly a web application (which I think it is), then it would explain why it doesn't appear in "app stores" (it requires server components that don't fit the traditional app model).
-T 1587433160 18<28tnelis18>	gambl0re: This would be a good fit for a flatpak, but I don't see any on Flathub, you might be out-of-luck if you want the latest version outside of third-party repos (Copr has a couple you might want to check out <https://copr.fedorainfracloud.org/coprs/fulltext/?fulltext=pgadmin>).
-T 1587433168 18<25gambl0re18>	is pgadmin 4 better than pgadmin3?
-T 1587433242 18<28tnelis18>	gambl0re: I don't know, I'm kind of a psql guy myself ;). I would imagine there are improvements yes, though of course a version bump does not _always_ means strictly better.
-T 1587433299 18<28tnelis18>	gambl0re: Actually, check this out <https://bugzilla.redhat.com/show_bug.cgi?id=1771823>; it seems it's no longer supported upstream so yeah, the situation is not ideal right now.
-T 1587453423 20*	Disconnected (20)
-T 1587453448 19*	Now talking on 22#fedora
-T 1587453448 22*	Topic for 22#fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
-T 1587453448 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Mar 17 14:11:59 2020)
-T 1587453448 -18ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
-T 1587454364 22*	26ChanServ gives channel operator status to 18fedbot
-T 1587457532 18<22mkara18>	Hi! :) Today seems like the date for F32 release. Is it still valid, or postponed?
-T 1587457557 18*	22mkara is waiting to download the new F32 iso. :)
-T 1587464070 20*	Disconnected (20)
 T 1587464091 19*	Now talking on 22#fedora
 T 1587464091 22*	Topic for 22#fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
 T 1587464091 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Mar 17 14:11:59 2020)
@@ -5103,3 +4926,330 @@ T 1614024824 18<22geeky_gecko[m]18>	HTTPS://paste.centos.org/view/6ecc35
 T 1614025016 18<22Southern_Gentlem18>	thats better so as cmurf comes up from air pounce on him
 T 1614025023 18<22geeky_gecko[m]18>	My idea was to mount the pool and restore the system with the latest snapshot.
 T 1614025122 18<22geeky_gecko[m]18>	Thanks S_G!
+T 1614025490 24*	28Guest72277 is now known as 18ozymandias_
+T 1614025891 18<20cmurf18>	here
+T 1614025994 18<20cmurf18>	what's the problem?
+T 1614026057 18<22Southern_Gentlem18>	cmurf, HTTPS://paste.centos.org/view/6ecc351c
+T 1614026078 18<20cmurf18>	yeah i see that not sure what's wrong though
+T 1614026099 18<20cmurf18>	four device btrfs file system, completely normal :P
+T 1614026138 18<20cmurf18>	you can mount any of those by /dev node
+T 1614026169 18<20cmurf18>	just mount one of them, doesn't matter which one
+T 1614026182 18<20cmurf18>	mount /dev/mapper/sdd1 /mnt/whatever
+T 1614026648 18<22geeky_gecko[m]18>	Hello cmurf! We meet again. Haha.
+T 1614026694 18<22geeky_gecko[m]18>	It complains that there is something wrong with the fs type.
+T 1614026937 18<22Southern_Gentlem18>	geeky_gecko[m], command you used please
+T 1614026959 18<22geeky_gecko[m]18>	HTTPS://paste.centos.org/view/b25bf769
+T 1614027042 18<22geeky_gecko[m]18>	Sorry, sudo mount /dev/mapper/sda2_crypt /mnt
+T 1614027127 24*	28jab1 is now known as 18jab
+T 1614027458 18<27pw18>	oh oh i've the same problem with my crypted (ext4) external drives
+T 1614027615 18<22geeky_gecko[m]18>	So we can conclude it has nothing to do with btrfs? Or am I jumping to conclusions?
+T 1614027771 18<27pw18>	in my case i've try a drive with btrfs, with the same result... here i use 4 external drives hdd/sdd with encryption i can "open the container" but not mounting without this message, after that put the drive into my notebook or pc (sata connected) without this issue
+T 1614028261 18<20cmurf18>	sorry walked away
+T 1614028285 18<20cmurf18>	umm hmm
+T 1614028288 18<20cmurf18>	geeky_gecko[m]:
+T 1614028305 18<20cmurf18>	so, can you do 'sudo btrfs fi show | fpaste'
+T 1614028347 18<20cmurf18>	and while you're at it 'fpaste --btrfsinfo'
+T 1614028403 18<20cmurf18>	haha when it rains it pours :)
+T 1614028413 18<20cmurf18>	pw same thing
+T 1614028443 18<22geeky_gecko[m]18>	Ok
+T 1614028595 18<22geeky_gecko[m]18>	HTTPS://paste.centos.org/view/eff19880
+T 1614028604 18<20cmurf18>	pw:  'fpaste --sysinfo' and 'fpaste --btrfsinfo'
+T 1614028611 18<20cmurf18>	i'm not sure if you have ext4 or btrfs or both
+T 1614028635 18<22geeky_gecko[m]18>	HTTPS://paste.centos.org/view/0e00d1b7
+T 1614028668 18<27pw18>	on my main (crypted) system i've btrfs, on my crypted external drives etx4
+T 1614028699 18<27pw18>	in my case its not possible to mount crypted external usb-drives
+T 1614028821 18<20cmurf18>	geeky_gecko[m]: ok so looks like you might have tried to mount the btrfs file system before all the cryptoluks devices were opened?
+T 1614028826 18<19braxtono[m]18>	Does anyone know how to recover heif photos? I have Active & Easeus but they can't detect so I've been trying to input custom file SIG's but they aren't detecting
+T 1614028828 18<20cmurf18>	there is till one missing, devid 5
+T 1614028837 18<20cmurf18>	so that's why it's not mounting, devid 5 is missing
+T 1614028906 18<20cmurf18>	devid 5 will be the most recent device you added with 'btrfs device add'
+T 1614028923 18<20cmurf18>	s/till/still/
+T 1614028962 18<22geeky_gecko[m]18>	I do not think so but let me try to reboot and see if I can first unlock them all and then mount btrfs.
+T 1614028970 18<20cmurf18>	pw: someone else here might have a better idea how to handle encrypted external drives
+T 1614029000 18<20cmurf18>	if it's plugged in during boot and has the same password as system root, plymouth will automatically try to open the external during startup
+T 1614029051 18<20cmurf18>	but if cryptsetup open hasn't happened yet, and this external device is listed in /etc/fstab for mounting, then the mount will hang probably indefinitely and stop the startup
+T 1614029065 18<27pw18>	i know about this, all my other device are working well
+T 1614029101 18<20cmurf18>	ok and cryptsetup open works manually? and it mounts ok manually? I'm not following the problem
+T 1614029117 18<20cmurf18>	geeky_gecko[m]: yeah this file system is definitely expecting 5 devices
+T 1614029120 18<20cmurf18>	so you've got a missing device
+T 1614029200 18<22geeky_gecko[m]18>	Shoot you are right I added the fifth one the last time.
+T 1614029233 18<22geeky_gecko[m]18>	Let me check
+T 1614029500 18<20cmurf18>	most btrfs error messages appear in dmesg, btw
+T 1614029504 18<20cmurf18>	     [ 9008.616317] kernel: BTRFS error (device dm-2): devid 5 uuid 7e1ebe6d-51aa-4d96-b434-8751f7bd1b0f is missing
+T 1614029695 24*	28ccallahan|Backup is now known as 18ccallahna
+T 1614029710 24*	28ccallahna is now known as 18ccallahan
+T 1614029847 18<20cmurf18>	you can also see the devices for all visible filesystems with 'sudo btrfs filesystem show'
+T 1614029867 18<20cmurf18>	and if any are missing it'll indicate it
+T 1614030248 18<22geeky_gecko[m]18>	I removed the fifth one and gave it a new destination that’s where things went wrong.
+T 1614030365 18<22geeky_gecko[m]18>	So now btrfs has the luks id still registered but the drive is formatted as a standalone drive with luks.
+T 1614030436 18<22geeky_gecko[m]18>	HTTPS://paste.centos.org/view/bf510988
+T 1614030820 18<27pw18>	cmurf: yes i can open the device but not mount the filesystem
+T 1614031598 20*	Disconnected (20)
+T 1614032089 20*	Disconnected (20Remote host closed socket)
+T 1614032777 19*	Now talking on 22#fedora
+T 1614032777 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1614032777 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1614032778 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1614032962 18<22geeky_gecko[m]18>	Thanks for the help so far! I am of to the envelope!
+T 1614033068 20*	Disconnected (20)
+T 1614033448 19*	Now talking on 22#fedora
+T 1614033448 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1614033448 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1614033450 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1614033548 20*	Disconnected (20)
+T 1614070771 19*	Now talking on 22#fedora
+T 1614070771 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1614070771 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1614070771 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1614070908 24*	28finn is now known as 18f1nniboy
+T 1614071370 24*	28Delta237_ is now known as 18Delta237
+T 1614073600 18<29hnsz200218>	hi all! i want to create a local, internal repo mirror, but i want to keep older packages
+T 1614073620 18<29hnsz200218>	which are removed from the source...
+T 1614073650 18<29hnsz200218>	so therefore, rsync is running without --delete option, and with exlude repodata/*
+T 1614073698 18<29hnsz200218>	after rsync, i try to use createrepo to generate repodata.... but this doesnt works, modules are sucks
+T 1614073749 18<29hnsz200218>	i already also find modulemd-tools, which is a newly rewritten alternative for createrepo and can handle modules.... but i also not succeeded with that
+T 1614073798 18<29hnsz200218>	can somebody give me some guidance, how can i generate the correct repodata with module infos from a locally synced rpm repository?
+T 1614073822 18<28fedbot18>	*** F33-20210212 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1614074137 24*	28sudhir_ is now known as 18sudhir
+T 1614077434 18<28fedbot18>	*** F33-20210212 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1614081025 18<28fedbot18>	*** F33-20210212 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1614083083 18<24g3818>	hello
+T 1614084028 18<20death_18>	hello
+T 1614084137 18<20death_18>	hey can anyone explain the diff between dnf, yum and rpm?
+T 1614084351 18<24g3818>	rpm deals with packages in the local database, and in files.   dnf and yum deal with packages in the local database, and in distant repositories.  yum is the old system, dnf the newer one.
+T 1614084429 18<24g3818>	so in practice you normally most likely never use yum and very rarely use rpm (if ever)
+T 1614084626 18<28fedbot18>	*** F33-20210212 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1614084797 18<26slop18>	Hi all <3
+T 1614084945 20*	Disconnected (20)
+T 1614093629 19*	Now talking on 22#fedora
+T 1614093629 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1614093629 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1614093629 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1614093650 18<25coz_18>	Southern_Gentlem, that bad , huh ?
+T 1614093698 18<25coz_18>	%)
+T 1614093764 18<22Southern_Gentlem18>	its a tuesday, where the issues didnt happen until after i left yesterday
+T 1614093788 18<25coz_18>	oh!! I think I undrstand
+T 1614094145 18<26Khaytsus18>	faern: the Fedora Server is basically the network installer.  You can instll whatever you want from it.
+T 1614094227 18<26Khaytsus18>	It's not exactly small anymore..  600M.  We used to have BFO but I don't think it's maintained anymore.  It was a tiny network PXE kind of thing that got the latest data and did a network install.. Same image worked for every release.  But pretty sure it's dead now.
+T 1614094231 18<29Machiavelli[m]18>	^^ this. The server iso does not have to be used to install Fedora Server. It can be used for desktop installations.
+T 1614094236 18<22faern18>	Southern_Gentlem: I don't get the argument about gnome? A workstation centric netinstaller iso could surely let the user select any DE during setup
+T 1614094275 18<22Southern_Gentlem18>	nope only the server one allows selection of other des
+T 1614094291 18<25coz_18>	everything iso?
+T 1614094294 18<26Khaytsus18>	Server == Network installer
+T 1614094298 18<26Khaytsus18>	coz_: no....
+T 1614094334 18<22Southern_Gentlem18>	coz_, the way i am reading this is that faern doesnt think that the lives are useful
+T 1614094361 18<25coz_18>	Southern_Gentlem, oh!! mm odd
+T 1614094420 18<25coz_18>	faern, could yousay agin your first post, I was not here at the time
+T 1614094446 18<26Khaytsus18>	I think they have been answered.
+T 1614094451 18<26Khaytsus18>	If htey want a network installer, use server.
+T 1614094452 18<25coz_18>	ok
+T 1614094528 18<22MICROburst18>	How is fetchmail intended to be run? There is a /etc/fetchmailrc.example but there is no systemctl .service file. The mail server is using virtual users so putting it  as .fetchmailrc in a user's home would not work.
+T 1614094561 18<22faern18>	Southern_Gentlem: I'm not complaining about anything with the current ISOs.
+T 1614094580 18<22faern18>	I just asked *if* there was any netinstall iso for workstations.
+T 1614094591 18<22faern18>	But I guess the server netinstall iso could be used for that.
+T 1614094620 18<22faern18>	coz_: 16:13 <faern> Is there no netinstall iso for workstation like there is for server? I think that's a preferred installation method. Small iso -> Only download the latest stuff once.
+T 1614094657 18<22Southern_Gentlem18>	faern,  the is a workstation netinstall but that is for gnome only
+T 1614094659 18<25coz_18>	faern, ah ok. so are you satisfied with all the responses?
+T 1614094680 18<22faern18>	Yes!
+T 1614094695 18<25coz_18>	MICROburst, not sure, did you read here?   https://docs.fedoraproject.org/en-US/Fedora/18/html/System_Administrators_Guide/s2-email-mta-fetchmail.html
+T 1614094697 18<22MICROburst18>	faern: Boot off the network using ipxe or grub. Point them to a fedora mirror with vmlinuz and initrd
+T 1614094753 18<22MICROburst18>	coz_: Yep, seen that already. The ".fetchmailrc" is what's been put in a user's home.
+T 1614094763 18<26Khaytsus18>	faern: It's not "can be used" it's the purpose of the server iso.. why they felt calling it 'server" vs just the previous name of "network install" I don't know.
+T 1614094814 18<22Southern_Gentlem18>	well at one time there was a workstation netinstall but i am not seeing it now
+T 1614094815 18<22faern18>	Yeah. The name does not imply that's the purpose :D
+T 1614094843 18<26Khaytsus18>	The current server iso _is_ what the network install used to be.
+T 1614094858 18<25coz_18>	strange rename
+T 1614094877 18<26Khaytsus18>	I guess someone wanted to market Fedora as not just being a desktop OS?  I dunno.
+T 1614094913 18<22faern18>	The website can still have a big button for server. But it goes to a page allowing you to download the netinstall and a text saying the iso can be used to install the "server version"
+T 1614095003 18<22faern18>	But I see now that under the workstation download page there is the "But wait! There's more"-section that links to alternative downloads which in turn allows me to download the "server"/netinstall iso :D
+T 1614095025 18<25coz_18>	cool
+T 1614095036 18<22faern18>	Very undiscoverable :D
+T 1614095037 18<26Khaytsus18>	faern: Yeah, because 95% of users want Workstation, 5% want other spins, and .0000000000000001% want server ;)
+T 1614095038 18<25ledeni18>	faern:yes but server-netinstall allow to select software what you want to install
+T 1614095045 18<22faern18>	But I got all the answers I needed. Will use the server ISO from now on :)
+T 1614095061 18<24squarebracket18>	is there a way to configure systemd-resolved to not use split dns? i want to have the old functionality where if my router returns NXDOMAIN it checks my vpn dns servers.
+T 1614095082 18<22faern18>	Khaytsus: Really? Seems greatly exaggerated, no? I use it both for workstations and servers, but I surely have many more servers than workstations.
+T 1614095085 18<24squarebracket18>	we've got a bunch of old domains from name changes over the years and i don't really want to manually configure each one for my vpn connection
+T 1614095110 18<22faern18>	ledeni: Yes. I got that now. But it's very unclear from how the website markets the iso
+T 1614095142 18<26Khaytsus18>	squarebracket: https://fedoraproject.org/wiki/Changes/systemd-resolved    pretty sure the opting out here is what you want to do?  Not sure, working on something else so can't compare your scenrio
+T 1614095264 18<24squarebracket18>	Khaytsus: yeah, i don't really want to fully opt out of systemd-resolved since then i'm drifting from the official configuration, but it probably is my best option :(
+T 1614095305 18*	29Machiavelli[m] uploaded an image: ima_5ca2772.jpeg (214KiB) < https://matrix.org/_matrix/media/r0/download/matrix.org/tPOBmcFkdkdceWsoDmJdszvy/ima_5ca2772.jpeg >
+T 1614095336 18<29Machiavelli[m]18>	There is mention of the net install being incorporated into the server iso, but only on the Alternative Downloads page
+T 1614095428 18<28fedbot18>	*** F33-20210212 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1614095888 18<19dowdle18>	Machiavelli[m]: There is already server netinstall media.
+T 1614095936 18<19dowdle18>	Machiavelli[m]: See link here - https://getfedora.org/en/server/download/
+T 1614095980 18<19dowdle18>	 (lower button on the left)
+T 1614096042 18<29Machiavelli[m]18>	<dowdle "Machiavelli: There is already se"> I am aware, that’s what I was also saying.
+T 1614096100 18<19dowdle18>	Machiavelli[m]: That's not an alternatives page... that is the page you get on the server download link from the front page... but it may also be listed in other places.
+T 1614096114 18<19dowdle18>	 (matrix)
+T 1614096365 18<29Machiavelli[m]18>	We were discussing the use of that media as a workstation net install media for the user asking where the workstation netinstall iso went.. which is not mentioned on the page you linked. This is a simple misunderstanding. I am fully aware of the server netinstall media..
+T 1614096376 24*	28rhn-bry6 is now known as 18rhn-bry
+T 1614096426 18<29Machiavelli[m]18>	The page I posted a screenshot is indeed the “Alternative Downloads” page
+T 1614096441 18<29Machiavelli[m]18>	* The page I posted a screenshot of is indeed the “Alternative Downloads” page
+T 1614096515 18*	29Machiavelli[m] uploaded an image: ima_61e9b31.jpeg (173KiB) < https://matrix.org/_matrix/media/r0/download/matrix.org/mTEYKMeeUeaVrCkjlJPCkjiL/ima_61e9b31.jpeg >
+T 1614096536 18<29Machiavelli[m]18>	Here is the page you are referring to. They are different pages.
+T 1614096694 18<29Machiavelli[m]18>	If you’re going to condescendingly “correct” someone at least read the full conversation and understand the topic first, to avoid telling people they don’t know what page they have intentionally navigated to.
+T 1614096860 18<19dowdle18>	Machiavelli[m]: Thanks for your considerate feedback... I'll take it into consideration (and they are gone). :)
+T 1614096866 18<20paint-it-black18>	Khaytsus  ah just got back from lunch .. a lot has transpired ... I think I know why it went ape over the updates.  Is this possible ... I installed the font tweak tool,  it asked for a list of language preferences, so I listed a few.  I guess then it went and updated all software affected by the additional languages?
+T 1614096907 18<26Khaytsus18>	paint-it-black: No idea.  Perhaps.  You'd have to actually be more specific about what it did and look at the logs I guess.
+T 1614097436 18<20paint-it-black18>	Sure, as you know from yesterday the root partition on the boot device was foo bar.  I was able to decrypt and map the home partition so no data was lost. (most was backed up anyway).   I never did get that media to boot.  So I installed fedora 33 from the live iso from getfedora.   (The other media was f33 from an upgrade).    After
+T 1614097436 18<20paint-it-black18>	installing f33 fresh I did an update.   Then started installing various software (using dnf in a shell!  LOL no stinkin GUI program LOL) I did run "gnome software"  to turn off the auto updates.   In the course of trying to get things back to hunkey dorey,  I installed the font tweak tool (as a opposed to the gnome tweak tool) ... really
+T 1614097437 18<20paint-it-black18>	getting into gnome gui tools now LO.   The gnome font tweak tool has an option for giving a list of languages, so I did.   After leaving the tool I ran updates again in prep for another install, and it went CRAZY   1565 packages to update!   But I already did an update after an install, if anything should have been a huge update, it should have
+T 1614097437 18<20paint-it-black18>	been that one.  .... so I am thinking the language list on the gnome font tweak tool caused this,  is that possible?   Or was there just a mammoth f33 update ?
+T 1614097609 18<20paint-it-black18>	it is a curious thing is all,  the udpate is done .. but why the first was not huge but the second .. go figure
+T 1614097748 18<22Southern_Gentlem18>	paint-it-black, no idea but is everyone seems to be running ok now
+T 1614097764 18<22Southern_Gentlem18>	opps everyone/everything
+T 1614097969 18<20paint-it-black18>	So here is an install problem.  In emacs and in the terminal the Deja Vu Sans Mono font, the underscores are gone.
+T 1614097969 18<20paint-it-black18>	https://imgur.com/a/8f3h8dj   They are showing up as a barely visiable light gray.   I had a similar problem some years ago.  This has been reported by others as a bug in the past.  .. but that was a long time ago.   ... do you know how to get the underscores back?
+T 1614097996 18<22Southern_Gentlem18>	nope i am not an emacs users
+T 1614098007 18<20paint-it-black18>	gnome-terminal also
+T 1614098015 18<22Southern_Gentlem18>	try another font
+T 1614098018 18<20paint-it-black18>	it is a font issue, not an application issue
+T 1614098049 18<20paint-it-black18>	there is not really another option for the default install.   Monospace aliases to the Deja Vu Sans Mono
+T 1614098151 18<20paint-it-black18>	So I just added RPM Fusion to get get some other fonts.  Given that the gnome-terminal is pretty popular, and this is a problem with the default font on a fresh install -- and I am running on a very good display monitor here a QLED high resolution monitor, it does not get crisper than this -- seems someone would have run into this and have
+T 1614098151 18<20paint-it-black18>	something to say about it.
+T 1614098423 18<24Copenhagen_Bram18>	Hello! So I've got this problem. Every time I play a game that's more complicated than Nethack, Gargoyle IF interpreter, or PrBoom+, my computer eventually crashes in the middle of playing it. Completely freezes up, completely unresponsive.
+T 1614098441 18<24Copenhagen_Bram18>	It just did that in the middle of me playing Mindustry. Is there anything I can do about it?
+T 1614098857 18<20paint-it-black18>	seems to be a problem with gnomes anti-aliasing algorithm.  It is erasing the underscores.  I just turned it off and they came back.
+T 1614098901 18<20paint-it-black18>	though the letters are a bit uglier also.
+T 1614098937 18<20paint-it-black18>	enough futzing with this today.  Hope that will get fixed someday.   Have a wonderful day folks.
+T 1614098954 18<22Southern_Gentlem18>	Copenhagen_Bram, sudo fpaste --sysinfo
+T 1614099031 18<28fedbot18>	*** F33-20210212 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1614099162 18<24Copenhagen_Bram18>	Well great, what the heck does "Warning: dracut-initqueue timeout - starting timeout scripts" mean?
+T 1614099197 18<24Copenhagen_Bram18>	and it's in emergency mode now
+T 1614099268 18<20paint-it-black18>	p.s. full hinting and aliasing also shows the underscores and the letters are cleaner .. suppose a person could play with this all day.
+T 1614099326 18<24Copenhagen_Bram18>	maybe I got the luks password incorrect or something?
+T 1614099487 18<27Sokel18>	the system cannot adequately mount the file systems to boot.
+T 1614099497 18<27Sokel18>	If your luks password was incorrect, then the password prompt woudl come back.
+T 1614099589 18<24Copenhagen_Bram18>	You'd think... but from the journalctl log it looked as though the problem was it couldn't find /dev/mapper/luks-whatever. And after I rebooted again, now it's booting up fine.
+T 1614099691 18<24Copenhagen_Bram18>	It also said something about too many incorrect password attempts.
+T 1614099842 18<20entflammen18>	o/
+T 1614099856 18<24Copenhagen_Bram18>	hey entflammen
+T 1614099862 18<20entflammen18>	I'm having some issues with multi-monitor
+T 1614099870 18<20entflammen18>	howdy!
+T 1614099878 18<24Copenhagen_Bram18>	Hmm. What kind of issues?
+T 1614099914 18<24Copenhagen_Bram18>	I'm not very experienced with multi-monitor but I did plug my computer into a tv screen successfully about a week ago
+T 1614099944 18<20entflammen18>	I have a laptop running Fedora 33, upgraded from 32 over winter break, and it's had an issue where I can have a secondary monitor connected as a standard dual monitor set up, but when I unplug the hdmi cable to take my laptop on the go, the laptop screen refuses to switch back to being the primary display and stays off
+T 1614100052 18<20entflammen18>	but when I plug the laptop back into the monitor, the display comes right back on and everything works again
+T 1614100078 18<20entflammen18>	workaround that I've found is to always switch the laptop to be the primary monitor before unplugging, but it just becomes a bit of a hassle
+T 1614100096 18<24Copenhagen_Bram18>	hmmmm
+T 1614100141 18<24Copenhagen_Bram18>	I guess I never had that problem with the tv screen because my laptop screen was always the primary one. Except when I closed my laptop, then the tv screen would switch to primary, but the laptop screen would switch back to primary when I opened it.
+T 1614100157 18<20entflammen18>	theres some other weirdness with displays that makes me think that something bigger is going on, like sometimes I have to reboot in order to even connect and set up my other monitor
+T 1614100310 18<24Copenhagen_Bram18>	ugh, I wish computers would just work properly sometimes.
+T 1614100415 18<24Copenhagen_Bram18>	uh oh, I hope ssh doesn't clear the screen after it inevitally loses the connection when my computer crashes
+T 1614100441 18<24Copenhagen_Bram18>	I need to be able to at least see the last part of dmesg -w and journalctl -f
+T 1614100639 18<20entflammen18>	https://pastebin.com/KXCPeNMF
+T 1614100677 18<20entflammen18>	before that the counter on the left jumps back to 37589.943623
+T 1614100831 18<20entflammen18>	and here's the journalctl https://pastebin.com/UFP99GaB
+T 1614100942 20*	Disconnected (20)
+T 1614100974 19*	Now talking on 22#fedora
+T 1614100974 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1614100974 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1614100975 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1614101131 18<20entflammen18>	actually Copenhagen_Bram here's the journalctl -f of me unplugging and replugging the monitor https://pastebin.com/mVQSteSv
+T 1614101703 18<24Copenhagen_Bram18>	eh, i'm not good at reading journalctls
+T 1614101878 18<24stefan__18>	hello all, is there already kernel 5.11 for f33?
+T 1614102032 18<27oDn_18>	Hey everyone, what would be the most straightforward and foolproof method to use certbot to automatically renew the letsencrypt certificate used for the cockpit web interface ?
+T 1614102080 18<27oDn_18>	So far, I've had to manually create then copy the key and cert file to /etc/cockpit/ws-certs.d/ directory and fix the permissions.
+T 1614102095 18<27oDn_18>	It's far from being elegant!
+T 1614102134 18<24Copenhagen_Bram18>	Well, my computer crashed again, while I was playing Mindustry, again. But this time I got the last part of the journalctl and dmesg.
+T 1614102160 18<24Copenhagen_Bram18>	Also ssh failed because of a broken pipe, so my computer really is crashed, it's not just the video
+T 1614102203 18<24Copenhagen_Bram18>	Is there an alternative button to push than sysrq for ctrl+alt+sysrq+reisub? My Fedora laptop doesn't seem to have a sysrq button
+T 1614102223 18<24Copenhagen_Bram18>	Not even the prt sc, the prt sc only doubles as insert
+T 1614102632 18<28fedbot18>	*** F33-20210212 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1614102671 24*	28entflammen_ is now known as 18entflammen
+T 1614102697 18<24Copenhagen_Bram18>	welcome back
+T 1614102989 18<20entflammen18>	thanks
+T 1614103000 18<20cmurf18>	Copenhagen_Bram: reboot -f should work
+T 1614103047 18<20cmurf18>	but for sysrq you can do, as root, echo b > /proc/sysrq-trigger
+T 1614103059 18<20cmurf18>	you might want to sync first
+T 1614103551 18<24Copenhagen_Bram18>	cmurf: I can't run those commands if my computer is frozen.
+T 1614103576 18<24Copenhagen_Bram18>	But, I just enabled magic sysrq, and it did something when I tried reisub by holding ctrl alt and prt sc.
+T 1614103606 18<24Copenhagen_Bram18>	I think x exited or something, there was just a blinking cursor on my screen, so I pressed r, e, i, s, u, b
+T 1614103618 18<24Copenhagen_Bram18>	But my computer did not reboot after I pressed b
+T 1614103639 18<24Copenhagen_Bram18>	Also I pressed ctrl-alt-f3 and got a login terminal
+T 1614103653 18<24Copenhagen_Bram18>	then I pressed ctrl-alt-f1 and got a graphical login
+T 1614104412 20*	Disconnected (20)
+T 1614104442 19*	Now talking on 22#fedora
+T 1614104442 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1614104442 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1614104443 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1614104464 18<20cmurf18>	maybe this
+T 1614104464 18<20cmurf18>	https://fedoraproject.org/wiki/How_to_use_kdump_to_debug_kernel_crashes
+T 1614104493 18<20cmurf18>	there is a debug shell on tty9 but it has to be activated in advance by a service called early-debug-shell.service
+T 1614104511 18<20cmurf18>	of course it's a security risk, because it's just a root prompt
+T 1614104517 18<20cmurf18>	no password or anything
+T 1614104544 18<20cmurf18>	but handy for troubleshooting if this is some sort of recurring theme you're trying to figure out
+T 1614104892 18<24Copenhagen_Bram18>	does fpaste --sysinfo have to be run under sudo?
+T 1614105859 20*	Disconnected (20)
+T 1614105888 19*	Now talking on 22#fedora
+T 1614105888 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1614105888 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1614105888 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1614105978 18<22Southern_Gentlem18>	Copenhagen_Bram, or just umount the sdcard
+T 1614106019 18<24Copenhagen_Bram18>	I mean I'll change my username later, but yes, for now, I'll umount the sdcard. I already have.
+T 1614106163 18<24Copenhagen_Bram18>	Okay, who wants the fpaste?
+T 1614106186 18<24Copenhagen_Bram18>	https://paste.centos.org/view/018ebbd0
+T 1614106234 18<28fedbot18>	*** F33-20210212 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1614106316 18<20cmurf18>	offhand i don't see anything that explains the problem
+T 1614106338 18<20cmurf18>	did a reboot happen or no?
+T 1614106370 18<24Copenhagen_Bram18>	I think a few reboots happened. I certainly didn't run fpaste while my computer was crashed.
+T 1614106405 18<20cmurf18>	ok and is this a one off crash or is it happening often
+T 1614106430 18<24Copenhagen_Bram18>	It seems to happen every time I play a game with OpenGL graphics. Mindustry, Minetest, Colobot, GZDoom.
+T 1614106436 18<20cmurf18>	gotcha
+T 1614106446 18<24Copenhagen_Bram18>	It works fine for a while, then everything freezes up
+T 1614106463 18<24Copenhagen_Bram18>	Once, the capslock light even flashed (kernel panic)
+T 1614106475 18<20cmurf18>	well that's not good
+T 1614106485 18<24Copenhagen_Bram18>	no.
+T 1614106502 18<24Copenhagen_Bram18>	At least Mindustry seems to autosave.
+T 1614106514 18<20cmurf18>	can you check previous boots?
+T 1614106529 18<24Copenhagen_Bram18>	How?
+T 1614106530 18<20cmurf18>	journalctl -b is the current boot log
+T 1614106555 18<20cmurf18>	journalctl -b-1 is the previous one, and you can add -k to see just kernel messages
+T 1614106559 18<20cmurf18>	journal -b-2 is the one before that and so on
+T 1614106561 18<20cmurf18>	journalctl rather
+T 1614106648 18<20cmurf18>	in your past i see sysrq w and f
+T 1614106654 18<20cmurf18>	s/past/paste/
+T 1614106672 18<24Copenhagen_Bram18>	Yeah, I was just testing out sysrq commands.
+T 1614106692 18<24Copenhagen_Bram18>	Maybe next time it crashes I can do sysrq reisub instead of holding the power button
+T 1614106694 18<20cmurf18>	got it
+T 1614106756 18<20cmurf18>	anyway it'd be useful to know where the journals stop
+T 1614106775 18<20cmurf18>	i.e. journalctl -b-1 -k --no-pager, and then try -b-2, then -b-3
+T 1614106791 18<20cmurf18>	because if they stop before logging the problem, then the journal isn't much help figuring it out
+T 1614106842 18<24Copenhagen_Bram18>	Looks like -b-3 happened before a crash
+T 1614106871 18<24Copenhagen_Bram18>	It kinda does stop before logging a problem, but there are a few libinput errors at the end
+T 1614106886 18<24Copenhagen_Bram18>	But I got the same thing through ssh
+T 1614106889 18<24Copenhagen_Bram18>	Lemme do a journalctl -b-3 | tail | fpaste
+T 1614106913 18<24Copenhagen_Bram18>	https://paste.centos.org/view/7e096aff
+T 1614106913 18<20cmurf18>	i suggest filtering with -k for kernel messages
+T 1614106949 18<20cmurf18>	yeah i see messages like that too, that doesn't really explain what's taking down the kernel
+T 1614106957 18<20cmurf18>	or at least making it super unresponsive
+T 1614106964 18<24Copenhagen_Bram18>	Here it is with -k https://paste.centos.org/view/cddd5180
+T 1614106980 18<20cmurf18>	normal stuff
+T 1614107000 18<20cmurf18>	need the whole thing though, so remove tail
+T 1614107055 18<24Copenhagen_Bram18>	Will I get more info with sudo journalctl?
+T 1614107116 18<20cmurf18>	good question, i'm not sure
+T 1614107129 18<20cmurf18>	i think users in wheel don't need sudo for journalctl info
+T 1614107224 18<24Copenhagen_Bram18>	one sudo journalctl -b-3 -k | fpaste coming right up: https://paste.centos.org/view/a7afb536
+T 1614107280 18<20cmurf18>	ok i just tried it with and without sudo output to files, and diffed the files and they are the same minus the last second where the 2nd one logs the sudo
+T 1614107365 18<20cmurf18>	i don't see anything weird in that fpaste
+T 1614107420 18<24Copenhagen_Bram18>	do you think it might be an oom?
+T 1614107439 18<24Copenhagen_Bram18>	i mean, do you think it might be out of memory or something? Maybe I should try sysrq f next time it crashes
+T 1614107455 18<20cmurf18>	bug also that seems like the wrong boot because the start is Feb 23 10:57:45 and the end is Feb 23 11:00:17
+T 1614107467 18<22Southern_Gentlem18>	still want to see the sudo fpaste --sysinfo so we can see what hardware we are dealing with
+T 1614107470 18<20cmurf18>	so it's just 3 minutes of kernel message, it's basically just a startup
+T 1614107480 18<20cmurf18>	oh that's up ^
+T 1614107499 18<20cmurf18>	https://paste.centos.org/view/018ebbd0
+T 1614107500 18<20cmurf18>	that's it
+T 1614107521 18<24Copenhagen_Bram18>	I know it's the right boot because without -k I can see I was playing mindustry
+T 1614107558 18<24Copenhagen_Bram18>	also, there's no error messages, business as usual, but there's also no messages about going through the normal process of shutting down or rebooting
+T 1614107581 18<24Copenhagen_Bram18>	I think that's a big sign something went wrong if you were looking at it without context
+T 1614107674 18<20cmurf18>	the kernel doesn't report shutdown or reboot, but systemd will
+T 1614107713 18<20cmurf18>	kernel's oom killer is logged witih kernel messages; Workstation Edition has earlyoom
+T 1614107719 18<20cmurf18>	you can filter for that
+T 1614107732 18<22Southern_Gentlem18>	Copenhagen_Bram, rpm -qa |grep kernel |fpaste please
+T 1614107869 20*	Disconnected (20)
+T 1614107929 20*	Disconnected (20Remote host closed socket)
+T 1614107979 20*	Disconnected (20Remote host closed socket)
+T 1614108057 20*	Disconnected (20Remote host closed socket)
+T 1614108104 20*	Disconnected (20Remote host closed socket)

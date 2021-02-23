@@ -3151,3 +3151,74 @@ T 1614024465 20*	Disconnected (20Remote host closed socket)
 T 1614024493 19*	Now talking on 22#spacemacs
 T 1614024493 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
 T 1614024493 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1614025928 18<20FromGitter18>	<andreicristianpetcu> > @andreicristianpetcu did you try `SPC g f f`? ⏎  ⏎ yes. I'm not using git, I'm using hg. That only works with git.
+T 1614026178 18<20FromGitter18>	<andreicristianpetcu> Hmmm I installed this but I don't know how to use it exactly https://github.com/emacs-helm/helm-ls-hg
+T 1614028990 18<20FromGitter18>	<andreicristianpetcu> I added the package here https://github.com/andreicristianpetcu/dotfiles/blob/50b744615e681e051ff38e6be3048af7f18a58b5/spacemacs#L67 ⏎ I tried to use with `SPC SPC` and then `helm-ls-hg` but nothing happened. It's not one of the emacs commands.
+T 1614031598 20*	Disconnected (20)
+T 1614032089 20*	Disconnected (20Remote host closed socket)
+T 1614032778 19*	Now talking on 22#spacemacs
+T 1614032778 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1614032778 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1614033068 20*	Disconnected (20)
+T 1614033450 19*	Now talking on 22#spacemacs
+T 1614033450 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1614033450 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1614033548 20*	Disconnected (20)
+T 1614070771 19*	Now talking on 22#spacemacs
+T 1614070771 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1614070771 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1614081274 18<20FromGitter18>	<iliekprogrammar> greetings, probably a noobish question: in emacs lisp, how do i choose a different value if one value is nil? e.g. `(choose-non-nil (could-evaluate-to-nil) (always-non-nil))`. ⏎ For context, Im trying to handle an optional argument for a function.
+T 1614081411 18<20FromGitter18>	<dalanicolai> @iliekprogrammar I guess you are looking for `or`?
+T 1614081456 18<20FromGitter18>	<iliekprogrammar> oh it works like in lua. quite nice.
+T 1614081489 18<20FromGitter18>	<dalanicolai> Ah... don't know lua
+T 1614081549 18<20FromGitter18>	<iliekprogrammar> it's a neat language. I learnt it for neovim's new support for lua configurations.
+T 1614081609 18<20FromGitter18>	<iliekprogrammar> but the way emacs' built is just miles better than lua support
+T 1614081655 18<20FromGitter18>	<dalanicolai> Yeah I quickly had a look at lua, when I read positive things about it
+T 1614081677 18<20FromGitter18>	<dalanicolai> But I think I remember it looked like python, just little less nice
+T 1614081714 18<20FromGitter18>	<iliekprogrammar> metatables sold it for me
+T 1614081744 18<20FromGitter18>	<dalanicolai> Yeah... the introspection in emacs is great. And lisp is a beautiful language too
+T 1614081780 18<20FromGitter18>	<iliekprogrammar> never would i have ever thought to love parenthesis abuse
+T 1614081846 18<20FromGitter18>	<dalanicolai> Haha... maybe it is not abuse after all
+T 1614081912 18<20FromGitter18>	<dalanicolai> I quickly searched for `metatable`... from the explanation in Wikipedia (https://en.wikipedia.org/wiki/Metatable) it sounds like lisp is all metatable...
+T 1614081967 18<20FromGitter18>	<dalanicolai> But I do not really know what I am talking about... just the 'holding data that acts as source code' part
+T 1614082061 18<20FromGitter18>	<iliekprogrammar> in lua, it basically means you change how operations interact with the object/table. ⏎  ⏎ say i want union operation for sets. I can override the + operator using metatables.
+T 1614082146 18<20FromGitter18>	<iliekprogrammar> the table holds the data, acting as the source code, that defines its behaviour.
+T 1614082161 18<20FromGitter18>	<iliekprogrammar> pretty OOP-like, really
+T 1614082194 18<20FromGitter18>	<dalanicolai> Ah... I have read that lisp offers plenty of tricks for that I think... but I still need to learn those tricks
+T 1614082289 18<20FromGitter18>	<iliekprogrammar> another way to use metatable is to create builders or prototypes
+T 1614082331 18<20FromGitter18>	<dalanicolai> Haha... okay I still need to learn a lot... I am only a hobby programmer
+T 1614082346 18<20FromGitter18>	<iliekprogrammar> but of course, the thing that people remember most about lua is that its 1-indexed
+T 1614082382 18<20FromGitter18>	<iliekprogrammar> and many fail to hint the fact that metatables can change that to the more sensible 2-indexed system
+T 1614082433 18<20FromGitter18>	<dalanicolai> Ah don't know what that means
+T 1614082445 18<20FromGitter18>	<dalanicolai> I thought you meant 1 vs 0-indexed
+T 1614082450 18<20FromGitter18>	<dalanicolai> But 2-indexed?
+T 1614082457 18<20FromGitter18>	<iliekprogrammar> yes, that's correct
+T 1614082467 18<20FromGitter18>	<iliekprogrammar> metatables results in any-indexed
+T 1614082498 18<20FromGitter18>	<dalanicolai> Haha sounds confuding
+T 1614082498 18<20FromGitter18>	<iliekprogrammar> truly a powerful feature :D
+T 1614082579 18<20FromGitter18>	<dalanicolai> I will believe you on your word :)
+T 1614082645 18<20FromGitter18>	<iliekprogrammar> i wonder what cursed things you can do in lisp, given how simple and flexible this beast is
+T 1614082855 18<20FromGitter18>	<dalanicolai> Yes... me too... but I have seen some sophisticated looking code already... I wish I had understood it also
+T 1614084945 20*	Disconnected (20)
+T 1614093629 19*	Now talking on 22#spacemacs
+T 1614093629 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1614093629 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1614100568 18<20FromGitter18>	<sektor:matrix.hunterjozwiak.com> Is there a Matrix layer for Spacemacs? Getting back into the Emacs life and loving it.
+T 1614100942 20*	Disconnected (20)
+T 1614100975 19*	Now talking on 22#spacemacs
+T 1614100975 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1614100975 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1614102666 18<20FromGitter18>	<andreicristianpetcu> How can I force a file to use a specific syntax highlight? I have a Fluet file (something.ftl) and I want the syntax to be the same for properties files.
+T 1614104412 20*	Disconnected (20)
+T 1614104442 19*	Now talking on 22#spacemacs
+T 1614104442 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1614104442 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1614105859 20*	Disconnected (20)
+T 1614105888 19*	Now talking on 22#spacemacs
+T 1614105888 22*	Topic for 22#spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+T 1614105888 22*	Topic for 22#spacemacs set by 26e!edk@freenode/staff/spy.edk (24Mon Jul 25 23:29:49 2016)
+T 1614107869 20*	Disconnected (20)
+T 1614107929 20*	Disconnected (20Remote host closed socket)
+T 1614107979 20*	Disconnected (20Remote host closed socket)
+T 1614108057 20*	Disconnected (20Remote host closed socket)
+T 1614108104 20*	Disconnected (20Remote host closed socket)

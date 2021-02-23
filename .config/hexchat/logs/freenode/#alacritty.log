@@ -6070,3 +6070,132 @@ Feb 22 21:03:08 *	Disconnected ()
 Feb 22 21:08:12 *	Now talking on #alacritty
 Feb 22 21:08:12 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
 Feb 22 21:08:12 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Feb 20 01:05:57 2021)
+Feb 22 22:18:26 <nixpulvis>	Hmmm, I'm getting a few crashes today searching.
+Feb 22 22:20:10 <UndeadLeech>	Alacritty crashing?
+Feb 22 22:20:30 <nixpulvis>	damn, no coredump tho :(
+Feb 22 22:20:37 <UndeadLeech>	Any log files in /tmp?
+Feb 22 22:20:46 <nixpulvis>	yea, let me check
+Feb 22 22:21:02 <UndeadLeech>	Unfortunately we don't log stderr.
+Feb 22 22:21:30 <nixpulvis>	yea, 4 files. Nothing helpful tho.
+Feb 22 22:21:40 <UndeadLeech>	Yeah, so it's just a rust crash then.
+Feb 22 22:21:53 <nixpulvis>	I'm not sure how to reproduce it yet.
+Feb 22 22:22:09 <UndeadLeech>	Are you on the latest version?
+Feb 22 22:22:11 <nixpulvis>	What does "just a rust crash" mean?
+Feb 22 22:22:23 <UndeadLeech>	Not a coredump, not an error from us.
+Feb 22 22:22:30 <nixpulvis>	I was like 3 commits behind, I just updated, so I'll see if it happens again.
+Feb 22 22:22:32 <UndeadLeech>	So a runtime rust crash.
+Feb 22 22:22:36 <nixpulvis>	yea, right.
+Feb 22 22:22:39 <nixpulvis>	gotcha
+Feb 22 22:22:50 <UndeadLeech>	Were you on the search freezing fix yet?
+Feb 22 22:23:26 <nixpulvis>	yes.
+Feb 22 22:23:37 <nixpulvis>	99% sure anyway.
+Feb 22 22:23:39 <UndeadLeech>	So you were on 3dafec0 then?
+Feb 22 22:23:43 <UndeadLeech>	Hmmm.
+Feb 22 22:23:52 <UndeadLeech>	What did you search for? Were you scrolled into history?
+Feb 22 22:23:58 <nixpulvis>	heh not actually sure how to tell what version I was on at this point.
+Feb 22 22:24:09 <nixpulvis>	Maybe I should have saved that version of the binary...
+Feb 22 22:24:34 <UndeadLeech>	Do you still have any Alacritty instances open which started before the update?
+Feb 22 22:24:56 <nixpulvis>	Searched for the string "true" last time, but it's been a few simple searchs like that. And I don't think I've been in scrollback, but there are a lot of lines up there.
+Feb 22 22:25:05 <nixpulvis>	yea, many.
+Feb 22 22:25:36 <nixpulvis>	how do I get the version of a running alacritty tho?
+Feb 22 22:25:50 <UndeadLeech>	One sec, let me test if this still works.
+Feb 22 22:26:02 <UndeadLeech>	I think something changed in recent years which breaks it.
+Feb 22 22:26:48 <UndeadLeech>	You were searching in vi mode, right?
+Feb 22 22:27:38 <UndeadLeech>	/proc/<PID>/exe --version
+Feb 22 22:28:54 <nixpulvis>	not vi mode, I've been trying to see how much I can deal with the other search now too. Since my configuration for using vi-mode with ctrl+shift+f doesn't work.
+Feb 22 22:29:05 <UndeadLeech>	Gotcha.
+Feb 22 22:29:10 <UndeadLeech>	I'll see if I can find a crash.
+Feb 22 22:30:16 <nixpulvis>	yea, 3dafec07
+Feb 22 22:30:47 <nixpulvis>	this proc exe things is a great trick. I'll have to try and remember that.
+Feb 22 22:31:07 <UndeadLeech>	I think I found a different bug though.
+Feb 22 22:31:42 <UndeadLeech>	Not the worst thing in the world, but if you search for something and there is no match, but there was a match before you finished your regex, it will be selected.
+Feb 22 22:33:25 <nixpulvis>	hmm, I can't reproduce that easily.
+Feb 22 22:33:35 <UndeadLeech>	It should be trivial to reproduce.
+Feb 22 22:33:40 <UndeadLeech>	You just need to make sure there's a match at first.
+Feb 22 22:34:30 <nixpulvis>	I guess I don't understand.
+Feb 22 22:35:49 <UndeadLeech>	https://paste.rs/YZB.mp4
+Feb 22 22:36:09 <UndeadLeech>	Also starting search and quitting immediately shouldn't move the content down a line iirc.
+Feb 22 22:36:10 <nixpulvis>	oh, only in the history?
+Feb 22 22:36:16 <UndeadLeech>	No, anywhere.
+Feb 22 22:36:39 <UndeadLeech>	Just gotta search for anything where the beginning matches, but the end doesn't.
+Feb 22 22:37:02 <nixpulvis>	hmmm, not happening for me.
+Feb 22 22:37:16 <UndeadLeech>	You sure you're on the latest version?
+Feb 22 22:37:33 <nixpulvis>	yes?
+Feb 22 22:37:53 <nixpulvis>	369c927d
+Feb 22 22:38:09 <UndeadLeech>	Try searching through output of like `ls -lah`.
+Feb 22 22:38:18 <UndeadLeech>	I don't think it works on the first line or something odd like that.
+Feb 22 22:42:15 <nixpulvis>	hmm, nothing.
+Feb 22 22:42:32 <UndeadLeech>	But it works when there is a full match, right?
+Feb 22 22:42:35 <UndeadLeech>	You don't have that disabled?
+Feb 22 22:50:38 <UndeadLeech>	nixpulvis: Any suspicions at all what might cause the search crash? 
+Feb 22 22:50:56 <nixpulvis>	yea, the selection sticks around with a match.
+Feb 22 22:51:10 <UndeadLeech>	Huh.
+Feb 22 22:51:29 <nixpulvis>	Honestly, I have no idea, other than the fact my fingers are moving quickly today, so maybe I'm just hitting a weird key.
+Feb 22 22:51:51 <UndeadLeech>	I frequently close windows on macOS because of their stupid fucking butterfly keyboard. :P
+Feb 22 22:52:05 <nixpulvis>	don't get me started.
+Feb 22 22:52:08 <UndeadLeech>	:D
+Feb 22 22:52:24 <UndeadLeech>	I mean you have files in /tmp though, right?
+Feb 22 22:52:27 <UndeadLeech>	That indicates a crash.
+Feb 22 22:52:37 <UndeadLeech>	Because the log files will only persist if there was a crash.
+Feb 22 22:55:49 <UndeadLeech>	If this is something you run into frequently, I'd really appreciate it if you could maybe redirect Alacritty's stderr somewhere.
+Feb 22 23:04:53 <nixpulvis>	yea, let me reconfigure my launcher to do that so I can capture this next time it happens.
+Feb 22 23:06:38 *	Disconnected ()
+**** ENDING LOGGING AT Mon Feb 22 23:06:38 2021
+
+**** BEGIN LOGGING AT Mon Feb 22 23:26:17 2021
+
+Feb 22 23:26:17 *	Now talking on #alacritty
+Feb 22 23:26:17 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+Feb 22 23:26:17 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Feb 20 01:05:57 2021)
+Feb 22 23:31:08 *	Disconnected ()
+**** ENDING LOGGING AT Mon Feb 22 23:31:08 2021
+
+**** BEGIN LOGGING AT Mon Feb 22 23:37:28 2021
+
+Feb 22 23:37:28 *	Now talking on #alacritty
+Feb 22 23:37:28 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+Feb 22 23:37:28 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Feb 20 01:05:57 2021)
+Feb 22 23:39:08 *	Disconnected ()
+**** ENDING LOGGING AT Mon Feb 22 23:39:08 2021
+
+**** BEGIN LOGGING AT Tue Feb 23 09:59:31 2021
+
+Feb 23 09:59:31 *	Now talking on #alacritty
+Feb 23 09:59:31 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+Feb 23 09:59:31 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Feb 20 01:05:57 2021)
+Feb 23 13:55:45 *	Disconnected ()
+**** ENDING LOGGING AT Tue Feb 23 13:55:45 2021
+
+**** BEGIN LOGGING AT Tue Feb 23 16:20:29 2021
+
+Feb 23 16:20:29 *	Now talking on #alacritty
+Feb 23 16:20:29 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+Feb 23 16:20:29 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Feb 20 01:05:57 2021)
+Feb 23 17:46:04 *	arooni_team_b is now known as arooni
+Feb 23 18:22:22 *	Disconnected ()
+**** ENDING LOGGING AT Tue Feb 23 18:22:22 2021
+
+**** BEGIN LOGGING AT Tue Feb 23 18:22:54 2021
+
+Feb 23 18:22:54 *	Now talking on #alacritty
+Feb 23 18:22:54 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+Feb 23 18:22:54 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Feb 20 01:05:57 2021)
+Feb 23 19:20:12 *	Disconnected ()
+**** ENDING LOGGING AT Tue Feb 23 19:20:12 2021
+
+**** BEGIN LOGGING AT Tue Feb 23 19:20:42 2021
+
+Feb 23 19:20:42 *	Now talking on #alacritty
+Feb 23 19:20:42 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+Feb 23 19:20:42 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Feb 20 01:05:57 2021)
+Feb 23 19:44:19 *	Disconnected ()
+**** ENDING LOGGING AT Tue Feb 23 19:44:19 2021
+
+**** BEGIN LOGGING AT Tue Feb 23 19:44:48 2021
+
+Feb 23 19:44:48 *	Now talking on #alacritty
+Feb 23 19:44:48 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+Feb 23 19:44:48 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Feb 20 01:05:57 2021)
+Feb 23 20:17:49 *	Disconnected ()
+**** ENDING LOGGING AT Tue Feb 23 20:17:49 2021
+

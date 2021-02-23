@@ -10441,3 +10441,355 @@ Feb 22 21:13:44 <geeky_gecko[m]>	HTTPS://paste.centos.org/view/6ecc351c
 Feb 22 21:16:56 <Southern_Gentlem>	thats better so as cmurf comes up from air pounce on him
 Feb 22 21:17:03 <geeky_gecko[m]>	My idea was to mount the pool and restore the system with the latest snapshot.
 Feb 22 21:18:42 <geeky_gecko[m]>	Thanks S_G!
+Feb 22 21:24:50 *	Guest72277 is now known as ozymandias_
+Feb 22 21:31:31 <cmurf>	here
+Feb 22 21:33:14 <cmurf>	what's the problem?
+Feb 22 21:34:17 <Southern_Gentlem>	cmurf, HTTPS://paste.centos.org/view/6ecc351c
+Feb 22 21:34:38 <cmurf>	yeah i see that not sure what's wrong though
+Feb 22 21:34:59 <cmurf>	four device btrfs file system, completely normal :P
+Feb 22 21:35:38 <cmurf>	you can mount any of those by /dev node
+Feb 22 21:36:09 <cmurf>	just mount one of them, doesn't matter which one
+Feb 22 21:36:22 <cmurf>	mount /dev/mapper/sdd1 /mnt/whatever
+Feb 22 21:44:08 <geeky_gecko[m]>	Hello cmurf! We meet again. Haha.
+Feb 22 21:44:54 <geeky_gecko[m]>	It complains that there is something wrong with the fs type.
+Feb 22 21:48:57 <Southern_Gentlem>	geeky_gecko[m], command you used please
+Feb 22 21:49:19 <geeky_gecko[m]>	HTTPS://paste.centos.org/view/b25bf769
+Feb 22 21:50:42 <geeky_gecko[m]>	Sorry, sudo mount /dev/mapper/sda2_crypt /mnt
+Feb 22 21:52:07 *	jab1 is now known as jab
+Feb 22 21:57:38 <pw>	oh oh i've the same problem with my crypted (ext4) external drives
+Feb 22 22:00:15 <geeky_gecko[m]>	So we can conclude it has nothing to do with btrfs? Or am I jumping to conclusions?
+Feb 22 22:02:51 <pw>	in my case i've try a drive with btrfs, with the same result... here i use 4 external drives hdd/sdd with encryption i can "open the container" but not mounting without this message, after that put the drive into my notebook or pc (sata connected) without this issue
+Feb 22 22:11:01 <cmurf>	sorry walked away
+Feb 22 22:11:25 <cmurf>	umm hmm
+Feb 22 22:11:28 <cmurf>	geeky_gecko[m]:
+Feb 22 22:11:45 <cmurf>	so, can you do 'sudo btrfs fi show | fpaste'
+Feb 22 22:12:27 <cmurf>	and while you're at it 'fpaste --btrfsinfo'
+Feb 22 22:13:23 <cmurf>	haha when it rains it pours :)
+Feb 22 22:13:33 <cmurf>	pw same thing
+Feb 22 22:14:03 <geeky_gecko[m]>	Ok
+Feb 22 22:16:35 <geeky_gecko[m]>	HTTPS://paste.centos.org/view/eff19880
+Feb 22 22:16:44 <cmurf>	pw:  'fpaste --sysinfo' and 'fpaste --btrfsinfo'
+Feb 22 22:16:51 <cmurf>	i'm not sure if you have ext4 or btrfs or both
+Feb 22 22:17:15 <geeky_gecko[m]>	HTTPS://paste.centos.org/view/0e00d1b7
+Feb 22 22:17:48 <pw>	on my main (crypted) system i've btrfs, on my crypted external drives etx4
+Feb 22 22:18:19 <pw>	in my case its not possible to mount crypted external usb-drives
+Feb 22 22:20:21 <cmurf>	geeky_gecko[m]: ok so looks like you might have tried to mount the btrfs file system before all the cryptoluks devices were opened?
+Feb 22 22:20:26 <braxtono[m]>	Does anyone know how to recover heif photos? I have Active & Easeus but they can't detect so I've been trying to input custom file SIG's but they aren't detecting
+Feb 22 22:20:28 <cmurf>	there is till one missing, devid 5
+Feb 22 22:20:37 <cmurf>	so that's why it's not mounting, devid 5 is missing
+Feb 22 22:21:46 <cmurf>	devid 5 will be the most recent device you added with 'btrfs device add'
+Feb 22 22:22:03 <cmurf>	s/till/still/
+Feb 22 22:22:42 <geeky_gecko[m]>	I do not think so but let me try to reboot and see if I can first unlock them all and then mount btrfs.
+Feb 22 22:22:50 <cmurf>	pw: someone else here might have a better idea how to handle encrypted external drives
+Feb 22 22:23:20 <cmurf>	if it's plugged in during boot and has the same password as system root, plymouth will automatically try to open the external during startup
+Feb 22 22:24:11 <cmurf>	but if cryptsetup open hasn't happened yet, and this external device is listed in /etc/fstab for mounting, then the mount will hang probably indefinitely and stop the startup
+Feb 22 22:24:25 <pw>	i know about this, all my other device are working well
+Feb 22 22:25:01 <cmurf>	ok and cryptsetup open works manually? and it mounts ok manually? I'm not following the problem
+Feb 22 22:25:17 <cmurf>	geeky_gecko[m]: yeah this file system is definitely expecting 5 devices
+Feb 22 22:25:20 <cmurf>	so you've got a missing device
+Feb 22 22:26:40 <geeky_gecko[m]>	Shoot you are right I added the fifth one the last time.
+Feb 22 22:27:13 <geeky_gecko[m]>	Let me check
+Feb 22 22:31:40 <cmurf>	most btrfs error messages appear in dmesg, btw
+Feb 22 22:31:44 <cmurf>	     [ 9008.616317] kernel: BTRFS error (device dm-2): devid 5 uuid 7e1ebe6d-51aa-4d96-b434-8751f7bd1b0f is missing
+Feb 22 22:34:55 *	ccallahan|Backup is now known as ccallahna
+Feb 22 22:35:10 *	ccallahna is now known as ccallahan
+Feb 22 22:37:27 <cmurf>	you can also see the devices for all visible filesystems with 'sudo btrfs filesystem show'
+Feb 22 22:37:47 <cmurf>	and if any are missing it'll indicate it
+Feb 22 22:44:08 <geeky_gecko[m]>	I removed the fifth one and gave it a new destination that’s where things went wrong.
+Feb 22 22:46:05 <geeky_gecko[m]>	So now btrfs has the luks id still registered but the drive is formatted as a standalone drive with luks.
+Feb 22 22:47:16 <geeky_gecko[m]>	HTTPS://paste.centos.org/view/bf510988
+Feb 22 22:53:40 <pw>	cmurf: yes i can open the device but not mount the filesystem
+Feb 22 23:06:38 *	Disconnected ()
+**** ENDING LOGGING AT Mon Feb 22 23:06:38 2021
+
+**** BEGIN LOGGING AT Mon Feb 22 23:26:17 2021
+
+Feb 22 23:26:17 *	Now talking on #fedora
+Feb 22 23:26:17 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 22 23:26:17 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 22 23:26:18 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 22 23:29:22 <geeky_gecko[m]>	Thanks for the help so far! I am of to the envelope!
+Feb 22 23:31:08 *	Disconnected ()
+**** ENDING LOGGING AT Mon Feb 22 23:31:08 2021
+
+**** BEGIN LOGGING AT Mon Feb 22 23:37:28 2021
+
+Feb 22 23:37:28 *	Now talking on #fedora
+Feb 22 23:37:28 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 22 23:37:28 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 22 23:37:30 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 22 23:39:08 *	Disconnected ()
+**** ENDING LOGGING AT Mon Feb 22 23:39:08 2021
+
+**** BEGIN LOGGING AT Tue Feb 23 09:59:31 2021
+
+Feb 23 09:59:31 *	Now talking on #fedora
+Feb 23 09:59:31 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 23 09:59:31 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 23 09:59:31 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 23 10:01:48 *	finn is now known as f1nniboy
+Feb 23 10:09:30 *	Delta237_ is now known as Delta237
+Feb 23 10:46:40 <hnsz2002>	hi all! i want to create a local, internal repo mirror, but i want to keep older packages
+Feb 23 10:47:00 <hnsz2002>	which are removed from the source...
+Feb 23 10:47:30 <hnsz2002>	so therefore, rsync is running without --delete option, and with exlude repodata/*
+Feb 23 10:48:18 <hnsz2002>	after rsync, i try to use createrepo to generate repodata.... but this doesnt works, modules are sucks
+Feb 23 10:49:09 <hnsz2002>	i already also find modulemd-tools, which is a newly rewritten alternative for createrepo and can handle modules.... but i also not succeeded with that
+Feb 23 10:49:58 <hnsz2002>	can somebody give me some guidance, how can i generate the correct repodata with module infos from a locally synced rpm repository?
+Feb 23 10:50:22 <fedbot>	*** F33-20210212 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Feb 23 10:55:37 *	sudhir_ is now known as sudhir
+Feb 23 11:50:34 <fedbot>	*** F33-20210212 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Feb 23 12:50:25 <fedbot>	*** F33-20210212 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Feb 23 13:24:43 <g38>	hello
+Feb 23 13:40:28 <death_>	hello
+Feb 23 13:42:17 <death_>	hey can anyone explain the diff between dnf, yum and rpm?
+Feb 23 13:45:51 <g38>	rpm deals with packages in the local database, and in files.   dnf and yum deal with packages in the local database, and in distant repositories.  yum is the old system, dnf the newer one.
+Feb 23 13:47:09 <g38>	so in practice you normally most likely never use yum and very rarely use rpm (if ever)
+Feb 23 13:50:26 <fedbot>	*** F33-20210212 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Feb 23 13:53:17 <slop>	Hi all <3
+Feb 23 13:55:45 *	Disconnected ()
+**** ENDING LOGGING AT Tue Feb 23 13:55:45 2021
+
+**** BEGIN LOGGING AT Tue Feb 23 16:20:29 2021
+
+Feb 23 16:20:29 *	Now talking on #fedora
+Feb 23 16:20:29 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 23 16:20:29 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 23 16:20:29 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 23 16:20:50 <coz_>	Southern_Gentlem, that bad , huh ?
+Feb 23 16:21:38 <coz_>	%)
+Feb 23 16:22:44 <Southern_Gentlem>	its a tuesday, where the issues didnt happen until after i left yesterday
+Feb 23 16:23:08 <coz_>	oh!! I think I undrstand
+Feb 23 16:29:05 <Khaytsus>	faern: the Fedora Server is basically the network installer.  You can instll whatever you want from it.
+Feb 23 16:30:27 <Khaytsus>	It's not exactly small anymore..  600M.  We used to have BFO but I don't think it's maintained anymore.  It was a tiny network PXE kind of thing that got the latest data and did a network install.. Same image worked for every release.  But pretty sure it's dead now.
+Feb 23 16:30:31 <Machiavelli[m]>	^^ this. The server iso does not have to be used to install Fedora Server. It can be used for desktop installations.
+Feb 23 16:30:36 <faern>	Southern_Gentlem: I don't get the argument about gnome? A workstation centric netinstaller iso could surely let the user select any DE during setup
+Feb 23 16:31:15 <Southern_Gentlem>	nope only the server one allows selection of other des
+Feb 23 16:31:31 <coz_>	everything iso?
+Feb 23 16:31:34 <Khaytsus>	Server == Network installer
+Feb 23 16:31:38 <Khaytsus>	coz_: no....
+Feb 23 16:32:14 <Southern_Gentlem>	coz_, the way i am reading this is that faern doesnt think that the lives are useful
+Feb 23 16:32:41 <coz_>	Southern_Gentlem, oh!! mm odd
+Feb 23 16:33:40 <coz_>	faern, could yousay agin your first post, I was not here at the time
+Feb 23 16:34:06 <Khaytsus>	I think they have been answered.
+Feb 23 16:34:11 <Khaytsus>	If htey want a network installer, use server.
+Feb 23 16:34:12 <coz_>	ok
+Feb 23 16:35:28 <MICROburst>	How is fetchmail intended to be run? There is a /etc/fetchmailrc.example but there is no systemctl .service file. The mail server is using virtual users so putting it  as .fetchmailrc in a user's home would not work.
+Feb 23 16:36:01 <faern>	Southern_Gentlem: I'm not complaining about anything with the current ISOs.
+Feb 23 16:36:20 <faern>	I just asked *if* there was any netinstall iso for workstations.
+Feb 23 16:36:31 <faern>	But I guess the server netinstall iso could be used for that.
+Feb 23 16:37:00 <faern>	coz_: 16:13 <faern> Is there no netinstall iso for workstation like there is for server? I think that's a preferred installation method. Small iso -> Only download the latest stuff once.
+Feb 23 16:37:37 <Southern_Gentlem>	faern,  the is a workstation netinstall but that is for gnome only
+Feb 23 16:37:39 <coz_>	faern, ah ok. so are you satisfied with all the responses?
+Feb 23 16:38:00 <faern>	Yes!
+Feb 23 16:38:15 <coz_>	MICROburst, not sure, did you read here?   https://docs.fedoraproject.org/en-US/Fedora/18/html/System_Administrators_Guide/s2-email-mta-fetchmail.html
+Feb 23 16:38:17 <MICROburst>	faern: Boot off the network using ipxe or grub. Point them to a fedora mirror with vmlinuz and initrd
+Feb 23 16:39:13 <MICROburst>	coz_: Yep, seen that already. The ".fetchmailrc" is what's been put in a user's home.
+Feb 23 16:39:23 <Khaytsus>	faern: It's not "can be used" it's the purpose of the server iso.. why they felt calling it 'server" vs just the previous name of "network install" I don't know.
+Feb 23 16:40:14 <Southern_Gentlem>	well at one time there was a workstation netinstall but i am not seeing it now
+Feb 23 16:40:15 <faern>	Yeah. The name does not imply that's the purpose :D
+Feb 23 16:40:43 <Khaytsus>	The current server iso _is_ what the network install used to be.
+Feb 23 16:40:58 <coz_>	strange rename
+Feb 23 16:41:17 <Khaytsus>	I guess someone wanted to market Fedora as not just being a desktop OS?  I dunno.
+Feb 23 16:41:53 <faern>	The website can still have a big button for server. But it goes to a page allowing you to download the netinstall and a text saying the iso can be used to install the "server version"
+Feb 23 16:43:23 <faern>	But I see now that under the workstation download page there is the "But wait! There's more"-section that links to alternative downloads which in turn allows me to download the "server"/netinstall iso :D
+Feb 23 16:43:45 <coz_>	cool
+Feb 23 16:43:56 <faern>	Very undiscoverable :D
+Feb 23 16:43:57 <Khaytsus>	faern: Yeah, because 95% of users want Workstation, 5% want other spins, and .0000000000000001% want server ;)
+Feb 23 16:43:58 <ledeni>	faern:yes but server-netinstall allow to select software what you want to install
+Feb 23 16:44:05 <faern>	But I got all the answers I needed. Will use the server ISO from now on :)
+Feb 23 16:44:21 <squarebracket>	is there a way to configure systemd-resolved to not use split dns? i want to have the old functionality where if my router returns NXDOMAIN it checks my vpn dns servers.
+Feb 23 16:44:42 <faern>	Khaytsus: Really? Seems greatly exaggerated, no? I use it both for workstations and servers, but I surely have many more servers than workstations.
+Feb 23 16:44:45 <squarebracket>	we've got a bunch of old domains from name changes over the years and i don't really want to manually configure each one for my vpn connection
+Feb 23 16:45:10 <faern>	ledeni: Yes. I got that now. But it's very unclear from how the website markets the iso
+Feb 23 16:45:42 <Khaytsus>	squarebracket: https://fedoraproject.org/wiki/Changes/systemd-resolved    pretty sure the opting out here is what you want to do?  Not sure, working on something else so can't compare your scenrio
+Feb 23 16:47:44 <squarebracket>	Khaytsus: yeah, i don't really want to fully opt out of systemd-resolved since then i'm drifting from the official configuration, but it probably is my best option :(
+Feb 23 16:48:25 *	Machiavelli[m] uploaded an image: ima_5ca2772.jpeg (214KiB) < https://matrix.org/_matrix/media/r0/download/matrix.org/tPOBmcFkdkdceWsoDmJdszvy/ima_5ca2772.jpeg >
+Feb 23 16:48:56 <Machiavelli[m]>	There is mention of the net install being incorporated into the server iso, but only on the Alternative Downloads page
+Feb 23 16:50:28 <fedbot>	*** F33-20210212 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Feb 23 16:58:08 <dowdle>	Machiavelli[m]: There is already server netinstall media.
+Feb 23 16:58:56 <dowdle>	Machiavelli[m]: See link here - https://getfedora.org/en/server/download/
+Feb 23 16:59:40 <dowdle>	 (lower button on the left)
+Feb 23 17:00:42 <Machiavelli[m]>	<dowdle "Machiavelli: There is already se"> I am aware, that’s what I was also saying.
+Feb 23 17:01:40 <dowdle>	Machiavelli[m]: That's not an alternatives page... that is the page you get on the server download link from the front page... but it may also be listed in other places.
+Feb 23 17:01:54 <dowdle>	 (matrix)
+Feb 23 17:06:05 <Machiavelli[m]>	We were discussing the use of that media as a workstation net install media for the user asking where the workstation netinstall iso went.. which is not mentioned on the page you linked. This is a simple misunderstanding. I am fully aware of the server netinstall media..
+Feb 23 17:06:16 *	rhn-bry6 is now known as rhn-bry
+Feb 23 17:07:06 <Machiavelli[m]>	The page I posted a screenshot is indeed the “Alternative Downloads” page
+Feb 23 17:07:21 <Machiavelli[m]>	* The page I posted a screenshot of is indeed the “Alternative Downloads” page
+Feb 23 17:08:35 *	Machiavelli[m] uploaded an image: ima_61e9b31.jpeg (173KiB) < https://matrix.org/_matrix/media/r0/download/matrix.org/mTEYKMeeUeaVrCkjlJPCkjiL/ima_61e9b31.jpeg >
+Feb 23 17:08:56 <Machiavelli[m]>	Here is the page you are referring to. They are different pages.
+Feb 23 17:11:34 <Machiavelli[m]>	If you’re going to condescendingly “correct” someone at least read the full conversation and understand the topic first, to avoid telling people they don’t know what page they have intentionally navigated to.
+Feb 23 17:14:20 <dowdle>	Machiavelli[m]: Thanks for your considerate feedback... I'll take it into consideration (and they are gone). :)
+Feb 23 17:14:26 <paint-it-black>	Khaytsus  ah just got back from lunch .. a lot has transpired ... I think I know why it went ape over the updates.  Is this possible ... I installed the font tweak tool,  it asked for a list of language preferences, so I listed a few.  I guess then it went and updated all software affected by the additional languages?
+Feb 23 17:15:07 <Khaytsus>	paint-it-black: No idea.  Perhaps.  You'd have to actually be more specific about what it did and look at the logs I guess.
+Feb 23 17:23:56 <paint-it-black>	Sure, as you know from yesterday the root partition on the boot device was foo bar.  I was able to decrypt and map the home partition so no data was lost. (most was backed up anyway).   I never did get that media to boot.  So I installed fedora 33 from the live iso from getfedora.   (The other media was f33 from an upgrade).    After
+Feb 23 17:23:56 <paint-it-black>	installing f33 fresh I did an update.   Then started installing various software (using dnf in a shell!  LOL no stinkin GUI program LOL) I did run "gnome software"  to turn off the auto updates.   In the course of trying to get things back to hunkey dorey,  I installed the font tweak tool (as a opposed to the gnome tweak tool) ... really
+Feb 23 17:23:57 <paint-it-black>	getting into gnome gui tools now LO.   The gnome font tweak tool has an option for giving a list of languages, so I did.   After leaving the tool I ran updates again in prep for another install, and it went CRAZY   1565 packages to update!   But I already did an update after an install, if anything should have been a huge update, it should have
+Feb 23 17:23:57 <paint-it-black>	been that one.  .... so I am thinking the language list on the gnome font tweak tool caused this,  is that possible?   Or was there just a mammoth f33 update ?
+Feb 23 17:26:49 <paint-it-black>	it is a curious thing is all,  the udpate is done .. but why the first was not huge but the second .. go figure
+Feb 23 17:29:08 <Southern_Gentlem>	paint-it-black, no idea but is everyone seems to be running ok now
+Feb 23 17:29:24 <Southern_Gentlem>	opps everyone/everything
+Feb 23 17:32:49 <paint-it-black>	So here is an install problem.  In emacs and in the terminal the Deja Vu Sans Mono font, the underscores are gone.
+Feb 23 17:32:49 <paint-it-black>	https://imgur.com/a/8f3h8dj   They are showing up as a barely visiable light gray.   I had a similar problem some years ago.  This has been reported by others as a bug in the past.  .. but that was a long time ago.   ... do you know how to get the underscores back?
+Feb 23 17:33:16 <Southern_Gentlem>	nope i am not an emacs users
+Feb 23 17:33:27 <paint-it-black>	gnome-terminal also
+Feb 23 17:33:35 <Southern_Gentlem>	try another font
+Feb 23 17:33:38 <paint-it-black>	it is a font issue, not an application issue
+Feb 23 17:34:09 <paint-it-black>	there is not really another option for the default install.   Monospace aliases to the Deja Vu Sans Mono
+Feb 23 17:35:51 <paint-it-black>	So I just added RPM Fusion to get get some other fonts.  Given that the gnome-terminal is pretty popular, and this is a problem with the default font on a fresh install -- and I am running on a very good display monitor here a QLED high resolution monitor, it does not get crisper than this -- seems someone would have run into this and have
+Feb 23 17:35:51 <paint-it-black>	something to say about it.
+Feb 23 17:40:23 <Copenhagen_Bram>	Hello! So I've got this problem. Every time I play a game that's more complicated than Nethack, Gargoyle IF interpreter, or PrBoom+, my computer eventually crashes in the middle of playing it. Completely freezes up, completely unresponsive.
+Feb 23 17:40:41 <Copenhagen_Bram>	It just did that in the middle of me playing Mindustry. Is there anything I can do about it?
+Feb 23 17:47:37 <paint-it-black>	seems to be a problem with gnomes anti-aliasing algorithm.  It is erasing the underscores.  I just turned it off and they came back.
+Feb 23 17:48:21 <paint-it-black>	though the letters are a bit uglier also.
+Feb 23 17:48:57 <paint-it-black>	enough futzing with this today.  Hope that will get fixed someday.   Have a wonderful day folks.
+Feb 23 17:49:14 <Southern_Gentlem>	Copenhagen_Bram, sudo fpaste --sysinfo
+Feb 23 17:50:31 <fedbot>	*** F33-20210212 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Feb 23 17:52:42 <Copenhagen_Bram>	Well great, what the heck does "Warning: dracut-initqueue timeout - starting timeout scripts" mean?
+Feb 23 17:53:17 <Copenhagen_Bram>	and it's in emergency mode now
+Feb 23 17:54:28 <paint-it-black>	p.s. full hinting and aliasing also shows the underscores and the letters are cleaner .. suppose a person could play with this all day.
+Feb 23 17:55:26 <Copenhagen_Bram>	maybe I got the luks password incorrect or something?
+Feb 23 17:58:07 <Sokel>	the system cannot adequately mount the file systems to boot.
+Feb 23 17:58:17 <Sokel>	If your luks password was incorrect, then the password prompt woudl come back.
+Feb 23 17:59:49 <Copenhagen_Bram>	You'd think... but from the journalctl log it looked as though the problem was it couldn't find /dev/mapper/luks-whatever. And after I rebooted again, now it's booting up fine.
+Feb 23 18:01:31 <Copenhagen_Bram>	It also said something about too many incorrect password attempts.
+Feb 23 18:04:02 <entflammen>	o/
+Feb 23 18:04:16 <Copenhagen_Bram>	hey entflammen
+Feb 23 18:04:22 <entflammen>	I'm having some issues with multi-monitor
+Feb 23 18:04:30 <entflammen>	howdy!
+Feb 23 18:04:38 <Copenhagen_Bram>	Hmm. What kind of issues?
+Feb 23 18:05:14 <Copenhagen_Bram>	I'm not very experienced with multi-monitor but I did plug my computer into a tv screen successfully about a week ago
+Feb 23 18:05:44 <entflammen>	I have a laptop running Fedora 33, upgraded from 32 over winter break, and it's had an issue where I can have a secondary monitor connected as a standard dual monitor set up, but when I unplug the hdmi cable to take my laptop on the go, the laptop screen refuses to switch back to being the primary display and stays off
+Feb 23 18:07:32 <entflammen>	but when I plug the laptop back into the monitor, the display comes right back on and everything works again
+Feb 23 18:07:58 <entflammen>	workaround that I've found is to always switch the laptop to be the primary monitor before unplugging, but it just becomes a bit of a hassle
+Feb 23 18:08:16 <Copenhagen_Bram>	hmmmm
+Feb 23 18:09:01 <Copenhagen_Bram>	I guess I never had that problem with the tv screen because my laptop screen was always the primary one. Except when I closed my laptop, then the tv screen would switch to primary, but the laptop screen would switch back to primary when I opened it.
+Feb 23 18:09:17 <entflammen>	theres some other weirdness with displays that makes me think that something bigger is going on, like sometimes I have to reboot in order to even connect and set up my other monitor
+Feb 23 18:11:50 <Copenhagen_Bram>	ugh, I wish computers would just work properly sometimes.
+Feb 23 18:13:35 <Copenhagen_Bram>	uh oh, I hope ssh doesn't clear the screen after it inevitally loses the connection when my computer crashes
+Feb 23 18:14:01 <Copenhagen_Bram>	I need to be able to at least see the last part of dmesg -w and journalctl -f
+Feb 23 18:17:19 <entflammen>	https://pastebin.com/KXCPeNMF
+Feb 23 18:17:57 <entflammen>	before that the counter on the left jumps back to 37589.943623
+Feb 23 18:20:31 <entflammen>	and here's the journalctl https://pastebin.com/UFP99GaB
+Feb 23 18:22:22 *	Disconnected ()
+**** ENDING LOGGING AT Tue Feb 23 18:22:22 2021
+
+**** BEGIN LOGGING AT Tue Feb 23 18:22:54 2021
+
+Feb 23 18:22:54 *	Now talking on #fedora
+Feb 23 18:22:54 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 23 18:22:54 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 23 18:22:55 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 23 18:25:31 <entflammen>	actually Copenhagen_Bram here's the journalctl -f of me unplugging and replugging the monitor https://pastebin.com/mVQSteSv
+Feb 23 18:35:03 <Copenhagen_Bram>	eh, i'm not good at reading journalctls
+Feb 23 18:37:58 <stefan__>	hello all, is there already kernel 5.11 for f33?
+Feb 23 18:40:32 <oDn_>	Hey everyone, what would be the most straightforward and foolproof method to use certbot to automatically renew the letsencrypt certificate used for the cockpit web interface ?
+Feb 23 18:41:20 <oDn_>	So far, I've had to manually create then copy the key and cert file to /etc/cockpit/ws-certs.d/ directory and fix the permissions.
+Feb 23 18:41:35 <oDn_>	It's far from being elegant!
+Feb 23 18:42:14 <Copenhagen_Bram>	Well, my computer crashed again, while I was playing Mindustry, again. But this time I got the last part of the journalctl and dmesg.
+Feb 23 18:42:40 <Copenhagen_Bram>	Also ssh failed because of a broken pipe, so my computer really is crashed, it's not just the video
+Feb 23 18:43:23 <Copenhagen_Bram>	Is there an alternative button to push than sysrq for ctrl+alt+sysrq+reisub? My Fedora laptop doesn't seem to have a sysrq button
+Feb 23 18:43:43 <Copenhagen_Bram>	Not even the prt sc, the prt sc only doubles as insert
+Feb 23 18:50:32 <fedbot>	*** F33-20210212 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Feb 23 18:51:11 *	entflammen_ is now known as entflammen
+Feb 23 18:51:37 <Copenhagen_Bram>	welcome back
+Feb 23 18:56:29 <entflammen>	thanks
+Feb 23 18:56:40 <cmurf>	Copenhagen_Bram: reboot -f should work
+Feb 23 18:57:27 <cmurf>	but for sysrq you can do, as root, echo b > /proc/sysrq-trigger
+Feb 23 18:57:39 <cmurf>	you might want to sync first
+Feb 23 19:05:51 <Copenhagen_Bram>	cmurf: I can't run those commands if my computer is frozen.
+Feb 23 19:06:16 <Copenhagen_Bram>	But, I just enabled magic sysrq, and it did something when I tried reisub by holding ctrl alt and prt sc.
+Feb 23 19:06:46 <Copenhagen_Bram>	I think x exited or something, there was just a blinking cursor on my screen, so I pressed r, e, i, s, u, b
+Feb 23 19:06:58 <Copenhagen_Bram>	But my computer did not reboot after I pressed b
+Feb 23 19:07:19 <Copenhagen_Bram>	Also I pressed ctrl-alt-f3 and got a login terminal
+Feb 23 19:07:33 <Copenhagen_Bram>	then I pressed ctrl-alt-f1 and got a graphical login
+Feb 23 19:20:12 *	Disconnected ()
+**** ENDING LOGGING AT Tue Feb 23 19:20:12 2021
+
+**** BEGIN LOGGING AT Tue Feb 23 19:20:42 2021
+
+Feb 23 19:20:42 *	Now talking on #fedora
+Feb 23 19:20:42 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 23 19:20:42 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 23 19:20:43 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 23 19:21:04 <cmurf>	maybe this
+Feb 23 19:21:04 <cmurf>	https://fedoraproject.org/wiki/How_to_use_kdump_to_debug_kernel_crashes
+Feb 23 19:21:33 <cmurf>	there is a debug shell on tty9 but it has to be activated in advance by a service called early-debug-shell.service
+Feb 23 19:21:51 <cmurf>	of course it's a security risk, because it's just a root prompt
+Feb 23 19:21:57 <cmurf>	no password or anything
+Feb 23 19:22:24 <cmurf>	but handy for troubleshooting if this is some sort of recurring theme you're trying to figure out
+Feb 23 19:28:12 <Copenhagen_Bram>	does fpaste --sysinfo have to be run under sudo?
+Feb 23 19:44:19 *	Disconnected ()
+**** ENDING LOGGING AT Tue Feb 23 19:44:19 2021
+
+**** BEGIN LOGGING AT Tue Feb 23 19:44:48 2021
+
+Feb 23 19:44:48 *	Now talking on #fedora
+Feb 23 19:44:48 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Feb 23 19:44:48 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Feb 23 19:44:48 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Feb 23 19:46:18 <Southern_Gentlem>	Copenhagen_Bram, or just umount the sdcard
+Feb 23 19:46:59 <Copenhagen_Bram>	I mean I'll change my username later, but yes, for now, I'll umount the sdcard. I already have.
+Feb 23 19:49:23 <Copenhagen_Bram>	Okay, who wants the fpaste?
+Feb 23 19:49:46 <Copenhagen_Bram>	https://paste.centos.org/view/018ebbd0
+Feb 23 19:50:34 <fedbot>	*** F33-20210212 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Feb 23 19:51:56 <cmurf>	offhand i don't see anything that explains the problem
+Feb 23 19:52:18 <cmurf>	did a reboot happen or no?
+Feb 23 19:52:50 <Copenhagen_Bram>	I think a few reboots happened. I certainly didn't run fpaste while my computer was crashed.
+Feb 23 19:53:25 <cmurf>	ok and is this a one off crash or is it happening often
+Feb 23 19:53:50 <Copenhagen_Bram>	It seems to happen every time I play a game with OpenGL graphics. Mindustry, Minetest, Colobot, GZDoom.
+Feb 23 19:53:56 <cmurf>	gotcha
+Feb 23 19:54:06 <Copenhagen_Bram>	It works fine for a while, then everything freezes up
+Feb 23 19:54:23 <Copenhagen_Bram>	Once, the capslock light even flashed (kernel panic)
+Feb 23 19:54:35 <cmurf>	well that's not good
+Feb 23 19:54:45 <Copenhagen_Bram>	no.
+Feb 23 19:55:02 <Copenhagen_Bram>	At least Mindustry seems to autosave.
+Feb 23 19:55:14 <cmurf>	can you check previous boots?
+Feb 23 19:55:29 <Copenhagen_Bram>	How?
+Feb 23 19:55:30 <cmurf>	journalctl -b is the current boot log
+Feb 23 19:55:55 <cmurf>	journalctl -b-1 is the previous one, and you can add -k to see just kernel messages
+Feb 23 19:55:59 <cmurf>	journal -b-2 is the one before that and so on
+Feb 23 19:56:01 <cmurf>	journalctl rather
+Feb 23 19:57:28 <cmurf>	in your past i see sysrq w and f
+Feb 23 19:57:34 <cmurf>	s/past/paste/
+Feb 23 19:57:52 <Copenhagen_Bram>	Yeah, I was just testing out sysrq commands.
+Feb 23 19:58:12 <Copenhagen_Bram>	Maybe next time it crashes I can do sysrq reisub instead of holding the power button
+Feb 23 19:58:14 <cmurf>	got it
+Feb 23 19:59:16 <cmurf>	anyway it'd be useful to know where the journals stop
+Feb 23 19:59:35 <cmurf>	i.e. journalctl -b-1 -k --no-pager, and then try -b-2, then -b-3
+Feb 23 19:59:51 <cmurf>	because if they stop before logging the problem, then the journal isn't much help figuring it out
+Feb 23 20:00:42 <Copenhagen_Bram>	Looks like -b-3 happened before a crash
+Feb 23 20:01:11 <Copenhagen_Bram>	It kinda does stop before logging a problem, but there are a few libinput errors at the end
+Feb 23 20:01:26 <Copenhagen_Bram>	But I got the same thing through ssh
+Feb 23 20:01:29 <Copenhagen_Bram>	Lemme do a journalctl -b-3 | tail | fpaste
+Feb 23 20:01:53 <Copenhagen_Bram>	https://paste.centos.org/view/7e096aff
+Feb 23 20:01:53 <cmurf>	i suggest filtering with -k for kernel messages
+Feb 23 20:02:29 <cmurf>	yeah i see messages like that too, that doesn't really explain what's taking down the kernel
+Feb 23 20:02:37 <cmurf>	or at least making it super unresponsive
+Feb 23 20:02:44 <Copenhagen_Bram>	Here it is with -k https://paste.centos.org/view/cddd5180
+Feb 23 20:03:00 <cmurf>	normal stuff
+Feb 23 20:03:20 <cmurf>	need the whole thing though, so remove tail
+Feb 23 20:04:15 <Copenhagen_Bram>	Will I get more info with sudo journalctl?
+Feb 23 20:05:16 <cmurf>	good question, i'm not sure
+Feb 23 20:05:29 <cmurf>	i think users in wheel don't need sudo for journalctl info
+Feb 23 20:07:04 <Copenhagen_Bram>	one sudo journalctl -b-3 -k | fpaste coming right up: https://paste.centos.org/view/a7afb536
+Feb 23 20:08:00 <cmurf>	ok i just tried it with and without sudo output to files, and diffed the files and they are the same minus the last second where the 2nd one logs the sudo
+Feb 23 20:09:25 <cmurf>	i don't see anything weird in that fpaste
+Feb 23 20:10:20 <Copenhagen_Bram>	do you think it might be an oom?
+Feb 23 20:10:39 <Copenhagen_Bram>	i mean, do you think it might be out of memory or something? Maybe I should try sysrq f next time it crashes
+Feb 23 20:10:55 <cmurf>	bug also that seems like the wrong boot because the start is Feb 23 10:57:45 and the end is Feb 23 11:00:17
+Feb 23 20:11:07 <Southern_Gentlem>	still want to see the sudo fpaste --sysinfo so we can see what hardware we are dealing with
+Feb 23 20:11:10 <cmurf>	so it's just 3 minutes of kernel message, it's basically just a startup
+Feb 23 20:11:20 <cmurf>	oh that's up ^
+Feb 23 20:11:39 <cmurf>	https://paste.centos.org/view/018ebbd0
+Feb 23 20:11:40 <cmurf>	that's it
+Feb 23 20:12:01 <Copenhagen_Bram>	I know it's the right boot because without -k I can see I was playing mindustry
+Feb 23 20:12:38 <Copenhagen_Bram>	also, there's no error messages, business as usual, but there's also no messages about going through the normal process of shutting down or rebooting
+Feb 23 20:13:01 <Copenhagen_Bram>	I think that's a big sign something went wrong if you were looking at it without context
+Feb 23 20:14:34 <cmurf>	the kernel doesn't report shutdown or reboot, but systemd will
+Feb 23 20:15:13 <cmurf>	kernel's oom killer is logged witih kernel messages; Workstation Edition has earlyoom
+Feb 23 20:15:19 <cmurf>	you can filter for that
+Feb 23 20:15:32 <Southern_Gentlem>	Copenhagen_Bram, rpm -qa |grep kernel |fpaste please
+Feb 23 20:17:49 *	Disconnected ()
+**** ENDING LOGGING AT Tue Feb 23 20:17:49 2021
+
