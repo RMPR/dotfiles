@@ -340,3 +340,9 @@ exec swayidle -w \
 
 for_window [class="."] inhibit_idle fullscreen
 for_window [app_id="."] inhibit_idle fullscreen
+
+## Change keyboard layout 
+input type:keyboard {
+    xkb_layout pl,fr
+    xkb_options grp:win_space_toggle
+}
