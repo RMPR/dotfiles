@@ -6199,3 +6199,19 @@ Feb 23 19:44:48 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/u
 Feb 23 20:17:49 *	Disconnected ()
 **** ENDING LOGGING AT Tue Feb 23 20:17:49 2021
 
+**** BEGIN LOGGING AT Thu Feb 25 20:35:26 2021
+
+Feb 25 20:35:26 *	Now talking on #alacritty
+Feb 25 20:35:26 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+Feb 25 20:35:26 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Feb 20 01:05:57 2021)
+Feb 25 20:37:28 <UndeadLeech>	Also nixpulvis, I've got some news you'll probably love. I'm not sure I can make keybindings in the hints section override the default bindings the same way bindings in the key_bindings section do.
+Feb 25 20:58:41 <kchibisov>	Oh, firefox is now having the proper refresh rates on pages on Wayland.
+Feb 25 21:01:30 <kchibisov>	And we have 'only' 175 deps now on Linux.
+Feb 25 21:05:23 <UndeadLeech>	Yeah, unfortunately back to duplicates though.
+Feb 25 21:05:36 <UndeadLeech>	I've made sure 0.7.2 still stays clean, but 0.8.0 will introduce a couple again.
+Feb 25 21:17:05 <nixpulvis>	UndeadLeech: oh god.
+Feb 25 21:18:30 <UndeadLeech>	It's problematic, because we don't know anymore what the default bindings are after we've loaded our custom bindings.
+Feb 25 21:18:39 <UndeadLeech>	So when adding the hint bindings, we can't just filter them out the same way.
+Feb 25 21:19:02 <UndeadLeech>	So in theory to override a default binding with a hint, you'd have to add a key_binding without an action and then add a hint binding.
+Feb 25 21:19:12 <UndeadLeech>	I don't know if there's a proper solution to this.
+Feb 25 21:19:23 <UndeadLeech>	But that's basically the biggest drawback I'm currently aware of.

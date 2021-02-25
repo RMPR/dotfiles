@@ -1,28 +1,3 @@
-T 1584567851 18<29kchibisov18>	I mean in your app.
-T 1584567859 18<28ubitux18>	ah :)
-T 1584568005 18<28ubitux18>	ok so, that vi-mode, i typically used it to copy a line in urxvt, right now the workflow equivalent of alt+esc <make select> esc shift+insert seems: ctrl+shift+space <make select> i ctrl+shift+v
-T 1584568018 18<28ubitux18>	is there a way to have the copy inside the native clipboard?
-T 1584568032 18<28ubitux18>	so i can use shift+insert instead of ctrl+shift+v?
-T 1584568047 18<28ubitux18>	(and transfer it elsewhere)
-T 1584568080 18<29kchibisov18>	shift + insert should work.
-T 1584568099 18<29kchibisov18>	IIRC we have a binding for it to paste.
-T 1584568105 18<24UndeadLeech18>	As long as you're not on macOS, yes.
-T 1584568150 18<28ubitux18>	it's not in the clipboard, so shift+insert doesn't work here
-T 1584568159 18<24UndeadLeech18>	Where else would it be?
-T 1584568163 18<20cole-h18>	Man, English is hard
-T 1584568169 18<28ubitux18>	in some alacritty specific buffer
-T 1584568171 18<29kchibisov18>	Oh, have you pressed `copy`?
-T 1584568172 18<24UndeadLeech18>	It really is. Especially shortenglish.
-T 1584568177 18<20cole-h18>	UndeadLeech: Can we switch our changelog to lojban?
-T 1584568181 18<20cole-h18>	:D
-T 1584568181 18<28ubitux18>	kchibisov: "y" yes
-T 1584568192 18<24UndeadLeech18>	As soon as you yank it, it will be in the system clipboard.
-T 1584568201 18<29kchibisov18>	so ctrl + shift + v works, but shift + insert - not?
-T 1584568203 18<24UndeadLeech18>	cole-h: Brainfuck.
-T 1584568206 18<28ubitux18>	kchibisov: yes
-T 1584568220 18<20cole-h18>	UndeadLeech: I thought that was just a JS dialect
-T 1584568222 18<20cole-h18>	Oh no
-T 1584568230 18<28ubitux18>	kchibisov: if i make a mouse select, shift+insert works though
 T 1584568236 18<24UndeadLeech18>	ubitux: Could you check your `alacritty --print-events` output? Sounds like your key isn't setting the virtual keycode.
 T 1584568238 18<28ubitux18>	but not after in yank the vi-mode
 T 1584568240 18<24UndeadLeech18>	cole-h: That's JSFuck.
@@ -5022,3 +4997,17 @@ T 1614107929 20*	Disconnected (20Remote host closed socket)
 T 1614107979 20*	Disconnected (20Remote host closed socket)
 T 1614108057 20*	Disconnected (20Remote host closed socket)
 T 1614108104 20*	Disconnected (20Remote host closed socket)
+T 1614281726 19*	Now talking on 22#alacritty
+T 1614281726 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+T 1614281726 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Feb 20 01:05:57 2021)
+T 1614281848 18<24UndeadLeech18>	Also nixpulvis, I've got some news you'll probably love. I'm not sure I can make keybindings in the hints section override the default bindings the same way bindings in the key_bindings section do.
+T 1614283121 18<29kchibisov18>	Oh, firefox is now having the proper refresh rates on pages on Wayland.
+T 1614283290 18<29kchibisov18>	And we have 'only' 175 deps now on Linux.
+T 1614283523 18<24UndeadLeech18>	Yeah, unfortunately back to duplicates though.
+T 1614283536 18<24UndeadLeech18>	I've made sure 0.7.2 still stays clean, but 0.8.0 will introduce a couple again.
+T 1614284225 18<22nixpulvis18>	UndeadLeech: oh god.
+T 1614284310 18<24UndeadLeech18>	It's problematic, because we don't know anymore what the default bindings are after we've loaded our custom bindings.
+T 1614284319 18<24UndeadLeech18>	So when adding the hint bindings, we can't just filter them out the same way.
+T 1614284342 18<24UndeadLeech18>	So in theory to override a default binding with a hint, you'd have to add a key_binding without an action and then add a hint binding.
+T 1614284352 18<24UndeadLeech18>	I don't know if there's a proper solution to this.
+T 1614284363 18<24UndeadLeech18>	But that's basically the biggest drawback I'm currently aware of.

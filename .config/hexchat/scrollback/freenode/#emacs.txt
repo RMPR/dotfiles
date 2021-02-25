@@ -1,426 +1,3 @@
-T 1612171379 18<24dto18>	aidalgol: ok
-T 1612171385 18<19twb18>	aidalgol: you blame WHAT on github
-T 1612171385 18<28python47618>	jmd: priceless anecdote
-T 1612171396 18<20aidalgol18>	twb: The slow death of EmacsWiki.
-T 1612171413 18<19twb18>	jmd: I remember the old days when you used to ask a policeman because they were the only ones issued timepieces
-T 1612171436 18<28python47618>	I fail to see the relation.. is it because tips are now written on project github wiki/PR/README ?
-T 1612171452 18<19jmd18>	These days they would arrest you for wasting police time.
-T 1612171517 18<20aidalgol18>	twb: In *your* lifetime?
-T 1612171554 18<28python47618>	hey there must be a timer on their body cam 
-T 1612171775 18<19twb18>	jmd: the Met probably would unless it was a tourist area
-T 1612175297 24*	28Lord_of_Life_ is now known as 18Lord_of_Life
-T 1612185429 20*	Disconnected (20)
-T 1612185456 19*	Now talking on 22#emacs
-T 1612185456 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
-T 1612185456 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Fri Jan 29 17:22:51 2021)
-T 1612185456 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
-T 1612204442 20*	Disconnected (20)
-T 1612204469 19*	Now talking on 22#emacs
-T 1612204469 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
-T 1612204469 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:20 2021)
-T 1612204470 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
-T 1612205053 18<19parsnip18>	am i missing something on the reply to this comment? https://github.com/amake/orgro/issues/6#issuecomment-770168100
-T 1612205079 18<19parsnip18>	i figured you could leave the parsed state, and go to just text, edit, then save, close edit, and go back to parsing the file
-T 1612205193 18<19parsnip18>	hmm, maybe they have more to worry about, like saving popping back with same scroll position, visibility cycling, etc.
-T 1612205209 18<19parsnip18>	s/saving popping/popping/
-T 1612205828 24*	28radu2420 is now known as 18radu242
-T 1612205961 18<22ckx18>	Hello, I've starting using spacemacs org-mode recently and there's one issue I can't find anywhere: the heading icons are not monospaced, is there a way to use say * or a similar icon that's the same width as the rest of the text? Thanks!
-T 1612205982 18<22ckx18>	s/icon/icon or an ascii char/
-T 1612206290 24*	28radu2420 is now known as 18radu242
-T 1612206340 18<22ckx18>	nevermind, font change solved the issue
-T 1612206478 18<25Cymew18>	I've found lsp-mode with all the modes and additions is a gigantic topic. Anyone know if there's a channel directly dedicated to that kind of questions?
-T 1612206492 18<28gnUser18>	Hey guys, I don't know which channel to ask this on but what is the deal with RMS eating his toe jam?
-T 1612206570 18<25beep156018>	gnUser: I really like vanilla ice creams. However, I sometimes eat chocolate ice cream
-T 1612206585 18<28gnUser18>	lol what?
-T 1612207152 18<26polezaivsani18>	Cymew: there are some language specific lsp server channels (e.g. #haskell-language-server), fwiw
-T 1612207555 18<26polezaivsani18>	re lsp, i'm curious if there where any talks about taking on the lsp approach in Emacs proper?
-T 1612207669 18<20ece318>	The haskell language server is pretty good in my experience, if anyone cares lol
-T 1612207955 18<20dale18>	ckx: IIRC Spacemacs uses https://github.com/sabof/org-bullets which *might* be part of the problem.  But I would probably start by M-x customize-face RET org-level-1 RET.  If it looks like all the attributes there are unspecified then M-x customize-face RET outline-1 RET.
-T 1612207982 18<20dale18>	Oh, I missed you solved that.  My client is having scrolling issues.
-T 1612208002 18<25Cymew18>	I'm interested in Rust, and the community is totally dominated by VSC and vim users, thus the question for some way to find people who use emacs.
-T 1612208060 18<22ckx18>	dale: well I picked a font that has these unicode chars really monospace, it defaulted to source code pro mono that should really be called "mostly mono" :)) thank you though, I will look into it
-T 1612208105 18<20dale18>	ckx: Ha, I am surprised Source Code Pro is not mono throughout, though maybe my surprise is born of ignorance.
-T 1612208149 18<20dale18>	ckx: I will advise that Emacs, at least on macOS, will pick a different font sometimes if the default font doesn't have certain glyphs.
-T 1612208184 18<20dale18>	ckx: More precisely, if it needs to render a glyph, and the font for that particular glyph doesn't actually have the glyph, macOS may choose to have Emacs use a different font.  Or, at least, that's how I understand it.  Not sure what the situation is on other OSes.
-T 1612208308 18<22ckx18>	dale: that's interesting. I'd think that emacs would try and find a fallback font itself (or just a compiled-in font), not that the OS would serve it an alternative.
-T 1612208337 18<20dale18>	ckx: I think this has to do because Emacs tries to delegate text rendering to macOS's CoreText, and that's just how the API works, or at least the work has not been put in on Emacs to make it behave otherwise, but we're pretty far outside my personal experience so I could be wrong.
-T 1612208340 18<22ckx18>	dale: that seems a bit opaque, but I guess it simplifies the logic in the program...
-T 1612208380 18<22ckx18>	dale: I am afraid I know next to nothing about macOS, so I'll take your word for it :).
-T 1612208714 24*	28gurmble is now known as 18grumble
-T 1612209338 18*	19e1f uses the Meslo font on os x iterm2 console emacs
-T 1612209624 18<25Cymew18>	One of the many mysteries of lsp-mode. When I open a file with rust code, emacs hangs after I press C-n to go down a line, and my fan spins up. What's going on?
-T 1612209792 18<25cvandusen18>	Cymew: What does the CPU usage look like? I've seen something similar, and node is the culprit form me. Though, I haven't found a fix for it yet.
-T 1612209860 18<19e1f18>	truss or strace the emacs binary to see what system calls emacs is making
-T 1612209871 18<25Cymew18>	cvandusen: It spins up to 12-13% for a short while, and then goes down again. As the lsp space is so vast, I have no idea if this is caused by something I'd rather un-configure.
-T 1612209883 18<20dale18>	Cymew: You could try the built-in profiler.  You could also try toggle-debug-on-quit and then C-g.
-T 1612209897 18<25Cymew18>	e1f: I could, but it's probably not helpful on that low level.
-T 1612209912 18<25Cymew18>	dale: Thanks I might try that.
-T 1612209921 18<20dale18>	Cymew: I mean, C-g when Emacs is smoking and not responding to see where you interrupt it.
-T 1612209931 18<25Cymew18>	Right
-T 1612209962 18<25Cymew18>	I try to stay out of the debugger, but in this case I might want to trigger it!
-T 1612210166 18<25Cymew18>	...nothing much happens except the fans blows like crazy.
-T 1612210181 18<25Cymew18>	It was a good idea, though.
-T 1612210184 18<20dale18>	You may need to hold C-g or hit it many times.
-T 1612210194 18<25cvandusen18>	Enjoy the breeze! 
-T 1612210294 18<20dale18>	Cymew: Have you tried running top in another terminal to see if it's Emacs spinning up the fans, or if it's the Rust server?
-T 1612210316 18<25Cymew18>	cvandusen: :)
-T 1612210325 18<25Cymew18>	dale: It's emacs
-T 1612210406 18<25Cymew18>	Huh, it said "entering debugger" and then went way. It's really hard when it's that unresponsive
-T 1612210432 18<20dale18>	Cymew: You could try killing Emacs with SIGUSR2, that should drop you into the debugger.
-T 1612210452 18<20dale18>	Cymew: But also try the profiler
-T 1612210475 18<26maxxcan18>	hello everybody
-T 1612210482 18<26maxxcan18>	today I knew doom emacs
-T 1612210669 18<25Cymew18>	dale: I'll keep experimenting. Many thanks for the suggestions.
-T 1612210698 18<25Cymew18>	It's weird, lsp-mode is a mix of some really sweet functionality and pure misery.
-T 1612210721 18<25Cymew18>	It must be me doing something wrong...
-T 1612210722 24*	28seds- is now known as 18seds
-T 1612210804 18<25cvandusen18>	,blame humans 
-T 1612210805 18*	22fsbot blames Stefan
-T 1612210818 18<20pjb18>	,blame bots
-T 1612210819 18*	22fsbot blames monads
-T 1612210899 18<28python47618>	Stefanic Monierad
-T 1612210971 18<25Cymew18>	I usually blames Lennart Poettering.
-T 1612210994 24*	28radu2428 is now known as 18radu242
-T 1612211039 18<28mwnaylor18>	Having multiple open irc channels has made me appreciate the power of bookmarking to regsisters. 👍 👍
-T 1612211163 24*	28Lord_of_Life_ is now known as 18Lord_of_Life
-T 1612211167 24*	28jfhbrook_ is now known as 18jfhbrook
-T 1612211372 18<19bremner18>	I've started using registers for repetitive bits of org-mode markup, like make a left column 0.77 of textwidth
-T 1612211580 18<28mwnaylor18>	I'm also rediscovering more complex macros usage. Storing macros in registers for replay is another cool superpower.
-T 1612211607 18<25cvandusen18>	,praise 
-T 1612211607 18<22fsbot18>	39:22 EMACS has now revealed the best of scriptures, a documentation uniform in style proclaiming promises and warnings.  Those who fear their EMACS are filled with awe as they listen to its revelations, so that their hearts soften at the remembrance of EMACS.  Such is EMACS's guidance: He bestows it on whom He will.  But he whom EMACS misleads shall have none to guide him.
-T 1612211667 24*	28martin_ is now known as 18Guest95935
-T 1612212121 18<19bremner18>	,rear
-T 1612212123 18<22fsbot18>	try:  firearms firearms-assoc rear-guards
-T 1612212129 18<19bremner18>	err. ,,fear,,
-T 1612212130 18<22fsbot18>	Try: dlgs-phrases emacstuning fomo FsTrash210120.1025.SGuVHbzATF fud grue hotornot.el repo shit#emacssays stallman-fact-list wgreenhouses-second-law william-blake-fix yoda-phrases
-T 1612212167 18<27tromey18>	,william-blake-fix
-T 1612212168 18<22fsbot18>	william-blake-fix is most problems can be solved by daring to frame the tyger's fearful symmetry
-T 1612212174 18<27tromey18>	makes sense
-T 1612212174 18<19bremner18>	yay!
-T 1612212187 18<19bremner18>	I hope I entered that.
-T 1612212235 18<27tromey18>	in high school we learned that that poem can be sung to the tune of Twinkle, Twinkle Little Star
-T 1612212246 18<27tromey18>	also that many poems by Emily Dickinson can be sung to the tune of The Yellow Rose of Texas
-T 1612212340 18<27nij18>	Dear friends on #emacs,
-T 1612212349 18<20aidalgol18>	tromey: Which poem?
-T 1612212368 18<27nij18>	exwm works nicely, if you haven't checked, make some time give it a try :)
-T 1612212369 18<27tromey18>	sing along!  because I could not stop for death, he kindly stopped for meeeeeee
-T 1612212384 18<20aidalgol18>	I mean the one about Twinkle, Twinkle.
-T 1612212391 18<27grym18>	Do not meddle in the affairs of bards , for they are unsubtle, and your name scans to Greensleeves . 
-T 1612212398 18<27tromey18>	Tyger Tyger burning bright, in the forest of the night
-T 1612212411 18<20aidalgol18>	a
-T 1612212497 18<20aidalgol18>	*ah
-T 1612213658 18<20kuba-orlik18>	Hi there! I used to use this snippet to configure my mu4e accounts, but recently it stopped working. It seems that `let` no longer keeps the value available for later calls? Here's the snippet:
-T 1612213658 18<20kuba-orlik18>	https://hub.sealcode.org/P18
-T 1612213659 18<20kuba-orlik18>	I'd be thankful for lispy guidance :)
-T 1612213706 18<20kuba-orlik18>	Sorry, the link wasn't public, it should work correctly now: https://hub.sealcode.org/P18
-T 1612213801 18<20kuba-orlik18>	When match-func is applied, I get 'Symbol’s value as variable is void: addresses'
-T 1612213838 18<20kuba-orlik18>	but when it's initializing, it properly prints '!!! addresses' followed by the correct value
-T 1612214053 18<20pjb18>	kuba-orlik: If you get this error, it means that this let made dynamic bindings.  Dynamic = WHEN; lexical = WHERE.
-T 1612214071 18<20pjb18>	kuba-orlik: nowadays, emacs is able to do lexical bindings, and has closures. 
-T 1612214101 18<20kuba-orlik18>	I see - but this used to work for years now, did something in the behavior of `let` change recently?
-T 1612214102 18<20pjb18>	kuba-orlik: you should activate it with a (setq lexical-binding t) at the start of your source.
-T 1612214148 18<20pjb18>	kuba-orlik: I think it's the change in behavior of lambda that hits you here.
-T 1612214192 18<20kuba-orlik18>	I added (setq lexical-binding t) and the issue persists
-T 1612214200 18<20kuba-orlik18>	what changed in the behavior of lambda?
-T 1612214206 18<20pjb18>	kuba-orlik: but even with purely dynamic bindings, it shouldn't have worked, because let would have made dynamic bindings that would be supressed AFTER let is completed.
-T 1612214213 18<20pjb18>	Your code was already buggy.
-T 1612214225 18<20pjb18>	now lambda can return closures.
-T 1612214232 18<20pjb18>	This goes hand-in-hand with lexical binding.
-T 1612214295 18<20kuba-orlik18>	I see... so what would be the correct approach?
-T 1612214310 18<20pjb18>	kuba-orlik: https://termbin.com/6b7q
-T 1612214390 18<20pjb18>	Two ways: https://termbin.com/h2nr
-T 1612214430 18<20pjb18>	Either use global dynamic variables, (but then you can have only one context active at a time), or use local lexical variables (then you can have several contextes, each enclosed in their own closures).
-T 1612214461 18<20pjb18>	Since you started with a kuba/generate-mu4-context I'd advise the lexical-binding way.
-T 1612214475 18<20pjb18>	Just add (setf lexical-binding t) to your source.
-T 1612214507 18<20pjb18>	See: (info "(elisp) Lexical Binding")
-T 1612214523 18<20kuba-orlik18>	sorry, I got disconnected
-T 1612214531 18<20kuba-orlik18>	I don't yet see what made my code buggy
-T 1612214544 18<20pjb18>	Two ways: https://termbin.com/h2nr
-T 1612214547 18<20pjb18>	Either use global dynamic variables, (but then you can have only one context active at a time), or use local lexical variables (then you can have several contextes, each enclosed in their own closures).
-T 1612214550 18<20pjb18>	Since you started with a kuba/generate-mu4-context I'd advise the lexical-binding way.
-T 1612214552 18<20pjb18>	Just add (setf lexical-binding t) to your source.
-T 1612214554 18<20pjb18>	See: (info "(elisp) Lexical Binding")
-T 1612214557 18<20pjb18>	and (info "(elisp) Using Lexical Binding")
-T 1612214640 18<20pjb18>	kuba-orlik: the bug in your code was that with dynamic binding let creates a variable named addresses. Then it makes a mu4e-context, with a lambda that uses the dynamic variable named addresses. Then the let destroys the dynamic variable named addresses.  Then later you will call the lambda, and there will be no dynamic variable named addresses.
-T 1612214652 18<20pjb18>	kuba-orlik: the solution would be to define such a global variable with (defvar addresses).
-T 1612214668 18<20pjb18>	But then you would have to assign it with setf instead of using let (which creates a new variable).
-T 1612214676 18<20pjb18>	cf the first way in teh above url.
-T 1612214698 18<24npostavs18>	pjb: the correct way to set lexical binding for elisp is putting -*- lexical-binding: t -*- on the first line of the file (you also have to setf if you want it respected immediately by C-M-x and friends)
-T 1612214701 18<24deego18>	kuba-orlik: in the older days, one would do things like `(lambda (...)   ...   ,addresses ...) which you can still do, ofc
-T 1612214710 18<20pjb18>	kuba-orlik: if your code worked before, it was because some other code had created this global variable named addresses. But your let didn't modify it.
-T 1612214772 18<22neverwas18>	Sweet. rockauto got a mention in #emacs
-T 1612214792 18<22neverwas18>	No surprise there. Game recognize game.
-T 1612214806 18<27grym18>	neverwas: and so does ux :)
-T 1612214844 18<22neverwas18>	legendary ux
-T 1612214857 18<27grym18>	it's very good and does not care about aesthetics at all 
-T 1612214860 18<27grym18>	very emacslike, really 
-T 1612214869 18<22neverwas18>	https://tilde.club/~jpneverwas/i/ra.jpg
-T 1612214883 18<27grym18>	hah, nice 
-T 1612214884 18<20kuba-orlik18>	`(setf lexical-binding t)` worked. I get it now. Thanks a bunch!
-T 1612214904 18<27grym18>	neverwas: i have a stickerbombed toolchest, but they didn't send me any swag with my brake pads and rotos
-T 1612214906 18<27grym18>	rotors* 
-T 1612214917 18<24deego18>	<kuba-orlik> I added (setq lexical-binding t) and the issue persists <<=== why didn't it work earlier? 
-T 1612214919 18<27grym18>	also whoever though of the threaded hole to pop a rotor off was a friggin genius 
-T 1612214932 18<25Cymew18>	So anyone else experience the fans spin up and emacs hangs a while if you scroll down a bunch of steps in the package list after running M-x pa-list-pa?
-T 1612214947 18<27grym18>	neverwas: so, hangboard, or chalkbag
-T 1612214957 18<25Cymew18>	If I didn't knew better, I'd think I only had 512 Meg memory or something...
-T 1612215008 18<22neverwas18>	lol, chalkbag, but only in a former life. went hand in hand with the diy mechanic thing/vanlife
-T 1612215023 18<25cvandusen18>	Cymew: Is this with ,,-q 
-T 1612215025 18<22fsbot18>	-q is [0]  runs emacs without user configuration, ideal to test issues caused by your personal config
-T 1612215026 18<22fsbot18>	[1] If starting emacs with "emacs -q" fixes the problem, it's something in your personal config; check your .emacs. If "emacs -q" has problems but "emacs -Q" doesn't, blame your distro or local admin.
-T 1612215026 18<22fsbot18>	[2] it's also possible that you have triggered a bug rather than introduced one, but that is rare. ;;[ ,more / ,dump]
-T 1612215222 18<19parsnip18>	that factoid lacks, "do you still see the issue after restarting emacs?"
-T 1612215231 18<19parsnip18>	,bisect 0
-T 1612215232 18<22fsbot18>	bisect is [0] If you can reproduce your issue reliably in a new emacs, try bisecting your user-init-file
-T 1612215232 18<22fsbot18>	[1] Comment out half of your init file and try to reproduce the issue. Recurse as needed.
-T 1612215232 18<22fsbot18>	[2] Use M-; to comment or uncomment selected region
-T 1612215232 18<22fsbot18>	[3] See also ,keep-one-open
-T 1612215239 18<19parsnip18>	,bisect 0 0
-T 1612215240 18<22fsbot18>	bisect: If you can reproduce your issue reliably in a new emacs, try bisecting your user-init-file .. + other notes
-T 1612215263 18<27grym18>	neverwas: dirtbag bestbag
-T 1612215292 18<19parsnip18>	grym: are you a watch person? i just received a gshock gw56001e-v
-T 1612215296 18<19parsnip18>	it f'ing sucks
-T 1612215325 18<25Cymew18>	I almost only have lsp-mode related stuff in my init files...
-T 1612215354 18<19parsnip18>	then it might be a bug in lsp?
-T 1612215356 18<27grym18>	parsnip: i am not.  i have an apple watch and i'm kind of quietly amazed that i can stand having something on my wrist
-T 1612215369 18<25Cymew18>	There's something fishy indeed.
-T 1612215372 18<19parsnip18>	Cymew: do you even see the issue if you restart emacs?
-T 1612215388 18<25Cymew18>	I do.
-T 1612215390 18<19parsnip18>	if not, that's going to make it harder to use these troubleshooting approaches
-T 1612215392 18<19parsnip18>	ah
-T 1612215397 18<19parsnip18>	then yeah, ,,bisect
-T 1612215398 18<22fsbot18>	bisect is [0] If you can reproduce your issue reliably in a new emacs, try bisecting your user-init-file
-T 1612215398 18<22fsbot18>	[1] Comment out half of your init file and try to reproduce the issue. Recurse as needed.
-T 1612215398 18<22fsbot18>	[2] Use M-; to comment or uncomment selected region
-T 1612215398 18<22fsbot18>	[3] See also ,keep-one-open
-T 1612215410 18<25Cymew18>	Well, that will have do wait for another day. Thanks for the many helpful suggestions. Appreciated.
-T 1612215418 18<25Cymew18>	Time for some sleep.
-T 1612215423 18<19parsnip18>	:)
-T 1612215425 18<22neverwas18>	grym: dirtbag! that's hardcore bomber shit. I was only ever a fairweather bum
-T 1612215456 18<27grym18>	neverwas: same really.  with a few months back in the harness i'd be redpointing 11a or so, so i'm not great shakes
-T 1612215460 18<19parsnip18>	grym: i sort of want a smartwatch just for the nice timers
-T 1612215472 18<27grym18>	parsnip: 80% of what i use it for, tbh 
-T 1612215483 18<27grym18>	and the solar face is purty 
-T 1612215488 18<27grym18>	informationally dense
-T 1612215494 18<19parsnip18>	i guess it's nice to look at it and say, "oh that's who's calling, i don't need to get up to get my phone."
-T 1612215517 18<19parsnip18>	oh yeah, weather and sun stuff would be nice
-T 1612215534 18<19parsnip18>	i guess as you're walking out the door, you can check if it's raining
-T 1612215593 18<19parsnip18>	the band is probably nicer than this gshock's
-T 1612215699 18<20Hash18>	Good morning
-T 1612215851 18<22neverwas18>	grym: 11a? damn. you got my number by a full grade for sure, even in my prime (at least by Josh/Yosemite standards)
-T 1612215870 18<27grym18>	neverwas: ooo western.  i'm more rumney/gunks
-T 1612215880 18<27grym18>	my brother can get down to the new sometimes
-T 1612215892 18<27grym18>	i've done a little bit in tucson, which is its own flavor of barking madness ;) 
-T 1612215900 18<27grym18>	(the cycling's pretty good too)
-T 1612215972 18<20Hash18>	May I ask a poll?
-T 1612215984 18<20Hash18>	How many people do we think use gui emacs vs cli emacs?
-T 1612215997 18<20Hash18>	Do the gui people use a mouse?
-T 1612216022 18<27natter18>	I'd ballpark the number as approximately bigger than a breadbox
-T 1612216023 18<22neverwas18>	Tuscon? Nice. Utah's pretty rad. Indian Creek, Moab, etc.
-T 1612216025 18<29wgreenhouse18>	hmm. the two are not mutually exclusive, because of --daemon
-T 1612216030 18<28technomancy18>	Hash: I use both but no mouse ever
-T 1612216049 18<27grym18>	neverwas: ever listened to the enormocast 
-T 1612216062 18<29wgreenhouse18>	I use mostly terminal emacs right now but do use the mouse there. :)
-T 1612216068 18<29wgreenhouse18>	xterm-mouse-mode is pretty nice
-T 1612216081 18<20Hash18>	Hmm.
-T 1612216100 18<22neverwas18>	grym: nah, haven't had the pleasure
-T 1612216101 18<20Hash18>	I use urxvt, Xorg, emacs compiled without X, and it works nicely.
-T 1612216117 18*	22neverwas googles
-T 1612216118 18<20Hash18>	Some keys don't work, like Hyper etc. 
-T 1612216133 18<20Hash18>	I wonder why the keys work in Xorg and not in cli.
-T 1612216140 18<27grym18>	neverwas: well worth it; he's a happy dirtbag himself but he's interviewed like. literally every surviving big name that's not chouinard
-T 1612216143 18<20Hash18>	Or works in cli but not in Xorg
-T 1612216150 18<27grym18>	... and some who are now dead, RIP hayden </3
-T 1612216163 18<27grym18>	(god what a shitty day that was)
-T 1612216201 18<27grym18>	neverwas: if you remember the kompressor route drama though, kalous got the interview first :)( 
-T 1612216391 18<19ville18>	is there some emacs package that would cut/copy whatever the token the cursor is on if there's no selection in programming modes and also tentatively suggest it for things like search, replace and such?
-T 1612216463 18<22neverwas18>	grym: I definitely don't remember firsthand. Heard folks mention it, though. 
-T 1612216467 18<22neverwas18>	Oh, Chris Kalous, host of the podcast.
-T 1612216487 18<27grym18>	yep
-T 1612216490 18<29brass18>	ville: Probably, but I've never heard of one. It would probably be pretty easy to write
-T 1612216702 18<25cvandusen18>	ville: https://github.com/leoliu/easy-kill is one. 
-T 1612216823 18<25cvandusen18>	though, it hasn't been updated in a while.
-T 1612217001 18<25cvandusen18>	Also, https://github.com/plandes/mark-thing-at though the cut/copy is left to the user.
-T 1612217272 18<28jfb418>	ville: which use case scenarios have you got in mind 
-T 1612217305 18<28jfb418>	ville: you mention search, which presumably doesn't apply.  would it be for replace, and then what else 
-T 1612217389 18<24ski18>	,terminal
-T 1612217391 18<22fsbot18>	[->] terminals are [0/4] Terminals do weird thing to your keyboard input: http://catern.com/posts/terminal_quirks.html
-T 1612217392 18<22fsbot18>	[1]  Terminals have limitations compared to the graphical windows; it's advisable to use "graphical" Emacs unless one has a good reason not to. See ,betterdefaults for disabling scroll bars, tool bars, etc.
-T 1612217392 18<22fsbot18>	[2] https://garbagecollected.org/2017/01/31/four-column-ascii/ ;;[ ,more / ,dump]
-T 1612217424 18*	24ski mostly uses `-nw'
-T 1612217600 18<27grym18>	i use gui emacs but i start it with emacsclient so for a hot 2 seconds it's neither gui nor not gui 
-T 1612217600 18<27grym18>	the gateless emacs
-T 1612217811 18<19e1f18>	the schrödinger emacs
-T 1612217907 18<19wrycode18>	ix.io has been slow lately
-T 1612217927 18<27grym18>	wrycode: bpaste is real nice 
-T 1612217955 18<19ville18>	jfb4: not sure i quite understand the question. thought i listed few potential cases: cutting, copying, searching, replacing
-T 1612217973 18<19wrycode18>	grym: with a corresponding zero-configuration emacs package?
-T 1612218012 18<27grym18>	wrycode: it speaks curl, so you can shell out >:) 
-T 1612218025 18<19ville18>	cvandusen: i'll take a look
-T 1612218213 18<28jfb418>	ville: well which functions would you see this thing hooked into?
-T 1612218230 18<28jfb418>	ville: also do you know about C-M-SPC for selection
-T 1612218255 18<19ville18>	jfb4: i wouldn't know. i try to avoid looking at emacs internals. yes, C-M-spc doesn't quite do the right thing.
-T 1612218291 18<27nij18>	How to let notify-send work with exwm?
-T 1612218314 18<27nij18>	I've tried exwm-ns, but the notification still does not show up.
-T 1612218320 18<19wrycode18>	grym: probably take a few mins to set it up later, thanks
-T 1612218325 18<27nij18>	`$ notify-send abc; echo $?` => 0
-T 1612218360 18<27grym18>	wrycode: bpaste.net/+common-lisp is probably the thing, and you can also guess by extension, and paste multiple files
-T 1612218456 18<19wrycode18>	ville: did anyone mention expand-region yet?
-T 1612218467 18<19ville18>	wrycode: is that C-M-spc?
-T 1612218484 18<19wrycode18>	I don't think it's a builtin
-T 1612218509 18<19wrycode18>	https://github.com/magnars/expand-region.el
-T 1612218559 18<19wrycode18>	if you want to just select the current symbol. To yank it or whatever you could make your own commands using it
-T 1612218564 18<19ville18>	ok i'll check it out
-T 1612218632 18<19wrycode18>	grym: I don't want to do *work* for it, I just want to paste the current region to a no-nonsense service
-T 1612218654 18<27grym18>	wrycode: heh heh.  i really want to add bpaste to webpaste.el, i just don't have the chops or the time
-T 1612218661 18<27grym18>	webpaste defaults to dpaste, which is pretty derpy 
-T 1612218886 18<28jfb418>	wrycode: you want to paste the current region to a pastebin type service ?
-T 1612218912 18<19wrycode18>	webpaste did the trick
-T 1612218922 18<19ville18>	wrycode: expand-region looks pretty good, not quite exactly what i had hoped but will do in a pinch
-T 1612219157 18<19wrycode18>	ville: so you want to press a keybinding and start an isearch with the symbol at point automatically entered or what?
-T 1612219197 18<19ville18>	wrycode: yes that would be one feature, then as bonus if i start typing the tentative suggestion would be removed
-T 1612219257 18<19wrycode18>	what do you use for searching and completion?
-T 1612219402 18<19ville18>	umm, not entirely sure, heh. it's unclear to me what package does which part exactly. search is default i think: isearch-forward. completions are shown by company but they are provided my lsp-mode?
-T 1612219443 18<19ville18>	err by lsp-mode
-T 1612219530 24*	28\u is now known as 18meowray
-T 1612219534 18<19wrycode18>	sorry, I didn't mean autocompletions, some people use completion frameworks like helm or ivy or ido which often replace isearch with their own version of the command
-T 1612219552 18<28jfb418>	ville: try Ivy
-T 1612219587 18<19ville18>	jfb4: for what purpose? i've it installed and use it for some things
-T 1612219597 18<19wrycode18>	yeah Ivy is really (IMO deservedly) popular
-T 1612219702 18<19wrycode18>	you can probably write a custom command that starts a search but temporarily makes Tab autocomplete to whatever symbol you were on, but I'm not sure if you can display the tentative suggestion in gray letters easily
-T 1612219794 18<19wrycode18>	but this will be done through whichever completion framework you're using
-T 1612219935 18<27nij18>	Why doesn't lambda in lambda works as expected? https://bpa.st/43TIQ ?
-T 1612219938 18<19wrycode18>	but temporarily, it'd be much easier to make a second keybinding that simply yanks the current symbol into an isearch
-T 1612220338 18<27nij18>	A simplified question: why doesn't the following output a function that prints 0?
-T 1612220340 18<27nij18>	(funcall (lambda (i) (lambda () (print i))) 0)
-T 1612220370 18<28technomancy18>	nij: probably lexical scope isn't turned on
-T 1612220381 18<27nij18>	Same same:
-T 1612220383 18<27nij18>	(let ((lexical-binding t)) (funcall (lambda (i) (lambda () (print i))) 0))
-T 1612220384 18<24npostavs18>	nij: you're just missing a funcall
-T 1612220403 18<27nij18>	npostavs: no.. that's not the problem
-T 1612220403 18<28technomancy18>	doesn't it have to be set at complie time or something?
-T 1612220423 18<24npostavs18>	(funcall (lambda (i) (funcall (lambda () (print i)))) 0) gives 0 for me
-T 1612220485 18<28jfb418>	I get this: (closure ((i . 0) t) nil (print i))
-T 1612220543 18<27nij18>	indeed i have to (setq lexical-binding t)
-T 1612220546 18<27nij18>	then it's fine
-T 1612220563 18<27nij18>	Hmm this is a part of my config
-T 1612220586 18<27nij18>	what if i want to do it without lexical-binding?
-T 1612220656 18<28technomancy18>	that *is* lexical binding
-T 1612220682 18<20pjb18>	(funcall (funcall (lambda (i) (coerce `(lambda () ,i) 'function)) 0)) --> 0
-T 1612220688 18<20pjb18>	nij: ^
-T 1612220723 18<20pjb18>	nij: but you really want lexical-binding.  See: https://en.wikipedia.org/wiki/Funarg_problem
-T 1612220822 20*	Disconnected (20)
-T 1612293820 19*	Now talking on 22#emacs
-T 1612293820 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
-T 1612293820 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:36 2021)
-T 1612293823 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
-T 1612295538 18<29endiruna18>	I cannot find how to customize the font when I do ispell-buffer
-T 1612295566 18<29endiruna18>	how do i search for that within emacs
-T 1612295708 18<22fledermaus18>	what font are you trying to customise, exactly?
-T 1612295712 18<27natter18>	endiruna: which font, the pop-up?
-T 1612295790 18<29wgreenhouse18>	endiruna: M-x customize-group ispell might be a good place to start
-T 1612296026 18<29endiruna18>	thanks! sorry for the stupid questions. I started with emacs few days ago. the font was isearch and for some reason it had low contrast
-T 1612297458 24*	28ngz` is now known as 18ngz
-T 1612297573 18<19parsnip18>	how do you come to terms with emails like, "we'd like you to enter a brief survey on your phone call regarding closing your account", when the unsubscribe button at the bottom has no connection to it?
-T 1612297592 18<19parsnip18>	are there bigger problems in the world? like what?
-T 1612297978 18<26deviantfero18>	is that even legal?
-T 1612297993 18<26deviantfero18>	sounds really sketchy, is that after or before you close your account?
-T 1612298008 18<19parsnip18>	fsvo "close"
-T 1612298030 18<19parsnip18>	they call it close, it's really, "stop charging me for now"
-T 1612298041 18<19parsnip18>	pretty stupid
-T 1612298101 18<27natter18>	parsnip: next time you /part #emacs, would you be open to a brief survey? We _care_ about improving the service and retaining _people like you_
-T 1612298115 18<19parsnip18>	,tableflip
-T 1612298117 18<22fsbot18>	(╯°□°）╯︵ ┻━┻
-T 1612299347 18<25cvandusen18>	like us on facebook??
-T 1612299348 18<22fsbot18>	mu!
-T 1612299427 18<19bremner18>	us: love it or leave it.
-T 1612299579 18<25cvandusen18>	let's make a pandemic-themed reboot of groundhog day where phil connors wakes up every morning then spends all day in his room
-T 1612300021 18<20bpalmer18>	Let's steal groundhogs' shadows.
-T 1612300276 18<24deego18>	let's arrest people for not contacting their parole officer when comatose
-T 1612300776 18<27natter18>	feel like I've watched an X-Files episode not unlike this...comatose hijinks
-T 1612301478 18<20bpalmer18>	Let's investigate the potential of the comatose as batteries for a simulation.
-T 1612301571 18<20bpalmer18>	Hmm. rudybot is missing, the CEO of amazon steps down.
-T 1612301581 18<20bpalmer18>	Now I'm not saying a certain bot will be taking the reins of power, but ...
-T 1612301645 18<20dale18>	Can we blame WSB for this too, or...?
-T 1612301757 18<25cvandusen18>	The timing is uncanny.
-T 1612302317 18<28rgr18>	Wowola. How good is elfeed. Very nice.
-T 1612302482 18<25cvandusen18>	,faintpraise 
-T 1612302486 18<22fsbot18>	well...at least it's better than YouTube comments
-T 1612302513 18<25cvandusen18>	worst.rss feed.ever.
-T 1612302728 18<20bpalmer18>	dale: oh, that's an interesting possibliity. Maybe bezos made enough money holding gamestop that he's finally going to be able to retire early.
-T 1612302746 18<20bpalmer18>	I hope he sold before quitting his job, in case it all goes up in flames.
-T 1612303028 18<19parsnip18>	if only we could have more mega billionaires, so there could be more philanthropy
-T 1612303047 18<27grym18>	(╯°□°）╯︵ ┻━┻
-T 1612303108 18<19parsnip18>	let's stitch a few billionaires together to make a trillionaire
-T 1612338348 19*	Now talking on 22#emacs
-T 1612338348 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
-T 1612338348 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:20 2021)
-T 1612338348 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
-T 1612339891 18<27epony18>	in short: broadcoms
-T 1612340355 24*	28boughtly- is now known as 18boughtly
-T 1612340507 18<20aidalgol18>	What's litestep?
-T 1612340533 18<27epony18>	a portable plastic step for aerobics
-T 1612340588 18<27epony18>	probably something like afterstep and nextstep
-T 1612340610 18<27epony18>	after gnustep.. it's irrelevant
-T 1612340648 18<27epony18>	investing in theming a silly GUI makes your other silly GUI look all wrong for you since you have not invested there.. so your money goes to waste, like a game^Wdoor stop
-T 1612340844 18<20aidalgol18>	Can anyone recommend a decent music player that provides a visual browser for your music library (so just a tree view won't do)?
-T 1612340928 18<27epony18>	knock your socks off  https://wiki.archlinux.org/index.php/List_of_applications#Graphical_13
-T 1612341027 18<27epony18>	https://amarok.kde.org/
-T 1612341331 18<28krux0218>	aidalgol: it is a window manager for windows (XP)
-T 1612341370 18<28krux0218>	microsoft made it impossible for litestep to work on windows 10
-T 1612341510 20*	Disconnected (20)
-T 1612342445 19*	Now talking on 22#emacs
-T 1612342445 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
-T 1612342445 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:36 2021)
-T 1612342445 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
-T 1612342458 18<29afidegnum18>	aidalgol: 27
-T 1612342484 18<20aidalgol18>	OK, so it's not that you're using an old version that doesn't like ~/
-T 1612342506 18<20aidalgol18>	I've got no idea other than, what does `ls ~/.emacs.d/icicles.el` in a shell within Emacs say?
-T 1612342536 18<19twb18>	oh so now we find out why Bioware was prepared to resell Mass Effect 2 on steam, but not any of the DLCs that make the game actually *bearable*
-T 1612342538 18<29afidegnum18>	ok, hold a sec, 
-T 1612342553 18<20aidalgol18>	twb: why?
-T 1612342554 18<19twb18>	Because they were 6 months away from re-releasing the trilogy with bigger textures for $20 more
-T 1612342561 18<20aidalgol18>	hahahaha!!!
-T 1612342602 18<29afidegnum18>	aidalgol: it returns the full path
-T 1612342624 18<19twb18>	And to rub in how much of a dick they're being
-T 1612342638 18<19twb18>	"if you own ME3 on steam you can buy it again for only $80 instead of $90"
-T 1612342657 18<20aidalgol18>	twb: Are you aware that Activision bought Bioware?
-T 1612342668 18<20aidalgol18>	afidegnum: OK, I'll I've got left is try passing the absolute path to `load`.
-T 1612342673 18<19twb18>	aidalgol: that's why this is so arsebungler
-T 1612342674 18<20aidalgol18>	Without the ~
-T 1612342682 18<29afidegnum18>	ok
-T 1612342784 18<26TheInformaticist18>	OK, silly simple question:
-T 1612342811 18<19parsnip18>	,next
-T 1612342811 18<22fsbot18>	Another satisfied customer. NEXT!
-T 1612342870 18<26TheInformaticist18>	In Calc I know how to find square roots with the 'Q' key. How do I find, for instance, cube roots? Can't find it in the manual or index.
-T 1612342903 18<29afidegnum18>	aidalgol: no luck
-T 1612342903 18<29afidegnum18>	still the same error
-T 1612342920 18<20aidalgol18>	Show us the full stack trace, I guess?
-T 1612342920 18<20aidalgol18>	,tdoe
-T 1612342920 18<22fsbot18>	tdoe: M-x toggle-debug-on-error RET, reproduce the problem, then <,paste> the backtrace (or study it yourself)
-T 1612343104 18<29afidegnum18>	aidalgol: this is what i've got https://dpaste.org/sW8Q
-T 1612343223 18<29afidegnum18>	that's after i used the full path
-T 1612343451 18<26TheInformaticist18>	How do I find a cube root of a number in Calc?
-T 1612343588 18<19parsnip18>	can you raise it to (1/3)?
-T 1612343607 18<20aidalgol18>	afidegnum: Can you also paste your init file?
-T 1612343888 18<29afidegnum18>	ok
-T 1612343906 18<26TheInformaticist18>	parsnip: Is there a way to input fractions in Calc?
-T 1612343922 18<19parsnip18>	TheInformaticist: i just tried M-x calc RET 1 3 / RET and it seemed to work
-T 1612343963 18<26TheInformaticist18>	OK, twill try it :-)
-T 1612343995 18<29afidegnum18>	aidalgol: https://dpaste.org/toVp
-T 1612344000 20*	Disconnected (20)
-T 1612345581 20*	Disconnected (20Remote host closed socket)
-T 1612346164 20*	Disconnected (20Remote host closed socket)
-T 1612346248 20*	Disconnected (20Remote host closed socket)
-T 1612346276 19*	Now talking on 22#emacs
-T 1612346276 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
-T 1612346276 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:20 2021)
-T 1612346276 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
-T 1612346519 18<20aidalgol18>	I would advise against icicles entirely, but that's a separate issue. :P
-T 1612347716 18<29afidegnum18>	aidalgol: well, i was looking for a feature which couldn't find elsewhere
-T 1612347887 18<20aidalgol18>	What's that?
-T 1612347904 18<29afidegnum18>	incremental execution of commands
-T 1612347917 18<29afidegnum18>	and checkboxes 
 T 1612347921 18<20aidalgol18>	What does that mean?
 T 1612347997 18<29afidegnum18>	what i needed was to display list of options, where i can select multiple, which will be used to pass value to execute a command
 T 1612348121 18<29afidegnum18>	i thought Transient and Hydra could help but no luck
@@ -5420,3 +4997,102 @@ T 1614107979 20*	Disconnected (20Remote host closed socket)
 T 1614108019 23*	28RMPR is already in use. Retrying with 18...
 T 1614108057 20*	Disconnected (20Remote host closed socket)
 T 1614108104 20*	Disconnected (20Remote host closed socket)
+T 1614281725 19*	Now talking on 22#emacs
+T 1614281725 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1614281725 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
+T 1614281726 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1614281733 18<20bpalmer18>	seabass: no, unless the first line is a shell bang line.
+T 1614281749 18<20bpalmer18>	(or, apparently, man pages).
+T 1614281750 18<19seabass18>	bpalmer, thanks for the answer :) Do you by any chance have a reference for that?
+T 1614281772 18<20bpalmer18>	see (info "(emacs) Specifying File Variables")
+T 1614281849 18<20bpalmer18>	as specified in Using Lexical Binding, note that the alternative (file local variable section at the end) does not work for lexical-binding
+T 1614281862 18<19seabass18>	bpalmer, thank you very much
+T 1614281877 18<19seabass18>	That's really important to me; I'm working on an Emacs package 
+T 1614282094 18<28krux0218>	what package are you working on?
+T 1614282113 18<28krux0218>	bpalmer, I always wonder how optional lexical-binding works.
+T 1614282143 18<28krux0218>	I mean normally all variables are looked up in the dynamic stack
+T 1614282216 18<28krux0218>	but when I run functions from modules back and forth one module has lexical binding, the other one requires dynamic binding, how does that coexist in the same lisp machine?
+T 1614282225 18<20bpalmer18>	but what this variable presupposes is, what if they weren't?
+T 1614282254 18<19seabass18>	krux02, I'm working on a package called 'subed'. sachac suggested to me that others might appreciate my patches, so I'm tidying them up to send upstream :)
+T 1614282292 18<20bpalmer18>	krux02: when interpreted, each variable has a conceptual flag associated with it about whether it's "special" -- in which case dynamic lookup should be used, or otherwise, lexical lookup should be used.
+T 1614282339 18<20bpalmer18>	krux02: when a lexical variable would escape its environment, a new 'closure' form is created, capturing the value of the variable at that time.
+T 1614282490 18<28krux0218>	so lets say I have a lexcal variables `a` in file `A` and in file B where lexical scoping is not enabled, and a function `foo` tries to used `a`, it will still works when foo is called from A?
+T 1614282533 18<28krux0218>	it is just the lookup that is affected by lexical scoping, not the definition?
+T 1614282574 18<19seabass18>	bpalmer, do I need to align the */s, and if so, how?
+T 1614282594 18<19seabass18>	please excuse the probably basic question :)
+T 1614282643 18<20bpalmer18>	krux02: no, it will not work; the lexically scoped a in A will only be visible inside its lexical scope. (typically the let where it's bound)
+T 1614282659 18<20bpalmer18>	seabass: I"m not sure I understand; what */s are you looking at?
+T 1614282676 18<19seabass18>	In the local variables info page, the */s are lined up
+T 1614282680 18<20bpalmer18>	seabass: you can have -*-  lexical-binding: t -*-   anywhere in the firstline
+T 1614282698 18<19seabass18>	'come the variable names'...
+T 1614282706 18<20bpalmer18>	seabass: you do need both a leading and a trailing -*- 
+T 1614282723 18<19seabass18>	bpalmer: sorry, I should have been clearer - this is for the alternative method
+T 1614282730 18<28krux0218>	bpalmer, so lexically scoped variables are not part of the dynamic stack environment that is available for variable lookup?
+T 1614282730 18<19seabass18>	for Eval:
+T 1614282736 18<20bpalmer18>	seabass: the alternative method does not work for lexical binding.
+T 1614282747 18<19seabass18>	bpalmer, yes, but this is a different file
+T 1614282758 18<19seabass18>	/* eval: (buttercup-minor-mode) */ is what I'm doing
+T 1614282783 18<20bpalmer18>	seabass: oh, no, the /* and */ don't need to line up.
+T 1614282796 18<19seabass18>	bpalmer, thanks :)
+T 1614282813 18<20bpalmer18>	it's usually suggested you don't try to activate minor modes through file comments, though.
+T 1614282840 18<20bpalmer18>	think of a person who tries to open the file without buttercup around, or doesn't like buttercups
+T 1614282840 18<19seabass18>	oh, really? I'd like to learn more about this
+T 1614282849 18<19seabass18>	so missing dependencies is the issue?
+T 1614282856 18<28krux0218>	I think I have to play more and experiment with lexical scoping in emacs. As there are still many things unclear to me.
+T 1614282884 18<29mplsCorwin18>	seabass: and leaving room for preference, I think
+T 1614282899 18<20bpalmer18>	seabass: no, it's just ... not everybody likes the same modes. Major modes, they're more typically things you "have" to use
+T 1614282915 18<20bpalmer18>	(ignoring things like people who prefer to use text-mode to work with markdown files, for example)
+T 1614282919 18<28krux0218>	It is not lexcal scoping that I am confused about nor dynamic scoping. It is the coexistence of both of those scoping rules at the same time in the same virtual machine.
+T 1614282936 18<19seabass18>	ah, OK - this is for the testing files, mind you, so hopefully the end user would not come across it by accident
+T 1614282936 18<20bpalmer18>	And even then, specifying the mode  is a bit aggressive when you can just use auto-mode-alist
+T 1614283014 18<19seabass18>	I'm not familiar with buttercup, but I think that this file (test-subed-common.el) just wouldn't work without it
+T 1614283014 18<20bpalmer18>	OK. I don't know much about it; but eval blocks will usually prompt the user.
+T 1614283031 18<29mplsCorwin18>	,buttercup
+T 1614283033 18<22fsbot18>	mplsCorwin: buttercup is a behavior-driven development framework for testing Emacs Lisp code at https://github.com/jorgenschaefer/emacs-buttercup
+T 1614283052 18<29mplsCorwin18>	so, we are talking about test programs, here then?
+T 1614283066 18<24ski18>	seabass : hm, i think `mode: buttercup-minor' may work ?
+T 1614283071 18<19seabass18>	yes, indeed - this package contains a 'test' directory with testing lisp files
+T 1614283092 18<19seabass18>	ski, that's an idea
+T 1614283098 18<29mplsCorwin18>	seabass: maybe a dirs-local then?
+T 1614283111 18<24ski18>	(instead of the sledgehammer of `eval')
+T 1614283150 18<19seabass18>	hmm well it ought to be a seperate 'pull request', but it does look interesting to use mode:
+T 1614283207 18<20bpalmer18>	To quote the info manual, "Do not use the mode keyword for minor modes." It endorses the eval form
+T 1614283217 18<19seabass18>	hmm this gets complicated quickly :D
+T 1614283232 18*	19seabass looks up auto-mode-alist
+T 1614283241 18<20bpalmer18>	I am sure I read somewhere or other an admonition against minor modes in file local variables; I definitely agree with it, but .. hm. Maybe some random person's opinion.
+T 1614283252 18<29mplsCorwin18>	If you have a folder full of test programs and you want them all to come up with a given minor mode active, I think you could want to simply turn on the minor mode in a Per-Directory manner: https://www.gnu.org/software/emacs/manual/html_node/emacs/Directory-Variables.html
+T 1614283268 18<20bpalmer18>	seabass: auto-mode-alist maps between filenames and major modes; it's how emacs knows a .c file should be in c-mode and a .pl file should be in prolog-mode
+T 1614283270 18<19seabass18>	ooh, nice, mplsCorwin
+T 1614283404 18<19seabass18>	I don't know about mode: vs eval: here, but directory variables seems like the right approach, considering that *all* files in one directory are lexically scoped, and *all* files in the other are for testing
+T 1614283874 18<24Noisytoot18>	,buttercup-minor-mode
+T 1614283876 18<22fsbot18>	You will be a winner today.  Pick a fight with a four-year-old.
+T 1614283972 18<29sachac18>	seabass: Ooooh, subed tweaks? What have you been working on?
+T 1614283982 18<24Noisytoot18>	,auto-mode-alist
+T 1614283983 18<19seabass18>	sachac, evening :)
+T 1614283984 18<22fsbot18>	Noisytoot, [->] automodealist is [0] at http://www.emacswiki.org/cgi-bin/wiki/AutoModeAlist
+T 1614283985 18<22fsbot18>	[1] (add-to-list 'auto-mode-alist '("\\.foo\\'" . foo-mode))
+T 1614283985 18<22fsbot18>	[2] Controls major mode only, use a hook for minor modes
+T 1614284001 18<19seabass18>	well it started out as just the speed modification, but it's growing :D
+T 1614284016 18<29sachac18>	seabass: Yay!
+T 1614284017 18<19seabass18>	I'm trying my best to keep my commits small... they are adding up...!
+T 1614284037 18<29sachac18>	seabass: I look forward to taking advantage of them!
+T 1614284039 18<19seabass18>	sachac, thank you for the suggestion. It has been/is being fun
+T 1614284068 18<19seabass18>	I've run make in the emacs-buttercup directory but I can't find it with M-x buttercup
+T 1614284074 18<19seabass18>	Any ideas?
+T 1614284151 18<19seabass18>	With the subed I just copied the files across to .emacs.d/elisp and it just worked
+T 1614284151 18<19seabass18>	(require 'emacs-buttercup) doesn't yield either
+T 1614284159 18<24Noisytoot18>	,subed
+T 1614284160 18<22fsbot18>	subed is https://github.com/rndusr/subed
+T 1614284245 18<29sachac18>	seabass: Oh, I think I needed to modify my Makefile for that one
+T 1614284264 18<29sachac18>	seabass: emacs --no-init-file -f package-initialize --batch \ ...
+T 1614284270 18<29sachac18>	seabass: I added the -f package-initialize
+T 1614284282 18<19seabass18>	sachac, hang on, what do you mean? I'm confused
+T 1614284284 18<19seabass18>	already
+T 1614284287 18<19seabass18>	:D
+T 1614284332 18<29sachac18>	So you've installed the buttercup package, right?
+T 1614284349 18<19seabass18>	No, I haven't - I've run 'make' in the directory, but it's not recognised by emacs
+T 1614284367 18<29sachac18>	Ah, okay, you can package-install buttercup if you have MELPA in your sources
+T 1614284377 18<19seabass18>	Well I could add MELPA
+T 1614284381 18<19seabass18>	I've not been using it so far
+T 1614284393 18<29sachac18>	Or you can download buttercup.el and put it in your load path
+T 1614284398 18<19seabass18>	Doesn't it contain nonfree packages, or am I misremembering?
