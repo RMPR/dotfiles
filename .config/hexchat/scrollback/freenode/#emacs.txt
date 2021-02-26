@@ -5096,3 +5096,573 @@ T 1614284377 18<19seabass18>	Well I could add MELPA
 T 1614284381 18<19seabass18>	I've not been using it so far
 T 1614284393 18<29sachac18>	Or you can download buttercup.el and put it in your load path
 T 1614284398 18<19seabass18>	Doesn't it contain nonfree packages, or am I misremembering?
+T 1614284409 18<29sachac18>	https://github.com/jorgenschaefer/emacs-buttercup
+T 1614284449 18<19seabass18>	yay!
+T 1614284451 18<29sachac18>	seabass: buttercup is GPL3. I think the dust-up on emacs-devel was about the fact that MELPA has GPL packages for interacting with non-free systems
+T 1614284464 18<19seabass18>	"buttercup.el and put it in your" worked thank you :)
+T 1614284479 18<29sachac18>	=)
+T 1614284487 18<19seabass18>	sachac, ah, right - that clears things up for me. I didn't know anything about Emacs at the time that was going on
+T 1614284501 18<29sachac18>	seabass: I'm so glad you're getting deeper into Emacs!
+T 1614284525 18<19seabass18>	yes, it's very rewarding :)
+T 1614284529 18<29sachac18>	seabass: I'm working on figuring out a way to do live captions for the next EmacsConf (and other things people want to live-caption =) )
+T 1614284541 18<19seabass18>	It's only a matter of time before I'm using dungeon-mode
+T 1614284546 18<19seabass18>	that's for sure
+T 1614284575 18<29sachac18>	seabass: OBS can take SendCaptions messages via websocket and include them in the RTMP stream in a way that Twitch and Youtube can understand, so it's probably doable to get captions going through a self-hosted thing too
+T 1614284605 18<29sachac18>	seabass: And then a little Emacs Lisp can let someone pick up captions from, say, #emacsconf-accessible or a CRDT buffer, so it's not just one person madly typing all day.
+T 1614284637 18<19seabass18>	hmm icecast has no mention of captions
+T 1614284675 18<19seabass18>	The great thing about these free software conferences is that free software is improved just to host them :)
+T 1614284678 18<29sachac18>	seabass: Also, it turns out youtube-dl can download automatically-generated subtitles in a variety of formats.
+T 1614284691 18<19seabass18>	I'm sensing a feature addition to IceCast coming up :D
+T 1614284718 18<27grym18>	my favorite college radio station does good things to their icecast stream 
+T 1614284759 18<27grym18>	(mpv http://amber.streamguys.com:4860/listen.pls for the curious)
+T 1614284763 18<29sachac18>	Anyway, worst-case scenario, we can make an open-captioned stream
+T 1614284778 18<19seabass18>	on the topic of .dir-locals, is this the right way to do it? One-line code review please :)
+T 1614284780 18<19seabass18>	((nil . ((eval . (buttercup-minor-mode))))
+T 1614284786 18<29sachac18>	(or at least I think we can, as an alternate stream)
+T 1614284799 18<19seabass18>	sachac, yes, that is a good idea as a backup plan
+T 1614284810 18<19seabass18>	That RTMP stream idea is really cool though
+T 1614284848 18<19seabass18>	grym: https://outpostradio.com/organmagic/play.m3u :)
+T 1614285009 18<27grym18>	bit of a context switch from 10,000 maniacs
+T 1614285014 18<29sachac18>	something something something nonfree encoding, so might be HLS or MPEG-DASH
+T 1614285061 18<29sachac18>	or whatever, haven't looked deeply into that part yet
+T 1614285399 18<19seabass18>	grym, hmm indeed :D
+T 1614285399 24*	28berber2 is now known as 18berber
+T 1614285404 24*	28vjok1 is now known as 18vjoki
+T 1614285404 24*	28benaiah` is now known as 18benaiah
+T 1614285421 24*	28FluffyFoxeh is now known as 18Frogging101
+T 1614285448 24*	28Sketch_ is now known as 18Sketch
+T 1614285488 18<26seabass_18>	sorry, my connection cut oup
+T 1614285500 18<26seabass_18>	*out. Did anyone have something to say to me?
+T 1614285506 24*	28seabass_ is now known as 18seabass
+T 1614285529 24*	28peder_ is now known as 18peder
+T 1614285551 18<19seabass18>	heh maybe it wasn't just my connection
+T 1614285627 18<19libfud18>	I guess something happened to one of the servers
+T 1614285640 24*	28MuffinPimp_ is now known as 18MuffinPimp
+T 1614285644 24*	28yokel_ is now known as 18yokel
+T 1614285657 24*	28efm_ is now known as 18efm
+T 1614285675 18<22tychoish18>	I'm trying/playing with the idea of wanting to do something that I would have done with "emacs --batch" but this time with emacsclient and it seems harder than I'd like 
+T 1614285708 24*	28Noisytoot_ is now known as 18Noisytoot
+T 1614285746 24*	28yourfate_ is now known as 18yourfate
+T 1614285763 18<29sachac18>	gotta go play with kiddo, nice chatting! =)
+T 1614285780 18<19seabass18>	bye!
+T 1614285784 24*	28trulsa_ is now known as 18trulsa
+T 1614285784 24*	28ecraven- is now known as 18ecraven
+T 1614285790 24*	28samis is now known as 18CompanionCube
+T 1614285790 18<26hendursaga18>	It's on the tip of my tongue (or fingers) - how do I make it so I can move past the last character?
+T 1614285800 18<24Noisytoot18>	seabass: It wasn't just your connection
+T 1614285813 18<19seabass18>	Noisytoot: it's certainly a change lol
+T 1614285826 18<20pjb18>	hendursaga: M-x end-of-buffer RET
+T 1614285848 18<24Noisytoot18>	For some reason when I disconnected, for a while /whois still showed me as connected
+T 1614285885 24*	28oats_ is now known as 18oats
+T 1614285891 24*	28dftxbs3e_ is now known as 18dftxbs3e
+T 1614285892 18<26hendursaga18>	pjb: Yes but it won't let me go past the last character...
+T 1614285914 24*	28johnsu01_ is now known as 18johnsu01
+T 1614285941 18<19earthToAdam18>	How would you go about (with elisp) replacing the title of an org-mode heading at point?
+T 1614285986 18<20birkoff18>	can i set properties for a numbered list item ? 
+T 1614285988 18<20birkoff18>	in org-mode
+T 1614286001 18<19earthToAdam18>	... I'm thinking there must be something similar to (nth 4 (org-heading-components)) or some sort of "put" statement?
+T 1614286084 18<19earthToAdam18>	Ah... I think I found it... org-element-put-property
+T 1614287222 24*	28ba is now known as 18bandali
+T 1614287260 18<27work_18>	Hello everyone, is undo in region an exclusive Emacs feature? I think it’s the most important feature for me at least,
+T 1614287695 18<19Mrbuck18>	any one here writing java using emacs? instead of eclipse or idea?
+T 1614287732 24*	28belak51 is now known as 18belak
+T 1614287826 18<26ripple_carry18>	hello
+T 1614287891 18<26ripple_carry18>	after upgrading some packages, i see that C-g closes any *complation* buffer that i have resulting from an `M-x recompile`. how do i stop that?
+T 1614288069 18<19seabass18>	work_, ha, I didn't know about undo in region. Thanks for bringing it up :) 
+T 1614288122 18<29mplsCorwin18>	seabass: s/o for dungeon-mode :)  Anytime you want a little help getting into the elisp around that hit-me-up; very glad you are having fun with Emacs!  (I clearly missed the best convo ever.  Stupid job with stupid meetings..)
+T 1614288158 18<19seabass18>	aw, sorry to hear that
+T 1614288172 18<19seabass18>	I'll be around for more conversations later in the week :)
+T 1614288426 18<29mplsCorwin18>	sweet.  in fact, I just logged a bit early.  My thing that my leader and I have started doing is grabbing personal time by marking the occasional 30 or 60 or 90m blocks marking them as OOO and putting comment as: IM if urgent (which goes to the mobile, alas).
+T 1614288464 18<29mplsCorwin18>	makes up for e.g., not taking an actual break for lunch in several weeks.
+T 1614288481 18<27grym18>	mplsCorwin: i had a cheeky bike ride yesterday 
+T 1614288495 18<29mplsCorwin18>	grym: go on..
+T 1614288517 18<27grym18>	"do i have any meetings for the next two hours? no? great, afk"
+T 1614288524 18<27grym18>	it was 50F in boston for a hot minute there
+T 1614288548 18<29mplsCorwin18>	lol, awesome.  I was thinking in terms of "which set of cheekies got scuffed up on this bikeride?"
+T 1614288551 18<20birkoff18>	in org-mode can i set properties for a numbered list item ?
+T 1614289121 18<19seabass18>	birkoff, if you're not getting an answer here, you could try the mailing lists
+T 1614289203 18<19seabass18>	https://orgmode.org/community.html
+T 1614289455 18<20acdw18>	test
+T 1614289464 18<20acdw18>	okay hi everyone.  I have a question RE: tabs
+T 1614289479 18<20acdw18>	I set `tabs-indent-mode t`, I install smart tabs even,
+T 1614289487 18<20acdw18>	but sh-mode still indents with spaces
+T 1614289507 18<20acdw18>	is there ANY way to ONLY indent with TABS for EVERY mode, or is it soemthing i'll have to change for everything?
+T 1614289621 18<20acdw18>	okay i found it: sh-basic-offset
+T 1614289631 18<20acdw18>	question still stands if tehre's anyway to set it everywehre
+T 1614289715 18<27natter18>	indent-tabs-mode ??
+T 1614289715 18<22fsbot18>	It is certain
+T 1614289715 18<20acdw18>	yeah I have indent-tabs-mode set
+T 1614289715 18<26ddavis18>	acdw: look at the docs for `indent-tabs-mode' and/or setting `tab-always-indent' to 'complete?
+T 1614289716 18<20acdw18>	that's what i meat, not tabs-indent-mode
+T 1614289716 18<28jfb418>	,channel-wisdom
+T 1614289718 18<22fsbot18>	i want to give away my cpu for free but I don't like Seti @ Home. Is there like an Emacs @ Home or something
+T 1614289720 18<20acdw18>	i had tab-always-indent to 'complete, actually; i just turned it off for other reasons
+T 1614289740 18<25markasoftware18>	volunteer your cpu to speed up other people's emacs startup
+T 1614289742 18<20acdw18>	but .. i think it's just slowly whacking the languages as they come up
+T 1614289746 18<20acdw18>	thanks for your help, all
+T 1614289791 18<27work_18>	seabass: glad I shared this 😉 I love undo in region sooo much that it’s like new for me every day.
+T 1614289862 18<27natter18>	acdw: glad I couldn't help with anything
+T 1614289864 18<27natter18>	,next
+T 1614289864 18<22fsbot18>	Another satisfied customer. NEXT!
+T 1614289872 18<20acdw18>	lol thanks :)
+T 1614289879 18<27grym18>	acdw: if i catch you writing python with tabs young man there'll be hell to pay 
+T 1614289891 18<20acdw18>	actuall natter -- you helped with the right name for the variable
+T 1614289900 18<27natter18>	damn it
+T 1614289900 18<20acdw18>	grym: haha i don't write python, just bash ;)
+T 1614289904 18<20acdw18>	lol
+T 1614289911 18<27grym18>	excellent. 
+T 1614289918 18<27grym18>	well, for damn sure turn that on for `make`
+T 1614290012 18<26ddavis18>	I hate writing Makefiles cause it's the only place I'm forced to use tabs :(
+T 1614290028 18<27grym18>	i don't care, because i configure my editor to care for me 
+T 1614290029 18<27grym18>	:D
+T 1614290036 18<27grym18>	(and turn on visible whitespace)
+T 1614290074 18<26ddavis18>	Absolutey, it still bothers me to see the evidence of the tab lol
+T 1614290083 18<27grym18>	my boss was very very salty about wanting to use tabs in python and i was thiiis close to putting a commit hook on the server and then he finally backed off :P
+T 1614290091 18<27grym18>	mostly because i walked him through configuring kate to have a python mode
+T 1614290173 18<20acdw18>	lol
+T 1614290203 18<20acdw18>	i think tabs are great, but usually i don't care so long as it doesn't mess up the previous indentation
+T 1614290211 18<20acdw18>	is there a guess-indent-mode for emacs? b/c that's REALLY what i need
+T 1614290292 18<25cvandusen18>	,dtrt-indent 
+T 1614290293 18<22fsbot18>	dtrt-indent is a minor mode that guesses the indentation offset -- https://github.com/jscheid/dtrt-indent
+T 1614290305 18<28technomancy18>	rudybot: if you burn a banana, is it called a burnana?
+T 1614290410 18<27natter18>	bring back rudybot - we won't stand for this!
+T 1614290466 18<25cvandusen18>	Thanks to my standing desk, I will. 
+T 1614290714 18<27natter18>	bring back rudybot - we won't take this lying down!
+T 1614290718 18<20acdw18>	ooh thanks cvandusen 
+T 1614291267 18<25cvandusen18>	yw
+T 1614291556 18<29cluck18>	technomancy: there's a ban on nana jokes, due to pandemic burns
+T 1614292041 18<20acdw18>	:(
+T 1614293601 18<20dale18>	grym: work-machine$ rg -l -t py '^\t' | wc -l → 1391
+T 1614293609 18<20acdw18>	:O
+T 1614293614 18<27grym18>	[[twitching in black]]
+T 1614293619 18<20acdw18>	does python count \t as 8 spaces?
+T 1614293625 18<20dale18>	grym: I'm not sure if this is a defense, but it is like a seventeen year old code base.
+T 1614293708 20*	Disconnected (20)
+T 1614293853 20*	Disconnected (20Remote host closed socket)
+T 1614293898 20*	Disconnected (20Remote host closed socket)
+T 1614293925 19*	Now talking on 22#emacs
+T 1614293925 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1614293925 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
+T 1614293925 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1614293957 18<20dale18>	grym: I don't think you edit Python in Emacs, but FYI (or F anyone else's I), reformatter.el can very easily be set up to run black and/or isort on save, or on command, or both.
+T 1614294010 18<27grym18>	dale: i do sometimes!  i've been using https://github.com/pythonic-emacs/blacken/blob/master/blacken.el  but i'll have a look 
+T 1614294019 18<20dale18>	earthToAdam: Do you actually want to modify the buffer contents?
+T 1614294030 18<27grym18>	oh that looks a lot cleaner
+T 1614294055 18<20dale18>	grym: I doubt there's much reason to switch, but here's how I set them up: https://github.com/dsedivec/dot-emacs-d/blob/master/init.el#L3402-L3412
+T 1614294086 18<20dale18>	grym: I mainly like reformatter.el because it's a single tool that I can use all over the place, and it's fairly simple.
+T 1614294109 18<19earthToAdam18>	Hi dale: Yeah, I have a heading under point and I want to change its title.
+T 1614294125 18<27grym18>	dale: yeah that's a good selling point in my book 
+T 1614294178 18<20dale18>	earthToAdam: I'm not sure if it was you or someone else we were talking about this with a week or so ago, but *in theory* you can modify the AST using org-element-put or whatever, then delete the element from the buffer (you probably have its bounds parsed there for you), then you can use org-element-interpret-data to write it back out.
+T 1614294182 18<20dale18>	earthToAdam: https://orgmode.org/worg/dev/org-element-api.html#org6300603
+T 1614294238 18<20dale18>	earthToAdam: In practice I think I'd just use org-element to figure out the bounds of the title and then modify the buffer directly.  Probably much faster and easier.  I think ngz opined something to this effect when we were talking about modifying links that had been parsed with org-element.
+T 1614294289 18<27grym18>	dale: also purcell knows what he's about, so
+T 1614294295 18<27grym18>	i'm willing to take it for a spin 
+T 1614294314 18<20dale18>	grym: Agreed.
+T 1614294373 18<19earthToAdam18>	dale: thanks. I've been trying to get this to work with org-element-put-property and also tried org-element-map. But either I'm using the wrong function or I'm not setting it up right.
+T 1614294387 18<27grym18>	dale: what's this :lighter argument
+T 1614294403 18<20dale18>	earthToAdam: To be clear, I believe those functions only modify the in-memory AST, I don't believe they change the buffer at all.
+T 1614294411 18<19earthToAdam18>	dale ah...
+T 1614294413 18<20dale18>	grym: You know the thing that appears in the mode line when you turn on/off a minor mode?  That's the mode's "lighter".
+T 1614294422 18<27grym18>	ahhh.
+T 1614294442 18<20dale18>	grym: If you don't precede it with a space then it'll butt up against whatever is to its left, which you may or may not want.
+T 1614294465 18<19earthToAdam18>	dale: so what I need is something like org-entry-put (but for the headline). There must be a function that does this...
+T 1614294467 18<20dale18>	(See https://github.com/tarsius/minions if you want to get rid of the spew of lighters in your mode line.)
+T 1614294657 18<20dale18>	Google: How can you possibly not understand the difference between "lithium primary cell" and "lithium-ion rechargeable".  You're a disgrace.
+T 1614294938 20*	Disconnected (20)
+T 1614294996 20*	Disconnected (20Remote host closed socket)
+T 1614295048 20*	Disconnected (20Remote host closed socket)
+T 1614295097 20*	Disconnected (20Remote host closed socket)
+T 1614295127 19*	Now talking on 22#emacs
+T 1614295127 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1614295127 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
+T 1614295127 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1614295165 18<19earthToAdam18>	pjb just a string of characters
+T 1614295177 18<20pjb18>	oh, so not a sequence...
+T 1614295215 18<20dale18>	pjb: I think Elisp considers strings to be a "sequence"?
+T 1614295229 18<19earthToAdam18>	pjb: sorry seq = my pseudotalk for string of characters
+T 1614295243 18<20pjb18>	Yes. (mapcar 'sequencep '("abc" (a b c) [1 2 3])) --> (t t t)
+T 1614295316 18<20birkoff18>	i've installed centaur-tabs and enabled it then disabled tab-bar-mode, then enabled global-tab-line-mode and now can't get centaur tabs to show again
+T 1614296055 18<19earthToAdam18>	dale: okay I think I close. It feels a bit like I'm taking a meat cleaver to it. But... http://ix.io/2QSm
+T 1614296058 18<20dale18>	earthToAdam: Heh, if it works, run it.  But do change that (setq) to a (let).
+T 1614296060 18<20dale18>	earthToAdam: (let ((level (org-outline-level))) (org-kill-line) (insert ...))
+T 1614296061 18<19earthToAdam18>	ah!
+T 1614296061 18<20dale18>	earthToAdam: Basically establishes a local variable.
+T 1614296061 18<19earthToAdam18>	thx
+T 1614296063 18<20dale18>	I don't even know why I said "basically" there.  Maybe I'm hedging against dynamic scope.
+T 1614296064 18<19earthToAdam18>	i think i'm screwing something up on the last line. It gives me a "wrong no. of arguments error"...
+T 1614296065 18<19bremner18>	maybe you mean elisp is a dialect of BASIC
+T 1614296077 18<20acdw18>	her's one problem with reformatter: it's finding errors with shfmt that shfmt itself doesn't show
+T 1614296258 18<19earthToAdam18>	dale: I think I got it http://ix.io/2QSo
+T 1614296351 18<19earthToAdam18>	dale: I still can't believe that this function doesn't already exist.. but whatever works!
+T 1614296488 18<28rgr18>	I refiled an ogr task to a new or file with its own filetags, but the agenda is still showing the old file. I refreshed with r and still doesnt change
+T 1614296499 18<28rgr18>	org task...
+T 1614297958 18<22shapr18>	JOKE TIME! Q: What do the Uruk-Hai in Lord Of The Rings use to schedule their invasions? A: orc-mode !
+T 1614298209 18<28bigRoo18>	Is there any exiting package which can create a simple C project template (with folders like src, inlucde, lib etc.)?
+T 1614298270 18<28bigRoo18>	Or it would be just easier to write some elisp and put it into my init file?
+T 1614298659 18<27natter18>	bigRoo: it sounds like you're describing cookiecutter (not emacs-specific) -- I personally think it'd be easier to do like you say and just write some elisp yourself
+T 1614299168 18<28bigRoo18>	natter: I always run into the rabbit hole by worrying about customizing my Emacs config too much without better using existing packages :)
+T 1614299212 18<27natter18>	code re-use is overrated - just do the thing. On that same hand, how often are you creating new C projects that you need a template?
+T 1614299416 18<28technomancy18>	*new* C projects? what is this; the 1990s?
+T 1614299504 18<28jlf`18>	hey!
+T 1614299577 18<20acdw18>	boop
+T 1614299580 18<20acdw18>	hey jlf` 
+T 1614299588 18<28technomancy18>	rudybot: here we are now--entertain us
+T 1614299775 18<29shoshin18>	Any ruby users around here? I'm wondering about jump to def solutions l when dumb-jump fails
+T 1614299803 18<29shoshin18>	I've tried eglot and robe mode too, just curious about other folks experience
+T 1614299833 18<28bigRoo18>	technomancy: It's just for a uni course. Like create project quickly for each new excise in class
+T 1614299863 18<20birkoff18>	i've installed centaur-tabs and enabled it then disabled tab-bar-mode, then enabled global-tab-line-mode and now can't get centaur tabs to show again
+T 1614299885 18<28technomancy18>	bigRoo: I guess I should be complaining to your profs then
+T 1614299889 18<28technomancy18>	(unless you're a history student)
+T 1614300288 18<28bigRoo18>	technomancy: The professor, like many others, asks the students to use an IDE (Code Blocks) for the two-week C programming part
+T 1614300326 18<19earthToAdam18>	How can I align values in an org-mode properties drawer? Function?
+T 1614300470 18<20birkoff18>	is nntp still alive?
+T 1614300471 18<28bigRoo18>	I am assisting the lab. I would be more than delighted if the makefile approach is mentioned to the students at all...
+T 1614300612 24*	28enty is now known as 18ente
+T 1614301707 18<20birkoff18>	is treemacs necessarily for projects and not for filesystem browsing?
+T 1614302337 18<20birkoff18>	how can I find the current font name?
+T 1614302590 18<27nij18>	I'm confused.. why does org-roam.el knows where to look for org-roam-faces without adding path? https://github.com/org-roam/org-roam/blob/master/org-roam.el#L58
+T 1614302756 18<29wgreenhouse18>	nij: org-roam-faces is found in the same dir
+T 1614302762 18<29wgreenhouse18>	so generally if one is in load-path, so is the other
+T 1614302767 18<29wgreenhouse18>	pretty normal
+T 1614302795 18<29wgreenhouse18>	most elisp packages that aren't as huge as org itself keep all their elisp in one flat directory that you add to load-path
+T 1614302803 18<29wgreenhouse18>	or that your package manager of choice adds to load-path
+T 1614302849 18<27nij18>	i see..
+T 1614302858 18<27nij18>	so if i want to create a package
+T 1614302870 18<27nij18>	i have to add that directory into load-path
+T 1614302877 18<27nij18>	and that will take care of all files in that dir
+T 1614302929 18<29wgreenhouse18>	nij: yes. but not recurse into any subdirs
+T 1614302952 18<29wgreenhouse18>	for this reason, most elisp packages have either all the lisp in the top dir of the package, or in a subdir named something like lisp/
+T 1614302961 18<27nij18>	hmm.. is there another version of #'require that takes care of the current dir automatically?
+T 1614302977 18<27nij18>	wgreenhouse that sounds pretty weird for me..
+T 1614303043 18<29wgreenhouse18>	nij: require loads a symbolic name of a library; it's abstracted away completely from any idea of the filesystem. if you want to point at a specific _file_ use `load' instead
+T 1614303051 18<27nij18>	i see
+T 1614303055 18<27nij18>	(must head out.. thank you!)
+T 1614303058 18<29wgreenhouse18>	actually, require declares a dependency
+T 1614303069 18<29wgreenhouse18>	if a matching symbol is already loaded it does nothing at all
+T 1614303075 18<29wgreenhouse18>	see ya nij
+T 1614304367 24*	28jsoo_ is now known as 18jsoo
+T 1614329371 20*	Disconnected (20)
+T 1614329396 19*	Now talking on 22#emacs
+T 1614329396 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat | No Public Logging, racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1614329396 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Fri Feb 26 03:58:32 2021)
+T 1614329396 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1614330527 18<27thomasb0618>	talking about killing local variables, is there a way to reload the config without keeping trace of the former definitions? In particular to clean the hooks, eval-buffer doesn't clean them
+T 1614331437 18<20pjb18>	thomasb06: it's possible to mutate the image, but there's nothing automatic.  It's not easy.
+T 1614331803 18<26polezaivsani18>	for hooks specifically there is (get 'hook 'standard-value), but C-x C-c and start again is easier
+T 1614331828 18<27thomasb0618>	pjb: no worries, it was by curiosity
+T 1614331859 18<27thomasb0618>	polezaivsani: definitely, and it's every now and then
+T 1614331935 18<27thomasb0618>	Anyway, a noobs question to equilibrate: how to define a global-set-key with Shift-f5 instead of f5? This one is a real question
+T 1614331975 18<20YoungFrog18>	is there a standard/reasonnable way to add some information for each entry in my dired buffer ? e.g. when I'm in a directory containing git repositories, I'd like to show the number of commits from each repo in that.
+T 1614331976 18<26polezaivsani18>	thomasb06: C-h c is your friend
+T 1614332041 18<27thomasb0618>	it seems <S-f5> would do
+T 1614332114 18<20YoungFrog18>	yup (global-set-key (kbd "<S-f5>") 'some-command) should work
+T 1614332140 18<27thomasb0618>	easy... having a buffer on #emacs was a good idea
+T 1614332191 18<26polezaivsani18>	it's like a long winded emacs info document in here at times :)
+T 1614332209 18<20YoungFrog18>	another way to find out the correct lisp, is to use M-x global-set-key interactively (it asks for the key combo and the command to bind), then use C-x M-: to see what the lisp happened.
+T 1614332283 18<27thomasb0618>	YoungFrog: excuse-me? To type M-x global-set-key and the keystroke?
+T 1614332353 18<27thomasb0618>	it doesn't seems it took the shift though
+T 1614332376 18<20YoungFrog18>	are you in GUI emacs ?
+T 1614332382 18<27thomasb0618>	YoungFrog: yes
+T 1614332436 18<27thomasb0618>	polezaivsani: someday, it's windy
+T 1614332539 18<20YoungFrog18>	well then I don't know why it would ignore your shift.
+T 1614332597 18<27thomasb0618>	YoungFrog: maybe I broke something again... Let me try without config
+T 1614332785 18<27thomasb0618>	YoungFrog: well, I broke something again. My .emacs last from my early days when I copy-pasted all kind of stuff from the internet and there's something wrong regularly. Last week, it was M-[ bounded to [] C-b in order to make a pair
+T 1614332821 18<27thomasb0618>	By the way, do you have a trick to double hooks, parents, and square hooks?
+T 1614332855 18<27thomasb0618>	*brackets
+T 1614332940 18<19ville18>	how do i get yasnippets show up in the company popup box? i've tried some odd pieces of elisp i've found from the internet but none of them ever work. anyone have something i can just copypasta to get it done?
+T 1614333035 18<19ville18>	if i invoke company-yasnippet directly, it'll find the one test snippet just fine, so i guess that part is working
+T 1614333039 18<26polezaivsani18>	thomasb06: not sure, but electirc-pair-mode might be that thing
+T 1614333058 18<27thomasb0618>	polezaivsani: heard about it on reddit, thanks
+T 1614336353 24*	28alexherbo28 is now known as 18alexherbo2
+T 1614337189 18<24mbuf18>	Is it possible to in org-agenda to list the tasks based on a number sequence, instead of time or priority?
+T 1614338181 18<27nly18>	how to use pip in nixos
+T 1614339734 18<27thomasb0618>	YoungFrog: M-x global-set-key takes the shift now, but I haven't a clue what it was...
+T 1614340117 18<27thomasb0618>	my keybinding (global-set-key (kbd "C-;") 'kill-line) doesn't work in console mode. Is there an explanation (other than b-word)?
+T 1614340839 18<26polezaivsani18>	thomasb06: console mode? if you mean some terminal emulator, then it's probably due to char/line modes;  the binding should work in line mode (C-c C-j by default in some of them)
+T 1614340974 18<27thomasb0618>	polezaivsani: C-c C-j returns is undefined. Also, I'm on a remote over ssh. But even on the remote, if I start emacs in Gui mode the keybinding goes well
+T 1614341058 18<28rgr18>	links to my source files created using org-store-link are now git links. I'm not installing org-git-link myself, so how to stop this? 
+T 1614341079 18<27thomasb0618>	my terminal is Kitty, maybe I can open an issue on its GitHub
+T 1614341137 18<28rgr18>	haha ol-git-link. But is there a way to simply override ? I prefer non git version unless, say a prefix?
+T 1614341303 18<26polezaivsani18>	thomasb06: and there are any other bindings starting with Ctrl that work in the terminal?
+T 1614341326 18<26polezaivsani18>	... i mean any other Emacs bindings
+T 1614341392 18<27thomasb0618>	The other few I tested went well, let try another bunch. What was C-x C-j supposed to do?
+T 1614341495 18<26polezaivsani18>	thomasb06: i was thinking that you run some terminal emulator inside Emacs, where C-c C-j switches to line mode
+T 1614341500 18<27thomasb0618>	polezaivsani: with punctuation, it doesn't go well
+T 1614341550 18<27thomasb0618>	it's not inside emacs, I run terminal and then emacs -nw
+T 1614341624 18<26polezaivsani18>	thomasb06: so if you do C-h c C-; - does Emacs receive any input?
+T 1614341625 18<27thomasb0618>	my keyboard is dvorak so I rebound some commands closer to Ctrl key, but it means it's commas, semi-colons, colons, ...
+T 1614341636 18<27thomasb0618>	ah good idea
+T 1614341732 18<27thomasb0618>	it says: "; runs the command self-insert-command"
+T 1614341766 18<27thomasb0618>	and: "' runs the command self-insert-command"
+T 1614341808 18<26polezaivsani18>	thomasb06: means Emacs doesn't get the Ctrls, which is likely due to the terminal
+T 1614341827 18<26polezaivsani18>	thomasb06: though i wouldn't be able to help with that further, sorry
+T 1614341832 18<27thomasb0618>	let me open an issue at Kitty's
+T 1614341847 18<27thomasb0618>	no worries, you already solved my problem
+T 1614341923 18<26polezaivsani18>	is it like 'open gh issue now, read the docs later' now ;)  I dont' know anything about Kitty, but maybe it's well documented behavior?
+T 1614341990 18<27thomasb0618>	you're right, maybe I can ask first... They should have an Irc channel somewhere
+T 1614342650 18<27thomasb0618>	polezaivsani: the behavior is the same in xfce4-terminal and terminator, no need to open an issue
+T 1614342938 18<26polezaivsani18>	thomasb06: do let me know if you figure it out ;)  Tried it in virtual console - same thing
+T 1614343100 18<27thomasb0618>	polezaivsani: it's now only me? Tonight I need to get drunk with Briton cider
+T 1614348960 20*	Disconnected (20)
+T 1614348988 19*	Now talking on 22#emacs
+T 1614348988 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat | No Public Logging, racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1614348988 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Fri Feb 26 03:58:32 2021)
+T 1614348988 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1614349002 18<22terzievk18>	/join #archlinux
+T 1614349002 18<22terzievk18>	 
+T 1614349374 18<20acdw18>	who me?
+T 1614349378 18<20acdw18>	oh lol
+T 1614349429 18<22terzievk18>	what
+T 1614349470 18<20acdw18>	i think you typo'd /join #archlinux here, i was making a dumb joke
+T 1614349557 18<22terzievk18>	ooh, my bad :d, I thought I would ask there too
+T 1614349570 18<20acdw18>	haha noworries
+T 1614350055 18<22MysteriousSilver18>	Hi! - I'm using emacs-mime to sign my mu4e messages, how do i automatically attach my public key?
+T 1614350568 18<22MysteriousSilver18>	,ping
+T 1614350569 18<22fsbot18>	␕
+T 1614350615 18<20acdw18>	pong
+T 1614350727 18<27grym18>	thomasb06: git-scm.com/book and a command line goes a long way 
+T 1614350780 18<28rgr18>	such high hopes for dap-mode but I think its a step too far. Just came to use it again and nothing works once more. node errors, path errors, gah.  One chane on the vscode extension and it all seems to fall over. I give up.
+T 1614351122 18<27thomasb0618>	grym: cheers, they have it at the library
+T 1614351143 18<19ville18>	rgr: what are you debugging? if it's c or c++ then i just discovered dap-mode can do that with out vscode extensions
+T 1614351168 18<27grym18>	thomasb06: slightly old now, but good if you're OK with speedtalking: https://www.youtube.com/watch?v=ZDR433b0HJY 
+T 1614351175 18<27grym18>	(and like/learn from listening)
+T 1614351399 18<27thomasb0618>	grym: wish I could tell you that I prefer reading books. Link bookmarked, thank you
+T 1614351424 18<27grym18>	An Excited Mans Would Like To Burble At You Happily About Trees, the talk :P
+T 1614351584 18<28roadie18>	offtopic - I have rsync complaining on shared hosting: rsync: recv_generator: mkdir "/blog" failed: Read-only file system (30)
+T 1614351624 18<28roadie18>	the site is in the root folder and the blog folder is present ...  - can I fix this?
+T 1614351841 18<27grym18>	looks like you don't have permissions set properly?
+T 1614351879 18<27thomasb0618>	(nice talk)
+T 1614351885 18<26polezaivsani18>	thomasb06: cool, thanks for another piece of this old puzzle; iirc Ctrl sequences are encoded as ascii key code - 64, e.g. Tab is C^I, with I=73, resulting in 9, a HT.  Thus sequences with ascii code less than 64 won't work
+T 1614351924 18<28roadie18>	grym the hosting company said I need the dedicatet GNU/Linux server plan to use rsync - I have ssh passwordless access and rsync is installed on the server so I am trying if I can get it to work anyways ...
+T 1614351961 18<27grym18>	roadie: that's all peripheral to my point, i think 
+T 1614351977 18<27grym18>	roadie: if you remote into that machine, can you `touch /foo`
+T 1614351982 18<27grym18>	(i suspect that you cannot)
+T 1614352003 18<28roadie18>	yes - and now there is a foo file ...
+T 1614352034 18<27grym18>	huh, ok
+T 1614352061 18<28roadie18>	I can mkdirs and things and all but rsyncing a folder up into that root ... no go so far
+T 1614352076 18<28roadie18>	wait
+T 1614352090 18<28roadie18>	touch: cannot touch '/foo': Read-only file system
+T 1614352102 18<28roadie18>	my bad I missed the slash :)
+T 1614352133 18<28roadie18>	grym - can I fix this?
+T 1614352166 18<27grym18>	roadie: don't put things in bare root
+T 1614352196 18<27grym18>	put them in $HOME or /opt/ or wherever else as appropriate
+T 1614352204 18<28roadie18>	... great, facepalm - the thing is live and hooked to root
+T 1614352214 18<27thomasb0618>	polezaivsani: finally, I made a contribution in #emacs. It took ages
+T 1614352219 18<27grym18>	root as in / not root as in the administrator account
+T 1614352259 18<28roadie18>	grym - so if I create a directory for the upload rsync would work and then I could mv on the server?
+T 1614352273 18<28roadie18>	yes as in / 
+T 1614352275 18<27thomasb0618>	polezaivsani: thanks for the extra mile
+T 1614352309 18<27grym18>	roadie: sure.  but, why are you inclined to have things in / directly? 
+T 1614352332 18<26polezaivsani18>	thomasb06: don't get too drunk over it, we'll need you help here tomorrow :)
+T 1614352335 18<28roadie18>	grym I am not but I noobishly installed the site into that for a client ...
+T 1614352387 18<28roadie18>	so I should do it like dreamhost have a folder with the site name maybe?
+T 1614352397 18<28roadie18>	example.com folder
+T 1614352464 18<27thomasb0618>	you got me motivated not to drink tonight. No problem.
+T 1614352510 18<26polezaivsani18>	i'm sorry =)
+T 1614352511 24*	28juancate_ is now known as 18juancate
+T 1614352773 18<27thomasb0618>	:o)
+T 1614352862 18<22MysteriousSilver18>	[off-topic] gpg noob here, do i need to attach by public key or is signing the email is enough to get a encrypted reply?
+T 1614353091 18<27grym18>	roadie: i tend to stuff things into /opt 
+T 1614353563 18<28gnUser18>	Hi guys, I am trying to move from vscodium to emacs for development. Can anyone provide the most common used keyboard shortcuts for vanilla emacs? I have found these cheet sheets online but they seem to be packed with information that I just cannot picture myself ever using
+T 1614353600 18<27natter18>	gnUser: have you tried the tutorial? (C-h t)
+T 1614354013 18<27grym18>	gnUser: emacs-land tends to be information heavy and trusts the user to skim for relevant content, on the whole.  the tutorial is good for going through real basic stuff like "how to navigate text, how to open and close and find files, ... "
+T 1614354552 18<25cvandusen18>	Also, keyboard shortcuts tend to mean the keyboard equivalents of actions performed by a mouse/pointer. In Emacs, the keyboard is the main way to interact with it.
+T 1614355178 18<28gnUser18>	natter: I have to admin I have started it many times but have never finished it lol
+T 1614355208 18<28gnUser18>	cvandusen: true
+T 1614355221 18<28gnUser18>	grym: agreed
+T 1614355459 18<25cvandusen18>	Now that that's settled. ,,homie-yow 
+T 1614355460 18<22fsbot18>	they go so easily extinct we like them!
+T 1614355460 18<22fsbot18>	lol
+T 1614355613 18<22shapr18>	,yow
+T 1614355614 18<22fsbot18>	Am I SHOPLIFTING?
+T 1614357208 18<27nly18>	how to wget google drive link wtf
+T 1614357346 18<25bandali18>	try wget 'https://docs.google.com/uc?export=download&id=XYZ'; where XYZ is the file id from the share link you were given
+T 1614357350 18<26polezaivsani18>	nly: there's a nifty wget fork called chrome or something i heard ;)
+T 1614357488 18<26polezaivsani18>	nly: also if what bandali says won't work, you can sniff the link from the browser's dev tools while it starts the download
+T 1614357540 18<25bandali18>	presumably assuming you're okay with executing google's nonfree js garbage
+T 1614357659 18<27epony18>	polezaivsani, the black edition is called karachorum (of that GOOG botnet)
+T 1614357673 18<27nly18>	thank you noble bandali
+T 1614357690 18<28roadie18>	+1
+T 1614357693 18<25bandali18>	cheers
+T 1614358039 18<26polezaivsani18>	epony: something tells me it is nice that i have browser set to not display images while while looking that up :)
+T 1614358273 18<26polezaivsani18>	speaking of browsers, i noticed that eww (and tentatively w3m) are quite slow to load resources over https - is this just the state of things or are there any know remedies?
+T 1614358378 18<27nly18>	lightweight web server: http://95.181.66.137:8888
+T 1614358406 18<27nly18>	made in russia
+T 1614358413 18<27nly18>	no, not nginx
+T 1614358417 18<27nly18>	it's web swine
+T 1614358427 18<27epony18>	polezaivsani, it's a word play at a desert name (the browser is like a desert, too scarce of an environment with too many dangers and force exerted on naive walk-in tourists)
+T 1614358518 18<26polezaivsani18>	haha, epony!  sorry for having to explain the joke, but it's good still
+T 1614358614 18<19ville18>	anyone care to explain to me how to get yasnippet to work in conjuction with company and lsp-mode? i seem to be failing to understand how to setup the backend properly. if I invoke company-yasnippet directly it completes my one-and-only snippet correctly, but i can't seem to get it happen autommagically
+T 1614358996 18<27epony18>	polezaivsani, see https://en.wikipedia.org/wiki/Karakum_Desert#Features
+T 1614359161 18<26polezaivsani18>	the Darvaza gas crater does look pretty much like chrome i suppose
+T 1614359202 18<27epony18>	vapourware on fire ;-)
+T 1614359610 18<26polezaivsani18>	also disregard my claims about eww being slow with https - it happens only with some hosts
+T 1614359780 18<27codingquark18>	After using profanity (xmpp client) so much, I keep feeling like switching away from erc :-P
+T 1614359828 18<27codingquark18>	Almost never a good idea to change stuff for no real reason
+T 1614361181 18<26ryutas18>	..
+T 1614361211 18<27codingquark18>	Is that morse code?
+T 1614361375 18<26ryutas18>	- .... .. ... / .. ... / -. --- - / -- --- .-. ... . / -.-. --- -.. . --..-- / .--- ..- ... - / -- -.-- / ..-. .- ..- .-.. - --..-- / ... --- .-. .-. -.-- .-.-.-
+T 1614361389 18<25cvandusen18>	easy for you to say 
+T 1614361526 18<20acdw18>	infeed
+T 1614361538 18<27codingquark18>	outfeed
+T 1614361623 18<20acdw18>	sidefeed
+T 1614361658 18<25cvandusen18>	rssfeed 
+T 1614362191 18<20acdw18>	bestfeed
+T 1614362605 18<29mplsCorwin18>	offmifeed
+T 1614363072 18<28gnUser18>	Can you guys share what tasks of your daily computing you do inside emacs and why?
+T 1614363083 18<28gnUser18>	I know its my favorite IRC client for sure but what else?
+T 1614363153 18<28technomancy18>	all of it except the browser
+T 1614363182 18<27codingquark18>	Emails, terminals, coding, tasks
+T 1614363204 18<26ryutas18>	exwm for window manager
+T 1614363222 18<27codingquark18>	Music
+T 1614363227 18<28gnUser18>	music?
+T 1614363237 18<27codingquark18>	,emms
+T 1614363238 18<22fsbot18>	emms: [0/4] a media (e.g. music) player for Emacs <http://emacswiki.org/wiki/EMMS>, <http://gnu.org/software/emms>
+T 1614363239 18<22fsbot18>	[1] does not play music but is just a front-end to other players
+T 1614363239 18<22fsbot18>	[2] works great in Emacs out of X!
+T 1614363239 18<22fsbot18>	[3] can play videos in Xorg, by opening non-emacs based windows of the associated media-player.
+T 1614363239 18<22fsbot18>	[4] Emacs MultiMedia System
+T 1614363253 18<28technomancy18>	oh man; music is like the one thing I don't use emacs for
+T 1614363259 18<28gnUser18>	interesting
+T 1614363268 18<28technomancy18>	well, I trigger a rofi script from an emacs key binding
+T 1614363287 18<27codingquark18>	ha ha, I offload youtube vids to mpv via emms
+T 1614363313 18<26polezaivsani18>	haha, all of it, including browser, no kidding
+T 1614363320 18<28technomancy18>	mpd works well enough that I've never had a reason to look elsewhere
+T 1614364280 20*	Disconnected (20)
+T 1614364305 19*	Now talking on 22#emacs
+T 1614364305 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat | No Public Logging, racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1614364305 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Fri Feb 26 03:58:32 2021)
+T 1614364305 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1614365076 18<29johnjay18>	have we reached the point of extensions for browsers being more important than the browsers themselves?
+T 1614365145 18<27aidalgol_18>	probably
+T 1614365148 24*	28aidalgol_ is now known as 18aidalgol
+T 1614365176 18<29johnjay18>	i have a maybe 4 or 5 extensions i use regularly. do people have more than that?
+T 1614365222 18<27grym18>	probably 6 or 7 for me 
+T 1614365258 18<20acdw18>	around that many for me as well
+T 1614365294 18<24Aurora_v_kosmose18>	gnUser: I just call up terminals from dired with selected video/audio tracks I want to listen to.
+T 1614365319 18<29johnjay18>	are extensions mainly used for interfacing with like cloud stuff?
+T 1614365327 18<28technomancy18>	ublock origin and keysnail are 100% indispensible and I would never use a browser that lacked them
+T 1614365331 18<28technomancy18>	others are nice-to-have
+T 1614365332 18<29johnjay18>	i usually get an extension because i want a feature that's lacking like tab groups
+T 1614365347 18<27grym18>	offhand: noscript, ublock origin, treestyle tabs, lastpass for work, pinboard, multi-account containers, https everywhere, old reddit redirect, tabmix plus
+T 1614365365 18<24Aurora_v_kosmose18>	umatrix, ublock and greasemonkey are essential ones. The last one because it's oftend necessary to manually fix sites which you don't feel like enabling JS on.
+T 1614365366 18<27grym18>	ok, so more like on the order of 10 
+T 1614365380 18<20acdw18>	technomancy: ooh what's keysnail
+T 1614365382 18*	20acdw looks up
+T 1614365384 18<27work_18>	Is it possible to search for questions that have been asked to this channel? Like is there somewhere all the chat are stored?
+T 1614365386 18<24Aurora_v_kosmose18>	Ah right, containers & https-everywhere.
+T 1614365400 18<20acdw18>	firefox ships with https-everywhere now basically!
+T 1614365400 18<26hendursaga18>	work_: see topic, no public logging
+T 1614365404 18<24Aurora_v_kosmose18>	I wrote my own redirect for a few sites, like reddit, as a userscript instead of using an extension.
+T 1614365411 18<20aidalgol18>	work_: No, this c- what hendursaga said
+T 1614365421 18<20acdw18>	Aurora_v_kosmose: nice!
+T 1614365467 18<24Aurora_v_kosmose18>	acdw: It's a one-liner, so it seems like installer way too much stuff I don't feel like auditing, when I can just do it that way.
+T 1614365469 18<27grym18>	i guess surfingkeys is a modern keysnail
+T 1614365482 18<24Aurora_v_kosmose18>	*installng way too much stuff
+T 1614365505 18<24Aurora_v_kosmose18>	I really mangled that sentence didn't I?
+T 1614365542 18<20acdw18>	keysnail sounds awesome
+T 1614365546 18<20acdw18>	Aurora_v_kosmose: care to share?
+T 1614365568 18<28technomancy18>	acdw: keysnail is like ... you can use a browser without using the omuse
+T 1614365572 18<28technomancy18>	*mouse
+T 1614365580 18<20acdw18>	yah, looks amazing
+T 1614365589 18<24Aurora_v_kosmose18>	acdw: window.location = window.location.href.replace("www.reddit.com","old.reddit.com");
+T 1614365593 18<20acdw18>	aw but can't use past 57
+T 1614365604 18<20acdw18>	Aurora_v_kosmose: lol that /is/ easy! wow
+T 1614365609 18<27grym18>	acdw: yep, so https://github.com/brookhong/Surfingkeys/ 
+T 1614365609 18<24Aurora_v_kosmose18>	acdw: Just match it to https?://www.reddit.com/ and it'll do the trick.
+T 1614365617 18<20acdw18>	i might should learn , like, basic javascript
+T 1614365619 18<20acdw18>	thanks!
+T 1614365626 18<28technomancy18>	acdw: I mean, it's ridiculous that you have to install an extension in order to get this functionality
+T 1614365631 18<28technomancy18>	it should be built-in
+T 1614365635 18<28technomancy18>	but it's better than nothing
+T 1614365642 18<20aidalgol18>	technomancy: This inputism will not stand, man!
+T 1614365650 18<24Aurora_v_kosmose18>	technomancy: Indeed.
+T 1614365709 18<20acdw18>	technomancy: indeed!
+T 1614365712 18<27grym18>	i also know zarro yavascript 
+T 1614365733 18<20acdw18>	should just use nyxt
+T 1614365737 18<20acdw18>	or qute
+T 1614365739 18<24Aurora_v_kosmose18>	Firefox's console has autocompletion. So besides learning basic syntax you don't need overmuch ot get started.
+T 1614365759 18<24Aurora_v_kosmose18>	The Moz doc website also has fairly comprehensive reference.
+T 1614365759 18<20acdw18>	ooh
+T 1614365765 18<20acdw18>	i use them for css+html
+T 1614365775 18<27grym18>	mdn is good, yeah 
+T 1614365800 18<24Aurora_v_kosmose18>	It even has basic game dev stuff, though it assumes you're familiar with the general stuff in that domain and simply don't know the web-specific stuff.
+T 1614365834 18<24Aurora_v_kosmose18>	Or at least, it did when I last check... over 2 years ago. Time really flies doesn'it?
+T 1614365838 18<27grym18>	sadly i don't think mdn ships docsets for offline use with zeal or w/e
+T 1614365855 18<28technomancy18>	aidalgol: fine fine; I'll say good things about trackballs
+T 1614365857 18<28technomancy18>	but not mice!
+T 1614365869 18<27grym18>	or .. do they?
+T 1614365887 18<24Aurora_v_kosmose18>	https://github.com/mdn/content
+T 1614365887 18<20aidalgol18>	technomancy: You've just never used a good one, clearly. :P
+T 1614365909 18<27grym18>	https://github.com/mdn/yari/issues/2362  
+T 1614365909 18<27grym18>	busted
+T 1614365917 18*	20aidalgol shudders at the thought of using a trackball or trackpad for digital art...
+T 1614365924 18<24Aurora_v_kosmose18>	aidalgol: Tablets ftw
+T 1614365976 18<28technomancy18>	aidalgol: how can I use something that doesn't exist
+T 1614366018 18<20acdw18>	hm.. the violentmonkey script isn't redirecting
+T 1614366018 18<24Aurora_v_kosmose18>	Hm, fast-response reasonable-dpi mouses are good for FPSes and twitch-movement stuff.
+T 1614366031 18<24Aurora_v_kosmose18>	acdw: Chrome may have different API reactions than Firefox.
+T 1614366031 18<20acdw18>	hmm
+T 1614366032 18<20acdw18>	mebbe
+T 1614366054 18<24Aurora_v_kosmose18>	acdw: At that point you'd need to lookup how to change url location using console in Chrrome
+T 1614366070 18<24Aurora_v_kosmose18>	Knowing G00Gl3, they might even have disabled it.
+T 1614366083 18<24Aurora_v_kosmose18>	Like they disabled the APIs necessary to record phone calls in Android for some stupid reason.
+T 1614366096 18<24Aurora_v_kosmose18>	So now one has to use an overcomplicated splice instead.
+T 1614366169 24*	28wasa is now known as 18wasamasa
+T 1614366236 18<20acdw18>	ah no i'm using firefox
+T 1614366319 18<24Aurora_v_kosmose18>	acdw: Hm, ah. The match would've needed to be adjusted to a regex. Mine wasn't a one-liner because of that, so I shortened the one I pasted.
+T 1614366341 18<20acdw18>	ah
+T 1614366360 18<20acdw18>	the weird thing is, i'm runnign window.location.href.replace(...) in the console and it doesn't work
+T 1614366375 18<24Aurora_v_kosmose18>	acdw: // ==UserScript==\n// @name     Reddit-Redirector\n// @grant    none\n// @match    https://www.reddit.com/*\n// @match    http://www.reddit.com/*\n// ==/UserScript==\n
+T 1614366381 18<24Aurora_v_kosmose18>	replace \n with ^J
+T 1614366423 18<24Aurora_v_kosmose18>	Newer firefox versions (I use firefox-esr) may have done something dumb to disable it and require a @grant for it now, I don't know.
+T 1614366427 18<20acdw18>	ahhh
+T 1614366464 18<24Aurora_v_kosmose18>	Yeah, it works just fine in console for me.
+T 1614366483 18<24Aurora_v_kosmose18>	window.location.href = "https://duckduckgo.com"
+T 1614366486 18<20acdw18>	weeird
+T 1614366505 18<26jrm18>	Being a bit over-the-top, conkeror was to keysnail, what emacs is to notepad.exe, but sadly conkeror also died with XUL.
+T 1614366510 18<20acdw18>	well it works for duckduckgo
+T 1614366512 18<20acdw18>	hmmm
+T 1614366527 18<24Aurora_v_kosmose18>	I'm going to suspect Mozilla. They've done some dumb things in the past. When they removed XUL, for instance, they removed the easy API that allowed you to operate on tabs and windows from the browser console.
+T 1614366536 18<20acdw18>	yea, probably them
+T 1614366539 18<24Aurora_v_kosmose18>	Instead of making something backward compatible.
+T 1614366559 18<24Aurora_v_kosmose18>	So doing something as simple as iterating over all tabs with a url matching a certain regex and extracting titles isn't feasible nyamore.
+T 1614366564 18<27grym18>	Aurora_v_kosmose: how to skin the cat of backcompat vs trivial spyware, though, was apparently too hard 
+T 1614366565 18<24Aurora_v_kosmose18>	That used to be a one-liner too.
+T 1614366594 18<27grym18>	if a tab is to be isolated, it's ... going to be isolated. 
+T 1614366608 18<20acdw18>	i think the replace() might just have to set the location.href
+T 1614366609 18<27grym18>	where that boundary is, and why and how, are kind of above my paygrade 
+T 1614366611 18<24Aurora_v_kosmose18>	Now you need some overcomplicated supervisor->worker WebExtension to do it.
+T 1614366620 18<20acdw18>	ep! that's it
+T 1614366626 18<24Aurora_v_kosmose18>	grym: hm?
+T 1614366633 18<20acdw18>	window.location.href = window.location.href.replace(...)
+T 1614366651 18<20acdw18>	idk if i missed that before
+T 1614366658 18<20acdw18>	anyway Aurora_v_kosmose , thanks!!
+T 1614366673 18<24Aurora_v_kosmose18>	On my firefox instance, that replace is a pure function. No idea it's mutation in yours.
+T 1614366677 18<27grym18>	Aurora_v_kosmose: i'm lacking the context to speak technically so i should probably stop, but my rough understanding is that XUL breaks tab isolation something fierce and that's a double-edged sword that moz decided to blunt on purpose 
+T 1614366694 18<27grym18>	but not for "ha ha making tabmixplus break" reasons
+T 1614366704 18<24Aurora_v_kosmose18>	grym: Yeah, but they could've kept the "run on all tabs and report result" API in the browser console.
+T 1614366724 18<24Aurora_v_kosmose18>	Not the dev console, the browser console, which is something which requires enabling somewhere else and operates in a different scope.
+T 1614366742 18<24Aurora_v_kosmose18>	s/dev/web/
+T 1614366756 18<27grym18>	Aurora_v_kosmose: see this is where my word salad starts
+T 1614366762 18<27grym18>	you could well be right; i just don't know enough 
+T 1614366846 18<24Aurora_v_kosmose18>	Having to write separate extensions for everything I want to do is dumb when I should be able to do. operate_all_tabs.worker(matching_function, working_function).accumulate_serial()
+T 1614366894 18<20acdw18>	Aurora_v_kosmose: it still didn't work, actually. in the console it did but not the userscript
+T 1614366901 18<24Aurora_v_kosmose18>	Transparently spawning a supervisor coordinating all windows, each with a supervisor coordinating all tabs, then with workers in every tab running working_function
+T 1614366908 18<20acdw18>	i'm giving it a rest rn b/c i have it in my userprefs
+T 1614366912 18<20acdw18>	(and i should use reddit less)
+T 1614366963 18<24Aurora_v_kosmose18>	My method would not require any scope violation, and would in-fact use the very same WebExtension architecture they currently recommend.
+T 1614366977 18<24Aurora_v_kosmose18>	The difference is it'd have a convenient ad-hoc task interface API.
+T 1614367003 18<24Aurora_v_kosmose18>	Instead I have to save a browser session, close my browser, copy all of its jzonlz4 files, then parse & extract from those.
+T 1614367071 18<29johnjay18>	Aurora_v_kosmose: maybe i just don't know javascript
+T 1614367086 18<29johnjay18>	but i've never been able to modify a site that had a problem using greasemonkey or tampermonkey
+T 1614367143 18<20edgar-rft18>	you might know my brother, he also doesn't know javascript
+T 1614367212 18<24Aurora_v_kosmose18>	johnjay: Fixing sites like I do definitely requires you to be at least familiar with low-level webdev.
+T 1614367227 18<24Aurora_v_kosmose18>	And some minor reverse-engineering sometimes.
+T 1614367229 18<29johnjay18>	i think i asked someone one time how to modify a javascript varaible on the page
+T 1614367232 18<29johnjay18>	and he said that's impossible
+T 1614367248 18<29johnjay18>	and i couldn't figure out where the tutorials were for greasemonkey so i gave up
+T 1614367253 18<29johnjay18>	waht kind of things do you change?
+T 1614367263 18<24Aurora_v_kosmose18>	You can modify the DOM, I don't know if you can modify the running javascript scope anymore.
+T 1614367284 18<29johnjay18>	i see
+T 1614367400 20*	Disconnected (20)

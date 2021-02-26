@@ -6215,3 +6215,60 @@ Feb 25 21:18:39 <UndeadLeech>	So when adding the hint bindings, we can't just fi
 Feb 25 21:19:02 <UndeadLeech>	So in theory to override a default binding with a hint, you'd have to add a key_binding without an action and then add a hint binding.
 Feb 25 21:19:12 <UndeadLeech>	I don't know if there's a proper solution to this.
 Feb 25 21:19:23 <UndeadLeech>	But that's basically the biggest drawback I'm currently aware of.
+Feb 25 21:20:53 <UndeadLeech>	Though I think I may have found a solution that allows us to keep the old input.rs code. Because by using an Rc<Cell<Regex>> we can clone things properly with keeping only a single internally mutable referenc around.
+Feb 25 21:21:28 <UndeadLeech>	Because the macro is an absolute mess.
+Feb 25 21:35:53 *	ChanServ gives channel operator status to UndeadLeech_
+Feb 25 21:36:23 *	ChanServ gives channel operator status to kchibisov_
+Feb 25 21:36:54 *	UndeadLeech_ is now known as UndeadLeech
+Feb 25 21:39:53 *	ChanServ gives channel operator status to kchibisov
+Feb 25 21:40:40 *	n001g is now known as n000g
+Feb 25 21:41:01 *	deepa is now known as deepy
+Feb 25 21:42:26 *	yourfate_ is now known as yourfate
+Feb 25 22:01:09 *	Disco is now known as Disconsented
+Feb 25 23:55:08 *	Disconnected ()
+**** ENDING LOGGING AT Thu Feb 25 23:55:08 2021
+
+**** BEGIN LOGGING AT Thu Feb 25 23:58:45 2021
+
+Feb 25 23:58:45 *	Now talking on #alacritty
+Feb 25 23:58:45 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+Feb 25 23:58:45 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Feb 20 01:05:57 2021)
+Feb 26 00:15:38 *	Disconnected ()
+**** ENDING LOGGING AT Fri Feb 26 00:15:38 2021
+
+**** BEGIN LOGGING AT Fri Feb 26 00:18:47 2021
+
+Feb 26 00:18:47 *	Now talking on #alacritty
+Feb 26 00:18:47 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+Feb 26 00:18:47 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Feb 20 01:05:57 2021)
+Feb 26 02:52:29 *	rfs613_alt is now known as rfs613
+Feb 26 09:49:31 *	Disconnected ()
+**** ENDING LOGGING AT Fri Feb 26 09:49:31 2021
+
+**** BEGIN LOGGING AT Fri Feb 26 09:49:56 2021
+
+Feb 26 09:49:56 *	Now talking on #alacritty
+Feb 26 09:49:56 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+Feb 26 09:49:56 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Feb 20 01:05:57 2021)
+Feb 26 11:45:53 *	alexherbo28 is now known as alexherbo2
+Feb 26 15:16:00 *	Disconnected ()
+**** ENDING LOGGING AT Fri Feb 26 15:16:00 2021
+
+**** BEGIN LOGGING AT Fri Feb 26 15:16:28 2021
+
+Feb 26 15:16:28 *	Now talking on #alacritty
+Feb 26 15:16:28 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+Feb 26 15:16:28 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Feb 20 01:05:57 2021)
+Feb 26 18:00:14 <kchibisov>	The hints thing is pretty nice tbqh.
+Feb 26 19:31:20 *	Disconnected ()
+**** ENDING LOGGING AT Fri Feb 26 19:31:20 2021
+
+**** BEGIN LOGGING AT Fri Feb 26 19:31:45 2021
+
+Feb 26 19:31:45 *	Now talking on #alacritty
+Feb 26 19:31:45 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+Feb 26 19:31:45 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Feb 20 01:05:57 2021)
+Feb 26 19:32:19 *	cjoke_ is now known as cjoke
+Feb 26 20:23:20 *	Disconnected ()
+**** ENDING LOGGING AT Fri Feb 26 20:23:20 2021
+

@@ -2239,3 +2239,81 @@ T 1614108104 20*	Disconnected (20Remote host closed socket)
 T 1614281725 19*	Now talking on 22#aerc
 T 1614281725 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
 T 1614281725 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1614285399 24*	28vertebra is now known as 18NEOhidra
+T 1614285764 24*	28adityasr- is now known as 18adityasri
+T 1614285764 24*	28jigawatt_ is now known as 18jigawatt
+T 1614287222 24*	28ba is now known as 18bandali
+T 1614293583 24*	28omni_ is now known as 18omni
+T 1614293708 20*	Disconnected (20)
+T 1614293853 20*	Disconnected (20Remote host closed socket)
+T 1614293898 20*	Disconnected (20Remote host closed socket)
+T 1614293925 19*	Now talking on 22#aerc
+T 1614293925 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1614293925 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1614294938 20*	Disconnected (20)
+T 1614294996 20*	Disconnected (20Remote host closed socket)
+T 1614295048 20*	Disconnected (20Remote host closed socket)
+T 1614295097 20*	Disconnected (20Remote host closed socket)
+T 1614295127 19*	Now talking on 22#aerc
+T 1614295127 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1614295127 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1614297447 24*	28remexre_ is now known as 18remexre
+T 1614329371 20*	Disconnected (20)
+T 1614329396 19*	Now talking on 22#aerc
+T 1614329396 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1614329396 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1614333648 18<29krisk18>	Fair enouhg.
+T 1614339463 24*	28av0idr is now known as 18avoidr
+T 1614348960 20*	Disconnected (20)
+T 1614348988 19*	Now talking on 22#aerc
+T 1614348988 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1614348988 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1614352432 24*	28krisk` is now known as 18krisk
+T 1614358440 18<24fluix18>	any reason that reply -q would strip duplicate starting whitespace (like >1 spaces become 1)?
+T 1614358669 18<25metalune18>	I found a buuuug
+T 1614358684 18<25metalune18>	if you cd into i.e. the folder ~/some_random_folder
+T 1614358690 18<25metalune18>	and then delete some_random_folder
+T 1614358697 18<25metalune18>	it doesn't seem to be able to cd into anywhere else
+T 1614360232 18<28bookworm18>	metalune: mind opening a bug on the tracker?
+T 1614360261 18<28bookworm18>	fluix: yes, the tokenizer we use from the stdlib works this way
+T 1614362446 18<24fluix18>	does that not break quoting git patches?
+T 1614362569 18<24fluix18>	also correcting what I said, it seems to affect duplicate whitespace anywhere in the line (or at least after the + or - of patches)
+T 1614362655 18<28bookworm18>	fluix: depends, quoted patches are invalid patches anyhow. Of you are writing python it's rather bad yes. And yes, it affects everything as it's using the exact same tokenizer
+T 1614362677 18<28bookworm18>	but honestly if you are quoting patches you should not be wrapping in any case
+T 1614362695 18<28bookworm18>	so you need to use a different template than one for plain text
+T 1614362712 18<24fluix18>	is replying on a patch by quoting on it and adding comments the wrong way to do things?
+T 1614362737 18<28bookworm18>	no that's what you should be doing, but that's not a patch any longer ;)
+T 1614362750 18<28bookworm18>	so it can't "break"
+T 1614362752 18<24fluix18>	oh yeah, I understand it's no longer a patch
+T 1614362812 18<24fluix18>	just became a little difficult to read without indentation :D
+T 1614362819 18<24fluix18>	thanks for the info though, makes sense
+T 1614362835 18<28bookworm18>	in my opinion you should never rewrap things... just send them back exactly how the sender sent them, prefixed with "> "
+T 1614362867 18<28bookworm18>	and then keep within 80 chars or whatever for your original content
+T 1614362870 18<24fluix18>	well yes, that's why the removal of duplicate whitespace got me a bit confused
+T 1614362886 18<28bookworm18>	it only does that if you wrap no?
+T 1614362896 18<28bookworm18>	does this happen for pure quoting too?
+T 1614362913 18<24fluix18>	like I have a patch, use rq, the lines don't get re-wrapped but the quoted text is missing whitespace
+T 1614362933 18<28bookworm18>	rq doesn't tell me anything, what's your reply template? That's what matters
+T 1614362943 18<24fluix18>	whatever the default is I believe
+T 1614362966 18<28bookworm18>	then you are re-wrapping the lines to ~80 chars
+T 1614362973 18<28bookworm18>	don't do that :)
+T 1614362977 18<24fluix18>	that's certainly not happening
+T 1614362984 18<24fluix18>	oh wait
+T 1614362991 18<24fluix18>	ok maybe that _is_ happening
+T 1614363016 18<24fluix18>	so is the solution writing my own template?
+T 1614363024 18<28bookworm18>	https://git.labrat.space/aerc/tree/templates/quoted_reply
+T 1614363030 18<28bookworm18>	yes
+T 1614363057 18<28bookworm18>	72... enough to stay within 80 chars if quoted a bunch of times
+T 1614363058 18<24fluix18>	{{ .OriginalText | quote }} I presume?
+T 1614363065 18<28bookworm18>	yes
+T 1614363071 18<24fluix18>	coolio, thanks a bunch 
+T 1614363101 18<28bookworm18>	well, {{ quote . OriginalText }}
+T 1614363116 18<28bookworm18>	without the space, you get the gist
+T 1614363140 18<28bookworm18>	no pipe needed in this case
+T 1614363290 18<24fluix18>	yep, works
+T 1614363293 18<24fluix18>	thanks again
+T 1614364280 20*	Disconnected (20)
+T 1614364305 19*	Now talking on 22#aerc
+T 1614364305 22*	Topic for 22#aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+T 1614364305 22*	Topic for 22#aerc set by 26ddevault!znc@sourcehut/staff/ddevault (24Sun Jul 14 18:51:15 2019)
+T 1614367400 20*	Disconnected (20)

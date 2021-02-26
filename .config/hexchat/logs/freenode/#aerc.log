@@ -2918,3 +2918,98 @@ Feb 23 20:17:49 *	Disconnected ()
 Feb 25 20:35:25 *	Now talking on #aerc
 Feb 25 20:35:25 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
 Feb 25 20:35:25 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Feb 25 21:36:39 *	vertebra is now known as NEOhidra
+Feb 25 21:42:44 *	adityasr- is now known as adityasri
+Feb 25 21:42:44 *	jigawatt_ is now known as jigawatt
+Feb 25 22:07:02 *	ba is now known as bandali
+Feb 25 23:53:03 *	omni_ is now known as omni
+Feb 25 23:55:08 *	Disconnected ()
+**** ENDING LOGGING AT Thu Feb 25 23:55:08 2021
+
+**** BEGIN LOGGING AT Thu Feb 25 23:58:45 2021
+
+Feb 25 23:58:45 *	Now talking on #aerc
+Feb 25 23:58:45 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Feb 25 23:58:45 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Feb 26 00:15:38 *	Disconnected ()
+**** ENDING LOGGING AT Fri Feb 26 00:15:38 2021
+
+**** BEGIN LOGGING AT Fri Feb 26 00:18:47 2021
+
+Feb 26 00:18:47 *	Now talking on #aerc
+Feb 26 00:18:47 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Feb 26 00:18:47 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Feb 26 00:57:27 *	remexre_ is now known as remexre
+Feb 26 09:49:31 *	Disconnected ()
+**** ENDING LOGGING AT Fri Feb 26 09:49:31 2021
+
+**** BEGIN LOGGING AT Fri Feb 26 09:49:56 2021
+
+Feb 26 09:49:56 *	Now talking on #aerc
+Feb 26 09:49:56 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Feb 26 09:49:56 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Feb 26 11:00:48 <krisk>	Fair enouhg.
+Feb 26 12:37:43 *	av0idr is now known as avoidr
+Feb 26 15:16:00 *	Disconnected ()
+**** ENDING LOGGING AT Fri Feb 26 15:16:00 2021
+
+**** BEGIN LOGGING AT Fri Feb 26 15:16:28 2021
+
+Feb 26 15:16:28 *	Now talking on #aerc
+Feb 26 15:16:28 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Feb 26 15:16:28 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Feb 26 16:13:52 *	krisk` is now known as krisk
+Feb 26 17:54:00 <fluix>	any reason that reply -q would strip duplicate starting whitespace (like >1 spaces become 1)?
+Feb 26 17:57:49 <metalune>	I found a buuuug
+Feb 26 17:58:04 <metalune>	if you cd into i.e. the folder ~/some_random_folder
+Feb 26 17:58:10 <metalune>	and then delete some_random_folder
+Feb 26 17:58:17 <metalune>	it doesn't seem to be able to cd into anywhere else
+Feb 26 18:23:52 <bookworm>	metalune: mind opening a bug on the tracker?
+Feb 26 18:24:21 <bookworm>	fluix: yes, the tokenizer we use from the stdlib works this way
+Feb 26 19:00:46 <fluix>	does that not break quoting git patches?
+Feb 26 19:02:49 <fluix>	also correcting what I said, it seems to affect duplicate whitespace anywhere in the line (or at least after the + or - of patches)
+Feb 26 19:04:15 <bookworm>	fluix: depends, quoted patches are invalid patches anyhow. Of you are writing python it's rather bad yes. And yes, it affects everything as it's using the exact same tokenizer
+Feb 26 19:04:37 <bookworm>	but honestly if you are quoting patches you should not be wrapping in any case
+Feb 26 19:04:55 <bookworm>	so you need to use a different template than one for plain text
+Feb 26 19:05:12 <fluix>	is replying on a patch by quoting on it and adding comments the wrong way to do things?
+Feb 26 19:05:37 <bookworm>	no that's what you should be doing, but that's not a patch any longer ;)
+Feb 26 19:05:50 <bookworm>	so it can't "break"
+Feb 26 19:05:52 <fluix>	oh yeah, I understand it's no longer a patch
+Feb 26 19:06:52 <fluix>	just became a little difficult to read without indentation :D
+Feb 26 19:06:59 <fluix>	thanks for the info though, makes sense
+Feb 26 19:07:15 <bookworm>	in my opinion you should never rewrap things... just send them back exactly how the sender sent them, prefixed with "> "
+Feb 26 19:07:47 <bookworm>	and then keep within 80 chars or whatever for your original content
+Feb 26 19:07:50 <fluix>	well yes, that's why the removal of duplicate whitespace got me a bit confused
+Feb 26 19:08:06 <bookworm>	it only does that if you wrap no?
+Feb 26 19:08:16 <bookworm>	does this happen for pure quoting too?
+Feb 26 19:08:33 <fluix>	like I have a patch, use rq, the lines don't get re-wrapped but the quoted text is missing whitespace
+Feb 26 19:08:53 <bookworm>	rq doesn't tell me anything, what's your reply template? That's what matters
+Feb 26 19:09:03 <fluix>	whatever the default is I believe
+Feb 26 19:09:26 <bookworm>	then you are re-wrapping the lines to ~80 chars
+Feb 26 19:09:33 <bookworm>	don't do that :)
+Feb 26 19:09:37 <fluix>	that's certainly not happening
+Feb 26 19:09:44 <fluix>	oh wait
+Feb 26 19:09:51 <fluix>	ok maybe that _is_ happening
+Feb 26 19:10:16 <fluix>	so is the solution writing my own template?
+Feb 26 19:10:24 <bookworm>	https://git.labrat.space/aerc/tree/templates/quoted_reply
+Feb 26 19:10:30 <bookworm>	yes
+Feb 26 19:10:57 <bookworm>	72... enough to stay within 80 chars if quoted a bunch of times
+Feb 26 19:10:58 <fluix>	{{ .OriginalText | quote }} I presume?
+Feb 26 19:11:05 <bookworm>	yes
+Feb 26 19:11:11 <fluix>	coolio, thanks a bunch 
+Feb 26 19:11:41 <bookworm>	well, {{ quote . OriginalText }}
+Feb 26 19:11:56 <bookworm>	without the space, you get the gist
+Feb 26 19:12:20 <bookworm>	no pipe needed in this case
+Feb 26 19:14:50 <fluix>	yep, works
+Feb 26 19:14:53 <fluix>	thanks again
+Feb 26 19:31:20 *	Disconnected ()
+**** ENDING LOGGING AT Fri Feb 26 19:31:20 2021
+
+**** BEGIN LOGGING AT Fri Feb 26 19:31:45 2021
+
+Feb 26 19:31:45 *	Now talking on #aerc
+Feb 26 19:31:45 *	Topic for #aerc is: aerc - command line email - https://aerc-mail.org - dev chat at #aerc-dev - Stick around a while, your question might not be answered immediately
+Feb 26 19:31:45 *	Topic for #aerc set by ddevault!znc@sourcehut/staff/ddevault (Sun Jul 14 18:51:15 2019)
+Feb 26 20:23:20 *	Disconnected ()
+**** ENDING LOGGING AT Fri Feb 26 20:23:20 2021
+
