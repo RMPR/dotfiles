@@ -9459,3 +9459,42 @@ Feb 26 20:21:53 <zaeph>	(The 'we' is royal, don't smash me.)
 Feb 26 20:23:20 *	Disconnected ()
 **** ENDING LOGGING AT Fri Feb 26 20:23:20 2021
 
+**** BEGIN LOGGING AT Sat Feb 27 09:23:54 2021
+
+Feb 27 09:23:54 *	Now talking on #ranger
+Feb 27 09:23:54 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Feb 27 09:23:54 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Feb 27 13:03:17 <blawiz>	is it usually hard to install a package on an outdated/offline computer?
+Feb 27 13:04:35 <__monty__>	Yes.
+Feb 27 13:04:41 <__monty__>	Because of recursive dependencies.
+Feb 27 13:04:51 <__monty__>	And because most repositories drop old stuff.
+Feb 27 13:05:08 <__monty__>	Nixpkgs is kind of uniquely adept at both of these things though.
+Feb 27 13:05:17 <__monty__>	But the UX is kinda terrible.
+Feb 27 13:06:12 <blawiz>	:[
+Feb 27 13:07:09 <blawiz>	maybe easiest to try to compile it, but i guess maybe similar problems with that
+Feb 27 13:07:43 <blawiz>	would static distro help here maybe?
+Feb 27 13:16:56 <__monty__>	A bit but only for dependencies that are used for their shared libraries.
+Feb 27 13:17:18 <__monty__>	That doesn't include data like fonts. Or programs that are shelled out to.
+Feb 27 13:17:58 <__monty__>	With nix you can wrap up the entire closure of a package on a computer with access to nixpkgs and then copy that over.
+Feb 27 13:18:31 <__monty__>	And the Nixpkgs binary cached so far does not erase any binaries, so you don't even have to build most old versions.
+Feb 27 13:19:05 <__monty__>	Accessing the binary cached does require a network connection of course. Unless you can get a multi TB offline copy...
+Feb 27 13:20:11 <__monty__>	And generating the closure of packages kinda requires a network connection because nix fetches all the sources. And finding all of those to provide them offline is about as hard as manually collecting all the binaries or packages.
+Feb 27 13:21:24 <blawiz>	hmhmhm...
+Feb 27 13:21:40 <blawiz>	kinda surprising its this hard eh
+Feb 27 13:22:37 <__monty__>	Not really once you understand how complex writing software is.
+Feb 27 13:23:30 <__monty__>	If you write a C program without dependencies, or with only C-library dependencies and you compile it statically then it's just one file to copy.
+Feb 27 13:24:46 <__monty__>	If you write a program like ranger which has no dependencies except for the python interpreter you need to copy ranger (which is multiple files but is that really so much harder to copy than a single file?), then copy python, then copy python's deps, then copy python's deps' deps, then copy python's deps' deps' deps, etc. until there's no more deps.
+Feb 27 13:24:51 <blawiz>	yeah, thats nice
+Feb 27 13:26:14 <zaeph>	'Wait, it's all deps?'
+Feb 27 13:26:17 <zaeph>	'Always has been.'
+Feb 27 13:28:05 <__monty__>	It's deps all the way down.
+Feb 27 13:28:27 <__monty__>	But some package formats aren't actually honest about their deps.
+Feb 27 13:28:41 <__monty__>	This is what Nixpkgs has revolutionized.
+Feb 27 20:22:13 *	Disconnected ()
+**** ENDING LOGGING AT Sat Feb 27 20:22:13 2021
+
+**** BEGIN LOGGING AT Sat Feb 27 20:22:41 2021
+
+Feb 27 20:22:41 *	Now talking on #ranger
+Feb 27 20:22:41 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Feb 27 20:22:41 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)

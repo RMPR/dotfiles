@@ -5332,3 +5332,36 @@ T 1614367307 18*	22__monty__ sweeps all the cursed tricks under the rug.
 T 1614367310 18<22__monty__18>	Nothing to see here!
 T 1614367313 18<26zaeph18>	(The 'we' is royal, don't smash me.)
 T 1614367400 20*	Disconnected (20)
+T 1614414234 19*	Now talking on 22#ranger
+T 1614414234 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1614414234 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1614427397 18<20blawiz18>	is it usually hard to install a package on an outdated/offline computer?
+T 1614427475 18<22__monty__18>	Yes.
+T 1614427481 18<22__monty__18>	Because of recursive dependencies.
+T 1614427491 18<22__monty__18>	And because most repositories drop old stuff.
+T 1614427508 18<22__monty__18>	Nixpkgs is kind of uniquely adept at both of these things though.
+T 1614427517 18<22__monty__18>	But the UX is kinda terrible.
+T 1614427572 18<20blawiz18>	:[
+T 1614427629 18<20blawiz18>	maybe easiest to try to compile it, but i guess maybe similar problems with that
+T 1614427663 18<20blawiz18>	would static distro help here maybe?
+T 1614428216 18<22__monty__18>	A bit but only for dependencies that are used for their shared libraries.
+T 1614428238 18<22__monty__18>	That doesn't include data like fonts. Or programs that are shelled out to.
+T 1614428278 18<22__monty__18>	With nix you can wrap up the entire closure of a package on a computer with access to nixpkgs and then copy that over.
+T 1614428311 18<22__monty__18>	And the Nixpkgs binary cached so far does not erase any binaries, so you don't even have to build most old versions.
+T 1614428345 18<22__monty__18>	Accessing the binary cached does require a network connection of course. Unless you can get a multi TB offline copy...
+T 1614428411 18<22__monty__18>	And generating the closure of packages kinda requires a network connection because nix fetches all the sources. And finding all of those to provide them offline is about as hard as manually collecting all the binaries or packages.
+T 1614428484 18<20blawiz18>	hmhmhm...
+T 1614428500 18<20blawiz18>	kinda surprising its this hard eh
+T 1614428557 18<22__monty__18>	Not really once you understand how complex writing software is.
+T 1614428610 18<22__monty__18>	If you write a C program without dependencies, or with only C-library dependencies and you compile it statically then it's just one file to copy.
+T 1614428686 18<22__monty__18>	If you write a program like ranger which has no dependencies except for the python interpreter you need to copy ranger (which is multiple files but is that really so much harder to copy than a single file?), then copy python, then copy python's deps, then copy python's deps' deps, then copy python's deps' deps' deps, etc. until there's no more deps.
+T 1614428691 18<20blawiz18>	yeah, thats nice
+T 1614428774 18<26zaeph18>	'Wait, it's all deps?'
+T 1614428777 18<26zaeph18>	'Always has been.'
+T 1614428885 18<22__monty__18>	It's deps all the way down.
+T 1614428907 18<22__monty__18>	But some package formats aren't actually honest about their deps.
+T 1614428921 18<22__monty__18>	This is what Nixpkgs has revolutionized.
+T 1614453733 20*	Disconnected (20)
+T 1614453761 19*	Now talking on 22#ranger
+T 1614453761 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1614453761 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
