@@ -11083,3 +11083,34 @@ Feb 27 20:22:41 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentl
 Feb 27 20:22:41 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
 Feb 27 20:49:36 <fedbot>	*** F33-20210212 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
 Feb 27 21:12:30 *	davidfet1er is now known as davidfetter
+Feb 27 21:39:16 <mando>	hello
+Feb 27 21:40:05 <mando>	quick question, backlash and root are the same thing in linux right?
+Feb 27 21:49:37 <fedbot>	*** F33-20210212 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Feb 27 21:52:40 <chrisawi>	mando: / is the root directory, if that's what you're referring to
+Feb 27 21:52:52 <chrisawi>	but that's a (forward) slash, not a backslash
+Feb 27 21:53:17 <mando>	chrisai: thanks
+Feb 27 21:53:23 <mando>	so / is the same as root right?
+Feb 27 21:54:09 <chrisawi>	in what context?
+Feb 27 21:54:17 <mando>	why when i type df -h
+Feb 27 21:54:25 <mando>	i don't see the root directory?
+Feb 27 21:54:29 <mando>	[root@localhost mando]# df -h
+Feb 27 21:54:29 <mando>	Filesystem      Size  Used Avail Use% Mounted on
+Feb 27 21:54:29 <mando>	devtmpfs        7.8G     0  7.8G   0% /dev
+Feb 27 21:54:29 <mando>	tmpfs           7.9G   39M  7.8G   1% /dev/shm
+Feb 27 21:54:29 <mando>	tmpfs           3.2G  1.8M  3.2G   1% /run
+Feb 27 21:54:29 *	fedbot sets quiet on *!*@2603:6081:7d41:300:*
+Feb 27 21:55:03 *	fedbot removes quiet on *!*@2603:6081:7d41:300:*
+Feb 27 21:55:24 <mando>	well, it doesn't allow me to paste all the lines
+Feb 27 21:55:29 <mando>	but I don't see it
+Feb 27 21:55:30 <chrisawi>	please use a pastebin, e.g.: df -h | fpaste
+Feb 27 21:57:55 <eclipsesrcool[m]>	No, Linux uses forward slashes
+Feb 27 21:58:10 <eclipsesrcool[m]>	Backslashes are used for escape characters such as \n or /home/user/My\ Documents
+Feb 27 21:58:24 <eclipsesrcool[m]>	 * No, Linux uses forward slashes for directories
+Feb 27 21:59:06 <eclipsesrcool[m]>	But a `/` is the root directory, yes
+Feb 27 21:59:41 <quining>	Not to be confused with the /root directory, which is the “root” user’s homedir
+Feb 27 22:02:24 <quining>	mando: does “df -h /“ work?
+Feb 27 22:04:17 <mando>	https://paste.centos.org/view/92344290
+Feb 27 22:04:49 <quining>	Line 5 is your root filesystem
+Feb 27 22:07:13 *	Disconnected ()
+**** ENDING LOGGING AT Sat Feb 27 22:07:13 2021
+

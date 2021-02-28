@@ -5262,3 +5262,32 @@ T 1614453761 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southe
 T 1614453761 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
 T 1614455376 18<28fedbot18>	*** F33-20210212 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
 T 1614456750 24*	28davidfet1er is now known as 18davidfetter
+T 1614458356 18<26mando18>	hello
+T 1614458405 18<26mando18>	quick question, backlash and root are the same thing in linux right?
+T 1614458977 18<28fedbot18>	*** F33-20210212 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1614459160 18<24chrisawi18>	mando: / is the root directory, if that's what you're referring to
+T 1614459172 18<24chrisawi18>	but that's a (forward) slash, not a backslash
+T 1614459197 18<26mando18>	chrisai: thanks
+T 1614459203 18<26mando18>	so / is the same as root right?
+T 1614459249 18<24chrisawi18>	in what context?
+T 1614459257 18<26mando18>	why when i type df -h
+T 1614459265 18<26mando18>	i don't see the root directory?
+T 1614459269 18<26mando18>	[root@localhost mando]# df -h
+T 1614459269 18<26mando18>	Filesystem      Size  Used Avail Use% Mounted on
+T 1614459269 18<26mando18>	devtmpfs        7.8G     0  7.8G   0% /dev
+T 1614459269 18<26mando18>	tmpfs           7.9G   39M  7.8G   1% /dev/shm
+T 1614459269 18<26mando18>	tmpfs           3.2G  1.8M  3.2G   1% /run
+T 1614459269 22*	26fedbot sets quiet on 18*!*@2603:6081:7d41:300:*
+T 1614459303 22*	26fedbot removes quiet on 18*!*@2603:6081:7d41:300:*
+T 1614459324 18<26mando18>	well, it doesn't allow me to paste all the lines
+T 1614459329 18<26mando18>	but I don't see it
+T 1614459330 18<24chrisawi18>	please use a pastebin, e.g.: df -h | fpaste
+T 1614459475 18<19eclipsesrcool[m]18>	No, Linux uses forward slashes
+T 1614459490 18<19eclipsesrcool[m]18>	Backslashes are used for escape characters such as \n or /home/user/My\ Documents
+T 1614459504 18<19eclipsesrcool[m]18>	 * No, Linux uses forward slashes for directories
+T 1614459546 18<19eclipsesrcool[m]18>	But a `/` is the root directory, yes
+T 1614459581 18<28quining18>	Not to be confused with the /root directory, which is the “root” user’s homedir
+T 1614459744 18<28quining18>	mando: does “df -h /“ work?
+T 1614459857 18<26mando18>	https://paste.centos.org/view/92344290
+T 1614459889 18<28quining18>	Line 5 is your root filesystem
+T 1614460033 20*	Disconnected (20)

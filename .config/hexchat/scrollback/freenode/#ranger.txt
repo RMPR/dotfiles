@@ -5365,3 +5365,47 @@ T 1614453733 20*	Disconnected (20)
 T 1614453761 19*	Now talking on 22#ranger
 T 1614453761 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
 T 1614453761 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1614459425 18<28bdju18>	is :touch not able to just update the modification time? without an arg it says the file already exists
+T 1614459447 18<26zaeph18>	bdju: Did you provide the target?
+T 1614459455 18<26zaeph18>	You need %s to designate the target.
+T 1614459482 18<26GermainZ18>	pretty sure :touch in ranger is different from the shell touch, it's only for creating new files
+T 1614459501 18<22__monty__18>	Yep.
+T 1614459503 18<26zaeph18>	Yeah.
+T 1614459509 18<28bdju18>	I was hoping it would assume the thing my cursor was on. didn't give a target
+T 1614459513 18<28bdju18>	ah hm okay...
+T 1614459517 18<26zaeph18>	Shouldn't be too hard to patch, though, depending on the use-case?
+T 1614459531 18<22__monty__18>	Yeah, zaeph's a tit, you don't need to pass an argument.
+T 1614459533 18<26zaeph18>	I think it actually assumes %s, judging by the error message that the file/dir already exists.
+T 1614459556 18<26zaeph18>	__monty__: Well excuse~ me for trying to help.
+T 1614459561 18<28bdju18>	I wanted to quick touch everything in a dir in a certain order
+T 1614459579 18<26GermainZ18>	could make an alias for the shell touch
+T 1614459583 18<26zaeph18>	That's how one end up in jail.
+T 1614459589 18<26GermainZ18>	or !touch if it's just a couple of files
+T 1614459589 18<26zaeph18>	ends*
+T 1614459602 18<28bdju18>	GermainZ: interesting idea
+T 1614459610 18<22__monty__18>	bdju: `map t shell touch %s`
+T 1614459618 18<26zaeph18>	Why are we not doing this by default, though?  Do we need shielding?
+T 1614459639 18<22__monty__18>	Because it's not something that makes sense imo.
+T 1614459668 18<28bdju18>	__monty__: that worked great!
+T 1614459677 18<28bdju18>	thanks
+T 1614459685 18<26zaeph18>	It feels weird to be taking the name of a script, but not fully porting its capabilities, especially for something as abstractly co-opted as `touching`.
+T 1614459691 18<22__monty__18>	mtime may be a bad reflection of the real last time a file was modified but why make it an even worse reflection?
+T 1614459718 18<22__monty__18>	Touch is the logical name since "mkfile" doesn't exist.
+T 1614459724 18<22__monty__18>	bdju: Np.
+T 1614459747 18<26zaeph18>	I'm gonna make 'touchd' a thing.
+T 1614459765 18<26zaeph18>	It's a bit of a vocational habit for me.
+T 1614459780 18<22__monty__18>	To be clear. I'm not opposed to someone implementing all of touch's functionality as long as nothing breaks.
+T 1614459786 18<22__monty__18>	Which is impossible afaict.
+T 1614459812 18<22__monty__18>	Because we don't require escaping filenames so "touch -mtime blah" would create a file called "-mtime blah".
+T 1614459813 18<26zaeph18>	Are we never offloading to shell for file manipulations?  Is it all implemented via Python?
+T 1614459824 18<22__monty__18>	Even file copying is.
+T 1614459829 18<26zaeph18>	Nice~.
+T 1614459831 18<22__monty__18>	I think that should answer the question.
+T 1614459838 18<26zaeph18>	It did.
+T 1614459860 18<22__monty__18>	It's actually kinda impressive how much hut implemented.
+T 1614459865 18<22__monty__18>	And how well it all works.
+T 1614459877 18<22__monty__18>	Even though it's also all so terrible.
+T 1614459898 18<26zaeph18>	Well, trust the Germans to make things both impressive and terrible.
+T 1614459921 18<26zaeph18>	(I'm not talking of sandals+socks.)
+T 1614460033 20*	Disconnected (20)
+T 1614461519 FiSHLiM plugin unloaded

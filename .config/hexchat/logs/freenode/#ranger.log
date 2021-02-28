@@ -9498,3 +9498,48 @@ Feb 27 20:22:13 *	Disconnected ()
 Feb 27 20:22:41 *	Now talking on #ranger
 Feb 27 20:22:41 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
 Feb 27 20:22:41 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Feb 27 21:57:05 <bdju>	is :touch not able to just update the modification time? without an arg it says the file already exists
+Feb 27 21:57:27 <zaeph>	bdju: Did you provide the target?
+Feb 27 21:57:35 <zaeph>	You need %s to designate the target.
+Feb 27 21:58:02 <GermainZ>	pretty sure :touch in ranger is different from the shell touch, it's only for creating new files
+Feb 27 21:58:21 <__monty__>	Yep.
+Feb 27 21:58:23 <zaeph>	Yeah.
+Feb 27 21:58:29 <bdju>	I was hoping it would assume the thing my cursor was on. didn't give a target
+Feb 27 21:58:33 <bdju>	ah hm okay...
+Feb 27 21:58:37 <zaeph>	Shouldn't be too hard to patch, though, depending on the use-case?
+Feb 27 21:58:51 <__monty__>	Yeah, zaeph's a tit, you don't need to pass an argument.
+Feb 27 21:58:53 <zaeph>	I think it actually assumes %s, judging by the error message that the file/dir already exists.
+Feb 27 21:59:16 <zaeph>	__monty__: Well excuse~ me for trying to help.
+Feb 27 21:59:21 <bdju>	I wanted to quick touch everything in a dir in a certain order
+Feb 27 21:59:39 <GermainZ>	could make an alias for the shell touch
+Feb 27 21:59:43 <zaeph>	That's how one end up in jail.
+Feb 27 21:59:49 <GermainZ>	or !touch if it's just a couple of files
+Feb 27 21:59:49 <zaeph>	ends*
+Feb 27 22:00:02 <bdju>	GermainZ: interesting idea
+Feb 27 22:00:10 <__monty__>	bdju: `map t shell touch %s`
+Feb 27 22:00:18 <zaeph>	Why are we not doing this by default, though?  Do we need shielding?
+Feb 27 22:00:39 <__monty__>	Because it's not something that makes sense imo.
+Feb 27 22:01:08 <bdju>	__monty__: that worked great!
+Feb 27 22:01:17 <bdju>	thanks
+Feb 27 22:01:25 <zaeph>	It feels weird to be taking the name of a script, but not fully porting its capabilities, especially for something as abstractly co-opted as `touching`.
+Feb 27 22:01:31 <__monty__>	mtime may be a bad reflection of the real last time a file was modified but why make it an even worse reflection?
+Feb 27 22:01:58 <__monty__>	Touch is the logical name since "mkfile" doesn't exist.
+Feb 27 22:02:04 <__monty__>	bdju: Np.
+Feb 27 22:02:27 <zaeph>	I'm gonna make 'touchd' a thing.
+Feb 27 22:02:45 <zaeph>	It's a bit of a vocational habit for me.
+Feb 27 22:03:00 <__monty__>	To be clear. I'm not opposed to someone implementing all of touch's functionality as long as nothing breaks.
+Feb 27 22:03:06 <__monty__>	Which is impossible afaict.
+Feb 27 22:03:32 <__monty__>	Because we don't require escaping filenames so "touch -mtime blah" would create a file called "-mtime blah".
+Feb 27 22:03:33 <zaeph>	Are we never offloading to shell for file manipulations?  Is it all implemented via Python?
+Feb 27 22:03:44 <__monty__>	Even file copying is.
+Feb 27 22:03:49 <zaeph>	Nice~.
+Feb 27 22:03:51 <__monty__>	I think that should answer the question.
+Feb 27 22:03:58 <zaeph>	It did.
+Feb 27 22:04:20 <__monty__>	It's actually kinda impressive how much hut implemented.
+Feb 27 22:04:25 <__monty__>	And how well it all works.
+Feb 27 22:04:37 <__monty__>	Even though it's also all so terrible.
+Feb 27 22:04:58 <zaeph>	Well, trust the Germans to make things both impressive and terrible.
+Feb 27 22:05:21 <zaeph>	(I'm not talking of sandals+socks.)
+Feb 27 22:07:13 *	Disconnected ()
+**** ENDING LOGGING AT Sat Feb 27 22:07:13 2021
+
