@@ -1,68 +1,3 @@
-T 1584568236 18<24UndeadLeech18>	ubitux: Could you check your `alacritty --print-events` output? Sounds like your key isn't setting the virtual keycode.
-T 1584568238 18<28ubitux18>	but not after in yank the vi-mode
-T 1584568240 18<24UndeadLeech18>	cole-h: That's JSFuck.
-T 1584568245 18<28ubitux18>	a yank in vi-mode*
-T 1584568253 18<29kchibisov18>	Oh, shift + insert is from primary buffer?
-T 1584568272 18<29kchibisov18>	I mean from middle mouse selection.
-T 1584568277 18<24UndeadLeech18>	Yeah.
-T 1584568283 18<24UndeadLeech18>	Shift+Insert pastes from selection clipboard.
-T 1584568287 18<29kchibisov18>	Oh, so you should yank to it.
-T 1584568289 18<24UndeadLeech18>	You can change that though ubitux.
-T 1584568301 18<28ubitux18>	yeah?
-T 1584568302 18<29kchibisov18>	`y` is to a Ctrl + V clipboard.
-T 1584568323 18<24UndeadLeech18>	Just copy the keybinding and change it to `Paste` instead of `PasteSelection`.
-T 1584568346 18<28ubitux18>	kchibisov: ah i see, that one works indeed
-T 1584568363 18<24UndeadLeech18>	Yeah, the problem is the pasting, not the copying.
-T 1584568365 18<28ubitux18>	UndeadLeech: it's not the paste i want to change
-T 1584568371 18<29kchibisov18>	Hm, UndeadLeech do we need a binding to copy to primary buffer?
-T 1584568376 18<28ubitux18>	UndeadLeech:  no because i want to middle click somewhere else
-T 1584568379 18<24UndeadLeech18>	Wait, you actually want it to yank to the selection clipboard?
-T 1584568385 18<28ubitux18>	yep
-T 1584568389 18<24UndeadLeech18>	kchibisov: Potentially.
-T 1584568408 18<29kchibisov18>	ok, we'll add CopyPrimary.
-T 1584568425 18<28ubitux18>	i mean it's not actually important but it's surprising coming from urxvt
-T 1584568430 18<28ubitux18>	i sure can adapt :)
-T 1584568445 18<24UndeadLeech18>	We just follow what vi does when you set it to write to your host clipboard.
-T 1584568451 18<24UndeadLeech18>	It doesn't write to the selection clipboard either.
-T 1584568461 18<28ubitux18>	im not sure vi is the best example of clipboard copy/paste :')
-T 1584568477 18<28ubitux18>	freaking nightmare to get copy/paste correct with vim
-T 1584568482 18<29kchibisov18>	I mean you have a way to copy into primary buffer from vi, we just forgot about it.
-T 1584568507 18<29kchibisov18>	The problem I see is that you don't have primary buffer on macOS/Windows.
-T 1584568526 18<29kchibisov18>	And on some Wayland compositors it's not a thing either.
-T 1584568608 20*	Disconnected (20)
-T 1584602725 22*	26RMPR sets mode 24+Z on 22RMPR
-T 1584602725 22*	26RMPR sets mode 24+i on 22RMPR
-T 1584602731 19*	Now talking on 22#alacritty
-T 1584602731 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.1 - https://github.com/alacritty/alacritty/releases/tag/v0.4.1
-T 1584602731 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Feb 16 20:20:48 2020)
-T 1584610124 20*	Disconnected (20)
-T 1584610146 22*	26RMPR sets mode 24+Z on 22RMPR
-T 1584610146 22*	26RMPR sets mode 24+i on 22RMPR
-T 1584610152 19*	Now talking on 22#alacritty
-T 1584610152 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.1 - https://github.com/alacritty/alacritty/releases/tag/v0.4.1
-T 1584610152 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Feb 16 20:20:48 2020)
-T 1584619118 20*	Disconnected (20)
-T 1584619144 19*	Now talking on 22#alacritty
-T 1584619144 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.1 - https://github.com/alacritty/alacritty/releases/tag/v0.4.1
-T 1584619144 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Feb 16 20:20:48 2020)
-T 1584620168 20*	Disconnected (20)
-T 1584620217 20*	Disconnected (20Remote host closed socket)
-T 1584620285 20*	Disconnected (20Remote host closed socket)
-T 1584620353 20*	Disconnected (20Remote host closed socket)
-T 1584620373 19*	Now talking on 22#alacritty
-T 1584620373 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.1 - https://github.com/alacritty/alacritty/releases/tag/v0.4.1
-T 1584620373 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Feb 16 20:20:48 2020)
-T 1584620678 20*	Disconnected (20)
-T 1584620723 20*	Disconnected (20Remote host closed socket)
-T 1584620791 20*	Disconnected (20Remote host closed socket)
-T 1584620859 20*	Disconnected (20Remote host closed socket)
-T 1584620886 19*	Now talking on 22#alacritty
-T 1584620886 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.1 - https://github.com/alacritty/alacritty/releases/tag/v0.4.1
-T 1584620886 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Feb 16 20:20:48 2020)
-T 1584623318 20*	Disconnected (20)
-T 1584623365 19*	Now talking on 22#alacritty
-T 1584623365 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.1 - https://github.com/alacritty/alacritty/releases/tag/v0.4.1
-T 1584623365 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Feb 16 20:20:48 2020)
 T 1584627968 20*	Disconnected (20)
 T 1584628059 20*	Disconnected (20Remote host closed socket)
 T 1584628105 20*	Disconnected (20Remote host closed socket)
@@ -5062,3 +4997,16 @@ T 1614453761 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@ala
 T 1614459530 18<29kchibisov18>	UndeadLeech: just to ensure, you're not going to move those ~150LoC lines specifically for hints from ui_config somewhere else?
 T 1614459851 18<29kchibisov18>	It's not like I'm insisting to do so, I just don't get why those comments get silently resolved.
 T 1614460033 20*	Disconnected (20)
+T 1614627427 19*	Now talking on 22#alacritty
+T 1614627427 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+T 1614627427 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Feb 20 01:05:57 2021)
+T 1614628851 18<22nixpulvis18>	sigh, I'm so slow.
+T 1614628870 18<22nixpulvis18>	got like 50 things going on today.
+T 1614628882 18<22nixpulvis18>	I'll still try and look over the hints again.
+T 1614629277 18<24UndeadLeech18>	No worries, I just wanted to get this out of the way so I could open the follow-up PRs.
+T 1614629296 18<24UndeadLeech18>	It's definitely still a work in progress. So if we want to make any major changes, as long as we're not at 0.8.0 yet that's fine.
+T 1614629326 18<22nixpulvis18>	great, I'll do my best to find some calm time to review again.
+T 1614629420 18<24UndeadLeech18>	Yeah, no worries. Just let me know if you have any feedback.
+T 1614629554 18<22nixpulvis18>	I showed off hints to a friend a few days ago and they were impressed!
+T 1614629573 18<22nixpulvis18>	sadly, they aren't too much of a terminal user I don't think.
+T 1614629581 18<24UndeadLeech18>	hah

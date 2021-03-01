@@ -1,297 +1,3 @@
-T 1587606937 18<28tnelis18>	sqwishy: Removing the abrt package I guess. Does anything critical depend on it maybe?
-T 1587607009 18<19sqwishy18>	doesn't look like it; awesome
-T 1587612840 18<19DaemonFC[m]18>	If it doesn't arrrive on time, do you get your money back? Asking for a friend.
-T 1587613131 18<25M_aD18>	DaemonFC[m]: ?
-T 1587613136 18<24bkhl18>	Got a new USB headset with a weird issue. I get sound from _some_ programs, like Celluloid, but not from e.g. Audacity. In "Skypeforlinux" I get the ringing sounds, but not speech.
-T 1587613149 18<24bkhl18>	Anyone have a clue what that might be?
-T 1587613164 18<19DaemonFC[m]18>	<M_aD "DaemonFC: ?"> Just a joke about the release down to the second.
-T 1587613183 18<25M_aD18>	ah, ok
-T 1587614257 20*	Disconnected (20)
-T 1587614707 19*	Now talking on 22#fedora
-T 1587614707 22*	Topic for 22#fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
-T 1587614707 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Mar 17 14:11:59 2020)
-T 1587614707 -18ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
-T 1587615355 18<29kk4ewt18>	DaemonFC[m]; you can always go to the go/nogo at 1700 utc tomorrow in #fedora-meeting1
-T 1587620593 18<19Mordoc18>	q
-T 1587631725 18<26soda2[m]118>	hello i wrote a few days ago about bug with gnome-software and updates in new fedora (probably)
-T 1587631768 18<26soda2[m]118>	in gnome-software i have "searching new updates (it may takes a while)"
-T 1587631788 18<26soda2[m]118>	in pkmon i have:
-T 1587631789 18<26soda2[m]118>	1196_ababcaaa	percentage   91
-T 1587631789 18<26soda2[m]118>	/1196_ababcaaa	percentage   92
-T 1587631789 18<26soda2[m]118>	/1196_ababcaaa	status       loading-cache
-T 1587631789 18<26soda2[m]118>	/1196_ababcaaa	percentage   95
-T 1587631789 18<26soda2[m]118>	/1196_ababcaaa	percentage   96
-T 1587631789 22*	26fedbot sets quiet on 18*!*@2a02:a314:8145:b000:55cd:668b:1d40:e73e
-T 1587631823 22*	26fedbot removes quiet on 18*!*@2a02:a314:8145:b000:55cd:668b:1d40:e73e
-T 1587631874 18<26soda2[m]118>	https://paste.centos.org/view/24b9893d
-T 1587632587 20*	Disconnected (20)
-T 1587632860 19*	Now talking on 22#fedora
-T 1587632860 22*	Topic for 22#fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
-T 1587632860 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Mar 17 14:11:59 2020)
-T 1587632862 -18ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
-T 1587635900 18<28stemid18>	I have to keep the pavucontrol app running when I start MS Teams or Teams won't recognize my microphone. odd. since pavucontrol running fixes it, I figure there must be some way to automate this? without keeping the pavucontrol gui app running visibly on my desktop. what does it do? starts some service in the background perhaps?
-T 1587635905 18<28stemid18>	or releases some lock, I can only speculate
-T 1587636024 18<28stemid18>	pstree on its PID shows no tree.
-T 1587636456 18<28stemid18>	I did this so far. added pavucontrol to autostarting programs. installed auto move window gnome extension and placed pavucontrol on workspace 2. that'll do I guess.
-T 1587639580 18<24rindolf18>	Hi all! What is the dnf / fedora equivalent to mageia's "urpmf" or debian's apt-file (= search for packages' contents) - "dnf provides" doesn;t work on f32 x86-64: https://www.shlomifish.org/Files/files/text/dnf-provides-issue.txt
-T 1587639598 18<28FranciscoD18>	rindolf: rpm -ql / rpmls
-T 1587639617 18<28FranciscoD18>	for installed rpms, or dnf repopquery -l for packages in the repositories
-T 1587639632 18<24rindolf18>	FranciscoD: ah, thanks
-T 1587639654 18<28FranciscoD18>	rpm -q --provides will tell you the capabilities an installed rpm provides also
-T 1587639676 18<28FranciscoD18>	and similarly dnf repoquery --provides applies to packages in the repos,
-T 1587639838 18<24rindolf18>	FranciscoD: i want to search for a certain contained filename by pattern - dnf repoquery -l doesn't do that
-T 1587640191 18<28FranciscoD18>	sudo dnf whatprovides '*/<filename>'?
-T 1587640200 18<28FranciscoD18>	(sudo is optional, I always use the root cache)
-T 1587640233 18<28FranciscoD18>	rpm -ql etc, give you the file list if you know the package name
-T 1587640248 18<28FranciscoD18>	whatprovides tells you packages that contain/provide the capability
-T 1587640686 18<24rindolf18>	FranciscoD: thanks!
-T 1587644895 18<24rindolf18>	Hi all! Can anyone help with this issue: https://www.shlomifish.org/Files/files/text/qt-and-firefox-update-graphics-artifacts-on-icewm-and-jwm-on-fedora32-x86_64.md
-T 1587649777 20*	Disconnected (20)
-T 1587649836 20*	Disconnected (20Remote host closed socket)
-T 1587649903 20*	Disconnected (20Remote host closed socket)
-T 1587649951 20*	Disconnected (20Remote host closed socket)
-T 1587649997 19*	Now talking on 22#fedora
-T 1587649997 22*	Topic for 22#fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
-T 1587649997 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Mar 17 14:11:59 2020)
-T 1587650000 -18ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
-T 1587650557 20*	Disconnected (20)
-T 1587651063 19*	Now talking on 22#fedora
-T 1587651063 22*	Topic for 22#fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
-T 1587651063 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Mar 17 14:11:59 2020)
-T 1587651072 -18ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
-T 1587651157 20*	Disconnected (20)
-T 1587651203 19*	Now talking on 22#fedora
-T 1587651203 22*	Topic for 22#fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
-T 1587651203 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Mar 17 14:11:59 2020)
-T 1587651207 -18ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
-T 1587651247 20*	Disconnected (20)
-T 1587651508 19*	Now talking on 22#fedora
-T 1587651508 22*	Topic for 22#fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
-T 1587651508 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Mar 17 14:11:59 2020)
-T 1587651509 -18ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
-T 1587652705 18<19CrazySam18>	Fedora 31 comes with VBox GA preinstalled?
-T 1587652748 18<19CrazySam18>	The VBox GA installer tells me that the system appears to have a version of it already installed.
-T 1587652872 18<24rindolf18>	CrazySam: what is GA?
-T 1587652923 18<19CrazySam18>	rindolf: Guest Additions
-T 1587652927 18<24rindolf18>	Hi all! Can anyone help with this issue: https://www.shlomifish.org/Files/files/text/qt-and-firefox-update-graphics-artifacts-on-icewm-and-jwm-on-fedora32-x86_64.md
-T 1587652933 18<24rindolf18>	CrazySam: ah
-T 1587653022 18<24rindolf18>	CrazySam: what does "rpm -qa" say?
-T 1587653085 18<22mikeymop18>	virtualbox-guest-additions-6.1.4-4.fc32.x86_64
-T 1587653110 18<24rindolf18>	mikeymop: are you CrazySam ?
-T 1587653557 20*	Disconnected (20)
-T 1587659938 19*	Now talking on 22#fedora
-T 1587659938 22*	Topic for 22#fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
-T 1587659938 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Mar 17 14:11:59 2020)
-T 1587659938 -18ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
-T 1587660163 18<26Khaytsus18>	autopsy_: 1/3.
-T 1587662186 18<29ziff18>	kk4ewt: not sure why, but after a full shutdown + power cycle (removed laptop battery and psu) my mobile broadband connection is working now. I did numerous reboots during troubleshooting, but that didn't help. Lets see if it keeps working.
-T 1587662204 18<29ziff18>	kk4ewt: thanks again for your help
-T 1587662329 18<29ziff18>	I had inserted the sim card while the laptop was running, maybe that was part of the problem
-T 1587662817 18<29kk4ewt18>	Fedora 32 Final is GO
-T 1587662928 18<25ledeni18>	kk4ewt, nice
-T 1587663344 18<25M_aD18>	So the release is next week the 28th then
-T 1587663461 18<29kk4ewt18>	@f32release
-T 1587663461 18<28fedbot18>	Fedora 32 is planned for release on 2020-04-28, which is 4 days, 20 hours, 21 minutes, and 55 seconds from now
-T 1587663699 18<26Khaytsus18>	Cool, missed the meeting today, was going to watch for it
-T 1587663882 18<25ledeni18>	 kk4ewt, rc-1.6 will be final iso ?
-T 1587663957 18<26Khaytsus18>	Yes
-T 1587664229 18<29ziff18>	nice
-T 1587664853 18<27PPP99918>	Hi
-T 1587664868 18<27PPP99918>	I'm having an issue with grub2
-T 1587664882 18<27PPP99918>	I have 3 entries for Fedora and I want to get rid of them
-T 1587664912 18<27PPP99918>	Whenever I try "sudo grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg" it doesn't list any of them
-T 1587665058 18<24prussian18>	PPP999: I'd just use grubby
-T 1587665087 18<24prussian18>	grubby --info=ALL; grubby --remove-kernel=...blah
-T 1587665090 18<24prussian18>	etc
-T 1587665109 18<24prussian18>	dealing with grub2 config is suffering in my opinion. one of the reasons I use systemd-boot
-T 1587665141 18<27PPP99918>	Thanks I'll try it out
-T 1587665193 18<24cyberpear18>	how do I launch a .sh file in Gnome?
-T 1587665230 18<24cyberpear18>	(other than "open in terminal", then `./program.sh`?
-T 1587665253 18<24rindolf18>	cyberpear: write a .desktop file?
-T 1587665281 18<24cyberpear18>	then "open in terminal" then `./program.sh` is much faster...
-T 1587665297 18<24cyberpear18>	I though once upon a time, I could just double-click the .sh file
-T 1587665312 18<25janos_18>	is it executable?
-T 1587665315 18<24cyberpear18>	yes
-T 1587665315 18<24rindolf18>	cyberpear: right, if it's a one time thing
-T 1587665359 18<24rindolf18>	cyberpear: behaviour like that made mswindows susceptible to worms
-T 1587665392 18<24cyberpear18>	even a righ-click->execute would be helpful...
-T 1587665402 18<25ledeni18>	cyberpear, check --> https://developer.gnome.org/integration-guide/stable/desktop-files.html.en
-T 1587665436 18<24cyberpear18>	unfortunately, it'd have to be "convince third party to include .desktop file"
-T 1587665465 18<24rindolf18>	cyberpear: why?
-T 1587665499 18<29kk4ewt18>	cyberpear; or build one of your own which is not hard
-T 1587665502 18<24cyberpear18>	because I regularly wipe the system and have to start from scratch
-T 1587665516 18<24cyberpear18>	or I'm writing instructions for someone else
-T 1587665529 18<24rindolf18>	cyberpear: then create an installer / setup script
-T 1587665633 18<29kk4ewt18>	https://developer.gnome.org/integration-guide/stable/desktop-files.html.en
-T 1587665661 18<28tnelis18>	Not sure I understand. When I double-click a shell script in Nautilus I am given the options to: "Run in Terminal", "Display", "Cancel" or "Run". Isn't that what you want?
-T 1587665684 18<28tnelis18>	(You'll want to make sure that the program has a shebang and is marked executable.)
-T 1587665748 18<25janos_18>	sounds like a missing shebang then - nautilus doesn't know what to launch with
-T 1587665759 18<28tnelis18>	janos_
-T 1587665765 18<28tnelis18>	janos_: My thinking as well.
-T 1587666489 18<24hiredman18>	I've got a thunderbolt dock thing, which sometimes shows as charging my laptop when booted to fedora, but more often not, when in the bios it always shows as charging
-T 1587666507 18<24hiredman18>	anyone have any idea what the deal with that could be?
-T 1587666766 18<26Khaytsus18>	hiredman: is it charging?
-T 1587666966 18<24cyberpear18>	tnelis: is there an extension to enable that? -- it just opens in gedit for me... it has a sheband line, and is marked +x
-T 1587666987 18<24hiredman18>	Khaytsus: not according to anyway I can tell (upower and whatever polybar's battery module uses)
-T 1587667042 18<24hiredman18>	powertop also shows as running on battery
-T 1587667417 18<25janos_18>	cyberpear:in nautilus preference - behavior tab. Executable Text Files - has option "Run them". default set to "Display them"
-T 1587667458 18<25janos_18>	there's also "Ask what to do"
-T 1587667465 18<24cyberpear18>	janos++
-T 1587667510 18<24cyberpear18>	janos_: exactly what I was looking for. thanks!
-T 1587667512 18<27PPP99918>	I think I see the problem but I don't know how to fix it
-T 1587667522 18<27PPP99918>	Every other OS says where it is on the disk
-T 1587667524 18<25janos_18>	cyberpear: cool
-T 1587667528 18<27PPP99918>	e.g /dev/sda
-T 1587667537 18<27PPP99918>	the 3 entries for Fedora do not
-T 1587667548 18<27PPP99918>	So that tells me they're found by os-prober
-T 1587667557 18<27PPP99918>	Anyone know how to solve this?
-T 1587667734 18<27PPP99918>	https://files.catbox.moe/u94d90.png
-T 1587667739 18<27PPP99918>	Here's the partition scheme
-T 1587667923 18<20scr26718>	Anyone know why starting a podman image would result in a "preparing rootfs caused \\\"permission denied\\\"\"": OCI runtime permission denied error" ?
-T 1587667951 18<20scr26718>	I'm simply adding the "-v /home/<user>/somedir:/data/:Z" option
-T 1587668184 18<26Khaytsus18>	scr267: try --systemd=false in your podman run
-T 1587668227 18<26Khaytsus18>	scr267: Could also be cgroups v1 vs v2   and don't have any specific suggestions there
-T 1587668320 18<20scr26718>	Khaytsus, I will try that
-T 1587668322 18<20scr26718>	thanks
-T 1587668360 18<26Khaytsus18>	Someone here a while back fiddled iwth cgroups to fix something along thoselines
-T 1587668377 18<26Khaytsus18>	Now WHY?  No idea.  I've seen that too.  but I think in my case I fixed it with --systemd=false  I think.
-T 1587668461 18<20scr26718>	Weird heh... well adding --systemd=false didn't work in my case it seems.  Thanks for the cgroups info though, I'll look for info about that.
-T 1587668520 18<20scr26718>	oooooh geez, that sounds so familiar: https://www.redhat.com/sysadmin/fedora-31-control-group-v2
-T 1587669372 18<24prussian18>	if you can, i'd recommend podman.
-T 1587669386 18<24prussian18>	oh. didn't read enough
-T 1587669479 18<29yates_home18>	where are the policy files that the "audit2allow -p" option requires on f31?
-T 1587669777 18<29yates_home18>	if i just run audit2allow, i get this: https://paste.centos.org/view/9425d51e
-T 1587669845 18<26Khaytsus18>	prussian: Podman is great, if you're on cgroups v1 I guess.  I have no idea what I'm on here.......  v2 I guess?  But podman works.  i dnno
-T 1587670197 18<28tnelis18>	libpod/podman definitely support unified cgroups (cgroupv2). Moby/Docker was lagging a bit behind but I think it'll be supported in the next release or something (if not in the latest one already). There shouldn't be much reason to switch back to cgroupv1 in the near future.
-T 1587672877 18<24rindolf18>	Hi all! Just letting you know that I've upgraded my f32 x64 sys to updates-testing, rebooted for the new kernel, and most everything seems to work smoothly - like before.
-T 1587673094 18<24rindolf18>	Thanks all, and good night.
-T 1587674430 18<22Grinnz18>	I'm not sure if it's how vmware has set it up, but Fedora seems to ignore Fedora live CDs when booting now and just boots to the installed OS. How do I get it to boot the CD?
-T 1587674512 18<19dowdle18>	Grinnz: That would be your preferred boot device setting in your virt platform.
-T 1587674529 18<22Grinnz18>	yeah nevermind, I just need to figure out what key to hit in the 0.5 seconds vmware allows me to. thanks
-T 1587674583 18<22Grinnz18>	got it, esc
-T 1587674647 18<22Grinnz18>	free version of vmware at least does not appear to have any setting for preferred boot device. oh well
-T 1587675157 18<25janos_18>	impressive in the wrong way!
-T 1587675601 18<19Mordoc18>	exit
-T 1587675765 18<26caterfxo18>	ok. so, src.fedoraproject.org content is different from pagure.io content, right?
-T 1587675805 18<26caterfxo18>	ok
-T 1587675892 18<29megacoder18>	Orion sucks
-T 1587675909 18<29megacoder18>	[redacted]
-T 1587676360 18<19oppiet3018>	@f32release
-T 1587676360 18<28fedbot18>	Fedora 32 is planned for release on 2020-04-28, which is 4 days, 16 hours, 46 minutes, and 56 seconds from now
-T 1587676984 18<24mrvenkman18>	I need some serious help.
-T 1587677032 18<24mrvenkman18>	I have messed up my volume group or logical volume group. Luckily I know my data is accessible.
-T 1587677037 18<29kk4ewt18>	Grinnz; machine doesnt support virtualization
-T 1587677055 18<26Khaytsus18>	mrvenkman: again?
-T 1587677057 18<29kk4ewt18>	mrvenkman;  so back it up \
-T 1587677057 18<24mrvenkman18>	My fedora 31 wont boot
-T 1587677062 18<24mrvenkman18>	Khaytsus, lol!
-T 1587677090 18<28fedbot18>	*** F31-20200420 updated lives available: https://tinyurl.com/Live-respins2  Built by the Fedora Respin Sig more info #fedora-respins  ***
-T 1587677094 18<24mrvenkman18>	What was the command to paste my console to fedora?
-T 1587677103 18<26Khaytsus18>	fpaste
-T 1587677107 18<26Khaytsus18>	What did you do this time?
-T 1587677114 18<29kk4ewt18>	command |fpaste
-T 1587677127 18<24mrvenkman18>	Khaytsus, lol, i'll fpaste now
-T 1587677130 18<24mrvenkman18>	brb
-T 1587677179 18<24mrvenkman18>	(this may take some time to collate the terminal shots)\
-T 1587677254 18<29kk4ewt18>	mrvenkman; backup your data then reinstall and be done
-T 1587677347 20*	Disconnected (20)
-T 1587677404 20*	Disconnected (20Remote host closed socket)
-T 1587677450 20*	Disconnected (20Remote host closed socket)
-T 1587677496 20*	Disconnected (20Remote host closed socket)
-T 1587677542 20*	Disconnected (20Remote host closed socket)
-T 1587677561 19*	Now talking on 22#fedora
-T 1587677561 22*	Topic for 22#fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
-T 1587677561 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Mar 17 14:11:59 2020)
-T 1587677561 -18ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
-T 1587677652 18<24mrvenkman18>	Same response
-T 1587677678 18<24mrvenkman18>	Not a JSON response
-T 1587677730 18<24mrvenkman18>	I am genuinely doing the correct command
-T 1587677816 18<26Khaytsus18>	Seriously.  6 days ago everything was fine, what did you do
-T 1587677865 18<24mrvenkman18>	Khaytsus, I know! It was so fine. I was so happy.
-T 1587677890 18<24mrvenkman18>	I made my partition bigger, I added an extra 10gb, Khaytsus
-T 1587677894 18<26Khaytsus18>	Yes,
-T 1587677896 18<24mrvenkman18>	It worked.
-T 1587677897 18<26Khaytsus18>	2020-04-17 20:39:22 [#fedora] <mrvenkman> Khaytsus, nailed it mate. Works.#
-T 1587677899 18<24mrvenkman18>	Thanks to you
-T 1587677901 18<26Khaytsus18>	And so what did you break
-T 1587677939 18<24mrvenkman18>	Khaytsus, after a few days I wanted to play Cities Skylines (PC Game)
-T 1587677948 18<24mrvenkman18>	Khaytsus, so I booted into windows
-T 1587677999 18<24mrvenkman18>	And Windows crashed, with the new nbsod. (nice blue screen of death)
-T 1587678025 18<24mrvenkman18>	Windows then offered to repair my Windows.
-T 1587678050 18<24mrvenkman18>	And because I have a physical partition, I though yeh...
-T 1587678077 18<24mrvenkman18>	So I think Windows has messed up my LVM
-T 1587678161 18<24mrvenkman18>	I am happy I have managed to find my /home directory
-T 1587678166 18<24mrvenkman18>	THAT TOOK SOME TIME!
-T 1587678177 18<24mrvenkman18>	and it's ok.
-T 1587678217 18<24mrvenkman18>	Why doesn't fpaste work?
-T 1587678310 18<24mrvenkman18>	If it doesn't work well I'll make my own when I am out of this trouble
-T 1587678341 18<24mrvenkman18>	"venkpaste"
-T 1587678424 18<24mrvenkman18>	Can I put links to screen shots?
-T 1587678494 18<19dowdle18>	mrvenkman: Yes.
-T 1587678521 18<24mrvenkman18>	ok, brb ... collating ...
-T 1587679270 18<24mrvenkman18>	https://pastebin.com/WiWr0f3a
-T 1587679293 18<24mrvenkman18>	so that is my fdisk
-T 1587679370 18<24mrvenkman18>	https://pastebin.com/SGs6yx5r is vgdisplay
-T 1587679498 18<26Khaytsus18>	Looks like Windows ate the bootloader, no idea
-T 1587679550 18<24mrvenkman18>	lvdisplay: https://pastebin.com/FA1UbiEn
-T 1587679572 18<29kk4ewt18>	as windows is know to do
-T 1587679589 18<24mrvenkman18>	Yep
-T 1587679597 18<24mrvenkman18>	But look at that last paste
-T 1587679621 18<24mrvenkman18>	I _can_ select fedora in the Bootloader (grub?)
-T 1587679636 18<24mrvenkman18>	here's my next paste ..
-T 1587679659 18<24mrvenkman18>	How to I list logical volumes?
-T 1587679662 18<29kk4ewt18>	mrvenkman; efi?
-T 1587679669 18<24mrvenkman18>	yes
-T 1587679691 18<29kk4ewt18>	on your computer how do you select what to boot
-T 1587679702 18<24mrvenkman18>	Up and down buttons
-T 1587679716 18<29kk4ewt18>	(different bios) have different keys
-T 1587679759 18<24mrvenkman18>	I have managed to fix the the boot up thing ...  I select fedora .. and it dies
-T 1587679771 18<24mrvenkman18>	wait .. lemme paste this ..
-T 1587679784 18<29kk4ewt18>	sudo fdisk -l |fpaste
-T 1587679830 18<24mrvenkman18>	https://pastebin.com/74yQWWXF
-T 1587679930 18<19dowdle18>	mrvenkman: sudo -i and be root or put sudo in front of the commands.
-T 1587679975 18<24mrvenkman18>	[root@localhost-live ~]#
-T 1587679982 18<24mrvenkman18>	cool.
-T 1587680045 18<24mrvenkman18>	https://pastebin.com/68aRYAHc
-T 1587680070 18<24mrvenkman18>	Ignore the 9GB linux partition
-T 1587680093 18<24mrvenkman18>	It's the /dev/nvme0n1p6 that I wanna boot into
-T 1587680111 18<19dowdle18>	mrvenkman: That last send just had permission denied because you weren't root.
-T 1587680183 18<24mrvenkman18>	https://pastebin.com/BzFwVvkY
-T 1587680240 18<29kk4ewt18>	**walks away**
-T 1587680252 18<24mrvenkman18>	https://pastebin.com/Rq5PE8w7
-T 1587680258 18<24mrvenkman18>	Sorry, kk4ewt
-T 1587680281 18<24mrvenkman18>	I'll work it out.
-T 1587680291 18<29kk4ewt18>	lsblk
-T 1587680298 18<24mrvenkman18>	kk4ewt, thank you mate
-T 1587680337 18<24mrvenkman18>	https://pastebin.com/Sbey84n8
-T 1587680363 18<24mrvenkman18>	on my fstab ...
-T 1587680440 18<24mrvenkman18>	https://pastebin.com/a9sbyJDf
-T 1587680495 18<24mrvenkman18>	(i am using a live usb)
-T 1587680564 18<24mrvenkman18>	I am so sorry for being a such a newb
-T 1587680587 18<24mrvenkman18>	I'll work it out.
-T 1587680706 18<24mrvenkman18>	kk4ewt, dowdle Khaytsus - can I just say ... thank you for your assistance.
-T 1587680769 18<25ledeni18>	mrvenkman,i suggest download supergrub iso put on usb stick and boot up it will find fedora kernel on your system
-T 1587680804 18<24mrvenkman18>	ledeni, cool thanks.
-T 1587680822 18<24mrvenkman18>	I will try that
-T 1587680884 18<24mrvenkman18>	 I honestly love the help that I get here
-T 1587681403 18<24mrvenkman18>	after selecting fedora from the grub, what gets loaded first? the lvm configuration or fstab?
-T 1587681856 18<24mrvenkman18>	What do you guys think of this: https://pastebin.com/gAQ5iru1 ?
-T 1587681942 18<24mrvenkman18>	Now I added the partial option: https://pastebin.com/rpsqsete
-T 1587682160 18<27PPP99918>	Anyone?
-T 1587704314 18<29phin18>	hello all,  just installed fedora 32 server on a new laptop to start a minimal install and i am unable to connect via wifi.  I keep getting the error Scanning not allowed while unavailable or activating.  iwlist does work.  I have tried to connect to a known ap, it says its unable to (via nmcli) and if i try to add one and connect it also does the same thing.
-T 1587704340 18<29phin18>	Intel 8260 card.
-T 1587704383 18<29phin18>	system worked with a previous 31 based silverblue and workstation setup.  Just attempting to do a minimal install as i do not want gnome on this.
-T 1587704530 18<29phin18>	oh i was able to connect in the installer.  The install did create a nm profile.  this would not activate upon reboot
-T 1587716263 18<29StatelessCat18>	Hi
-T 1587719442 18<19DTEIT18>	phin: is the wifi enabled? what does nmcli radio wifi says?
-T 1587732908 18<24rindolf18>	Hi all! I am also not fond of the default f32 updates-testing wallpaper. :(
-T 1587733020 18<26Khaytsus18>	rindolf: Okay, I told them to cancel the release.
-T 1587733059 18<26Khaytsus18>	Okay, it's done.  No 32.
-T 1587733059 18<26Khaytsus18>	;)
-T 1587733084 18<24rindolf18>	Khaytsus: heh
-T 1587733107 18<26Khaytsus18>	rindolf: the one tha tlooks like it's..  grainy?
-T 1587733127 18<24rindolf18>	Khaytsus: yes
-T 1587733152 18<26Khaytsus18>	Yeah, it looks like it was rendered down to like..  16 colors ;)
 T 1587733168 18<26Khaytsus18>	Maybe... 32 colors?
 T 1587733184 18<26Khaytsus18>	;)
 T 1587733280 18<24rindolf18>	Khaytsus: i think ubuntu should have made their bug no. 1 "release critical": https://www.shlomifish.org/humour/bits/Copying-Ubuntu-Bug-No-1/
@@ -5291,3 +4997,29 @@ T 1614459744 18<28quining18>	mando: does “df -h /“ work?
 T 1614459857 18<26mando18>	https://paste.centos.org/view/92344290
 T 1614459889 18<28quining18>	Line 5 is your root filesystem
 T 1614460033 20*	Disconnected (20)
+T 1614627427 19*	Now talking on 22#fedora
+T 1614627427 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1614627427 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
+T 1614627427 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1614627640 24*	28nb is now known as 18Guest24244
+T 1614627704 18<22Southern_Gentlem18>	or ucraptu
+T 1614627734 18<25coz_18>	F35 testing MATE so far so good
+T 1614627797 18*	22Southern_Gentlem points coz_  to #fedora-qa for F34 and rawhide discussions 
+T 1614627807 18<24Copenhagen_Bram18>	i couldn't believe it, ubuntu is the biggest, most popular linux distro ever, and i had the latest version of ubuntu on a usb drive, not even the LTE edition, and it didn't automatically rotate the screen or bring up the on screen keyboard on my tablet laptop
+T 1614627842 18<24Copenhagen_Bram18>	btw i'd love to install fedora on that tablet laptop but the EFI on it hates grub for some reason
+T 1614627868 18<24Copenhagen_Bram18>	but someone had a way to fail installing Ubuntu and then fix the bootloader afterwards
+T 1614627876 18<24Copenhagen_Bram18>	i ended up installing Pop! OS on it though
+T 1614627906 18<24Copenhagen_Bram18>	oh wait this among sus thing is multiplayer?
+T 1614627931 18<24Copenhagen_Bram18>	I just entered my name as player 1, am I waiting for other people to connect somehow?
+T 1614627936 18<24Copenhagen_Bram18>	whoops wrong chat
+T 1614628291 18<20cmurf18>	Copenhagen_Bram: maybe start doing memory tests when you sleep? just leave the laptop doing a memtest overnight every night
+T 1614628292 18<24gr818>	Hi, is it still possible to open multiple X servers / desktops on different VTs, using Ctrl-Alt-F2 etc.? I want to have separate home directories for different users, but switch between them while they are logged in
+T 1614628391 18<20cmurf18>	Copenhagen_Bram: if this is a UEFI system, you probably want to get the free one (right side link) of this
+T 1614628396 18<20cmurf18>	https://www.memtest86.com/download.htm
+T 1614628410 18<20cmurf18>	it's a proprietary license so not in fedora, but there is a no cost version that runs on uefi
+T 1614628435 18<20cmurf18>	if your laptop is BIOS you can use the memtest86+ that comes preinstalled in fedora
+T 1614628528 18<20cmurf18>	there is also memtester in the repo but i don't have much experience with it
+T 1614628604 18<24Shipp18>	I know coreos is usually used in containers, but does anyone here use it as a host system and recommend it?
+T 1614629244 18<20cmurf18>	Shipp: it is intended to work both baremetal and vm with the same image, as far as i know
+T 1614629301 18<20cmurf18>	more on #fedora-coreos though
+T 1614629559 18<28fedbot18>	*** F33-20210301 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***

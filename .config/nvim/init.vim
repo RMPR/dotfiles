@@ -12,6 +12,8 @@ Plug 'neomake/neomake'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-rls', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
+Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
 call plug#end()
 
 " Vanilla
@@ -78,3 +80,8 @@ call neomake#configure#automake('nrwi', 500)
 " -----------------------------------------------------------------------
 "
 
+" -----------------------------------------------------------------------
+" Ranger confs
+let g:ranger_map_keys = 0
+map <leader>r :Ranger<CR>
+let g:ranger_replace_netrw = 1
