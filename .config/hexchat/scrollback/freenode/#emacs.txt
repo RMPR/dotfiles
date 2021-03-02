@@ -5023,3 +5023,45 @@ T 1614629946 18<20xheimlich18>	It's really a bad time for me to being le
 T 1614629975 18<20xheimlich18>	but I do need to ship some code sooner than expected and I'm not going to suffer with nano, so...
 T 1614629986 18<20pjb18>	xheimlich: there's not really much of learning with emacs. First it works like notepad. You can move the cursor wherever you want with mouse click or arrows, and start to type and delete with backspace.
 T 1614629999 18<20pjb18>	xheimlich: you only need to know C-x C-f to find a file, and C-x C-s to save it.
+T 1614630016 18<20dale18>	technomancy: I thought Doom had a Gitter but I googled it and didn't find it.  Discord is mentioned in the README.
+T 1614630018 18<20pjb18>	xheimlich: then the rest will come on a need-to-know basis.
+T 1614630057 18<20pjb18>	xheimlich: the learning curve of emacs is very flat.  On the other hand, it will take you 20 or 30 years to learn it up to some level.
+T 1614630058 18<28technomancy18>	fuck discord tho
+T 1614630068 18<28technomancy18>	I mean, you're trying to be helpful, I get that
+T 1614630071 18<28technomancy18>	but
+T 1614630077 18<28technomancy18>	sorry
+T 1614630096 18<20xheimlich18>	dude, I lived in emacs for exp(1)-1 years. I never -learned- much because I was doing applied math and code was a threadbare artifact.
+T 1614630113 18<20xheimlich18>	but it's not something you learn by immersion.
+T 1614630153 18<20xheimlich18>	anyway, I'd better try and get productive. Thanks. :)
+T 1614630185 18<28technomancy18>	the best way to learn emacs is to hang out in the #emacs channel
+T 1614630211 18<20dale18>	technomancy: Could be worse, could be Slack?
+T 1614630220 18<25cvandusen18>	,faint-praise 
+T 1614630222 18<22fsbot18>	well...at least it's better than FORTRAN 77
+T 1614630230 18<25cvandusen18>	debatable 
+T 1614630241 18<20dale18>	Surely the best way to learn Emacs is to hack on Emacs!
+T 1614630313 18<20pjb18>	^ Exactly
+T 1614630436 18<27ybonatakis18>	can i ask how i can display images in org-mode? i am in org-tree-slide-mode and any link fails with no images to display inline. Any idea?
+T 1614630460 18<20xheimlich18>	I have to ship code sooner than expected because my son's coming up sooner than expected and who knows how long NICU takes. People mostly don't have the time to hack on open source...
+T 1614630746 18<20dale18>	xheimlich: I get that, 100%.
+T 1614630916 18<20pjb18>	ybonatakis: I don't know. I just use org-latex-export-to-pdf to see the pictures.
+T 1614631033 18<26polezaivsani18>	ybonatakis: org-toggle-inline-images
+T 1614631203 18<27ybonatakis18>	polezaivsani: org-toggle-inline-images is what returns 'no images to display inline'
+T 1614631297 18<26polezaivsani18>	this is supposed to display links to image files, e.g. `[[path/to/foo.png]]`.  guess you have yours in some other way?
+T 1614631488 20*	Disconnected (20)
+T 1614667937 19*	Now talking on 22#emacs
+T 1614667937 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat | No Public Logging, racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1614667937 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Fri Feb 26 03:58:32 2021)
+T 1614667937 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1614686173 20*	Disconnected (20)
+T 1614686200 19*	Now talking on 22#emacs
+T 1614686200 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat | No Public Logging, racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1614686200 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Fri Feb 26 03:58:32 2021)
+T 1614686200 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1614686378 18<19earthToAdam18>	For some reason when I place (setq cursor-type '(bar . 1)) in my config file, it gets overridden when I restart emacs (even if I place it at the very end)... 
+T 1614686465 18<19earthToAdam18>	Ah... and apparently it only works in the local buffer... How can I set this for all buffers?
+T 1614686512 18<19earthToAdam18>	okay, nevermind. I think I got it.
+T 1614686579 18<28krux0218>	jfb4, It is hard to pinpoint a single piece of bloat that should be stripped out. It is rather a perspective "what are the necessary components to see emacs as a lisp machine?" and "What is not essential for it?"
+T 1614686648 18<28krux0218>	then you start emacs without config, go to fundamental mode, and run `C-h b` and see that there is just too much.
+T 1614686743 18<28krux0218>	on the other hand, there are things missing, for example interacting with 3D models and sound.
+T 1614686771 18<28krux0218>	also emacs has no video support as far as I know.
+T 1614687883 20*	Disconnected (20)
