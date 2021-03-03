@@ -11176,3 +11176,61 @@ Mar 02 13:19:27 <herlimenezes>	BTW, with a little help get from StackOverflow an
 Mar 02 13:24:43 *	Disconnected ()
 **** ENDING LOGGING AT Tue Mar  2 13:24:43 2021
 
+**** BEGIN LOGGING AT Tue Mar  2 22:05:05 2021
+
+Mar 02 22:05:05 *	Now talking on #fedora
+Mar 02 22:05:05 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Mar 02 22:05:05 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Mar 02 22:05:05 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Mar 02 22:13:04 <fedbot>	*** F33-20210301 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Mar 02 22:24:59 <XenoPL>	Hi, anyone skilled with software packaging/writing spec files with spare moment?
+Mar 02 22:27:01 <XenoPL>	I'm trying to package opentrack (trackir alternative), I've made spec file based on qtox one. Builds get stuck on %build stage which consist two commands
+Mar 02 22:27:35 <XenoPL>	%cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr -DSDK_WINE:BOOL=YES
+Mar 02 22:27:55 <XenoPL>	%make
+Mar 02 22:28:21 <XenoPL>	it stops @ make with error: fg: no job control
+Mar 02 22:28:39 <XenoPL>	funny thing if I go to temp_build dir and command make by hand it works
+Mar 02 22:29:09 <thor>	howdy all
+Mar 02 22:29:12 *	thor is now known as Guest91817
+Mar 02 22:29:16 *	Guest91817 is now known as terminhell
+Mar 02 22:30:19 <terminhell>	got a bit of a  pickle here =/
+Mar 02 22:37:12 <XenoPL>	build log: https://pastebin.pl/view/aeae1135
+Mar 02 22:38:13 <terminhell>	anyone know what i might do about this?: https://textuploader.com/18z3y
+Mar 02 22:39:11 <XenoPL>	specfile (very rough): https://pastebin.pl/view/862e518f
+Mar 02 22:39:39 <Khaytsus>	terminhell: Nothing Fedora can do to help you with hardware errors.
+Mar 02 22:40:44 <terminhell>	I get that Khaytsus, thing is it only happens not in windows. Just trying to eliminate things one by one
+Mar 02 22:40:54 <Khaytsus>	What's "it"
+Mar 02 22:41:19 <terminhell>	random lockups that i have to hard shutdown
+Mar 02 22:42:27 <Khaytsus>	First I've seen you mention this, were we to guess?  mce's don't imply crashes.
+Mar 02 22:44:03 <chrisawi>	XenoPL: maybe you're hitting: https://fedoraproject.org/wiki/Changes/CMake_to_do_out-of-source_builds
+Mar 02 22:44:52 <terminhell>	Hmm, its just weird that it seems to not happen outside of linux, any distro. Guess it could be a hardware issue that windows just 'ignores'
+Mar 02 22:45:14 <terminhell>	oh well, thanks. Btw FC34 lookin pretty sweet
+Mar 02 22:50:04 <Khaytsus>	terminhell: Have you tried a stable release?  34 is still rawhide.
+Mar 02 22:50:59 <terminhell>	im on 33 atm, but i have 34 in a vm :)
+Mar 02 22:51:12 <Khaytsus>	alrighty
+Mar 02 22:56:23 *	jess is now known as J
+Mar 02 23:02:39 <XenoPL>	chrisawi: thanks a lot it seem to help tremendously, now I need to fight check-rpaths 0002 errors (file '/usr/libexec/opentrack/opentrack-api.so' contains an invalid rpath '/usr/libexec/opentrack' in [/usr/libexec/opentrack])
+Mar 02 23:03:49 *	The_LoudSpeaker is now known as Guest67941
+Mar 02 23:15:00 <cameronperot[m]>	Just saw that there will be an i3 spin in 34, that's awesome! Every now and then I'll find out I forgot to configure something and have to manually set it up (e.g. notification daemon, polkit, etc.).
+Mar 02 23:15:00 <fedbot>	*** F33-20210301 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Mar 02 23:15:00 *	theloudspeaker_ is now known as The_LoudSpeaker
+Mar 02 23:15:00 <XenoPL>	is there any way to fix rpath-check errors aside from skipping the test alltogether?
+Mar 02 23:15:14 *	Disconnected ()
+**** ENDING LOGGING AT Tue Mar  2 23:15:14 2021
+
+**** BEGIN LOGGING AT Tue Mar  2 23:15:47 2021
+
+Mar 02 23:15:47 *	Now talking on #fedora
+Mar 02 23:15:47 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Mar 02 23:15:47 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Mar 02 23:15:47 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Mar 02 23:16:36 <linuxmodder>	cameronperot[m], there is a working 33 i3 spin availale
+Mar 02 23:21:07 *	The_LoudSpeaker is now known as Guest39499
+Mar 03 06:29:50 *	Disconnected ()
+**** ENDING LOGGING AT Wed Mar  3 06:29:50 2021
+
+**** BEGIN LOGGING AT Wed Mar  3 06:30:41 2021
+
+Mar 03 06:30:41 *	Now talking on #fedora
+Mar 03 06:30:41 *	Topic for #fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Mar 03 06:30:41 *	Topic for #fedora set by kk4ewt!~notfred@fedora/Southern-Gentleman (Fri Dec 11 00:23:09 2020)
+Mar 03 06:30:41 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
