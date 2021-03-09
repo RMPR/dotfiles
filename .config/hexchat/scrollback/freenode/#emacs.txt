@@ -1,84 +1,3 @@
-T 1612783783 18<19bremner18>	consider restarting emacs as an opportunity to clean up?
-T 1612783800 18<26bqv18>	Aw
-T 1612783888 18<26bqv18>	I think the best solution I could envision would be some kind of inter-emacs protocol
-T 1612783902 18<26p0a18>	Why not just share configurations among the emacsen?
-T 1612783929 18<26bqv18>	Mainly because then I have to keep them in sync
-T 1612783940 18<26p0a18>	So you want access to your buffers?
-T 1612783951 18<26bqv18>	No, the config itself
-T 1612783958 18<26p0a18>	There's 1 config
-T 1612783970 18<26bqv18>	Oh you mean config over network?
-T 1612783973 18<26p0a18>	right
-T 1612783985 18<26bqv18>	My config is quite bespoke, cause I generate it in nix
-T 1612783996 18<26bqv18>	That's a sensible answer though
-T 1612784063 18<26bqv18>	I might try that and add some conditionals for all the stuff that breaks
-T 1612784235 18<26bqv18>	zmagii: see alse: emacs-webkit
-T 1612784325 18<26p0a18>	From the authors page: "I’ve found that the only two applications I regularly have open are Emacs and a browser."
-T 1612784329 18<26p0a18>	haha, that hits home
-T 1612784489 18<26bqv18>	Yeah, same
-T 1612784516 18<26bqv18>	I'm amazed I hit that point, but its partly thanks to my exwm years
-T 1612784706 18<22zmagii18>	p0a: You seem disconnected now?
-T 1612797928 20*	Disconnected (20)
-T 1612797954 19*	Now talking on 22#emacs
-T 1612797954 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
-T 1612797954 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:20 2021)
-T 1612797954 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
-T 1612798395 18<20pjb18>	pyc: or just M-x term RET 
-T 1612798424 18<20bpalmer18>	pyc: if you're not using something that requires full terminal control, I recommend just using M-x shell RET
-T 1612798470 18<20bpalmer18>	e.g., make and ls work just fine in shell; something like htop or alpine wouldn't.
-T 1612798617 18<19wrycode18>	I hate it when I accidentally use something (like git commit) from vterm that is set up to launch an emacsclient -t, and then I have emacsclient inception and I can't quit the one in vterm
-T 1612798692 18<20bpalmer18>	wrycode: sounds like your vterm should reset VISUAL/EDITOR because every emacsclient interaction is fraught.
-T 1612798723 18<19wrycode18>	pyc: just try 'shell' and 'term' first like they said, since they're built in. If you need something more close to a full 100% terminal in Emacs, use vterm
-T 1612798751 18<19wrycode18>	closer* jesus
-T 1612798783 18<20bpalmer18>	Although I'm unfamiliar with vterm's configuration; it might be as simple as stuffing 'unsetenv EDITOR; unsetenv VISUAL;' into the buffer in vterm-mode-hook
-T 1612798796 18<19wrycode18>	bpalmer: yeah I probably should
-T 1612798925 18<29pyc18>	wrycode: why is it that Emacs does not come with something close to a full terminal by default like Vim has :term?
-T 1612798946 18<29pyc18>	By the way, thanks for the advice. I will try shell first. Then term.
-T 1612799262 20*	Disconnected (20)
-T 1612799288 19*	Now talking on 22#emacs
-T 1612799288 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
-T 1612799288 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:20 2021)
-T 1612799289 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
-T 1612799352 18<24tsdh18>	pyc: vterm (not included in stock emacs) is indistinguishable from a normal terminal but M-x shell has the nice property of being just a text buffer where all normal emacs search/editing shortcuts just work.
-T 1612799558 18<26jla18>	how do you manage indentation in Yaml markup ? suggestions ?
-T 1612799588 18*	26jla is puzzled... as long as so easily it gets screwed,
-T 1612799588 18<20bpalmer18>	cry and/or yell at the people who suggest using YAML
-T 1612799598 18<26jla18>	lol
-T 1612799616 18<19wrycode18>	jla: oh god, yeah by default emacs breaks yaml by putting tabs everywhere, yaml-mode might help
-T 1612799631 18<19wasamasa18>	autoformatting yaml won't work though
-T 1612799634 18<25cvandusen18>	indentation just works in yaml-mode here.
-T 1612799645 18*	26jla will have a look at yaml-mode
-T 1612799652 18<19wasamasa18>	it gives you just enough assistance by bouncing between valid positions
-T 1612799668 18<20bpalmer18>	I had to write a validator tool just to make sure I didn't break the YAML the last time I was working with it.
-T 1612799687 18<19wrycode18>	I think it highlights tabs or something too
-T 1612799689 18<20bpalmer18>	since there was a conceptual but not a defined schema that the YAML had to conform to
-T 1612799711 18*	26jla reading https://blog.chmouel.com/2016/09/07/dealing-with-yaml-in-emacs/
-T 1612799735 18<19wrycode18>	if Rust used yaml and not toml I'd immediately give up on learning it
-T 1612799763 18<26jla18>	wrycode, correct it seems to highlight tabs ... yet, don't see other benefits, for now
-T 1612799797 18<25cvandusen18>	For fancy-pants yaml: https://github.com/perfectayush/emacs-yamlmod.git
-T 1612799821 18<28jfb418>	pyc: it sounds like you want to run a few commands only, you can do M-! to rn a command 'without switching to a different window' as you say.  Or M-& for async version.
-T 1612799822 18<19wasamasa18>	why not https://github.com/syohex/emacs-libyaml though
-T 1612799827 18<19wrycode18>	jla: well that's the main problem. You might be able to quickly reindent the whole file once you're in yaml-mode
-T 1612799831 18<19wasamasa18>	both could be used as basis for enh-yaml-mode
-T 1612799834 18<19wasamasa18>	could
-T 1612799848 18<19wasamasa18>	probably only worth it for syntax highlighting, indentation not so much
-T 1612800048 18<25cvandusen18>	oh, and https://emacs-lsp.github.io/lsp-mode/page/lsp-yaml/
-T 1612800056 18<19wasamasa18>	that's more like it
-T 1612800068 18<19wasamasa18>	but I'm afraid it skips out on these topics :D
-T 1612800070 18<19wasamasa18>	because LSP
-T 1612807190 20*	Disconnected (20)
-T 1612807217 19*	Now talking on 22#emacs
-T 1612807217 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
-T 1612807217 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:20 2021)
-T 1612807217 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
-T 1612807222 18<28zdm18>	I have no opinion on the language since C-family isn't something I care much about, I just found the tone of the article to be funny is all.
-T 1612807236 18<29JordiGH18>	seabass: There's no "guarantee", just a strong reassurance.
-T 1612807245 18<22contrapunctus18>	zdm: so what do you use? Lisp? 🙂
-T 1612807254 18<19wrycode18>	JordiGH: no, it's a guarantee 
-T 1612807276 18<28technomancy18>	it's not so much "rust is great" as "finally, at least SOMEONE is doing a systems language that's at least trying to move us out of the 1980s"
-T 1612807278 18<22contrapunctus18>	wrycode: ,,rust 1
-T 1612807279 18<22fsbot18>	rust: noecho They have played us programmers for absolute fools https://www.youtube.com/watch?v=QTiAWZ1YfzI .. + other notes
-T 1612807308 18<22contrapunctus18>	Trololo 😏
-T 1612807312 18<29bad_blue_bull18>	heylo
 T 1612807318 18<29JordiGH18>	wrycode: No, there's unsafe() 
 T 1612807320 18<22contrapunctus18>	henlo bad_blue_bull
 T 1612807321 18<28zdm18>	contrapunctus: Yeah. I like Lisp quite a lot, and Erlang/Elixir interests me a bit with their ecosystem. 
@@ -5078,3 +4997,12 @@ T 1614749441 19*	Now talking on 22#emacs
 T 1614749441 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat | No Public Logging, racism, sexism, xenophobia, botwanking, or other asshattery.
 T 1614749441 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Fri Feb 26 03:58:32 2021)
 T 1614749441 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1615317965 19*	Now talking on 22#emacs
+T 1615317965 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat | No Public Logging, racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1615317965 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Fri Feb 26 03:58:32 2021)
+T 1615317965 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1615319726 18<28winny18>	i want to put (getenv "SOMETHING") in my modeline but nothing appears to be working, using emacs 24
+T 1615320127 18*	27hodapp stabs matplotlib in the face
+T 1615320160 18<27grym18>	hodapp: is that plt.stab or plt.set_stab or mpl.stab(fig) or ... 
+T 1615320580 18<27hodapp18>	grym: plt.stab but then I had to find a way to stab twice without it un-stabbing the first stab which required that I get a reference to the first stab handle which ended up being way more complicated then expected
+T 1615320703 18<27grym18>	ax, _ = plt.get_stab

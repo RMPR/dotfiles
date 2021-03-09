@@ -1,17 +1,3 @@
-T 1587147522 18<26zaeph18>	So, the idea of controlling one's actions and 'resisting the passions' is pretty much up their alley.
-T 1587147528 18<26zaeph18>	'The practice of severe self-discipline, typically for religious reasons'
-T 1587147604 18<26zaeph18>	It's especially the Protestants, btw.
-T 1587147626 18<22__monty__18>	You think resisting passion is necessary/desirable for org-mode usage or note-taking in general?
-T 1587147652 18<22__monty__18>	Not ime. It's mostly americans. So probably some sort of puritan. Maybe baptist.
-T 1587147662 18<22__monty__18>	Like the zealot in #proglangdesign.
-T 1587147694 18<26zaeph18>	Re passions & org-mode usage: Not necessarily note-taking, but org-mode and organising one's life with extreme minutia is something that appeals to them.
-T 1587147767 18<26zaeph18>	Re 'mostly Americans': I might not be up to date on this.  I've worked on the questions during the English Civil war (17th century) where a lot of the very religious deeply invested themselves into their businesses.
-T 1587147820 18<26zaeph18>	Anyhow, I'm realising that I'm not making much sense, so I'll stop speaking out of my arse.
-T 1587147843 18<26zaeph18>	It'd be nice if I had a Zettel on the topic. :3
-T 1587147849 18<22__monty__18>	Just look at this beauty: https://github.com/AnimaPlacidus/Catholicus-Compiler-Generator/blob/master/PARENT-LICENSE.txt
-T 1587147856 18<26zaeph18>	not found.
-T 1587147858 18<26zaeph18>	Nvm.
-T 1587147861 18<22__monty__18>	s/look/be awestruck
 T 1587147863 18<26zaeph18>	It's weechat's fault.
 T 1587147887 18<26zaeph18>	Holy molly.
 T 1587147894 18<22__monty__18>	Yeah kitty's url parsing can't tell some characters on the next line aren't part of an url sometimes.
@@ -5011,3 +4997,56 @@ T 1614749390 20*	Disconnected (20)
 T 1614749441 19*	Now talking on 22#ranger
 T 1614749441 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
 T 1614749441 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1615317965 19*	Now talking on 22#ranger
+T 1615317965 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1615317965 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1615318470 18<29lonelykid18>	Hi, I just tried the z plugin. It's actually not a z plugin. It only read z data file and matches with regex using python. z does not works as executable directly. It only injects functions to shell. I'm wondering if it's possible to really use z in ranger. fasd is great, but not maintained  for too long.
+T 1615318499 18<26GermainZ18>	z?
+T 1615318551 18<29lonelykid18>	z, autojump, fasd. they are similar tool. to cd to dir faster
+T 1615318600 18<26GermainZ18>	Got a link to z? It's really tough to google
+T 1615318616 18<26GermainZ18>	https://github.com/rupa/z ?
+T 1615318624 18<19wasamasa18>	it's z shit
+T 1615318640 18<29lonelykid18>	haha. https://github.com/ranger/ranger/wiki/Custom-Commands#z
+T 1615318644 18<29lonelykid18>	you are correct
+T 1615318665 18<29lonelykid18>	why you don't like z?
+T 1615318742 18<26GermainZ18>	I wonder if using z along with https://github.com/vifon/texas for example would work for you, lonelykid 
+T 1615318765 18<26GermainZ18>	Then you can just quit ranger, run z, and launch ranger again
+T 1615318785 18<26GermainZ18>	Quit a lot of keystrokes tho
+T 1615318787 18<26GermainZ18>	Quite*
+T 1615318818 18<29lonelykid18>	it might be better to modify z to take args and run as executable. I can copy that part from fasd
+T 1615318844 18<29lonelykid18>	just wondering if ranger could manage it without this hacking.
+T 1615318896 18<19wasamasa18>	what are the odds you're using https://github.com/ask1234560/ranger-zjumper wrong
+T 1615318909 18<19wasamasa18>	I mean, look at the code
+T 1615318914 18<19wasamasa18>	it's pretty self-explanatory
+T 1615318934 18<29lonelykid18>	I checked the code. it's not really using z at all. it's reading z data file and using it's own regex to match.
+T 1615318937 18<26GermainZ18>	could modify z too
+T 1615318958 18<19wasamasa18>	so make your own better thing, lol
+T 1615318969 18<26GermainZ18>	wasamasa: you ok? :)
+T 1615318995 18<29lonelykid18>	it's not a bad idea for zjumper to do that at all.
+T 1615319038 18<29lonelykid18>	but i want to log path in ranger to z data file, like the autojump plugin does. then i will need to really call z.
+T 1615319151 18<26GermainZ18>	looking at how z works I don't think you can do that directly
+T 1615319160 18<26GermainZ18>	you'll need to either wrap your own wrapper or modify z
+T 1615319170 18<26GermainZ18>	s/wrap /write /
+T 1615319242 18<29lonelykid18>	yeah. thank you.
+T 1615319294 18<29lonelykid18>	fasd already does this. so I think i can just paste
+T 1615319294 18<29lonelykid18>	case $- in
+T 1615319295 18<29lonelykid18>	  *i*) ;; # assume being sourced, do nothing
+T 1615319296 18<29lonelykid18>	  *) # assume being executed as an executable
+T 1615319296 18<29lonelykid18>	    if [ -x "$_FASD_SHELL" -a -z "$_FASD_SET" ]; then
+T 1615319297 18<29lonelykid18>	      _FASD_SET=1 exec $_FASD_SHELL "$0" "$@"
+T 1615319297 18<29lonelykid18>	    else
+T 1615319298 18<29lonelykid18>	      fasd "$@"
+T 1615319298 18<29lonelykid18>	    fi;;
+T 1615319299 18<29lonelykid18>	esac
+T 1615319302 18<26GermainZ18>	For your goal, it might be enough to modify the z plugin to write to the z data file
+T 1615319339 18<29lonelykid18>	that might be more complicated. because when you add a new path. you will also need to update weight, i assume.
+T 1615319339 18<26GermainZ18>	lonelykid: please don't paste multiple lines in IRC, it's spammy (and often buffered, so your messages actually get sent over 20 seconds). Use a paste bin instead
+T 1615319356 18<29lonelykid18>	ok. sorry about that.
+T 1615319378 18<26GermainZ18>	If fasd works already then that's certainly easier :)
+T 1615319445 18<29lonelykid18>	it seems more powerful. but not maintained. although this kind of tool does not need much maintenance, it has been 9 years since it's actively updated.
+T 1615320145 18<22__monty__18>	Does it have bugs?
+T 1615320166 18<22__monty__18>	Otherwise, who cares? Stable software is best software.
+T 1615320234 18<26GermainZ18>	For example, ranger
+T 1615320404 18<29lonelykid18>	ah. maybe. I will give it a try.
+T 1615320424 18<29lonelykid18>	to be fair. ranger is still under active development.
+T 1615320437 18<26GermainZ18>	It has no bugs, however

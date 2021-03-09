@@ -1,51 +1,3 @@
-T 1587736131 22*	26ChanServ gives channel operator status to 18Southern_Gentlem
-T 1587736160 18<26jtagcat18>	using search found me alias docker=podman
-T 1587736169 22*	26Southern_Gentlem sets ban on 18*!*@*240e:e0:bdba:d500:c51f:8dae:416e:4aba
-T 1587736169 22*	26fedbot has kicked 18tWqaq from 22#fedora (24You are banned from this channel)
-T 1587736195 18<26Khaytsus18>	Still unclear why you'd need a container at all for this qmk project
-T 1587736219 18<26jtagcat18>	not sure as well
-T 1587736224 18<26jtagcat18>	but I guess til more about containers
-T 1587736264 18<26jtagcat18>	so moby is the open-source upstream for docker and podman is a drop-in replacement for docker (like sway is for i3) and better in some way?
-T 1587736303 18<26Khaytsus18>	https://google.com/search?q=docker+vs+podman
-T 1587736305 18<26Khaytsus18>	And seriously, you don't need a container here.
-T 1587736332 18<26Khaytsus18>	https://docs.qmk.fm/#/newbs_getting_started
-T 1587736356 18<26Khaytsus18>	The only use a container really has here is not installing anything on the host os
-T 1587736412 18<26jtagcat18>	well, thanks for your time
-T 1587736453 18<26Khaytsus18>	100% sure that will just-work in podman
-T 1587736582 18<26Khaytsus18>	Whole lot of weird obfuscation insttead of just following hte install docs
-T 1587736642 18<26Khaytsus18>	 * The firmware size is fine - 24034/28672 (83%, 4638 bytes free)
-T 1587736657 18<26Khaytsus18>	so yes, that worked just fine.. it's just put the compilation in docker files.
-T 1587736742 18<28fedbot18>	*** F31-20200420 updated lives available: https://tinyurl.com/Live-respins2  Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1587737260 FiSHLiM plugin unloaded
-T 1587737494 19*	Now talking on 22#fedora
-T 1587737494 22*	Topic for 22#fedora is: #Fedora F30, F31, F32 Beta end user support || Please READ: https://tinyurl.com/chanfaq || Common bugs: https://tinyurl.com/f30-common https://tinyurl.com/f31commonbugs ||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F31 Live isos: https://tinyurl.com/Live-respins2 || Default to OPEN: https://tinyurl.com/defualt2open
-T 1587737494 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Mar 17 14:11:59 2020)
-T 1587737494 -18ChanServ-	[#fedora] "Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged"
-T 1587737509 20*	Disconnected (20)
-T 1602784599 19*	Now talking on 22#fedora
-T 1602784599 22*	Topic for 22#fedora is: #Fedora F31, F32, F33 Beta end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/f31commonbugs https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F32 Live isos: https://tinyurl.com/Live-respins ||
-T 1602784599 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Sep 29 15:18:38 2020)
-T 1602784599 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1602784869 18<20The_Letter_M18>	Any podman power users here?
-T 1602785097 18<20cmurf18>	might try in #podman
-T 1602785773 18<20The_Letter_M18>	Yeah. I asked my Q about using mariadb in a pod on Podman. They told me try asking in #maria and over there I got no response
-T 1602785846 18<20The_Letter_M18>	The other response I got in #podman sounded like they don't know how to utilize pods
-T 1602785898 18<26Khaytsus18>	Anything that works for docker should work in podman
-T 1602785923 18<26Khaytsus18>	I wish there was a solid compose replacement, but just for runnong containers.. no biggie
-T 1602786367 18<20The_Letter_M18>	Khaytsus Docker doesn't do pods
-T 1602786392 18*	26Khaytsus blinks
-T 1602786759 18<20The_Letter_M18>	Ok. After looking it up, I am wrong; Docker does do pods.
-T 1602786763 18<20The_Letter_M18>	Lol
-T 1602786783 18<20The_Letter_M18>	I thought Pods were something that came from K8s
-T 1602786836 18<26Khaytsus18>	I'm not quite sure what it has to do with what I said anyway
-T 1602787390 18<20The_Letter_M18>	Khaytsus so I'm trying to deploy them inside a pod together. Being inside a pod they should beable to talk to each other using the pods internal network. I haven't seen any Docker compose files deploy a pod or container inside a pod.
-T 1602787482 18<20The_Letter_M18>	Khaytsus: Ok so I should explain. I made a pod called "wordpress" and then I deployed a wordpress and mariadb container inside it. I used the options from the docker hub pages for both images, but the Wordpress site is saying it's having trouble connecting to the DB.
-T 1602788086 18<28fedbot18>	*** F32-20201001 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602789141 18<20The_Letter_M18>	Khaytsus: Sorry if I came off as rude. I never really got into Docker much and now I'm learning containers with Podman and it's ust been kinda frustrating today.
-T 1602789167 18<26Khaytsus18>	It should be drop in, again, except for yml composes.
-T 1602791689 18<28fedbot18>	*** F32-20201001 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602794360 18<19hyperreal18>	what are the recommended mount options for btrfs on fedora?
-T 1602794460 18<20cmurf18>	hyperreal: defaults
 T 1602794499 18<20cmurf18>	the rest are use case specific so you should be familiar with what they do
 T 1602794599 18<28memoryleak18>	The_Letter_M: I understand your frustration, went through the same. What are the services running in your pod, only MariaDB?
 T 1602794631 18<20cmurf18>	the one mount option that is recommended but not default due to detection limitations is: desktop usage on a hard drive (spinning) without significant database operations is to add 'autodefrag'
@@ -5045,3 +4997,11 @@ T 1614749441 19*	Now talking on 22#fedora
 T 1614749441 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
 T 1614749441 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
 T 1614749441 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1615317965 19*	Now talking on 22#fedora
+T 1615317965 22*	Topic for 22#fedora is: #Fedora Linux F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1615317965 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Thu Mar  4 19:39:11 2021)
+T 1615317965 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1615318037 24*	28KingAnDe[m] is now known as 18AndyThurman[m]
+T 1615318049 24*	28cws_ is now known as 18cws
+T 1615319006 18<25JayGuerette18>	For disabling sound cards that kept re-enabling themselves, I gave up and resorted to echo 1 > /sys/devices/pci0000:00/deviceid/remove in rc.local. Problem solved.
+T 1615320950 18<28fedbot18>	*** F33-20210301 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***

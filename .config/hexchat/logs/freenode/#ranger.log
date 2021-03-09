@@ -9597,3 +9597,58 @@ Mar 03 06:29:50 *	Disconnected ()
 Mar 03 06:30:41 *	Now talking on #ranger
 Mar 03 06:30:41 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
 Mar 03 06:30:41 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+**** BEGIN LOGGING AT Tue Mar  9 20:26:05 2021
+
+Mar 09 20:26:05 *	Now talking on #ranger
+Mar 09 20:26:05 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Mar 09 20:26:05 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Mar 09 20:34:30 <lonelykid>	Hi, I just tried the z plugin. It's actually not a z plugin. It only read z data file and matches with regex using python. z does not works as executable directly. It only injects functions to shell. I'm wondering if it's possible to really use z in ranger. fasd is great, but not maintained  for too long.
+Mar 09 20:34:59 <GermainZ>	z?
+Mar 09 20:35:51 <lonelykid>	z, autojump, fasd. they are similar tool. to cd to dir faster
+Mar 09 20:36:40 <GermainZ>	Got a link to z? It's really tough to google
+Mar 09 20:36:56 <GermainZ>	https://github.com/rupa/z ?
+Mar 09 20:37:04 <wasamasa>	it's z shit
+Mar 09 20:37:20 <lonelykid>	haha. https://github.com/ranger/ranger/wiki/Custom-Commands#z
+Mar 09 20:37:24 <lonelykid>	you are correct
+Mar 09 20:37:45 <lonelykid>	why you don't like z?
+Mar 09 20:39:02 <GermainZ>	I wonder if using z along with https://github.com/vifon/texas for example would work for you, lonelykid 
+Mar 09 20:39:25 <GermainZ>	Then you can just quit ranger, run z, and launch ranger again
+Mar 09 20:39:45 <GermainZ>	Quit a lot of keystrokes tho
+Mar 09 20:39:47 <GermainZ>	Quite*
+Mar 09 20:40:18 <lonelykid>	it might be better to modify z to take args and run as executable. I can copy that part from fasd
+Mar 09 20:40:44 <lonelykid>	just wondering if ranger could manage it without this hacking.
+Mar 09 20:41:36 <wasamasa>	what are the odds you're using https://github.com/ask1234560/ranger-zjumper wrong
+Mar 09 20:41:49 <wasamasa>	I mean, look at the code
+Mar 09 20:41:54 <wasamasa>	it's pretty self-explanatory
+Mar 09 20:42:14 <lonelykid>	I checked the code. it's not really using z at all. it's reading z data file and using it's own regex to match.
+Mar 09 20:42:17 <GermainZ>	could modify z too
+Mar 09 20:42:38 <wasamasa>	so make your own better thing, lol
+Mar 09 20:42:49 <GermainZ>	wasamasa: you ok? :)
+Mar 09 20:43:15 <lonelykid>	it's not a bad idea for zjumper to do that at all.
+Mar 09 20:43:58 <lonelykid>	but i want to log path in ranger to z data file, like the autojump plugin does. then i will need to really call z.
+Mar 09 20:45:51 <GermainZ>	looking at how z works I don't think you can do that directly
+Mar 09 20:46:00 <GermainZ>	you'll need to either wrap your own wrapper or modify z
+Mar 09 20:46:10 <GermainZ>	s/wrap /write /
+Mar 09 20:47:22 <lonelykid>	yeah. thank you.
+Mar 09 20:48:14 <lonelykid>	fasd already does this. so I think i can just paste
+Mar 09 20:48:14 <lonelykid>	case $- in
+Mar 09 20:48:15 <lonelykid>	  *i*) ;; # assume being sourced, do nothing
+Mar 09 20:48:16 <lonelykid>	  *) # assume being executed as an executable
+Mar 09 20:48:16 <lonelykid>	    if [ -x "$_FASD_SHELL" -a -z "$_FASD_SET" ]; then
+Mar 09 20:48:17 <lonelykid>	      _FASD_SET=1 exec $_FASD_SHELL "$0" "$@"
+Mar 09 20:48:17 <lonelykid>	    else
+Mar 09 20:48:18 <lonelykid>	      fasd "$@"
+Mar 09 20:48:18 <lonelykid>	    fi;;
+Mar 09 20:48:19 <lonelykid>	esac
+Mar 09 20:48:22 <GermainZ>	For your goal, it might be enough to modify the z plugin to write to the z data file
+Mar 09 20:48:59 <lonelykid>	that might be more complicated. because when you add a new path. you will also need to update weight, i assume.
+Mar 09 20:48:59 <GermainZ>	lonelykid: please don't paste multiple lines in IRC, it's spammy (and often buffered, so your messages actually get sent over 20 seconds). Use a paste bin instead
+Mar 09 20:49:16 <lonelykid>	ok. sorry about that.
+Mar 09 20:49:38 <GermainZ>	If fasd works already then that's certainly easier :)
+Mar 09 20:50:45 <lonelykid>	it seems more powerful. but not maintained. although this kind of tool does not need much maintenance, it has been 9 years since it's actively updated.
+Mar 09 21:02:25 <__monty__>	Does it have bugs?
+Mar 09 21:02:46 <__monty__>	Otherwise, who cares? Stable software is best software.
+Mar 09 21:03:54 <GermainZ>	For example, ranger
+Mar 09 21:06:44 <lonelykid>	ah. maybe. I will give it a try.
+Mar 09 21:07:04 <lonelykid>	to be fair. ranger is still under active development.
+Mar 09 21:07:17 <GermainZ>	It has no bugs, however
