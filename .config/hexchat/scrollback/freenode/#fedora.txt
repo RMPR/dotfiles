@@ -1,31 +1,3 @@
-T 1602794499 18<20cmurf18>	the rest are use case specific so you should be familiar with what they do
-T 1602794599 18<28memoryleak18>	The_Letter_M: I understand your frustration, went through the same. What are the services running in your pod, only MariaDB?
-T 1602794631 18<20cmurf18>	the one mount option that is recommended but not default due to detection limitations is: desktop usage on a hard drive (spinning) without significant database operations is to add 'autodefrag'
-T 1602794721 18<20cmurf18>	unforunately detection of whether media is really rotating or not from sysfs is not reliable
-T 1602794731 18<19hyperreal18>	cmurf: I see. I've heard people recommending 'ssd,noatime,space_cache,commit=120,compress=zstd'
-T 1602794743 18<19hyperreal18>	I use an SSD
-T 1602794748 18<19hyperreal18>	and nvme
-T 1602794756 18<20cmurf18>	ssd mount option is autodetected reliably
-T 1602794846 18<20cmurf18>	noatime is a tradeoff: less metadata writes due to atime updates once per day (for relatime, the default); but then things like cleaning up /var/tmp/ have to fallback to mtime (I think it's mtime)
-T 1602794867 18<20cmurf18>	so some things get cleaned up more aggressively because mtime isn't updated on access
-T 1602794890 18<20cmurf18>	so those files might be used, and atime updates would show that, but with noatime it looks like they aren't so they get thrown out
-T 1602794909 18<20cmurf18>	space_cache is default already
-T 1602794917 18<20cmurf18>	commit=30 is the default, not sure why you want 120
-T 1602794956 18<20cmurf18>	compression is safe but you'll have to evaluate it for your use case; helps some and slows down others
-T 1602794978 18<20cmurf18>	you can also lightening the level of compression so it takes less of a cpu hit with 'compress=zstd:1'
-T 1602795087 18<20cmurf18>	s/lightening/lighten/
-T 1602795112 18<19hyperreal18>	cmurf: okay, thank you
-T 1602795289 18<28fedbot18>	*** F32-20201001 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602797960 18<20yates18>	is there a package group for gtk+3 or gtk+4 development?
-T 1602798090 18<20yates18>	is it just a matter of installing gtk4-devel?
-T 1602798722 18<20yates18>	don't everyone talk all at once...
-T 1602798742 18<20yates18>	zcat: how are things man?
-T 1602798747 18<20yates18>	long time no z...
-T 1602798777 18<20yates18>	vwbusguy: and you're still here? i thought you'd be dead by now!
-T 1602798812 18<19fedora_sec18>	I'm thinking of getting into CW
-T 1602798815 18<19fedora_sec18>	For Ham
-T 1602798857 18<20yates18>	fedora_sec: smoked?
-T 1602798891 18<28fedbot18>	*** F32-20201001 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
 T 1602798999 18<20yates18>	fire up that 500-watt linear?
 T 1602801158 18<19VinAlencc40418>	Hello, guys. How are you? I'd like to ask you something: on Debian, there's a repository called "backports" which brings recent updates to stable release. Is there something similar to it in Fedora? Would it be testing repositories?
 T 1602801285 18<27Sokel18>	Testing is specifically for testing. when testing packages/updates pass and gets good karma, it gets pushed to the updates repo.
@@ -5025,3 +4997,7 @@ T 1615363438 24*	28sauvin is now known as 18Lemniscate
 T 1615364161 18<28fedbot18>	*** F33-20210301 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
 T 1615365797 24*	28sudhir is now known as 18Guest20982
 T 1615365978 24*	28_val__ is now known as 18_val_
+T 1615544112 19*	Now talking on 22#fedora
+T 1615544112 22*	Topic for 22#fedora is: #Fedora Linux F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1615544112 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Thu Mar  4 19:39:11 2021)
+T 1615544112 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
