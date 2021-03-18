@@ -1,7 +1,3 @@
-T 1602798999 18<20yates18>	fire up that 500-watt linear?
-T 1602801158 18<19VinAlencc40418>	Hello, guys. How are you? I'd like to ask you something: on Debian, there's a repository called "backports" which brings recent updates to stable release. Is there something similar to it in Fedora? Would it be testing repositories?
-T 1602801285 18<27Sokel18>	Testing is specifically for testing. when testing packages/updates pass and gets good karma, it gets pushed to the updates repo.
-T 1602801313 18<27Sokel18>	I would not leave the "testing" repo enabled full time.
 T 1602801330 18<19VinAlencc40418>	Sokel, got it. Thanks.
 T 1602801353 18<29kk4ewt18>	VinAlencc404 just sudo dnf update will update you
 T 1602801404 18<29kk4ewt18>	all updates for the stable release will be in the updates repo
@@ -5001,3 +4997,115 @@ T 1615544112 19*	Now talking on 22#fedora
 T 1615544112 22*	Topic for 22#fedora is: #Fedora Linux F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
 T 1615544112 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Thu Mar  4 19:39:11 2021)
 T 1615544112 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1616054738 19*	Now talking on 22#fedora
+T 1616054738 22*	Topic for 22#fedora is: #Fedora Linux F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1616054738 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Thu Mar  4 19:39:11 2021)
+T 1616054739 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1616057054 18<28fedbot18>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1616059738 18<20nvfanonlah[m]18>	Btw anyone here know how to merge two text file content while not repeat the same parts？
+T 1616059782 18<20nvfanonlah[m]18>	I think xx>>just appends it. The problem is how to detect the same line.
+T 1616059821 18<20nvfanonlah[m]18>	I guess need perl or lua or python. If someone have a sh script will be extremely appreciated.
+T 1616059988 18<27Sokel18>	Depending on what you're trying to do, sort -u file1 file2 or sort file1 file2 | uniq if they're in order. you could probably also do awk '![$0]++ {print}' file1 file2. depending on what your use case is or what you're actually trying to do, perl or python is your best bet.
+T 1616060076 18<20nvfanonlah[m]18>	Thanks will try your suggestions.
+T 1616060486 18<26n0ps1ed18>	nvfanonlah[m], use meld
+T 1616060508 18<26n0ps1ed18>	https://meldmerge.org/
+T 1616060642 18<26n0ps1ed18>	if the file is super out of order and not just missing pieces with diffs that wont help, but you could combine that with some sort/uniq output like Sokel suggested
+T 1616060655 18<28fedbot18>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1616061012 18<28kiwikiwik18>	hello, how can i install R without all texlive dependencies?
+T 1616061441 18<26n0ps1ed18>	compile it yourself and remove them
+T 1616061463 18<26n0ps1ed18>	the real question is why
+T 1616061482 18<26n0ps1ed18>	do you not want some nice pdf exports of your data?
+T 1616061499 18<28kiwikiwik18>	i'd like to use tinytex instead
+T 1616061629 18<26n0ps1ed18>	if there is a distro that has it packaged that way i would suggest using podman to run a conatiner and do it there
+T 1616061715 18<26n0ps1ed18>	can you use R with tinytex with the texlive deps installed? why must you not install them?
+T 1616061748 18<28kiwikiwik18>	yes i think so...
+T 1616061755 18<20nvfanonlah[m]18>	<n0ps1ed "https://meldmerge.org/"> Thanks
+T 1616061794 18<28kiwikiwik18>	i have an ugly biblatex bug with bookdown and maybe it works with tinytex https://github.com/rstudio/bookdown/blob/39d2c10fcc2b024d77c52ae7f057487f2f302dfb/R/latex.R#L65
+T 1616061884 18<26n0ps1ed18>	so maybe what you should be doing is just installing R, and tinytex and not worrying about the texlive deps (unless they conflict) and explore the options from R to use tinytex. i have not used R, but that would be the path i would try
+T 1616061914 18<28kiwikiwik18>	Ok let's hope for the best.`I recommend that you uninstall your existing LaTeX distribution.`
+T 1616061914 18<28kiwikiwik18>	~ Yihui Xie in TinyTeX
+T 1616061987 18<26n0ps1ed18>	https://hub.docker.com/r/csdaw/rmarkdown-tinytex
+T 1616062057 18<28kiwikiwik18>	thanks but using a docker image is not feasible
+T 1616062060 18<26n0ps1ed18>	download the dockerfile, look it over, build with podman, and put your doc on there, test it out. or just yolo, pull the image without checking it, and have a go
+T 1616062081 18<26n0ps1ed18>	why is that not feasable
+T 1616062124 18<28kiwikiwik18>	my bookdown stuff has some more deps. it's too much work
+T 1616062244 18<20nvfanonlah[m]18>	Gg Dependencies hell
+T 1616062247 18<26n0ps1ed18>	so your at a crossroads here, your ether going to have to do work to your local setup to get tinytex working, or do work to a container to get your software setup. downloading and customizing the docker file is pretty damn wazy
+T 1616062290 18<20nvfanonlah[m]18>	One of the way is to save your current state. Do a small fork comment out and resolve the hell.
+T 1616062339 18<28FranciscoD18>	looks like the Requires are included in the spec: https://src.fedoraproject.org/rpms/R/blob/rawhide/f/R.spec#_315
+T 1616062364 18<28FranciscoD18>	kiwikiwik: so, theoretically, you could comment out the lines there that "Require: .." latex bits and rebuild the rpm
+T 1616062442 18<28kiwikiwik18>	FranciscoD thank you. then I have to exclude R from further updates or?
+T 1616062447 18<28FranciscoD18>	kiwikiwik: it may get messy though: it relies on a TeX implementation for building from the looks of it
+T 1616062456 18<28kiwikiwik18>	ok
+T 1616062460 18<28FranciscoD18>	kiwikiwik: yes, you'll have to pin your rpm version etc.
+T 1616062471 18<28FranciscoD18>	no easy way to do this with the R package in the repos, I'm afraid
+T 1616062507 18<28FranciscoD18>	kiwikiwik: does upstream not provided a binary installation?
+T 1616062511 18<28FranciscoD18>	that'll probably be the simplest way to go
+T 1616062532 18<28FranciscoD18>	the packages in the repos are built to work well with other packages in the repos---so trying to make them work with other stuff will not be trivial
+T 1616064258 18<28fedbot18>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1616067858 18<28fedbot18>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1616068088 18<20dmlloyd18>	if I want to customize my fail2ban configuration (sshd failure bantime) where should I specify that?  jail.conf says "YOU SHOULD NOT MODIFY THIS FILE"
+T 1616068117 18<20dmlloyd18>	can I just create a jail.local file in /etc I guess?
+T 1616068170 18<20dmlloyd18>	I guess I'll try that
+T 1616068226 18<20dmlloyd18>	I just seem to have a lot of repeat offenders
+T 1616068229 18<26Devices18>	you are correct: https://www.fail2ban.org/wiki/index.php/MANUAL_0_8#Configuration
+T 1616068256 18<26Devices18>	you can create an override fail2ban.local in /etc/fail2ban/
+T 1616068280 18<20dmlloyd18>	it seems to work
+T 1616068287 18<26Devices18>	otherwise for a specific jail you can create a file in filter.d/sshd.conf
+T 1616068318 18<26Devices18>	that should probably be sshd.local actually
+T 1616068433 18<26Khaytsus18>	Yes, that's one issue I have with fail2ban..  there's no single-config over-ride, you literally have to copy the entire file and modify it.
+T 1616068563 24*	28zdohnal is now known as 18fedora-infra
+T 1616068568 24*	28fedora-infra is now known as 18zdohnal
+T 1616069040 18<27billings18>	I typically just create an /etc/fail2ban/jail.d/sshd.conf with those overrides
+T 1616071459 18<28fedbot18>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1616072574 20*	Disconnected (20)
+T 1616072605 19*	Now talking on 22#fedora
+T 1616072605 22*	Topic for 22#fedora is: #Fedora Linux F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1616072605 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Thu Mar  4 19:39:11 2021)
+T 1616072607 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1616074106 20*	Disconnected (20)
+T 1616074133 19*	Now talking on 22#fedora
+T 1616074133 22*	Topic for 22#fedora is: #Fedora Linux F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1616074133 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Thu Mar  4 19:39:11 2021)
+T 1616074133 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1616074475 24*	28mkyral_ is now known as 18mkyral
+T 1616075060 18<28fedbot18>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1616075182 24*	28daniel-wtd_ is now known as 18daniel-wtd
+T 1616078661 18<28fedbot18>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1616078925 18<25coz_18>	good morning all
+T 1616078931 18<19cws18>	yo
+T 1616079018 18<25coz_18>	cws, yo-yo %)
+T 1616079024 18<19cws18>	wheee
+T 1616079071 18<19cws18>	Having an issue with an RPi4. I boot up the aarch64 Workstation 33 image, everything's ducky. I do a dnf update, and it goes to staticky mess when it restarts. Tried hand-jamming display settings (hooked up to 1080p, nothing special), no change.
+T 1616079146 18<25coz_18>	Maxwell's laws
+T 1616079172 18<25coz_18>	sorry wrong channel
+T 1616079252 18<26Devices18>	what is being updated then cws?
+T 1616079277 18<19cws18>	700 something odd packages.
+T 1616079399 18<26Devices18>	that's difficult to narrow down then
+T 1616079596 18<26Devices18>	is it possible to inspect any logs?
+T 1616079600 18<19dowdle18>	cws: How much ram?
+T 1616079632 18<19cws18>	8GB.
+T 1616079638 18<19cws18>	Also happens on the 4GB model.
+T 1616079648 18<19cws18>	Tried with three different microSD cards, two of them new.
+T 1616079671 18<19cws18>	I'll set it up again and make sure I can ssh in.
+T 1616079765 18<26Khaytsus18>	I didn't even know hte pi4 video worked at all, I guess that got fixed
+T 1616079806 18<26Devices18>	from wgat I can find, fedora does not even support the pi 4
+T 1616079831 18<19cws18>	Booted up great before running updates. And arm-image-builder has rpi4 as a supported platform.
+T 1616079835 24*	28tnorth_ is now known as 18tno
+T 1616079859 18<26Devices18>	I guess they fixed it without updating the wiki then
+T 1616079867 18<26Khaytsus18>	cws: Might ask in #fedora-arm but pretty sure Pi 4 only works for text based, last I understood
+T 1616079886 18<19cws18>	Okay, I'll muck with it and see what I can get.
+T 1616079890 18<19cws18>	Heh, X forwarding from an RPi.
+T 1616079907 24*	28cranberry_failsa is now known as 18cranberry
+T 1616079915 18<19dowdle18>	cws: So if you update... and a kernel is one of the updates... after it has updated, that is when the problem happens?  Perhap exclude the kernel from the update and see if that helps.
+T 1616079932 18<26Khaytsus18>	Or try booting the old kernel, I assume thats a thing on a pi....
+T 1616079937 18<19cws18>	can do.
+T 1616079961 18<19dowdle18>	cws: Perhaps a different desktop spin if they are available because WORKSTATION (aka GNOME) wants accelerated 3D video... or it'll do software rendering... and who needs that on a Pi?
+T 1616080148 18<19cws18>	Will try that, too, thanks
+T 1616081838 18<24razze[m]18>	are there any known vpn regressions? Somewhere between the fedora 33 released and fedora 33 with patches, my company vpn stopped working. Using openvpn.
+T 1616081838 18<27biscuitsboars[m]18>	I am having issue on zoom sharing audio its asking for pulseaudio . I know pipewire is used by default now but is there any way for zoom to recognize it or make it work on Fedora 34 .
+T 1616082146 20*	Disconnected (20)
+T 1616083505 19*	Now talking on 22#fedora
+T 1616083505 22*	Topic for 22#fedora is: #Fedora Linux F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+T 1616083505 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Thu Mar  4 19:39:11 2021)
+T 1616083517 20*	Disconnected (20)

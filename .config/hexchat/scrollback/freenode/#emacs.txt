@@ -1,7 +1,3 @@
-T 1612880805 18<29wgreenhouse18>	I think we need more info before we keep guessing
-T 1612881118 18<29quiliro18>	yes...I was reading the manual page
-T 1612882414 18<20edgar-rft18>	rudybot: I am the nothing of the universe!
-T 1612882438 18<24rudybot18>	edgar-rft: QUITERS SAVE THE UNIVERSE! AGAIN! BY DOING NOTHING! AGAIN!
 T 1612882580 20*	Disconnected (20)
 T 1612882640 20*	Disconnected (20Remote host closed socket)
 T 1612882716 20*	Disconnected (20Remote host closed socket)
@@ -5001,3 +4997,129 @@ T 1615544112 19*	Now talking on 22#emacs
 T 1615544112 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat | No Public Logging, racism, sexism, xenophobia, botwanking, or other asshattery.
 T 1615544112 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Fri Feb 26 03:58:32 2021)
 T 1615544112 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1616054738 19*	Now talking on 22#emacs
+T 1616054738 22*	Topic for 22#emacs is: Beware the IDEs of March | Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat | No Public Logging, racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1616054738 22*	Topic for 22#emacs set by 26jlf!~user@pdpc/supporter/active/jlf (24Mon Mar 15 13:55:02 2021)
+T 1616054739 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1616061207 18<19bremner18>	,treemacs
+T 1616061215 18<22fsbot18>	bremner: treemacs is a tree layout file explorer for Emacs at https://github.com/Alexander-Miller/treemacs
+T 1616062149 18<29bad_blue_bull18>	hello
+T 1616062506 18<29bad_blue_bull18>	i'm in 7rouble
+T 1616062524 18<19bremner18>	blahblah441: just so understand your question, are you expecting icons to be displayed in the terminal?
+T 1616062526 18<29bad_blue_bull18>	followed theze instructions: https://www.emacswiki.org/emacs/ErcProxy
+T 1616062576 18<29bad_blue_bull18>	yet (eww "https://check.torproject.org/")
+T 1616062599 18<29bad_blue_bull18>	returns Bad Request Your browser sent a request that this server could not understand.  Reason: You're speaking plain HTTP to an SSL-enabled server port.  Instead use the HTTPS scheme to access this URL, please.
+T 1616062618 18<29bad_blue_bull18>	what did i do wrong
+T 1616062672 18<29bad_blue_bull18>	curl --socks5 localhost:9050 --socks5-hostname localhost:9050 -s https://check.torproject.org/ is fine
+T 1616062676 18<29bad_blue_bull18>	tor is running
+T 1616062792 18<26polezaivsani18>	bad_blue_bull: are you able to access any https resources via eww at all?
+T 1616062870 18<29bad_blue_bull18>	yes
+T 1616062870 18<26polezaivsani18>	also, iirc, eww (and w3m for that matter) don't support socks proxies
+T 1616062921 18<29bad_blue_bull18>	i care about erc in fact
+T 1616062930 18<29bad_blue_bull18>	but it fails to connect too
+T 1616062934 18<29bad_blue_bull18>	i just used eww for test
+T 1616062978 18<29bad_blue_bull18>	ircd.chat 6697
+T 1616063114 18<29bad_blue_bull18>	trying erc-ssl
+T 1616063119 18<29bad_blue_bull18>	errors
+T 1616063148 18<29bad_blue_bull18>	ERC terminated: connection broken by remote peer
+T 1616063202 18<29bad_blue_bull18>	tried torify emacs
+T 1616063216 18<29bad_blue_bull18>	get this in console:
+T 1616063217 18<29bad_blue_bull18>	1616063184 ERROR torsocks[1073]: Unable to resolve. Status reply: 4 (in socks5_recv_resolve_reply() at socks5.c:677)
+T 1616063548 18<26polezaivsani18>	can't help with eww, sorry; regarding erc - there couple things here you'd need to be aware of: 1. erc can't talk over socks proxies out of the box;  you can use socat(1) to create a tunnel to proxy incomming connections via socks and point erc to it;  use `torsocks emacs` (i haven't tried it myself);  or transparent proxy your traffic over tor with a firewall
+T 1616063597 18<26polezaivsani18>	2. when connecting to freenode over tor, you'd need to authenticate with tls client certs and sasl
+T 1616063652 18<26polezaivsani18>	anyway, you're up to get some decent hands on experience :)
+T 1616063700 18<29bad_blue_bull18>	I followed instrutions on emacswiki
+T 1616063715 18<26polezaivsani18>	which one?
+T 1616063791 18<26polezaivsani18>	meh s/firewall/packet filter/
+T 1616063874 18<29bad_blue_bull18>	https://www.emacswiki.org/emacs/ErcProxy
+T 1616063936 18<29bad_blue_bull18>	success:)
+T 1616063977 18<29bad_blue_bull18>	this time tried instrutions after "Alternatively, you can use the following for ERC only:"
+T 1616064102 18<26polezaivsani18>	and you have your certs/sasl setup too?  otherwise i'd be curious if you're routing over tor at all
+T 1616064501 18<29bad_blue_bull18>	I have ~/.ssh
+T 1616064538 18<29bad_blue_bull18>	but on this server ircd.chat if I do /whoami I see my IP
+T 1616064543 18<29bad_blue_bull18>	why?
+T 1616064544 18<22fsbot18>	why not?
+T 1616064621 18<26polezaivsani18>	because it was but illusion of success - your are likely not routing any applications over tor thus far, sorry :(
+T 1616064682 18<26polezaivsani18>	cert/sasl apply to freenode and other servers that require it, maybe ircd.caht doesn't
+T 1616064733 18<26polezaivsani18>	ever used netstat?  well, it's time to learn it to check up on network activity
+T 1616064750 18<29bad_blue_bull18>	ah yesss
+T 1616064759 18<29bad_blue_bull18>	http://ircd.chat/
+T 1616064763 18<29bad_blue_bull18>	wrong serv
+T 1616064775 18<29bad_blue_bull18>	must try br3ircdrchatmfsk.onion/6667
+T 1616064862 18<26polezaivsani18>	nah, if you where connecting over tor socks proxy, you could as well use regular irc server - it still shouldn't tell you your ip
+T 1616064976 18<29bad_blue_bull18>	trying br3ircdrchatmfsk.onion  6697 , but it can't connect
+T 1616064988 18<29bad_blue_bull18>	:(
+T 1616065276 18<19wasamasa18>	try the longer v3 address
+T 1616065281 18<19wasamasa18>	v2 addresses are deprecated
+T 1616065294 18<29bad_blue_bull18>	trying
+T 1616065297 18<29bad_blue_bull18>	ljxozsuo3rkfhdedxxy5hr7vanxix5rhx7agvplsht5libgqeov3qfid.onion
+T 1616065311 18<29bad_blue_bull18>	no luck too
+T 1616065389 18<29bad_blue_bull18>	:(
+T 1616065466 18<26polezaivsani18>	probably the easiest (and ugliest - just so that you won't get set in with the low hanging fruit) solution would be to run erc in `torsocks emacs`
+T 1616065641 18<19wasamasa18>	https://blog.torproject.org/v2-deprecation-timeline
+T 1616065647 18<19wasamasa18>	still like half a year left for migration
+T 1616066650 18<29bad_blue_bull18>	OK, torsocks is fine
+T 1616066660 18<29bad_blue_bull18>	don't know how it's different from torify
+T 1616066665 18<29bad_blue_bull18>	which doesn't work
+T 1616066793 18<19wasamasa18>	> It's important to understand that torify can easily be misused unless you know exactly what you're doing, so there's another program called torsocks which helps preconfigure torify for most socks-friendly applications.
+T 1616066860 18<19wasamasa18>	wait
+T 1616066865 18<19wasamasa18>	that doesn't make much sense
+T 1616066881 18<19wasamasa18>	torify supposedly wraps torsocks
+T 1616067022 18<19wasamasa18>	but I can only find torsocks, not torify code
+T 1616067983 18<19wasamasa18>	yeah, torify calls tsocks or torsocks
+T 1616068005 18<19wasamasa18>	and torsocks does the actual work
+T 1616069540 18<20edgar-rft18>	rudybot: it's time for a big international spamposium
+T 1616069581 18<24rudybot18>	edgar-rft: international relations is just all the big countries bullying everyone else
+T 1616069626 18<19bremner18>	Let's use real bulls for bullying
+T 1616069698 18<20edgar-rft18>	rudybot: red bull is for commies
+T 1616069709 18<24rudybot18>	edgar-rft: who doesn't adore emacs? filthy commies, that's who.
+T 1616071371 18<20edgar-rft18>	rudybot: your torsocks smell like rotten cheese
+T 1616071376 18<24rudybot18>	edgar-rft: it tries torsocks, if that is not found it uses tsocks
+T 1616072240 18<26polezaivsani18>	make fermented bits, not bit rotten ones!
+T 1616072574 20*	Disconnected (20)
+T 1616072606 19*	Now talking on 22#emacs
+T 1616072606 22*	Topic for 22#emacs is: Beware the IDEs of March | Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat | No Public Logging, racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1616072606 22*	Topic for 22#emacs set by 26jlf!~user@pdpc/supporter/active/jlf (24Mon Mar 15 13:55:02 2021)
+T 1616072607 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1616074106 20*	Disconnected (20)
+T 1616074133 19*	Now talking on 22#emacs
+T 1616074133 22*	Topic for 22#emacs is: Beware the IDEs of March | Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat | No Public Logging, racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1616074133 22*	Topic for 22#emacs set by 26jlf!~user@pdpc/supporter/active/jlf (24Mon Mar 15 13:55:02 2021)
+T 1616074133 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1616076093 18<27dansa18>	eshell makes the prompt text an undeletable string in the buffer.  I can't select the entire buffer and kill it.  Does anyone know how to fix that?
+T 1616076103 18<27dansa18>	I can kill anything else, except the region of the prompt.
+T 1616077270 18<20Unhammer18>	Hey, with org-babel, how can I use a block as just a "data file"? e.g. one block has `#+name\n#+begin_src xml\n<foo><br/></foo>\n#+end_src`  and the second one has `var foo=foo` and calls xmlstarlet or whatever on it
+T 1616077294 18<20Unhammer18>	but org-babel wants to execute the xml, I just want it "copied"
+T 1616077498 18<27grym18>	Unhammer: maybe begin_src text
+T 1616077583 18<20Unhammer18>	" No org-babel-execute function for text!"
+T 1616077588 18<20Unhammer18>	it tries to execute it :(
+T 1616077758 18<26polezaivsani18>	dansa: heh, deletable prompt rather annoys me and i see it as eshell's feature;  you're always welcome to the grim world of {ansi-,}term where you are free to garble the prompt all you like :)
+T 1616078109 18<29sachac18>	:eval no
+T 1616078218 18<29sachac18>	maybe?
+T 1616078706 18<29sachac18>	oh, you're better off with :noweb yes and then including <<foo>>
+T 1616078743 18<20Unhammer18>	ooh no you just use `#+begin_example xml` instead of begin_src, works great
+T 1616078761 18<20Unhammer18>	tangling seems like way too much work
+T 1616078986 18<29sachac18>	ooh, great! nice to know
+T 1616080154 18<24harwiltz18>	Hello all. I'm using emacs --batch to run some elisp code in my CI. However it looks like subprocesses from (make-process ...) aren't being executed.
+T 1616080163 18<24harwiltz18>	Is this expected behavior?
+T 1616080262 18<27grym18>	i have no idea, i just love the idea of emacs --batch being part of CI
+T 1616080359 24*	28yuta_ is now known as 18yuta
+T 1616080528 18<19wasamasa18>	if you spawn a subprocess and don't tell emacs to wait, it will exit in batch mode
+T 1616080575 18<19wasamasa18>	the laziest way of waiting is (read-char) or (while t (sleep-for 0.1))
+T 1616080575 18<24harwiltz18>	wasamasa: well I suppose that makes sense haha.
+T 1616080594 18<24harwiltz18>	I just added a flag to make it synchronous instead
+T 1616080610 18<19wasamasa18>	how?
+T 1616080610 18<24harwiltz18>	grym: Oh it's incredible
+T 1616080626 18<19wasamasa18>	oh, to the API call you mean
+T 1616080626 18<24harwiltz18>	Just edited the code to take a no-async parameter, and when non-nil it just doesn't make-process
+T 1616080626 18<24harwiltz18>	Yeah
+T 1616080642 18<19wasamasa18>	well, that also works
+T 1616080642 18<19wasamasa18>	and since it's a batch process, it's fine
+T 1616080642 18<24harwiltz18>	Yup. Took me long enough to realize this was the issue ;)
+T 1616081065 18<22peanutbutterandc18>	Hey there, I want to set up a LAN w/ one of my computers as the server and the rest as a client. Via a small network switch and nothing else...
+T 1616081107 18<22peanutbutterandc18>	what would be the best route to get my server (which is a pxe boot server of sorts) to assign ip addresses to the connected computers?
+T 1616081140 18<22peanutbutterandc18>	Should I use the network manager GUI to create a wired network that shares ip addresses w/ other connected devices?
+T 1616081155 18<22peanutbutterandc18>	or is there another better way, perhaps?
+T 1616082045 18<20johnw18>	morning; does anyone know if there's something I can put in `.dir-locals.el` to prevent Emacs from backing up files in that directory?
+T 1616082146 20*	Disconnected (20)
+T 1616083517 20*	Disconnected (20)

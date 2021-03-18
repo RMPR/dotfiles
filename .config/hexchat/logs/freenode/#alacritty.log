@@ -6387,3 +6387,123 @@ Mar 12 11:15:12 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL 
 Mar 12 11:15:12 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Feb 20 01:05:57 2021)
 **** ENDING LOGGING AT Fri Mar 12 11:15:33 2021
 
+**** BEGIN LOGGING AT Thu Mar 18 09:05:39 2021
+
+Mar 18 09:05:39 *	Now talking on #alacritty
+Mar 18 09:05:39 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+Mar 18 09:05:39 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Feb 20 01:05:57 2021)
+Mar 18 13:02:36 <nixpulvis>	Is it just me or is zsh's defaults with EDITOR=vim actually broken?
+Mar 18 13:03:52 <UndeadLeech>	Hm?
+Mar 18 13:04:16 <nixpulvis>	I suppose I might just not understand what the DEL key should be doing... but it's not alacritty's fault at least.
+Mar 18 13:04:37 <UndeadLeech>	Del in zsh you mean?
+Mar 18 13:04:42 <UndeadLeech>	What does that have to do with EDITOR=vim?
+Mar 18 13:05:18 <nixpulvis>	Apperently when EDITOR=vim zsh defaults to vim stuff
+Mar 18 13:05:55 <nixpulvis>	like it has a whole insert/normal mode implementation.
+Mar 18 13:07:04 <UndeadLeech>	Oh, I think I know what you might mean.
+Mar 18 13:07:13 <UndeadLeech>	Also you can set that independently from your EDITOR.
+Mar 18 13:08:08 <nixpulvis>	Right, it was just very strange for me trying to play with zsh for the first time in a few years.
+Mar 18 13:08:29 <UndeadLeech>	Do you mean that you can't go past the last insert point with backspace when you enter/leave vi mode?
+Mar 18 13:12:35 <nixpulvis>	I mean that the DEL key (not BS) is doing some capitalization and movement, and I don't know why.
+Mar 18 13:12:52 <UndeadLeech>	It shouldn't.
+Mar 18 13:13:00 <UndeadLeech>	Oh.
+Mar 18 13:13:04 <UndeadLeech>	Do this: bindkey "${terminfo[kdch1]}" delete-char
+Mar 18 13:13:34 <UndeadLeech>	Obviously you don't need to look it up through terminfo. But can't hurt.
+Mar 18 13:16:25 <nixpulvis>	zsh: command not found: terminfo
+Mar 18 13:16:40 <UndeadLeech>	That's whack.
+Mar 18 13:16:47 <UndeadLeech>	Just replace it I suppose.
+Mar 18 13:16:54 <nixpulvis>	No manual entry for bindkey
+Mar 18 13:16:57 <nixpulvis>	oh dear
+Mar 18 13:16:58 <UndeadLeech>	Oh, do this in your zshrc.
+Mar 18 13:17:02 <rcf>	I always just assumed it to be ‘really barebones ancient vi mode’ rather than vim mode.
+Mar 18 13:17:05 <nixpulvis>	OH
+Mar 18 13:17:09 <UndeadLeech>	It's a built-in, those don't usually have manpages.
+Mar 18 13:17:29 <UndeadLeech>	rcf: Kinda, but you can do a lot.
+Mar 18 13:17:44 <UndeadLeech>	I have `ci"` working for example, which I use a lot with grep.
+Mar 18 13:17:54 <nixpulvis>	rcf: yea same, which is kinda why I find it strange that it assumes EDITOR=vim is going to make me want all these arcane bindings.
+Mar 18 13:18:07 <rcf>	At which point I just decided ‘x ought to be good enough for anybody’
+Mar 18 13:19:06 <nixpulvis>	Nope, that binding didn't change the vi-mode behavior of zsh.
+Mar 18 13:19:36 <UndeadLeech>	These are all my bindings: https://github.com/chrisduerr/dotfiles/blob/master/files/zsh/keys.zsh
+Mar 18 13:19:50 <UndeadLeech>	It's probably this what you need: https://github.com/chrisduerr/dotfiles/blob/master/files/zsh/keys.zsh#L13
+Mar 18 13:20:18 <rcf>	In reality it’s punishing you for setting EDITOR instead of VISUAL, given that the former is reserved for ed on a Real UNIX System
+Mar 18 13:22:13 <nixpulvis>	>.<
+Mar 18 13:23:04 <nixpulvis>	hmmm, nope. Still capitalizing shit with DEL in vi-mode.
+Mar 18 13:23:18 <UndeadLeech>	Probably your fault.
+Mar 18 13:24:05 <nixpulvis>	probably.
+Mar 18 13:24:11 <nixpulvis>	back to fish I swim
+Mar 18 13:24:20 <UndeadLeech>	lmao
+Mar 18 13:24:33 <UndeadLeech>	Do you use an empty config?
+Mar 18 13:24:39 <UndeadLeech>	Like no omz?
+Mar 18 13:24:53 <UndeadLeech>	Also at that point, why don't you just deactivate vi mode bindings?
+Mar 18 13:24:57 <nixpulvis>	I really dislike complex shell configurations.
+Mar 18 13:25:25 <UndeadLeech>	Yeah, god forbid tweaking a tool you use for hours on a daily basis to be actually efficient.
+Mar 18 13:25:27 <nixpulvis>	Yea, disabling the vi-mode thing would be the way to go next time I try to switch to zsh...
+Mar 18 13:25:50 <UndeadLeech>	Also quite ironic that you use fish when you dislike complex shell configurations. That's basically just what fish is lol.
+Mar 18 13:25:59 <nixpulvis>	I was just offended by this strangeness, and assumed my life would become worse if I continued on that path.
+Mar 18 13:26:14 <nixpulvis>	Yea... the irony isn't lost on me.
+Mar 18 13:26:27 <UndeadLeech>	And your instinct is to abandon ship, rather than investigate and learn?
+Mar 18 13:26:59 <nixpulvis>	Well... in this case I can't even imagine a sane reason for this.
+Mar 18 13:27:27 <nixpulvis>	So I'm just avoiding learning more archaic nonesense.
+Mar 18 13:27:33 <UndeadLeech>	Based on my experience, most people really don't know how default vi behaves.
+Mar 18 13:27:40 <UndeadLeech>	They're just used to simple vim.
+Mar 18 13:27:58 <nixpulvis>	I didn't set EDITOR=vi now did I?
+Mar 18 13:28:12 <rcf>	To be completely fair having seen what some people do with their zsh configs (including omz) fish is a very sane, rational approach. 
+Mar 18 13:28:32 <UndeadLeech>	Well vi is the standard. That's what you get when you are on some random minimal VPS.
+Mar 18 13:28:37 <nixpulvis>	Fish's only real problem is that it reinvented the shell grammar.
+Mar 18 13:28:57 <UndeadLeech>	Fish is just garbage in pretty much every way.
+Mar 18 13:29:03 <UndeadLeech>	Noobtrap.
+Mar 18 13:29:15 <nixpulvis>	doubtful
+Mar 18 13:29:22 <UndeadLeech>	I hate things that hold people back from learning more stuff for the sole purpose of being easy to get into.
+Mar 18 13:29:26 <nixpulvis>	the history thing was what sold me on it.
+Mar 18 13:29:46 <rcf>	The shell grammar is what causes the brain damage that convinces people the Bourne shell heritage is worth upholding.
+Mar 18 13:30:18 <nixpulvis>	So what we should all compile ELFs?
+Mar 18 13:30:52 <nixpulvis>	actually... it's fine, just put interpretors in the PATH.
+Mar 18 13:31:35 <rcf>	No, but a more sensible syntax not developed by someone who was convinced that the C preprocessor was an ideal ALGOL compiler isn't an absurd proposition. 
+Mar 18 13:31:43 <nixpulvis>	Still... I have to deal with so many legacy codes, knowing SH-like grammar is useful.
+Mar 18 13:31:59 <rcf>	And I say all this as someone who insists on strict POSIX sh compliance for shell scripts. 
+Mar 18 13:32:15 <UndeadLeech>	Honestly modern approaches to "more sensible syntax" are the worst examples of shell syntax I've ever seen.
+Mar 18 13:32:39 <nixpulvis>	I'll mostly agree with that.
+Mar 18 13:32:48 <nixpulvis>	I miss having $? in fish.
+Mar 18 13:33:03 <nixpulvis>	but the if fi thing is dumb.
+Mar 18 13:33:03 <UndeadLeech>	Stuff like powershell is straight up hostile to interactive use.
+Mar 18 13:33:05 <rcf>	In the end I dislike most of them as well. 
+Mar 18 13:33:15 <rcf>	So I stay with zsh. 
+Mar 18 13:34:09 <nixpulvis>	I'm trying to remember... I think fish's looping constructs are actually nicer to use.
+Mar 18 13:34:24 <UndeadLeech>	Interactively?
+Mar 18 13:34:32 <nixpulvis>	In general.
+Mar 18 13:34:48 <rcf>	But when someone *likes* fish, and does everything in their power to make zsh behave like fish, mostly via cargo-cult copy-paste zshrc or the use of a monstrosity like ohmyzsh... maybe the real thing isn't a bad idea is all I'm saying. 
+Mar 18 13:35:06 <UndeadLeech>	The if/fi syntax really isn't that unreasonable. Though I personally prefer the more ML style brackets of course.
+Mar 18 13:35:42 <UndeadLeech>	rcf: I'd say it depends, it might allow people to learn new things and grow.
+Mar 18 13:35:57 <UndeadLeech>	A zsh config gimped into some fish mess can eventually slowly transition into something more sensible.
+Mar 18 13:36:04 <UndeadLeech>	If you just stick to fish, that's never gonna happen.
+Mar 18 13:36:10 <UndeadLeech>	I originally started with omz.
+Mar 18 13:36:26 <nixpulvis>	oh my!
+Mar 18 13:36:52 <nixpulvis>	At least fish isn't written in javascript.
+Mar 18 13:37:10 <nixpulvis>	OK, time to fuel up on hateraid. bbl
+Mar 18 13:37:32 <UndeadLeech>	You're telling my your ideal architecture isn't javascript all the way to the kernel?
+Mar 18 14:02:54 *	Disconnected ()
+**** ENDING LOGGING AT Thu Mar 18 14:02:54 2021
+
+**** BEGIN LOGGING AT Thu Mar 18 14:03:25 2021
+
+Mar 18 14:03:25 *	Now talking on #alacritty
+Mar 18 14:03:25 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+Mar 18 14:03:25 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Feb 20 01:05:57 2021)
+Mar 18 14:28:26 *	Disconnected ()
+**** ENDING LOGGING AT Thu Mar 18 14:28:26 2021
+
+**** BEGIN LOGGING AT Thu Mar 18 14:28:53 2021
+
+Mar 18 14:28:53 *	Now talking on #alacritty
+Mar 18 14:28:53 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+Mar 18 14:28:53 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Feb 20 01:05:57 2021)
+Mar 18 16:42:26 *	Disconnected ()
+**** ENDING LOGGING AT Thu Mar 18 16:42:26 2021
+
+**** BEGIN LOGGING AT Thu Mar 18 17:05:05 2021
+
+Mar 18 17:05:05 *	Now talking on #alacritty
+Mar 18 17:05:05 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+Mar 18 17:05:05 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Feb 20 01:05:57 2021)
+Mar 18 17:05:17 *	Disconnected ()
+**** ENDING LOGGING AT Thu Mar 18 17:05:17 2021
+

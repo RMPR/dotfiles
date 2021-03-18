@@ -1,6 +1,3 @@
-T 1584637660 18<29kchibisov18>	yeah, was just curious. And they ask why terminal needs GPU acceleration :- ).
-T 1584637740 18<29kchibisov18>	Though for laptops you don't have much options on Linux and the way to go is integrated GPU, since NVIDIA is NVIDIA, and AMD GPU in a laptops is still very rare thing.
-T 1584637776 18<29kchibisov18>	Dedicated AMD GPU in a laptop, I mean.
 T 1584638152 18<22nixpulvis18>	My nvidia card is starting to act up, and I'm worried :(
 T 1584638197 18<29kchibisov18>	take a screw driver and remove it.
 T 1584638246 18<29kchibisov18>	Anyway it's pretty useless for Linux desktops.
@@ -5000,3 +4997,107 @@ T 1615359362 18<19rcf18>	The name may have changed with an update
 T 1615544112 19*	Now talking on 22#alacritty
 T 1615544112 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
 T 1615544112 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Feb 20 01:05:57 2021)
+T 1616054739 19*	Now talking on 22#alacritty
+T 1616054739 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+T 1616054739 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Feb 20 01:05:57 2021)
+T 1616068956 18<22nixpulvis18>	Is it just me or is zsh's defaults with EDITOR=vim actually broken?
+T 1616069032 18<24UndeadLeech18>	Hm?
+T 1616069056 18<22nixpulvis18>	I suppose I might just not understand what the DEL key should be doing... but it's not alacritty's fault at least.
+T 1616069077 18<24UndeadLeech18>	Del in zsh you mean?
+T 1616069082 18<24UndeadLeech18>	What does that have to do with EDITOR=vim?
+T 1616069118 18<22nixpulvis18>	Apperently when EDITOR=vim zsh defaults to vim stuff
+T 1616069155 18<22nixpulvis18>	like it has a whole insert/normal mode implementation.
+T 1616069224 18<24UndeadLeech18>	Oh, I think I know what you might mean.
+T 1616069233 18<24UndeadLeech18>	Also you can set that independently from your EDITOR.
+T 1616069288 18<22nixpulvis18>	Right, it was just very strange for me trying to play with zsh for the first time in a few years.
+T 1616069309 18<24UndeadLeech18>	Do you mean that you can't go past the last insert point with backspace when you enter/leave vi mode?
+T 1616069555 18<22nixpulvis18>	I mean that the DEL key (not BS) is doing some capitalization and movement, and I don't know why.
+T 1616069572 18<24UndeadLeech18>	It shouldn't.
+T 1616069580 18<24UndeadLeech18>	Oh.
+T 1616069584 18<24UndeadLeech18>	Do this: bindkey "${terminfo[kdch1]}" delete-char
+T 1616069614 18<24UndeadLeech18>	Obviously you don't need to look it up through terminfo. But can't hurt.
+T 1616069785 18<22nixpulvis18>	zsh: command not found: terminfo
+T 1616069800 18<24UndeadLeech18>	That's whack.
+T 1616069807 18<24UndeadLeech18>	Just replace it I suppose.
+T 1616069814 18<22nixpulvis18>	No manual entry for bindkey
+T 1616069817 18<22nixpulvis18>	oh dear
+T 1616069818 18<24UndeadLeech18>	Oh, do this in your zshrc.
+T 1616069822 18<19rcf18>	I always just assumed it to be ‘really barebones ancient vi mode’ rather than vim mode.
+T 1616069825 18<22nixpulvis18>	OH
+T 1616069829 18<24UndeadLeech18>	It's a built-in, those don't usually have manpages.
+T 1616069849 18<24UndeadLeech18>	rcf: Kinda, but you can do a lot.
+T 1616069864 18<24UndeadLeech18>	I have `ci"` working for example, which I use a lot with grep.
+T 1616069874 18<22nixpulvis18>	rcf: yea same, which is kinda why I find it strange that it assumes EDITOR=vim is going to make me want all these arcane bindings.
+T 1616069887 18<19rcf18>	At which point I just decided ‘x ought to be good enough for anybody’
+T 1616069946 18<22nixpulvis18>	Nope, that binding didn't change the vi-mode behavior of zsh.
+T 1616069976 18<24UndeadLeech18>	These are all my bindings: https://github.com/chrisduerr/dotfiles/blob/master/files/zsh/keys.zsh
+T 1616069990 18<24UndeadLeech18>	It's probably this what you need: https://github.com/chrisduerr/dotfiles/blob/master/files/zsh/keys.zsh#L13
+T 1616070018 18<19rcf18>	In reality it’s punishing you for setting EDITOR instead of VISUAL, given that the former is reserved for ed on a Real UNIX System
+T 1616070133 18<22nixpulvis18>	>.<
+T 1616070184 18<22nixpulvis18>	hmmm, nope. Still capitalizing shit with DEL in vi-mode.
+T 1616070198 18<24UndeadLeech18>	Probably your fault.
+T 1616070245 18<22nixpulvis18>	probably.
+T 1616070251 18<22nixpulvis18>	back to fish I swim
+T 1616070260 18<24UndeadLeech18>	lmao
+T 1616070273 18<24UndeadLeech18>	Do you use an empty config?
+T 1616070279 18<24UndeadLeech18>	Like no omz?
+T 1616070293 18<24UndeadLeech18>	Also at that point, why don't you just deactivate vi mode bindings?
+T 1616070297 18<22nixpulvis18>	I really dislike complex shell configurations.
+T 1616070325 18<24UndeadLeech18>	Yeah, god forbid tweaking a tool you use for hours on a daily basis to be actually efficient.
+T 1616070327 18<22nixpulvis18>	Yea, disabling the vi-mode thing would be the way to go next time I try to switch to zsh...
+T 1616070350 18<24UndeadLeech18>	Also quite ironic that you use fish when you dislike complex shell configurations. That's basically just what fish is lol.
+T 1616070359 18<22nixpulvis18>	I was just offended by this strangeness, and assumed my life would become worse if I continued on that path.
+T 1616070374 18<22nixpulvis18>	Yea... the irony isn't lost on me.
+T 1616070387 18<24UndeadLeech18>	And your instinct is to abandon ship, rather than investigate and learn?
+T 1616070419 18<22nixpulvis18>	Well... in this case I can't even imagine a sane reason for this.
+T 1616070447 18<22nixpulvis18>	So I'm just avoiding learning more archaic nonesense.
+T 1616070453 18<24UndeadLeech18>	Based on my experience, most people really don't know how default vi behaves.
+T 1616070460 18<24UndeadLeech18>	They're just used to simple vim.
+T 1616070478 18<22nixpulvis18>	I didn't set EDITOR=vi now did I?
+T 1616070492 18<19rcf18>	To be completely fair having seen what some people do with their zsh configs (including omz) fish is a very sane, rational approach. 
+T 1616070512 18<24UndeadLeech18>	Well vi is the standard. That's what you get when you are on some random minimal VPS.
+T 1616070517 18<22nixpulvis18>	Fish's only real problem is that it reinvented the shell grammar.
+T 1616070537 18<24UndeadLeech18>	Fish is just garbage in pretty much every way.
+T 1616070543 18<24UndeadLeech18>	Noobtrap.
+T 1616070555 18<22nixpulvis18>	doubtful
+T 1616070562 18<24UndeadLeech18>	I hate things that hold people back from learning more stuff for the sole purpose of being easy to get into.
+T 1616070566 18<22nixpulvis18>	the history thing was what sold me on it.
+T 1616070586 18<19rcf18>	The shell grammar is what causes the brain damage that convinces people the Bourne shell heritage is worth upholding.
+T 1616070618 18<22nixpulvis18>	So what we should all compile ELFs?
+T 1616070652 18<22nixpulvis18>	actually... it's fine, just put interpretors in the PATH.
+T 1616070695 18<19rcf18>	No, but a more sensible syntax not developed by someone who was convinced that the C preprocessor was an ideal ALGOL compiler isn't an absurd proposition. 
+T 1616070703 18<22nixpulvis18>	Still... I have to deal with so many legacy codes, knowing SH-like grammar is useful.
+T 1616070719 18<19rcf18>	And I say all this as someone who insists on strict POSIX sh compliance for shell scripts. 
+T 1616070735 18<24UndeadLeech18>	Honestly modern approaches to "more sensible syntax" are the worst examples of shell syntax I've ever seen.
+T 1616070759 18<22nixpulvis18>	I'll mostly agree with that.
+T 1616070768 18<22nixpulvis18>	I miss having $? in fish.
+T 1616070783 18<22nixpulvis18>	but the if fi thing is dumb.
+T 1616070783 18<24UndeadLeech18>	Stuff like powershell is straight up hostile to interactive use.
+T 1616070785 18<19rcf18>	In the end I dislike most of them as well. 
+T 1616070795 18<19rcf18>	So I stay with zsh. 
+T 1616070849 18<22nixpulvis18>	I'm trying to remember... I think fish's looping constructs are actually nicer to use.
+T 1616070864 18<24UndeadLeech18>	Interactively?
+T 1616070872 18<22nixpulvis18>	In general.
+T 1616070888 18<19rcf18>	But when someone *likes* fish, and does everything in their power to make zsh behave like fish, mostly via cargo-cult copy-paste zshrc or the use of a monstrosity like ohmyzsh... maybe the real thing isn't a bad idea is all I'm saying. 
+T 1616070906 18<24UndeadLeech18>	The if/fi syntax really isn't that unreasonable. Though I personally prefer the more ML style brackets of course.
+T 1616070942 18<24UndeadLeech18>	rcf: I'd say it depends, it might allow people to learn new things and grow.
+T 1616070957 18<24UndeadLeech18>	A zsh config gimped into some fish mess can eventually slowly transition into something more sensible.
+T 1616070964 18<24UndeadLeech18>	If you just stick to fish, that's never gonna happen.
+T 1616070970 18<24UndeadLeech18>	I originally started with omz.
+T 1616070986 18<22nixpulvis18>	oh my!
+T 1616071012 18<22nixpulvis18>	At least fish isn't written in javascript.
+T 1616071030 18<22nixpulvis18>	OK, time to fuel up on hateraid. bbl
+T 1616071052 18<24UndeadLeech18>	You're telling my your ideal architecture isn't javascript all the way to the kernel?
+T 1616072574 20*	Disconnected (20)
+T 1616072605 19*	Now talking on 22#alacritty
+T 1616072605 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+T 1616072605 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Feb 20 01:05:57 2021)
+T 1616074106 20*	Disconnected (20)
+T 1616074133 19*	Now talking on 22#alacritty
+T 1616074133 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+T 1616074133 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Feb 20 01:05:57 2021)
+T 1616082146 20*	Disconnected (20)
+T 1616083505 19*	Now talking on 22#alacritty
+T 1616083505 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+T 1616083505 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Feb 20 01:05:57 2021)
+T 1616083517 20*	Disconnected (20)
