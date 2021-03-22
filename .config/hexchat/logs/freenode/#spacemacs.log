@@ -4144,3 +4144,36 @@ Mar 18 14:32:21 <FromGitter>	<winmillwill> thanks ... issue persists, but I'll t
 Mar 18 16:42:26 *	Disconnected ()
 **** ENDING LOGGING AT Thu Mar 18 16:42:26 2021
 
+**** BEGIN LOGGING AT Mon Mar 22 11:22:49 2021
+
+Mar 22 11:22:49 *	Now talking on #spacemacs
+Mar 22 11:22:49 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Mar 22 11:22:49 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Mar 22 16:13:30 <FromGitter>	<ElliotReify> Relatively new spacemacs user, been using vim for a while.  It seems like spacemacs is in some kind of weird state right now where hitting 'd' deletes the current line, 'y' yanks the current line, etc. So 'dd' deletes two lines, 'dw' deletes the current line and moves to the next word, etc.  What did I do wrong, and how do I reset it to normal keybindings?
+Mar 22 16:15:24 <FromGitter>	<x0r:x0r.fr> caps lock, maybe?
+Mar 22 16:20:08 <empwilli>	ElliotReify: what i do in these cases: M-x hybrid-mode, works for most of the times that I accidently leave evil-mode/hybrid-mode :)
+Mar 22 16:37:55 <FromGitter>	<ElliotReify> @x0r:x0r.fr  - capslock is definitely not enabled.
+Mar 22 16:38:35 <FromGitter>	<x0r:x0r.fr> that's weird then
+Mar 22 16:39:54 <FromGitter>	<ElliotReify> Unless capslock is somehow only enbled in edit mode, but disappears in insert mode
+Mar 22 16:41:39 <FromGitter>	<ElliotReify> Hmm, M-x hybrid-mode doesn't seem to fix it
+Mar 22 17:22:29 <FromGitter>	<alexey0308> @ElliotReify what is the colour of the cursor? It can be lisp-state, if it is changed to rose. You try to do C-g and Esc and it did not help, right?
+Mar 22 17:37:28 <FromGitter>	<alexey0308> @ElliotReify related https://github.com/syl20bnr/spacemacs/issues/10410
+Mar 22 18:19:34 *	Disconnected ()
+**** ENDING LOGGING AT Mon Mar 22 18:19:34 2021
+
+**** BEGIN LOGGING AT Mon Mar 22 18:25:41 2021
+
+Mar 22 18:25:41 *	Now talking on #spacemacs
+Mar 22 18:25:41 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Mar 22 18:25:41 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Mar 22 18:45:28 <FromGitter>	<JoeyEremondi> Question: In the `latex` layer, I'm getting errors like `Stopping after running "LaTeX" 4 times in a row.` e.g. it keeps looping until it is force-stopped. Does anyone know how to inspect what is triggering `LaTeX` to run so many times, and how to debug this?
+Mar 22 18:55:39 <FromGitter>	<alexey0308> I would check the Messages buffer and any log output with Tex-next-error.
+Mar 22 18:58:44 <FromGitter>	<alexey0308> It looks like there is a problem with running the latex, the message comes from the function `TeX-command-sequence` of the auctex package
+Mar 22 20:36:58 *	Disconnected ()
+**** ENDING LOGGING AT Mon Mar 22 20:36:58 2021
+
+**** BEGIN LOGGING AT Mon Mar 22 20:37:23 2021
+
+Mar 22 20:37:23 *	Now talking on #spacemacs
+Mar 22 20:37:23 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Mar 22 20:37:23 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)

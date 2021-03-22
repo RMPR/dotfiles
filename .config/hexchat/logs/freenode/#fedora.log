@@ -11407,3 +11407,304 @@ Mar 18 17:05:05 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Sout
 Mar 18 17:05:17 *	Disconnected ()
 **** ENDING LOGGING AT Thu Mar 18 17:05:17 2021
 
+**** BEGIN LOGGING AT Mon Mar 22 11:22:49 2021
+
+Mar 22 11:22:49 *	Now talking on #fedora
+Mar 22 11:22:49 *	Topic for #fedora is: #Fedora Linux F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Mar 22 11:22:49 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Thu Mar  4 19:39:11 2021)
+Mar 22 11:22:49 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Mar 22 11:46:15 <fedbot>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Mar 22 11:46:54 <deletedaccount[7>	hello is there a satelitte channel?
+Mar 22 12:42:07 <monkeybizness[m]>	Hi, quick update on the message I left yesterday about instabilities with recent kernels. Updating the bios did improve a bit my issues but didn't solve it. It appears there were errors on the pcie bus related to c-states . (old mobo msi b350m with old ryzen 5 1600). I could solve the issues by disabling pci power management in the bios.
+Mar 22 12:42:27 <monkeybizness[m]>	This means no more state changes to handle and no more cpu crash....
+Mar 22 12:46:18 <fedbot>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Mar 22 12:54:23 <Pedrospdc>	Hey guys, I would like to ask for a little bit of help. Since this morning I'm unable to use dnf at all anymore as the fedora-updates.repo repository seems to be broken to me.
+Mar 22 12:54:23 <Pedrospdc>	I've tried to remove all dnf cache (sudo dnf clean all, sudo rm -rf /var/cache/dnf), removing all repos in /etc/yum.repos.d and adding them 1-by-1 and fedora-updates fails whenever I add it
+Mar 22 12:55:16 <Pedrospdc>	I get a bunch of 404s no matter what
+Mar 22 12:55:19 <Pedrospdc>	No proxies/VPNs...
+Mar 22 12:55:25 <Pedrospdc>	https://imgur.com/a/tEVNlvu Screenshot of error
+Mar 22 12:55:36 <Pedrospdc>	This is a close to fresh install, done yesterday
+Mar 22 12:57:04 <monkeybizness[m]>	update repos seems to be broken since this morning.  it was reported and is looked at
+Mar 22 12:57:15 <FranciscoD>	monkeybizness[m]: would you have a ticket or a reference for this please?
+Mar 22 12:57:46 <monkeybizness[m]>	no i just saw that in this channel earlier
+Mar 22 12:59:15 <FranciscoD>	perhaps this one: https://pagure.io/fedora-infrastructure/issue/9749
+Mar 22 12:59:17 <FranciscoD>	Pedrospdc: ^
+Mar 22 12:59:34 <FranciscoD>	the errors should be gone now, it says
+Mar 22 12:59:42 <FranciscoD>	try `dnf clean all` and then retry?
+Mar 22 13:00:49 <Pedrospdc>	I did
+Mar 22 13:01:08 *	ksurma is now known as ksurma-afk
+Mar 22 13:01:21 <Pedrospdc>	Error still occurs
+Mar 22 13:04:19 <FranciscoD>	Hrm, perhaps wait a bit then: maybe there's some caching somewhere
+Mar 22 13:05:12 <Pedrospdc>	Great thanks Francisco
+Mar 22 13:07:21 <egoppeso1984[m]>	I have a very small hole for you URL http://v.ht/36g2JG
+Mar 22 13:09:18 <vancha112[m]>	hmm, small holes aside, the issue persists for me too, in case that helps anyone.
+Mar 22 13:37:31 <kov>	\o is there a channel specifically for silverblue or is this it as well?
+Mar 22 13:38:43 <FranciscoD>	kov: I think #silverblue exists, and this appears to be the primary discussion forum: https://discussion.fedoraproject.org/c/desktop/silverblue/6
+Mar 22 13:39:15 <kov>	FranciscoD, thank you!
+Mar 22 13:46:23 <fedbot>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Mar 22 13:46:28 <Southern_Gentlem>	vancha112[m], the f33 updates is working for me ( i am in the USA) what is your qth
+Mar 22 13:47:18 <vancha112[m]>	I'm not sure what qth means, but I'm in europe :o
+Mar 22 13:50:04 <Southern_Gentlem>	so that tells me that its a mirror issue at this point
+Mar 22 13:59:58 *	ksurma-afk is now known as ksurma
+Mar 22 14:00:53 *	patheticzoomer[m is now known as basedzoomer[m]
+Mar 22 14:03:46 <OnlyHuman>	hi, created an iso but get error cannot open shared library libgnuintl.so.8 any ideas? thanks
+Mar 22 14:04:58 <Southern_Gentlem>	OnlyHuman, what fedora releas e
+Mar 22 14:05:40 <OnlyHuman>	Southern_Gentlem,  f33
+Mar 22 14:05:57 <OnlyHuman>	looks like has kernel 5.11
+Mar 22 14:05:59 <Southern_Gentlem>	nothing provides that
+Mar 22 14:06:07 <Southern_Gentlem>	in f33
+Mar 22 14:06:18 <OnlyHuman>	oh
+Mar 22 14:06:41 <Southern_Gentlem>	i just did a dnf provides */libgnuintl.so.8 and it returns nothin
+Mar 22 14:06:58 <OnlyHuman>	built enlightenment desktop which seems to want it
+Mar 22 14:07:41 <Southern_Gentlem>	so are you building that from source or the packages in fedora
+Mar 22 14:08:39 <OnlyHuman>	git e build
+Mar 22 14:09:02 <Southern_Gentlem>	so not a fedora issue
+Mar 22 14:14:48 <OnlyHuman>	https://rpmfind.net/linux/RPM/fedora/33/x86_64/g/gettext-devel-0.21-3.fc33.x86_64.html
+Mar 22 14:19:59 <OnlyHuman>	yes above mentions gettext-devel provides it but dnf indicates nothing provides it
+Mar 22 14:26:39 <Southern_Gentlem>	well then download the rpm and put it in your own local repo and add that repo to your ks
+Mar 22 14:28:59 <OnlyHuman>	Southern_Gentlem, it is already installed on the iso
+Mar 22 14:33:10 <OnlyHuman>	noticed enlightenment seems missing from here https://dl.fedoraproject.org/pub/fedora/linux/updates/33/Everything/SRPMS/Packages/e/
+Mar 22 14:33:26 <OnlyHuman>	oh it is updates do
+Mar 22 14:33:31 <OnlyHuman>	doh
+Mar 22 14:38:04 <vancha112[m]>	Southern_Gentlem thanks, the issue has been fixed for me. Updating works as it should again.
+Mar 22 14:46:27 <fedbot>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Mar 22 15:17:10 <n3p>	Fedora 34 is getting rid of BLS (GRUB 2.06)?
+Mar 22 15:18:45 <akik>	n3p: why's that?
+Mar 22 15:19:42 <Southern_Gentlem>	https://dl.fedoraproject.org/pub/fedora/linux/updates/testing/34/Everything/x86_64/Packages/g/grub2-common-2.06~rc1-1.fc34.noarch.rpm
+Mar 22 15:19:59 <n3p>	Fedora 34 is getting rid of BLS? (GRUB 2.06) < that was a question because I don't know. I get an unbootable system when I upgraded
+Mar 22 15:21:06 <linuxmodder>	n3p:  when was last boot pre-upgrade
+Mar 22 15:21:08 *	SallyAhaj_ is now known as SallyAhaj
+Mar 22 15:21:43 <n3p>	Friday maybe I don't remember.
+Mar 22 15:23:15 <n3p>	when a update the grub.cfg  (via grub2-mkconfig) i can see any Linux entry on reboot.
+Mar 22 15:24:25 <n3p>	GRUB 2.06 is not reading /boot/loader/
+Mar 22 15:25:29 <Southern_Gentlem>	n3p,  so how did you upgrade
+Mar 22 15:26:03 <n3p>	I don't know if it's a bug or just a revert to BIOS config
+Mar 22 15:26:17 <n3p>	Southern_Gentlem, DNF
+Mar 22 15:26:43 <linuxmodder>	ssh in possible ?
+Mar 22 15:26:56 <linuxmodder>	ssh -dropbear or similar or cockpit perhaps ?
+Mar 22 15:27:08 <n3p>	I fixed the system is now booting with Grub 2.04
+Mar 22 15:27:17 <Southern_Gentlem>	linuxmodder,  if its not booting no
+Mar 22 15:27:33 <Southern_Gentlem>	n3p well this is a #fedora-qa issue at this point
+Mar 22 15:28:19 <n3p>	Southern_Gentlem, OK, ty
+Mar 22 15:28:39 <Southern_Gentlem>	n3p for grins sudo fpaste -sysinfo so i can see if i can replicate
+Mar 22 15:45:53 <n3p>	Southern_Gentlem, did you get my msg?
+Mar 22 15:46:32 <fedbot>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Mar 22 16:04:12 <Southern_Gentlem>	n3p, yep just saw it will do an upgrade in a vm to see if i can replicate
+Mar 22 16:05:47 <Southern_Gentlem>	n3p lvm or btrfs?
+Mar 22 16:08:00 <n3p>	luks+lvm+ root (ext4) + home (btrfs) (its a mess bc it's an install fc32 and then manually upgraded to btrfs
+Mar 22 16:08:56 <cmurf>	n3p grub 2.06 is reading /boot/loader/entries for me
+Mar 22 16:09:02 <linuxmodder>	n3p:  so you did btrfs convert in the upgrade ?
+Mar 22 16:09:27 <linuxmodder>	n3p:  care to share the fpaste --sysinfo with teh entire class?
+Mar 22 16:09:38 <n3p>	linuxmodder,  i converted manually after fc33 upgrade
+Mar 22 16:10:32 <linuxmodder>	why not a clean conversion and only home
+Mar 22 16:11:37 <n3p>	linuxmodder, because i didn't know that it was possible. I'm not a sysadmin
+Mar 22 16:11:57 <cmurf>	 /home isn't related anyway
+Mar 22 16:12:17 <cmurf>	need the grub.cfg in /boot/efi/EFI/fedora and the one in /boot/grub2
+Mar 22 16:12:18 <linuxmodder>	n3p:  crc32c=crc32c-intel << you selected that or the coversion did?
+Mar 22 16:12:23 <cmurf>	and need /etc/default/grub
+Mar 22 16:13:23 <linuxmodder>	n3p: given the insane selinux errors in that fpaste drop to a rescue shell  relabel
+Mar 22 16:13:40 <n3p>	linuxmodder,  I did because I changed MANUALLY in fc33 from zswap to zram and received a msg that zram was using crc32c-generic
+Mar 22 16:14:07 <linuxmodder>	also seems to imply a multi-user non graphical should be possible its all gnome and x1 with teh selinux issues
+Mar 22 16:15:02 <cmurf>	n3p you're confused :)
+Mar 22 16:15:27 <cmurf>	btrfs uses crc32c-generic initially (switches to intel), zram uses lzo-rle not a checksumming hash
+Mar 22 16:15:42 <cmurf>	anyway we need to see the files i mentioned
+Mar 22 16:15:59 <linuxmodder>	so I see 2 major issues in that fpaste: 1) gnome and x11 are blocked by selinux and 2) it appears to be in a hibernation kernel_lockdown state
+Mar 22 16:16:57 <n3p>	my zram is using compression-algorithm=zstd
+Mar 22 16:17:35 <n3p>	i have tweaked some. it's not a fedora pristine install
+Mar 22 16:19:08 <n3p>	cmurf, ok. Then I don't need that kernel setting (crc32*)
+Mar 22 16:21:32 <timonatmooore>	exit
+Mar 22 16:21:41 <timonatmooore>	^ oops
+Mar 22 16:24:40 <n3p>	The GRUB changelog mention that they UNIFIED  EFI/BIOS configurations (but I don't like the screen flicker when parse both configs  /boot/efi/EFI/fedora/grub.cfg /boot/grub2/grub.cfg) That is unnecessary because I only need EFI boot so I created a symlink between them and it worked PERFECT for Fedora 32 and 33.
+Mar 22 16:27:13 <cmurf>	/boot/efi/EFI/fedora/grub.cfg is a stub config that forwards to the real grub.cfg at /boot/grub2/grub.cfg
+Mar 22 16:27:21 <cmurf>	that's what the unified feature does
+Mar 22 16:27:32 <n3p>	If I remember correctly I have erased "grub2-pc" in the past because I didn't need BIOS boot. "grub2-efi" package taked care of everything
+Mar 22 16:27:33 <cmurf>	the real grub.cfg for BIOS and UEFI is in the same place, /boot/grub2/grub.cfg
+Mar 22 16:28:11 <cmurf>	n3p you created a symlink where pointed to what? can you post the exact ls -l line for that symlink?
+Mar 22 16:30:54 <n3p>	[on dir /boot/grub2] # ln -s ../efi/EFI/fedora/grub.cfg
+Mar 22 16:31:10 <n3p>	[on dir /boot/grub2] # ln -s ../efi/EFI/fedora/gruenv
+Mar 22 16:31:29 <cmurf>	ok you've got to realize that's not going to work
+Mar 22 16:32:19 <n3p>	upgrade dir it well. erase my symlinks and created the unified config
+Mar 22 16:32:38 <cmurf>	the unified config will work with grub2 2.04 or 2.06
+Mar 22 16:33:14 <cmurf>	the unified grub feature is in grub 2.04-35
+Mar 22 16:33:22 <cmurf>	the convert script is in -36
+Mar 22 16:33:34 <n3p>	not in my case becase don't read /grub/loader/
+Mar 22 16:33:34 <cmurf>	current is -39
+Mar 22 16:34:13 <cmurf>	i don't know what /grub/loader is
+Mar 22 16:34:54 <n3p>	ok, let me try to explain. my english is not goof enough
+Mar 22 16:35:54 <n3p>	with this setting in /etc/default/grub "GRUB_ENABLE_BLSCFG=true"  GRUB 2.06 fails to read/boot /boot/loader/*
+Mar 22 16:36:37 <cmurf>	ok that's not correct because i have GRUB_ENABLE_BLSCFG=true and i'm using grub 2.06 with /boot/loader/entries/ drop-in snippets
+Mar 22 16:36:43 <cmurf>	so the problem you're having is something else
+Mar 22 16:36:54 <n3p>	when I changed "GRUB_ENABLE_BLSCFG=false" then grub2-mkconfig creates a BIOS config and it boots OK
+Mar 22 16:37:47 <cmurf>	BLSCFG=false is not creating a BIOS config
+Mar 22 16:38:04 <cmurf>	BLS has nothing to do with BIOS vs UEFI
+Mar 22 16:41:09 <cmurf>	starting with fedora 34 you should not output grub2-mkconfig to /boot/efi/EFI/fedora/grub.cfg anymore, you should create it at /boot/grub2/grub.cfg
+Mar 22 16:41:59 <cmurf>	the installer creates a proper forwarding entry in the /boot/efi/EFI/fedora/grub.cfg that points to /boot/grub2/grub.cfg
+Mar 22 16:42:12 <cmurf>	by stepping on the one on the ESP, you erased it
+Mar 22 16:43:42 <n3p>	yes and no
+Mar 22 16:43:44 <cmurf>	i suggest you just do a clean install in a VM or something so you can learn how it actually works before you start replacing things
+Mar 22 16:44:42 <n3p>	I understand the new relation between /efi/EFI/fedora/grub.cfg and /boot/grub2/grub.cfg
+Mar 22 16:45:07 <cmurf>	and yet you replaced the correct files with symlinks
+Mar 22 16:45:28 <linuxmodder>	due to a flicker it appears
+Mar 22 16:45:37 <linuxmodder>	not sure I understand this flicker tho
+Mar 22 16:45:49 <cmurf>	i think the flick with 2.06 is a known issue
+Mar 22 16:45:55 <cmurf>	s/flick/flicker/
+Mar 22 16:45:56 <n3p>	cmurf, I didn't erase (or overwrite) /boot/grub2/grub.cfg
+Mar 22 16:46:36 <fedbot>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Mar 22 16:46:51 <cmurf>	ok well i'm confused, i have no idea what you want to do but it's not a default installation anymore
+Mar 22 16:48:07 <n3p>	The failure was with a crean install of grub 2.06  and a "grub2-mkconfig -o /boot/grub2/grub.cfg"
+Mar 22 16:48:15 <linuxmodder>	n3p:  so the flicker you mention is that blip when the mneu is or isnt shown correct?
+Mar 22 16:49:27 <n3p>	linuxmodder, no it not an error is grub informing that is loading a config
+Mar 22 16:49:36 <cmurf>	n3p instead of giving explanations it'd be better to supply the files in question as i've asked
+Mar 22 16:50:13 <cmurf>	i have the setup the way it's intended to be for fedora 34 with grub 2.06 and it's working
+Mar 22 16:50:30 <cmurf>	if it's not working for you, something is wrong, but i can't figure it out from you just saying it doesn't work
+Mar 22 16:50:33 <cmurf>	i need to see the files
+Mar 22 16:53:06 <cmurf>	you can fpaste them
+Mar 22 16:58:56 <cmurf>	n3p: can you also fpaste /etc/fstab
+Mar 22 17:01:39 <n3p>	cmurf, https://paste.centos.org/view/8fed82d5 https://paste.centos.org/view/9f19fe42  https://paste.centos.org/view/d688333e
+Mar 22 17:01:54 <ledeni>	n3p:you upgraded system to f34 not clean install ?
+Mar 22 17:03:50 <cmurf>	ok those all look reasonable, of course you need to use the one with blscfg true
+Mar 22 17:04:03 <cmurf>	and it should be at /boot/grub2/grub.cfg
+Mar 22 17:04:30 <cmurf>	and the stub https://paste.centos.org/view/9f19fe42 should be /boot/efi/EFI/fedora/grub.cfg
+Mar 22 17:06:02 <n3p>	I updated from 33 to 34 and the weekend updated the system testing repos and grub 2.06 that updated/upgraded the configs correctly and boot normal. But when I updated with "grub2-mkconfig -o /boot/grub2/grub.cfg" on reboot grub don't read the /boot/loader/ entries and NO *LINUX* BOOT OPTION  appeared just the content of /etc/grub.d/40_custom
+Mar 22 17:06:36 <cmurf>	ok so that might be two bugs
+Mar 22 17:07:06 <cmurf>	so you had 2.06 working *until* you ran grub2-mkconfig
+Mar 22 17:07:36 <cmurf>	have you compared the grub2-mkconfig between 2.04 and 2.06?
+Mar 22 17:07:38 <n3p>	cmurf, yes!
+Mar 22 17:09:00 <n3p>	cmurf, yes and everything looks almos the same. Just some typo corrections on the comments and blank spaces changes
+Mar 22 17:09:27 <cmurf>	that really doesn't make sense
+Mar 22 17:09:30 <n3p>	I compared them with meld
+Mar 22 17:09:33 <cmurf>	hmmm
+Mar 22 17:09:59 <cmurf>	there must be something else going on...
+Mar 22 17:10:03 <cmurf>	this is correct https://paste.centos.org/view/5f51c5c4
+Mar 22 17:10:29 <cmurf>	line 139 and 140 are what bring in /boot/loader/entries
+Mar 22 17:11:19 <n3p>	I thought that could be some BLS patches missing in GRUB 2.06
+Mar 22 17:11:42 <cmurf>	no it's working for me like i said
+Mar 22 17:12:51 <n3p>	cmurf, working after update with mkconfig?
+Mar 22 17:13:40 <ledeni>	n3p➡ cat /etc/default/grub | fpaste
+Mar 22 17:15:54 <n3p>	ledeni,  https://paste.centos.org/view/26357087
+Mar 22 17:16:14 <cmurf>	diff of my current grub.cfg and a new grub2-mkconfig one   https://paste.centos.org/view/51f192be
+Mar 22 17:16:23 <cmurf>	i'm not sure that ; can cause it to fail
+Mar 22 17:16:25 <cmurf>	i'll reboot
+Mar 22 17:18:33 <n3p>	I have been an ArchLinux since 2009, so I usted to tweak some configs. But usually nothing breaks and fedora upgrades fine. Since 20s versions on my boxes
+Mar 22 17:18:58 <cmurf>	ok it still works
+Mar 22 17:21:45 <cmurf>	n3p can you comment out of your /etc/default/grub
+Mar 22 17:21:47 <cmurf>	GRUB_SAVEDEFAULT=true
+Mar 22 17:21:58 <cmurf>	GRUB_FONT="/boot/grub2/fonts/ter-u32b.pf2"
+Mar 22 17:22:40 <cmurf>	and create a new grub.cfg with grub2-mkconfig
+Mar 22 17:22:43 <cmurf>	and see if that woks
+Mar 22 17:22:46 <cmurf>	works
+Mar 22 17:22:49 <asterix1324>	Hi, how can I verify the Fedora 34 Beta ISO? There are no GPG keys for F34 in https://getfedora.org/static/fedora.gpg
+Mar 22 17:23:00 <cmurf>	test it with grub 2.04 first then 2.06
+Mar 22 17:23:54 <cmurf>	asterix1324: website won't be updated until tomorrow, tomorrow is beta release day
+Mar 22 17:24:24 <n3p>	cmurf, ok I will do it
+Mar 22 17:24:37 <asterix1324>	Okay, then I'll wait until tomorrow. Thank you.
+Mar 22 17:28:18 <n3p>	brb
+Mar 22 17:29:42 <bootdisk>	,
+Mar 22 17:29:57 <bootdisk>	is there problems with the download server?
+Mar 22 17:30:20 <bootdisk>	getting DNS error when trying to download fedora 33 server iso
+Mar 22 17:30:38 <Southern_Gentlem>	what mirror are you using
+Mar 22 17:31:07 <bootdisk>	download.fedoraproject.org
+Mar 22 17:31:09 <bootdisk>	website
+Mar 22 17:31:12 <Southern_Gentlem>	we saw some issues for European users earlier this morning
+Mar 22 17:31:18 <bootdisk>	okey
+Mar 22 17:31:31 <Southern_Gentlem>	bootdisk,  which sending you to the mirrormanager
+Mar 22 17:31:53 <bootdisk>	this is the link: https://download.fedoraproject.org/pub/fedora/linux/releases/33/Server/x86_64/iso/Fedora-Server-dvd-x86_64-33-1.2.iso
+Mar 22 17:32:09 <bootdisk>	not working, DNS probe finished nxdomain
+Mar 22 17:32:45 <Southern_Gentlem>	not an issue here
+Mar 22 17:33:13 <bootdisk>	okey, maybe my DNS server is having some issue or something
+Mar 22 17:33:20 <Southern_Gentlem>	https://mirror.cc.vt.edu/pub/fedora/linux/releases/33/Server/x86_64/iso/Fedora-Server-dvd-x86_64-33-1.2.iso
+Mar 22 17:33:40 <Southern_Gentlem>	try that one
+Mar 22 17:34:08 <Southern_Gentlem>	https://mirror.cc.vt.edu/pub/fedora/linux/releases/33/Server/x86_64/iso/Fedora-Server-33-1.2-x86_64-CHECKSUM
+Mar 22 17:35:47 <bootdisk>	weird, i can access that mirror, but can not save the iso
+Mar 22 17:36:37 <Southern_Gentlem>	so you are having network issyes
+Mar 22 17:36:44 <Southern_Gentlem>	issues
+Mar 22 17:37:23 <bootdisk>	for some reason that mirror wants login credentials (spelling :P )
+Mar 22 17:37:53 <Southern_Gentlem>	https://admin.fedoraproject.org/mirrormanager/mirrors/Fedora/33
+Mar 22 17:38:02 <Minall>	Hello Fedora Community!
+Mar 22 17:38:24 <bootdisk>	must be DNS issue, cant reach that page either Southern_Gentlem
+Mar 22 17:38:46 <Minall>	I'm an Archlinux user very interested in trying fedora, like Gnome 40 and all... But I will probably just go with XFCE... What are your reasons of choosing Fedora as a main OS?
+Mar 22 17:39:19 <coz_>	Minall, consistancy, stability, etc, etc
+Mar 22 17:39:54 <Minall>	coz_ Care to elaborate?
+Mar 22 17:39:56 <coz_>	Minall, you can try a live iso
+Mar 22 17:40:15 <Minall>	Perhaps Gnome boxes would do the trick
+Mar 22 17:41:40 <coz_>	Minall, likey, arch is great, especially if you dont have to struggle with installation fedora is no struggle with similar stability
+Mar 22 17:41:57 <Southern_Gentlem>	Minall, f34-beta will be released tomorrow
+Mar 22 17:42:28 <coz_>	Minall, cant hurt to try it
+Mar 22 17:42:46 <Minall>	Whaaat
+Mar 22 17:42:50 <Minall>	Just tomorrow?
+Mar 22 17:42:56 <coz_>	beta
+Mar 22 17:42:58 <Minall>	Imma read a lot about it
+Mar 22 17:43:13 <Southern_Gentlem>	beta will be released tomorrow with gnome40 etc
+Mar 22 17:43:18 <Minall>	And then the stable version will come 24 right?...
+Mar 22 17:43:42 <Minall>	Perhaps I can install Fedora and try it, but, should I wait for the stable release?
+Mar 22 17:44:02 <Southern_Gentlem>	the F34 will be released apirl 20 or 27th
+Mar 22 17:44:20 <Southern_Gentlem>	grab the beta tomorrow and try it in a vm
+Mar 22 17:44:34 <coz_>	Minall, probably, however, I have run pre release with no issues, up to you
+Mar 22 17:44:42 <Minall>	Sure!... Thank you for your opinions... coz_, Southern_Gentlem
+Mar 22 17:44:44 <Southern_Gentlem>	if you like it you can install it and it will become the final with updates
+Mar 22 17:45:21 <coz_>	Minall, probably a good idea to install remfusion as well
+Mar 22 17:45:39 <Minall>	Yeah, like to 'stable' it I just had to update when the full release is out?
+Mar 22 17:45:45 <coz_>	rpmfusion
+Mar 22 17:46:06 <Minall>	Btw one question I had in earlier releases, about why Fedora updates like any other OS, while in Archlinux you can keep working while upgrading
+Mar 22 17:46:12 <Minall>	Thank you coz_, imma check on that
+Mar 22 17:46:16 <coz_>	Minall, yep sudo dnf upgade --refresh should do it
+Mar 22 17:46:33 <Minall>	Cool
+Mar 22 17:46:40 <fedbot>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Mar 22 17:46:50 <coz_>	Minall,  that is upgrade not upgade
+Mar 22 17:47:02 <Minall>	coz_ Makes sense?P
+Mar 22 17:47:07 <coz_>	%)
+Mar 22 17:47:19 <coz_>	I knew would pick that up %)
+Mar 22 17:48:11 <coz_>	my typing skilld are as good as usuual
+Mar 22 17:48:12 <Minall>	lol
+Mar 22 18:19:34 *	Disconnected ()
+**** ENDING LOGGING AT Mon Mar 22 18:19:34 2021
+
+**** BEGIN LOGGING AT Mon Mar 22 18:25:40 2021
+
+Mar 22 18:25:40 *	Now talking on #fedora
+Mar 22 18:25:40 *	Topic for #fedora is: #Fedora Linux F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Mar 22 18:25:40 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Thu Mar  4 19:39:11 2021)
+Mar 22 18:25:41 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Mar 22 18:46:42 <fedbot>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Mar 22 19:20:23 <OnlyHuman>	ahh new spin-kickstart files for f34 then
+Mar 22 19:26:34 <rudrab>	hi, just curious: why gnome developer find it sane to only way to access the app menu is to click on activities on top left, and travel all the way to near of bottom right?
+Mar 22 19:26:59 <rudrab>	unless there is dash-to dock for 40, its hard to use
+Mar 22 19:29:09 <knstn>	"super + a"
+Mar 22 19:36:35 <bootdisk>	Southern_Gentlem there must be issue with fedora website from EU, using a proxy from US now, and it works
+Mar 22 19:39:45 <akik>	bootdisk: that iso url works from finland
+Mar 22 19:40:06 <akik>	and fast, 10MiB/s
+Mar 22 19:40:59 <bootdisk>	uhm weird
+Mar 22 19:41:05 <bootdisk>	not working here :S
+Mar 22 19:41:24 <akik>	maybe the cdn(?) gives you a non-working server
+Mar 22 19:41:38 <bootdisk>	dunno, tryed several links
+Mar 22 19:41:50 *	Sellerie7 is now known as Sellerie
+Mar 22 19:41:56 <bootdisk>	status.fedoraproject.org isnt working either
+Mar 22 19:43:20 <akik>	works here
+Mar 22 19:44:27 <bootdisk>	uhm okey
+Mar 22 19:45:33 <bootdisk>	anyway, i used a proxy to be able to download the iso
+Mar 22 19:46:46 <fedbot>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Mar 22 19:47:02 <Han>	Where can I talk about fedora 34?
+Mar 22 19:48:34 <Han>	sudo dnf swap --allowerasing jack-audio-connection-kit pipewire-jack-audio-connection-kit
+Mar 22 19:48:41 <Han>	oops
+Mar 22 19:49:19 <bitchkat>	When I put my laptop in the docking station with the lid closed, it seems like its not actually disabling the built in display until I log in.  THis means the log in UI isn't display on either of my external monitors and I have to log in blind.
+Mar 22 20:07:52 <dowdle>	bitchkat: Different DEs have different settings for what happens when you close the lid.  Most go to sleep... but you can check your settings.
+Mar 22 20:08:58 <bitchkat>	In this case, the lid is never opened.  I put it in my docking station with the lid close and then hit the power button on the dock.
+Mar 22 20:09:41 <bitchkat>	During boot up, everything likes normal but once the gnome login screen comes up, its using the laptop display.
+Mar 22 20:10:23 <bitchkat>	and when I blindly hit Enter and then my password, its logs in fine and the laptop display is not being used.
+Mar 22 20:11:44 <Peetz0r>	blindly typing in passwords, what could possibly... :p
+Mar 22 20:12:58 <Peetz0r>	But the component that should be displaying the login screen is gdm, so you may want to file a bug over there
+Mar 22 20:13:29 <Peetz0r>	https://gitlab.gnome.org/GNOME/gdm
+Mar 22 20:36:58 *	Disconnected ()
+**** ENDING LOGGING AT Mon Mar 22 20:36:58 2021
+
+**** BEGIN LOGGING AT Mon Mar 22 20:37:23 2021
+
+Mar 22 20:37:23 *	Now talking on #fedora
+Mar 22 20:37:23 *	Topic for #fedora is: #Fedora Linux F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
+Mar 22 20:37:23 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Thu Mar  4 19:39:11 2021)
+Mar 22 20:37:23 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Mar 22 20:46:51 <fedbot>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Mar 22 20:51:27 <abhijit4daksh>	Since Fedora 32 I'm facing issue with my external HDD while backing up my servers. It suddenly stops responding without throwing any error. During F32 I installed Centos to check if it is a HDD issue, but Cent seems to be working fine I get all this issue in Fedora.
+Mar 22 20:51:35 <abhijit4daksh>	How do I fix it?
+Mar 22 20:51:51 <abhijit4daksh>	It's very annoying.
+Mar 22 20:59:35 <short-bike>	r0bobo9: PLEASE fix your connection !!!!

@@ -1,107 +1,3 @@
-T 1584638152 18<22nixpulvis18>	My nvidia card is starting to act up, and I'm worried :(
-T 1584638197 18<29kchibisov18>	take a screw driver and remove it.
-T 1584638246 18<29kchibisov18>	Anyway it's pretty useless for Linux desktops.
-T 1584638249 18<22nixpulvis18>	but then how will my computer conntect to my monitors?
-T 1584638282 18<29kchibisov18>	Don't you have integrated GPU inside of it?
-T 1584638320 18<29kchibisov18>	unless it's some gaming Windows PC, it should work fine.
-T 1584638338 18*	22nixpulvis is a gamer
-T 1584638345 18<22nixpulvis18>	don't judge me
-T 1584638371 18<22nixpulvis18>	at least I'm not a bitcoin miner.
-T 1584638390 18<29kchibisov18>	You can game on Linux just fine most of the time though.
-T 1584638396 18<22nixpulvis18>	false
-T 1584638417 18<29kchibisov18>	With AMD GPU it should work just fnie.
-T 1584638421 18<29kchibisov18>	with nvidia - no.
-T 1584638448 18<22nixpulvis18>	last time I tried to play WoW (not currently active) on Linux, it was a mess.
-T 1584638461 18<29kchibisov18>	lutris + dxvk?
-T 1584638482 18<29kchibisov18>	just click, click, and click play.
-T 1584638492 18<22nixpulvis18>	hmmmm, nope. Maybe that'll do a better job
-T 1584638521 18<29kchibisov18>	you need Vulkan though.
-T 1584638542 18<29kchibisov18>	not sure whether NVIDIA supports it on Linux in their binary blob driver.
-T 1584638547 18<22nixpulvis18>	sure
-T 1584638561 18<22nixpulvis18>	they state that they do...
-T 1584638564 18<22nixpulvis18>	but...
-T 1584638574 18<22nixpulvis18>	1.1 anyway.
-T 1584638793 18<20cole-h18>	Doesn't help that Blizzard is/was actively hostile to its Linux users lol
-T 1584645040 20*	Disconnected (20)
-T 1584645169 19*	Now talking on 22#alacritty
-T 1584645169 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.1 - https://github.com/alacritty/alacritty/releases/tag/v0.4.1
-T 1584645169 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Feb 16 20:20:48 2020)
-T 1584695155 20*	Disconnected (20)
-T 1584695183 19*	Now talking on 22#alacritty
-T 1584695183 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.1 - https://github.com/alacritty/alacritty/releases/tag/v0.4.1
-T 1584695183 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Feb 16 20:20:48 2020)
-T 1584703042 18<20danyspin9718>	focus events are not dispatched to clients in version  0.4.2-rc1
-T 1584703398 18<29kchibisov18>	how so?
-T 1584703430 18<29kchibisov18>	I mean we didn't touch anything related to focus, etc.
-T 1584703445 18<29kchibisov18>	And I also can't repro.
-T 1584703517 18<20danyspin9718>	kchibisov: I can't say that they worked before
-T 1584703533 18<29kchibisov18>	If you provide me an example on how to reproduce it could help, but we haven't touched anything.
-T 1584703551 18<20danyspin9718>	i am trying right now the Focus hook in kakoune and it doesn't receive the event
-T 1584703570 18<29kchibisov18>	but HollowCursor works?
-T 1584703582 18<20danyspin9718>	yea
-T 1584703584 18<20danyspin9718>	"[2020-03-20 12:24:01.679761863] [INFO] glutin event: WindowEvent { window_id: WindowId(Wayland(WindowId(94589361942368))), event: Focused(false) }"
-T 1584703598 18<29kchibisov18>	so so focus events are working.
-T 1584703623 18<20danyspin9718>	but the client (kakoune) isn't receiving them
-T 1584703639 18<29kchibisov18>	why they should receive it?
-T 1584703698 18<20danyspin9718>	windows get updated based on the focus
-T 1584703723 18<29kchibisov18>	Hm, so there should be espca, etc.
-T 1584703728 18<20danyspin9718>	i.e. there is tagbar window that updates its contents based on which window is focused
-T 1584703783 18<20danyspin9718>	what do you mean by "espca"
-T 1584703793 18<29kchibisov18>	Could you provide me `alacritty -vvv` output?
-T 1584703800 18<20danyspin9718>	yea
-T 1584703801 18<29kchibisov18>	during repro ofc.
-T 1584703986 18<20danyspin9718>	http://ix.io/2eKy
-T 1584704056 18<29kchibisov18>	Oh, could you also include `--print-events` to it?
-T 1584704060 18<20danyspin9718>	yea
-T 1584704165 18<20danyspin9718>	http://ix.io/2eKA
-T 1584704210 18<29kchibisov18>	Could you provide the same output from v0.4.1?
-T 1584704226 18<29kchibisov18>	For now it seems like your editor bug.
-T 1584704272 18<20danyspin9718>	I cannot compile prior to 0.4.1-rc1 :/
-T 1584704286 18<29kchibisov18>	how so?
-T 1584704300 18<29kchibisov18>	Ah, you don't have x11.
-T 1584704304 18<20danyspin9718>	I needed the x11/wayland features patch
-T 1584704314 18<29kchibisov18>	you can patch v0.4.1.
-T 1584704326 18<29kchibisov18>	just apply this patch on v0.4.1, it should work.
-T 1584704572 18<29kchibisov18>	If you have any issue applying the patch let me know.
-T 1584704668 18<20danyspin9718>	in the end I'm compiling xcb, I'll remove it later
-T 1584704701 18<29kchibisov18>	it should be applied just fine.
-T 1584704726 18<29kchibisov18>	like I don't see why it should fail?
-T 1584704802 18<29kchibisov18>	yeah, the last time we've touched related file were on v0.4.0.
-T 1584704826 18<20danyspin9718>	i don't see the patch :/
-T 1584704828 18<29kchibisov18>	so you can safely apply 4000ec04d89b9bd77995960d2a9da8fcad55e003 to v0.4.1.
-T 1584704870 18<20danyspin9718>	but anyway, I've recompiled alacritty from source, v0.4.1
-T 1584704894 18<29kchibisov18>	nice, I need the same output.
-T 1584705026 18<20danyspin9718>	http://ix.io/2eKF
-T 1584705177 18<29kchibisov18>	I'll assume it works on it?
-T 1584705191 18<20danyspin9718>	it doesn't
-T 1584705200 18<29kchibisov18>	lul
-T 1584705234 18<29kchibisov18>	So when did it work last time?
-T 1584705266 18<29kchibisov18>	this patch could be applied even on v0.4.0, just saying.
-T 1584705284 18<20danyspin9718>	I don't know, it is the first time I check this hook :/
-T 1584705313 18<29kchibisov18>	the problem is that it unsets the mode.
-T 1584705319 18<29kchibisov18>	as you can see in a log.
-T 1584705326 18<29kchibisov18>	Like it sets it and then unsets it.
-T 1584705442 18<29kchibisov18>	Are you sure that it works at all and it's not an editor bug?
-T 1584705508 18<20danyspin9718>	I was talking in #kakoune before and they said me it had to be on alacritty end :/ I can try on x11 on another system and check
-T 1584705533 18<29kchibisov18>	this is not a problem in wayland, etc.
-T 1584705546 18<29kchibisov18>	The problem that your editor resets mode.
-T 1584705552 18<29kchibisov18>	so it sets mode and then resets.
-T 1584705562 18<20danyspin9718>	alacritty receive the "focused" event so I guess that is not related to sway
-T 1584705581 18<29kchibisov18>	As I said, the problem is on a different level.
-T 1584705589 18<20danyspin9718>	give me 5 minutes and I try it on x11
-T 1584705589 18<29kchibisov18>	it's not gui related, etc.
-T 1584705593 18<29kchibisov18>	don't do that.
-T 1584705597 18<29kchibisov18>	it's just a waste of time.
-T 1584705610 18<20danyspin9718>	hmm okay
-T 1584705650 18<29kchibisov18>	The problem in escape sequences from your editor.
-T 1584705669 18<20danyspin9718>	Ah
-T 1584705701 18<29kchibisov18>	So it send escape to enable Focus hook, and then disable it.
-T 1584705722 18<29kchibisov18>	Read the log for ReportFocusInOut
-T 1584705778 18<29kchibisov18>	So they are sending reset of this mode right away after setting it for whatever reason.
-T 1584705814 18<29kchibisov18>	try echo -e "\e[?1004h", then `cat` and try to refocus.
-T 1584705825 18<29kchibisov18>	you'll see this hook getting triggered.
-T 1584705983 18<20danyspin9718>	I see
-T 1584706060 18<29kchibisov18>	were you talking to them now?
 T 1584706069 18<29kchibisov18>	your editor folks?
 T 1584706070 18<20danyspin9718>	https://github.com/mawww/kakoune/blob/6766297623e9718db5b2b09bd655fe183acdcf67/src/ncurses_ui.cc#L1256
 T 1584706076 18<20danyspin9718>	may this be related?
@@ -5101,3 +4997,16 @@ T 1616083505 19*	Now talking on 22#alacritty
 T 1616083505 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
 T 1616083505 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Feb 20 01:05:57 2021)
 T 1616083517 20*	Disconnected (20)
+T 1616408569 19*	Now talking on 22#alacritty
+T 1616408569 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+T 1616408569 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Feb 20 01:05:57 2021)
+T 1616433574 20*	Disconnected (20)
+T 1616433940 19*	Now talking on 22#alacritty
+T 1616433940 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+T 1616433940 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Feb 20 01:05:57 2021)
+T 1616441818 20*	Disconnected (20)
+T 1616441843 19*	Now talking on 22#alacritty
+T 1616441843 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+T 1616441843 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Feb 20 01:05:57 2021)
+T 1616443692 18<19rcf18>	The ls alias on many distros is dumb and only works with a set list of TERM
+T 1616444083 18<24UndeadLeech18>	Which is why it should work without alias.

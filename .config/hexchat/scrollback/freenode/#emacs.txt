@@ -1,129 +1,3 @@
-T 1612882580 20*	Disconnected (20)
-T 1612882640 20*	Disconnected (20Remote host closed socket)
-T 1612882716 20*	Disconnected (20Remote host closed socket)
-T 1612882760 20*	Disconnected (20Remote host closed socket)
-T 1612882789 19*	Now talking on 22#emacs
-T 1612882789 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
-T 1612882789 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:20 2021)
-T 1612882789 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
-T 1612882845 18<29quiliro18>	I used to open gtk-youube-viewer.  Then I pressed the right button on any video.  I chose to show details of the video.  Then I pressed the right button on the link to the video.  I chose to copy the link to the video.  Then I tryed to paste it after closing the video detail's window.  But I could not yank it.  I had to paste it on gtk-youtube-viewer and copy it again.  Then I could yank it on Emacs.
-T 1612882932 18<29quiliro18>	wgreenhouse: that is a fairly complete description of my workflow.  But I cannot copy the link to the video that way for some reason now.  The right mouse button does not bring the contextual menu on the auxiliary window
-T 1612882945 18<29quiliro18>	will test by making windows float
-T 1612882970 18<19rdrg10918>	I want to insert all characters whose name start with "ROMAN NUMERAL", but I don't know how to iterate through all the available characters.
-T 1612882988 18<29quiliro18>	https://yewtu.be/watch?v=R1nEKJCwdd4
-T 1612882989 18<29wgreenhouse18>	quiliro: hm, so the right-mouse-button action in the X window doesn't work?
-T 1612883014 18<29quiliro18>	weird...with the keyboard it works...even if it is not visible
-T 1612883049 18<29quiliro18>	on the child window of the X window
-T 1612883066 18<29quiliro18>	but remember this is all in EXWM
-T 1612883102 18<29quiliro18>	so child windows block any other window while they are open
-T 1612883132 18<29quiliro18>	I must close the child window first to change buffers
-T 1612883140 18<29wgreenhouse18>	yes--floating windows steal focus
-T 1612883148 18<29quiliro18>	but the problem is not reproducing now
-T 1612883180 18<29quiliro18>	there is another problem now....the contextual menu is not visible
-T 1612883255 18<19rdrg10918>	Do any of you know what's the character which have the highest decimal value? I am asking this because I want to iterate through all the characters so I want to know what's the highest decimal number I must consider
-T 1612883255 18<29quiliro18>	i don't think the problem is related with the mouse, since I could select to copy with the keyboard in the contextual menu
-T 1612883303 18<27grym18>	rdrg109: U+10FFFF, by definition 
-T 1612883326 18<27grym18>	rdrg109: i don't know how much of that space is actually mapped yet ... 
-T 1612883326 18<20pjb18>	rdrg109: emacs doesn't seem to have a char-name function. It has a char-from-name in mule-cmds.
-T 1612883327 18<29quiliro18>	wgreenhouse: perhaps I am missing something in the description of my problem...I will keep testing
-T 1612883328 18<20pjb18>	rdrg109: char-from-name uses the (ucs-names) hash-table. 
-T 1612883330 18<19rdrg10918>	I was able to get the name by doing: (get-char-code-property ?a 'name) -> "LATIN SMALL LETTER A"
-T 1612883348 FiSHLiM plugin unloaded
-T 1612959581 19*	Now talking on 22#emacs
-T 1612959581 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
-T 1612959581 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:20 2021)
-T 1612959582 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
-T 1612960708 20*	Disconnected (20)
-T 1612960763 20*	Disconnected (20Remote host closed socket)
-T 1612960806 20*	Disconnected (20Remote host closed socket)
-T 1612960862 20*	Disconnected (20Remote host closed socket)
-T 1612960891 19*	Now talking on 22#emacs
-T 1612960891 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
-T 1612960891 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:20 2021)
-T 1612960891 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
-T 1612964878 20*	Disconnected (20)
-T 1612964924 20*	Disconnected (20Remote host closed socket)
-T 1612964980 20*	Disconnected (20Remote host closed socket)
-T 1612965037 20*	Disconnected (20Remote host closed socket)
-T 1612965088 20*	Disconnected (20Remote host closed socket)
-T 1612965114 19*	Now talking on 22#emacs
-T 1612965114 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
-T 1612965114 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:20 2021)
-T 1612965114 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
-T 1612965905 18<28andinus18>	can i set a different font for org headings and body?
-T 1612965941 18<28andinus18>	'variable-pitch font is set to "A", but i want "B" font for org body
-T 1612967010 18<19parsnip18>	rudybot: hello, i received your unsolicited email, but i don't see where you have an email to return the favor.
-T 1612967012 18<19parsnip18>	the irony
-T 1612967066 18<24rudybot18>	parsnip: "email which has been subscribed to and is therefore not unsolicited, but is often unread by the recipient for a long period of time"
-T 1612967101 18<19parsnip18>	O.O
-T 1612968138 24*	28cosimone_ is now known as 18cosimone
-T 1612969930 24*	28cosimone_ is now known as 18cosimone
-T 1612970523 18<22zmagii18>	wasamasa: What are good PDF viewers for GNU/Linux?
-T 1612970570 18<19bbuccianti18>	mupdf
-T 1612970699 18<27grym18>	evince seems fine 
-T 1612970712 18<22zmagii18>	bbuccianti: Thanks, didn't know that one.
-T 1612970846 18<22zmagii18>	grym: I'll just try them all! gawd dmnt at least this is not WINDOGE.
-T 1612970884 18<27grym18>	zmagii: oh yeah i guess sumatra and foxit are still around too huh 
-T 1612970909 18<22zmagii18>	Sumatra is great but it's Windows only, isn't it...?
-T 1612970934 18<28rgr18>	Annual totally fail to use EMMS day again. And... yup. Fail.
-T 1612970991 18<27grym18>	is it? 
-T 1612971003 18<27grym18>	oh i guess it is 
-T 1612971117 18<22zmagii18>	I was totally on board for trying EAF and then...
-T 1612971519 18<22contrapunctus18>	EAF??
-T 1612971520 18<22fsbot18>	Outlook not so good
-T 1612971524 18<26bqv18>	the downside to emacs-webkit, is that when emacs crashes, the "browser" does too... :(
-T 1612971553 18<22contrapunctus18>	bqv: you mean when the browser crashes, Emacs does too?
-T 1612971561 18<26bqv18>	no
-T 1612971564 18<26bqv18>	i mean what i said
-T 1612971585 18<22contrapunctus18>	I mean...I've rarely seen Emacs crash.
-T 1612971618 18<26bqv18>	either you use it far less than me, or you're on a much most stable dist
-T 1612971630 18<28rgr18>	emms doesnt seems to have a playlist directory setting. It can take a playlist file. But wont except a playlist root directory from which I can complete. Anyone have workaround?
-T 1612971688 18<26bqv18>	crashing is actually the reason i stopped using exwm. i like that without exwm, if emacs crashes, i still have *some* stuff open. but now, all i ever have open besides emacs is a browser, so is it worth it
-T 1612971691 18<22zmagii18>	contrapunctus: Yeah, on the Emacs Wiki it says: "EAF Browser -- extensible, customisable, full-featured modern browser embedded in Emacs."
-T 1612971710 18<26bqv18>	zmagii: i would definitely look at emacs-webkit instead
-T 1612971718 18<22zmagii18>	And then it also said it does PDF somewhere.
-T 1612971735 18<26bqv18>	in my mind at least, it deprecates EAF browser...
-T 1612971798 18<22zmagii18>	So in the Wiki it doesn't seem to say much about "WebKit" other than "visit EmacsApplicationFramework"
-T 1612971805 18<26bqv18>	https://github.com/akirakyle/emacs-webkit
-T 1612971835 18<26bqv18>	EAF is a spooky hack based on smushing X11 windows into other X11 windows
-T 1612971839 18<22zmagii18>	fsbot is on point today
-T 1612971842 18<26bqv18>	emacs-webkit is ..not
-T 1612971859 18<22zmagii18>	Damn. One less spooky hack in the toolbox.
-T 1612971888 18<22contrapunctus18>	99 spooky hacks left in the box
-T 1612971908 18<22contrapunctus18>	fsbot: EAF is Emacs Application Framework
-T 1612971908 18<26bqv18>	it's spooky hacks down to the last logic gate
-T 1612971909 18<22fsbot18>	err..[set term] eaf is already something else.. Use ’is also’.. 
-T 1612971909 18<22fsbot18>	 Currently: Emacs Application Framework https://github.com/manateelazycat/emacs-application-framework
-T 1612971946 18<26bqv18>	fsbot: emacs-webkit is An Emacs Dynamic Module for WebKit, aka a fully fledged browser inside emacs https://github.com/akirakyle/emacs-webkit
-T 1612971947 18<22fsbot18>	Created new note for "emacs-webkit"
-T 1612972018 18<22zmagii18>	bqv: Thanks for telling me about the next big thing. (Of course, after Emacs, which still is the next big thing.)
-T 1612972070 18<28rgr18>	oh of course. lol let bind. wrap the one source directory
-T 1612972211 18<22zmagii18>	I know I am preaching to the choir, but damn this week has been a detour back to closed source, Microsoft, MS Exchange, and lots and lots of crap that somehow pay a lot of salaries for people that eventually just use EMACS and listen to wave ocean sounds to get to sleep after writing closed source code.
-T 1612972254 18<22zmagii18>	It's not like I am trying to Free the World, but man like we need some new kinds of business models.
-T 1612972333 18<28rgr18>	what on earth are you rabbiting on about? eventually just use emacs? Much as I love emacs very few salaried MS programmers drpo it all and use emacs... 
-T 1612972424 18<22zmagii18>	rgr: Maybe you know better than me?
-T 1612972426 18<22zmagii18>	I just assumed that as people get older they appreciate better things.
-T 1612972551 18<22zmagii18>	I guess then MS coders must be using VS Code? But why would you switch to VS Code if you have been working for say 20+ years in something else? Or would you just be using MS products and building MS porducts on them?
-T 1612972564 18<27grym18>	you use the tools that solve your problems
-T 1612972678 20*	Disconnected (20)
-T 1612972730 20*	Disconnected (20Remote host closed socket)
-T 1612972771 20*	Disconnected (20Remote host closed socket)
-T 1612972820 20*	Disconnected (20Remote host closed socket)
-T 1612972848 19*	Now talking on 22#emacs
-T 1612972848 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | "wrong type argument: string" when installing packages? known MELPA bug: melpa/melpa#7312 | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
-T 1612972848 22*	Topic for 22#emacs set by 26nij!~user@2001-48F8-9004-117B-979B-643D-16B4-C48E-dynamic.midco.net (24Mon Feb  1 17:01:20 2021)
-T 1612972848 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
-T 1612972890 18<22zmagii18>	Oh yes, theres the Microsoft C Programming Language. I tend to forget about that.
-T 1612972934 18<27grym18>	as if c# has anything to do with C at all 
-T 1612972940 18<22zmagii18>	It doesn't?
-T 1612972942 18<27grym18>	no
-T 1612972948 18<27grym18>	it's a .NET java killer
-T 1612972966 18<27grym18>	you can tell: i can write c# without hating myself; C makes me insane 
-T 1612973075 18<22zmagii18>	The thing that really gripes me is actually something else, which is that MS grants legitimacy to things by appeal to authority. "We don't experience this issue with any of our other partners, perhaps the issue is on your side [sell your soul to MS, and die], have a nice day, Sir."
-T 1612973155 18<22zmagii18>	So, C# is not bad?
-T 1612973167 18<27grym18>	as a language i enjoy it the most of its kind 
-T 1612973189 18<27grym18>	obligate-OO, lots of braces, everything has to be a class, etc.  languages
-T 1612973229 18<27hodapp18>	part of why I hated C++ is because for a long while C++ was pretty much just that, on top of a language that felt like someone tried to put a candy shell over C
 T 1612973248 18<27hodapp18>	"Look, it's just as good as any other high level la... Segmentation fault (core dumped)"
 T 1612973252 18<27grym18>	is it petty that i don't like c++ because of all this :: nonsense and it just looks like line noise to me 
 T 1612973283 18<27hodapp18>	namespacing bothers me the least I gueess
@@ -5123,3 +4997,325 @@ T 1616081155 18<22peanutbutterandc18>	or is there another better way, pe
 T 1616082045 18<20johnw18>	morning; does anyone know if there's something I can put in `.dir-locals.el` to prevent Emacs from backing up files in that directory?
 T 1616082146 20*	Disconnected (20)
 T 1616083517 20*	Disconnected (20)
+T 1616408568 19*	Now talking on 22#emacs
+T 1616408568 22*	Topic for 22#emacs is: Beware the IDEs of March | RC #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.2-rc2.tar.xz | Emacs questions take priority over chit-chat | No Public Logging, racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1616408568 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Sun Mar 21 12:15:45 2021)
+T 1616408569 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1616413474 18<27epony18>	where hundreds of times per second is your imagination
+T 1616413584 18<27thomasb0618>	epony: those where the days...
+T 1616413595 18<27epony18>	just emacs can't do it
+T 1616413610 18<27epony18>	,speed
+T 1616413611 18<22fsbot18>	try:  AirspeedVelocity ErcSpeedbar FontLockSpeed SpeedBar SpeedbarMode sr-speedbar.el SrSpeedbarInXterm
+T 1616413640 18<27epony18>	see, it is barred
+T 1616413694 18<27thomasb0618>	does anybody use Emacs to browse pictures in a directory, the Internet, or watch videos? Seriously
+T 1616413731 18<24stevoooo18>	i've used image dired mode on occaision
+T 1616413742 18<27epony18>	,openwith
+T 1616413743 18<22fsbot18>	epony: openwith is a package for opening files with external applications https://www.emacswiki.org/emacs/OpenWith
+T 1616413754 18<27epony18>	that's what I use occasionally
+T 1616413767 18<27thomasb0618>	stevoooo: there's a preview or you know what to pick?
+T 1616413787 18<27epony18>	(in my use case, file names are appropriate)
+T 1616413825 18<24stevoooo18>	i just use it for browsing through photos that are organised by year / month etc.
+T 1616413853 18<24stevoooo18>	it even lets you tag things, but it wasn't quite what i wanted, and i didn't have time to try and improve it
+T 1616413861 18<24stevoooo18>	it works at a push though
+T 1616413907 18<27thomasb0618>	it looks good, I'll give it a try next summertime elisp hacking
+T 1616413999 18<27thomasb0618>	first, I need to configure Emacs to read my email, before the summer...
+T 1616415318 24*	28ferdy- is now known as 18ferdy
+T 1616415918 18<24stevoooo18>	emacs and email is definitely doable :)  i find that mu4e works really well once you get it setup (which can be a bit of a challenge admittedly)
+T 1616415981 18<27thomasb0618>	mu4e was the framework I planned to use
+T 1616419383 18<22adgtl18>	Any nice solutions for this issue "Creating pipe: Too many open files" emacs on  macOS 
+T 1616419453 18<19wasamasa18>	https://www.theregister.com/2021/03/22/richard_stallman_back_on_fsf_board/
+T 1616419532 18<20pjb18>	adgtl: ulimit in the shell. But I don't have any idea for emacs launched from the Finder.
+T 1616419717 18<22adgtl18>	pjb okay
+T 1616419828 18<20pjb18>	adgtl: it may also be a sign of a bug in emacs, looping on open(2)…
+T 1616419861 18<22adgtl18>	GNU Emacs 27.1 (build 1, x86_64-apple-darwin20.2.0, NS appkit-2022.20 Version 11.1 (Build 20C69)) of 2021-02-08
+T 1616419862 18<20pjb18>	adgtl: my open files ulimit is 1024 Did you open 1024 files?
+T 1616419900 18<22adgtl18>	I think I have set ulimit for open file descriptors in macOS and ulimit -a shows me Maximum number of open file descriptors                          (-n) 524288
+T 1616419921 18<22adgtl18>	How to check that Emacs have picked up this limit?
+T 1616419961 18<20pjb18>	adgtl: lsof -p  $PID_OF_EMACS | wc -l
+T 1616419972 18<20pjb18>	lsof lists the open files of a process.
+T 1616420020 18<20pjb18>	adgtl: hmm, I note that Emacs keeps the font files open.  This may be a lot.
+T 1616420037 18<20pjb18>	ls -1 /System/Library/Fonts/Supplemental/*.ttf | wc -l # ?
+T 1616420040 18<22adgtl18>	After restart it says '248'
+T 1616420061 18<22adgtl18>	Font files - 174
+T 1616420109 18<20pjb18>	This remains well below the default limit of 1024, or your extended limit…
+T 1616420162 18<22adgtl18>	pjb I had restarted. I do run lsp-mode and there is elixir-lsp running. Also I had done package-install for some packages.
+T 1616420189 18<22adgtl18>	I think lsp-mode with few projects in treemacs open causes it
+T 1616420288 18<20pjb18>	I don't know. But lsp is a separate process, so this shouldn't increase the number of open files in emacs much, I'd guess.
+T 1616420374 24*	28ferdy- is now known as 18ferdy
+T 1616420467 18<22adgtl18>	Anyone know how to enable native scrolling in Emacs 27.1 on macOS
+T 1616420484 18<22adgtl18>	I don't find scrolling as good as Sublime or VS Code
+T 1616420580 18<22adgtl18>	(pixel-scroll-mode 1) seems slow as well
+T 1616421141 18<19wasamasa18>	there is no such thing
+T 1616421150 18<19wasamasa18>	pixel-scroll-mode is the best you'll get
+T 1616421204 18<20bpalmer18>	adgtl: you might try launchctl limit  rather than ulimit ; ulimit is only for stuff started from the shell.
+T 1616421282 18<22adgtl18>	bpalmer yep.. done that.. just need to find out if Emacs has picked it
+T 1616421290 18<25cvandusen18>	,salespitch scrolling 
+T 1616421290 18<22fsbot18>	We aren't gonna lie. Scrolling sucks. Some of us tolerate it, but we can't tell you if YOU'LL be able to. Try it and make up your own mind.
+T 1616421335 18<20bpalmer18>	rudybot: they give scrolls to graduates, don't they?
+T 1616421366 18<24rudybot18>	bpalmer: "Seattle has a higher percentage of college graduates than any other major American city, with approximately 53.8% of residents aged 25 and older holding a bachelor degree or higher"
+T 1616421395 18<20bpalmer18>	some people find any excuse to stay out of the rain.
+T 1616421418 18<25cvandusen18>	rudybot: woot! '98 graduate from mime college!
+T 1616421420 18<24rudybot18>	cvandusen: but woot, down to under 70 kilos, next step, get down to 65.
+T 1616421435 18<19bremner18>	I wonder if university works out cheaper than spending the same amount of time in Starbucks
+T 1616421588 18<25cvandusen18>	Both are filled with Masters graduates. 
+T 1616421794 18<19bremner18>	but we are talking about customers, not baristas!
+T 1616421810 18<19bremner18>	also, would you like a scone with that?
+T 1616421837 18<27grym18>	sconces only please
+T 1616422083 18<20pjb18>	cvandusen: so, what to do if not scrolling?  page by page?
+T 1616422250 18<25cvandusen18>	sure, why not.
+T 1616422262 18<25cvandusen18>	or, use ,,ed 
+T 1616422263 18<22fsbot18>	ed is [0] the standard editor 
+T 1616422263 18<22fsbot18>	[1] at http://www.emacswiki.org/emacs/TheTruePath
+T 1616422263 18<22fsbot18>	[2] at http://emacswiki.org/emacs/ed
+T 1616422263 18<22fsbot18>	[3] small intro/howto/demo: http://blog.sanctum.geek.nz/actually-using-ed/
+T 1616422341 18<19bremner18>	You kids and your real time displays. Spoiled rotten I say. 
+T 1616422394 18<25cvandusen18>	rudybot: where did we go wrong? 
+T 1616422398 18<24rudybot18>	cvandusen: how did that happen?  where did we go wrong!
+T 1616422399 18<20bpalmer18>	I wonder if online schooling via teletype would work better than zoom.
+T 1616422429 18<25cvandusen18>	at least we wouldn't be hearing about zoom fatigue 
+T 1616422477 18*	25cvandusen says as he's on a zoom call right now
+T 1616422537 18<19twb18>	What's clang's strings called?
+T 1616422545 18<19twb18>	Since it's not safe to run strings(1)
+T 1616422563 18<19rpav18>	wait what's this
+T 1616422588 18<29fourier18>	llvm-strings
+T 1616422593 18<19twb18>	rpav: strings(1) can only be run on trusted data, otherwise it can execute random shit
+T 1616422602 18<19rpav18>	wtf
+T 1616422603 18<19twb18>	fourier: hrm thanks, I was looking for that
+T 1616422630 18<19twb18>	https://manpages.debian.org/llvm-strings  was 404'ing so I assumed I fucked up the name
+T 1616422648 18<20bpalmer18>	strings -a is fine, as far as I know.
+T 1616422723 18<19rpav18>	ah i see
+T 1616422727 18<20bpalmer18>	rpav: as I recall the bug : strings by default assumes it's working with an executable, so it calls a library to parse the file for the data sections.
+T 1616422730 18<19rpav18>	-a is the default in any case
+T 1616422734 18<20bpalmer18>	This parsing is subject to an attack.
+T 1616422759 18<19rpav18>	yeah that makes sense
+T 1616422789 18<19rpav18>	i'm surprised this has been known for so long and libbfd is still a problem
+T 1616422834 18<20bpalmer18>	the CVE is from 2014; perhaps libbfd is more secure now.
+T 1616423244 18<20puff18>	I'm trying to use git-timemachine and I'm getting this error: "Variable binding depth exceeds max-specpdl-size"  And then in the git-timemachine buffer the commands don't work, just get me a "Buffer is read-only" message.  Any ideas?  
+T 1616423306 18<20puff18>	I've tried increasing max-specpdl-size to 10000 but then I get "position: Lisp nexting exceeds 'max-list-eval-depth'.  So then I increased max-list-eval-depth to 10000 and now I get the max-specpdl-size error again.
+T 1616423315 18<20bpalmer18>	puff: the variable binding depth issue usually points to an infinite recursion.
+T 1616423360 18<20bpalmer18>	puff: (since most elisp does not have a deep stack depth compared with the default size)
+T 1616423381 18<20puff18>	Aha
+T 1616423389 18<20bpalmer18>	puff: I'd suggest setting debug-on-error to t (or one of the other debug-on-* values) and seeing if you can reproduce it
+T 1616424458 18<22adgtl18>	Folks are you excited about Emacs 28? What are best goodies it would have?
+T 1616424780 18<25cvandusen18>	Too soon to tell.
+T 1616424857 18<27grym18>	nice round number!
+T 1616424940 18<25cvandusen18>	Finally, a multiple of 7!
+T 1616425024 18<29wgreenhouse18>	I'm excited to get closer to gccemacs being ready for release
+T 1616425170 18<27hodapp18>	finally has support for lowercase letters
+T 1616425281 18<19twb18>	wgreenhouse: that's the elisp JIT stuff?
+T 1616425709 18<29wgreenhouse18>	twb: yeah, running elisp through emacs byte compiler passes _and_ gcc passes
+T 1616426347 24*	28ferdy- is now known as 18ferdy
+T 1616429159 18<29JordiGH18>	If a file has a BOM, that will show up in hexl-mode, right?
+T 1616429237 18<27grym18>	JordiGH: it'd better!
+T 1616429248 18<19twb18>	Hrm "echo fuck | iconv --to utf16be | hd -x" has no bom
+T 1616429263 18<29JordiGH18>	I want to know if it's there, though.
+T 1616429266 18<19wasamasa18>	ITYM od
+T 1616429272 18<29JordiGH18>	I'm looking in hexl-mode and see no BOM.
+T 1616429282 18<19twb18>	wasamasa: nope
+T 1616429284 18<29JordiGH18>	I wonder if Slack is removing the BOM.
+T 1616429295 18<19twb18>	wasamasa: here in the future our numbers go up to f
+T 1616429302 18<29JordiGH18>	'Cause when they upload the file to our thing, there is a BOM and it feffs everything up.
+T 1616429330 18<19bremner18>	I blame capitalism
+T 1616429407 18<19wasamasa18>	--to utf16 creates a bom
+T 1616429410 18<19wasamasa18>	hilarious
+T 1616429417 18<19wasamasa18>	if you specify the endianness, you don't get a bom
+T 1616429432 18<19wasamasa18>	because if you know it already, why'd you need one
+T 1616429618 18<29JordiGH18>	Okay, but what's the easiest way to see if there's a feff in the file?
+T 1616429634 18<29JordiGH18>	'Cause everything seems to try to hide it.
+T 1616429641 18<19wasamasa18>	`od -x` doesn't
+T 1616429648 18<19wasamasa18>	neither does `r2`
+T 1616429653 18<29JordiGH18>	Okay, so od -x will show me feffs?
+T 1616429661 18<19twb18>	JordiGH: hd -x definitely shows BOM
+T 1616429679 18<19wasamasa18>	hexl also displays it
+T 1616429700 18<29JordiGH18>	Okay, BOM is definitely not there.
+T 1616429711 18<29JordiGH18>	Did Slack modify the file??? And removed the BOM?
+T 1616429764 18<19wasamasa18>	if I generate a file with explicit utf16 ordering and no BOM, emacs doesn't automatically detect that
+T 1616429921 18<29JordiGH18>	utf16 just makes me think "windows could you please not"
+T 1616429933 18<19wasamasa18>	I've also run into files removing the BOM
+T 1616429945 18<19wasamasa18>	and windows applications adding the BOM to utf-8 files
+T 1616429965 18<29JordiGH18>	windows fucking loves the BOM.
+T 1616429979 18<29JordiGH18>	I haven't seen so much love for BOMs since... uh... Xblast.
+T 1616429981 18<19wasamasa18>	notepad++ lists utf-8 twice and one version is without the BOM
+T 1616430261 18<27hodapp18>	what's bill of material gotta do with anything?
+T 1616430394 18<25cvandusen18>	I think that means it supports utf-16. 
+T 1616430603 18<29JordiGH18>	hodapp: Someone set up us the BOM
+T 1616430622 18<27grym18>	do not trust the bomber robot 
+T 1616430688 18<25cvandusen18>	rudybot: what could go wrong?
+T 1616430692 18<24rudybot18>	cvandusen: What could possibly go wrong?
+T 1616430703 18<25cvandusen18>	xactly 
+T 1616430895 18<20StackExploit18>	Hi. Im going to compile Emacs from Source Code. I have some option to exclude Cairo Graphics Libs from compilation.    What is it used for in Emacs?
+T 1616430921 18<28technomancy18>	StackExploit: probably for displaying SVGs; maybe some other things too
+T 1616430975 18<20StackExploit18>	technomancy Becuase there are also other graphical components. Im not sure which ones are essential. Like by default it has support for 3 GUIs like for Mac OS too. 
+T 1616431023 18<20StackExploit18>	shouldnt the gtk, imagemagick, and gif flags be enough for full image support?
+T 1616431090 18<25cvandusen18>	I don't think imagemagick is needed anymor. 
+T 1616431097 18<25cvandusen18>	anymore even.
+T 1616431121 18<20StackExploit18>	well this flag still exists for emacs 28 
+T 1616431222 18<25cvandusen18>	Still there, but according to NEWS: Emacs no longer defaults to using ImageMagick to display images.
+T 1616431252 18<28technomancy18>	whew
+T 1616431391 18<20StackExploit18>	yes, but I guess that it will default so if I enble this flag
+T 1616431436 18<20StackExploit18>	Please, I mean, I'd like to disable redundant features/bloat
+T 1616431447 18<25cvandusen18>	well, that's not "default".
+T 1616431449 18<19wasamasa18>	may I introduce you to GNU nano, the bloatfree editor
+T 1616431485 18<25cvandusen18>	ed, please
+T 1616431487 18<20StackExploit18>	LOL :D
+T 1616431499 18<20StackExploit18>	but seriousluy.. any help?
+T 1616431519 18<19wasamasa18>	an unbloated emacs experience sounds delusional
+T 1616431525 18<19wasamasa18>	run ./configure, review the settings
+T 1616431546 18<19wasamasa18>	the ifdef mess will ensure there's exactly one GUI toolkit active at a time
+T 1616431578 18<20StackExploit18>	I'm running Gentoo, btw :)
+T 1616431582 18<20gabc18>	StackExploit: you can remove one .el file at a time from the code and see what happens?
+T 1616431583 18<19wasamasa18>	ah, figures
+T 1616431619 18<20StackExploit18>	so hehe actually using Gentoo Portage compile system's USE flags for this :)
+T 1616433574 20*	Disconnected (20)
+T 1616433941 19*	Now talking on 22#emacs
+T 1616433941 22*	Topic for 22#emacs is: Beware the IDEs of March | RC #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.2-rc2.tar.xz | Emacs questions take priority over chit-chat | No Public Logging, racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1616433941 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Sun Mar 21 12:15:46 2021)
+T 1616433941 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1616434259 18<20StackExploit18>	what is inotify in Emacs?
+T 1616434279 18<19twb18>	a way for emacs to use inotify syscalls?
+T 1616434304 18<20StackExploit18>	ok like i thought
+T 1616434309 18<20StackExploit18>	thx, just needed to confirm :0
+T 1616434310 18<20StackExploit18>	:)
+T 1616434336 18<20bpalmer18>	note that filenotify is the interface programs should use, which provides a unified api to  the various file watching systems.
+T 1616434355 18<20bpalmer18>	it can use inotify, kqueue, gfilenotify, and w32notify
+T 1616434368 18<19twb18>	bpalmer: thanks
+T 1616434402 18<25xristos18>	it also works over tramp
+T 1616434418 18<20StackExploit18>	so if i dont enable inotify in configure, then it will use something else for this?
+T 1616434431 18<20StackExploit18>	are there some benefits to not enabling inotify then?
+T 1616434438 18<20bpalmer18>	Hmm. The donut shop Krispy Kreme will be giving away a free donut/day all year long to anybody who shows proof that they've been vaccinated.
+T 1616434441 18<25xristos18>	if you don't enable it, you don't get the functionality
+T 1616434455 18<25xristos18>	meaning certain operations become more expensive
+T 1616434469 18<25xristos18>	dired has to poll to see if a directory changed and so on
+T 1616434494 18<19bremner18>	bpalmer: can I get a free vaccine if I show proof of eating too many donuts?
+T 1616434529 18<19twb18>	jwz has already had his vaccine and I stlil can't get mine
+T 1616434558 18<20bpalmer18>	bremner: I believe a donut vaccine is just a bunch of donut holes to fill in the receptor that donuts use to bind.
+T 1616434568 18<19twb18>	https://www.theshovel.com.au/2021/03/11/australia-just-4-million-vaccinations-short-of-its-target/
+T 1616434586 18<19bremner18>	bpalmer: I'm worried about donut variants like fritters
+T 1616434621 18<19twb18>	bpalmer: the scary thing is that implies most Krispy Kreme customers eat MORE than one doughnut per day
+T 1616434649 18<19twb18>	bremner: or I guess that most Krispy Kreme customers are anti-science
+T 1616434690 18<19bremner18>	,do-not-confuse
+T 1616434691 18<22fsbot18>	do-not-confuse is [0/8] codingquark and contrapunctus
+T 1616434691 18<22fsbot18>	[1] bremner and bpalmer
+T 1616434691 18<22fsbot18>	[2] wgreenhouse and wasamasa
+T 1616434691 18<22fsbot18>	[3] jlf and jil ;;[ ,more / ,dump]
+T 1616434699 18<19twb18>	whatever
+T 1616434712 18<19twb18>	you're close enough it doesn't matter
+T 1616434730 18<19wasamasa18>	StackExploit: inotify is a linux feature, lol
+T 1616434738 18<19wasamasa18>	StackExploit: not enabling emacs support for inotify is stupid
+T 1616434751 18<20bpalmer18>	twb: not really, in either case. What it means is that they don't have to bother record keeping who has already received a donut, don't have a single day of misery where everybody lines up, and it's a cheap promotion to get people to make it to the store (where they're likely to buy a box)
+T 1616434765 18<20StackExploit18>	wasamasa maybe assuming things here is stupid
+T 1616434773 18<19twb18>	StackExploit: inotify is a thing that makes emacs run faster / waste fewer resources, in certain cases
+T 1616434794 18<20StackExploit18>	my question for whether can Emacs get notified without inotify hasnt been anwsered
+T 1616434794 18<19twb18>	StackExploit: the only reason to disable it is if you have an ideological hatred for inotify
+T 1616434808 18<20bpalmer18>	it's like ice cream shops having a policy of allowing people to have a free spoon of ice cream to try a flavor.
+T 1616434809 18<19twb18>	StackExploit: it can, at least on BSD
+T 1616434811 18<19wasamasa18>	it will need to poll files instead
+T 1616434829 18<19wasamasa18>	this is slow and inefficient, hence why support for inotify (and other OS-specific equivalents) has been added
+T 1616434830 18<19twb18>	bpalmer: I didn't realize they gave ANYONE a free doughnut
+T 1616434856 18<19twb18>	Do US pretzel shops give people 1 free pretzel?
+T 1616434864 18<27grym18>	twb: sometimes
+T 1616434869 18<27grym18>	there are usually samples
+T 1616434884 18<27grym18>	and bakers dozens 
+T 1616434927 18<27grym18>	krispy kreme donuts have a consumption half life on the order of 90 seconds post-wire mesh conveyor belt exit
+T 1616435314 18<20puff18>	Preferred pastebin here?
+T 1616435316 18<20bpalmer18>	rudybot: I fear fritters may be unstoppable. There is no hope but to toss others into their path.
+T 1616435335 18<20puff18>	You guys are NOT helping my diet :-)
+T 1616435350 18<20bpalmer18>	puff: there isn't any, I don't think. Some people like ix.io ; see also ,,lisppaste
+T 1616435352 18<22fsbot18>	[->] paste is Please do not paste mutiple lines into the channel. Use a paste services like http://ix.io/, webpaste.el, or https://bpa.st/
+T 1616435359 18<24rudybot18>	bpalmer: Farmer Vincent kidnaps unsuspecting travellers and is burying them in his garden. Unfortunately for his victims, they are not dead. He feeds his victims to prepare them for his roadside stand. His motto is: It takes all kinds of critters...to make Farmer Vincents fritters. The movie is gory, but is also a parody of slasher movies like Last House o... [Output truncated. Use `more` to read more]
+T 1616435465 18<20puff18>	Whee, this error is choking pastebins.
+T 1616435489 18<20puff18>	paste.ubuntu.com and now ix.io are both choking on it.
+T 1616435530 18<20puff18>	Er, sorry, not ix but bpa.st
+T 1616435796 18<22jamik18>	Out of curiousity, what is considered a line length here? 80 chars?
+T 1616435840 18<20puff18>	jamik: Traditionally on the internet/usenet it was 78 characters, to leave a margin for error.
+T 1616435850 18<20bpalmer18>	jamik: an irc command is limited to 512 bytes (including terminating CRLF).
+T 1616435866 18<20puff18>	bpalmer: http://www.darksleep.com/puff/gittimemachine_error.txt
+T 1616435878 18<20bpalmer18>	jamik: I think the relevant command is "/msg #emacs" so say 500 characters.
+T 1616435922 18<20bpalmer18>	jamik: but in practice, if you're about to paste something, it probably has newlines already.
+T 1616435971 18<22jamik18>	Okay thanks for the info. For pasting I'd just use dpaste for that reason. But often my question include verbose context and exceed 80 chars easily
+T 1616435980 18<22jamik18>	Even that message was 120+
+T 1616436016 18<20bpalmer18>	puff: so the trouble is your advice.
+T 1616436069 18<20bpalmer18>	Offhand, it looks like it's being triggered itself, ad infinitum (thus, infinite stack depth, thus exceeding the max-specpdl-size)
+T 1616436077 18<20puff18>	Aha.
+T 1616436088 18<20bpalmer18>	have you advised cl-position?
+T 1616436101 18<20puff18>	bpalmer: I'm not sure what that means.
+T 1616436119 18<20bpalmer18>	puff: C-h f cl-position RET   should show if it's been advised.
+T 1616436162 18<27grym18>	puff: i like bpa.st
+T 1616436163 18<20bpalmer18>	advice is a way to specify code that should be evaluated before, after, "around" , or instead of a function being called.
+T 1616436227 18<20puff18>	Aha.
+T 1616436279 18<20puff18>	bpalmer: Trying that command, it opens a buffer window with what looks like the help entry for cl-position.
+T 1616436361 18<20bpalmer18>	you can also look at ad-advised-functions  if the advice was done with old-school advice.el (which uses defadvice) 
+T 1616436367 18<20bpalmer18>	C-h v ad-advised-functions RET
+T 1616436411 18<20puff18>	cl-delete-duplicates, cl-position, yank-pop and kill-new
+T 1616436413 18<20bpalmer18>	or (cl-loop for s being the symbols if (and (functionp s) (advice--symbol-function s)) collect s)   to collect the advised functions from nadvice.
+T 1616436436 18<20bpalmer18>	puff: ok, those 4 functions have had some form of old-school advice given; that advice is causing problems.
+T 1616436455 18<20puff18>	Aha.
+T 1616436463 18<20bpalmer18>	You should (a) figure out who or what is applying the advice (again, look for defadvice)
+T 1616436480 18<20bpalmer18>	but in the meantiem, you can do (ad-unadvise 'cl-position) 
+T 1616436484 18<20bpalmer18>	to just remove it
+T 1616436485 18<20puff18>	So basically grep my .emacs and related files for defadvice.
+T 1616436500 18<20bpalmer18>	Yes.
+T 1616436572 18<20puff18>	bpalmer: Yay, that does indeed help!
+T 1616436592 18<20puff18>	That is, git-timemachine now works!
+T 1616436791 18<20puff18>	bpalmer: So the clue to what was going wrong was the mention on the second line where it mentions ad-Advice-cl-position?
+T 1616436797 18<20puff18>	bpalmer: Or was there anything else?
+T 1616436845 18<20bpalmer18>	that it showed up initially, with an argument; then showed up again, with the same argument; then showed up again, with the same argument...
+T 1616436859 18<20bpalmer18>	(I didn't bother looking at the other arguments)
+T 1616436864 18<20puff18>	Now wtf... emacs is locked up... ubuntu is giving me the "not responding" popup.  
+T 1616436874 18<20puff18>	Repeatedly.
+T 1616436898 18<20bpalmer18>	sounds like a tight loop. Hit C-g C-g C-g 
+T 1616436903 18<20bpalmer18>	(with emacs in focus)
+T 1616436984 18<20puff18>	No effect.
+T 1616436989 18<20puff18>	and the mini buffer says "gui-get-selection: (error "Timed out waiting for reply from selection owner.")
+T 1616437056 18<20puff18>	And top says emacs is at 100% of CPU.
+T 1616437119 18<20puff18>	Hm, the "not responding" popup seems to be taking longer to go away after I click "wait"
+T 1616437250 18<20puff18>	Guess I'll wait a few minutes and see if it clears up on its own, and if need be then kill my emacs process.  God, I feel like a Windows user.
+T 1616437796 18<20puff18>	Nope, still doing it. I guess it's time to kill the process.
+T 1616437854 18<20puff18>	Hm, looks like a soft kill did it, but now apport is taking 100% of cpu.
+T 1616438174 18<20puff18>	Ah well, decided to avail myself of the "force quit" option in the popup and that did the trick. Still curious as to what was going on, though.
+T 1616438542 18<20StackExploit18>	what do you use Sound functionality for in Emacs? :)
+T 1616438639 18<27grym18>	StackExploit: playing them!
+T 1616438652 18<20puff18>	beeping when you do something stupid :-)
+T 1616438653 18<27grym18>	go on, ask us a hard one :) 
+T 1616438661 18<27hodapp18>	wut
+T 1616438679 18<20StackExploit18>	what;s your use case other than beeping?
+T 1616438702 18<19twb18>	StackExploit: games?
+T 1616438709 18<20StackExploit18>	oh yeah
+T 1616438714 18<19twb18>	e.g. that metroid elisp game
+T 1616438717 18<20StackExploit18>	haha i forgot games exist
+T 1616438724 18<19wasamasa18>	sound is synchronous, so pretty much useless
+T 1616438744 18<19twb18>	emacs's playlist editor app mostly works by runing external players
+T 1616438754 18<19twb18>	I don't know if it can use an internal player
+T 1616439520 18<19e1f18>	rudybot: call of nature or call of duty?
+T 1616439531 18<24rudybot18>	e1f: so then you say that duty and nature are not the same, and of course, your job isn't the same as an oak tree. but I don't think either are meant.
+T 1616439568 18<27grym18>	an oak tree <3
+T 1616439585 18<19e1f18>	the larch
+T 1616439603 18*	19e1f is a lumberjack
+T 1616439670 18<27grym18>	two entirely separate approaches to semiotics :) 
+T 1616439830 18<19e1f18>	i'm sure there's a monty python sketch in there somewhere
+T 1616439881 18<27grym18>	i'm sure they got the joke of 'an oak tree'
+T 1616440405 18<26kudahtor22818>	Hi! How do I switch off tool-bar-mode with .emacs? when I C-x C-e line "(setq tool-bar-mode 0)" nothing happens, thanks!
+T 1616440460 18<27grym18>	(tool-bar-mode -1)
+T 1616440468 18<27grym18>	(is how i do this, anyway)
+T 1616440748 18<26kudahtor22818>	thx!
+T 1616441818 20*	Disconnected (20)
+T 1616441843 19*	Now talking on 22#emacs
+T 1616441843 22*	Topic for 22#emacs is: Beware the IDEs of March | RC #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.2-rc2.tar.xz | Emacs questions take priority over chit-chat | No Public Logging, racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1616441843 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Sun Mar 21 12:15:45 2021)
+T 1616441843 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1616441972 18<20Abbott18>	perfect, thank you
+T 1616443356 18<20bpalmer18>	rudybot: if I win the lottery, I might launch an expensive advertising campaign to restore tab characters to being respectable members of the character set.
+T 1616443396 18<24rudybot18>	bpalmer: do you ever google your exes and think about how they're really screwing off and doing nothing really respectable
+T 1616443438 18<19twb18>	bpalmer: I actually rarely see people complaining about vertical tabs
+T 1616443455 18<19twb18>	bpalmer: does Unicode support depth tabs yet?
+T 1616443462 18<19twb18>	bpalmer: THAT would be a fun thing to campaign for
+T 1616443482 18<19twb18>	"you can already tab sideways and downwards, why not inwards?"
+T 1616443545 18<20bpalmer18>	That can be done with the aid of certain herbs and rituals known for centuries to the elders of a long-lost tribe.
+T 1616443677 18<28offby118>	The current conversation neglects the importance of character
+T 1616443759 18<20rdimeo18>	Hi! Is there a way to keep a slide collapsed in org-tree-slide-mode?
+T 1616443790 18<20rdimeo18>	(even better: is there a way to tell org-tree-slide-mode "don't touch show/hide my lists"?)
+T 1616443846 18<20bpalmer18>	offby1: which is more important: character, or being earnest?
+T 1616443865 18<28offby118>	por que no los dos
+T 1616444017 18<27grym18>	Your Majesty, you're like a big jam doughnut with cream on the top.
+T 1616444292 18<20aidalgol18>	mmm, donuts...
+T 1616444391 18<27grym18>	i haven't had a good one (any one) in a while 
