@@ -4177,3 +4177,97 @@ Mar 22 20:36:58 *	Disconnected ()
 Mar 22 20:37:23 *	Now talking on #spacemacs
 Mar 22 20:37:23 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
 Mar 22 20:37:23 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Mar 23 00:09:28 *	Disconnected ()
+**** ENDING LOGGING AT Tue Mar 23 00:09:28 2021
+
+**** BEGIN LOGGING AT Tue Mar 23 07:50:41 2021
+
+Mar 23 07:50:41 *	Now talking on #spacemacs
+Mar 23 07:50:41 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Mar 23 07:50:41 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Mar 23 07:54:28 *	Disconnected ()
+**** ENDING LOGGING AT Tue Mar 23 07:54:28 2021
+
+**** BEGIN LOGGING AT Tue Mar 23 10:18:12 2021
+
+Mar 23 10:18:12 *	Now talking on #spacemacs
+Mar 23 10:18:12 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Mar 23 10:18:12 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Mar 23 12:16:38 <FromGitter>	<opsxcq> I've upated spacemacs to the latest develop branch and start getting some strange errors regarding  `dotspacemacs-additional-packages` ⏎  ⏎ ```code paste, see link``` [https://gitter.im/syl20bnr/spacemacs?at=6059ce16ad83ec3d7d4aba81]
+Mar 23 12:27:35 <FromGitter>	<alexey0308> @opsxcq https://github.com/syl20bnr/spacemacs/issues/14534
+Mar 23 12:30:04 <FromGitter>	<opsxcq> Thanks @alexey0308  !
+Mar 23 16:14:42 *	Disconnected ()
+**** ENDING LOGGING AT Tue Mar 23 16:14:42 2021
+
+**** BEGIN LOGGING AT Tue Mar 23 16:15:11 2021
+
+Mar 23 16:15:11 *	Now talking on #spacemacs
+Mar 23 16:15:11 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Mar 23 16:15:11 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Mar 23 17:52:02 <FromGitter>	<emesterhazy> https://imgur.com/hhDgQy1
+Mar 23 17:52:12 <FromGitter>	<emesterhazy> Does anyone know how to disable this highlighting of all matching symbols?
+Mar 23 17:52:36 <FromGitter>	<emesterhazy> I'm not sure when or how this got enabled, but it doesn't work consistently with OCaml and ends up highlighting huge blocks of text in some cases
+Mar 23 17:53:01 <FromGitter>	<emesterhazy> Sorry, to be clear, it decides to highlight depending on what's under the cursor.
+Mar 23 17:53:08 <FromGitter>	<dmolina> @emesterhazy Is it remarked when you put the cursor in?
+Mar 23 17:55:21 <FromGitter>	<emesterhazy> What do you mean?
+Mar 23 17:56:11 <FromGitter>	<dmolina> are you using a LSP?
+Mar 23 17:57:33 <FromGitter>	<emesterhazy> I don't *think* so but perhaps I unintentionally installed one for VS code and it's being used?
+Mar 23 17:58:47 <FromGitter>	<yyoncho> `SPC t h a`
+Mar 23 17:59:15 <FromGitter>	<yyoncho> And set lsp-enable-symbol-highlighting  to nil if you are using lsp
+Mar 23 18:00:12 <FromGitter>	<emesterhazy> `SPC t h a` didn't help - it was already disabled :(
+Mar 23 18:00:23 <FromGitter>	<dmolina> Thank you, @yyoncho. I did not know that option.
+Mar 23 18:00:40 <FromGitter>	<emesterhazy> how do I set lsp-enable-symbol-lighlighting to nil? I can't find it with M-x
+Mar 23 18:00:46 <FromGitter>	<emesterhazy> I actually don't think I have an lsp installed either
+Mar 23 18:01:18 <FromGitter>	<emesterhazy> https://imgur.com/a/Z96nnm4
+Mar 23 18:01:26 <FromGitter>	<emesterhazy> Sometimes it highlights an entire block.. it's maddening
+Mar 23 18:01:28 <FromGitter>	<dmolina> @emesterhazy SPC h d v
+Mar 23 18:01:47 <FromGitter>	<dmolina> to see the variables
+Mar 23 18:02:41 <FromGitter>	<emesterhazy> @dmolina As in search for lsp-enable-symbol-highlighting here? It doesn't seem to exist
+Mar 23 18:03:57 <FromGitter>	<dmolina> Then I have not idea, you should be that variable if you had lsp installed. If not, I  do not know how to help you
+Mar 23 18:06:30 <FromGitter>	<emesterhazy> That's ok :(
+Mar 23 18:06:45 <FromGitter>	<yyoncho> @emesterhazy do M-x describe-face
+Mar 23 18:07:38 <FromGitter>	<emesterhazy> ```code paste, see link``` [https://gitter.im/syl20bnr/spacemacs?at=605a205ac1e10242c5bb0b20]
+Mar 23 18:10:01 <FromGitter>	<emesterhazy> I guess it's some merlin setting highlighting exprs with the same type
+Mar 23 18:12:28 <FromGitter>	<emesterhazy> I can't seem to figure out which merlin setting this is but at least it seems to be caused by merlin
+Mar 23 18:12:41 <FromGitter>	<emesterhazy> Is there some way to just reset my environment?
+Mar 23 18:28:12 *	Disconnected ()
+**** ENDING LOGGING AT Tue Mar 23 18:28:12 2021
+
+**** BEGIN LOGGING AT Tue Mar 23 18:32:23 2021
+
+Mar 23 18:32:23 *	Now talking on #spacemacs
+Mar 23 18:32:23 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Mar 23 18:32:23 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Mar 23 18:33:12 *	Disconnected ()
+**** ENDING LOGGING AT Tue Mar 23 18:33:12 2021
+
+**** BEGIN LOGGING AT Tue Mar 23 18:34:35 2021
+
+Mar 23 18:34:35 *	Now talking on #spacemacs
+Mar 23 18:34:35 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Mar 23 18:34:35 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Mar 23 18:36:42 *	Disconnected ()
+**** ENDING LOGGING AT Tue Mar 23 18:36:42 2021
+
+**** BEGIN LOGGING AT Tue Mar 23 18:39:55 2021
+
+Mar 23 18:39:55 *	Now talking on #spacemacs
+Mar 23 18:39:55 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Mar 23 18:39:55 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Mar 23 18:59:42 *	Disconnected ()
+**** ENDING LOGGING AT Tue Mar 23 18:59:42 2021
+
+**** BEGIN LOGGING AT Tue Mar 23 19:03:43 2021
+
+Mar 23 19:03:43 *	Now talking on #spacemacs
+Mar 23 19:03:43 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Mar 23 19:03:43 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Mar 23 20:23:42 *	Disconnected ()
+**** ENDING LOGGING AT Tue Mar 23 20:23:42 2021
+
+**** BEGIN LOGGING AT Tue Mar 23 20:27:43 2021
+
+Mar 23 20:27:43 *	Now talking on #spacemacs
+Mar 23 20:27:43 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Mar 23 20:27:43 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Mar 23 20:36:49 *	Lord_of_Life_ is now known as Lord_of_Life

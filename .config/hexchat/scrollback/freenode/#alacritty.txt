@@ -5010,3 +5010,77 @@ T 1616441843 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, Op
 T 1616441843 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Feb 20 01:05:57 2021)
 T 1616443692 18<19rcf18>	The ls alias on many distros is dumb and only works with a set list of TERM
 T 1616444083 18<24UndeadLeech18>	Which is why it should work without alias.
+T 1616454568 20*	Disconnected (20)
+T 1616482240 19*	Now talking on 22#alacritty
+T 1616482240 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+T 1616482240 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Feb 20 01:05:57 2021)
+T 1616482468 20*	Disconnected (20)
+T 1616490862 20*	Disconnected (20Connection timed out)
+T 1616490900 20*	Disconnected (20Remote host closed socket)
+T 1616490940 20*	Disconnected (20Remote host closed socket)
+T 1616490985 20*	Disconnected (20Remote host closed socket)
+T 1616491027 20*	Disconnected (20Remote host closed socket)
+T 1616491061 20*	Disconnected (20Remote host closed socket)
+T 1616491092 19*	Now talking on 22#alacritty
+T 1616491092 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+T 1616491092 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Feb 20 01:05:57 2021)
+T 1616512482 20*	Disconnected (20)
+T 1616512511 19*	Now talking on 22#alacritty
+T 1616512511 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+T 1616512511 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Feb 20 01:05:57 2021)
+T 1616520492 20*	Disconnected (20)
+T 1616520566 20*	Disconnected (20Remote host closed socket)
+T 1616520643 20*	Disconnected (20Remote host closed socket)
+T 1616520719 20*	Disconnected (20Remote host closed socket)
+T 1616520743 19*	Now talking on 22#alacritty
+T 1616520743 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+T 1616520743 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Feb 20 01:05:57 2021)
+T 1616520792 20*	Disconnected (20)
+T 1616520875 19*	Now talking on 22#alacritty
+T 1616520875 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+T 1616520875 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Feb 20 01:05:57 2021)
+T 1616521002 20*	Disconnected (20)
+T 1616521061 20*	Disconnected (20Remote host closed socket)
+T 1616521112 20*	Disconnected (20Remote host closed socket)
+T 1616521170 20*	Disconnected (20Remote host closed socket)
+T 1616521195 19*	Now talking on 22#alacritty
+T 1616521195 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+T 1616521195 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Feb 20 01:05:57 2021)
+T 1616521703 18<22nixpulvis18>	Instead of the build.rs you mean?
+T 1616521719 18<22nixpulvis18>	I was kinda wondering if any of these was even really needed.
+T 1616521723 18<24UndeadLeech18>	Yeah the original code from me was just completely ridiculous.
+T 1616521730 18<24UndeadLeech18>	Adapting it in any way is not sensible.
+T 1616521857 18<22nixpulvis18>	So convering, for example, 31 to "31" then appending it should be fast enough you think?
+T 1616521897 18<24UndeadLeech18>	Here's the thing: I relied on such an extreme implementation to verify if it would be possible to do this in a blocking matter at all without completely killing performance.
+T 1616521906 18<24UndeadLeech18>	I came to the conclusion that it isn't, at least not on a single thread.
+T 1616521921 18<24UndeadLeech18>	Thus it doesn't really matter how fast it is, because it's not fast enough.
+T 1616521943 18<22nixpulvis18>	Good, that's helping me understand.
+T 1616521952 18<22nixpulvis18>	I was really confused by this at first...
+T 1616521967 18<22nixpulvis18>	Which is basically why I stopped thinking about the fancy macro :P
+T 1616521978 18<24UndeadLeech18>	The performance difference is relatively minor in practice. But it was the fastest implementation I have found.
+T 1616522009 18<22nixpulvis18>	I mean yea... binary -> ascii numbers is kinda a pain I guess.
+T 1616522040 18<24UndeadLeech18>	I've also had a much simpler and still pretty fast implementation just doing it digit by digit.
+T 1616522066 18<22nixpulvis18>	Yea, that makes sense.
+T 1616522066 18<24UndeadLeech18>	It's not that complicated really, the question is just what your constraints are.
+T 1616522082 18<22nixpulvis18>	I was honestly surprised I didn't see that in the STD.
+T 1616522082 18<24UndeadLeech18>	Having a limited set of numbers makes things easier to optimize for your specific case.
+T 1616522092 18<24UndeadLeech18>	It is in STD.
+T 1616522097 18<24UndeadLeech18>	ToString.
+T 1616522111 18<24UndeadLeech18>	The Display impl.
+T 1616522292 18<22nixpulvis18>	lol... oh yea
+T 1616522382 20*	Disconnected (20)
+T 1616522428 20*	Disconnected (20Remote host closed socket)
+T 1616522475 20*	Disconnected (20Remote host closed socket)
+T 1616522533 20*	Disconnected (20Remote host closed socket)
+T 1616522596 20*	Disconnected (20Remote host closed socket)
+T 1616522623 19*	Now talking on 22#alacritty
+T 1616522623 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+T 1616522623 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Feb 20 01:05:57 2021)
+T 1616527422 20*	Disconnected (20)
+T 1616527483 20*	Disconnected (20Remote host closed socket)
+T 1616527528 20*	Disconnected (20Remote host closed socket)
+T 1616527578 20*	Disconnected (20Remote host closed socket)
+T 1616527637 20*	Disconnected (20Remote host closed socket)
+T 1616527663 19*	Now talking on 22#alacritty
+T 1616527663 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+T 1616527663 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Feb 20 01:05:57 2021)

@@ -6530,3 +6530,89 @@ Mar 22 20:37:23 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL 
 Mar 22 20:37:23 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Feb 20 01:05:57 2021)
 Mar 22 21:08:12 <rcf>	The ls alias on many distros is dumb and only works with a set list of TERM
 Mar 22 21:14:43 <UndeadLeech>	Which is why it should work without alias.
+Mar 23 00:09:28 *	Disconnected ()
+**** ENDING LOGGING AT Tue Mar 23 00:09:28 2021
+
+**** BEGIN LOGGING AT Tue Mar 23 07:50:40 2021
+
+Mar 23 07:50:40 *	Now talking on #alacritty
+Mar 23 07:50:40 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+Mar 23 07:50:40 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Feb 20 01:05:57 2021)
+Mar 23 07:54:28 *	Disconnected ()
+**** ENDING LOGGING AT Tue Mar 23 07:54:28 2021
+
+**** BEGIN LOGGING AT Tue Mar 23 10:18:12 2021
+
+Mar 23 10:18:12 *	Now talking on #alacritty
+Mar 23 10:18:12 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+Mar 23 10:18:12 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Feb 20 01:05:57 2021)
+Mar 23 16:14:42 *	Disconnected ()
+**** ENDING LOGGING AT Tue Mar 23 16:14:42 2021
+
+**** BEGIN LOGGING AT Tue Mar 23 16:15:11 2021
+
+Mar 23 16:15:11 *	Now talking on #alacritty
+Mar 23 16:15:11 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+Mar 23 16:15:11 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Feb 20 01:05:57 2021)
+Mar 23 18:28:12 *	Disconnected ()
+**** ENDING LOGGING AT Tue Mar 23 18:28:12 2021
+
+**** BEGIN LOGGING AT Tue Mar 23 18:32:23 2021
+
+Mar 23 18:32:23 *	Now talking on #alacritty
+Mar 23 18:32:23 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+Mar 23 18:32:23 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Feb 20 01:05:57 2021)
+Mar 23 18:33:12 *	Disconnected ()
+**** ENDING LOGGING AT Tue Mar 23 18:33:12 2021
+
+**** BEGIN LOGGING AT Tue Mar 23 18:34:35 2021
+
+Mar 23 18:34:35 *	Now talking on #alacritty
+Mar 23 18:34:35 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+Mar 23 18:34:35 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Feb 20 01:05:57 2021)
+Mar 23 18:36:42 *	Disconnected ()
+**** ENDING LOGGING AT Tue Mar 23 18:36:42 2021
+
+**** BEGIN LOGGING AT Tue Mar 23 18:39:55 2021
+
+Mar 23 18:39:55 *	Now talking on #alacritty
+Mar 23 18:39:55 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+Mar 23 18:39:55 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Feb 20 01:05:57 2021)
+Mar 23 18:48:23 <nixpulvis>	Instead of the build.rs you mean?
+Mar 23 18:48:39 <nixpulvis>	I was kinda wondering if any of these was even really needed.
+Mar 23 18:48:43 <UndeadLeech>	Yeah the original code from me was just completely ridiculous.
+Mar 23 18:48:50 <UndeadLeech>	Adapting it in any way is not sensible.
+Mar 23 18:50:57 <nixpulvis>	So convering, for example, 31 to "31" then appending it should be fast enough you think?
+Mar 23 18:51:37 <UndeadLeech>	Here's the thing: I relied on such an extreme implementation to verify if it would be possible to do this in a blocking matter at all without completely killing performance.
+Mar 23 18:51:46 <UndeadLeech>	I came to the conclusion that it isn't, at least not on a single thread.
+Mar 23 18:52:01 <UndeadLeech>	Thus it doesn't really matter how fast it is, because it's not fast enough.
+Mar 23 18:52:23 <nixpulvis>	Good, that's helping me understand.
+Mar 23 18:52:32 <nixpulvis>	I was really confused by this at first...
+Mar 23 18:52:47 <nixpulvis>	Which is basically why I stopped thinking about the fancy macro :P
+Mar 23 18:52:58 <UndeadLeech>	The performance difference is relatively minor in practice. But it was the fastest implementation I have found.
+Mar 23 18:53:29 <nixpulvis>	I mean yea... binary -> ascii numbers is kinda a pain I guess.
+Mar 23 18:54:00 <UndeadLeech>	I've also had a much simpler and still pretty fast implementation just doing it digit by digit.
+Mar 23 18:54:26 <nixpulvis>	Yea, that makes sense.
+Mar 23 18:54:26 <UndeadLeech>	It's not that complicated really, the question is just what your constraints are.
+Mar 23 18:54:42 <nixpulvis>	I was honestly surprised I didn't see that in the STD.
+Mar 23 18:54:42 <UndeadLeech>	Having a limited set of numbers makes things easier to optimize for your specific case.
+Mar 23 18:54:52 <UndeadLeech>	It is in STD.
+Mar 23 18:54:57 <UndeadLeech>	ToString.
+Mar 23 18:55:11 <UndeadLeech>	The Display impl.
+Mar 23 18:58:12 <nixpulvis>	lol... oh yea
+Mar 23 18:59:42 *	Disconnected ()
+**** ENDING LOGGING AT Tue Mar 23 18:59:42 2021
+
+**** BEGIN LOGGING AT Tue Mar 23 19:03:43 2021
+
+Mar 23 19:03:43 *	Now talking on #alacritty
+Mar 23 19:03:43 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+Mar 23 19:03:43 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Feb 20 01:05:57 2021)
+Mar 23 20:23:42 *	Disconnected ()
+**** ENDING LOGGING AT Tue Mar 23 20:23:42 2021
+
+**** BEGIN LOGGING AT Tue Mar 23 20:27:43 2021
+
+Mar 23 20:27:43 *	Now talking on #alacritty
+Mar 23 20:27:43 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+Mar 23 20:27:43 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Feb 20 01:05:57 2021)
