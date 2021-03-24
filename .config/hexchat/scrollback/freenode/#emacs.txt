@@ -5769,3 +5769,515 @@ T 1616527663 22*	Topic for 22#emacs is: Beware the IDEs of March | RC #2 for
 T 1616527663 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Sun Mar 21 12:15:45 2021)
 T 1616527663 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
 T 1616528209 24*	28Lord_of_Life_ is now known as 18Lord_of_Life
+T 1616530856 18<29Kingsy18>	if I install ivy should I be getting counsel by default? this walkthough seems to suggest so. but I cant confirm. M-x doesnt show me any counsel commands.
+T 1616530867 18<27grym18>	Kingsy: depends on how you install ivy 
+T 1616530904 18<29Kingsy18>	grym: https://pastebin.com/4pYmE618
+T 1616530938 18<29Kingsy18>	oh slight typo, I had to use :init (ivy-mode 1) to get it to load automatically
+T 1616530942 18<27grym18>	Kingsy: what's underpinning use-package here
+T 1616530963 18<27grym18>	Kingsy: i use straight, and i happen to do things like this https://emacs.grym.io/#org463a8f3  
+T 1616531014 18<29Kingsy18>	grym: what do you mean by underpinning use package? 1 sec I will paste my init.el
+T 1616531049 18<27grym18>	Kingsy: use-package is not a package manager itself 
+T 1616531051 18<27grym18>	so what's yours
+T 1616531082 18<29Kingsy18>	grym: https://pastebin.com/BQv7Anpn
+T 1616531099 18<27grym18>	package.el, ok
+T 1616531154 18<29Kingsy18>	package.el? I don't see that anywhere here? I thought package-archives being set just gave use-package what it needed
+T 1616531187 18<27grym18>	Kingsy: line 18, i think 
+T 1616531211 18<29Kingsy18>	oh ok! hah sorry. learning the ropes here.
+T 1616531223 18<29Kingsy18>	so yeah. no counsel. but "apparently" there should be
+T 1616531277 18<27grym18>	i pull them in separately 
+T 1616531328 18<29Kingsy18>	yeah. hmm one thing I have noticed here. is its not clear how to install a package. https://github.com/abo-abo/swiper <- it doesnt specify at all
+T 1616531343 18<29JordiGH18>	Even OSI is on board.
+T 1616531348 18<29JordiGH18>	I can't believe I'm agreeing with OSI.
+T 1616531352 18<29JordiGH18>	Is that a problem?
+T 1616531375 18<28technomancy18>	I have a friend at OSI and when she joined I was like "what are you doing why are you joining OSI" and now I'm like "oh."
+T 1616531437 18<27grym18>	Kingsy: a feature of emacs is that there's like 12 ways to do anything
+T 1616531468 18<29Kingsy18>	got you :)
+T 1616531499 18<27grym18>	Kingsy: but if you look at my link, you'll see how i wire it up, anyway
+T 1616531513 18<29Kingsy18>	cool
+T 1616531647 18<20aidalgol18>	*sigh*... time to leave the internet for a few days...
+T 1616531658 18<27grym18>	aidalgol: more shooka shooka?
+T 1616531663 18<20aidalgol18>	grym: wut?
+T 1616531673 18<27grym18>	earthquake?
+T 1616531673 18<20aidalgol18>	JordiGH: Don't you have a stream to be moderating?
+T 1616531691 18<20aidalgol18>	grym: no, I mean I can't escape talk about the FSF shit.
+T 1616531706 18*	20aidalgol peers over his pince nez at JordiGH.
+T 1616531719 18<29JordiGH18>	I'm listening in!
+T 1616531747 18<20aidalgol18>	And you ignored my meme! :P
+T 1616531773 18<27grym18>	aidalgol: i can! if you let me >:)
+T 1616531796 18<27epony18>	,emem
+T 1616531797 18<22fsbot18>	try:  ColorThemeMaker remem remember RememberMode RemembranceAgent RemembranceAgents RememMode SchemeMode SwitchColorThemeMatlabLatex UsageMemo
+T 1616531809 18<20aidalgol18>	grym: what?
+T 1616531823 18<27grym18>	exactly!
+T 1616531932 18<26didi18>	What's this OSI drama you are talking about?
+T 1616531964 18<26didi18>	I'm reading https://opensource.org/election_update but it lacks context.
+T 1616532019 18<27grym18>	noooo you're doing it again 
+T 1616532050 18<20aidalgol18>	didi: I said FSF, not OSI.
+T 1616532051 18<26didi18>	Let's have a rerun.
+T 1616532088 18<26didi18>	aidalgol: Oh, I didn't read your message. I was referring to JordiGH's and technomancy's.
+T 1616532118 18<29JordiGH18>	didi: This drama: https://opensource.org/OSI_Response
+T 1616532135 18<26didi18>	Ah, so it's aidalgol related.
+T 1616532246 18<20gabc18>	JordiGH: that is sweet sweet drama
+T 1616532260 18*	26ente starts drumming on the laptop surface
+T 1616532307 18<19sabasedigh18>	I want to start using emacs for java development.
+T 1616532316 18<19sabasedigh18>	is it any good?
+T 1616532332 18<20gabc18>	You could /not/ do Java and it'd be better :P
+T 1616532332 18<26ente18>	java? nope
+T 1616532345 18<27epony18>	yes, but you should ask your self about java the same question
+T 1616532353 18<29tazjin18>	sabasedigh: with one of the language servers it's okay
+T 1616532362 18<29tazjin18>	but I can't recommend writing plain java without tooling, it's a waste of time :p 
+T 1616532363 18<26didi18>	sabasedigh: It's been a long time, but it was very primitive relative to Netbeans and the like.
+T 1616532367 18<27epony18>	,netbeans
+T 1616532369 18<22fsbot18>	gephi: [0] "An open-source network analysis and visualization software package written in Java on the NetBeans platform"
+T 1616532369 18<22fsbot18>	[1] https://en.wikipedia.org/wiki/Gephi
+T 1616532389 18<26ente18>	back when uni forced me to use java I failed with vim and then went with eclipse as they told me
+T 1616532390 18<27epony18>	it has built-in garbage collect
+T 1616532390 18<19sabasedigh18>	what about  starting to learn lisp (on linux).
+T 1616532392 18<19sabasedigh18>	???
+T 1616532393 18<22fsbot18>	Ask again later
+T 1616532407 18<27epony18>	lisp is cool, emacs has some of it
+T 1616532408 18<26didi18>	sabasedigh: Just use Emacs. It's lisp already.
+T 1616532416 18<26ente18>	for learning lisp on linux emacs is a good tool
+T 1616532437 18<26ente18>	there's plenty of repl integration for non-elisp lisp dialects
+T 1616532451 18<19sabasedigh18>	ente: how should I set it up?
+T 1616532460 18<29shoshin18>	iirc one of the lsp-mode authors is a java dev. but i have no idea about actually doing it
+T 1616532469 18<26ente18>	scheme (CHICKEN, racket) and common lisp are the two popular lisp dialects
+T 1616532492 18<19sabasedigh18>	I am a bit fuzzy on Emacs extensions and how to set it up? also the keyword shortcuts and emacs config
+T 1616532497 18<26ente18>	sabasedigh: that depends on the implementation you end up using
+T 1616532500 18<26didi18>	Elisp is a perfectly good enough lisp to learn and use.
+T 1616532509 18<27epony18>	,tutorial
+T 1616532510 18<22fsbot18>	Emacs' built-in tutorial is required reading; run "emacs -f help-with-tutorial" or type Ctrl+u Ctrl+h t
+T 1616532511 18<26ente18>	which in turn depends on what you want to do
+T 1616532543 18<19sabasedigh18>	didi: could elisp do rest programming?
+T 1616532544 18<26ente18>	if you want to just get started, any lisp will do. if you want to follow SICP, scheme is probably a good choice
+T 1616532549 18<26didi18>	sabasedigh: Yeap.
+T 1616532566 18<29shoshin18>	https://www.gnu.org/software/emacs/manual/html_node/eintr/index.html is a nice gental intro to Elisp
+T 1616532573 18<29shoshin18>	*gentle
+T 1616532591 18<28technomancy18>	100% comes down to "what do you want to accomplish with it"
+T 1616532594 18<29shoshin18>	you can get it as an info manual and read it in emacs too
+T 1616532606 18<28technomancy18>	(when choosing a lisp)
+T 1616532629 18<28technomancy18>	sabasedigh: rest server or client?
+T 1616532673 18<26didi18>	Regarding elisp, I'm with nicferrier: it can do it all.
+T 1616532674 18<19sabasedigh18>	both technomancy. I haven't decided yet. One side would be java though.
+T 1616532697 18<26ente18>	oh right, forgot to mention guile. and on the implementation side for common lisp, there's sbcl and clisp iirc. racket is the most modern/kind of deviating from the olden ways lisp. elisp has a reputation of being old and weird. for a less biased discussion maybe #lisp is a good place.
+T 1616532745 18<25cvandusen18>	really? 
+T 1616532745 18<22fsbot18>	No, not really.
+T 1616532745 18<28technomancy18>	didi: https://p.hagelb.org/preoccupied.gif
+T 1616532782 18<29shoshin18>	do picolisp. 
+T 1616532820 18<26didi18>	technomancy: I think your server is dropping my requests, but you don't count: you write your own lisp on top of Lua.
+T 1616532820 18<26ente18>	there's also clojure or hy :P
+T 1616532833 18<26ente18>	iirc alsa has its own lisp, and so does autocad
+T 1616532922 18<26atuin18>	I really want to try clojure, have you tried it? how does it feel compared with a more traditional scheme?
+T 1616532947 18<28technomancy18>	didi: lol technically I just maintain it
+T 1616532964 18<26ente18>	I haven't
+T 1616532978 18<26didi18>	technomancy: Oooh, OK...
+T 1616532983 18<29shoshin18>	i did a tiny bit of clojure. the tooling in emacs is really nice
+T 1616532983 18<26didi18>	:-P
+T 1616533025 18<26atuin18>	We have a new project and i would like to introduce lisp :) so I think clojure is a good candidate, seems that people is more open to it for some reason
+T 1616533040 18<28technomancy18>	atuin: clojure is definitely non-traditional so if you're big on tradition you won't like it =)
+T 1616533052 18<26atuin18>	technomancy: what lisp is that on top of lua (I really love lua)
+T 1616533060 18<28technomancy18>	atuin: https://fennel-lang.org
+T 1616533065 18<28technomancy18>	atuin: come join us in #fennel!
+T 1616533070 18<26atuin18>	ahhh fennel, it's on my list for sure
+T 1616533073 18<28technomancy18>	if you already know lua it's super quick to learn
+T 1616533115 18<26atuin18>	yeah, lua is one the languages i had more fun with, i just missed that the "lambdas" were so verbose :D
+T 1616533123 18<26atuin18>	technomancy: joining, sure
+T 1616533154 18<20bpalmer18>	Are lua programmers luatics?
+T 1616533162 18<26atuin18>	lunatics :D
+T 1616533204 18<26atuin18>	technomancy: well i like guile but coworkers are probably more open to a less pure scheme, so clojure is a good candidate
+T 1616533481 24*	28jfb4_ is now known as 18jfb4
+T 1616535461 18<19bremner18>	in what sense is clojure a scheme? being a lisp-1?
+T 1616535555 18<27hodapp18>	it's certainly a scheme to get people to use lisp
+T 1616535572 18<25cvandusen18>	,rimshot 
+T 1616535573 18<22fsbot18>	cvandusen: [->] sting: Gordon Matthew Thomas Sumner CBE (born 2 October 1951), known as Sting, is an English musician and actor. He was the principal songwriter, lead singer, and bassist for the new wave rock band the Police from 1977 to 1984, and launched a solo career in 1985.
+T 1616535631 18<20edgar-rft18>	in the same sense that Ponzi Scheme is a scheme
+T 1616535735 18<20bpalmer18>	So I can make lots of money?
+T 1616535998 18<19bremner18>	one day I will understand the difference between a startup and a ponzi scheme.
+T 1616536006 18<19bremner18>	One of them is legal, iirc.
+T 1616536043 18<26didi18>	bremner: Call it "multilevel marketing" and you are all good.
+T 1616536056 18<19bremner18>	yay!
+T 1616536102 18<26didi18>	I would throw in some cryptocoin just for the lulz.
+T 1616536201 18<20bpalmer18>	how much cryptocoin are you throwing me, here?
+T 1616536236 18<26didi18>	bpalmer: How much do you want? I have my own ledger, you know.
+T 1616536252 18<19bremner18>	emacscoins are extremely rare because they can only use one thread to mint, world wide
+T 1616536297 18<20bpalmer18>	If only emacs supported cuda on nvidia!
+T 1616536334 18<19bremner18>	yes, well, non-free drivers...
+T 1616536502 18<20bpalmer18>	uber has to make money somehow, I suppose.
+T 1616536525 18<27grym18>	does it count if you run emacs -nw in alacritty
+T 1616537314 18<20aidalgol18>	bpalmer: Do you have brains or brawn and know someone with brawn or brains?  Then yes!
+T 1616537439 18<20bpalmer18>	am I going beyond Thunderdome?
+T 1616537443 18<29cliluw18>	Is it possible to run Spacemacs on Windows?
+T 1616537465 18<20bpalmer18>	cliluw: spacemacs is just emacs + a fancy configuration layer , so I don't know why not.
+T 1616537504 18<29cliluw18>	Got it. Thanks!
+T 1616537577 18<20bpalmer18>	(well, emacs + many elisp packages + a fancy configuration layer )
+T 1616537600 18<26didi18>	Spacemacs sounds like an emacs featuring a basketball player and some cartoons.
+T 1616537673 18<20fiddlerwoaroof18>	is there a way to hide org-mode markup on every line except the one the cursor's on?
+T 1616537801 18<27epony18>	on a large file you will see formatting breaking up except on a region you're viewing so.. is it not already operating like that? ;-)
+T 1616538111 18<20fiddlerwoaroof18>	Doesn't help me edit org-mode links effectively :)
+T 1616538789 18<27epony18>	I assigned a key to toggle that on off
+T 1616538813 18<27epony18>	'org-toggle-link-display
+T 1616539922 18<29afidegnum18>	how do i use `use-package` to load a local package? this doesn't seems to work (use-package org-bullets :load-path "~/.emacs.d/elisp/org-bullets/org-bullets.el")
+T 1616540802 20*	Disconnected (20)
+T 1616571490 19*	Now talking on 22#emacs
+T 1616571490 22*	Topic for 22#emacs is: Beware the IDEs of March | RC #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.2-rc2.tar.xz | Emacs questions take priority over chit-chat | No Public Logging, racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1616571490 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Sun Mar 21 12:15:45 2021)
+T 1616571490 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1616571544 24*	28hacxman is now known as 18hexo
+T 1616571657 18<20Iacob18>	lloowen, click the "Save Theme Settings" button after choose the theme
+T 1616571718 18<24lloowen18>	lacob: I've done that, doesn't work, I should have mentioned that in my post
+T 1616571779 18<28faheem_18>	bremner: Ok, will try "emacs -q -nw foo.txt". Thanks.
+T 1616571811 18<28faheem_18>	And/or -Q.
+T 1616572099 18<20Iacob18>	lloowen, paste the following lines to your ~/.emacs and replace "tango" with the theme name
+T 1616572105 18<20Iacob18>	(custom-set-variables '(custom-enabled-themes '(tango)))
+T 1616572106 18<20Iacob18>	(custom-set-faces
+T 1616574528 18<27linarcx18>	Hi. i can't set *Bookmark List* as startup window in emacs. 
+T 1616574533 18<27linarcx18>	https://www.reddit.com/r/emacs/comments/mc0r4p/cant_set_bookmark_list_as_startup_window/
+T 1616575041 18<19sabasedigh18>	Melpa says that I have to put it in init.el or .emacs
+T 1616575054 18<19sabasedigh18>	Which is better?
+T 1616575105 18<20pjb18>	sabasedigh: I prefer .emacs
+T 1616575118 18<19sabasedigh18>	pjb: Why?
+T 1616575131 18<20pjb18>	sabasedigh: that said, my .emacs is a symlink to rc/emacs.el which is in git.
+T 1616575164 18<20pjb18>	those who use init.el may like it to be a file not starting with a dot. But then, it's stored in a dot-directory ~/.emacs.d  so no big improvement here…
+T 1616575643 18<19sabasedigh18>	I can't connect to melpa
+T 1616575648 18<19sabasedigh18>	is it normal?
+T 1616575664 18<19sabasedigh18>	do others have the same problem?
+T 1616575720 18<19sabasedigh18>	https://dpaste.org/JMv4
+T 1616575726 18<19sabasedigh18>	Failed to verify signature archive-contents.sig:
+T 1616575810 18<28faheem_18>	So, emacs -nw -Q foo.txt brings up foo.txt. But -q doesn't. What's my next step?
+T 1616575873 18<28faheem_18>	To be clear, emacs -nw -q foo.txt doesn't bring up foo.txt.
+T 1616576511 18<19Whyvn18>	I have an org-mode question. After setting up my org document, how can I populate the table of contents at the top? I tried to add #+OPTIONS: toc:2 to the top, but it does not seem to update.
+T 1616576989 18<29Kingsy18>	if I have a ~/.emacs.d/init.el file, why doesnt just running "emacs" pick it up?
+T 1616577091 18<24stevoooo18>	have you got a ~/.emacs file as well?
+T 1616577106 18<29Kingsy18>	ah ha! yes
+T 1616577108 18<29Kingsy18>	just figured that out
+T 1616577112 18<29Kingsy18>	removed and it works
+T 1616577720 18<29Kingsy18>	another question. anyone using projectile? and if so. does it recursively scan the specified project directory for projects? it doesnt seem it does. but it would be helpful if it can be enabled.
+T 1616577876 18<22thblt18>	Kingsy: I don't think so, I just add the inner roots manually to projectile-project-search-path
+T 1616577925 18<29Kingsy18>	thblt: will do
+T 1616578267 18<29Kingsy18>	projectile-project-search-path isnt a command. or at least it doesnt seem so
+T 1616578290 18<20pjb18>	Whyvn: AFAIK, the TOC is populated by the export commands (in the exported documents). I don't know if it's possible to update it in the org file.
+T 1616578404 18<22thblt18>	Whyvn: ToCs that appear in org file have been generated by an external package, you can look up something like "toc org" in Melpa to find one.
+T 1616578469 18<22thblt18>	Kingsy: it's a variable, yes.
+T 1616578513 18<22thblt18>	I (setq projectile-project-search-path (mapcar 'expand-file-name '("~/.emacs.d/lib/"))) 
+T 1616579130 18<29Kingsy18>	thblt: ah!
+T 1616579246 18<22thblt18>	There's a project in ~/.emacs.d so Projectile stops recurring here, so i explicitely tell it that .emacs.d.lib/ is a search root. 
+T 1616579253 18<22thblt18>	.emacs.d/lib sorry
+T 1616579909 18<19sabasedigh18>	people. I am getting this error  https://dpaste.org/JMv4
+T 1616579962 18<22thblt18>	sabasedigh: dirty solution: rm -rf ~/.emacs.d/elpa, restart. 
+T 1616580017 18<22thblt18>	Clean solution is here https://elpa.gnu.org/packages/gnu-elpa-keyring-update.html but you probably need to install it manually since you're already hitting the issue it's meant to prevent.
+T 1616580062 18<22thblt18>	(also called “Bits of GPG being reinvented in Emacs”)
+T 1616580397 18<19sabasedigh18>	thblt: manually? You mean:  "gpg --homedir ~/.emacs.d/elpa/gnupg --receive-keys 066DAFCB81E42C40"
+T 1616580653 18<19sabasedigh18>	https://elpa.gnu.org/packages/gnu-elpa-keyring-update-2019.3.tar  
+T 1616580844 18<19sabasedigh18>	What if I download this. Where should I put the contents?
+T 1616580955 18<29Kingsy18>	thblt: I managed to get it working with magit-repository-directories, however another thing has popped up because of this, do you know how magit can recognise submodules as a separate repo directory?
+T 1616580965 18<29Kingsy18>	or that question to anyone for that matter ^
+T 1616581512 18<28faheem_18>	Trying to debug emacs using that bug-hunter package
+T 1616581522 18<28faheem_18>	Seeing a puzzling error as part of that procedure:
+T 1616581527 18<28faheem_18>	let: Cannot open load file: No such file or directory, slime
+T 1616581543 18<28faheem_18>	I don't see this one normally, and I'm wondering if anyone could hazard a guess what it means.
+T 1616581732 18<29Kingsy18>	lol I have so many questions :D
+T 1616581782 18<28faheem_18>	Another question. -q just exclues the .emacs file, right? And -Q excludes .emacs and all the site wide initialization, I suppose.
+T 1616581799 18<28faheem_18>	Is there a way to exclude the melpa installed packages?
+T 1616581844 18<29Kingsy18>	php-mode works nicely for highlighting. perhaps there isnt a single package does it all :D
+T 1616582371 24*	28ferdy- is now known as 18ferdy
+T 1616582633 18<20pjb18>	faheem_: don't call (package-initialize).
+T 1616582773 18<28faheem_18>	pjb: Don't call it where?
+T 1616582913 18<20pjb18>	faheem_: in your .emacs.
+T 1616582931 18<28faheem_18>	pjb: Oh
+T 1616582987 18<28faheem_18>	pjb: Some more context would be helpful.
+T 1616583026 18<28faheem_18>	Ok, as part of trying to debug, I renamed the .emacs.d directory to something else. Then tried running `emacs -q --init-debug foo.txt`
+T 1616583037 18<28faheem_18>	I unexpectedly got an error.
+T 1616583052 18<28faheem_18>	debian-ispell-set-startup-menu: Symbol’s value as variable is void: ispell-menu-map-needed
+T 1616583068 18<20pjb18>	faheem_: anything that happens in emacs comes either from the C sources, or from the lisp.  Anything that comes from lisp, comes from the site wide initialization files, or from your ~/.emacs or init.el etc.
+T 1616583069 18<28faheem_18>	I would have thought renaming .emacs.d and not running the init file would be harmless.
+T 1616583108 18<28faheem_18>	pjb: Ok. One question. Does -Q exclude both the site wide initializations as well as my init file?
+T 1616583112 18<20pjb18>	faheem_: This is why we make you use emacs -q or -Q to debug problems: this let us determine if that comes from the C code, or from the site wide initialization files, or from your ~/.emacs/init.el
+T 1616583122 18<20pjb18>	Yes. -Q is just the C code.
+T 1616583130 18<20pjb18>	No elisp is loaded with -Q.
+T 1616583143 18<28faheem_18>	pjb: Ah. Well, I still see the problem with -q but not with -Q.
+T 1616583157 18<20pjb18>	So it's in the site-wide initialization.
+T 1616583158 18<28faheem_18>	So that means the problem is not in my .emacs file?
+T 1616583169 18<28faheem_18>	pjb: And not in my .emacs?
+T 1616583177 18<28faheem_18>	Could it be in .emacs.d?
+T 1616583187 18<20pjb18>	no, since with -q your own .emacs or init.el is not loaded.
+T 1616583189 18<28faheem_18>	That's why I tried excluding that.
+T 1616583208 18<28faheem_18>	pjb: So -q also excludes emacs.d?
+T 1616583216 18<20pjb18>	Yes.
+T 1616583244 18<28faheem_18>	pjb: Ok, that's helpful. I'll put .emacs.d back then. But how do I debug a site-wide initialization?
+T 1616583392 18<20pjb18>	They are in  /usr/share/emacs/  /usr/local/share/emacs/   /opt/local/share/emacs/  etc, depending on where emacs has been installed.
+T 1616583434 18<28faheem_18>	pjb: Should I try purging the installation and reinstalling?
+T 1616583447 18<28faheem_18>	I just did an upgrade from Debian stable/buster to buster backporst.
+T 1616583456 18<20pjb18>	faheem_: perhaps emacs -q --debug-init  would enter the debugger with a backtrace?
+T 1616583471 18<20pjb18>	 emacs -q --debug-init   -nw foo.txt
+T 1616583477 18<28faheem_18>	backports. I guess some .elc files could have been left behind.
+T 1616583500 18<28faheem_18>	pjb: that doesn't work. I'll try again. But I should restore .emacs.d first, right?
+T 1616583522 18<19bremner18>	faheem_: sounds like you should write the backports list to report a problem with the backport.
+T 1616583539 18<28faheem_18>	bremner: Can one do that?
+T 1616583569 18<19bremner18>	faheem_: yes, if you read the documentation on backports.debian.org, it's the support mechanism for backports
+T 1616583579 18<28faheem_18>	bremner: Ok.
+T 1616583584 18<19bremner18>	but of course the more information you can provide the better
+T 1616583599 18<28faheem_18>	In any case, shall I restore .emacs.d?
+T 1616583611 18<28faheem_18>	It sounds like moving it out of the way was useless.
+T 1616583619 18<19bremner18>	probably
+T 1616583890 18<20pjb18>	faheem_: you can restore .emacs.d, since it's ignored with -q.
+T 1616583893 18<20pjb18>	and -Q.
+T 1616583955 18<28faheem_18>	Ok. After restoring .emacs.d, with `emacs -q --debug-init foo.txt` I'm still seeing the following error.
+T 1616583959 18<28faheem_18>	debian-ispell-set-startup-menu: Symbol’s value as variable is void: ispell-menu-map-needed
+T 1616583976 24*	28hacxman is now known as 18hexo
+T 1616583981 18<28faheem_18>	Any idea what to do with that?
+T 1616584013 18<28faheem_18>	Without -q I don't see that error.
+T 1616584028 18<28faheem_18>	Emacs shouldn't error out with -q, right?
+T 1616584148 18<19bremner18>	correct
+T 1616584165 18<19bremner18>	one sec, let me see if that problem was already reported
+T 1616584198 18<19bremner18>	I don't see it.
+T 1616584217 18<28faheem_18>	bremner: Ok. Suggestions on how to debug this?
+T 1616584261 18<28faheem_18>	And I don't suppose that moving .emacs.d around could have somehow triggered this, since (if I understand correctly)
+T 1616584269 18<28faheem_18>	-q ignores it anyway.
+T 1616584321 18<19bremner18>	faheem_: it looks like the problem is in a file installed by dictionaries-common
+T 1616584335 18<28faheem_18>	bremner: How did you figure that?
+T 1616584364 18<19bremner18>	faheem_: C-h f debian-ispell-set-startup-menu
+T 1616584369 18<29theothornhill18>	Hi! Looking into helm these days - been using the minibuffer related frameworks until now. Any reasons to pick helm over selectrum/ivy/icomplete etc? 
+T 1616584377 18<28faheem_18>	bremner: Oh, I see.
+T 1616584383 18<22thblt18>	Kingsy: Idk, Projectile may default to Magit values.
+T 1616584385 18<28faheem_18>	So, what should I do?
+T 1616584401 18<28faheem_18>	Try to upgrade dictionaries-common?
+T 1616584415 18<19bremner18>	faheem_: looks like you need the version of dictionaries-common from backports
+T 1616584433 18<28faheem_18>	bremner: I see. Sounds like someone should report this, too.
+T 1616584439 18<28faheem_18>	Let me try upgrading. One sec.
+T 1616584529 18<28faheem_18>	bremner: Excellent. The error went away, and I'm now seeing foo.txt.
+T 1616584536 18<28faheem_18>	bremner: So I should report this to the backports list?
+T 1616584547 18<28faheem_18>	using reportbug? Or not?
+T 1616584594 18<19bremner18>	faheem_: not using reportbug, just send a mail. The problem is sortof known, the backporter was asking about whether to force the dependency on dictionaries-common, so I guess the answer is yes
+T 1616584649 18<28faheem_18>	bremner: Ok. To the backports list. But should I flag it in some way? Is there a particular format?
+T 1616584650 18<19bremner18>	mid:8735y2k47d.fsf@complete.org , from John Goerzen, Feb 11
+T 1616584658 18<19bremner18>	no particular format.
+T 1616584726 18<28faheem_18>	bremner: So https://lists.debian.org/debian-backports/? I don't think I'm subscribed. Is that ok?
+T 1616584765 18<19bremner18>	afaik, you don't need to be subscribed
+T 1616584790 18<28faheem_18>	bremner: ok. Writing now.
+T 1616584843 18<28faheem_18>	My concern is just wrt how the intended recipient will see it.
+T 1616584876 18<19bremner18>	backporters are supposed to monitor that list
+T 1616584898 18<19bremner18>	this one apparently does, since he already wrote there 
+T 1616584962 18<28faheem_18>	bremner: Manually monitor?
+T 1616584985 18<19bremner18>	it's a low volume mailing list.
+T 1616584995 18<28faheem_18>	bremner: ok
+T 1616585237 18<28faheem_18>	bremner: Should I CC someone? Like the backporter?
+T 1616585268 18<28faheem_18>	Oh, it's John Goerzen?
+T 1616585294 18<19bremner18>	you can CC if you want, sure
+T 1616585307 18<28faheem_18>	bremner: ok
+T 1616585335 18<19bremner18>	some people whine about getting multiple copies of messages, but meh. They should just use notmuch :P
+T 1616585539 18<28faheem_18>	bremner: Email sent. Thanks for your assistance.
+T 1616585762 18<29Kingsy18>	so after enabling lsp-mode and using pyls, when I enter a python file, it recognises pyls, connects but then I just seen a white loading bar moving in my doom-modeline, how can I find out what its doing? its been going for a while so I suspect ther is a problem :D
+T 1616585867 18<29Kingsy18>	oh I restarted emacs and its all good. weir.
+T 1616586049 18<28faheem_18>	bremner: You mentioned you were running the emacs buster backport too.
+T 1616586061 18<28faheem_18>	Did you upgrade dictionaries-common for unrelated reasons?
+T 1616586364 18<19bremner18>	I'm running (testing) bullseye with the emacs 27.1 from debian testing
+T 1616586652 18<26polezaivsani18>	fido's dead, long live fido-mode... seriously though - anybody find it odd that C-j with fido-mode on, does complete non-exact matches, while ido-mode doesn't
+T 1616586783 18<26polezaivsani18>	make me have to use 3 different bindings in minibuf - C-j, C-m and C-M-j, which seem like one too many;  curious how other (f)ido folks fare?
+T 1616586889 18<29Kingsy18>	so I have flycheck installed, it works on elisp files, according to C-c ! v its setup correctly for python, but if I break a python file intentionally I don't get syntax errors. anything special I need to do? or can someone think of something I can check?
+T 1616586953 18<29Kingsy18>	oh hang on it does work! but its just not very good. if I change a function name to the wrong name then it doesnt flag an error. if I break the file it does... thats no good.
+T 1616586962 24*	28bpalmer` is now known as 18bpalmer
+T 1616587289 18<22thblt18>	Kingsy: Python is hard.
+T 1616587312 18<22thblt18>	Elisp is hard too, but Flycheck runs from inside the runtime environment so it's easier to be sorta good.
+T 1616587364 18<29Kingsy18>	thblt: well, its kinda useless if it doesnt actively spot syntax errors related to function names and stuff.. thats probably 99% of the problems that occur day to day.
+T 1616587375 18<20bpalmer18>	changing a name isn't a syntax error
+T 1616587385 18<29Kingsy18>	bpalmer: it is if the line is like this
+T 1616587415 18<29Kingsy18>	self.hello("seomthing") where you have def hello in the same class. then you change it to self.siodjfsdoifjsdof("something")
+T 1616587416 18<22thblt18>	Python's runtime environent is very dynamic, there's a hundred way a name could be defined as a function without a def n(): block
+T 1616587425 18<20bpalmer18>	Kingsy: that's not a syntax error
+T 1616587446 18<29Kingsy18>	bpalmer: ok well. shouldnt it highlight I am trying to reference a function that doesnt exist?
+T 1616587455 18<20bpalmer18>	"self siodf()" is a syntax error, because the syntax of the language does not allow two words on the same line like that.
+T 1616587460 18<29Kingsy18>	sorry syntax error was the wrong terminology
+T 1616587470 18<29Kingsy18>	agreed
+T 1616587475 18<29Kingsy18>	but it should still flag this as an "issue"
+T 1616587493 18<22thblt18>	Kingsy: there may be multiple python backends for flycheck. I've read good things about the LSP backend.
+T 1616587522 18<22thblt18>	But again, whether or not a function exists in Python is not a problem that can be statically analysed. 
+T 1616587526 18<20bpalmer18>	one of the reasons that this is 'hard' in python is that the self object might have a __getattr__ or __getattribute__ method somewhere in its mro() such that self.siodf() works
+T 1616587557 18<20bpalmer18>	it also could have an attribute attached to it at runtime such that it would work.
+T 1616587558 18<29Kingsy18>	bpalmer: well. vscode or pycharm would do it right? the attempt here is to reproduce a similar experience
+T 1616587568 18<22thblt18>	[This may be an appropriate moment for a rant about dynamic typing]
+T 1616587580 18<20bpalmer18>	I don't know if vscode or pycharm would; unit tests would catch it.
+T 1616587582 18<22thblt18>	[Too bad, the moment has passed already. How time flies…]
+T 1616587603 18<29Kingsy18>	bpalmer: they do. just tested it
+T 1616587651 18<20bpalmer18>	you can set up flycheck to use mypy as well, which handles a lot of this
+T 1616587667 18<28faheem_18>	bremner: Oh, I see. So not the emacs buster backport.
+T 1616587687 18<29Kingsy18>	yeah thats disabled right now
+T 1616587717 18<20bpalmer18>	(I vaguely recall that pycharm has its own type checker)
+T 1616587745 18<24amosbird18>	Hmm, why does the IME position not align to the current cursor's pos?  http://oracle.wentropy.com/6ce3d935ca8feffe
+T 1616587749 18<20bpalmer18>	type checkers can warn about code that it doesn't believe is valid (like calling an undefined function), and they're already integrated in the ecosystem.
+T 1616587766 18<29Kingsy18>	bpalmer: doy uo remember how to enable this? not seeing much in the docs.
+T 1616587809 18<20bpalmer18>	https://www.reddit.com/r/emacs/comments/7dbunc/emacs_python_36_type_checking_support_using_mypy/ shows one way.
+T 1616587847 18<20bpalmer18>	it's pretty old, so perhaps there's something predefined. I haven't really messed much with this in python
+T 1616587936 18<20bpalmer18>	hmm, perl7 might be here soon.
+T 1616588137 18<27hodapp18>	rudybot: late? it's 10 years ahead of its time!
+T 1616588140 18<29Kingsy18>	haha still doesnt do it
+T 1616588165 18<24rudybot18>	hodapp: it's too late. I've already gone ahead and said "no"
+T 1616588419 18<29Kingsy18>	yeah this is messed up. there is a from mailchimp3 import MailChimp which should be errored too. I havent done a pip install for that package.
+T 1616588422 18<29Kingsy18>	:( no good
+T 1616588462 18<25Nahra18>	Hello. I am using 'GNU Emacs 27.1 (build 1, x86_64--netbsd) of 2021-01-02', but am unable to run erc-tls: http://sprunge.us/s7ZvKx.
+T 1616588470 18<25Nahra18>	Can someone help? Thanks.
+T 1616588983 18<25Nahra18>	OK. It not emacs but emacs-nox11 which is installed.
+T 1616588993 18<25Nahra18>	Looks like to be the problem :(
+T 1616589095 18<29wgreenhouse18>	Nahra: emacs without X van still make TLS connections.
+T 1616589108 18<29wgreenhouse18>	*can
+T 1616589137 18<29wgreenhouse18>	Nahra: please run M-: (gnutls-available-p) RET and paste the result
+T 1616589316 18<28krux0218>	is there a way I can expand a macro call in elisp?
+T 1616589334 18<28krux0218>	I would like to see what a macro actually expands into.
+T 1616589406 18<19rpav18>	krux02: macroexpand/macroexpand-1
+T 1616589459 18<19rpav18>	e.g. (macroexpand-1 '(defun foo ()))
+T 1616589487 18<19rpav18>	there may be a shortcut for that; there was in slime i think but i don't even remember what it was there
+T 1616589510 18<19rpav18>	shortcut, keybind, words and synonyms and contexts 
+T 1616589734 18<29Kingsy18>	so.. any emacs python users here?
+T 1616589757 18<28krux0218>	Kingsy, a tiny bit
+T 1616589853 18<29Kingsy18>	krux02: having issues with linting. I have noticed it in two ways. 1. if I have a def hello() and in the same class a self.hello() and I change the call to self.isdjfsdoifjsdofijsdofj() it does not flag as a potential issue. and there is a from mailchimp3 import MailChimp line at the top which should be complaining because I havent pip installed yet. (both of these scenarios are flagged for example in 
+T 1616589859 18<29Kingsy18>	pycharm)
+T 1616589860 18<29Kingsy18>	I was just wondering the best way forward to address
+T 1616590024 18<28krux0218>	Kingsy, I integrated mypy as my python checker.
+T 1616590035 18<28krux0218>	It flags a lot more that normal python.
+T 1616590038 18<29Kingsy18>	krux02: I have done the same, but it hasnt mad a difference.
+T 1616590053 18<29Kingsy18>	I'll show you what I have in my init.el
+T 1616590115 18<29Kingsy18>	krux02: https://pastebin.ubuntu.com/p/FVjZBYjrbp/
+T 1616590135 18<25Nahra18>	wgreenhouse: from emacs -> http://sprunge.us/cZ4Ut3
+T 1616590144 18<25Nahra18>	wgreenhouse: from emacs-nox11 -> nil
+T 1616590154 18<28krux0218>	that pastebin doesn't load
+T 1616590167 18<29Kingsy18>	haha damn ermm 1 sec. I can never find a good pastebin
+T 1616590177 18<29wgreenhouse18>	Nahra: so your emacs-nox was built without libgnutls support compiled in for some reason
+T 1616590182 24*	28ferdy- is now known as 18ferdy
+T 1616590184 18<28krux0218>	ah now it does, bit it is very slow
+T 1616590201 18<29wgreenhouse18>	Nahra: that's not inherent to emacs-nox however--just your particular build
+T 1616590206 18<29Kingsy18>	krux02: https://0bin.net/paste/jGBvIFKS#+ZLp6A3W-nXXglubUyhp8sqw2J1MHLZcUuK3LcGjGk5
+T 1616590210 18<29Kingsy18>	ah ok!
+T 1616590211 18<29Kingsy18>	stupid thing
+T 1616590214 18<25Nahra18>	wgreenhouse: OK. Thanks for information.
+T 1616590259 18<29wgreenhouse18>	Nahra: without libgnutls support, emacs will fall back on the "gnutls-cli" helper binary which is also apparently not installed for you
+T 1616590418 18<28krux0218>	Kingsy, I did not use with pycharm yet, I just know that that company does all sorts of magic to improve feedback. So I would not be surprised if pycharm as a custom python checker that detects errors that only they can detect.
+T 1616590452 18<28krux0218>	if you can't detect an issue with command line tools, emacs won't be able to put them into the buffers as well.
+T 1616590479 18<29Kingsy18>	krux02: absolutely agree. how would I try to check it with the cli? does that config look to match yours?
+T 1616590501 18<28krux0218>	no, for some reason mypy was activated by default here.
+T 1616590521 18<28krux0218>	my config doesn't do anything at all.
+T 1616590527 18<29Kingsy18>	there we go.
+T 1616590530 18<28krux0218>	I think I installed a package at some point.
+T 1616590537 18<29Kingsy18>	mypy sync.py (the file I am editing)
+T 1616590548 18<29Kingsy18>	sync.py:4: error: Cannot find implementation or library stub for module named 'mailchimp3'
+T 1616590557 18<29Kingsy18>	so why doesnt it appear in the buffer is the question
+T 1616590564 18<29Kingsy18>	looks like mypy works
+T 1616591228 18<29Kingsy18>	yeah no idea why thats not working./
+T 1616591257 18<29Kingsy18>	I have even removed the mypy lines from the config restarted emacs. it still knows about mypy and still nothing in the buffer
+T 1616591433 18<29Kingsy18>	lol wtf. if I clicked "select" in C-c ! v on mypy it worked! can I set that in the config?
+T 1616591620 18<29Kingsy18>	still doesnt detect invalid function calls....
+T 1616591622 18<29Kingsy18>	*shruggs*
+T 1616592126 18<28krux0218>	Kingsy, maybe you should ask that in #python
+T 1616592141 18<28krux0218>	sorry I was away for a moment
+T 1616592372 18<29Kingsy18>	its all good! thanks! :)
+T 1616592399 18<29Kingsy18>	krux02: do you know how to set the default linter in init.el? strange that I had to manually select it with the gui
+T 1616592486 18<28krux0218>	Kingsy, no I do not know it. I think I just installed a preconfigured linter and went with it.
+T 1616592499 18<29Kingsy18>	np :)
+T 1616592536 18<29Kingsy18>	I guess pip uninstall pylint would probably do it
+T 1616592559 18<28krux0218>	Kingsy, when I try to figure that out, I explore `configure' with flycheck
+T 1616592818 18<29Kingsy18>	explore configure? is that a emacs command?
+T 1616593055 24*	28ferdy- is now known as 18ferdy
+T 1616593195 24*	28|beo| is now known as 18|beowulf|
+T 1616593277 18<27thomasb0618>	maybe I found a mistake here: https://www.gnu.org/software/emacs/manual/html_node/elisp/Reading-from-Files.html
+T 1616593300 18<27thomasb0618>	the command insert-file-content doesn't seem to exist
+T 1616593801 18<22HaraldJoerg18>	It's insert-file-contents - trailing s
+T 1616593858 18<28faheem_18>	How long as Emacs has tabs? I don't think I've quite registered their existence before.
+T 1616593884 18<28faheem_18>	How long has Emacs had tabs? (Sorry)
+T 1616593898 18<19jmd18>	faheem_: As long as there's been a ^I key I think.
+T 1616593913 18<20pjb18>	faheem_: for a long time. But they're not that useful, filling the width with tabs… (length (buffer-list)) --> 101 ; and I'm not even actively coding!
+T 1616593915 18<28faheem_18>	jmd. So a long time?
+T 1616593968 18<28faheem_18>	pjb: Didn't quite understand your second sentence. Why aren't they useful, again?
+T 1616593969 18<27thomasb0618>	HaraldJoerg: in my emacs, there is only insert-file and insert-file-literally
+T 1616594008 18<19jmd18>	It should say insert-file-contents
+T 1616594034 18<20pjb18>	faheem_: On the width of a window you can place only half a dozen tabs: https://lists.gnu.org/archive/html/emacs-devel/2010-04/pngNPjIJBIA63.png  But I have between 100 and 500 buffers in an emacs session!!!
+T 1616594049 18<20pjb18>	faheem_: so tabs are useless, we just use C-x C-b
+T 1616594066 18<20pjb18>	faheem_: or more often, C-x b and TAB completion.
+T 1616594086 18<28faheem_18>	pjb: Ooh. That's a lot of tabs. Or buffers.
+T 1616594092 18<20pjb18>	Yes.
+T 1616594144 18<28faheem_18>	Personally I tend to have a lot of browser windows open. But not so many Emacs buffers.
+T 1616594192 18<20pjb18>	Yeah. Tabs soon become useless in browser windows too… When you can barely select a tab with the mouse…
+T 1616594207 18<28faheem_18>	pjb: They tend to be so, yes.
+T 1616594269 18<28Rovanion18>	Does anyone happen to know why company-lsp is unavailable from melpa?
+T 1616594355 18<28Rovanion18>	Seems https://github.com/melpa/melpa/issues/7461 is the answer, it was removed.
+T 1616594418 18<22HaraldJoerg18>	thomasb06: The function is not interactive.  For interactive use, do M-x insert-file
+T 1616594473 18<27thomasb0618>	 HaraldJoerg well, the page says "To copy the contents of a file into a buffer, use the function insert-file-contents. (Don’t use the command insert-file in a Lisp program, as that sets the mark.)"
+T 1616594523 18<22HaraldJoerg18>	In a Lisp program, insert-file-contents should be ok, at least since 26.1. What emacs version are you running?
+T 1616594540 18<27thomasb0618>	how to find?
+T 1616594560 18<27thomasb0618>	ah, 26.3
+T 1616594562 18<22MysteriousSilver18>	yes, it is meant to be for elisp programming, it is intentionally designed to be not accessible in the M-x menu
+T 1616594597 18<27thomasb0618>	anyway...
+T 1616595402 24*	28ferdy- is now known as 18ferdy
+T 1616607318 20*	Disconnected (20)
+T 1616607345 19*	Now talking on 22#emacs
+T 1616607345 22*	Topic for 22#emacs is: Beware the IDEs of March | RC #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.2-rc2.tar.xz | Emacs questions take priority over chit-chat | No Public Logging, racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1616607345 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Sun Mar 21 12:15:46 2021)
+T 1616607345 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1616607870 18<20pjb18>	Kingsy: http://lemonodor.com/archives/001207.html
+T 1616607946 18<20pjb18>	Kingsy: M-x customize-group RET paren matching RET
+T 1616608024 18<29Kingsy18>	pjb: thanks
+T 1616608038 18<29Kingsy18>	still stuck on flycheck if you can help at all...
+T 1616608055 18*	22shapr unchecks the fly
+T 1616608374 18<27grym18>	sabasedigh: package.el, i think 
+T 1616608441 18<19sabasedigh18>	grym: what is the best package manager?
+T 1616608460 18<27grym18>	sabasedigh: noone knows, that's why there's like 50 of them 
+T 1616608504 18<19sabasedigh18>	grym: which one has less hassle?
+T 1616608512 18<27grym18>	sabasedigh: a fundamental assumption in the emacs ecosystem is the belief that you, the user, are a smart fellow who can make up your own mind
+T 1616608518 18<27grym18>	and pick things that suit you
+T 1616608533 18<27grym18>	this means there's a proliferation of choice and usually little guidance on community consensus :) 
+T 1616608568 18<19sabasedigh18>	grym: I didn't even know that emacs has package manager. much less 50
+T 1616608609 18<27grym18>	50 might be overstating it, but offhand i can think of package.el, el-get, straight.el, borg, "just do it all by hand", and ... what am i missing
+T 1616608647 18<27grym18>	sabasedigh: i don't know about usability, but in terms of obtaining a package manager, you have one already.  
+T 1616608666 18<27grym18>	so for "getting started right now", that's the obvious thing to at least try 
+T 1616608756 18<19sabasedigh18>	grym: and am I right to assume every package that I am installing by M-x needs a tweak in ~/.emacs manually? 
+T 1616608781 18<19sabasedigh18>	right now with the default package manager that is!
+T 1616608784 18<27grym18>	sabasedigh: i ... don't know
+T 1616608796 18<27grym18>	i know that i avoid M-x customize 
+T 1616608852 18<27grym18>	in general you should expect to futz around in your init file a lot 
+T 1616608883 18<27grym18>	(and note that there's an order of precedence for file locations; you're speaking of ~/.emacs, i tend to use ~/.emacs.d/init.el)
+T 1616609025 18<19sabasedigh18>	grym: please explain this order of location or give me a url that help me. Please
+T 1616609229 18<20jlf18>	sabasedigh: M-: (info "(emacs) Init File")
+T 1616609459 24*	28ferdy- is now known as 18ferdy
+T 1616609754 18<27grym18>	sabasedigh: https://www.gnu.org/software/emacs/manual/html_node/emacs/Init-File.html 
+T 1616611404 18<25cvandusen18>	rudybot: Finally got my Emacs setup just how I like it
+T 1616611436 18<24rudybot18>	cvandusen: had a lot of hoops to jump through in order to make the bloody thing work on my setup, and once I finally got it working, I decided to make long post about how I made it...And then, after trying to publish the file, I got "400: Bad request"
+T 1616611460 18<29gagbo18>	:(
+T 1616611971 18<20edgar-rft18>	rudybot: do you think it's a bad request when I just ask for a working emacs setup?
+T 1616612001 18<24rudybot18>	edgar-rft: bloony, to setup i don't know but if you use the save desktop method, the C-x-f UP DOWN arrow seems to respond ~ to your request ....
+T 1616612271 18<20lispmacs[work]18>	at work I just found a digitalbrand keyboard from olden times with 20 function keys, a ctrl key to the left of the A key, an Alt Function button, and a Compose Character key
+T 1616612288 18<20lispmacs[work]18>	and a huge "Do" key, whatever that does
+T 1616612470 18<27grym18>	Kingsy: i don't run mypy inside of emacs, but i suspect you can tell flycheck about it 
+T 1616612475 18<27grym18>	and have it run as a linter
+T 1616612481 18<27grym18>	cf https://old.reddit.com/r/emacs/comments/7dbunc/emacs_python_36_type_checking_support_using_mypy/ 
+T 1616612584 18<29Kingsy18>	grym: been trying to do that for 6 hours :D
+T 1616612591 18<29Kingsy18>	https://pastebin.ubuntu.com/p/NmRM5NP4bZ/ <- is the section of my config.
+T 1616612719 18<29Kingsy18>	grym: i'll try that again. I was here a few hours ago
+T 1616612847 18<29Kingsy18>	grym: so that gives me the option to enable mypy via the gui C-c ! v then hit select on python-mypy BUT I don't see any of the warnings I see when I run mypy against the file manually.
+T 1616612862 18<29Kingsy18>	oh hang on. perhaps its those options
+T 1616613522 18<29Kingsy18>	grym: omg it works!
+T 1616613541 18<29Kingsy18>	regardless of the params I attach
+T 1616613635 18<27grym18>	tada!
+T 1616613638 18<29Kingsy18>	so last question... how do I choose a default "checker" for a major mode? so right now it choose lsp for default. I want something else.
+T 1616613650 18<29Kingsy18>	chooses*
+T 1616614043 18<28roadie18>	my .emacs was founded in 2014 and it is a work of art. Pollock style.
+T 1616614147 18<20edgar-rft18>	lispmacs[work]: with the "Do" key you can make others do your work
+T 1616614215 18<29Kingsy18>	can someone see a problem with this -> https://pastebin.ubuntu.com/p/WyRckBQGZW/ <- it either doesnt run when I enter a python file.. or it does not select the checker
+T 1616614719 24*	28Lord_of_Life_ is now known as 18Lord_of_Life
+T 1616615160 24*	28dustfinger` is now known as 18dustfinger
+T 1616615649 18<25cvandusen18>	let's turn the tables on our foes 
+T 1616616337 18<29Kingsy18>	how do I go about debugging a hook with emacs? does Eval: take actual lisp?
+T 1616616340 18<29Kingsy18>	elisp
+T 1616616506 18<20pjb18>	M-: takes an elisp expression, yes.
+T 1616616520 18<20pjb18>	M-: (your-meat-function) RET
+T 1616616527 18<20pjb18>	meat is hung on a hook…
+T 1616616549 18<20pjb18>	Kingsy: start with M-x set-variable RET debug-on-error RET t RET
+T 1616616563 18<20pjb18>	M-x set-variable RET debug-on-error RET nil RET to revert to normal.
+T 1616616661 18<29Kingsy18>	alriight 1 sec
+T 1616616799 18<19sabasedigh18>	What does a 3rd party package manager bring to the table?
+T 1616616815 18<29Kingsy18>	how do you paste frim clipboard into the mini buffer?
+T 1616616826 18<29Kingsy18>	tbh I can google that
+T 1616616866 18<27grym18>	sabasedigh: different UX, often more flexibility about how/where packages are stored and updated on disk and from where they can be obtained
+T 1616616879 18<28technomancy18>	sabasedigh: package.el makes it difficult to get consistent results from your installation process
+T 1616616917 18<28technomancy18>	it defaults to "hey just give me whatever version you feel like I guess"
+T 1616616961 18<28technomancy18>	for a system like debian with hyper-rigorous QA this works decently but for "whatever some rando elisp maintainer thinks is good" it's super broken
+T 1616617046 18<20pjb18>	Kingsy: C-y works for me.
+T 1616617086 18<29Kingsy18>	yep
+T 1616617106 18<29Kingsy18>	well! the contents of the lambda is good! it runs perfect in the eval.. so its not executing the hook
+T 1616617124 18<29Kingsy18>	pjb: what would be the next debugging step knowing that?
+T 1616617162 18<20pjb18>	Kingsy: just keep using emacs with debug-on-error set to t, and wait for a break into the debugger…

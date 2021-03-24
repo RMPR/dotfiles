@@ -12065,3 +12065,306 @@ Mar 23 21:13:13 <cmurf>	and it does the actual work in a minimalist boot, like s
 Mar 23 21:13:37 <DTEIT>	qrsBRWN[m]: yeah I tried to read a bit buth there's no mention about path
 Mar 23 21:13:41 <qrsBRWN[m]>	Also, the PATH in interactive shells may differ from noninteractive ones
 Mar 23 21:14:40 <DTEIT>	qrsBRWN[m]: uhm...good point
+Mar 23 21:20:56 <dowdle>	spikhoff: rpm -qi packagename will tell you went it was built/installed.
+Mar 23 21:21:15 <spikhoff>	Southern_Gentlem, thanks, I'll try that. It seems to only happen when there is low-load on system, I guess c-state change may trigger it
+Mar 23 21:21:26 *	sauvin_ is now known as Boc
+Mar 23 21:21:52 <cmurf>	oh and the system-upgrade plugin is now installed by default in f34, but of course you can just 'dnf install' it on older releases
+Mar 23 21:22:45 <spikhoff>	I have currently over 2h uptime and still no lockup
+Mar 23 21:24:06 <spikhoff>	I guess I continue digging further tomorrow
+Mar 23 21:35:40 <MollyM[m]>	dowdle to elaborate. i was trying to run a .jar file and upon trying to open it as an executable it only allows itself to open as an archive or just not at all. i tried installing openjdk but that didnt change anything
+Mar 23 21:39:22 <dowdle>	MollyM[m]: You are trying to double-click on a jar file in your file manager?  Or running "java -jar whatever.jar"?
+Mar 23 21:48:27 <fedbot>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Mar 23 22:08:00 <Yourmomuwu[m]>	why does my dnfdragora crash constantly on fresh Fedora gnome install
+Mar 23 22:12:47 <dowdle>	Yourmomuwu[m]: A "fresh Fedora gnome install" if you used the download media link from getfedora.org probably has about as many GB of updates that need to be applied as the download size of the install media.  Have you updated?  Or did you use a respin download link in channel topic?
+Mar 23 22:16:02 <dowdle>	Yourmomuwu[m]: dnfdragora doesn't seem to be present on a stock GNOME install.
+Mar 23 22:17:39 <dowdle>	Yourmomuwu[m]: So I assume you installed it, and IT at least should be current.
+Mar 23 22:20:41 <dowdle>	Yourmomuwu[m]: I don't use it and I just booted a Fedora WORKSTATION respin that is fairly current... and manually installed dnfdragora... and it isn't crashing on me... BUT I don't know what I'm doing with it.
+Mar 23 22:21:15 <dowdle>	Yourmomuwu[m]: It's user interface has me lost... as I was just going to try and check for updates... but can't discover how to do anything really.
+Mar 23 22:22:41 <dowdle>	Yourmomuwu[m]: I guess it is presenting a complete list of all packages in a hierarchy on the left... so I can see what's installed and what isn't... and can install and remove from that list.
+Mar 23 22:26:26 <Yourmomuwu[m]>	solved it
+Mar 23 22:26:51 <dowdle>	Yourmomuwu[m]: And then I quit the program and loaded it again... and it is just sitting there... pretty much all blank.  Maybe it is loading metadata in the background again... even though it just had a fresh copy a minute ago?  Or maybe something else on the system is pulling metadata and it is silently blocked just waiting?!?
+Mar 23 22:27:18 <Yourmomuwu[m]>	I try installing skype, but it constantly asks me to install dependency libatomic1
+Mar 23 22:27:36 <Yourmomuwu[m]>	how do I install that?
+Mar 23 22:28:01 <dowdle>	Yourmomuwu[m]: You installing Skype from flathub with flatpak?
+Mar 23 22:28:18 <Yourmomuwu[m]>	I don't use flatpaks or snaps
+Mar 23 22:28:31 *	bootdisk_ is now known as bootdisk
+Mar 23 22:28:34 <dowdle>	Yourmomuwu[m]: No idea then.
+Mar 23 22:28:36 <Yourmomuwu[m]>	I have .rpm file downloaded from skype website
+Mar 23 22:28:52 <Yourmomuwu[m]>	but I need to resolve dependencies
+Mar 23 22:29:02 <dowdle>	Yourmomuwu[m]: I guess their build is old and wants some dependency no in Fedora or and not provided by Skype.
+Mar 23 22:30:03 <dowdle>	Yourmomuwu[m]: Maybe try: rpm -qip /path/skype-package-name.rpm and see if you can get any indicator of what it was built for.  Just because something is an RPM doesn't mean it will install.
+Mar 23 22:30:42 <dowdle>	Yourmomuwu[m]: There is a Skype flatpak... and I assume that works... although I haven't tried it.
+Mar 23 22:31:30 <Khaytsus>	Yep, just use hte flatpak.
+Mar 23 22:31:47 <Yourmomuwu[m]>	I mean I refuse to use flatpaks, that's why I need to install from .rpm file
+Mar 23 22:32:08 <dowdle>	Yourmomuwu[m]: Well then, I guess you'll have to find an rpm that works.
+Mar 23 22:32:18 <Khaytsus>	k, GL.
+Mar 23 22:32:28 <dowdle>	Yourmomuwu[m]: But out of curiousity, what is the build date listed in the rpm -qip output?
+Mar 23 22:33:11 <dowdle>	 (-qi means query information about a package... and the p means, for a package that isn't currently installed with you passing the filename to it so it can peak inside.
+Mar 23 22:33:15 <dowdle>	 )
+Mar 23 22:33:41 <modlin>	Can confirm, Skype flatpak is ok. It even has tray icon in Gnome, providing you have appindicator support extension...
+Mar 23 22:34:19 <Yourmomuwu[m]>	<dowdle "Your mom uwu: Maybe try: rpm -qi"> does it matter if I start command with dnf instead or rpm
+Mar 23 22:34:42 <dowdle>	Yourmomuwu[m]: There is probably a dnf alternative to rpm -qi but but rpm should work fine.
+Mar 23 22:35:04 <dowdle>	Yourmomuwu[m]: Probably dnf info /path/packagename would work?
+Mar 23 22:35:19 <Yourmomuwu[m]>	<dowdle "Your mom uwu: But out of curious"> build date 12 Feb 2021
+Mar 23 22:35:56 <dowdle>	Yourmomuwu[m]: Well, at least it is fairly recent.  And you downloaded it from Microsoft?
+Mar 23 22:36:16 <dowdle>	Yourmomuwu[m]: Please provide download URL.
+Mar 23 22:36:26 <Yourmomuwu[m]>	yeah
+Mar 23 22:36:30 <Yourmomuwu[m]>	skype.com
+Mar 23 22:36:32 *	dowdle notes that dnfdragora finally did show data... it just took a while.
+Mar 23 22:37:09 <dowdle>	Since I have a VM running live media... doesn't hurt to try myself to install the rpm.
+Mar 23 22:37:38 <Yourmomuwu[m]>	okay so what are my options for installing that dependency
+Mar 23 22:37:48 <Yourmomuwu[m]>	<dowdle "Since I have a VM running live m"> that would be very helpful
+Mar 23 22:38:49 <dowdle>	Yourmomuwu[m]: Darn it, I don't have enough free disk space in the live session to download the RPM.
+Mar 23 22:39:47 <Yourmomuwu[m]>	doesn't matter
+Mar 23 22:39:55 <Yourmomuwu[m]>	I'll figure it out
+Mar 23 22:40:11 <linuxmodder>	dowdle: use a external maybe?  and sudo dnf install /path/to/external/foo.rpm ?
+Mar 23 22:40:40 <dowdle>	Yourmomuwu[m]: I'll try it on my own system... and take one for the team.
+Mar 23 22:40:48 <linuxmodder>	what rpm ?
+Mar 23 22:40:52 <Khaytsus>	I just don't understand the hate for flatpak.  No I won't use it if there's a _valid_ RPM out there.  But using a random RPM isn't any good either.  MS hasn't exactly done a stellar job of providing any sane RPMs.
+Mar 23 22:41:00 <Khaytsus>	And does this not work?  https://docs.fedoraproject.org/en-US/quick-docs/installing-skype/
+Mar 23 22:41:57 <dowdle>	Yourmomuwu[m]: You ain't going to get it to install... because "dnf provides libatomic1" gives no results... unless you are just going to randomly hunt down an rpm not provided by Fedora that offers that up.
+Mar 23 22:42:09 <dowdle>	 Error: No Matches found
+Mar 23 22:43:52 <linuxmodder>	Yourmomuwu[m]: sudo dnf install https://repo.skype.com/rpm/stable/skypeforlinux_8.69.0.77-1.x86_64.rpm
+Mar 23 22:43:55 <dowdle>	Yourmomuwu[m]: Maybe they provide a repo that has the deps needed, but if so, they aren't saying so with their simple download link.  Atomic is the name of the Red Hat project that came before CoreOS... although maybe that is some other libatomic?!?
+Mar 23 22:44:12 <Yourmomuwu[m]>	<Khaytsus "And does this not work?  https:/"> wow thank you this worked
+Mar 23 22:44:28 <Khaytsus>	o_O  What were you doing before?
+Mar 23 22:44:40 <linuxmodder>	Yourmomuwu[m]: install the repo first and that will install the needed deps as well
+Mar 23 22:45:14 <dowdle>	linuxmodder: That command you gave didn't work... and still fails with the same missing dep.
+Mar 23 22:45:27 <Yourmomuwu[m]>	<Khaytsus "o_O  What were you doing before?"> https://www.skype.com/en/get-skype/
+Mar 23 22:45:55 <Yourmomuwu[m]>	<linuxmodder "Your mom uwu: install the repo f"> yeah I just followed the docs, it worked
+Mar 23 22:46:37 <dowdle>	Yourmomuwu[m]: Btw, your Matrix client is spitting out a bunch of quoting gibberish.
+Mar 23 22:46:47 <dowdle>	EXAMPLE:
+Mar 23 22:46:52 <dowdle>	[15:45] <Yourmomuwu[m]> <linuxmodder "Your mom uwu: install the repo f"> yeah I just followed the docs, it worked
+Mar 23 22:46:53 <Yourmomuwu[m]>	<dowdle "Your mom uwu: Btw, your Matrix c"> hmmm
+Mar 23 22:47:09 <Khaytsus>	they are the same file...
+Mar 23 22:47:47 <Yourmomuwu[m]>	omg I hate element client, always some problems
+Mar 23 22:47:49 <dowdle>	Khaytsus: The instructions on the Fedora wiki page say to download / install the skype repo file and then install the package... and that provides access to additional packages including the needed deps.
+Mar 23 22:48:31 <fedbot>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Mar 23 22:48:42 <Khaytsus>	I don't see anything else in their repo..
+Mar 23 22:49:04 <Yourmomuwu[m]>	yeah, .rpm file in repo doesn't enable dependencies
+Mar 23 22:49:20 <Yourmomuwu[m]>	* yeah, .rpm file on skype website doesn't enable dependencies
+Mar 23 22:49:51 <Khaytsus>	Nope...  It's just installing the older version.
+Mar 23 22:50:12 <Khaytsus>	8.69 is requiring whatever libatomic is, 8.68 does not.
+Mar 23 22:50:21 <dowdle>	One has to wonder what libatomic1 the newer build is depending on?!?
+Mar 23 22:50:32 <Khaytsus>	MSBS.
+Mar 23 22:51:04 <Khaytsus>	It's in suse, so I bet they're building the RPMs on suse
+Mar 23 22:51:12 <Khaytsus>	TIL people still use suse.
+Mar 23 22:52:53 <linuxmodder>	Yourmomuwu[m]: sudo dnf whatdepends libatomic1
+Mar 23 22:53:02 <linuxmodder>	that is a command not a statement
+Mar 23 22:53:22 <dowdle>	 (or "provides")
+Mar 23 22:54:09 <dowdle>	linuxmodder: whatdepends doesn't work for me.
+Mar 23 22:55:02 <Khaytsus>	If you google libatomic1 you just find suse results.
+Mar 23 22:55:04 <Yourmomuwu[m]>	wow now skype prompts me to install updates
+Mar 23 22:55:27 <Yourmomuwu[m]>	microsoft and the most dumbest piece of software
+Mar 23 22:56:26 <dowdle>	Yourmomuwu[m]: Well, suse uses rpms and they didn't say what distro it was for.
+Mar 23 22:57:04 <dowdle>	Yourmomuwu[m]: Now, does it actually work.... that's the question.
+Mar 23 22:57:35 <dowdle>	rpm is not a distro agnostic packaging format.  But you know what is? :)
+Mar 23 22:59:36 <linuxmodder>	generally suse rpmsdont play nice with fedora/rhel ones
+Mar 23 23:03:28 <d9k>	i wouldnt install that rpm, https://0x0.st/-q1G.txt
+Mar 23 23:03:57 <mojo_[m]>	<linuxmodder "generally suse rpmsdont play nic"> this
+Mar 23 23:04:02 <mojo_[m]>	I've tried many times
+Mar 23 23:04:04 <d9k>	random provides for bundled libs and installs repos in postin
+Mar 23 23:04:57 <d9k>	also wtf atd?
+Mar 23 23:07:13 <dowdle>	Doing a "ldd /usr/share/skypeforlinux/skypeforlinux" shows it is linked against 100 dynamiclly linked libs... with nothing missing... but the chances of Fedora having the same versions of things and all of those dlls working perfectly... not very high in my uninformed opinion.
+Mar 23 23:10:00 <dowdle>	Yourmomuwu[m]: So your statement should be, "I don't use flatpaks when I can find rpms built specifically for Fedora and hopefully for the version of Fedora I'm running".
+Mar 23 23:13:01 <dowdle>	d9k: What stands out to you from the output you linked to?  For me it is the ffmpeg reference.  Sure I have ffmpeg installed from rpmfusion... so maybe that's why it didn't complain about that?
+Mar 23 23:14:05 <d9k>	it "provides" bundled libraries as system libraries so stuff depending on those will break
+Mar 23 23:14:14 <d9k>	also wtf stuff like 'application()' ??
+Mar 23 23:14:30 <d9k>	but this atd stuff is some a+ intern code
+Mar 23 23:14:40 <d9k>	"code"
+Mar 23 23:15:39 <dowdle>	No... it actually bundles its own copy of ffmpeg - libffmpeg.so => /usr/share/skypeforlinux/libffmpeg.so (0x00007f7f837da000)
+Mar 23 23:16:21 <d9k>	yes but it certainly doesnt provide libffmpeg
+Mar 23 23:16:56 <dowdle>	d9k: Google Chrome Stable does the atd stuff too.. .and Skype seems to have some chrome related pieces.  My guess it is a stripped down Chrome themed to be Skype.
+Mar 23 23:17:10 <dowdle>	d9k:  /usr/share/skypeforlinux/libffmpeg.so isn't libffmpeg?
+Mar 23 23:17:45 <dowdle>	 (or a stripped down Chromium)
+Mar 23 23:18:29 <dowdle>	/usr/share/skypeforlinux/LICENSES.chromium.html, /usr/share/skypeforlinux/chrome-sandbox, /usr/share/skypeforlinux/chrome_100_percent.pak, /usr/share/skypeforlinux/chrome_200_percent.pak
+Mar 23 23:19:33 <d9k>	it shouldnt be there is what im saying since nothing should ever use it outside of the package
+Mar 23 23:19:43 <dowdle>	That's what Microsoft Teams for Linux is also... a Chromium-app.
+Mar 23 23:20:23 <dowdle>	Oh look. /usr/share/teams/libffmpeg.so
+Mar 23 23:22:06 <dowdle>	Perhaps they'll update those to use Microsoft Edge for Linux rather than Chromium.
+Mar 23 23:23:00 <dowdle>	And... lastly, Microsoft Code also includes a copy of libffmpeg
+Mar 23 23:23:08 <d9k>	of course you have n+1 ffmpegs
+Mar 23 23:23:11 <d9k>	lol
+Mar 23 23:23:37 <dowdle>	d9k: Since each additional libffmpeg is in an application specific directory, it won't conflict with the system lib from the rpmfusion package.
+Mar 23 23:23:37 <d9k>	and chromium \o/
+Mar 23 23:24:06 <d9k>	no it wont conflict but you have multiple provides of the same thing which none of are correct
+Mar 23 23:25:17 *	dowdle removes foreign skypeforlinux rpm
+Mar 23 23:27:35 <d9k>	https://0x0.st/-qj8.txt the entire thing
+Mar 23 23:44:06 <cmurf>	this is kinda interesting, in 5.11.8
+Mar 23 23:44:14 <cmurf>	https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?h=v5.11.8&id=8e9707717debce5b53b204520ed829d69cfc0162
+Mar 23 23:44:20 <cmurf>	crypto performance boost
+Mar 23 23:44:45 <cmurf>	aes-ni-xts specific
+Mar 23 23:45:11 <Devices>	you wonder why they ever did it the original way
+Mar 23 23:48:33 <fedbot>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Mar 24 00:06:42 *	Disconnected ()
+**** ENDING LOGGING AT Wed Mar 24 00:06:42 2021
+
+**** BEGIN LOGGING AT Wed Mar 24 08:38:10 2021
+
+Mar 24 08:38:10 *	Now talking on #fedora
+Mar 24 08:38:10 *	Topic for #fedora is: Fedora Linux F32, F33, F34B end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins
+Mar 24 08:38:10 *	Topic for #fedora set by Khaytsus!~khaytsus@fedora/khaytsus (Tue Mar 23 16:04:50 2021)
+Mar 24 08:38:10 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Mar 24 08:49:04 <fedbot>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Mar 24 08:51:17 <gentioss>	hello there, can anyone help me? im a Linux Mint user and i recently installed Fedora on my notebook. But it cant find and connect to the wifi device
+Mar 24 08:55:43 <branchus>	Hey Fedora user, which IRC client are you using?
+Mar 24 08:57:53 <ledeni>	gentioss: do you use wired connection
+Mar 24 09:05:24 *	liveuser is now known as Ilgaz
+Mar 24 09:32:48 <LordRishav[m]>	Hi everyone
+Mar 24 09:33:18 *	sudhir_ is now known as sudhir
+Mar 24 09:33:43 <Devices>	good day
+Mar 24 09:43:36 <MollyM[m]>	LordRishav hello there. nice of u to join us.
+Mar 24 09:44:26 <LordRishav[m]>	Molly M.: Thanks, I have just switched to Matrix, and this seems good
+Mar 24 09:45:45 <Ilgaz>	it seems F34 KDE edition fails here with rsync error 11. I checked journal and it seems to fail trying to install EFI (no space left)
+Mar 24 09:46:03 <MollyM[m]>	dowdle ill try and install some additional packages and see if that helps with anything in particular on the java front. if that doesnt work ill replicate the error messages here
+Mar 24 09:46:57 <MollyM[m]>	LordRishav depends on where u go, depends on what client u use. its like the fediverse or any other decentralized service that way. its a beautiful mess.
+Mar 24 09:49:08 <fedbot>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Mar 24 10:01:50 *	voxadam is now known as Guest84924
+Mar 24 10:20:36 <rajivmars>	what kind of link is "https://www.pdfdrive.com/download.pdf?id=33735280&h=39e1817b05cf155433309dbb2f3289fe&u=cache&ext=pdf"? and why these kind of links are not download for wget or aria2?
+Mar 24 10:40:55 <tibyke>	hello there. I have some fedora virtual boxes of different versions, today after upgrading a not-so-old F32 with the dracut gui (some 100 packages) it can only boot to recovery with any of the kernel versions, even the older ones which used to work. any idea?
+Mar 24 10:41:12 *	mitoshuki is now known as mitoshuki`afk
+Mar 24 10:41:56 <tibyke>	ah, it's some dependency/fsck.. hmmm
+Mar 24 10:49:11 <fedbot>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Mar 24 11:19:58 <IPFreely>	Hi. when mounting Android phone, it fails to browse Internal Storage with 'libmtp error: could not get object handles of ffffffff'
+Mar 24 11:20:12 <IPFreely>	Fedora 32.
+Mar 24 11:20:45 <Xeroine>	I can't help you but I can recommend adb, I've been using it for a year without issues
+Mar 24 11:21:35 <IPFreely>	Is that android-tools package?
+Mar 24 11:22:07 <Xeroine>	IPFreely btw is the device unlocked when you try to us mtp? yes, pretty sure it is
+Mar 24 11:22:13 <Xeroine>	by the way*
+Mar 24 11:22:27 <IPFreely>	Yes on the device I select "File Transfer" usb option
+Mar 24 11:22:28 <Xeroine>	use*
+Mar 24 11:22:33 <Xeroine>	oh
+Mar 24 11:22:37 <BillyBlackburn[m>	hello
+Mar 24 11:22:39 <Xeroine>	hi
+Mar 24 11:23:10 <BillyBlackburn[m>	i am long time user of linux and I am coming off of a openBSD binge
+Mar 24 11:23:23 <BillyBlackburn[m>	is anyone having issues with chrome and chromium opening up
+Mar 24 11:23:39 <BillyBlackburn[m>	i installed 34 beta  a few hours ago
+Mar 24 11:23:46 <IPFreely>	Xeroine; should I uninstall libmtp?
+Mar 24 11:25:03 <ryanlerch>	***REMINDER*** Planned Outage - Fedora Account System Replacement - 2021-03-24 10:30 UTC
+Mar 24 11:25:05 <ryanlerch>	               There will be an outage impacting all Fedora Infra services starting at 2021-03-24 10:30UTC, which will last approximately TWO days. Wednesday & Thursday
+Mar 24 11:25:07 <ryanlerch>	               https://pagure.io/fedora-infrastructure/issue/9747
+Mar 24 11:25:31 *	bootdisk_ is now known as bootdisk
+Mar 24 11:26:38 <Xeroine>	IPFreely you just need to enable USB debugging in developer options in settings on your phone, you need to tap the build number several times and it will enable them. then enable USB debugging, install android tools on PC then reconnect phone with your PC and run "adb devices" and I think it'll show you a prompt on your phone to accept something,
+Mar 24 11:26:38 <Xeroine>	then you can "adb push $somefile $somedirectory" and "adb pull $somefile $somedirectory" where $somefile is the file you want to push or pull to/from your phone
+Mar 24 11:26:48 <Xeroine>	you can keep libmtp installed if you want
+Mar 24 11:27:07 <Xeroine>	I don't think it'll cause any issues
+Mar 24 11:27:14 <IPFreely>	cool
+Mar 24 11:49:15 <fedbot>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Mar 24 12:14:26 <Gargoyle>	Hey all. Not a fedora problem directly, but a google search turns up a page in the fedora wiki, so I thought I would ask in here. I've got a system with 4GB RAM and it's using swap-on-zram with a size % of 175 and a mem limit of 75%. This seems a little agressive compared to what the wiki says, does anyone else here have any experience?
+Mar 24 12:19:01 <Gargoyle>	Probably also worth mentioning that the system in question dies a very ungraceful death of swap thrashing followed by a reboot every 2-3 days.
+Mar 24 12:49:19 <fedbot>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Mar 24 13:09:34 <Khaytsus>	Gargoyle: Look for the zram-generator config file?  I honestly have not looked at that, at all.  Perhaps small ram sizes aren't well supported
+Mar 24 13:10:52 <Khaytsus>	I see it in /usr/lib/systemd/zram-generator.conf and on 34B it defaults to 1.0 and max ram 8096 (8g I assume?)
+Mar 24 13:11:36 <Khaytsus>	Gargoyle: But beyond that, might watch for cmurf, he's the expert there and might be able to help understand why it seems to be allocating more than it should be
+Mar 24 13:17:04 <Gargoyle>	Thanks Khaytsus. The values have been set by the vendor in /etc/init.d/S00zram. (it's a busybox based system). I've just seen articles ranging from 3:1 compression is possible, to 2.1:1 is average/default. But it's all just numbers in the air unless you have an idea of what the actual contents of the RAM are. If you've got 2Gigs of H.264 video in ram, you are not going to get 3:1 when it gets paged out to zram.
+Mar 24 13:17:31 <Gargoyle>	I just wondered if anyone had any real-world experience with various values.
+Mar 24 13:18:04 <Khaytsus>	Gargoyle: huh?  so.... not running Fedora?
+Mar 24 13:19:47 <Gargoyle>	Nope. But top hit on google for swap-on-zram was a fedora wiki. And I've seen it on my F33 system, so I thought it might be worth a shot to ask in here. :-D
+Mar 24 13:21:47 <Khaytsus>	Hang out, cmurf might still have advice, but unless you can modify the config I'm not exactly sure what we could suggest, even you're not using the same setup at all.
+Mar 24 13:22:41 <Gargoyle>	Yeah. I'll wait. I'm normally in here anyway when I remember to launch hexchat!
+Mar 24 13:24:25 *	Guest69149 is now known as Michi[m]
+Mar 24 13:34:34 <dan01>	Just installed F34 Beta on my machines as secondary OS
+Mar 24 13:34:42 <dan01>	Looks fine, works good :)
+Mar 24 13:37:50 <Khaytsus>	Ship it
+Mar 24 13:42:30 <mojo_[m]>	Wayland still bugs out
+Mar 24 13:44:59 <Gargoyle>	I think my Ubiquity gear is just afraid of my new starlink dish! :P
+Mar 24 13:46:12 <Khaytsus>	I can't figure out why XFCE 34B keeps blanking the screen..  everything related to that is turned off
+Mar 24 13:49:23 <fedbot>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Mar 24 13:51:52 <Khaytsus>	Okay odd, looks like it was xscreensaver, even though I turned off all blanking _options_ I hadn't turned off screensaver itself.  Whatever.  Hate VM's that blank
+Mar 24 14:05:00 *	ksurma is now known as ksurma-afk
+Mar 24 14:35:45 *	specing_ is now known as specing
+Mar 24 14:39:02 *	ksurma-afk is now known as ksurma
+Mar 24 14:46:07 *	ChanServ gives channel operator status to Southern_Gentlem
+Mar 24 14:46:11 *	Southern_Gentlem removes ban on *!gauforcowu@*
+Mar 24 14:48:30 *	sudhir is now known as Guest67550
+Mar 24 14:49:26 <fedbot>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Mar 24 14:50:00 *	Guest67550 is now known as sudhir
+Mar 24 18:35:18 *	Disconnected ()
+**** ENDING LOGGING AT Wed Mar 24 18:35:18 2021
+
+**** BEGIN LOGGING AT Wed Mar 24 18:35:45 2021
+
+Mar 24 18:35:45 *	Now talking on #fedora
+Mar 24 18:35:45 *	Topic for #fedora is: Fedora Linux F32, F33, F34B end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins
+Mar 24 18:35:45 *	Topic for #fedora set by Khaytsus!~khaytsus@fedora/khaytsus (Tue Mar 23 16:04:50 2021)
+Mar 24 18:35:45 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Mar 24 18:37:39 <jimtahu>	ccccccihinhkvvkkervbittkikhcicbfitlvrcrtfche
+Mar 24 18:37:55 <billings>	yubikey!
+Mar 24 18:38:02 <jimtahu>	blast, sorry about that
+Mar 24 18:38:46 <jimtahu>	too many things auto start when I log int :/
+Mar 24 18:45:38 <Southern_Gentlem>	jimtahu, we are use to cats on keyboad
+Mar 24 18:49:41 <fedbot>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Mar 24 18:50:47 <signalarch[m]>	How do you know what capabilities a binary will require to work? I am trying to remove setuid/gid
+Mar 24 18:52:00 <Southern_Gentlem>	without permissions does it work
+Mar 24 18:52:57 <Southern_Gentlem>	and it also depends on the program you are talking about
+Mar 24 18:57:31 <signalarch[m]>	Southern_Gentlem  there's like 20 things that have setuid currently that I want to remove and use capabilities instead.
+Mar 24 19:00:17 <billings>	any software updates will wipe away any changes you made
+Mar 24 19:00:35 <billings>	(assuming you're talking about changing a packaged executable)
+Mar 24 19:04:43 <signalarch[m]>	billings updates will remove the capabilities?
+Mar 24 19:05:01 <billings>	It will replace the file with what was originally packaged
+Mar 24 19:12:42 <signalarch[m]>	Okay. Do you know how to figure out what capabilities to use?
+Mar 24 19:17:43 <ycollet>	Hello, I am not able to loggin to my copr repo, https://id.fedoraproject.org doesn't seems to work
+Mar 24 19:19:05 <billings>	ycollet: currently a planned outage in the authentication system
+Mar 24 19:19:08 <billings>	https://lists.fedoraproject.org/archives/list/devel-announce@lists.fedoraproject.org/thread/JGVRX7CSXSDJ2MV5TJNYPCGVWWI5XSNB/
+Mar 24 19:19:42 <ycollet>	Thanks for the link. I knew it was something like that :)
+Mar 24 19:20:44 <Southern_Gentlem>	yeah auth is down for 2 days
+Mar 24 19:21:56 <Southern_Gentlem>	signalarch[m], what the rpm already assigns is a good idea
+Mar 24 19:22:26 <Southern_Gentlem>	signalarch[m],  what programs are you referring
+Mar 24 19:46:09 <Mac101>	hi, having an issue on 5.11, box doesnt seem able to wake my screen after it blanks it on a timeout
+Mar 24 19:46:20 <Mac101>	anyone know how to force wake a monitor?
+Mar 24 19:46:59 *	klaas_ is now known as klaas
+Mar 24 19:47:43 <cmurf>	Khaytsus: *shrug* not sure about busybox. But sizing zram to 175% RAM for use as swap might be OK, but it's a bunch of tradeoffs if the setup is routinely overcomitting resources.
+Mar 24 19:49:45 <fedbot>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Mar 24 19:51:29 <cmurf>	like you'd want to check swap in/out and compare it to page faults, once memory is reduced holding onto compressed anonymous pages it's possible that reclaim goes up i.e. any pages backed by a file like a library or config or binary can just be dropped to free up memory because it can be read back in from the file later
+Mar 24 19:51:47 <cmurf>	so that reading it back in can look a lot like swap thrashing if it gets bad
+Mar 24 19:52:18 <cmurf>	you see that in cases with too little or no swap or with a severly reduced swappiness value
+Mar 24 19:52:39 <cmurf>	so yeah anyway it depends
+Mar 24 19:53:24 <Khaytsus>	Looks like that guy left :/  But yeah, he just looked like he had a zram question on his embedded system, not Fedora at all
+Mar 24 19:53:49 <cmurf>	and it's gonna change because there's a bunch of kernel work that has happened lately on swap
+Mar 24 19:54:30 <cmurf>	and there's a bunch more work planned for mm, zswap LRU stuff, and swap to make all three of them work better together rather than requiring a lot of tuning
+Mar 24 19:55:16 <cmurf>	and still yet other work by google folks on reclaim
+Mar 24 19:56:00 <cmurf>	there's a bunch of knobs for this but I think they want to make it all a bit smarter so it's self configuring for the most part
+Mar 24 19:56:33 <cmurf>	here we go...
+Mar 24 19:56:35 <cmurf>	https://lore.kernel.org/lkml/20210313075747.3781593-1-yuzhao@google.com/
+Mar 24 19:59:03 <cmurf>	folks are probably better off increasing swappiness with SSDs/NVMe from 60 to 100, to reduce file page faulting in memory tight situations
+Mar 24 20:01:53 <cmurf>	but i think folks should stick with the defaults until proven they're wrong and then we should either change them at the distro level or push to change them upstream
+Mar 24 20:13:38 <Ilgaz>	weirdest thing ever, fedora 34 inside vmware player causes windows 10 GSOD :-) Saying as a heads up if anyone here has same setup
+Mar 24 20:13:53 *	germanceocom[m]  < https://matrix.org/_matrix/media/r0/download/matrix.org/inCQAuHGbYnuqhCJetClhwoy/message.txt >
+Mar 24 20:14:45 <farribeiro>	I'm a lucky guy, and with help, I made a module for this dongle of mine. it works!
+Mar 24 20:15:02 <Ilgaz>	Southern_Gentlem: congrats for Fedora 34 beta btw it is really something
+Mar 24 20:17:04 <Southern_Gentlem>	what did I do
+Mar 24 20:18:27 <Ilgaz>	I mean to Fedora team as a whole
+Mar 24 20:19:12 <farribeiro>	Southern_Gentlem:
+Mar 24 20:26:09 <Southern_Gentlem>	farribeiro, more info
+Mar 24 20:27:06 *	sauvin_ is now known as Sauvin
+Mar 24 20:30:29 <Southern_Gentlem>	germanceocom[m], undo what you did, or reinstall your windows vm
+Mar 24 20:31:30 <Koytar[m]>	heyo
+Mar 24 20:37:18 <germanceocom[m]>	<Southern_Gentlem "germanceocom, undo what you did,"> I havent been able to enter the vm at all. I have redone the process once already. Same issue. :(
+Mar 24 20:40:02 <Southern_Gentlem>	germanceocom[m], please do not quote  <Southern_Gentlem "germanceocom, undo what you did,"> I havent been able to enter the vm at all. I have redone the process once already. Same issue. :(
+Mar 24 20:40:43 <Southern_Gentlem>	germanceocom[m],  you may have to recreate the vm with the new setting and sometimes windows is very picky about video changes
+Mar 24 20:41:20 <Koytar[m]>	does anyone use awesome on fedora ?
+Mar 24 20:41:45 <germanceocom[m]>	<Southern_Gentlem "germanceocom,  you may have to r"> I will try! Thank you :)
+Mar 24 20:42:13 <Southern_Gentlem>	Koytar[m], most are gnome users so no
+Mar 24 20:42:34 <Koytar[m]>	oof
+Mar 24 20:42:50 <Southern_Gentlem>	you may check to see if the i3 spin does ( i dont think so )
+Mar 24 20:43:13 <Koytar[m]>	its about the super key
+Mar 24 20:43:46 <Koytar[m]>	near all of keybinds doesnt work (except closing windows)
+Mar 24 20:44:19 <hwe>	Hi all
+Mar 24 20:44:28 <Koytar[m]>	heyo
+Mar 24 20:47:58 <Southern_Gentlem>	Koytar[m], maybe the i3 sig can help you
+Mar 24 20:48:06 <Southern_Gentlem>	#fedora-i3
+Mar 24 20:48:23 <Koytar[m]>	might
+Mar 24 20:48:34 <Koytar[m]>	depends if it use lua for the keybinds
+Mar 24 20:49:21 *	Koytar[m] uploaded an image: (14KiB) < https://matrix.org/_matrix/media/r0/download/matrix.org/gSkkjknjvpNCXsWBtcZJTNxk/image.png >
+Mar 24 20:49:45 <Koytar[m]>	this is for cycling workspaces on my configs
+Mar 24 20:49:48 <fedbot>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Mar 24 20:58:17 *	raf is now known as raf_away
+Mar 24 21:00:53 <cmurf>	germanceocom[m]: you might use virsh dumpxml <vmname> to check all the settings and see what might be tripping it up, i've got a uefi VM i created with virt-manager on F34 that is booting Windows 10 Enterprise without difficulty
+Mar 24 21:00:59 <cmurf>	https://paste.centos.org/view/1bdbd2cf
+Mar 24 21:01:25 <cmurf>	i haven't booted it in a while though... hmmm
+Mar 24 21:14:14 <Han>	Hi there. After the latest reboot my iwlwifi doesn't work, in the dmesg I see: https://privatebin.net/?1328af7e9fbfa9a3#E9XCqug9ex2RgZGNgzZifC2n7RyC5aqPkQ5Uw7KqzS9f
+Mar 24 21:14:50 <Han>	Funny is, the iwl7260-firmware package is installed properly, according rpm -V iwl7260-firmware
+Mar 24 21:15:23 <Han>	What am I missing here?
+Mar 24 21:16:17 <Han>	This is on F34B
+Mar 24 21:18:28 <cmurf>	what model wifi?
+Mar 24 21:18:32 <cmurf>	is this Intel AX210?
