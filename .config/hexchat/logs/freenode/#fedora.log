@@ -12368,3 +12368,148 @@ Mar 24 21:15:23 <Han>	What am I missing here?
 Mar 24 21:16:17 <Han>	This is on F34B
 Mar 24 21:18:28 <cmurf>	what model wifi?
 Mar 24 21:18:32 <cmurf>	is this Intel AX210?
+Mar 24 21:20:19 <Han>	cmurf, Network controller: Intel Corporation Wireless-AC 9260 (rev 29)
+Mar 24 21:23:55 <cmurf>	Han: i've got iwl7260-firmware-1:25.30.13.0-119.fc34.noarch and it provides all the firmware versions that kernel complaint says it can't load
+Mar 24 21:24:02 <cmurf>	i wonder if it's xz compression related...
+Mar 24 21:24:35 <cmurf>	I suggest searching for a bug in rhbz and if you don't find one, file one
+Mar 24 21:24:40 <cmurf>	package is linux-firmware
+Mar 24 21:28:25 <Han>	I tried unpacking one, that doesn't make a difference. I also tried the firmware directly from intel, to no avail.
+Mar 24 21:28:43 <cmurf>	what kernel version?
+Mar 24 21:29:17 <Han>	5.11.8-300.fc34.x86_64, and the same problem with 5.11.7-300.fc34.x86_64
+Mar 24 21:30:15 <cmurf>	when was it last working?
+Mar 24 21:30:31 <Han>	two hours ago... before the reboot
+Mar 24 21:30:37 <cmurf>	yeah but what kernel
+Mar 24 21:30:56 <Han>	I didn't notice.
+Mar 24 21:32:13 <cmurf>	I'd try going backwards until it works again, and that'll be the bug
+Mar 24 21:32:28 <farribeiro>	I will build a copr, soon, Southern_Gentlem
+Mar 24 21:33:14 *	raf_away is now known as raf
+Mar 24 21:33:24 <Han>	cmurf, problem is: the only 2 kernels available right now are those 2
+Mar 24 21:34:09 <cmurf>	this is f34 or f33?
+Mar 24 21:34:20 *	Han doublechecks by rebooting to 5.11.7 
+Mar 24 21:34:34 <Han>	cmurf, 34...
+Mar 24 21:35:56 <cmurf>	i'm not finding anything
+Mar 24 21:36:13 <cmurf>	not in rhbz at all
+Mar 24 21:36:21 <cmurf>	and not in the past couple days here: https://lore.kernel.org/linux-wireless/
+Mar 24 21:36:27 <cmurf>	that's the upstream list for wireless bugs
+Mar 24 21:36:31 <n3p>	Maybe that could help  >>>>>>> $ sudo depmod -a
+Mar 24 21:38:04 <Han>	n3p, it was worth a shot.
+Mar 24 21:38:26 <n3p>	cmurf, some kernel modules were not loading correctly with 5.11.6 and 5.11.7, you also need to rebuild initframs
+Mar 24 21:38:38 <cmurf>	hmm
+Mar 24 21:38:47 <cmurf>	that's not right
+Mar 24 21:39:30 <n3p>	in my case kernel 5.11.8 is working fine
+Mar 24 21:40:24 <cmurf>	5.11.8 and 5.12-rc4 for me, but it's 8260 model
+Mar 24 21:40:35 <cmurf>	my initramfs does not have iwlwifi module in it
+Mar 24 21:41:19 <Han>	I already did a dnf reinstall $(rpm -qa|grep '^kernel')
+Mar 24 21:41:31 <cmurf>	weird that it was working and now isn't working
+Mar 24 21:41:34 <cmurf>	i don't have an explanation for that
+Mar 24 21:42:06 <cmurf>	i think you'll have to narrow it down, if it's some kind of race
+Mar 24 21:42:11 <cmurf>	or if an older kernel will work
+Mar 24 21:42:24 <n3p>	xz is to slow for kernel modules, specially for SSD, I suggest using zstd or no compression
+Mar 24 21:42:25 <Han>	I'm afraid I didn't reboot for some time and uninstalled the working kernel.
+Mar 24 21:42:48 <cmurf>	you can get them from koji
+Mar 24 21:43:03 <cmurf>	https://koji.fedoraproject.org/koji/packageinfo?packageID=8
+Mar 24 21:43:13 <cmurf>	make sure you get the correct arch
+Mar 24 21:43:25 <Han>	me tries unpacking the .xz firmwares.
+Mar 24 21:43:26 <germanceocom[m]>	<cmurf "germanceocom: you might use virs"> Thank you so much! I will try in a few minutes :)
+Mar 24 21:43:28 <cmurf>	and download each of the packages that you already have installed
+Mar 24 21:44:03 <cmurf>	kernel kernel-core kernel-modules, etc
+Mar 24 21:44:37 <cmurf>	you can rpm -qa | grep kernel |sort  to see what subpackages you have, but strictly for testing you only need the above three
+Mar 24 21:45:25 <cmurf>	sorry you have to fiddle with it but it's really process of elimination to find out what's going on
+Mar 24 21:45:55 <cmurf>	and then probably file a bug, although you might do a better search than i did
+Mar 24 21:46:09 <Han>	n3p, same result.
+Mar 24 21:49:00 <Han>	cmurf, let's give it a shit
+Mar 24 21:49:03 <Han>	shot
+Mar 24 21:49:50 <fedbot>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Mar 24 21:54:48 <n3p>	cmurf, when I uninstalled kernel 5.11.6 y received all those errors
+Mar 24 21:54:51 <n3p>	cmurf, when I uninstalled kernel 5.11.6 y received all those errors https://paste.centos.org/view/9854092a
+Mar 24 21:56:23 <n3p>	if I remember correctly I have to erase manually those modules because were gziped
+Mar 24 22:01:39 <cmurf>	the firmware blobs are xz compressed in f34 now, that's a new feature
+Mar 24 22:01:48 <cmurf>	they can't be zstd compressed yet, no support for it
+Mar 24 22:02:20 <cmurf>	plus they are small, so there's no much to gain from zstd in this case because no one has dozens of wificards loading all the firmware possible
+Mar 24 22:02:28 <cmurf>	typical is just one file
+Mar 24 22:02:45 <n3p>	But I have initfram zstd compressed. there is zstd suppor on the kernel
+Mar 24 22:02:57 <cmurf>	yes
+Mar 24 22:03:21 <cmurf>	there's support for the kernel itself and initramfs to be zstd compressed
+Mar 24 22:03:43 <cmurf>	it's just that firmware blobs specifically don't have zstd support yet
+Mar 24 22:03:59 <plowpath[m]>	does f34 clean installation with defaults do unified fs thing? boot was on ext4 before does it defaults now to brfs?
+Mar 24 22:04:13 <cmurf>	no and no
+Mar 24 22:04:23 <cmurf>	f34 layout is the same as f33
+Mar 24 22:04:44 <cmurf>	and we wouldn't change that on release version upgrades anyway
+Mar 24 22:04:44 <plowpath[m]>	thanks, i remember there was a change for that has that been moved to f35?
+Mar 24 22:06:17 <cmurf>	there were three options in the f33 change proposal for btrfs by default but none of them happened :) it was enough to just do btrfs by default
+Mar 24 22:06:25 <cmurf>	for f34, we do have compression by default
+Mar 24 22:06:59 <cmurf>	i'm not sure  yet what will land for f35 or f36
+Mar 24 22:06:59 <plowpath[m]>	👍
+Mar 24 22:07:31 <cmurf>	i think my next focus is to document the unified grub change so folks stop stepping on /boot/efi/EFI/fedora/grub.cfg
+Mar 24 22:07:57 <cmurf>	that will be a static "fowarding" grub.cfg only, the real one will be at /boot/grub2/grub.cfg same as BIOS
+Mar 24 22:08:26 <cmurf>	and also document how to reuse a "home" subvolume when doing a clean install on Btrfs without reformatting
+Mar 24 22:09:14 <cmurf>	instead of reformatting the old / you just create a new / which creates a new "rootX" subvolume
+Mar 24 22:09:58 <cmurf>	the possibly confusing part is the UI shows this with "reformat" being checked, which might scare some folks into thinking the Btrfs volume will be reformatted, including their /home
+Mar 24 22:10:20 <cmurf>	but it won't - if you click on all the mountpoints, it only shows / as being reformatted (slightly confusing so it should be documented)
+Mar 24 22:10:48 <plowpath[m]>	<cmurf "and also document how to reuse a"> sounds very cool
+Mar 24 22:11:02 <plowpath[m]>	to keep the /home and clean install rest
+Mar 24 22:11:09 <cmurf>	yeah
+Mar 24 22:11:41 <cmurf>	there is a testcase for this already
+Mar 24 22:11:42 <cmurf>	https://fedoraproject.org/wiki/QA:Testcase_partitioning_custom_btrfs_preserve_home
+Mar 24 22:11:53 <cmurf>	but it'd be nice to have a quickdoc instead
+Mar 24 22:13:04 <cws>	plowpath[m]: What is with the repeating what other people have said in your messages?
+Mar 24 22:13:15 <cws>	I see that around freenode, and its obnoxious.
+Mar 24 22:13:30 <n3p>	cmurf yes quickdoc will be nice because a lot of us know too little about btrfs
+Mar 24 22:13:59 <cmurf>	cws it's a matrix thing, you reply to a message for context, and the bridge does a partial copy/paste i guess
+Mar 24 22:14:06 <cmurf>	same on discord
+Mar 24 22:14:11 <plowpath[m]>	cws: oh guess its because I use the reply feature of matrix. sorry I forget about irc folks wont do that anymore
+Mar 24 22:14:12 <cws>	Oh, ew.
+Mar 24 22:14:43 <cmurf>	well eventually matrix will be primary once fedora has its own servers so...plenty to get used to
+Mar 24 22:16:12 <cmurf>	oh yeah both our own homeserve and bridge - that'll help make the experience better
+Mar 24 22:16:15 <cmurf>	https://pagure.io/Fedora-Council/tickets/issue/342#comment-702986
+Mar 24 22:20:08 <cws>	dumb question incoming
+Mar 24 22:20:17 <cws>	are fedora isos straight dd-able to usb, or do they require some writer?
+Mar 24 22:20:36 <cmurf>	cat or dd
+Mar 24 22:21:09 <cmurf>	(Fedora) Media Writer basically does cat
+Mar 24 22:21:21 <cws>	Cool, thanks
+Mar 24 22:21:35 <n3p>	cp also works for me
+Mar 24 22:21:43 <cmurf>	haven't tried cp
+Mar 24 22:21:46 <cws>	I generally go the cp route out of laziness
+Mar 24 22:21:54 <cws>	all works equally well, really
+Mar 24 22:21:54 <cmurf>	cp to a block device? that works?
+Mar 24 22:22:05 <n3p>	yes
+Mar 24 22:22:07 <cmurf>	learn something new everyday
+Mar 24 22:22:44 <n3p>	cp -a  fedora.iso /dev/sdX (USB flash drive)
+Mar 24 22:23:13 <cws>	I don't think you need -a, since its just doing a block copy.
+Mar 24 22:23:56 <n3p>	cws, you're right
+Mar 24 22:24:52 <_AnK>	Hello. Need a vcodec H.264 for ffmpeg streaming. Available one 'h264' hogs too much of my processor power. Do you know any other version of H.264 i can use? Thanks.
+Mar 24 22:26:07 <n3p>	any video codec is CPU intensive
+Mar 24 22:27:05 *	cws goes to reboot into kde live, see how well this goes
+Mar 24 22:28:13 <n3p>	_AnK, try to downgrade size/frames and test
+Mar 24 22:29:37 <_AnK>	Will do. Thanks. Thought perhaps there are better ones. Say i heard there is something called h264_videotoolbox. But i do not know in what package it is sitting?
+Mar 24 22:30:28 *	thebacon[m] is now known as Popeyes[m]
+Mar 24 22:32:30 *	tnewman7 is now known as tnewman
+Mar 24 22:33:56 <germanceocom[m]>	<cmurf "germanceocom: you might use virs"> Seems to be as I originally wanted.   I have come so close and its just hit a full stop for me. No clue what to do
+Mar 24 22:35:47 <cmurf[m]>	germanceocom: compare the xml
+Mar 24 22:36:02 <n3p>	_AnK, vlc has video stemming, maybe you could test some codecs there
+Mar 24 22:36:50 <_AnK>	Yes. Thanks.
+Mar 24 22:37:07 <cmurf[m]>	Also google the error message
+Mar 24 22:38:10 <pushqrdx>	can someone please help me get the bottom of this bizarre issue. So i am running nixOS/gnome and it's running smooth 60fps no stuttering or dropped frames, now same machine fedora rawhide which even has a more recent mesa stack 21 vs 20.2.4 on nix and gnome desktop is sloooow
+Mar 24 22:38:23 <pushqrdx>	~30 fps and tons of stuttering
+Mar 24 22:38:53 <pushqrdx>	there isn't a huge difference between running glxinfo on both systems, both seem to use i915 modesetting driver so what's wrong
+Mar 24 22:38:53 <Han>	cmurf[m], didn't work. Oh well. :-(
+Mar 24 22:39:03 <pushqrdx>	been trying to figure it out for a long time with no luck
+Mar 24 22:39:13 <Han>	pushqrdx, check your dmesg
+Mar 24 22:39:32 <pushqrdx>	Han for what?
+Mar 24 22:39:55 <n3p>	_AnK, by the way. #videolan could be helpful. Ask there the same question
+Mar 24 22:40:33 <cmurf[m]>	Han, what was the oldest kernel you tried?
+Mar 24 22:40:48 <_AnK>	Oh Thanks a lot.
+Mar 24 22:41:38 <_AnK>	join #videolan
+Mar 24 22:41:41 <_AnK>	sorry
+Mar 24 22:42:34 <cws>	Wow, this is actually really nice.
+Mar 24 22:44:03 <cmurf[m]>	Han, try 5.11.9, even try 5.12-rc4. if they are all broken and there's no mention of it on the wireless lust and there's no bug report then... File a bug include dmesg and all the colonel versions you tested with and then post a summary on the wireless list. Upstream needs to know about this before it likely gets fixed in fedora.
+Mar 24 22:44:39 <pushqrdx>	gonna reboot into fedora to see dmesg output
+Mar 24 22:45:18 *	Popeyes[m] is now known as TacoJohns[m]
+Mar 24 22:46:51 <Han>	cmurf[m], 5.11.5, and that didn't even properly boot.
+Mar 24 22:48:18 <Han>	cmurf[m], 5.11.9 is not in my repo yet.
+Mar 24 22:49:55 <fedbot>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Mar 24 22:51:58 <_val_>	Han: not following the thread but are you having wifi issues?
+Mar 24 22:52:07 <_val_>	Is it atheros?
+Mar 24 22:53:10 FiSHLiM plugin unloaded
+**** ENDING LOGGING AT Wed Mar 24 22:53:10 2021
+

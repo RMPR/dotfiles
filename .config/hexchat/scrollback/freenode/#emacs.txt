@@ -6281,3 +6281,78 @@ T 1616617086 18<29Kingsy18>	yep
 T 1616617106 18<29Kingsy18>	well! the contents of the lambda is good! it runs perfect in the eval.. so its not executing the hook
 T 1616617124 18<29Kingsy18>	pjb: what would be the next debugging step knowing that?
 T 1616617162 18<20pjb18>	Kingsy: just keep using emacs with debug-on-error set to t, and wait for a break into the debugger…
+T 1616617426 18<29Kingsy18>	pjb: wooho the debugger kicked in when entering a python file -> Debugger entered--Lisp error: (void-variable python-shell-interpreter)
+T 1616617476 18<29Kingsy18>	haha unfortunately I am not sure what to do here :D
+T 1616617542 18<20pjb18>	Kingsy: you can just type q to kill the *backtrace* buffer and continue.
+T 1616617559 18<20pjb18>	or you can configure the python-shell-interpreter what python mode do you use?
+T 1616617606 18<29Kingsy18>	pjb: but isnt the whole point in being in the backtrace to understand why my hook is failing?
+T 1616617630 18<20pjb18>	Kingsy: perhaps you just lack a (require 'python) in your ~/.emacs ?  When I require python, I get python-shell-interpreter set to "python".
+T 1616617638 18<29Kingsy18>	pjb: I havent installed a python mode. so I am guessing it is whatever ships with emacs
+T 1616617641 18<20pjb18>	Kingsy: sure. But other things may also fail :-)
+T 1616617658 18<20pjb18>	Yes. M-: (require 'python) RET and try again.
+T 1616617671 18<20pjb18>	or add (require 'python) to ~/.emacs, C-x C-e it, and try again.
+T 1616617685 18<29Kingsy18>	pjb: I didnt think it was something generic like that because if I run the contents of the hook manually it works? doesnt that count out python not being required?
+T 1616617708 18<20pjb18>	I don't know. Depends on the code in the hook function (the meat).
+T 1616617746 18<27grym18>	noooOOOOoo https://www.bloombergquint.com/business/coffee-trade-reeling-from-virus-faces-nightmare-freight-snags 
+T 1616617762 18<29sachac18>	there's no python-mode-hook until the python library gets loaded
+T 1616617766 18*	27grym frantically orders another 3 kilos of beans
+T 1616617775 18<29Kingsy18>	pjb: hrm well that seems to stop it going into the debugger.. but its still not setting my checker.
+T 1616617787 18<29Kingsy18>	sachac: oh!
+T 1616617793 18<28technomancy18>	grym: I wonder what percent of coffee is shipped by ship vs air
+T 1616617800 18<29Kingsy18>	I'll put it at the top of my init.el
+T 1616617806 18<27grym18>	technomancy: in the suez, 0% today, har har har 
+T 1616617811 18<28technomancy18>	lo
+T 1616617812 18<28technomancy18>	l
+T 1616617834 18<20pjb18>	Kingsy: the (require 'python)…
+T 1616617866 18<28technomancy18>	I feel like probably 99% of bad coffee is shipped surface
+T 1616617866 18<29Kingsy18>	pjb: yeah
+T 1616617891 18<29Kingsy18>	right this has made a difference. so now when I enter the python file it sets the right interpreter BUT it then vanishes and goes back to normal.
+T 1616617896 18<27grym18>	mine's coming from colorado, i think it's flown most of the way from there to me 
+T 1616617929 18<20pjb18>	https://www.youtube.com/watch?v=Lfpq-Oh7P_8
+T 1616618026 18<29Kingsy18>	yeah C-c ! v says its back on lsp
+T 1616618073 18<27grym18>	it occurred to me i haven't purchased any premade coffee in by now more than a year 
+T 1616618101 18<27grym18>	i'm saving the first fancy barista trip until the second dose kicks in 
+T 1616618111 18<28technomancy18>	I've had a few cups but probably not more than I can count on one hand
+T 1616618143 18<28technomancy18>	went to a protest across the street from my favorite coffee shop in the summer and they offered free coffee to the protesters
+T 1616618159 18<29Kingsy18>	cracked it!
+T 1616618172 18<27grym18>	i realised i hadn't and then it became a Thing 
+T 1616618208 18<27grym18>	and now my stupid brain is like "no! it needs to be an Occasion now!"
+T 1616618218 18<29sachac18>	Kingsy: great! what did you figure out?
+T 1616618270 18<29Kingsy18>	it was this line -> :hook (python-mode . lsp-deferred) <- just resetting my hook as soon as I set it. <- what is that doing?
+T 1616618287 18<29Kingsy18>	teaches me for copying and pasting a block for lsp
+T 1616618307 18<29sachac18>	haha
+T 1616618314 18<29Kingsy18>	:D
+T 1616618320 18<29sachac18>	it adds lsp-deferred to python-mode-hook
+T 1616618338 18<29Kingsy18>	well yeah. but what is lsp-deferred.
+T 1616618342 18<29Kingsy18>	trying to find out now
+T 1616618352 18<29sachac18>	you can check the contents of python-mode-hook with describe-variable (usually C-h v)
+T 1616618373 18<29sachac18>	and describe-function (C-h f) tells you about functions
+T 1616618396 18<29Kingsy18>	tbh. removing that hook, doesnt it mean that python-mode wont have lsp anymore?
+T 1616618400 18<29Kingsy18>	because thats a bad thing.
+T 1616618416 18<29Kingsy18>	yep thats exactly what it means.
+T 1616618486 18<29sachac18>	probably can use lsp (lsp-mode?) instead of lsp-deferred
+T 1616618511 18<29sachac18>	and then make sure your mypy function is after the lsp one in python-mode-hook
+T 1616618560 18<29sachac18>	prob :hook (python-mode . lsp)
+T 1616618599 18<29sachac18>	and then (python-mode . (lamba () ...
+T 1616618615 18<29sachac18>	or even add the lsp call inside your lambda and use that as the hook instead
+T 1616618658 18<29Kingsy18>	that makes sense. ermm ok let me try.
+T 1616618791 18<29Kingsy18>	sachac: ok so
+T 1616618876 18<29Kingsy18>	sachac: https://pastebin.ubuntu.com/p/Hj8wg7MgVg/ <- so with (lsp) above or below the flycheck expression, the checker is not applied. if I remove (lsp) it is applied. any ideas?
+T 1616618947 18<29sachac18>	I wonder if https://www.reddit.com/r/emacs/comments/da1c97/use_standard_flycheck_instead_of_lspui_with is relevant
+T 1616619003 18<29Kingsy18>	damn, well I do have lsp-ui installed. I am not even sure what it is for. I assumed it was needed for lsp-mode
+T 1616619070 18<29Kingsy18>	perhaps I don't need it if I have flycheck?
+T 1616619117 18<29sachac18>	https://github.com/emacs-lsp/lsp-mode/pull/1317 mentions some kind of pyls-mypy
+T 1616619139 18<29sachac18>	maybe that would let you use mypy with lsp?
+T 1616619265 18<29Kingsy18>	haha man o man. I am just confused about what to do tbh
+T 1616619977 18<19libfud18>	tramp saved my ass
+T 1616620002 18<19libfud18>	laptop I'm connected to ran out of battery before I committed some work
+T 1616620038 18<19libfud18>	before anyone asks why the laptop's battery ran out, a power surge apparently fried a power strip I'm using
+T 1616620788 18<29sachac18>	Kingsy: haven't looked into it myself, sorry
+T 1616620807 18<29sachac18>	maybe reddit.com/r/emacs and/or Emacs StackExchange?
+T 1616620888 18<29Kingsy18>	no sachac 
+T 1616620891 18<29Kingsy18>	np***
+T 1616620893 18<29Kingsy18>	hahah
+T 1616622054 18<19metehan18>	I used emacs prelude to have some basic setup, where should I store my own config
+T 1616622630 18<29tazjin18>	metehan: ~/.emacs.d/init.el is the common location for a lot of people, you might also consider storing it in a git repository somewhere (a lot of people have public emacs configs, which are a good source of inspiration)
+T 1616622672 18<19metehan18>	I wonder if prelude will overwrite to ~/.emacs.d/init.el
+T 1616622685 18<19metehan18>	thats why I wasn't sure to use it

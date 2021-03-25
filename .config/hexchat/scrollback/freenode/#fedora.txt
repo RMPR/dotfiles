@@ -5928,3 +5928,146 @@ T 1616616923 18<19Han18>	What am I missing here?
 T 1616616977 18<19Han18>	This is on F34B
 T 1616617108 18<20cmurf18>	what model wifi?
 T 1616617112 18<20cmurf18>	is this Intel AX210?
+T 1616617219 18<19Han18>	cmurf, Network controller: Intel Corporation Wireless-AC 9260 (rev 29)
+T 1616617435 18<20cmurf18>	Han: i've got iwl7260-firmware-1:25.30.13.0-119.fc34.noarch and it provides all the firmware versions that kernel complaint says it can't load
+T 1616617442 18<20cmurf18>	i wonder if it's xz compression related...
+T 1616617475 18<20cmurf18>	I suggest searching for a bug in rhbz and if you don't find one, file one
+T 1616617480 18<20cmurf18>	package is linux-firmware
+T 1616617705 18<19Han18>	I tried unpacking one, that doesn't make a difference. I also tried the firmware directly from intel, to no avail.
+T 1616617723 18<20cmurf18>	what kernel version?
+T 1616617757 18<19Han18>	5.11.8-300.fc34.x86_64, and the same problem with 5.11.7-300.fc34.x86_64
+T 1616617815 18<20cmurf18>	when was it last working?
+T 1616617831 18<19Han18>	two hours ago... before the reboot
+T 1616617837 18<20cmurf18>	yeah but what kernel
+T 1616617856 18<19Han18>	I didn't notice.
+T 1616617933 18<20cmurf18>	I'd try going backwards until it works again, and that'll be the bug
+T 1616617948 18<29farribeiro18>	I will build a copr, soon, Southern_Gentlem
+T 1616617994 24*	28raf_away is now known as 18raf
+T 1616618004 18<19Han18>	cmurf, problem is: the only 2 kernels available right now are those 2
+T 1616618049 18<20cmurf18>	this is f34 or f33?
+T 1616618060 18*	19Han doublechecks by rebooting to 5.11.7 
+T 1616618074 18<19Han18>	cmurf, 34...
+T 1616618156 18<20cmurf18>	i'm not finding anything
+T 1616618173 18<20cmurf18>	not in rhbz at all
+T 1616618181 18<20cmurf18>	and not in the past couple days here: https://lore.kernel.org/linux-wireless/
+T 1616618187 18<20cmurf18>	that's the upstream list for wireless bugs
+T 1616618191 18<24n3p18>	Maybe that could help  >>>>>>> $ sudo depmod -a
+T 1616618284 18<19Han18>	n3p, it was worth a shot.
+T 1616618306 18<24n3p18>	cmurf, some kernel modules were not loading correctly with 5.11.6 and 5.11.7, you also need to rebuild initframs
+T 1616618318 18<20cmurf18>	hmm
+T 1616618327 18<20cmurf18>	that's not right
+T 1616618370 18<24n3p18>	in my case kernel 5.11.8 is working fine
+T 1616618424 18<20cmurf18>	5.11.8 and 5.12-rc4 for me, but it's 8260 model
+T 1616618435 18<20cmurf18>	my initramfs does not have iwlwifi module in it
+T 1616618479 18<19Han18>	I already did a dnf reinstall $(rpm -qa|grep '^kernel')
+T 1616618491 18<20cmurf18>	weird that it was working and now isn't working
+T 1616618494 18<20cmurf18>	i don't have an explanation for that
+T 1616618526 18<20cmurf18>	i think you'll have to narrow it down, if it's some kind of race
+T 1616618531 18<20cmurf18>	or if an older kernel will work
+T 1616618544 18<24n3p18>	xz is to slow for kernel modules, specially for SSD, I suggest using zstd or no compression
+T 1616618545 18<19Han18>	I'm afraid I didn't reboot for some time and uninstalled the working kernel.
+T 1616618568 18<20cmurf18>	you can get them from koji
+T 1616618583 18<20cmurf18>	https://koji.fedoraproject.org/koji/packageinfo?packageID=8
+T 1616618593 18<20cmurf18>	make sure you get the correct arch
+T 1616618605 18<19Han18>	me tries unpacking the .xz firmwares.
+T 1616618606 18<19germanceocom[m]18>	<cmurf "germanceocom: you might use virs"> Thank you so much! I will try in a few minutes :)
+T 1616618608 18<20cmurf18>	and download each of the packages that you already have installed
+T 1616618643 18<20cmurf18>	kernel kernel-core kernel-modules, etc
+T 1616618677 18<20cmurf18>	you can rpm -qa | grep kernel |sort  to see what subpackages you have, but strictly for testing you only need the above three
+T 1616618725 18<20cmurf18>	sorry you have to fiddle with it but it's really process of elimination to find out what's going on
+T 1616618755 18<20cmurf18>	and then probably file a bug, although you might do a better search than i did
+T 1616618769 18<19Han18>	n3p, same result.
+T 1616618940 18<19Han18>	cmurf, let's give it a shit
+T 1616618943 18<19Han18>	shot
+T 1616618990 18<28fedbot18>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1616619288 18<24n3p18>	cmurf, when I uninstalled kernel 5.11.6 y received all those errors
+T 1616619291 18<24n3p18>	cmurf, when I uninstalled kernel 5.11.6 y received all those errors https://paste.centos.org/view/9854092a
+T 1616619383 18<24n3p18>	if I remember correctly I have to erase manually those modules because were gziped
+T 1616619699 18<20cmurf18>	the firmware blobs are xz compressed in f34 now, that's a new feature
+T 1616619708 18<20cmurf18>	they can't be zstd compressed yet, no support for it
+T 1616619740 18<20cmurf18>	plus they are small, so there's no much to gain from zstd in this case because no one has dozens of wificards loading all the firmware possible
+T 1616619748 18<20cmurf18>	typical is just one file
+T 1616619765 18<24n3p18>	But I have initfram zstd compressed. there is zstd suppor on the kernel
+T 1616619777 18<20cmurf18>	yes
+T 1616619801 18<20cmurf18>	there's support for the kernel itself and initramfs to be zstd compressed
+T 1616619823 18<20cmurf18>	it's just that firmware blobs specifically don't have zstd support yet
+T 1616619839 18<22plowpath[m]18>	does f34 clean installation with defaults do unified fs thing? boot was on ext4 before does it defaults now to brfs?
+T 1616619853 18<20cmurf18>	no and no
+T 1616619863 18<20cmurf18>	f34 layout is the same as f33
+T 1616619884 18<20cmurf18>	and we wouldn't change that on release version upgrades anyway
+T 1616619884 18<22plowpath[m]18>	thanks, i remember there was a change for that has that been moved to f35?
+T 1616619977 18<20cmurf18>	there were three options in the f33 change proposal for btrfs by default but none of them happened :) it was enough to just do btrfs by default
+T 1616619985 18<20cmurf18>	for f34, we do have compression by default
+T 1616620019 18<20cmurf18>	i'm not sure  yet what will land for f35 or f36
+T 1616620019 18<22plowpath[m]18>	👍
+T 1616620051 18<20cmurf18>	i think my next focus is to document the unified grub change so folks stop stepping on /boot/efi/EFI/fedora/grub.cfg
+T 1616620077 18<20cmurf18>	that will be a static "fowarding" grub.cfg only, the real one will be at /boot/grub2/grub.cfg same as BIOS
+T 1616620106 18<20cmurf18>	and also document how to reuse a "home" subvolume when doing a clean install on Btrfs without reformatting
+T 1616620154 18<20cmurf18>	instead of reformatting the old / you just create a new / which creates a new "rootX" subvolume
+T 1616620198 18<20cmurf18>	the possibly confusing part is the UI shows this with "reformat" being checked, which might scare some folks into thinking the Btrfs volume will be reformatted, including their /home
+T 1616620220 18<20cmurf18>	but it won't - if you click on all the mountpoints, it only shows / as being reformatted (slightly confusing so it should be documented)
+T 1616620248 18<22plowpath[m]18>	<cmurf "and also document how to reuse a"> sounds very cool
+T 1616620262 18<22plowpath[m]18>	to keep the /home and clean install rest
+T 1616620269 18<20cmurf18>	yeah
+T 1616620301 18<20cmurf18>	there is a testcase for this already
+T 1616620302 18<20cmurf18>	https://fedoraproject.org/wiki/QA:Testcase_partitioning_custom_btrfs_preserve_home
+T 1616620313 18<20cmurf18>	but it'd be nice to have a quickdoc instead
+T 1616620384 18<19cws18>	plowpath[m]: What is with the repeating what other people have said in your messages?
+T 1616620395 18<19cws18>	I see that around freenode, and its obnoxious.
+T 1616620410 18<24n3p18>	cmurf yes quickdoc will be nice because a lot of us know too little about btrfs
+T 1616620439 18<20cmurf18>	cws it's a matrix thing, you reply to a message for context, and the bridge does a partial copy/paste i guess
+T 1616620446 18<20cmurf18>	same on discord
+T 1616620451 18<22plowpath[m]18>	cws: oh guess its because I use the reply feature of matrix. sorry I forget about irc folks wont do that anymore
+T 1616620452 18<19cws18>	Oh, ew.
+T 1616620483 18<20cmurf18>	well eventually matrix will be primary once fedora has its own servers so...plenty to get used to
+T 1616620572 18<20cmurf18>	oh yeah both our own homeserve and bridge - that'll help make the experience better
+T 1616620575 18<20cmurf18>	https://pagure.io/Fedora-Council/tickets/issue/342#comment-702986
+T 1616620808 18<19cws18>	dumb question incoming
+T 1616620817 18<19cws18>	are fedora isos straight dd-able to usb, or do they require some writer?
+T 1616620836 18<20cmurf18>	cat or dd
+T 1616620869 18<20cmurf18>	(Fedora) Media Writer basically does cat
+T 1616620881 18<19cws18>	Cool, thanks
+T 1616620895 18<24n3p18>	cp also works for me
+T 1616620903 18<20cmurf18>	haven't tried cp
+T 1616620906 18<19cws18>	I generally go the cp route out of laziness
+T 1616620914 18<19cws18>	all works equally well, really
+T 1616620914 18<20cmurf18>	cp to a block device? that works?
+T 1616620925 18<24n3p18>	yes
+T 1616620927 18<20cmurf18>	learn something new everyday
+T 1616620964 18<24n3p18>	cp -a  fedora.iso /dev/sdX (USB flash drive)
+T 1616620993 18<19cws18>	I don't think you need -a, since its just doing a block copy.
+T 1616621036 18<24n3p18>	cws, you're right
+T 1616621092 18<24_AnK18>	Hello. Need a vcodec H.264 for ffmpeg streaming. Available one 'h264' hogs too much of my processor power. Do you know any other version of H.264 i can use? Thanks.
+T 1616621167 18<24n3p18>	any video codec is CPU intensive
+T 1616621225 18*	19cws goes to reboot into kde live, see how well this goes
+T 1616621293 18<24n3p18>	_AnK, try to downgrade size/frames and test
+T 1616621377 18<24_AnK18>	Will do. Thanks. Thought perhaps there are better ones. Say i heard there is something called h264_videotoolbox. But i do not know in what package it is sitting?
+T 1616621428 24*	28thebacon[m] is now known as 18Popeyes[m]
+T 1616621550 24*	28tnewman7 is now known as 18tnewman
+T 1616621636 18<19germanceocom[m]18>	<cmurf "germanceocom: you might use virs"> Seems to be as I originally wanted.   I have come so close and its just hit a full stop for me. No clue what to do
+T 1616621747 18<27cmurf[m]18>	germanceocom: compare the xml
+T 1616621762 18<24n3p18>	_AnK, vlc has video stemming, maybe you could test some codecs there
+T 1616621810 18<24_AnK18>	Yes. Thanks.
+T 1616621827 18<27cmurf[m]18>	Also google the error message
+T 1616621890 18<25pushqrdx18>	can someone please help me get the bottom of this bizarre issue. So i am running nixOS/gnome and it's running smooth 60fps no stuttering or dropped frames, now same machine fedora rawhide which even has a more recent mesa stack 21 vs 20.2.4 on nix and gnome desktop is sloooow
+T 1616621903 18<25pushqrdx18>	~30 fps and tons of stuttering
+T 1616621933 18<25pushqrdx18>	there isn't a huge difference between running glxinfo on both systems, both seem to use i915 modesetting driver so what's wrong
+T 1616621933 18<19Han18>	cmurf[m], didn't work. Oh well. :-(
+T 1616621943 18<25pushqrdx18>	been trying to figure it out for a long time with no luck
+T 1616621953 18<19Han18>	pushqrdx, check your dmesg
+T 1616621972 18<25pushqrdx18>	Han for what?
+T 1616621995 18<24n3p18>	_AnK, by the way. #videolan could be helpful. Ask there the same question
+T 1616622033 18<27cmurf[m]18>	Han, what was the oldest kernel you tried?
+T 1616622048 18<24_AnK18>	Oh Thanks a lot.
+T 1616622098 18<24_AnK18>	join #videolan
+T 1616622101 18<24_AnK18>	sorry
+T 1616622154 18<19cws18>	Wow, this is actually really nice.
+T 1616622243 18<27cmurf[m]18>	Han, try 5.11.9, even try 5.12-rc4. if they are all broken and there's no mention of it on the wireless lust and there's no bug report then... File a bug include dmesg and all the colonel versions you tested with and then post a summary on the wireless list. Upstream needs to know about this before it likely gets fixed in fedora.
+T 1616622279 18<25pushqrdx18>	gonna reboot into fedora to see dmesg output
+T 1616622318 24*	28Popeyes[m] is now known as 18TacoJohns[m]
+T 1616622411 18<19Han18>	cmurf[m], 5.11.5, and that didn't even properly boot.
+T 1616622498 18<19Han18>	cmurf[m], 5.11.9 is not in my repo yet.
+T 1616622595 18<28fedbot18>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1616622718 18<19_val_18>	Han: not following the thread but are you having wifi issues?
+T 1616622727 18<19_val_18>	Is it atheros?
+T 1616622790 FiSHLiM plugin unloaded
