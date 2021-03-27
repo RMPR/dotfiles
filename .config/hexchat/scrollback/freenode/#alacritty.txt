@@ -1,107 +1,3 @@
-T 1584706069 18<29kchibisov18>	your editor folks?
-T 1584706070 18<20danyspin9718>	https://github.com/mawww/kakoune/blob/6766297623e9718db5b2b09bd655fe183acdcf67/src/ncurses_ui.cc#L1256
-T 1584706076 18<20danyspin9718>	may this be related?
-T 1584706096 18<29kchibisov18>	we have sgr mouse support.
-T 1584709397 20*	Disconnected (20)
-T 1584709424 19*	Now talking on 22#alacritty
-T 1584709424 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.1 - https://github.com/alacritty/alacritty/releases/tag/v0.4.1
-T 1584709424 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Feb 16 20:20:48 2020)
-T 1584711652 20*	Disconnected (20)
-T 1584711680 19*	Now talking on 22#alacritty
-T 1584711680 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.1 - https://github.com/alacritty/alacritty/releases/tag/v0.4.1
-T 1584711680 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Feb 16 20:20:48 2020)
-T 1585816708 19*	Now talking on 22#alacritty
-T 1585816708 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
-T 1585816708 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
-T 1585827497 20*	Disconnected (20)
-T 1585827522 19*	Now talking on 22#alacritty
-T 1585827522 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
-T 1585827522 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
-T 1585828505 20*	Disconnected (20)
-T 1585828531 19*	Now talking on 22#alacritty
-T 1585828531 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
-T 1585828531 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
-T 1585838564 20*	Disconnected (20)
-T 1585838592 19*	Now talking on 22#alacritty
-T 1585838592 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
-T 1585838592 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
-T 1585839269 18<29larsks18>	I've installed the "Fira Mono" font family on my system, and it's visible in other applications (e.g. as "Fira Mono Regular"), but trying to set font.normal.family to "Fira Mono" or "Fira Mono Regular" isn't working. Other fonts seem to work fine. Any thoughts on what I'm missing?
-T 1585839302 18<29kchibisov18>	Could you should your config file?
-T 1585839317 18<29kchibisov18>	show*
-T 1585839418 18<29larsks18>	Sure, just a second.
-T 1585839436 18<29kchibisov18>	Also, on what platform are you?
-T 1585839512 18<29larsks18>	I'm on Fedora 31.  Config file is here: https://termbin.com/10ji
-T 1585839537 18<29larsks18>	Normal font is currently set to "terminus" in that config.
-T 1585839555 18<29kchibisov18>	Could you run `fc-list | grep -i fira`?
-T 1585839641 18<29larsks18>	Sure, that gets: https://termbin.com/253s
-T 1585839681 18<29kchibisov18>	Well it should be just `Fira Mono` in a config.
-T 1585839707 18<29kchibisov18>	also, make sure to restart terminal if your font was added after terminal startup.
-T 1585839713 18<29larsks18>	Yeah, that was my thought, too :)
-T 1585839720 18<29larsks18>	I'll try restarting the terminal...
-T 1585839774 18<29larsks18>	That was it. I didn't think that would be necessary. Thanks!
-T 1585839792 18<29kchibisov18>	I mean it's only necessary in case the font was added after startup.
-T 1585839833 18<29kchibisov18>	Like fontconfig just continues to report that it's not presented, etc.
-T 1585839846 18<29kchibisov18>	But maybe we can do something about it.
-T 1585861690 20*	Disconnected (20)
-T 1585861719 19*	Now talking on 22#alacritty
-T 1585861719 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
-T 1585861719 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
-T 1585868086 18<20lovesegfault18>	Hey everyone, thanks so much for all the work in the Alacritty 0.4.2 release
-T 1585868094 18<20lovesegfault18>	Working flawlessly on NixOS
-T 1585868103 18<20lovesegfault18>	Color emoji looks great
-T 1585868123 18<20lovesegfault18>	🦀
-T 1585868150 18<29kchibisov18>	nothing was changed in this regard from v0.4.1 to v0.4.2 though.
-T 1585868172 18<29kchibisov18>	but thx.
-T 1585868202 18<20lovesegfault18>	kchibisov: Well, they started working for me :D
-T 1585868239 18<24UndeadLeech18>	kchibisov: Your font fallback was part of 0.4.2, right?
-T 1585868239 18<20lovesegfault18>	And my cursor also no longer has potato res
-T 1585871814 20*	Disconnected (20)
-T 1585901200 19*	Now talking on 22#alacritty
-T 1585901200 22*	Topic for 22#alacritty is: Alacritty - A GPU-accelerated terminal emulator <> Latest Release: v0.4.2 - https://github.com/alacritty/alacritty/releases/tag/v0.4.2
-T 1585901200 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@165.227.76.134 (24Sun Mar 29 22:59:41 2020)
-T 1585901922 18<29kchibisov18>	noxid: this option is
-T 1585901943 18<29kchibisov18>	noxid: this option is missunderstood by the users, we won't bring it back.
-T 1585901982 18<27noxid18>	thanks for the reply
-T 1585902122 18<29kchibisov18>	note, no terminal emulator allows this setting at all.
-T 1585902201 18<19storm\18>	kchibisov: would it be possible to do a hour walkthrough of the code at somepoint to get me up to speed?
-T 1585902210 18<19storm\18>	if thats something you would be comftable doing
-T 1585902244 18<29kchibisov18>	I mean it depens on an issue you're trying to solve storm\ .
-T 1585902276 18<19storm\18>	first issue ill solve is the locale we talked about for osx yesterday
-T 1585902284 18<19storm\18>	but i would like to have some words attatched to the code base maybe
-T 1585902303 18<19storm\18>	mostly because im new to rust, but deep knowledge in objc
-T 1585902312 18<29kchibisov18>	well, for locale, you should be aware only about this single file.
-T 1585902328 18<19storm\18>	yeah i know for THAT issue :)
-T 1585902329 18<29kchibisov18>	and likely the code that is calling it.
-T 1585902339 18<19storm\18>	but its more a breif overview of the project.
-T 1585902346 18<19storm\18>	i plan to fix more than JUST that hehe.
-T 1585902371 18<29kchibisov18>	I mean you can ask what you want to fix and we'll give more specific replies.
-T 1585902390 18<19storm\18>	hehe okay, i think you are missing the point :)
-T 1585902396 18<19storm\18>	its cool
-T 1585902405 18<29kchibisov18>	I mean you can just read from main.rs
-T 1585902425 18<19storm\18>	and thats missing the point again :)
-T 1585902430 18<29kchibisov18>	and if your bug is in specific component of it, you can go there and read it.
-T 1585902474 18<29kchibisov18>	Like our structure is pretty simple and you can use file names to understand how everything structured.
-T 1585902510 18<19storm\18>	yeah ive been through it.
-T 1585902530 18<29kchibisov18>	But in general, font is in font crate, alacritty is gui + rendering, alacritty_terminal is just terminal + PTY.
-T 1585902613 18<19storm\18>	ill just ask about the coding releated questions and decisions then, no worries.
-T 1585903923 18<29kchibisov18>	I mean it's hard to answer of an abstract questions.
-T 1585903958 18<29kchibisov18>	Like if you want to implement feature X, I can likely give more information about it.
-T 1585905997 18<20sidh18>	Greetings
-T 1585906061 18<19storm\18>	Hey
-T 1585909560 18<19Hamilton18>	Is there sth wrong with Alacritty right-click->copy or the problem is my setuo?
-T 1585909976 18<25kchibisov_18>	Right click does nothing
-T 1585910025 18<25kchibisov_18>	It doesn’t reset selection anymore, etc.
-T 1585910027 18<19Hamilton18>	kchibisov_, oh select copies. Still sometime it doesn't work it seems...not sure
-T 1585910054 18<25kchibisov_18>	I mean copy is select and LMB release
-T 1585920452 18<22nixpulvis18>	Hey, catching up on PRs/issues today, had a surprise April 1st deadline lol.
-T 1585920624 18<20sidh18>	I would need your advices : I installed alacritty on Hgh sierra osx and I installed alacritty-colorscheme, I downloded themes and when I run alacritty-colorscheme -C whereis/themes-dir -T, I got "Bad configuration file"
-T 1585920684 18<20sidh18>	configuration file is retrived from alacritty git repo
-T 1585920696 18<20sidh18>	is there a way to have log or debug
-T 1585920749 18<22nixpulvis18>	I've honestly never heard of the tool `alacritty-colorscheme`.
-T 1585920801 18<22nixpulvis18>	sidh: logging is done with -v, -vv, and -vvv. But config errors should report in the red error bar.
-T 1585920820 18<22ifreund18>	me neither but i found a github repo https://github.com/toggle-corp/alacritty-colorscheme
-T 1585920824 18<20sidh18>	https://github.com/toggle-corp/alacritty-colorscheme
-T 1585920919 18<22nixpulvis18>	What's the config error?
 T 1585920947 18<20sidh18>	ok so it is not alacritty itself , it is pure related to this third party tool
 T 1585920958 18<22nixpulvis18>	I would assume so.
 T 1585920976 18<20sidh18>	alacritty-colorscheme -C ~/.config/alacritty/.eendroroy-alacritty-theme/themes/ -t solarized_light.yaml solarized_dark.yaml
@@ -5101,3 +4997,120 @@ T 1616607345 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@ala
 T 1616619229 18<20ScottHDev518>	when I do Ctrl+Shift+Return, it's tabbed which spawns the new alacritty window. That's why it's tabbed which should ask the previous alacritty window where the user shell was in order to spawn the knew one at the same place. If the container doesn't do it, what is going to do it ?
 T 1616619251 18<20ScottHDev518>	*new
 T 1616620267 18<19rcf18>	ScottHDev5: for zsh (what I use) I'd probably go with something along the lines of https://rcf.sdf.org/pb/t/fa3dad20 in my .zshrc to allow for this. 
+T 1616796509 19*	Now talking on 22#alacritty
+T 1616796509 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+T 1616796509 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Feb 20 01:05:57 2021)
+T 1616796660 18<24UndeadLeech18>	I mean surely ST also has a read buffer and doesn't process everything byte by byte, right? How big is it?
+T 1616796687 18<20avih18>	rcf: UndeadLeech: anyway, can you synthesize a scenario where one of your buffers just keeps growing?
+T 1616796703 18<24UndeadLeech18>	I don't see how that would be possible in theory.
+T 1616796714 18<24UndeadLeech18>	So I don't see any point in trying to waste my time finding it in practice.
+T 1616796731 18<20avih18>	read buffer is BUFSIZ. whatever got read is processed byte by byte.
+T 1616796755 18<24UndeadLeech18>	Ah, that might be too small.
+T 1616796768 18<24UndeadLeech18>	Pretty sure BUFSIZ is just a fixed 8k or something?
+T 1616796775 18<20avih18>	(it doesn't read byte-by-byte, unless at any read only one byte is available to read, or one byte remains available at the read buffer)
+T 1616796818 18<20avih18>	i think POSIX says BUFSIZ is at least 256 bytes, and typically it's 2K-4K
+T 1616796850 18<24UndeadLeech18>	Yeah, but on my system at least I'm pretty sure it's smaller than my PTY buffer size.
+T 1616796869 18<24UndeadLeech18>	Thus it cannot help with a smooth operation.
+T 1616796890 18<24UndeadLeech18>	Still fine if you read quick enough, but potentially problematic.
+T 1616796920 18<20avih18>	well, it wasn't not-helpful until now where i came up with this example.
+T 1616796938 18<24UndeadLeech18>	I mean it's basically just an arbitrary size.
+T 1616796945 18<20avih18>	and i'm trying to fix it.
+T 1616796950 18<20avih18>	yes
+T 1616796985 18<20avih18>	obviously it's an issue. i can solve it with either discarding or growing till OOM. trying to figure out which would be better.
+T 1616797028 18<20avih18>	for now my patch discards, but it's trivial to make it grow instead.
+T 1616797057 18<24UndeadLeech18>	Could also increase the buffer size until you are at a point where in most cases you're bigger than the PTY.
+T 1616797076 18<24UndeadLeech18>	Say 1MiB for example, I doubt you'd find a PTY out there that is bigger.
+T 1616797105 18<20avih18>	the question is whether there can be pathological cases which make it grow forever.
+T 1616797116 18<24UndeadLeech18>	It can't grow, because it can't write.
+T 1616797121 18<24UndeadLeech18>	I feel like you don't understand.
+T 1616797137 18<20avih18>	sure, bigger fixed size will make the issue less evident, but it won't make it go away if there are pathological cases.
+T 1616797180 18<20avih18>	UndeadLeech: it's entirely possible. i said more than once that i lack an intuitive understanding of the subject.
+T 1616797208 18<24UndeadLeech18>	I mean realistically it shouldn't be that big of a deal.
+T 1616797243 18<20avih18>	it's not. no one ever bumped into the issue until now ehen i came up with this test case
+T 1616797247 18<19rcf18>	Letting it run for all this time the growth in resident size has been... a few pages. 
+T 1616797259 18<24UndeadLeech18>	Alacritty you mean?
+T 1616797268 18<19rcf18>	Alacritty with the offending loop. 
+T 1616797283 18<20avih18>	and i came up with it by analysing the source code. noticed the recursion, what could trigger it (usually there's no recursion), and synthesized a case which makes it recurse forever.
+T 1616797287 18<24UndeadLeech18>	Oh, are you on a slow system?
+T 1616797297 18<24UndeadLeech18>	Or did you just decrease the font size a bunch?
+T 1616797315 18<20avih18>	no. it's a decent system.
+T 1616797325 18<20avih18>	(not state of the art, but decent)
+T 1616797349 18<24UndeadLeech18>	Talking to rcf.
+T 1616797358 18<24UndeadLeech18>	Because it sounds like his system can't keep up with the loop.
+T 1616797362 18<20avih18>	the issue in st is when every read produces more written bytes than the read.
+T 1616797380 18<24UndeadLeech18>	Yeah I get that, it should produce problems with a lot of terminals at some point.
+T 1616797388 18<24UndeadLeech18>	You just need to find something that produces enough output fast enough.
+T 1616797424 18<20avih18>	i guess in st the breakpoint reaches quickly due to the very small buffers.
+T 1616797456 18<19rcf18>	The system works fine, the point is that the mismatched IO here is so miniscule that filling the write queue to the point OOM is simply not going to happen without an insane person ignoring the fact that their terminal is unresponsive for weeks. 
+T 1616797466 18<24UndeadLeech18>	Also this is not recursive, since a separate process is triggering you.
+T 1616797468 18<20avih18>	well, it would be trivial for me to change the fis to allow infinite grow (till OOM) and observe how much it grows in practice.
+T 1616797478 18<20avih18>	change the fix*
+T 1616797485 18<24UndeadLeech18>	You're just making the issue worse by "amplifying" the "attack".
+T 1616797511 18<24UndeadLeech18>	Chances are it will grow infinitely (till OOM)
+T 1616797530 18<20avih18>	it's a possibility. maybe likely.
+T 1616797551 18<19rcf18>	avih: the attack isn't truly novel; it's the same slow loris that people enjoyed using against Apache some years ago. Just with different file descriptors. 
+T 1616797565 18<24UndeadLeech18>	You'd have to somehow make sure the other process isn't allowed access to the PTY.
+T 1616797573 18<19rcf18>	The difference is that as the terminal is interactive, you can't not notice it. 
+T 1616797584 18<24UndeadLeech18>	Because ultimately the stimulus from a different process that isn't restricted by the terminal's single-threadedness is causing the problems.
+T 1616797600 18<20avih18>	so can such attack be performed against alacritty?
+T 1616797621 18<20avih18>	or is it immune to it due to better design?
+T 1616797623 18<24UndeadLeech18>	Pretty sure if I decrease the font size enough, I'm not sure if bash is sufficiently fast.
+T 1616797646 18<24UndeadLeech18>	Let me test again.
+T 1616797671 18<20avih18>	do use big terminal and/or small font so that the cursor position printouts are long-ish
+T 1616797696 18<24UndeadLeech18>	I think bash is too slow.
+T 1616797716 18<20avih18>	try alacritty -e sh -c '<that loop>'
+T 1616797720 18<24UndeadLeech18>	Currently testing with a 2526x1374 grid and I don't think it's leaking.
+T 1616797759 18<20avih18>	that's way bigger than what i tried (with st). i tried with ~ 250x70 cells
+T 1616797760 18<24UndeadLeech18>	Let me write a program that emits this escape a bunch.
+T 1616797843 18<20avih18>	is that on linux btw? fwiw, i'm testing on ubuntu 18.04 LTS. didn't try with other systems yet (though i have plenty standing by for experiments)
+T 1616797917 18<20avih18>	fwiw, if what i think is correct, then the speed it prints the sequence is not the issue (i.e. shell should be enough at least to observe mem usage growth)
+T 1616797935 18<24UndeadLeech18>	Yeah of course linux.
+T 1616797948 18<20avih18>	dunno, could be bsd, solaris...
+T 1616797962 18<24UndeadLeech18>	lol
+T 1616797967 18<20avih18>	?
+T 1616798001 18<24UndeadLeech18>	I don't do a lot, but when I do I usually like to get stuff done.
+T 1616798035 18<20avih18>	not sure i follow. i.e. you're only productive with linux?
+T 1616798038 18<24UndeadLeech18>	Nah, even with a custom program writing just this I can't get Alacritty to leak on a massive grid.
+T 1616798062 18<20avih18>	that's great.
+T 1616798070 18<24UndeadLeech18>	Kinda surprised tbh.
+T 1616798090 18<20avih18>	i think it's the design, which throttles itself automatically
+T 1616798121 18<24UndeadLeech18>	I don't think so, because it only throttles itself, not the external process.
+T 1616798138 18<20avih18>	optimally, that's what i want to achieve. and evidently from your observations, it should be possible, and there should not be pathological cases which make it grow indefinitely
+T 1616798171 18<24UndeadLeech18>	I think you'd have to lock the file for the entire read -> write cycle, but Alacritty doesn't do that.
+T 1616798183 18<24UndeadLeech18>	So I don't quite understand why it doesn't misbehave.
+T 1616798189 18<20avih18>	:)
+T 1616798224 18<20avih18>	that's a bad problem to have :) (seriously)
+T 1616798362 18<20avih18>	i think i'll change my fix to grow-as-needed. with the discard fix (and some printouts) i can see it discarding 8-16 bytes once in a while (not a lot, it doesn't flood the output). i'll change it to grow and observe the size in practice.
+T 1616798400 18<20avih18>	at least to get some more data points. because i don't fully understand it yet.
+T 1616798430 18<24UndeadLeech18>	Can you just make ST faster?
+T 1616798457 18<20avih18>	in which real world scenario is it too slow for your needs?
+T 1616798497 18<20avih18>	(i don't have any, but different people...)
+T 1616798533 18<24UndeadLeech18>	I think the only reason why this is happening in ST but not Alacritty, is because Alacritty is faster at draining the PTY than the application is at writing. Though I honestly don't see how that would be possible with the program I wrote myself.
+T 1616798550 18<24UndeadLeech18>	But it's possible that when the buffer is full, Alacritty manages to hog the file.
+T 1616798703 18<20avih18>	i don't see how that could be a reason. if you drain slower, then you also throttle the application writes. the speed doesn't matter here ithink.
+T 1616798775 18<20avih18>	the app writes as much as it's allowed to write. if you don't drain it fast enough, the app will block on write until you read.
+T 1616798780 18<24UndeadLeech18>	Here's the thing though, every write the application gets in will cause an occupant to be present in read-write buffers. But if the application is a non-factor, the write buffer size will decline.
+T 1616798821 18<24UndeadLeech18>	So if the application blocks on write for example, you read, then the application instantly manages to fill the buffer again (without you writing to it yourself), your write buffer will grow in size -> no bueno.
+T 1616798854 18<24UndeadLeech18>	If the application blocks on write, but you manage to snatch the file for read and write, then there will be a net negative in write buffer size.
+T 1616798875 18<24UndeadLeech18>	So basically pausing for a second to deal with the debt.
+T 1616798907 18<20avih18>	not if you write more than you read. that's the scenario i'm suspecting. on such case the speed doesn't matter. only that you keep writing more than you read.
+T 1616798927 18<24UndeadLeech18>	I think you're thinking about this wrong: There's nothing recursive about this.
+T 1616798943 18<24UndeadLeech18>	If you write more than you read, your net write buffer size still shrinks continuously.
+T 1616798948 18<20avih18>	i never said it's recursive. only that the current implementation in st is.
+T 1616798958 18<24UndeadLeech18>	Ah, fair enough.
+T 1616798991 18<20avih18>	(and my patch breaks the recursion, and can reach states where it needs to discard writes)
+T 1616799037 18<20avih18>	i can change it to not discard and instead block. i presume this will deadlock (didn't try)
+T 1616799288 18<20avih18>	or rather, it can recurse in my test case. but outside of this case i couldn't make it recurse.
+T 1616799291 18<24UndeadLeech18>	Ah, it must be a timing/locking thing.
+T 1616799301 18<24UndeadLeech18>	If you have a lock on the file while reading/writing, you're good.
+T 1616799316 18<20avih18>	no locking is used.
+T 1616799327 18<24UndeadLeech18>	If the application is able to write, between your read/write, you'll go pathological at some point.
+T 1616799345 18<24UndeadLeech18>	Alacritty isn't locking either, but I think that would be the only "correct" solution.
+T 1616799526 18<24UndeadLeech18>	https://paste.rs/U8r
+T 1616799661 18<20avih18>	well, this is interesting. i increased the (new) write buffer size from BUFSIZ to 4*BUFSIZ, and now it doesn't need to discard anymore even after many seconds of running this loop. i can see the write buffer occasionally growing (holding more pending writes), but soon afterwards it manages to flush everything without needing to discard anything
+T 1616799913 18<20avih18>	(my code tries a non-blocking flush after every read but before processing the read data, and possibly generating more write, like with cursor position)
+T 1616800030 20*	Disconnected (20)
+T 1616833749 19*	Now talking on 22#alacritty
+T 1616833749 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+T 1616833749 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Feb 20 01:05:57 2021)
+T 1616842418 24*	28alexherbo27 is now known as 18alexherbo2

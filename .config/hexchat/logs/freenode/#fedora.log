@@ -12513,3 +12513,126 @@ Mar 24 22:52:07 <_val_>	Is it atheros?
 Mar 24 22:53:10 FiSHLiM plugin unloaded
 **** ENDING LOGGING AT Wed Mar 24 22:53:10 2021
 
+**** BEGIN LOGGING AT Fri Mar 26 23:08:29 2021
+
+Mar 26 23:08:29 *	Now talking on #fedora
+Mar 26 23:08:29 *	Topic for #fedora is: Fedora Linux F32, F33, F34B end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins
+Mar 26 23:08:29 *	Topic for #fedora set by Khaytsus!~khaytsus@fedora/khaytsus (Tue Mar 23 16:04:50 2021)
+Mar 26 23:08:29 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Mar 26 23:08:34 <warren>	yeah curious when the health numbers are almost the same
+Mar 26 23:10:05 *	gramestad is now known as Lomanotte
+Mar 26 23:10:15 <warren>	I've had random good luck buying enterprise SSD's used. Two years ago bought a dozen 2GB's. Most of them arrived unopened/unused. One was accidentally 4TB.
+Mar 26 23:10:24 <warren>	err 2TB's
+Mar 26 23:10:41 <cmurf>	i guess you could try formatting them?
+Mar 26 23:10:50 <cmurf>	the nvme format command i mean
+Mar 26 23:11:20 <cmurf>	are both the reads and writes affected? or just writes?
+Mar 26 23:12:02 <cmurf>	specs are 2800 M/s read, 1900 M/s write
+Mar 26 23:14:02 <warren>	does nvme format do anything different from blkdiscard?
+Mar 26 23:14:40 <warren>	cmurf: i need a better tool to measure performance, bonnie++ was messy. it seems both read and write were slower but I want to test it again
+Mar 26 23:15:02 <warren>	zodbot thought I was giving karma to someone LOL
+Mar 26 23:17:35 <cmurf>	nvme format will erase all cells, blkdiscard only erases cells with assigned LBAs
+Mar 26 23:18:01 <cmurf>	due to the flash translation layer, possibly quite a lot aren't assigned at any given time
+Mar 26 23:18:47 <warren>	ohh I'll give that a try
+Mar 26 23:18:58 <cmurf>	i don't suppose it will make any difference
+Mar 26 23:19:05 <cmurf>	but *shrug*
+Mar 26 23:20:52 <warren>	# nvme format /dev/nvme1n1
+Mar 26 23:20:52 <warren>	invalid lbaf:255
+Mar 26 23:22:06 <cmurf>	https://github.com/linux-nvme/nvme-cli/issues/650
+Mar 26 23:23:37 <warren>	I don't really understand what they're saying there but apparently --lbaf=0 is correct?
+Mar 26 23:23:52 <cmurf>	so that might be a work around, but i think it means that your device probably needs
+Mar 26 23:24:22 <cmurf>	nvme format /dev/nvme0 --namespace-id=1 --ses=1
+Mar 26 23:24:32 <cmurf>	i don't know for sure if -ses=1 is needed
+Mar 26 23:25:23 <cmurf>	the doc is confusing, it says for -s that erase does xyz, but does that only apply to Secure Erase? And is Secure Erase only --ses=1 or 2? or also 0?
+Mar 26 23:26:03 <cmurf>	ok i guess 0 is no secure erase; but is 'erase' in the context of -s *any* of the options or just 1 or 2
+Mar 26 23:26:09 <cmurf>	i would do both :P
+Mar 26 23:26:11 <cmurf>	haha
+Mar 26 23:26:35 <cmurf>	--ses=1 is probably what you want if supported but it's a 2014 nvme so quite an early example
+Mar 26 23:26:47 <cmurf>	if it doesn't work then just omit it
+Mar 26 23:29:03 *	denisse is now known as owo
+Mar 26 23:29:22 <cmurf>	oh my, quite verbose information with 'sudo nvme id-ctrl -H /dev/nvme0n1'
+Mar 26 23:29:33 *	owo is now known as Guest66114
+Mar 26 23:29:40 *	Guest66114 is now known as denisse
+Mar 26 23:30:48 *	denisse is now known as uwu
+Mar 26 23:30:56 *	uwu is now known as group
+Mar 26 23:31:00 *	group is now known as uwu
+Mar 26 23:31:18 *	uwu is now known as Guest90092
+Mar 26 23:32:15 <cmurf>	this is so much like secret decoder ring stuff
+Mar 26 23:34:54 <cmurf>	and what the heck is --reset? it just says reset after successful format, ok? but what does reset do?
+Mar 26 23:35:33 <cmurf>	you did successfully apply a newer firmware for both of them?
+Mar 26 23:35:46 <warren>	yes it was easy with intel's cli tool
+Mar 26 23:35:58 <cmurf>	interesting
+Mar 26 23:37:13 <cmurf>	i don't know enough about what a namespace is, I think it's like a virtual device
+Mar 26 23:37:24 <cmurf>	it's sorta like a partition but at the nvme level
+Mar 26 23:37:25 <warren>	dd writing 1TB on both drives they're identical now
+Mar 26 23:37:40 <cmurf>	i don't know how separated the namespacing is
+Mar 26 23:37:48 <cmurf>	ha
+Mar 26 23:37:59 <cmurf>	so was it the reformat or was it the firmware?
+Mar 26 23:38:02 <cmurf>	or both?
+Mar 26 23:38:20 <warren>	bonnie++ test was after the firmware upgrade, dd test was after the format
+Mar 26 23:38:48 <cmurf>	ok which format command did you end up using?
+Mar 26 23:38:54 <warren>	--lbaf=0
+Mar 26 23:39:45 <warren>	the man page lies
+Mar 26 23:40:32 <cmurf>	if you can believe it, things are alot better with the nvme command today than just a few years ago
+Mar 26 23:40:50 <cmurf>	it's still pretty goofy compared to smartctl or hdparm
+Mar 26 23:40:59 <warren>	I can see that
+Mar 26 23:41:00 <cmurf>	but even hdparm has its own strange ways
+Mar 26 23:41:15 <cmurf>	like -W controls the write cache and -w will blow up the drive
+Mar 26 23:41:17 <warren>	I'll be back in a few hours, another workload test should be done by then.
+Mar 26 23:41:23 <warren>	LOL
+Mar 26 23:41:45 <cmurf>	seriously, worth doing a man search on hdparm for the word DANGEROUS
+Mar 26 23:41:55 <linuxmodder>	is this nvme disk level encrypting / erasing ( with seds )?
+Mar 26 23:41:56 <cmurf>	almost like there are fewer non-danger commands
+Mar 26 23:42:07 <cmurf>	2014 probably not
+Mar 26 23:42:19 <cmurf>	the other command i gave reveals that
+Mar 26 23:42:52 <cmurf>	nvme id-ctrl -H /dev/nvme0n1 | grep-i  'crypt\|sanit'
+Mar 26 23:44:51 <cmurf>	its functionally like ATA Security Erase (using hdparm) for a SATA SSD
+Mar 26 23:45:14 <kk4ewt>	i use scrub -fp dod on everything
+Mar 26 23:45:50 <linuxmodder>	^^
+Mar 26 23:46:08 <linuxmodder>	or for those things that matter too much .... dod long
+Mar 26 23:46:22 <kk4ewt>	good enough for the DoD good enough for me
+Mar 26 23:46:48 <cmurf>	NIST 800-88 actually doesn't recommend that
+Mar 26 23:47:03 <kk4ewt>	and i have had drives checked by the DOD and they said they were good
+Mar 26 23:47:42 <cmurf>	for old drives that didn't have sector remapping, probably worked
+Mar 26 23:48:10 <kk4ewt>	works great because it makes a file and builds and wipes the f
+Mar 26 23:48:12 <kk4ewt>	ile
+Mar 26 23:48:30 <cmurf>	yeah but that only wipes sectors that have LBAs
+Mar 26 23:48:43 <kk4ewt>	wipes ssd fine
+Mar 26 23:49:00 <cmurf>	it definitely doesn't work on SSDs
+Mar 26 23:49:19 <cmurf>	anywhere from 1% to 20% of the sectors/cells on an SSD have no LBA
+Mar 26 23:49:25 <cmurf>	and it's constantly changing
+Mar 26 23:49:26 <kk4ewt>	of course the whole thing about phantomly being able to ready a drive has been debunked
+Mar 26 23:49:47 <kk4ewt>	so all 0s or 1s is fine
+Mar 26 23:52:39 <fedbot>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Mar 27 00:07:10 *	Disconnected ()
+**** ENDING LOGGING AT Sat Mar 27 00:07:10 2021
+
+**** BEGIN LOGGING AT Sat Mar 27 09:29:09 2021
+
+Mar 27 09:29:09 *	Now talking on #fedora
+Mar 27 09:29:09 *	Topic for #fedora is: Fedora Linux F32, F33, F34B end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins
+Mar 27 09:29:09 *	Topic for #fedora set by Khaytsus!~khaytsus@fedora/khaytsus (Tue Mar 23 16:04:50 2021)
+Mar 27 09:29:09 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Mar 27 09:35:11 <lateef>	does anyone know how to update packages on GnomeOS? It doesn't use DNF.
+Mar 27 09:41:36 <zbr|rover>	Did fedora lowered the sshd MaxSessions recently? I discovered that it can impact container building using remoting and had to bump it to 50.
+Mar 27 09:42:13 <zbr|rover>	I was not able to find any bugzilla entry on MaxSessions but what can I say... Your query was taking longer than 120 seconds and had to be killed.
+Mar 27 09:48:56 <bloodstalker>	where can i get a download link for fedora rawhide's rootfs?
+Mar 27 09:53:13 <fedbot>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Mar 27 09:54:25 <zbr|rover>	oh.. s***, that bz is useless, refused to add bug due to unkown link, asked me to press back and guess what my entire bug submission content was lost, only the title remained populated.
+Mar 27 09:55:57 <Mac101>	Hey having an issue where my monitor wont wake up after a blank screen timeout on the gdm screen
+Mar 27 09:56:06 <Mac101>	anyone know any way to force wake it up?
+Mar 27 09:56:33 <Mac101>	occurs on 5.10.x 5.11.x, but not 5.8.xx kernels
+Mar 27 10:02:50 <bloodstalker>	nvm. found it.
+Mar 27 10:39:18 <cyberjunkie>	Anyone here able to help me with Wayland?
+Mar 27 10:53:14 <fedbot>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Mar 27 11:18:19 <ryszard>	hey
+Mar 27 11:19:51 <ryszard>	for some time I experience UI falls apart on Fedora Workstation 33 with Wayland and Radeon HD6310
+Mar 27 11:23:22 <ryszard>	by fall apart I mean that i.e. on login page I can see only textbox to type in password, then after login te top bar where clock should be is empty etc
+Mar 27 11:26:28 <zbr|rover>	https://bugzilla.redhat.com/show_bug.cgi?id=1943770
+Mar 27 11:33:59 <Mac101>	anyone?
+Mar 27 11:39:04 <joydeep_taiga>	<Mac101 "occurs on 5.10.x 5.11.x, but not"> how about 5.9? Sounds like you need a bisect.
+Mar 27 11:43:12 <Mac101>	havent got 5.9 installed to test
+Mar 27 11:43:15 <Mac101>	whats a bisect?
+Mar 27 11:43:58 <joydeep_taiga>	search up git bisect, basically you build a bunch of kernel images and it finds where the bug was introduced in O(logn) time
+Mar 27 11:53:18 <fedbot>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+**** ENDING LOGGING AT Sat Mar 27 12:09:33 2021
+

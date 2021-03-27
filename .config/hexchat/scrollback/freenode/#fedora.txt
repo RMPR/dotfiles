@@ -1,1077 +1,3 @@
-T 1602880384 18<26quippy18>	never mind i'm an idiot I turned off my speakers and forgot
-T 1602880413 18<27kwizart18>	please ask questions to ask.fedoraproject.org if no answer from this channel
-T 1602880457 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602881752 18<26Khaytsus18>	Arc: is it not just postgis?
-T 1602881837 18<26Khaytsus18>	Al, okay.. looks like no SFCGAL for Fedora, so not built into that postgis
-T 1602882404 18<26Caterpillar18>	kwizart: do you know how to start Xorg with -logverbose 6  ?
-T 1602882426 18<26Caterpillar18>	it's suggested in https://forums.developer.nvidia.com/t/if-you-have-a-problem-please-read-this-first/27131
-T 1602882434 18<26Caterpillar18>	the login manager is sddm
-T 1602882933 18<27kwizart18>	Caterpillar, well, run "startx -- -logverbose 6"
-T 1602882954 18<27kwizart18>	eventually before systemctl isolate multi-user
-T 1602883953 18<26Caterpillar18>	kwizart: mmh ok
-T 1602884060 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602886619 18<29x033gg18>	hey guys i am trying to watch a few mist videos for education
-T 1602886642 18<29x033gg18>	i am using two browsers on fedora chrome and fedora but unable to watch the videos, it just shows 0 percent.
-T 1602886662 18<29x033gg18>	what plugin would i be missing to be able to watch some video that was working on my work laptop :P
-T 1602886667 18<29x033gg18>	I just do not use winblows @ home
-T 1602886760 18<29x033gg18>	 Gatzzzbeee
-T 1602886774 18<22daniel-wtd18>	x033gg: for fedora you will need the rpm-fusion repo and the package ffmpeg-libs
-T 1602886789 18<29x033gg18>	thanks
-T 1602886791 18<22daniel-wtd18>	afterwards restart firefox and it will play almost everything
-T 1602886798 18<22daniel-wtd18>	even netflix
-T 1602886806 18<29x033gg18>	wow you are the man of the night
-T 1602886845 18<22daniel-wtd18>	sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-T 1602886862 18<22daniel-wtd18>	sudo dnf install ffmpeg-libs -y
-T 1602886868 18<22daniel-wtd18>	should do the trick
-T 1602887028 18<29x033gg18>	iget No match for argument: ffmpeg-libs
-T 1602887040 18<29x033gg18>	oh wait i didnt see the whole thing
-T 1602887445 18<29x033gg18>	if this works you are the man because at work they keep blocking me from education lmao :P
-T 1602887533 18<29x033gg18>	yes!
-T 1602887539 18<29x033gg18>	you guys are awesome!
-T 1602887633 18<22daniel-wtd18>	;)
-T 1602887637 18<22daniel-wtd18>	have fuin
-T 1602887639 18<22daniel-wtd18>	*fun
-T 1602887657 18<29x033gg18>	need the education :D
-T 1602887662 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602889605 18<29Arc18>	Khaytsus: So back to the question, how do I get it on fedora?
-T 1602889623 18<29Arc18>	if manual compilation is required the answer becomes "switch distros"
-T 1602889632 18<29Arc18>	so I'm looking for an alternate RPM source
-T 1602889799 18<29Arc18>	to repeat the question; I'm on Fedora 32 and I can't figure out how to find the package that includes the postgis_sfcgal postgresql extension. I'm looking for an alternate RPM source for gdal and sfcgal
-T 1602889926 18<20cmurf18>	or build it in copr
-T 1602889946 18<29Arc18>	if I'm manually building, I'm switching to gentoo.
-T 1602889959 18<20cmurf18>	it's not manually building
-T 1602889966 18<20cmurf18>	it's automatic, your own repo
-T 1602890033 18<20cmurf18>	maybe someone's already done it, worth searching
-T 1602890040 18<20cmurf18>	not sure how commont this extension is
-T 1602890121 18<29Arc18>	within the GIS community its very common. But this is the problem using binary distros, someone else made a choice to limit what everyone else can do with it
-T 1602890218 18<29Arc18>	everyone I'm working with is running arch, gentoo, or ubuntu. Within the GIS community Fedora is no bueno
-T 1602890557 18<26Dan3918>	Arc: "GIS community"?
-T 1602890582 18<29Arc18>	developers that work with GIS data
-T 1602890591 18<26Dan3918>	lol
-T 1602890602 18<26Dan3918>	nevemrind, bye
-T 1602891221 18<29Arc18>	And that's why I keep switching to Gentoo. I don't know why I keep making the mistake of installing Fedora.
-T 1602891265 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602892876 20*	Disconnected (20)
-T 1602893262 19*	Now talking on 22#fedora
-T 1602893262 22*	Topic for 22#fedora is: #Fedora F31, F32, F33 Beta end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/f31commonbugs https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F32 Live isos: https://tinyurl.com/Live-respins ||
-T 1602893262 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Sep 29 15:18:38 2020)
-T 1602893262 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1602894867 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602894949 18<19tidux18>	Is F33 or F34 going to get Wireguard integration in GNOME yet?
-T 1602894993 18<19tidux18>	I'm rolling out Wireguard to replace an old OpenVPN setup and it'd be easier for my users if there was just a graphical process to set up.
-T 1602895753 22*	26ChanServ gives channel operator status to 18fedbot
-T 1602898469 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602902071 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602902095 18<20grinchier18>	hello all is there a usb wifi card I can buy that will work with secure boot?
-T 1602902175 18<20grinchier18>	https://www.modio.se/installing-realtek-8821ce-driver-on-system-with-secureboot-enabled.html  trying to follow these instructions here but i must be doing something wrong
-T 1602902194 18<20grinchier18>	I would just disable secure boot,  but on this hp laptop it magically re-enables itself after a week or two.
-T 1602902796 18<26terriblemistake18>	guys, i need help. i added an nvme device to lvm. i created a lvm partition on it ("gpt"), created a pv, added it to the vm and extended the lv and the fs. everything worked until i rebooted.
-T 1602902844 18<26terriblemistake18>	running lvm_scan in the recovery shell, i get "couldnt find device with uuid NNNN (last written to /dev/nvme0n1p1)
-T 1602902878 18<29der_Alte18>	did you rerun dracut?đ
-T 1602902887 18<26terriblemistake18>	i guess something went wrong with fedora reading the nvme device? someone could give me a light, please?
-T 1602902906 18<26terriblemistake18>	no, i did not
-T 1602902969 18<26terriblemistake18>	der_Alte, from here do you believe there's how to recover my OS?
-T 1602903034 18<29der_Alte18>	well, yes, but you will need the recovery environment
-T 1602903058 18<29der_Alte18>	adn make sure that nvme driver is loaded
-T 1602903064 18<26terriblemistake18>	der_Alte oh sure, i am logged to the recovery shell atm
-T 1602903115 18<29der_Alte18>	can you modprobe nvme ?
-T 1602903159 18<26terriblemistake18>	this recovery shell doesn't have fdisk, lsblsk or cfdisk. i am checking dmesg now, looking for clues
-T 1602903165 18<26terriblemistake18>	i will try
-T 1602903201 18<29der_Alte18>	boot into recovery environment if you extended / FS
-T 1602903222 18<29der_Alte18>	obviously that means eiher a DVD or USB key
-T 1602903245 18<29der_Alte18>	or PXE if you have that on your local net
-T 1602903301 18<26terriblemistake18>	der_Alte, i've just rebooted, and selected the rescue option, i see everything here
-T 1602903303 18<26terriblemistake18>	my files, etc
-T 1602903345 18<26terriblemistake18>	like, my root partition, everything is here. lvm is fine here
-T 1602903442 18<29der_Alte18>	mount the root fs
-T 1602903488 18<29der_Alte18>	and then rebuild initramfs with dracut for *the version of the kernel* that is in grub2 menu
-T 1602903554 18<26terriblemistake18>	der_Alte root fs is mounted, everything seems fine in this rescue mode
-T 1602903569 18<26terriblemistake18>	ok, will do. i am doing a last time backup first
-T 1602903599 18<29der_Alte18>	check devices with lsblk
-T 1602903631 18<26terriblemistake18>	all devices are here, everything is really fine here in this rescue mode
-T 1602903777 18<19tidux18>	terriblemistake: sounds like you just forgot to add a driver to your initramfs with dracut
-T 1602903977 18<26terriblemistake18>	right. so basically, i should run dracut --regenerate-all 5.8.15 ?
-T 1602904103 18<26terriblemistake18>	tidux, i guess so. i didn't know i would need to deal with dracut
-T 1602904159 18<26terriblemistake18>	it's weird though that the rescue mode found everything. after i typed in the root passwd, i got logged in with everything mounted and all
-T 1602904260 18<26terriblemistake18>	actually, i think it's dracut --regenerate-all --kver 5.8.15-101.fc31.x86_64
-T 1602904282 18<29der_Alte18>	because it has the nvme driver in initramfs
-T 1602904309 18<26terriblemistake18>	der_Alte sound good? just asking to ensure i won't make it worse
-T 1602904337 18<29der_Alte18>	make sure that you include the nvme driver
-T 1602904386 18<29der_Alte18>	man dracut
-T 1602904410 18<26terriblemistake18>	k
-T 1602904669 18<26terriblemistake18>	works, der_Alte, thanks a lot
-T 1602904689 18<26terriblemistake18>	der_Alte++
-T 1602905672 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602909274 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602912877 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602914444 18<25zhou18>	help me
-T 1602914446 18<25zhou18>	passwd: Authentication token manipulation error
-T 1602914505 18<25zhou18>	[root@localhost-live /]# echo "zhou:zhou" | chpasswd -c SHA512
-T 1602916480 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602920082 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602923696 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602924590 18<22Water_27300935_18>	Hi, how to disable 'Web console' ?
-T 1602927298 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602929387 18<29kevr18>	for some reason, ssh isn't accepting my pubkey auth in one specific user i created named `borg`.
-T 1602929394 18<29kevr18>	home directory is at /data/borg
-T 1602929423 18<29kevr18>	with root and another user located in /home/user, the pubkey auth works fine
-T 1602929550 18<29kevr18>	yeah, for users with home dirs in /data it seems broken
-T 1602930079 18<26bkircher18>	kevr: with SELinux is enabled
-T 1602930085 18<29kevr18>	how do i fix it up?
-T 1602930129 18<26bkircher18>	sorry, wanted to write "With SELinux enabled?"
-T 1602930181 18<29kevr18>	ah, yes.
-T 1602930190 18<29kevr18>	i googled up regarding selinux, found https://blog.tinned-software.net/ssh-key-authentication-is-not-working-selinux/
-T 1602930196 18<29kevr18>	worked out. thanks!
-T 1602930615 18<26bkircher18>	np
-T 1602930900 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602931072 18<27stmuk18>	hi
-T 1602934503 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602937670 18<26OnlyHuman18>	got rawhide created iso to boot yesterday, though some personal configs never stuck, but its useable  :)
-T 1602937693 18<26OnlyHuman18>	http://www.enlightenment.org/ss/e-5f8a0f17c3b612.78880493.jpg
-T 1602938105 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602938416 20*	Disconnected (20)
-T 1602938492 19*	Now talking on 22#fedora
-T 1602938492 22*	Topic for 22#fedora is: #Fedora F31, F32, F33 Beta end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/f31commonbugs https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F32 Live isos: https://tinyurl.com/Live-respins ||
-T 1602938492 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Sep 29 15:18:38 2020)
-T 1602938492 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1602941708 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602943214 18<29Ilgaz18>	I have firefox video functionality broken on intel 5500 gpu wayland/another distro. Should I alert the person who made this acceleration possible or wait for him to spot the issue?
-T 1602945310 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602948912 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602951319 18<26Khaytsus18>	uuuuuuuuggghhhhhhhhhh something has gone wrong with audio, PA is suspended, all the time...  nothing will play.
-T 1602951889 18<26Khaytsus18>	And no idea what I did and it works..  gah
-T 1602952515 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602953946 18<24cornyst18>	Khaytsus: Had same problem a month ago. Re-installing and rebooting resolved issue for me
-T 1602955244 18<26Khaytsus18>	cornyst: Reinstalling what?  Sadly I don't think I did anything, so I'm sure this will come back.  I'm not sure what's going on
-T 1602956117 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602956262 18<27sdgathman18>	rsyslogd[847]: imjournal from <elissa:psi-notify>: begin to drop messages due to rate-limiting
-T 1602956272 18<27sdgathman18>	rsyslog is really bogging the system down
-T 1602956280 18<27sdgathman18>	That is in the journalctl
-T 1602956319 18<26Khaytsus18>	Seriously doubt rsyslog is bogging anything down
-T 1602956319 18<27sdgathman18>	I turned off rsyslog service.  Hope it's not essential
-T 1602956338 18<27sdgathman18>	It was absolutely rsyslogd
-T 1602956343 18<26Khaytsus18>	..k
-T 1602956351 18<26Khaytsus18>	Anyway, no, rsyslog has been optional for several releases
-T 1602956366 18<27sdgathman18>	Now, it might be something trying to send it a %^&$ ton of messages ...
-T 1602956388 18<27sdgathman18>	Anyway, back to normal after stopping it.
-T 1602956397 18<27sdgathman18>	I might disable it if not really needed.
-T 1602956427 18<27sdgathman18>	rsyslogd[847]: imjournal: ignoring invalid state file /var/lib/rsyslog/imjournal.state [v8.2008.0]
-T 1602956476 18<27sdgathman18>	Another error it got that might be triggering the problem
-T 1602956661 18<24cornyst18>	Khaytsus: Sorry! When you stated PA suspended, I probably incorrectly assuned you meant pulseaudio!
-T 1602956680 18<24cornyst18>	Assumed
-T 1602956756 18<26Khaytsus18>	cornyst: yep, that' what I meant, pulseaudio
-T 1602956869 18<26Khaytsus18>	cornyst: I very rarely have any issues with PA, this one was an odd one.  Still confused what was going on, I'll have to reboot later to see if it recurrs but right now I need audio
-T 1602956901 18<20cmurf18>	best guess is if rsyslog enabled, then you probably want journald conf storage set to volatile
-T 1602956982 18<20cmurf18>	or you can set storage=none
-T 1602957008 18<20cmurf18>	syslog socket still works when storage=none
-T 1602957112 18<26Khaytsus18>	Yeah I think he's fixed a symptom not a problem, but anywho
-T 1602957727 18<27sdgathman18>	I'm on a job, so I can't dig into the actual problem.  Stopping rsyslogd let's me continue working...
-T 1602957757 18<27sdgathman18>	Upgrading a client from c5 (!) to c8 ...
-T 1602957789 18<27sdgathman18>	Also dead disk on the raid array.
-T 1602957799 18<20cmurf18>	eek
-T 1602957885 18<27sdgathman18>	It's not that bad, fresh install of c8, copy stuff over from remaining good disk.
-T 1602957961 18<20cmurf18>	i'm not super familiar with rsyslog so i'm not sure why it would become busy
-T 1602957988 18<20cmurf18>	if anything it receives less information on the syslog socket and should have as much stuff to write out
-T 1602958177 18<20cmurf18>	should ^not have
-T 1602959157 18<26Khaytsus18>	Let me guess, you're doing some insane in-place upgrade using some method you came up with
-T 1602959374 18<20cmurf18>	he said fresh install and copy over so i don't think it's in-place
-T 1602959414 18<20cmurf18>	perf top -p PID might reveal some clue why
-T 1602959534 18<20cmurf18>	bcc-tools has some neat tools for narrowing down various sources of latency
-T 1602959719 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602959788 18<26Khaytsus18>	Never know with that one ;)
-T 1602961706 18<19ryszard18>	what screen recording do you use on gnome/wayland?
-T 1602962712 18<22akik18>	getting this error when installing kernel-core-5.8.15-101.fc31.x86_64 on f31, root on btrfs: dracut-install: ERROR: installing 'btrfs'
-T 1602962715 18<22akik18>	dracut: FAILED:  /usr/lib/dracut/dracut-install -D /var/tmp/dracut.w9aRaK/initramfs --kerneldir /lib/modules/5.8.15-101.fc31.x86_64/ -m btrfs
-T 1602963321 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602966922 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602970524 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602971890 18<20cmurf18>	akik: maybe more verbose output would help
-T 1602971907 18<20cmurf18>	or possibly there's a malformed drop-in config in /etc ?
-T 1602972275 18<22akik18>	cmurf: do you mean i should try to re-create the initramfs with dracut? i removed 5.18.15 packages for now
-T 1602972287 18<20cmurf18>	it's a new error?
-T 1602972296 18<20cmurf18>	just 5.18.15?
-T 1602972298 18<22akik18>	the kernel updates so fast i don't mind skipping a version
-T 1602972303 18<22akik18>	cmurf: yes new error
-T 1602972403 18<20cmurf18>	hmm weird
-T 1602972429 18<20cmurf18>	it's either a location configuration triggering it or it's a bug (or both)
-T 1602972449 18<20cmurf18>	anything unique about the installation?
-T 1602972456 18<22akik18>	cmurf: i can run that dracut-install command manually
-T 1602972478 18<20cmurf18>	yeah but why '-m btrfs'
-T 1602972480 18<22akik18>	i mean in a minute
-T 1602972521 18<22akik18>	cmurf: this system has /boot on ext3 and / and /home on btrfs
-T 1602972545 18<20cmurf18>	maybe dracut sees / on btrfs and adds -m btrfs
-T 1602972560 18<20cmurf18>	but why would it fail
-T 1602972632 18<20cmurf18>	can you post the entire journal somewhere?
-T 1602972657 18<22akik18>	cmurf: yes just a minute, it's installing now
-T 1602972659 18<20cmurf18>	journalctl -b --no-hostname -o short-monotonic
-T 1602972760 18<20cmurf18>	i don't see anything btrfs related in the 5.8.15 kernel commits for fc31
-T 1602972762 18<20cmurf18>	https://src.fedoraproject.org/rpms/kernel/c/67f15457dbf3534ecfebd1216752dc88e172642b?branch=f31
-T 1602972806 18<20cmurf18>	dracut on fc31 was last update in May so that's probably not the cause
-T 1602972957 18<22akik18>	the journalctl -b 0 outputs 30k lines
-T 1602972965 18<22akik18>	are you sure you need that?
-T 1602973435 18<22akik18>	cmurf: ok i get the same error with: dracut -f /boot/initramfs-5.8.15-101.fc31.x86_64.img 5.8.15-101.fc31.x86_64
-T 1602973495 18<20cmurf18>	hmmmm
-T 1602973548 18<20cmurf18>	can you add --debug
-T 1602973555 18<20cmurf18>	and then post the output somewhere
-T 1602973590 18<22akik18>	cmurf: the error comes after this line: Oct 18 01:23:36 ac dracut[200478]: *** Including modules done ***
-T 1602973598 18<22akik18>	sure
-T 1602973858 18<22akik18>	cmurf: here's the logfile for dracut --debug: https://transfer.sh/aBDp3/dracut.log
-T 1602974105 18<20cmurf18>	what's the most recent successful kernel you've tried?
-T 1602974127 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602974150 18<22akik18>	cmurf: i'm on 5.18.13 now
-T 1602974187 18<22akik18>	cmurf: i can try re-installing 5.18.13 to see if i missed that error
-T 1602974211 18<20cmurf18>	any difference in the /boot/config file for 5.18.13 and 5.18.15? i.e. grep BTRFS /config/config...
-T 1602974221 18<20cmurf18>	good idea
-T 1602974259 18<22akik18>	cmurf: no, just two lines with the kernel versions
-T 1602974264 18<22akik18>	differences that is
-T 1602974318 18<20cmurf18>	do the configs show btrfs is a module or built-in
-T 1602974429 18<22akik18>	CONFIG_BTRFS_FS=y
-T 1602974447 18<20cmurf18>	hmm
-T 1602974448 18<20cmurf18>	for both?
-T 1602974455 18<20cmurf18>	13 and 15
-T 1602974470 18<20cmurf18>	but yeah good idea to see if the error happens with dracut -f for .13
-T 1602974474 18<20cmurf18>	no debug needed
-T 1602974657 18<22akik18>	cmurf: yes =y for both
-T 1602974668 18<20cmurf18>	interesting
-T 1602974826 18<20cmurf18>	so i think you're going to see the same error for 5.8.13
-T 1602974829 18<20cmurf18>	but it's non-fatal
-T 1602974836 18<20cmurf18>	there is not btrfs modue
-T 1602974846 18<20cmurf18>	i think that version of dracut isn't expecting btrfs to be built-in
-T 1602974898 18<20cmurf18>	5.8 series was the first to have it set to built-in instead of as a module
-T 1602974933 18<22akik18>	cmurf: ok i'm getting the same error on 5.8.13 too
-T 1602974954 18<20cmurf18>	yeah i think it's not fatal based on your debug log
-T 1602974989 18<22akik18>	ok thanks
-T 1602974991 18<20cmurf18>	it is technically a bug i think
-T 1602975006 18<20cmurf18>	if you want to file a bug against dracut you can so others find it
-T 1602975136 18<29Time-Warp18>	looking for matthew miller
-T 1602975511 18<20cmurf18>	but fc32 has the same version of dracut
-T 1602975517 18<20cmurf18>	so why doesn't this problem  happen there?
-T 1602977729 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602977766 18<28rakee18>	Just installed fedora on my host and I am using it to stream video from nfs using vlc, but it seems to consume disc space for some reason (nothing else is running). /{home,opt,root,run,srv,sys,tmp,usr,var} are all constant according to du -sh ... any idea why this occurs? thanks!
-T 1602978136 18<29kk4ewt18>	it has to download it into something to play it
-T 1602978152 18<29kk4ewt18>	usually into var
-T 1602978157 18<29kk4ewt18>	or tmp
-T 1602978175 18<28rakee18>	kk4ewt, yes, so I thought, but both are constant in size
-T 1602978306 18<29kk4ewt18>	ram or swap
-T 1602978448 18<28rakee18>	kk4ewt, it makes df -h / output grow smaller, swap shouldn't do that now should it?
-T 1602979213 18<29kk4ewt18>	what is growing smaller
-T 1602979237 18<29kk4ewt18>	root yes becasue tmp comes out of /
-T 1602979237 18<28rakee18>	kk4ewt, /
-T 1602979268 18<28rakee18>	kk4ewt, isn't /tmp a tmpfs so it shouldn't show up, now should it
-T 1602979289 18<29kk4ewt18>	it is still part of /
-T 1602979293 18<28rakee18>	anyway on my system it's tmpfs and it's completely empty
-T 1602979314 18<29kk4ewt18>	you are fine, your system is fine
-T 1602979325 18<28rakee18>	so what? df -h shows filesystems not paths
-T 1602979342 18<29kk4ewt18>	yes
-T 1602979416 18<28rakee18>	kk4ewt, well why is / fs getting populated then? proportionally to video stream
-T 1602979452 18<28rakee18>	du -sh  /{home,opt,root,run,srv,sys,tmp,usr,var} is constant on all accounts
-T 1602979485 18<28rakee18>	and du -sh /mnt (where nfs is mounted) seems pointless
-T 1602979542 18<29kk4ewt18>	df -h |fpaste
-T 1602979542 18<29kk4ewt18>	mount |fpaste
-T 1602979992 18<28rakee18>	kk4ewt, https://paste.centos.org/view/a2b8ed0d https://paste.centos.org/view/d44eb080
-T 1602980335 18<28rakee18>	https://paste.centos.org/view/a2b8ed0d https://paste.centos.org/view/d44eb080
-T 1602980352 18<28rakee18>	just in case you didn't get it
-T 1602980720 18<20cmurf18>	rakee: the only think a bit out of the ordinary is /dev/shm seems high to me
-T 1602980724 18<20cmurf18>	tmpfs           5.9G     0  5.9G   0% /dev/shm
-T 1602980726 18<20cmurf18>	that's what i get
-T 1602980774 18<28rakee18>	cmurf, shm started to be filled after root partition went to 0
-T 1602980831 18<20cmurf18>	hmm
-T 1602980854 18<20cmurf18>	oh yeah missed that :P
-T 1602980857 18<20cmurf18>	/dev/mapper/fedora_localhost--live-root   40G   38G  916K 100% /
-T 1602980860 18<20cmurf18>	that's odd
-T 1602980907 18<20cmurf18>	what do you get for swapon
-T 1602980970 18<20cmurf18>	tell you what though, you might do a kind of "emergency" delete of some things you can spare to avoid running out of space on /
-T 1602980976 18<20cmurf18>	otherwise it'll get cranky
-T 1602981007 18<28rakee18>	cmurf, don't have swap
-T 1602981010 18<20cmurf18>	one of the things  you can do without in the short term is /var/cache/dnf/
-T 1602981037 18<20cmurf18>	you can just rm -rf that, it'll free up maybe 30MB
-T 1602981053 18<28rakee18>	already deleted some files a day or so ago, but that only postpones it
-T 1602981056 18<20cmurf18>	another one is /var/cache/PackageKit/ - maybe 100MB or so
-T 1602981087 18<20cmurf18>	yeah but 916K is basically zero, this is just to give you breathing room right now so you can find the real problem
-T 1602981109 18<28rakee18>	moved close to 10G to the nfs, went down real fast after streaming from the nfs again
-T 1602981118 18<28rakee18>	good call, yeah
-T 1602981130 18<20cmurf18>	i don't know why streaming would affect space on /
-T 1602981162 18<20cmurf18>	i don't see /home
-T 1602981165 18<20cmurf18>	is it on / ?
-T 1602981172 18<28rakee18>	yup
-T 1602981180 18<28rakee18>	it's a single purpose machine really, just for streaming
-T 1602981184 18<20cmurf18>	ok so maybe the real issue is going on in /home
-T 1602981187 18<20cmurf18>	oh
-T 1602981188 18<20cmurf18>	i see
-T 1602981208 18<28rakee18>	according to du -sh, /home remained constant throughout all this
-T 1602981215 18<20cmurf18>	ok
-T 1602981226 18<20cmurf18>	du -sh /var
-T 1602981228 18<20cmurf18>	what's that look like
-T 1602981248 18<28rakee18>	1.8G
-T 1602981274 18<20cmurf18>	yeah not bad, mines 23G
-T 1602981283 18<20cmurf18>	haha wait why is it 23G?!
-T 1602981288 18<20cmurf18>	oh VM's nevermind
-T 1602981291 18<28rakee18>	 /var/cache is taking up close to 700, spool another 500
-T 1602981307 18<20cmurf18>	spool contains an abrt dir, could be coredumps in there
-T 1602981332 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602981355 18<20cmurf18>	but also not sure where your free space normally is before the current situation
-T 1602981364 18<20cmurf18>	anyway it's process of elimination to find out what's eating the space
-T 1602981381 18<20cmurf18>	fatrace might be useful if you're looking for a heavy writer of something
-T 1602981521 18<28rakee18>	don't know that one, but what would I trace? vlc? that'd have to be in /home ... not sure how to trace the nfs ecosystem
-T 1602981537 18<28rakee18>	oh, it's systemwide
-T 1602981689 18<20cmurf18>	you can trace whatever you want with -c
-T 1602981702 18<28rakee18>	cmurf, brace yourself, it was a user zombie process (simplescreenrecorder) that apparently kept 29G somewhere on the drive
-T 1602981716 18<20cmurf18>	just cd to the dir of the fs you want and then use -c and it'll only trace that fs
-T 1602981725 18<20cmurf18>	but it shows everything happening on it
-T 1602981732 18<20cmurf18>	haha!
-T 1602981742 18<28rakee18>	thanks for your help though, I will look into fatrace ... looks interesting
-T 1602981833 18<20cmurf18>	file access trace :)
-T 1602982540 18<20cmurf18>	akik: well i'm stuck, no changes in dracut and yet this error doesn't happen on f33 where btrfs is also built-in
-T 1602982556 18<20cmurf18>	this is what i sometimes call goofy cakes
-T 1602983550 18<28KE0VVT18>	Is there a way to put EVERYTHING in “~/.local/bin/” in my “$PATH”? Some of my programs are in subdirectories.
-T 1602983714 18<26Khaytsus18>	pip dumps junk in there, what else does?
-T 1602984644 18<22rwaltr18>	Howdy Yall, I am trying to deploy k8s from Fedora's repo, and I am having an issue with both K8s with Moby-engine and Cri-o where the kubelet fails with the error mesage `...server.go:156] unknown flag: --allow-privledged` even when I remove it from /etc/kubernetes/config, Any advice, this is kubelet v1.15.8-beta.0
-T 1602984731 18<22rwaltr18>	it seems realated to the issue posted on minikube https://github.com/kubernetes/minikube/issues/4371 but that was version 1.15.1
-T 1602984934 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602985048 18<20sonnyjitsu18>	Hello
-T 1602987233 18<20cmurf18>	akik: i can't reproduce the problem with a clean install of f31
-T 1602987408 18<20cmurf18>	what do you get for 'ls -l /etc/dracut.conf.d/ | fpaste' ?
-T 1602988425 18<20sonnyjitsu18>	New to Hexchat and IRC, can someone tell me why my username shows up twice in the list? Once has [m] next to it.
-T 1602988536 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1602988600 18<22rwaltr18>	[m] is the tag from the Matrix bridge
-T 1602988647 18<20sonnyjitsu18>	THanks
-T 1602990268 18<22Subsentient18>	How's Fedora 33 coming along? Expected release date? Figure it's better to ask instead of trusting the wiki.
-T 1602991075 18<20nb18>	@f33release
-T 1602991075 18<28fedbot18>	Fedora 33 is planned for release on 2020-10-27, which was 1 week, 2 days, 3 hours, 41 minutes, and 52 seconds from now
-T 1602992138 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1603046667 20*	Disconnected (20)
-T 1603046694 19*	Now talking on 22#fedora
-T 1603046694 22*	Topic for 22#fedora is: #Fedora F31, F32, F33 Beta end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/f31commonbugs https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F32 Live isos: https://tinyurl.com/Live-respins ||
-T 1603046694 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Sep 29 15:18:38 2020)
-T 1603046695 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1603048326 18<26gonification18>	Is the documentation on Rawhide still accurate? For example, I don't see any mention of package "gating"?
-T 1603049547 20*	Disconnected (20)
-T 1603049622 20*	Disconnected (20Remote host closed socket)
-T 1603049691 20*	Disconnected (20Remote host closed socket)
-T 1603049760 20*	Disconnected (20Remote host closed socket)
-T 1603049794 19*	Now talking on 22#fedora
-T 1603049794 22*	Topic for 22#fedora is: #Fedora F31, F32, F33 Beta end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/f31commonbugs https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F32 Live isos: https://tinyurl.com/Live-respins ||
-T 1603049794 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Sep 29 15:18:38 2020)
-T 1603049796 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1603053379 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1603056980 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1603057153 18<19fedora_sec18>	I love what my fedora system looks like now
-T 1603060582 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1603061400 18<29rlpowell18>	Ugh. I cannot get my craze VMs to work with blscfg ;(
-T 1603061407 18<29rlpowell18>	s/craze/crazy/
-T 1603061787 20*	Disconnected (20)
-T 1603061944 20*	Disconnected (20Remote host closed socket)
-T 1603062012 20*	Disconnected (20Remote host closed socket)
-T 1603062040 19*	Now talking on 22#fedora
-T 1603062040 22*	Topic for 22#fedora is: #Fedora F31, F32, F33 Beta end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/f31commonbugs https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F32 Live isos: https://tinyurl.com/Live-respins ||
-T 1603062040 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Sep 29 15:18:38 2020)
-T 1603062041 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1603062389 18<29rlpowell18>	Ended up having to add the following to grubenv: root=(hd0) prefix=(hd0)/grub2 boot=hd0
-T 1603062416 18<29rlpowell18>	I mean, it's my own fault for my completely wacky VM disk configuration; /boot and / are two separate *disks* from the VM's POV.
-T 1603062419 18<29rlpowell18>	Buh ugh that was a nightmare.
-T 1603064185 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1603067624 18<26gonification18>	Are there other chats where the community is more active? Perhaps this is just a low activity time.
-T 1603067703 18<27Sokel18>	it's sunday in most places.
-T 1603067786 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1603067970 18<26gonification18>	Sokel Yes, that may be what is doing it. Thought it may be more active during a weekend.
-T 1603068285 18<26gonification18>	Thanks
-T 1603070119 18<19dowdle18>	gonification: Join all 130 #fedora-$whatever channels
-T 1603071387 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1603074990 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1603093329 20*	Disconnected (20)
-T 1603093355 19*	Now talking on 22#fedora
-T 1603093355 22*	Topic for 22#fedora is: #Fedora F31, F32, F33 Beta end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/f31commonbugs https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F32 Live isos: https://tinyurl.com/Live-respins ||
-T 1603093355 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Sep 29 15:18:37 2020)
-T 1603093355 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1603095937 18<25tyzef18>	hi ! how are you guys?
-T 1603096602 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1603096698 18<29pta200218>	Hello
-T 1603096703 18<29pta200218>	I have an issue with emoji
-T 1603096713 18<29pta200218>	Everywhere uses noto color emoji by default, except discord
-T 1603096723 18<29pta200218>	it was installed from an rpm, not from a flaptka
-T 1603096741 18<29pta200218>	discord is only using noto emoji as a fallback if whatever emoji font is there doesn't have them
-T 1603100204 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1603103794 18<24TheHermann18>	i have install ocaml by dnf install, but i get ./build: line 137: ocamlfind: command not found
-T 1603103806 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1603104566 18<28FranciscoD18>	TheHermann: sudo dnf whatprovides '*/ocamlfind'
-T 1603104606 18<28FranciscoD18>	if you think this should be installed when you install ocaml, please file a bug against ocaml so that the maintainer can look into it
-T 1603107408 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1603108505 18<19amharris18>	Hi, folks!  I've used (GNU/)Linux for quite a long time overall but have been away from using it on my own machines for a fair number of years, (aside from when I have scriptable, headless instances).  Got Fedora (33 beta) spun up on a new mini PC [ASUS PN50 - AMD Renior (4800U)] and it's all running smoothly, but I'm having an odd problem I'm trying to figure out.
-T 1603108666 18<19fedora_sec18>	What's the odd problem?
-T 1603108691 18<19amharris18>	In short, whether at high loads or idling, the system will eventually and intermittently crash to a black screen.  I'm not sure if it's GNOME, but it seems to be a fairly messy state.  If I press the power button (to go into suspend), it'll then spit out errors in a text interface, but I basically have to hard reset [at least so far].
-T 1603108707 18<19fedora_sec18>	Are you using KDE?
-T 1603108716 18<19amharris18>	Nope.  GNOME; bog-standard Workstation.
-T 1603108725 18<19amharris18>	on Wayland (and Btrfs).
-T 1603108749 18<19[Enrico]18>	amharris: can you switch to tty and check if there is any kernel message / trace ?
-T 1603108752 18<19amharris18>	Not sure if it's a problem with Renior, given it's still fairly recent, or if it's 33; or a combination.
-T 1603108780 18<19fedora_sec18>	Ah wayland. Does the computer automatically lock itself? Because I was using Parrot OS and when it tried to lock itself, it would freeze because it didn't have the right thing to lock itself, so I switched off the auto locking and switched the rendering too
-T 1603108869 18<19amharris18>	[Enrico]: Yeah, I tried to jump into the logs and system logs sometimes throw a warning of access.  I don't think I've ever 'main'-ed GNOME 3 (and it's been so long since I've played around with a new setup; last Linux workstation was on Debian Wheezy with OpenBox ...yup!).
-T 1603108890 18<19[Enrico]18>	amharris: it also looks like you system doesn't die, it's just the screen going black so you can check the syslog for those
-T 1603108896 18<19amharris18>	[Enrico]: I'm at work right now, but I'll get as much info as I can when I get home.
-T 1603108916 18<19[Enrico]18>	amharris: also: use the sysrq to restart the system if it happens, don't use the power button (but you need to enable the sysrq to do so, they are disabled by default)
-T 1603108918 18<19amharris18>	[Enrico]: hehe, hence my little explanation above. ;-)
-T 1603108975 18<26Khaytsus18>	If not suggested yet, try the Xorg (Classic) login vs Wayland.
-T 1603108980 18<19[Enrico]18>	amharris: to enable: echo 'kernel.sysrq = 1' > /etc/sysctl.d/sysrq.conf
-T 1603109004 18<19amharris18>	Not sure if it's relevant at all but having never really had more of a business-orientated system before, I didn't really think about 1.2V for the DRAM and got 1.35V 3200MHz memory instead (but not at JEDEC spec and only XMP); listed as compatible but it clocks it down to 2666MHz at 1.2V.  Not sure if that's relevant at all.
-T 1603109065 18<19[Enrico]18>	amharris: that would be a point for the hardware vendor, not for Fedora people I suppose, we can only speculate on that topic :)
-T 1603109110 18<19amharris18>	[Enrico]: Albeit a touch embarrassing, I've never actually used SysRq.  Though I get the basics of what it does, what's the reason you're suggesting/requesting I use it to restart the system?
-T 1603109135 18<19amharris18>	[Enrico]: True, true.  Just throwing it out there in case there's an "aha!  I've seen/heard about this before." :-)
-T 1603109173 18<19[Enrico]18>	amharris: with the sysrq equence s u b, you will sync the cache to disk (s), remount everything read only (u), and then reset (b). This is a way of shutting down with less risk of corrupting the file system
-T 1603109450 18<19amharris18>	[Enrico]: Ah, fab—just what I like. :-)  I hope that worst case it'd just be a few bits being flipped and not a risk of a borked install [with hard resets]. >.<
-T 1603109516 18<19[Enrico]18>	amharris: without sysrq the chances of having a borked install are much lower I'd say
-T 1603109567 18<19amharris18>	[Enrico]: Do you mean 'with'?
-T 1603111156 20*	Disconnected (20)
-T 1603111636 19*	Now talking on 22#fedora
-T 1603111636 22*	Topic for 22#fedora is: #Fedora F31, F32, F33 Beta end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/f31commonbugs https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F32 Live isos: https://tinyurl.com/Live-respins ||
-T 1603111636 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Sep 29 15:18:38 2020)
-T 1603111637 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1603111785 18<19amharris18>	Southern_Gentlem: Ah, right.  Well, so long as I can find a way to avoid using VirtualBox and still run my Vagrant instances for scripts and frameworks that expect to see VirtualBox, then that's all I need.  I really want to avoid using it and only need it for projects where it's headless anyway.
-T 1603111950 18<27kwizart18>	Southern_Gentlem, it shouldn't be needed to reboot since kernel 3.13 or something. You still cannot use vbox and kvm at the same time, but no reboot should be needed
-T 1603112164 18<26Khaytsus18>	amharris: It's trivial to make vagrant use kvm
-T 1603112222 18<19amharris18>	Khaytsus: Yeah, I appreciate that.  'Tis more a matter of if Laravel gets in the way as I believe it expects to see one of the four I mentioned.  I'm sure it'll work, based off of what you've said.  I'll keep you posted.
-T 1603114276 20*	Disconnected (20)
-T 1603119626 19*	Now talking on 22#fedora
-T 1603119626 22*	Topic for 22#fedora is: #Fedora F31, F32, F33 Beta end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/f31commonbugs https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F32 Live isos: https://tinyurl.com/Live-respins ||
-T 1603119626 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Sep 29 15:18:38 2020)
-T 1603119627 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1603121818 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1603188438 19*	Now talking on 22#fedora
-T 1603188438 22*	Topic for 22#fedora is: #Fedora F31, F32, F33 Beta end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/f31commonbugs https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F32 Live isos: https://tinyurl.com/Live-respins ||
-T 1603188438 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Sep 29 15:18:37 2020)
-T 1603188439 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1603190260 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1603191892 18<19amharris18>	[Enrico]: Could you elaborate on what may be happening in reference to when you mentioned the possibility of the system 'losing the OS disk', earlier?
-T 1603193468 18<28tete_18>	hi, is there a way to install npm 12.x on fedora with a package manager and without messing up the system? because of that https://github.com/dpskvn/express-sse/issues/28
-T 1603193862 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1603194035 18<28tete_18>	oh, install nodejs 12 on fedora 33 beta, seems like on fedora 32 it is nodejs 12.x
-T 1603194552 18<25aaa__18>	hmmmm
-T 1603194562 18<25aaa__18>	are the matrix and irc bridged?
-T 1603194583 18<28tete_18>	yes, otherwise there wont be users with a [m] here
-T 1603194735 18<26Khaytsus18>	Unfortunately.
-T 1603195194 22*	26ChanServ gives channel operator status to 18Khaytsus
-T 1603195232 22*	26Khaytsus removes ban on 18$a:gambl0re##fix_your_connection
-T 1603195238 22*	26ChanServ removes channel operator status from 18Khaytsus
-T 1603197028 18<19fedora_sec18>	@weather
-T 1603197029 18<28fedbot18>	fedora_sec: Error: You're missing some capability you need. This could be because you actually possess the anti-capability for the capability that's required of you, or because the channel provides that anti-capability by default, or because the global capabilities include that anti-capability. Or, it could be because the channel or supybot.capabilities.default is set to False, meaning that no commands are allowed unless explicitly in your capabilities. Either 
-T 1603197153 18<26mschorm18>	Hello. I made a directory containing only bunch of downloaded RPMs. Inside, I ran "createrepo_c ./". I added new repofile named "repo_graph.repo" to /etc/yum.repos.d/, which looks like this:
-T 1603197153 18<26mschorm18>	  [repo_graph]
-T 1603197153 18<26mschorm18>	  name=repo_graph
-T 1603197153 18<26mschorm18>	  metalink=file:///DATA/REPO_GRAPH
-T 1603197153 18<26mschorm18>	Then I ran "dnf list available --repo=repo_graph" and go following error:
-T 1603197154 22*	26fedbot sets quiet on 18*!*@2a02:8308:b086:8200:ee42:a390:9de4:5a04
-T 1603197186 22*	26fedbot removes quiet on 18*!*@2a02:8308:b086:8200:ee42:a390:9de4:5a04
-T 1603197326 18<26mschorm18>	The number is nearly 400 RPMs. The "repodata" directory was created and the content seems OK. Running up-to-date F32.
-T 1603197465 18<28fedbot18>	*** F32-20201016 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1603197560 18<22Southern_Gentlem18>	mschorm, fpaste all of that please
-T 1603197584 18<26mschorm18>	okay, that will tale a while
-T 1603197603 18<22Southern_Gentlem18>	you got quieted in the middle
-T 1603198031 18<26mschorm18>	Southern_Gentlem: https://paste.centos.org/view/raw/8ba39176
-T 1603199064 18<19[Enrico]18>	amharris: in the past I had a computer where a buggy EC / BIOS was causing issues with the SATA controller. In some conditions the SATA controller would become unresponsive, thus leaving Fedora with no OS disk / partition any longer and the file system would hang
-T 1603199125 18<19amharris18>	[Enrico]: Ah, I see.  Running over NVMe PCIe here, but no doubt the same problem can occur ...just with that.  Definitely a solid possibility, now that you mention it.
-T 1603199164 18<26mschorm18>	Southern_Gentlem: I can reproduce the issue with even 1 RPM package in the diretory.
-T 1603199177 18<19[Enrico]18>	amharris: that's why I recommended to SSH into the machine from another computer and run dmesg every few seconds. If it's something similar you should see the kernel complaining about it
-T 1603199253 18<29der_Alte18>	mschorm, metalink=file:///DATA/REPO_GRAPH ?
-T 1603199263 18<29der_Alte18>	isn't that suppose to be
-T 1603199275 18<29der_Alte18>	baseurl=file:///DATA/REPO_GRAPH
-T 1603199312 18<26mschorm18>	ahhh ! yes :D
-T 1603199426 18<26mschorm18>	That's what I got from thinking that copying a most common repo (fedora.repo) and editing it would work ...
-T 1603199435 18<26mschorm18>	thank you !
-T 1603199465 18<29der_Alte18>	createrepo does not generate metalink files
-T 1603199784 18<19amharris18>	[Enrico]: Yup, makes sense.  As I say, I'll give it a whirl when I'm back home and let you know what my findings are.  Cheers.
-T 1603199901 18<19fedora_sec18>	Hey what is :0? I see it when I run the command: "last -wix -n 20"
-T 1603199936 18<19[Enrico]18>	fedora_sec: graphical session on display zero probably
-T 1603199946 18<19fedora_sec18>	Ah. Thanks [Enrico]
-T 1603199948 18<27autopsy18>	startx -- :0
-T 1603199984 18<19fedora_sec18>	I don't want to start another one I don't think. Let me check lightdm logs
-T 1603200009 18<26Khaytsus18>	It just means you logged into X...
-T 1603200032 18<19fedora_sec18>	Oh okie.
-T 1603200066 18<19fedora_sec18>	Figured that out just before you said that lol. Sorry
-T 1603200199 18<26Khaytsus18>	Interesting, wayland it isn't obvious at all
-T 1603202263 20*	Disconnected (20)
-T 1603202296 19*	Now talking on 22#fedora
-T 1603202296 22*	Topic for 22#fedora is: #Fedora F31, F32, F33 Beta end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/f31commonbugs https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F32 Live isos: https://tinyurl.com/Live-respins ||
-T 1603202296 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Sep 29 15:18:38 2020)
-T 1603202297 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1603202636 18<22cberg18>	@f31eol
-T 1603202636 18<28fedbot18>	Fedora 31 will go end of life and no longer supported one month after Fedora 33 is released, sometime around November 2020
-T 1603202686 18<19fedora_sec18>	Nooooooooo
-T 1603202694 18<19fedora_sec18>	Wait, I use fedora 32, never mind
-T 1604184739 19*	Now talking on 22#fedora
-T 1604184739 22*	Topic for 22#fedora is: #Fedora F31, F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/f31commonbugs https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F32 Live isos: https://tinyurl.com/Live-respins ||
-T 1604184739 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Oct 27 14:59:49 2020)
-T 1604184739 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1604185594 20*	Disconnected (20)
-T 1604695656 19*	Now talking on 22#fedora
-T 1604695656 22*	Topic for 22#fedora is: #Fedora F31, F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/f31commonbugs https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F32 Live isos: https://tinyurl.com/Live-respins ||
-T 1604695656 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Oct 27 14:59:49 2020)
-T 1604695656 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1604695942 18<20cmurf18>	aarch64 image are made with oz-imagefactory
-T 1604695955 18<20cmurf18>	Gaffel: ^^
-T 1604696016 18<26[R]18>	oz? but then wouldn't all the bits be upside down?
-T 1604696052 18<26Gaffel18>	cmurf, thank you. Doesn't that require a VM that can execute the target architecture ISA?
-T 1604696072 18<20cmurf18>	*shrug* not sure
-T 1604696087 18<20cmurf18>	it might work in a container
-T 1604696165 18<20cmurf18>	oh i see, best to actually comprehend the question
-T 1604696175 18<22akik18>	Gaffel: qemu can emulate arm, maybe that's how it's used
-T 1604696247 18<20cmurf18>	but my answer is still the same, not sure - but chances are that's not possible in a container
-T 1604696346 18<20cmurf18>	hmmm well, there's no compiling happening to build the image, it's basically partition->file system->extract from rpm->copy/move into position->bootloader
-T 1604696522 18<26Gaffel18>	oz uses libvirt for installing packages. I might be looking at something old.
-T 1604696811 18<19Han18>	Hi there, I installed fedora 33 a few days ago, I've got most stuff working now, but I still can't find how to make touchpad click working with the new touchpad driver. Does anyone have a clue?
-T 1604696830 18<22Southern_Gentlem18>	Han, what DE
-T 1604696924 18<19Han18>	i3wm
-T 1604696949 18<19ryszard18>	I have a funny question, how can I detailed logs of 'dnf upgrade' when it wrote on exit:
-T 1604696955 18<19ryszard18>	Complete!
-T 1604696955 18<19ryszard18>	Segmentation fault
-T 1604696958 18<19ryszard18>	:]
-T 1604696989 18<20tzlil18>	dnf segfaults? uh oh
-T 1604697108 18<19Han18>	Southern_Gentlem, I might have found it: https://askubuntu.com/questions/999680/libinput-change-touchpad-2-finger-and-3-finger-clicks
-T 1604697190 18<19Han18>	yup, great it works, the second reply did the trick. Cheers!
-T 1604698728 18<28fedbot18>	*** F32-20201102 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1604699721 18<28tete_18>	when i create a file on the desktop, i'd like to have it on my right screen (primary), not on the left. can someone tell me how to do that?
-T 1604699730 18<19knstn18>	i have configured systemd-resolved with DNSoverTLS & DNSSEC and it feels that the resolution is kinda slow (not much) compared to before. i bet this is normal right? DNSSEC takes its toll?
-T 1604702330 18<28fedbot18>	*** F32-20201102 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1604705932 18<28fedbot18>	*** F32-20201102 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1604709532 18<28fedbot18>	*** F32-20201102 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1604737306 20*	Disconnected (20)
-T 1604737330 19*	Now talking on 22#fedora
-T 1604737330 22*	Topic for 22#fedora is: #Fedora F31, F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/f31commonbugs https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F32 Live isos: https://tinyurl.com/Live-respins ||
-T 1604737330 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Oct 27 14:59:49 2020)
-T 1604737330 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1604743230 20*	Disconnected (20)
-T 1604743270 19*	Now talking on 22#fedora
-T 1604743270 22*	Topic for 22#fedora is: #Fedora F31, F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/f31commonbugs https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F32 Live isos: https://tinyurl.com/Live-respins ||
-T 1604743270 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Oct 27 14:59:49 2020)
-T 1604743272 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1604743743 18<28tete_18>	i created a ~/.xinitrc with content: "xrandr --output DP-2 --mode 2560x1440 --rate 165.00" but its not executed after login. does anybody know why?
-T 1604775856 20*	Disconnected (20)
-T 1604775961 19*	Now talking on 22#fedora
-T 1604775961 22*	Topic for 22#fedora is: #Fedora F31, F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/f31commonbugs https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F32 Live isos: https://tinyurl.com/Live-respins ||
-T 1604775961 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Oct 27 14:59:49 2020)
-T 1604775961 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1604778435 18<29RunLevelRobot18>	hello everybody
-T 1604778729 18<29RunLevelRobot18>	i am so happy to finally be on Fedora 33. This release is nice. :)
-T 1604782062 18<24mershl18>	Is it possible to "dnf download mesa" to get every mesa rpm that is usually installed?
-T 1604782226 18<19dowdle18>	mershl: dnf download mesa*
-T 1604782475 18<24mershl18>	Thanks dowdle!
-T 1604784282 18<20cmurf18>	sdgathman: you're having ipp problems out of the box? hmmm there's a test case for this
-T 1604784349 18<22felixi18>	i have a totally random question. Why was yum renamed dnf?
-T 1604784375 18<24mershl18>	It rolls better of the tongue.
-T 1604784387 18<20cmurf18>	Khaytsus: yeah possibly the first indication of an issue with swap on zram could be earlyoom killing off firefox tabs
-T 1604784392 18<22felixi18>	yum sounds tasty :]
-T 1604784459 18<27bugs_18>	dnf = dandified yum
-T 1604784471 18<27bugs_18>	dnf short for dandified
-T 1604784480 18*	22felixi digs dandified from dictionary
-T 1604784534 18<20cmurf18>	but earlyoom (workstation 32/33, kde 33) is expected to log it, so something like:
-T 1604784547 18<20cmurf18>	journalctl -b | grep 'SIGTERM\|SIGKILL'
-T 1604784550 18<20cmurf18>	should show it
-T 1604792353 18<28fedbot18>	*** F32-20201102 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1604795954 18<28fedbot18>	*** F32-20201102 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1604799089 18<29poppyschmo18>	Just upgraded to fc33, and it was painless as always (except for https://bugzilla.redhat.com/show_bug.cgi?id=1894791 but meh). Thanks for all your hard work!
-T 1604816033 20*	Disconnected (20)
-T 1604816060 19*	Now talking on 22#fedora
-T 1604816060 22*	Topic for 22#fedora is: #Fedora F31, F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/f31commonbugs https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F32 Live isos: https://tinyurl.com/Live-respins ||
-T 1604816060 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Tue Oct 27 14:59:49 2020)
-T 1604816060 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1611692084 19*	Now talking on 22#fedora
-T 1611692084 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
-T 1611692084 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
-T 1611692084 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1611693767 18<20cmurf18>	_AnK: thanks, how big was the file?
-T 1611693777 18<20cmurf18>	i wonder if this is raid1 related or if it's the size of the file
-T 1611693803 18<20cmurf18>	i'm not sure how system monitor is trying to get file system information, if it's using a gtk or glib or glibc api or what
-T 1611693836 18<20cmurf18>	i guess once we find out how system monitor gets this information, we can figure out whose bug it is
-T 1611694570 18<24_AnK18>	about 4G - copy of DVD.
-T 1611694613 18<24_AnK18>	I guess step number one is to reproduce the problem independently.
-T 1611694640 18<24_AnK18>	To confirm the observation and isolate the cause.
-T 1611694758 18<24_AnK18>	Wonder if other people observe the same. You mentioned someone, correct?
-T 1611694946 18<20fmlatghor18>	d9k: I logged in and out of my account after getting rid of my .zshrc/.zprofile (actually moving it to another folder temporarily), but I still have the problem with gnome-terminal and xterm. I've considered creating a new account, but I'm not sure if it's worth the trouble.
-T 1611695484 18<22Southern_Gentlem18>	fmlatghor, about the only way to tell if its your account or the machine
-T 1611695508 18<20fmlatghor18>	it is my account
-T 1611695523 18<20fmlatghor18>	I created a new account and changed the she -- oh wait
-T 1611695532 18<20fmlatghor18>	I didn't try logging in via gdm
-T 1611695768 18<20fmlatghor18>	yep it worked for a test account I can say confidently
-T 1611696211 18<20fmlatghor18>	I give up on fixing it, I'm just going to run zsh as a custom command and the next time I do an install then I won't have to worry about it.
-T 1611696231 18<20fmlatghor18>	I wouldn't have this problem to begin with if I just didn't do stupid things.
-T 1611697590 18<29m0lle76718>	Im trying to set a custom font in gnome-terminal but im having trouble understanding why theres only 5 different fonts to choose from in the list, when there are over 100 installed fonts in my system
-T 1611697760 18<29w00dsman18>	if you install gnome-tweaks, then go to the fonts section, then change the monospace font to whatever, in gnome-terminal it'll use that
-T 1611698218 20*	Disconnected (20)
-T 1611769223 19*	Now talking on 22#fedora
-T 1611769223 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
-T 1611769223 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
-T 1611769223 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1611769337 18<24_4n0nymous_18>	I made a typo with my nickname
-T 1611769403 18<22pgnd18>	whack-a-mole :-/
-T 1611769433 18<24_4n0nymous_18>	That's NOT `_4n0nynous_`  but I am intended to use `_4n0nymou2_`
-T 1611769433 18<24_4n0nymous_18>	@Khaytsus you can kick `_4n0nynoys_` out
-T 1611769458 18<24_4n0nymous_18>	* `_4n0nynous_`
-T 1611769459 18<26Khaytsus18>	Can we stop discussing this?
-T 1611769463 18<24_4n0nymous_18>	Ok
-T 1611769465 18<24_4n0nymous_18>	Sorry
-T 1611769491 18<24Mershl[m]18>	Guys, 2 years now with Nautilus and I can't love it. Is there an alternative that integrates well with Gnome 3?
-T 1611769526 18<28linuxmodder18>	thunar or caja work
-T 1611769563 18<26Khaytsus18>	I guess it depends on what you need to do..  but I can't help much here, I have very little use for gui file managers.  Closest I ever get is purely for picutres like with geeque
-T 1611769567 18<26Khaytsus18>	geeqie
-T 1611769604 18<28linuxmodder18>	Khaytsus,  you a cli + mc kinda user then ?
-T 1611769631 18<28linuxmodder18>	or is there some other fancy tui file manager you use
-T 1611769632 18<26Khaytsus18>	File managers in general thing, really..
-T 1611769645 18<28linuxmodder18>	just not gui ones eh?
-T 1611769645 18<26Khaytsus18>	And no, mc can die in nuclear fire
-T 1611769667 18<28linuxmodder18>	woah! but of hatred there
-T 1611769673 18<26Khaytsus18>	Yeah I guess just in general I have no use for file managers.  I used to one one called gentoo but mostly to assist in cleaning up cluteterd homedirs etc
-T 1611769679 18<28linuxmodder18>	so what other fm are there that arent gui
-T 1611769700 18<26Khaytsus18>	I messed with one once....  ranger?  but again, never found much use for it
-T 1611769701 18<24Mershl[m]18>	I know quite a lot of people that swear on Ranger
-T 1611769707 18<24Mershl[m]18>	https://github.com/ranger/ranger
-T 1611769717 18<26Khaytsus18>	I mostly swear at file managers
-T 1611769722 18<28linuxmodder18>	lol
-T 1611769894 18<24Mershl[m]18>	I just can't grasp why Nautilus is not fixing its issues. For the last 5-10 years I seem to see the same problems again and again. Truly unreliable copy to network drives, taking 5 seconds to boot if you have a harddrive mount (async? nope!), sushi (file previewer) has been broken for several months, every compressed file has the Extract here command in a different spot of the context menu, copy's estimates are worse than
-T 1611769894 18<24Mershl[m]18>	random...
-T 1611770080 18<24Mershl[m]18>	Sorry for the short rant. I had a meeting with "real life" today, my bank needed me to download documents from a web portal. The documents included forms and it was truly horrible. 1.) The web portal blocks Firefox. "Use Chrome" 2.) Switching pages on the pdf in Evince took 10 seconds on an NVME drive. 3.) Saving the forms in Evince corrupted the pdf and the webportal was no longer accepting it.
-T 1611770108 18<26Khaytsus18>	I hate PDF forms
-T 1611770128 18<24Mershl[m]18>	Me too. But normal people love them.
-T 1611770270 18<26Khaytsus18>	Yeah, because adobe's pdf stuff handles it fine I guess
-T 1611770271 18<26Khaytsus18>	I wonder if qpdfview would work better..  I have been using it as a viewer for some time now
-T 1611770271 18<28linuxmodder18>	qpdfview has been my go to as well
-T 1611770271 18<26Khaytsus18>	It does take some odd tweaking to get working 'right' though.. like it default to some SUPER LOW ram usage values, decodes one page at a time, some other stuff..  forget
-T 1611770271 18<26Khaytsus18>	Easily tweaked in its prefrences, nothing complicated
-T 1611770377 18<26Khaytsus18>	linuxmodder: Besides tweaking it to run more sane, typing it is the worst part ;)
-T 1611770402 18<28linuxmodder18>	indeed
-T 1611777382 22*	26ChanServ gives channel operator status to 18nb
-T 1611777591 18<22Southern_Gentlem18>	??
-T 1611777784 22*	26fedbot removes channel operator status from 18nb
-T 1611777896 18<22Ben_1118>	hi everyone ;)
-T 1611777955 18<22Ben_1118>	I've upgraded from fedora 31 to fedora 33 using dnf-plugin-system-upgrade.
-T 1611777974 18<22Ben_1118>	to get it working I had to remove my nvidia drivers from rpmfusion.
-T 1611778002 18<22Ben_1118>	The upgrade succeeded, but I'm not able to install the rpmfusion nvidia packages
-T 1611778005 18<22Southern_Gentlem18>	Ben_11,  so f31-f32-f33 or f31-f33
-T 1611778023 18<22Ben_1118>	Southern_Gentlem: 31-32-33
-T 1611778037 18<22Southern_Gentlem18>	did you clean up after each jump
-T 1611778040 18<22Ben_1118>	sudo dnf install dnf-plugin-nvidia produces the following error:   - nothing provides python(abi) = 3.6 needed by dnf-plugin-nvidia-2.0-1.el8.noarch
-T 1611778059 18<22Southern_Gentlem18>	well fedora doesnt use el packages
-T 1611778079 18<22Southern_Gentlem18>	Ben_11, fpaste --sysinfo
-T 1611778109 18<22Southern_Gentlem18>	rather sudo fpaste --sysinfo
-T 1611778167 18<22Ben_1118>	Southern_Gentlem: https://paste.centos.org/view/dd934f65 without sudo, don't know whether there is information missing without sudo
-T 1611778224 18<22Southern_Gentlem18>	its your  cuda-rhel8-x86_64              cuda-rhel8-x86_64 thats causing the issue
-T 1611778230 18<22Southern_Gentlem18>	repo
-T 1611778293 18<22Southern_Gentlem18>	there is not dnf-plugin-nvidia in fedora or in rpmfusion
-T 1611778311 18<22Southern_Gentlem18>	Ben_11 take a look at " http://rpmfusion.org/Howto/nVidia?highlight=Ben_118CategoryHowtoBen_119 "
-T 1611778337 18<22Southern_Gentlem18>	and also read their cuda howto
-T 1611778816 24*	caterfxo has quit (Ping timeout: 240 seconds)
-T 1611778859 23*	caterfxo (caterfxo@gateway/vpn/privateinternetaccess/caterfxo23) has joined
-T 1611778865 24*	caterfxo has quit (Excess Flood)
-T 1611778880 24*	linville has quit (Quit: Leaving)
-T 1611778884 23*	caterfxo (caterfxo@gateway/vpn/privateinternetaccess/caterfxo23) has joined
-T 1611778907 24*	uvolmer has quit (Remote host closed the connection)
-T 1611778934 18<22Southern_Gentlem18>	Ben_11, does that make sense?
-T 1611778962 18<22Ben_1118>	Southern_Gentlem: that's how I installed it in Fedora 31.
-T 1611778971 18<22Ben_1118>	I just dnf update and reboot wait a second please
-T 1611778994 24*	Ben_11 has quit (Quit: Leaving.)
-T 1611779001 18<22Southern_Gentlem18>	doesnt mean it was correct then no idea how it worked
-T 1611779044 23*	uvolmer (~uvolmer@2001-4dd0-212c-82-5acc-6b0b-da9c-d52c.ipv6dyn.netcologne.de23) has joined
-T 1611779170 18<24needmorehare18>	Southern_Gentlem, that was spot on, there's a Fedora 33 repo for it... why he used a RHEL 8 repo is beyond me
-T 1611779197 23*	_4n0nymous_ (~4n0nymou2@217.138.203.16423) has joined
-T 1611779227 24*	_4n0nymous_ has quit (Client Quit)
-T 1611779259 24*	blindcant has quit (Ping timeout: 264 seconds)
-T 1611779271 23*	blindcantt (~tool@43.245.162.13123) has joined
-T 1611779360 18<28Ben_118>	re
-T 1611779372 18<22Southern_Gentlem18>	doesnt mean it was correct then no idea how it worked
-T 1611779383 18<28Ben_118>	Southern_Gentlem: I had the hope that a dnf update fixes the issue but no
-T 1611779395 18<22Southern_Gentlem18>	no disable that redhat repo
-T 1611779399 18<28Ben_118>	On the rpmfusion tutorial they say "sudo dnf install akmod-nvidia"
-T 1611779432 18<28Ben_118>	which produces this error: package akmod-nvidia-3:455.28-1.fc33.x86_64 requires nvidia-kmod-common >= 3:455.28, but none of the providers can be installed
-T 1611779442 18<28Ben_118>	mh
-T 1611779443 18<22Southern_Gentlem18>	sudo dnf install kmod-nvidia --disablerepo=cuda-rhel8-x86_64
-T 1611779449 18<28Ben_118>	probably this is causing the issue: package nvidia-kmod-common-3:455.32.00-1.el8.noarch is filtered out by modular filtering
-T 1611779465 18<28Ben_118>	ok I will try
-T 1611779482 18<22Southern_Gentlem18>	and you may have to remove all the el8 packages from your system
-T 1611779486 18<28Ben_118>	ok seems to work
-T 1611779504 18<22Southern_Gentlem18>	rpm -qa |grep nvidia |fpaste
-T 1611779513 18<28Ben_118>	should I remove the rhel repo completely?
-T 1611779517 18<22Southern_Gentlem18>	yes
-T 1611779550 18<24needmorehare18>	Ben_1, there's a proper Fedora repo for it made by NVIDIA
-T 1611779562 18<28Ben_118>	ok thanks for your help, you saved me a lot of time
-T 1611779578 18<28Ben_118>	needmorehare: with the same packages as in rpmfusion?
-T 1611779581 18<22Southern_Gentlem18>	needmorehare, dont confuse the situation please
-T 1611779608 18*	24needmorehare stays silent until the akmod situation is cleared up
-T 1611779610 18<22Southern_Gentlem18>	Ben_1, read the rpmfusion howto for cuda
-T 1611779666 18<22Southern_Gentlem18>	Ben_1, still waiting on the rpm -qa |grep nvidia |fpaste
-T 1611779728 18<28Ben_118>	I just want to reboot to check whether everything works. Afterwards I will remove the repo and the el8 packages
-T 1611779762 18<22Southern_Gentlem18>	lets look at the command i gave you first
-T 1611779782 18<22Southern_Gentlem18>	**shakes Head **
-T 1611779856 18<22Southern_Gentlem18>	needmorehare, yeah we have dealt with these issues for years
-T 1611779885 18<22Southern_Gentlem18>	even before rpmfusion existed
-T 1611779912 18<22Southern_Gentlem18>	back in the livna days
-T 1611780719 18<28Ben_118>	Southern_Gentlem: https://paste.centos.org/view/e47899f0
-T 1611780760 18<22Southern_Gentlem18>	looks good
-T 1611780800 18<22Southern_Gentlem18>	just remember that sometime when you get a new kernel you may have to reboot twice
-T 1611780831 18<22Southern_Gentlem18>	first time the kmod builds but that is too late for the system to use it so you have to reboot a second time
-T 1611780907 18<28Ben_118>	good to know, thanks :)!
-T 1611781293 18<22AndroUser218>	Hi
-T 1611781453 18<22Southern_Gentlem18>	AndroUser2, howdy
-T 1611783290 20*	Disconnected (20)
-T 1611791627 19*	Now talking on 22#fedora
-T 1611791627 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
-T 1611791627 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
-T 1611791627 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1611792062 18<28fedbot18>	*** F33-20210114 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1611792237 18<29dan0118>	Ok, something very curious happened to me ^_^
-T 1611792280 18<29dan0118>	I've just installed Fedora 33 out of the network install, and for my surprise, Netflix could play movies without having to install ffmpeg-libs from RpmFusioun
-T 1611792291 18<29dan0118>	How come? :)
-T 1611792368 18<28gnafu18>	dan01: I'm not sure of the specifics, but I /think/ Fedora ships with "legally safe" AAC and H.264 decoding these days.
-T 1611792384 18<28gnafu18>	H.264 is provided by OpenH264.
-T 1611792393 18<28gnafu18>	And let me see if I can find the article about AAC...
-T 1611792410 18<29dan0118>	gnafu: Yes, but I always thought that only decodes some WebRTC profile, right?
-T 1611792413 18<28gnafu18>	Here we go: libva-intel-hybrid-driver
-T 1611792423 18<28gnafu18>	Oops: libva-intel-hybrid-driver
-T 1611792431 18<28gnafu18>	Dangit!  Why won't that URL copy...
-T 1611792455 18<29dan0118>	I mean don't get me wrong I don't know what I'm talking about I've just read that thing. Sure, please give the URL :)
-T 1611792458 18<29dan0118>	Can't wait to read
-T 1611792516 18<28gnafu18>	https://blogs.gnome.org/kalev/2019/09/25/out-of-box-h-264-and-aac-support-in-fedora-31-workstation/
-T 1611792556 18<28gnafu18>	dan01: I think OpenH264 used to only be for WebRTC, but it seems it's now for systemwide H.264 decoding.
-T 1611792587 18<29dan0118>	ah ok
-T 1611792607 18<29dan0118>	anyways, this is a real spoil, if that's the correct Enghlish expression
-T 1611792615 18<29dan0118>	I'm really happy about this, was a nice surprise :)
-T 1611792675 18<20NULL[m]218>	is it worth it switching from Ubuntu to Fedora?
-T 1611792681 18<20NULL[m]218>	 * is it worth it switching from (K)Ubuntu to Fedora?
-T 1611792715 18<29dan0118>	NULL[m]2: Well, these are preferences and you're on the Fedora channel :))
-T 1611792715 18<28gnafu18>	NULL[m]2: I think so, but that's in part because I haven't used Ubuntu in over 10 years ;-).
-T 1611792746 18<29dan0118>	NULL[m]2: I like Fedora because it uses more upstream aka modern software. Including Wayland/Btrfs/Kernel
-T 1611792768 18<24chrisawi18>	dan01: netflix uses vp9 by default anyway
-T 1611792774 18<20NULL[m]218>	I heard the battery life is better
-T 1611792788 18<20NULL[m]218>	but I rather like APT
-T 1611792793 18<29dan0118>	chrisawi: I know back a couple of months ago, I've did this and I could not play Netflix by default
-T 1611792796 18<28gnafu18>	chrisawi: Does it nowadays?  Last I heard, they only used VP9 for mobile downloads (watch offline).
-T 1611792866 18<29dan0118>	But maybe you are right, not sure how to check? Any website that uses for sure H.264?
-T 1611792902 18<24chrisawi18>	I just tried playing something in chrome and checked the debug info, and it seems to be using vp9 (but he-aac for audio)
-T 1611792929 18<24chrisawi18>	(ctrl+alt+shift+D)
-T 1611793146 18<29dan0118>	chrisawi: Any idea how to view that info in Firefox?
-T 1611793254 18<24chrisawi18>	that's a netflix keybinding
-T 1611793296 18<29dan0118>	yup, you're right it's vp9
-T 1611793858 18<28gnafu18>	chrisawi: Awesome!
-T 1611793882 18<28gnafu18>	I still think H.264 will work without ffmpeg-libs now, but I'm not sure.
-T 1611794089 18<29dan0118>	how can I try it?
-T 1611794593 18<28gnafu18>	dan01: You can try Vimeo.  Anything that's not a Staff Pick should use H.264 by default (and you can press "d" to see stats).
-T 1611794614 18<28gnafu18>	(There Staff Picks use AV1 if your browser supports it.)
-T 1611794625 18<28gnafu18>	s/There/Their/
-T 1611794634 18<29dan0118>	gnafu: thanks
-T 1611794876 18<29dan0118>	it says Codec:AVC / AAC
-T 1611794997 18<29dan0118>	will it's working, it's kind of lagging
-T 1611795003 18<29dan0118>	But hey! It's a progress!
-T 1611795093 18<19dowdle18>	dan01: I don't think the codec support in the OpenH264 package is very comprehensive... so installing the rpmfusion stuff is recommended... if you want a wide range of compat.
-T 1611795114 18<29dan0118>	thanks
-T 1611795129 18<29dan0118>	Is Firefox on Fedora Firefox-Wayland?
-T 1611795132 18<19dowdle18>	dan01: When hardware support for AV1 is widespread, hopefully most everything will shift to it.
-T 1611795133 24*	28CamBan69_ is now known as 18CamBan69
-T 1611795161 18<19dowdle18>	dan01: firefox-wayland is just a shell script that runs the regular firefox with the wayland flag.
-T 1611795179 18<19dowdle18>	dan01: You can look at it and see.
-T 1611795215 18<19dowdle18>	dan01: cat /usr/bin/firefox-wayland
-T 1611795306 18<29dan0118>	ah I see
-T 1611795372 18<29dan0118>	But still the question remains, does firefox run with that MOZ_ENABLE_WAYLAND=1 by default? How can I find that out?
-T 1611795433 18<29kk4ewt18>	dan01 i thought there was a firefox-wayland package
-T 1611795444 18<29dan0118>	kk4ewt: it is
-T 1611795479 18<29kk4ewt18>	so i dont think standard firefox has that
-T 1611795493 18<29kk4ewt18>	only if you add firefox-wayland
-T 1611795506 18<29dan0118>	kk4ewt: I was wondering if there's any use to install it, if firefox runs by default with MOZ_ENABLE_WAYLAND=1, but then the package would be useless I guess
-T 1611795558 18<29kk4ewt18>	i would have to look at the kickstart for workstation to see which is included
-T 1611795567 18<29kk4ewt18>	or if both are
-T 1611795580 18<29kk4ewt18>	i will check that when i am at work tomorrow
-T 1611795646 18<29dan0118>	thanks for the help all, good night!
-T 1611795665 18<28fedbot18>	*** F33-20210114 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1611795845 18<19dowdle18>	kk4ewt: The firefox-wayland package is only a shell script that runs firefox with a WAYLAND option set... so the regular firefox binary (as Fedora packages it) does both X11 and Wayland.
-T 1611795887 18<19dowdle18>	Laters
-T 1611796562 24*	28Snuupy0 is now known as 18Snuupy
-T 1611796592 18<26suavedandy18>	Guys. Seriously. Is it normal for there to be barely any user groups in the initial install.
-T 1611796593 24*	28x42_ is now known as 18x42
-T 1611796626 18<26suavedandy18>	Like, I have root, user and wheel.
-T 1611796690 18<26suavedandy18>	This was minimal local install.
-T 1611796709 18<24M10qpalzm[m]18>	i use KDE edition and my user has user and wheel group
-T 1611796717 18<26suavedandy18>	Hm.
-T 1611796738 18<24M10qpalzm[m]18>	something not work?
-T 1611796743 18<26suavedandy18>	No audio? No video?
-T 1611796749 18<26suavedandy18>	No other groups?
-T 1611796756 18<26suavedandy18>	There are lots of groups.
-T 1611796765 18<26suavedandy18>	On Void and Debian, at least.
-T 1611796793 18<26suavedandy18>	But if that's fine on Fedora then okay.
-T 1611796896 18<24M10qpalzm[m]18>	you can list all groups with
-T 1611796896 18<24M10qpalzm[m]18>	   cut -d: -f1 /etc/group
-T 1611796896 18<24M10qpalzm[m]18>	but my user only is in user, wheel yeah
-T 1611797008 24*	28angusrobot_ is now known as 18angusrobot
-T 1611797045 18<26suavedandy18>	But of course there are lots of groups.
-T 1611797069 18<26suavedandy18>	But for some reason, my user doesn't belong to them.
-T 1611797081 18<26suavedandy18>	Like, there are input, audio, video.
-T 1611797084 18<26suavedandy18>	Nope.
-T 1611797144 18<26suavedandy18>	I don't get it. Aren't groups needed for some stuff to properly function?
-T 1611797169 18<24M10qpalzm[m]18>	https://wiki.archlinux.org/index.php/Users_and_groups#Pre-systemd_groups
-T 1611797209 18*	24M10qpalzm[m] sent a long message:  < https://matrix.org/_matrix/media/r0/download/matrix.org/dJukpwAsOddnHmRMMLjlrfqd/message.txt >
-T 1611797773 18<26Khaytsus18>	suavedandy: no?
-T 1611798035 18<28linuxmodder18>	suavedandy, for some things yes but you need to have a reason the system doesnt naturally allow you to shoot yourself in the head and foot in the same instance for pete's sake
-T 1611798055 18<28linuxmodder18>	if you need those for access mostly then add what you need and nothing more
-T 1611798076 18<28linuxmodder18>	linuxmodder wheel cockpit transmission libvirt www-data
-T 1611798097 18<28linuxmodder18>	those are my users groups and those are it and system works amazingly well
-T 1611798105 18<28linuxmodder18>	and that WAS NOT out the box
-T 1611798209 18<28linuxmodder18>	cockpit for some remote stuff transmission because of some things being in that group and libvirt and ww-data for VMs and webserver resepctively all other things are set with other access needs not requiring groups
-T 1611798291 18<28linuxmodder18>	and I even do some android tweaking and you dont see anything for that, because its not needed if you use other means that are sane and safe liek udev
-T 1611798398 18*	24M10qpalzm[m] sent a long message:  < https://matrix.org/_matrix/media/r0/download/matrix.org/oOGbemEeoZanHRxLlBdtxfmT/message.txt >
-T 1611798826 24*	28angusrobot_ is now known as 18angusrobot
-T 1611799266 18<28fedbot18>	*** F33-20210114 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1611799479 24*	28Anon[m] is now known as 18Tryweirder[m]
-T 1611800502 24*	28kinkinkijkin_ is now known as 18kinkinkijkin
-T 1611800502 24*	28suavedandy_ is now known as 18suavedandy
-T 1611800503 24*	28slanck_ is now known as 18slanck
-T 1611802742 18<20fmlatghor18>	So I'm having a problem with a hard drive
-T 1611802804 18<20fmlatghor18>	It was working fine, then I got a read error. I took the drive out, then put it back in later. I'm using a sata to usb adapter. It looks like it's connected, but I don't see it in gnome-disks.
-T 1611802864 18<26[R]18>	what does dmesg sy when you plug it in
-T 1611802908 18<20fmlatghor18>	I'm not sure exactly what's happening
-T 1611802912 18<20fmlatghor18>	I'll show you
-T 1611803121 18<20fmlatghor18>	[R]: https://i.vgy.me/RCXxuD.png
-T 1611803155 18<26[R]18>	you need to take a picutre of text?
-T 1611803157 18<26[R]18>	lol
-T 1611803164 18<20fmlatghor18>	fine
-T 1611803169 18<20fmlatghor18>	here's an fpaste
-T 1611803263 18<20fmlatghor18>	[R]: https://paste.centos.org/view/decc6d87
-T 1611803292 18<26[R]18>	and at what point did you plug it in?
-T 1611803328 18<20fmlatghor18>	I put it back in then
-T 1611803344 18<20fmlatghor18>	but when when I pulled it, there wsa no new stuff
-T 1611803361 18<26[R]18>	whre in the log did you plug it in...
-T 1611803362 18<20fmlatghor18>	So I'm not sure what's going on
-T 1611803372 18<20fmlatghor18>	uh dunno
-T 1611803377 18<20fmlatghor18>	has to be awhile ago
-T 1611803522 18<20fmlatghor18>	probably has to be when itgot plugged in again
-T 1611803524 18<20fmlatghor18>	45883.975933
-T 1611803572 18<26[R]18>	well looks liek it detected an sdc and sdd and no partitions
-T 1611803607 18<20fmlatghor18>	[R]: but shouldn't it still show in disks?
-T 1611803641 18<26[R]18>	if its not fully initialziaing it
-T 1611803642 18<26[R]18>	probably not
-T 1611803647 18<26[R]18>	what does fdisk say about it?
-T 1611803694 18<20fmlatghor18>	[R]: https://paste.centos.org/view/ae50afd4
-T 1611803715 18<26[R]18>	yeah, looks like its not fully initializing, probably because its dead
-T 1611803757 18<20fmlatghor18>	damn I traded that for something
-T 1611803974 18<20fmlatghor18>	ok I just ran into a weird situation
-T 1611804004 18<20fmlatghor18>	ls /srv is empty, even as root, but nautilus is telling me it isn't
-T 1611804017 18<20fmlatghor18>	I am in much confusion
-T 1611804034 18<20fmlatghor18>	I know nautilus can be wrong, but -- I don't know.
-T 1611804056 18<20fmlatghor18>	oh
-T 1611804060 18<20fmlatghor18>	Ignore this
-T 1611804062 18<20fmlatghor18>	I feel so stupid
-T 1611804340 24*	28kdas_ is now known as 18kushal
-T 1611828343 19*	Now talking on 22#fedora
-T 1611828343 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
-T 1611828343 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
-T 1611828343 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1611830652 24*	28akahat|lunch is now known as 18akahat|rover
-T 1611831084 20*	Disconnected (20)
-T 1611999311 19*	Now talking on 22#fedora
-T 1611999311 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
-T 1611999311 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
-T 1611999312 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1612004714 24*	28soufiane is now known as 18soufiane60
-T 1612010171 20*	Disconnected (20)
-T 1612010392 19*	Now talking on 22#fedora
-T 1612010392 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
-T 1612010392 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
-T 1612010393 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1612123511 19*	Now talking on 22#fedora
-T 1612123511 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
-T 1612123511 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
-T 1612123520 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1612123573 20*	Disconnected (20)
-T 1612123600 19*	Now talking on 22#fedora
-T 1612123600 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
-T 1612123600 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
-T 1612123600 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1612124674 24*	28nickname__ is now known as 18[R]
-T 1612124966 24*	28tmsmr1 is now known as 18tmsmr
-T 1612125286 24*	28b[m]1 is now known as 18blu[m]
-T 1612125321 24*	28chelo is now known as 18cheloitguy
-T 1612125538 18<28fedbot18>	*** F33-20210129 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1612129139 18<28fedbot18>	*** F33-20210129 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1612129539 24*	28_Yoda__ is now known as 18_Yoda
-T 1612132740 18<28fedbot18>	*** F33-20210129 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1612133702 24*	28danrik9 is now known as 18danrik
-T 1612134463 20*	Disconnected (20)
-T 1612167221 19*	Now talking on 22#fedora
-T 1612167221 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
-T 1612167221 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
-T 1612167221 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1612168534 24*	28froqstar_ is now known as 18froqstar
-T 1612179612 18<25Strongstan18>	Hi
-T 1612180336 24*	28no112_04 is now known as 18no112_0
-T 1612183489 24*	28f2dmarques[m] is now known as 18f2dmarques[m]1
-T 1612185429 20*	Disconnected (20)
-T 1612185455 19*	Now talking on 22#fedora
-T 1612185455 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
-T 1612185455 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
-T 1612185456 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1612186070 18<27biscuitsboars[m]18>	Element desktop app for fedora  any file
-T 1612204442 20*	Disconnected (20)
-T 1612204469 19*	Now talking on 22#fedora
-T 1612204469 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
-T 1612204469 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
-T 1612204470 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1612204741 18<25coz_18>	ok, F33 & f34, the 5.10.10 kernel on F33 works fine with the tribar plymouth theme. The 5.10.11 and above as F34 rc4 kernel, tribar fails by showing text, a bad quality video  ,   https://www.dropbox.com/s/g6yusrciahs1895/tribar.webm?dl=0  , first part is the 5.10.10 kernel, tribar working properly, the second part shows the bug
-T 1612204794 24*	28jesusjesse is now known as 18jessetree
-T 1612205090 18<28gnafu18>	coz_: I know it's not the desired outcome, and I'm sorry I don't know how to help, but: the second one actually looks kinda cool ;-).
-T 1612205107 18<28gnafu18>	Hopefully someone else can chime in with a more useful response.
-T 1612205119 18<28wl_18>	coz_, yeah plymouth is broken for me too
-T 1612205127 18<25coz_18>	gnafu, lol no it is very distracting, it should be without text
-T 1612205135 18<25coz_18>	wl_, cool to hear thanks
-T 1612205156 18<25coz_18>	all other themes including solar work fine
-T 1612205256 18<25coz_18>	but I really like the tribar theme
-T 1612205269 18<28wl_18>	since you already have a video of it, I'd suggesting filing a bug report that links to the video demonstration
-T 1612205298 18<25coz_18>	wl_,  yeah , where I file that bug?
-T 1612205301 18<28wl_18>	I think it affects all themes, and not just tribar
-T 1612205303 18<28wl_18>	https://bugzilla.redhat.com/
-T 1612205312 18<25coz_18>	ah cool thanks wl_
-T 1612205620 18<28Xenorites18>	Hello; could use some advice. I got a new GPU - switched from an nVidia to AMD; I have removed all the nvidia diver packages, and have installed the xorg-x11-drv-amdgpu package. However, for some reason, when I try to log in (to the console, no DM installed) I am immediately logged back out now.
-T 1612205692 18<26quippy18>	hi I was wondering if anybody knew how to get a application icon to display in the dock when you manually create a .desktop file to install an app? It shows up in the Gnome Overlay / Activities pane, but not the dock on the left hand side for some reason
-T 1612205732 18<28Xenorites18>	I did the package uninstall/reinstall from a chroot, since graphical console completely froze on boot with the GPU installed initially
-T 1612205776 18<22Southern_Gentlem18>	Xenorites, google dracut
-T 1612205797 18<28Xenorites18>	quippy: you need to add applications to the dock yourself; it's not done automatically
-T 1612205818 18<26quippy18>	oh no sorry, I mean that when it is added, the icon image is not displayed
-T 1612205837 18<26quippy18>	but the image is displayed normally in the Activities overview
-T 1612205847 18<22Southern_Gentlem18>	Xenorites, a) does the machine boot with a live (updated fedora live )
-T 1612205866 18<28Xenorites18>	Southern_Gentlem: I'm not having problems booting; and I have run Dracut already. current problem is that when I log in, i am immediatly logged out
-T 1612205908 18<22Southern_Gentlem18>	what DM
-T 1612205911 18<28Xenorites18>	i.e. with a successful login, it immediately takes me back to the login screen
-T 1612205922 18<28Xenorites18>	as mentioned, no dm installed
-T 1612205951 18<22Southern_Gentlem18>	try a new user
-T 1612205992 18<22Southern_Gentlem18>	single mode create new user
-T 1612205994 18<24_AnK18>	That behavior typical for /home/user not mounted properly. You can check that from tty2 login and lsblk
-T 1612206026 24*	28tmsmr1 is now known as 18tmsmr
-T 1612206274 18<28Xenorites18>	already tried with root, and still the same problem
-T 1612206293 18<28Xenorites18>	neither root nor home have seperate volumes in my installation
-T 1612206382 18<28Xenorites18>	quippy: perhaps it's an image size/resolution issue?
-T 1612206444 18<22faern18>	I'm running Fedora 33 workstation on an Intel NUC as a media PC. A problem I'm having is that it stops responding to network requests a short while after I turn off the monitor it's connected to. How can I stop it from doing that?
-T 1612206456 18<22faern18>	I have masked the sleep.target hibernate.target and most others.
-T 1612206472 18<22faern18>	And I have tried running a constant systemd-inhibit invocation in a tmux shell.
-T 1612206496 18<28Xenorites18>	faern: Fedora does not sleep natively
-T 1612206501 18<22faern18>	And according to the power LED it's still on. But shortly after turning off the monitor it stops allowing SSH and other network requests.
-T 1612206508 18<28Xenorites18>	have you configured the firewall correctly?
-T 1612206511 18<22faern18>	It also does not react to keyboard presses.
-T 1612206523 18<22faern18>	The keyboard does nothing until I turn the monitor back on.
-T 1612206543 18<28Xenorites18>	which NUC is this?
-T 1612206551 18<22faern18>	Xenorites: It lets me in over ssh and is reachable over other protocols while the monitor is on. So I don't think it's the firewall.
-T 1612206551 18<28Xenorites18>	it sounds like some kind of hardware sleep, or something
-T 1612206584 18<22faern18>	It's the NUC8i3BEH2
-T 1612206633 18<22faern18>	Maybe I should check out the UEFI and see if there is any setting there.
-T 1612206692 18<28Xenorites18>	yeah, see if there is some kind of power-saving enabled
-T 1612206710 18<28Xenorites18>	the behavior you are describing is strange
-T 1612206724 18<26quippy18>	yeah it could be Xenorites , that's an idea
-T 1612206775 24*	28tmsmr1 is now known as 18tmsmr
-T 1612206828 18<26quippy18>	the .desktop specification doesn't seem to indicate any restrictions on the type of file specified
-T 1612207239 18<22faern18>	Xenorites: I tried disabling DHMI CEC. Let's see if that does something.
-T 1612207349 18<22faern18>	HDMI*
-T 1612208153 24*	28needmorehare__ is now known as 18needmorehare
-T 1612208468 18<22faern18>	The timeouts are a bit random. But so far this seems to have worked \o/
-T 1612208714 24*	28gurmble is now known as 18grumble
-T 1612209499 18<20cmurf18>	faern: you're not using powertop by any chance are you? with autotune?
-T 1612209528 18<20cmurf18>	because on my older NUC that powers down USB and it doesn't ever come back up until i reboot, and thus i lose the keyboard
-T 1612209560 18<20cmurf18>	granted, i've applied 1/2 dozen UEFI firmware updates for that NUC since I last tested USB and powertop stuff
-T 1612209705 18<22faern18>	cmurf: Nope. Nothing like that. A fairly standard install of ff33 workstation and not much done to it.
-T 1612209774 18<20cmurf18>	Xenorites: Fedora 33 defaults to Btrfs, where / is on a subvolume named 'root' and /home is on a subvolume named "home"
-T 1612209803 18<22faern18>	So far the problem of not being able to SSH into it went away after disabling CEC. But the wireless keyboard is still dead.
-T 1612209809 18<22Southern_Gentlem18>	cmurf, no on upgrades or server
-T 1612209817 18<20cmurf18>	oh it's an upgrade sorry
-T 1612209818 24*	28tmsmr1 is now known as 18tmsmr
-T 1612209836 18<20cmurf18>	ahh yeah Server is XFS without a separate LV for /home
-T 1612209852 18<22Southern_Gentlem18>	but it should hae /root
-T 1612209859 18<20cmurf18>	there's reserved space in the VG that's intentionally not allocated at install time
-T 1612209861 18<22Southern_Gentlem18>	have
-T 1612209895 18<20cmurf18>	yeah if /root - as in the home for root user - is MIA then something unintended happened (user error)
-T 1612209919 18<20cmurf18>	faern: what is CEC?
-T 1612209954 18<20cmurf18>	wireless keyboard means bluetooth so it sounds like bluetooth is dropping the keyboard for some reason - that's harder to troubleshoot
-T 1612210017 18<20cmurf18>	i've got an apple bluetooth mouse that's super flakey on linux, it just vanishes randomly no matter what laptop it's paired with, and then comes back
-T 1612210019 18<20cmurf18>	but that's not your problem because, the keyboard isn't coming back
-T 1612210042 18<20cmurf18>	it sounds power save related though
-T 1612210416 18<22faern18>	cmurf: https://www.lifewire.com/hdmi-cec-4158343
-T 1612210463 18<22faern18>	cmurf: It's not bt. It has it's own receiver. So the wireless protocol itself is probably irrelevant. It's how the receiver is probably put idle or something.
-T 1612210558 18<20cmurf18>	ahh
-T 1612210891 18<29mdemo18>	Is there a file manager for gnome that can show and sort a duration column for audio?
-T 1612211004 24*	28tmsmr1 is now known as 18tmsmr
-T 1612211164 24*	28joako_ is now known as 18joako
-T 1612211165 24*	28jeandet_ is now known as 18jeandet
-T 1612211166 24*	28UndeadLeech_ is now known as 18UndeadLeech
-T 1612211318 18<25coke18>	'audio'
-T 1612211384 18*	19rorizz[m] uploaded an image: overwrite what.png (11KiB) < https://matrix.org/_matrix/media/r0/download/matrix.org/lVjislvKSfcBCZxQccFibgLv/overwrite what.png >
-T 1612211390 18<19rorizz[m]18>	who came up with this weird restriction
-T 1612211410 18<19rorizz[m]18>	i do this all the time on windows and it saves me a lot of time
-T 1612211482 18<28happymeal18>	windows just doesnt throw the error
-T 1612211491 18<19dowdle18>	rorizz[m]: So you are dragging and dropping a file on top of itself?  For what purpose?
-T 1612211492 18<28happymeal18>	i dont think its actually doing what you think
-T 1612211502 18<28happymeal18>	cuz, why would you be doing that lol
-T 1612211521 18<19dowdle18>	rorizz[m]: What is it you are trying to do?  rename a file?
-T 1612211596 18<19rorizz[m]18>	i have a folder named abc, inside that there's a folder named abc, and inside that there's a file. i don't want the two "abc" folders so i cut the one that has the file and then paste it on the other
-T 1612211757 18<28Xenorites18>	sorry, stepped away. cmurf I did a manual partitioning and install; I'm using LVM with XFS as the filesystem. /var and /boot are the only separate volumes from / - no DM, was using i3, am planning to move to Sway once I can log in again...
-T 1612211769 18<22faern18>	I take back what I said about disabling HDMI CEC solving the issue. It just took a bit longer. Now it does not respond over network either.
-T 1612211795 18<28Xenorites18>	faern: is this machine wired or wireless?
-T 1612211801 18<22faern18>	Wireless
-T 1612211809 18*	19rorizz[m] uploaded an image: abc abc file.png (35KiB) < https://matrix.org/_matrix/media/r0/download/matrix.org/DmsquRnGnxqfkteZHVGWuNWT/abc abc file.png >
-T 1612211810 18<19rorizz[m]18>	the folder above this one is empty (except for the folder that has the same name)
-T 1612211878 18<22faern18>	I have been planning on wiring it up. Maybe it's time to do that :/
-T 1612211891 18<28Xenorites18>	I think wired is the way to go
-T 1612211908 18<19rorizz[m]18>	cutting this folder and pasting it in "abcdef" is an effective way of removing one folder layer
-T 1612211910 18<19rorizz[m]18>	and it works in windows
-T 1612211912 18<22faern18>	But it does not explain the keyboard being unusable.
-T 1612211986 18<22faern18>	And wiring up the network is just a workaround. It must be possible to make it stay awake on a wifi as well :/
-T 1612212056 18<25coke18>	rorizz[m]: sounds like you want to use windows? if you want to use linux make script that does it?
-T 1612212071 18<19rorizz[m]18>	why?
-T 1612212178 18<19rorizz[m]18>	so let's cripple everything on purpose just so we can say "use windows instead"?
-T 1612212187 18<25coke18>	linux is historically serious about directories
-T 1612212207 18<19rorizz[m]18>	wdym?
-T 1612212257 18<25coke18>	your question is why is my blue car not red .. and there is no answer to that question
-T 1612212325 18<19rorizz[m]18>	i'm asking why a very useful thing is restricted when there is no reason to restrict it
-T 1612212347 18<19rorizz[m]18>	i have to spend extra time working around it for no reason
-T 1612212372 18<28Xenorites18>	restricted?
-T 1612212377 18<25coke18>	so ask the developer of the tool you are using
-T 1612212382 18<25coke18>	no he's not in this channel
-T 1612212403 18<19dowdle18>	rorizz[m]: Don't do it that way and no problem.  Just rename the top level dir and you can drag.
-T 1612212406 18<19rorizz[m]18>	idk who that is
-T 1612212420 18<28Xenorites18>	you are asking to do an odd operation that can be accomplished a dozen different ways that the one you implemented.
-T 1612212441 18<25coke18>	or you could just write a script that does what you want and learn something useful ..
-T 1612212446 18<28Xenorites18>	the help > about menu will tell you the name of the software, and perhaps the tree you actually want to be barking up...
-T 1612212454 18<19dowdle18>	rorizz[m]: Or just move the files from the parent dir to the grand parent dir and delete the parent dir when done.
-T 1612212514 18<19rorizz[m]18>	which can take a lot more time depending on what i'm cutting/pasting
-T 1612212547 18<19dowdle18>	rorizz[m]: Your "way" assumes a certain understanding of what it is you are trying to do... but what if someone who did what you did, didn't want that to happen?
-T 1612212663 18<19rorizz[m]18>	if that user doesn't want to cut and paste like that, he doesn't have to?
-T 1612212797 18<25coke18>	what your paste does is change the parent of the file and then delete the empty leaf directory
-T 1612212797 18<19dowdle18>	rorizz[m]: Such an operation is often done by mistake.
-T 1612212815 18<25coke18>	deleting something is not the obvious choice when you paste
-T 1612212823 18<19dowdle18>	ZACKLY
-T 1612212900 18<19rorizz[m]18>	oh ok
-T 1612212912 18<25coke18>	just because you dont see the downsides or they dont matter to you doesn't mean they dont exist
-T 1612212988 18<19rorizz[m]18>	well it took all this time to mention downsides
-T 1612213002 18<19rorizz[m]18>	also i clicked About -> Credits and it lists around 40 people. pinning down and contacting who made this specific decision would be pretty difficult
-T 1612213229 18<25coke18>	21:43:09 <coke> linux is historically serious about directories
-T 1612213238 18<25coke18>	nautillus doesnt break with that tradition
-T 1612213272 18<25coke18>	if you want to move one directory tree over another one you have to use special tools cause mv just doesnt do it
-T 1612213389 18<19rorizz[m]18>	oh ok
-T 1612213408 18<19rorizz[m]18>	are there any gui tools that do it?
-T 1612214657 18<19dowdle18>	rorizz[m]: Not that I know of.... but there are a bunch of file managers to pick from.  I'd be surprised if anyone implemented that as doing so is assuming a whole lot and not a "restriction".
-T 1612218645 24*	28Sokel_ is now known as 18Sokel
-T 1612220822 20*	Disconnected (20)
-T 1612293820 19*	Now talking on 22#fedora
-T 1612293820 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
-T 1612293820 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
-T 1612293823 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1612298887 24*	28vinleod is now known as 18vdamewood
-T 1612338348 19*	Now talking on 22#fedora
-T 1612338348 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
-T 1612338348 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
-T 1612338348 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1612338706 24*	28librecat_ is now known as 18librecat
-T 1612341510 20*	Disconnected (20)
-T 1612342438 22*	26RMPR sets mode 24+Z on 22RMPR
-T 1612342438 22*	26RMPR sets mode 24+i on 22RMPR
-T 1612342438 -18freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
-T 1612342438 24*	Received a CTCP 24VERSION from 18freenode-connect
-T 1612342442 19*	Now talking on 22#fedora
-T 1612342442 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
-T 1612342442 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
-T 1612342445 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1612343806 18<20hanetzer18>	hmm. showing up now after disabling 'fast boot' in uefi.
-T 1612344000 20*	Disconnected (20)
-T 1612345581 20*	Disconnected (20Remote host closed socket)
-T 1612346164 20*	Disconnected (20Remote host closed socket)
 T 1612346248 20*	Disconnected (20Remote host closed socket)
 T 1612346270 22*	26RMPR sets mode 24+Z on 22RMPR
 T 1612346270 22*	26RMPR sets mode 24+i on 22RMPR
@@ -6071,3 +4997,118 @@ T 1616622595 18<28fedbot18>	*** F33-20210315 updated lives available: ht
 T 1616622718 18<19_val_18>	Han: not following the thread but are you having wifi issues?
 T 1616622727 18<19_val_18>	Is it atheros?
 T 1616622790 FiSHLiM plugin unloaded
+T 1616796509 19*	Now talking on 22#fedora
+T 1616796509 22*	Topic for 22#fedora is: Fedora Linux F32, F33, F34B end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins
+T 1616796509 22*	Topic for 22#fedora set by 26Khaytsus!~khaytsus@fedora/khaytsus (24Tue Mar 23 16:04:50 2021)
+T 1616796509 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1616796514 18<28warren18>	yeah curious when the health numbers are almost the same
+T 1616796605 24*	28gramestad is now known as 18Lomanotte
+T 1616796615 18<28warren18>	I've had random good luck buying enterprise SSD's used. Two years ago bought a dozen 2GB's. Most of them arrived unopened/unused. One was accidentally 4TB.
+T 1616796624 18<28warren18>	err 2TB's
+T 1616796641 18<20cmurf18>	i guess you could try formatting them?
+T 1616796650 18<20cmurf18>	the nvme format command i mean
+T 1616796680 18<20cmurf18>	are both the reads and writes affected? or just writes?
+T 1616796722 18<20cmurf18>	specs are 2800 M/s read, 1900 M/s write
+T 1616796842 18<28warren18>	does nvme format do anything different from blkdiscard?
+T 1616796880 18<28warren18>	cmurf: i need a better tool to measure performance, bonnie++ was messy. it seems both read and write were slower but I want to test it again
+T 1616796902 18<28warren18>	zodbot thought I was giving karma to someone LOL
+T 1616797055 18<20cmurf18>	nvme format will erase all cells, blkdiscard only erases cells with assigned LBAs
+T 1616797081 18<20cmurf18>	due to the flash translation layer, possibly quite a lot aren't assigned at any given time
+T 1616797127 18<28warren18>	ohh I'll give that a try
+T 1616797138 18<20cmurf18>	i don't suppose it will make any difference
+T 1616797145 18<20cmurf18>	but *shrug*
+T 1616797252 18<28warren18>	# nvme format /dev/nvme1n1
+T 1616797252 18<28warren18>	invalid lbaf:255
+T 1616797326 18<20cmurf18>	https://github.com/linux-nvme/nvme-cli/issues/650
+T 1616797417 18<28warren18>	I don't really understand what they're saying there but apparently --lbaf=0 is correct?
+T 1616797432 18<20cmurf18>	so that might be a work around, but i think it means that your device probably needs
+T 1616797462 18<20cmurf18>	nvme format /dev/nvme0 --namespace-id=1 --ses=1
+T 1616797472 18<20cmurf18>	i don't know for sure if -ses=1 is needed
+T 1616797523 18<20cmurf18>	the doc is confusing, it says for -s that erase does xyz, but does that only apply to Secure Erase? And is Secure Erase only --ses=1 or 2? or also 0?
+T 1616797563 18<20cmurf18>	ok i guess 0 is no secure erase; but is 'erase' in the context of -s *any* of the options or just 1 or 2
+T 1616797569 18<20cmurf18>	i would do both :P
+T 1616797571 18<20cmurf18>	haha
+T 1616797595 18<20cmurf18>	--ses=1 is probably what you want if supported but it's a 2014 nvme so quite an early example
+T 1616797607 18<20cmurf18>	if it doesn't work then just omit it
+T 1616797743 24*	28denisse is now known as 18owo
+T 1616797762 18<20cmurf18>	oh my, quite verbose information with 'sudo nvme id-ctrl -H /dev/nvme0n1'
+T 1616797773 24*	28owo is now known as 18Guest66114
+T 1616797780 24*	28Guest66114 is now known as 18denisse
+T 1616797848 24*	28denisse is now known as 18uwu
+T 1616797856 24*	28uwu is now known as 18group
+T 1616797860 24*	28group is now known as 18uwu
+T 1616797878 24*	28uwu is now known as 18Guest90092
+T 1616797935 18<20cmurf18>	this is so much like secret decoder ring stuff
+T 1616798094 18<20cmurf18>	and what the heck is --reset? it just says reset after successful format, ok? but what does reset do?
+T 1616798133 18<20cmurf18>	you did successfully apply a newer firmware for both of them?
+T 1616798146 18<28warren18>	yes it was easy with intel's cli tool
+T 1616798158 18<20cmurf18>	interesting
+T 1616798233 18<20cmurf18>	i don't know enough about what a namespace is, I think it's like a virtual device
+T 1616798244 18<20cmurf18>	it's sorta like a partition but at the nvme level
+T 1616798245 18<28warren18>	dd writing 1TB on both drives they're identical now
+T 1616798260 18<20cmurf18>	i don't know how separated the namespacing is
+T 1616798268 18<20cmurf18>	ha
+T 1616798279 18<20cmurf18>	so was it the reformat or was it the firmware?
+T 1616798282 18<20cmurf18>	or both?
+T 1616798300 18<28warren18>	bonnie++ test was after the firmware upgrade, dd test was after the format
+T 1616798328 18<20cmurf18>	ok which format command did you end up using?
+T 1616798334 18<28warren18>	--lbaf=0
+T 1616798385 18<28warren18>	the man page lies
+T 1616798432 18<20cmurf18>	if you can believe it, things are alot better with the nvme command today than just a few years ago
+T 1616798450 18<20cmurf18>	it's still pretty goofy compared to smartctl or hdparm
+T 1616798459 18<28warren18>	I can see that
+T 1616798460 18<20cmurf18>	but even hdparm has its own strange ways
+T 1616798475 18<20cmurf18>	like -W controls the write cache and -w will blow up the drive
+T 1616798477 18<28warren18>	I'll be back in a few hours, another workload test should be done by then.
+T 1616798483 18<28warren18>	LOL
+T 1616798505 18<20cmurf18>	seriously, worth doing a man search on hdparm for the word DANGEROUS
+T 1616798515 18<28linuxmodder18>	is this nvme disk level encrypting / erasing ( with seds )?
+T 1616798516 18<20cmurf18>	almost like there are fewer non-danger commands
+T 1616798527 18<20cmurf18>	2014 probably not
+T 1616798539 18<20cmurf18>	the other command i gave reveals that
+T 1616798572 18<20cmurf18>	nvme id-ctrl -H /dev/nvme0n1 | grep-i  'crypt\|sanit'
+T 1616798691 18<20cmurf18>	its functionally like ATA Security Erase (using hdparm) for a SATA SSD
+T 1616798714 18<29kk4ewt18>	i use scrub -fp dod on everything
+T 1616798750 18<28linuxmodder18>	^^
+T 1616798768 18<28linuxmodder18>	or for those things that matter too much .... dod long
+T 1616798782 18<29kk4ewt18>	good enough for the DoD good enough for me
+T 1616798808 18<20cmurf18>	NIST 800-88 actually doesn't recommend that
+T 1616798823 18<29kk4ewt18>	and i have had drives checked by the DOD and they said they were good
+T 1616798862 18<20cmurf18>	for old drives that didn't have sector remapping, probably worked
+T 1616798890 18<29kk4ewt18>	works great because it makes a file and builds and wipes the f
+T 1616798892 18<29kk4ewt18>	ile
+T 1616798910 18<20cmurf18>	yeah but that only wipes sectors that have LBAs
+T 1616798923 18<29kk4ewt18>	wipes ssd fine
+T 1616798940 18<20cmurf18>	it definitely doesn't work on SSDs
+T 1616798959 18<20cmurf18>	anywhere from 1% to 20% of the sectors/cells on an SSD have no LBA
+T 1616798965 18<20cmurf18>	and it's constantly changing
+T 1616798966 18<29kk4ewt18>	of course the whole thing about phantomly being able to ready a drive has been debunked
+T 1616798987 18<29kk4ewt18>	so all 0s or 1s is fine
+T 1616799159 18<28fedbot18>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1616800030 20*	Disconnected (20)
+T 1616833749 19*	Now talking on 22#fedora
+T 1616833749 22*	Topic for 22#fedora is: Fedora Linux F32, F33, F34B end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins
+T 1616833749 22*	Topic for 22#fedora set by 26Khaytsus!~khaytsus@fedora/khaytsus (24Tue Mar 23 16:04:50 2021)
+T 1616833749 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1616834111 18<25lateef18>	does anyone know how to update packages on GnomeOS? It doesn't use DNF.
+T 1616834496 18<29zbr|rover18>	Did fedora lowered the sshd MaxSessions recently? I discovered that it can impact container building using remoting and had to bump it to 50.
+T 1616834533 18<29zbr|rover18>	I was not able to find any bugzilla entry on MaxSessions but what can I say... Your query was taking longer than 120 seconds and had to be killed.
+T 1616834936 18<29bloodstalker18>	where can i get a download link for fedora rawhide's rootfs?
+T 1616835193 18<28fedbot18>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1616835265 18<29zbr|rover18>	oh.. s***, that bz is useless, refused to add bug due to unkown link, asked me to press back and guess what my entire bug submission content was lost, only the title remained populated.
+T 1616835357 18<26Mac10118>	Hey having an issue where my monitor wont wake up after a blank screen timeout on the gdm screen
+T 1616835366 18<26Mac10118>	anyone know any way to force wake it up?
+T 1616835393 18<26Mac10118>	occurs on 5.10.x 5.11.x, but not 5.8.xx kernels
+T 1616835770 18<29bloodstalker18>	nvm. found it.
+T 1616837958 18<19cyberjunkie18>	Anyone here able to help me with Wayland?
+T 1616838794 18<28fedbot18>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1616840299 18<19ryszard18>	hey
+T 1616840391 18<19ryszard18>	for some time I experience UI falls apart on Fedora Workstation 33 with Wayland and Radeon HD6310
+T 1616840602 18<19ryszard18>	by fall apart I mean that i.e. on login page I can see only textbox to type in password, then after login te top bar where clock should be is empty etc
+T 1616840788 18<29zbr|rover18>	https://bugzilla.redhat.com/show_bug.cgi?id=1943770
+T 1616841239 18<26Mac10118>	anyone?
+T 1616841544 18<27joydeep_taiga18>	<Mac101 "occurs on 5.10.x 5.11.x, but not"> how about 5.9? Sounds like you need a bisect.
+T 1616841792 18<26Mac10118>	havent got 5.9 installed to test
+T 1616841795 18<26Mac10118>	whats a bisect?
+T 1616841838 18<27joydeep_taiga18>	search up git bisect, basically you build a bunch of kernel images and it finds where the bug was introduced in O(logn) time
+T 1616842398 18<28fedbot18>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***

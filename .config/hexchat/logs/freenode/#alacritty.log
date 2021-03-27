@@ -6643,3 +6643,128 @@ Mar 24 21:54:11 <ScottHDev5>	*new
 Mar 24 22:11:07 <rcf>	ScottHDev5: for zsh (what I use) I'd probably go with something along the lines of https://rcf.sdf.org/pb/t/fa3dad20 in my .zshrc to allow for this. 
 **** ENDING LOGGING AT Wed Mar 24 22:53:10 2021
 
+**** BEGIN LOGGING AT Fri Mar 26 23:08:29 2021
+
+Mar 26 23:08:29 *	Now talking on #alacritty
+Mar 26 23:08:29 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+Mar 26 23:08:29 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Feb 20 01:05:57 2021)
+Mar 26 23:11:00 <UndeadLeech>	I mean surely ST also has a read buffer and doesn't process everything byte by byte, right? How big is it?
+Mar 26 23:11:27 <avih>	rcf: UndeadLeech: anyway, can you synthesize a scenario where one of your buffers just keeps growing?
+Mar 26 23:11:43 <UndeadLeech>	I don't see how that would be possible in theory.
+Mar 26 23:11:54 <UndeadLeech>	So I don't see any point in trying to waste my time finding it in practice.
+Mar 26 23:12:11 <avih>	read buffer is BUFSIZ. whatever got read is processed byte by byte.
+Mar 26 23:12:35 <UndeadLeech>	Ah, that might be too small.
+Mar 26 23:12:48 <UndeadLeech>	Pretty sure BUFSIZ is just a fixed 8k or something?
+Mar 26 23:12:55 <avih>	(it doesn't read byte-by-byte, unless at any read only one byte is available to read, or one byte remains available at the read buffer)
+Mar 26 23:13:38 <avih>	i think POSIX says BUFSIZ is at least 256 bytes, and typically it's 2K-4K
+Mar 26 23:14:10 <UndeadLeech>	Yeah, but on my system at least I'm pretty sure it's smaller than my PTY buffer size.
+Mar 26 23:14:29 <UndeadLeech>	Thus it cannot help with a smooth operation.
+Mar 26 23:14:50 <UndeadLeech>	Still fine if you read quick enough, but potentially problematic.
+Mar 26 23:15:20 <avih>	well, it wasn't not-helpful until now where i came up with this example.
+Mar 26 23:15:38 <UndeadLeech>	I mean it's basically just an arbitrary size.
+Mar 26 23:15:45 <avih>	and i'm trying to fix it.
+Mar 26 23:15:50 <avih>	yes
+Mar 26 23:16:25 <avih>	obviously it's an issue. i can solve it with either discarding or growing till OOM. trying to figure out which would be better.
+Mar 26 23:17:08 <avih>	for now my patch discards, but it's trivial to make it grow instead.
+Mar 26 23:17:37 <UndeadLeech>	Could also increase the buffer size until you are at a point where in most cases you're bigger than the PTY.
+Mar 26 23:17:56 <UndeadLeech>	Say 1MiB for example, I doubt you'd find a PTY out there that is bigger.
+Mar 26 23:18:25 <avih>	the question is whether there can be pathological cases which make it grow forever.
+Mar 26 23:18:36 <UndeadLeech>	It can't grow, because it can't write.
+Mar 26 23:18:41 <UndeadLeech>	I feel like you don't understand.
+Mar 26 23:18:57 <avih>	sure, bigger fixed size will make the issue less evident, but it won't make it go away if there are pathological cases.
+Mar 26 23:19:40 <avih>	UndeadLeech: it's entirely possible. i said more than once that i lack an intuitive understanding of the subject.
+Mar 26 23:20:08 <UndeadLeech>	I mean realistically it shouldn't be that big of a deal.
+Mar 26 23:20:43 <avih>	it's not. no one ever bumped into the issue until now ehen i came up with this test case
+Mar 26 23:20:47 <rcf>	Letting it run for all this time the growth in resident size has been... a few pages. 
+Mar 26 23:20:59 <UndeadLeech>	Alacritty you mean?
+Mar 26 23:21:08 <rcf>	Alacritty with the offending loop. 
+Mar 26 23:21:23 <avih>	and i came up with it by analysing the source code. noticed the recursion, what could trigger it (usually there's no recursion), and synthesized a case which makes it recurse forever.
+Mar 26 23:21:27 <UndeadLeech>	Oh, are you on a slow system?
+Mar 26 23:21:37 <UndeadLeech>	Or did you just decrease the font size a bunch?
+Mar 26 23:21:55 <avih>	no. it's a decent system.
+Mar 26 23:22:05 <avih>	(not state of the art, but decent)
+Mar 26 23:22:29 <UndeadLeech>	Talking to rcf.
+Mar 26 23:22:38 <UndeadLeech>	Because it sounds like his system can't keep up with the loop.
+Mar 26 23:22:42 <avih>	the issue in st is when every read produces more written bytes than the read.
+Mar 26 23:23:00 <UndeadLeech>	Yeah I get that, it should produce problems with a lot of terminals at some point.
+Mar 26 23:23:08 <UndeadLeech>	You just need to find something that produces enough output fast enough.
+Mar 26 23:23:44 <avih>	i guess in st the breakpoint reaches quickly due to the very small buffers.
+Mar 26 23:24:16 <rcf>	The system works fine, the point is that the mismatched IO here is so miniscule that filling the write queue to the point OOM is simply not going to happen without an insane person ignoring the fact that their terminal is unresponsive for weeks. 
+Mar 26 23:24:26 <UndeadLeech>	Also this is not recursive, since a separate process is triggering you.
+Mar 26 23:24:28 <avih>	well, it would be trivial for me to change the fis to allow infinite grow (till OOM) and observe how much it grows in practice.
+Mar 26 23:24:38 <avih>	change the fix*
+Mar 26 23:24:45 <UndeadLeech>	You're just making the issue worse by "amplifying" the "attack".
+Mar 26 23:25:11 <UndeadLeech>	Chances are it will grow infinitely (till OOM)
+Mar 26 23:25:30 <avih>	it's a possibility. maybe likely.
+Mar 26 23:25:51 <rcf>	avih: the attack isn't truly novel; it's the same slow loris that people enjoyed using against Apache some years ago. Just with different file descriptors. 
+Mar 26 23:26:05 <UndeadLeech>	You'd have to somehow make sure the other process isn't allowed access to the PTY.
+Mar 26 23:26:13 <rcf>	The difference is that as the terminal is interactive, you can't not notice it. 
+Mar 26 23:26:24 <UndeadLeech>	Because ultimately the stimulus from a different process that isn't restricted by the terminal's single-threadedness is causing the problems.
+Mar 26 23:26:40 <avih>	so can such attack be performed against alacritty?
+Mar 26 23:27:01 <avih>	or is it immune to it due to better design?
+Mar 26 23:27:03 <UndeadLeech>	Pretty sure if I decrease the font size enough, I'm not sure if bash is sufficiently fast.
+Mar 26 23:27:26 <UndeadLeech>	Let me test again.
+Mar 26 23:27:51 <avih>	do use big terminal and/or small font so that the cursor position printouts are long-ish
+Mar 26 23:28:16 <UndeadLeech>	I think bash is too slow.
+Mar 26 23:28:36 <avih>	try alacritty -e sh -c '<that loop>'
+Mar 26 23:28:40 <UndeadLeech>	Currently testing with a 2526x1374 grid and I don't think it's leaking.
+Mar 26 23:29:19 <avih>	that's way bigger than what i tried (with st). i tried with ~ 250x70 cells
+Mar 26 23:29:20 <UndeadLeech>	Let me write a program that emits this escape a bunch.
+Mar 26 23:30:43 <avih>	is that on linux btw? fwiw, i'm testing on ubuntu 18.04 LTS. didn't try with other systems yet (though i have plenty standing by for experiments)
+Mar 26 23:31:57 <avih>	fwiw, if what i think is correct, then the speed it prints the sequence is not the issue (i.e. shell should be enough at least to observe mem usage growth)
+Mar 26 23:32:15 <UndeadLeech>	Yeah of course linux.
+Mar 26 23:32:28 <avih>	dunno, could be bsd, solaris...
+Mar 26 23:32:42 <UndeadLeech>	lol
+Mar 26 23:32:47 <avih>	?
+Mar 26 23:33:21 <UndeadLeech>	I don't do a lot, but when I do I usually like to get stuff done.
+Mar 26 23:33:55 <avih>	not sure i follow. i.e. you're only productive with linux?
+Mar 26 23:33:58 <UndeadLeech>	Nah, even with a custom program writing just this I can't get Alacritty to leak on a massive grid.
+Mar 26 23:34:22 <avih>	that's great.
+Mar 26 23:34:30 <UndeadLeech>	Kinda surprised tbh.
+Mar 26 23:34:50 <avih>	i think it's the design, which throttles itself automatically
+Mar 26 23:35:21 <UndeadLeech>	I don't think so, because it only throttles itself, not the external process.
+Mar 26 23:35:38 <avih>	optimally, that's what i want to achieve. and evidently from your observations, it should be possible, and there should not be pathological cases which make it grow indefinitely
+Mar 26 23:36:11 <UndeadLeech>	I think you'd have to lock the file for the entire read -> write cycle, but Alacritty doesn't do that.
+Mar 26 23:36:23 <UndeadLeech>	So I don't quite understand why it doesn't misbehave.
+Mar 26 23:36:29 <avih>	:)
+Mar 26 23:37:04 <avih>	that's a bad problem to have :) (seriously)
+Mar 26 23:39:22 <avih>	i think i'll change my fix to grow-as-needed. with the discard fix (and some printouts) i can see it discarding 8-16 bytes once in a while (not a lot, it doesn't flood the output). i'll change it to grow and observe the size in practice.
+Mar 26 23:40:00 <avih>	at least to get some more data points. because i don't fully understand it yet.
+Mar 26 23:40:30 <UndeadLeech>	Can you just make ST faster?
+Mar 26 23:40:57 <avih>	in which real world scenario is it too slow for your needs?
+Mar 26 23:41:37 <avih>	(i don't have any, but different people...)
+Mar 26 23:42:13 <UndeadLeech>	I think the only reason why this is happening in ST but not Alacritty, is because Alacritty is faster at draining the PTY than the application is at writing. Though I honestly don't see how that would be possible with the program I wrote myself.
+Mar 26 23:42:30 <UndeadLeech>	But it's possible that when the buffer is full, Alacritty manages to hog the file.
+Mar 26 23:45:03 <avih>	i don't see how that could be a reason. if you drain slower, then you also throttle the application writes. the speed doesn't matter here ithink.
+Mar 26 23:46:15 <avih>	the app writes as much as it's allowed to write. if you don't drain it fast enough, the app will block on write until you read.
+Mar 26 23:46:20 <UndeadLeech>	Here's the thing though, every write the application gets in will cause an occupant to be present in read-write buffers. But if the application is a non-factor, the write buffer size will decline.
+Mar 26 23:47:01 <UndeadLeech>	So if the application blocks on write for example, you read, then the application instantly manages to fill the buffer again (without you writing to it yourself), your write buffer will grow in size -> no bueno.
+Mar 26 23:47:34 <UndeadLeech>	If the application blocks on write, but you manage to snatch the file for read and write, then there will be a net negative in write buffer size.
+Mar 26 23:47:55 <UndeadLeech>	So basically pausing for a second to deal with the debt.
+Mar 26 23:48:27 <avih>	not if you write more than you read. that's the scenario i'm suspecting. on such case the speed doesn't matter. only that you keep writing more than you read.
+Mar 26 23:48:47 <UndeadLeech>	I think you're thinking about this wrong: There's nothing recursive about this.
+Mar 26 23:49:03 <UndeadLeech>	If you write more than you read, your net write buffer size still shrinks continuously.
+Mar 26 23:49:08 <avih>	i never said it's recursive. only that the current implementation in st is.
+Mar 26 23:49:18 <UndeadLeech>	Ah, fair enough.
+Mar 26 23:49:51 <avih>	(and my patch breaks the recursion, and can reach states where it needs to discard writes)
+Mar 26 23:50:37 <avih>	i can change it to not discard and instead block. i presume this will deadlock (didn't try)
+Mar 26 23:54:48 <avih>	or rather, it can recurse in my test case. but outside of this case i couldn't make it recurse.
+Mar 26 23:54:51 <UndeadLeech>	Ah, it must be a timing/locking thing.
+Mar 26 23:55:01 <UndeadLeech>	If you have a lock on the file while reading/writing, you're good.
+Mar 26 23:55:16 <avih>	no locking is used.
+Mar 26 23:55:27 <UndeadLeech>	If the application is able to write, between your read/write, you'll go pathological at some point.
+Mar 26 23:55:45 <UndeadLeech>	Alacritty isn't locking either, but I think that would be the only "correct" solution.
+Mar 26 23:58:46 <UndeadLeech>	https://paste.rs/U8r
+Mar 27 00:01:01 <avih>	well, this is interesting. i increased the (new) write buffer size from BUFSIZ to 4*BUFSIZ, and now it doesn't need to discard anymore even after many seconds of running this loop. i can see the write buffer occasionally growing (holding more pending writes), but soon afterwards it manages to flush everything without needing to discard anything
+Mar 27 00:05:13 <avih>	(my code tries a non-blocking flush after every read but before processing the read data, and possibly generating more write, like with cursor position)
+Mar 27 00:07:10 *	Disconnected ()
+**** ENDING LOGGING AT Sat Mar 27 00:07:10 2021
+
+**** BEGIN LOGGING AT Sat Mar 27 09:29:09 2021
+
+Mar 27 09:29:09 *	Now talking on #alacritty
+Mar 27 09:29:09 *	Topic for #alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+Mar 27 09:29:09 *	Topic for #alacritty set by UndeadLeech!~UndeadLee@alacritty/undeadleech (Sat Feb 20 01:05:57 2021)
+Mar 27 11:53:38 *	alexherbo27 is now known as alexherbo2
+**** ENDING LOGGING AT Sat Mar 27 12:09:32 2021
+

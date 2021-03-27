@@ -10587,3 +10587,97 @@ Mar 24 22:50:55 <zaeph>	but daddy~~
 Mar 24 22:51:45 <vifon>	Don't make me spank your sorry ass.
 **** ENDING LOGGING AT Wed Mar 24 22:53:10 2021
 
+**** BEGIN LOGGING AT Fri Mar 26 23:08:29 2021
+
+Mar 26 23:08:29 *	Now talking on #ranger
+Mar 26 23:08:29 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Mar 26 23:08:29 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Mar 26 23:10:39 *	GermainZ grabs vifon's employer's servers and throws them at x10d
+Mar 26 23:10:55 <x10d>	keepass doesn't work with u2f?
+Mar 26 23:11:10 <x10d>	maan... you're making a huge mess :O
+Mar 26 23:11:17 <GermainZ>	vifon: keepassxc doesn't have anything suitable?
+Mar 26 23:11:34 <vifon>	No, they handle the challenge-response auth but not U2F.
+Mar 26 23:11:45 <GermainZ>	doesn't work with your yubithing?
+Mar 26 23:12:05 <x10d>	https://www.yubico.com/pl/works-with-yubikey/catalog/keepass/
+Mar 26 23:12:26 <vifon>	https://support.yubico.com/hc/en-us/articles/360013779759-Using-Your-YubiKey-with-KeePass
+Mar 26 23:12:31 <vifon>	So yes, challenge-response.
+Mar 26 23:12:40 <x10d>	ok
+Mar 26 23:12:40 <vifon>	GermainZ: Does work but I don't want this mode of operation.
+Mar 26 23:13:04 <GermainZ>	vifon: a quick google seems to suggest it's not done because it's not the best idea?
+Mar 26 23:13:45 <vifon>	Yes, no case of Keepass yes.
+Mar 26 23:13:53 <vifon>	But some self-hosted service could do it.
+Mar 26 23:14:15 <GermainZ>	ah so you want a password manager that isn't offline?
+Mar 26 23:14:25 <vifon>	I'm not convinced yet.
+Mar 26 23:14:33 <vifon>	And if I do, it would be inside a VPN.
+Mar 26 23:14:33 <GermainZ>	convinced by?
+Mar 26 23:14:43 <vifon>	By my needs. :D
+Mar 26 23:14:55 <GermainZ>	So you don't know if you need U2F? :D
+Mar 26 23:15:12 <vifon>	I want a 2FA and if I cannot use U2F, why bother? :D
+Mar 26 23:15:33 <vifon>	Challenge-Response is not an option because of the first requirement.
+Mar 26 23:15:37 <vifon>	> A YubiKey with a spare configuration slot
+Mar 26 23:16:15 <GermainZ>	I'm confused TBH :P
+Mar 26 23:16:32 <vifon>	OK, back to the start.
+Mar 26 23:16:42 <vifon>	I want a 2FA based on my Yubikey.
+Mar 26 23:16:51 <vifon>	I have no spare configuration slots on it.
+Mar 26 23:17:00 <vifon>	And Challenge-Response needs one.
+Mar 26 23:17:18 <vifon>	TOTP is cumbersome.
+Mar 26 23:17:25 <GermainZ>	Ah, got it
+Mar 26 23:17:51 <GermainZ>	Can't you compile Bitwarden, out of curiosity?
+Mar 26 23:17:59 <GermainZ>	Or are the premium parts proprietary?
+Mar 26 23:18:00 <vifon>	With the premium features?
+Mar 26 23:18:10 <vifon>	I believe they are but I haven't checked.
+Mar 26 23:18:18 <GermainZ>	I would check
+Mar 26 23:18:33 <GermainZ>	I've seen several models where it's open source and you pay for the convenience
+Mar 26 23:18:41 <vifon>	Synergy?
+Mar 26 23:18:47 <GermainZ>	I don't remember names :D
+Mar 26 23:20:20 <vifon>	No mention of it here.  Digging deeper.  https://bitwarden.com/blog/post/premium-features-released/
+Mar 26 23:20:54 <vifon>	https://www.reddit.com/r/Bitwarden/comments/evp44j/how_are_premium_features_managed_if_the_project/
+Mar 26 23:20:55 <RoboBob>	(vifon) HOW are Premium features managed if the project is open-source : Bitwarden - 23 comments, 25 points - kidbrax, 1y ago
+Mar 26 23:20:57 <vifon>	Hm…
+Mar 26 23:21:07 <vifon>	FORK YOU THEN!!!
+Mar 26 23:21:14 <GermainZ>	:D
+Mar 26 23:23:28 <vifon>	https://einval.eu/upload/dGpWJetQTmr2Ni3yJAPqOpp3.png
+Mar 26 23:23:35 <vifon>	Oops, I accidentally all their profits.
+Mar 26 23:26:18 <GermainZ>	hackerman
+Mar 26 23:35:09 <vifon>	Oh, even better.  https://github.com/dani-garcia/bitwarden_rs
+Mar 26 23:39:59 <vifon>	What the…  https://www.reddit.com/r/Bitwarden/comments/g9paz4/isnt_opensource_a_bad_thing/
+Mar 26 23:40:00 <RoboBob>	(vifon) Isn't OpenSource a bad thing? : Bitwarden - 11 comments, 0 points - esspress0, 11mo ago
+Mar 26 23:59:55 <vifon>	GermainZ: Hm, it seems installing this Rust version of BW is pretty trivial…  And now I've got second thoughts.
+Mar 27 00:00:02 <vifon>	With Keepass the backup is trivial.
+Mar 27 00:00:12 <vifon>	Any kind of risky operation can be mitigated with a cp.
+Mar 27 00:00:58 <GermainZ>	and with BW you can't back shit up?
+Mar 27 00:02:23 <vifon>	Well, I guess their SQLite db isn't that much different.
+Mar 27 00:02:24 <vifon>	I was thinking in terms of Postgres where it's always more of a hassle than just a cp.
+Mar 27 00:02:24 <vifon>	But with SQLite it might actually work.
+Mar 27 00:02:43 <GermainZ>	Ah
+Mar 27 00:03:00 <GermainZ>	Yeah, sqlite is convenient :D
+Mar 27 00:03:16 <vifon>	SQLite is one of my favorite projects.  It's just so… good.
+Mar 27 00:03:26 <vifon>	Misunderstood but good.
+Mar 27 00:07:10 *	Disconnected ()
+**** ENDING LOGGING AT Sat Mar 27 00:07:10 2021
+
+**** BEGIN LOGGING AT Sat Mar 27 09:29:09 2021
+
+Mar 27 09:29:09 *	Now talking on #ranger
+Mar 27 09:29:09 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Mar 27 09:29:09 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Mar 27 09:45:14 <blawiz>	will rss3 be good? kinda hard to find info about it, but i heard a rumor
+Mar 27 11:32:42 <GermainZ>	I don't see how changing the standard would improve the actual practical issues with RSS, which is that websites either don't use them or use them wrong
+Mar 27 11:32:53 <GermainZ>	Unless rss3 comes with tracking and ads for webmasters? :D
+Mar 27 11:34:35 <GermainZ>	funnily enough the rumors and info I'm seeing all date back to almost 2 decades
+Mar 27 11:39:35 <blawiz>	i dunno, maaybe eg a more limited variant could take over for tweets, which are soooo popular
+Mar 27 11:40:39 <zaeph>	GermainZ: Aaron Swartz would have loved you.
+Mar 27 11:44:25 <GermainZ>	zaeph: ?
+Mar 27 11:44:49 <zaeph>	GermainZ: Wrt ads with RSS.
+Mar 27 11:45:02 <GermainZ>	zaeph: I mean that's exactly what I meant
+Mar 27 11:45:08 <GermainZ>	RSS and what websites want are at odds
+Mar 27 11:45:14 <zaeph>	I know.
+Mar 27 11:45:21 <zaeph>	Why does nobody understand sarcasm anymore?
+Mar 27 11:45:26 <zaeph>	Such a rotten world.
+Mar 27 11:45:28 <zaeph>	Raito-kun was right.
+Mar 27 11:45:55 <GermainZ>	Better safe than sorry in this case :P
+Mar 27 11:46:12 <zaeph>	Now you sound like my ex. 🙄
+Mar 27 11:46:19 *	zaeph has baggage.
+Mar 27 11:46:24 <GermainZ>	:D
+**** ENDING LOGGING AT Sat Mar 27 12:09:33 2021
+
