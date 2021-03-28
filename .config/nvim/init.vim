@@ -55,8 +55,8 @@ let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 nnoremap <leader>gs :G<CR>
 nnoremap <Leader>gj :diffget //3<CR>
 nnoremap <Leader>gf :diffget //2<CR>
-nnoremap <Leader>cc :Gcommit<CR>
-nnoremap <Leader>gp :Gpush<CR>
+nnoremap <Leader>cc :Git commit<CR>
+nnoremap <Leader>gp :Git push<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 
 nmap <leader>rr <Plug>(coc-rename)
