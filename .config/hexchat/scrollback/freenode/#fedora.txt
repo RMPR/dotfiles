@@ -1,118 +1,3 @@
-T 1612346248 20*	Disconnected (20Remote host closed socket)
-T 1612346270 22*	26RMPR sets mode 24+Z on 22RMPR
-T 1612346270 22*	26RMPR sets mode 24+i on 22RMPR
-T 1612346271 -18freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
-T 1612346271 24*	Received a CTCP 24VERSION from 18freenode-connect
-T 1612346276 19*	Now talking on 22#fedora
-T 1612346276 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
-T 1612346276 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
-T 1612346276 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1612346375 18<19[Enrico]18>	ncuxo: package providing that seems to be libnfsidmap
-T 1612346377 18<29ncuxo18>	https://fedoraproject.org/wiki/User:Renich/HowTo/NFSv4
-T 1612346437 18<29ncuxo18>	dnf provides haven't given any results by me :/
-T 1612346459 18<19[Enrico]18>	ncuxo: for what?
-T 1612346518 18<19[Enrico]18>	dnf whatprovides /etc/idmapd.conf works for me, it returns the package name
-T 1612346519 18<29ncuxo18>	for '*idmapd*'
-T 1612346528 18<29ncuxo18>	oh
-T 1612346538 18<29ncuxo18>	didn't knew the whatprovides option
-T 1612346539 18<29ncuxo18>	thanks
-T 1612346566 18<19[Enrico]18>	ncuxo: rpc.idmapd is provided by nfs-utils
-T 1612346586 18<29ncuxo18>	yeap found it
-T 1612346600 18<29ncuxo18>	okay but my rpcbind.service and socker are masked
-T 1612346617 18<19[Enrico]18>	unmask them
-T 1612346635 18<29ncuxo18>	red hat documentation tells you that nfs4 doesn't need them
-T 1612346652 18<29ncuxo18>	so there have to be something fishy here
-T 1612346665 18<19[Enrico]18>	ncuxo: if they are not needed they should not start
-T 1612346727 18<19[Enrico]18>	ncuxo: nfs-server.service wants rpcbind.socket . You mask it, you break it
-T 1612346748 18<19[Enrico]18>	might be needed only for nfsv3 of course
-T 1612346765 18<19[Enrico]18>	start without masking, have it working, once you have it working, start masking stuff, reboot and test
-T 1612346805 18<29ncuxo18>	# systemctl mask --now rpc-statd.service rpcbind.service rpcbind.socket
-T 1612346805 18<29ncuxo18>	https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/nfs-serverconfig
-T 1612346820 18<29ncuxo18>	I'll check thanks
-T 1612346827 24*	28ikurniawan is now known as 18dextone
-T 1612346873 18<19[Enrico]18>	ncuxo: also: Fedora is much newer than RHEL, stuff changes sometime
-T 1612346874 18<19[Enrico]18>	s
-T 1612347255 18<29ncuxo18>	tbh first time having problem following rhel tutorial on fedora
-T 1612347300 18<19[Enrico]18>	ncuxo: they are not supposed to work on Fedora. If they do it's a fluke
-T 1612347402 18<19[Enrico]18>	Fedora is much newer software and it's an independent project. While they share a lot, they are not strictly related. But if there is no major change in the software involved, then yes they would probably work
-T 1612348711 18<29ncuxo18>	okay following this guide unmasked all the services and still permission error https://fedoraproject.org/wiki/User:Renich/HowTo/NFSv4
-T 1612348980 18<19[Enrico]18>	ncuxo: give this a try: https://unix.stackexchange.com/questions/438939/how-to-get-nfsv4-idmap-working-with-sec-sys/464950#464950
-T 1612348990 18<19[Enrico]18>	ncuxo: maybe simply clearing the cache with nfsidmap -c might make it work
-T 1612349103 18<19[Enrico]18>	now if you don't need idmapping, you can keep it disabled of course
-T 1612349141 18<19[Enrico]18>	ncuxo: also: ACLs do not work with NFSv4, I forgot to mention that
-T 1612349154 18<19[Enrico]18>	if you want POSIX ACL support, use NFSv3
-T 1612349794 18<29ncuxo18>	the most important comment from the above post: "Just to add an important point, after all of the above setup with sec=sys, ID mapping works only while reading files. Writing/modifying is governed by simple UNIX DAC because RPC mechanism knows nothing about mapping. ID mapping works fully only with Kerberos. serverfault.com/a/812829/452872 – Irfan Latif"
-T 1612349813 18<29ncuxo18>	so yeah without ldap it doesn't work
-T 1612349832 18<29ncuxo18>	I'll have to have a special user
-T 1612350067 18<29ncuxo18>	however thank you [Enrico] for the time
-T 1612350075 18<29ncuxo18>	quess I need to setup ldap first
-T 1612350122 18<19[Enrico]18>	ncuxo: I would totally recommend against that
-T 1612350127 18<19[Enrico]18>	it's a pain in the neck
-T 1612350139 18<19[Enrico]18>	and the benefits are insignificant
-T 1612350145 18<19[Enrico]18>	just use NFSv3
-T 1612350162 18<19[Enrico]18>	or figure out how to completely disable idmapping
-T 1612350183 18<29ncuxo18>	idmapping was disabled on both server and client
-T 1612350188 18<29ncuxo18>	and I enabled it
-T 1612350193 18<29ncuxo18>	but it still don't work
-T 1612350210 18<19[Enrico]18>	ncuxo: nsswitch.conf might also be involved. Not sure
-T 1612350339 18<29ncuxo18>	what is the purpose of having nfsv4 if everyone will continue to use nfsv3 and advice against using nfsv4
-T 1612350357 18<29ncuxo18>	I just wanna figure out how the damn think works document it and be done with it
-T 1612350370 18<29ncuxo18>	s/think/thing
-T 1612350434 18<19[Enrico]18>	nfsv4 is designed to integrate with kerberos and has its own system of ACLs (NVFSv4ACLs which nobody supports). It's been a total disaster from the design point of view, a massive failure and the world would be a better place without it to be honest :)
-T 1612350461 18<19[Enrico]18>	I assume in theory it was done to integrate better with Windows systems.... but now Windows dropped NFS support anyway
-T 1612350481 18<19[Enrico]18>	as far as Linux is concerned NFSv4 is useless
-T 1612350485 18<19[Enrico]18>	in my humble opinion
-T 1612350531 18<19[Enrico]18>	for me the fact that it doesn't support POSIX ACLs alone is just a major blocker
-T 1612352289 18<24yogoyo18>	i am sitting in front of xfce's neat notification log, with an info ballon from dnfdragora, but the notify log is empty. what do i need to do so the log includes such notifies?
-T 1612352352 18<24yogoyo18>	i selected "all" applications to log "always"
-T 1612353978 18<28Raulito18>	hola
-T 1612354377 24*	28OEIRAS is now known as 18OERIAS
-T 1612354385 18<20nvfanonlah[m]18>	Hi
-T 1612354475 18<20nvfanonlah[m]18>	Btw ,is files application swappable ？i want a dark theme. Night time programming hurts my eye.anyone have reference or experience？
-T 1612354551 18<28bendem18>	Files supports dark theme just fine
-T 1612354590 18<20nvfanonlah[m]18>	Wait where can i change the setting？
-T 1612354609 18<28bendem18>	Tweaks > Appearance > Applications > Adwaita-dark
-T 1612354647 18<28bendem18>	you have to install Tweaks though, not sure why it's not installed by default with gnome since it's the one way to configure gnome
-T 1612354716 18<20nvfanonlah[m]18>	Oh ok so i need to install that.thanks. i will check it out then come back if have problem.
-T 1612357968 20*	Disconnected (20)
-T 1612379896 22*	26RMPR sets mode 24+Z on 22RMPR
-T 1612379896 22*	26RMPR sets mode 24+i on 22RMPR
-T 1612379897 -18freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
-T 1612379897 24*	Received a CTCP 24VERSION from 18freenode-connect
-T 1612379901 19*	Now talking on 22#fedora
-T 1612379901 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
-T 1612379901 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
-T 1612379902 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1612384630 24*	28heis2201_ is now known as 18heis2201
-T 1612385226 24*	28jess| is now known as 18jess
-T 1612386139 18<26Bluesboy[m]18>	Hey, folks! Is there a Desktop Matrix client for Fedora?
-T 1612386437 18<26Khaytsus18>	Bluesboy[m]: element is in flatpak
-T 1612386455 18<26Khaytsus18>	I just use the website, it's not that different
-T 1612386681 18<29kellya[m]18>	Yeah.  I just use element too.  I tried Fractal (because gnome), but I don't think it does e2ee
-T 1612386782 18<26Bluesboy[m]18>	<Khaytsus "I just use the website, it's not"> It's not that convinient IMO
-T 1612386871 18<22Gestra18>	looks like there's at least neochat, nheko, quaternion and spectral in the fedora repos if you don't want to use Element from flathub
-T 1612386907 18<19dowdle18>	I think nirik wrote up a blog post a couple of months ago comparing and contrasting the various matrix clients he had tried.
-T 1612386916 18*	19dowdle uses an IRC client.
-T 1612387034 18<19dowdle18>	Here's that blog post: https://www.scrye.com/wordpress/nirik/2020/11/28/matrix-and-fedora/
-T 1612387052 18<24Mershl[m]18>	What does "Rb" usually mean in a comment to a Merge Request?
-T 1612387072 18<26Bluesboy[m]18>	<dowdle "I think nirik wrote up a blog po"> https://www.scrye.com/wordpress/nirik/2020/11/28/matrix-and-fedora/ this?
-T 1612387114 18<19dowdle18>	Bluesboy[m]: That's the link gave... that I guess you didn't get before sending your question.  Matrix SUCKS! (death to Matrix)
-T 1612387134 18<19dowdle18>	Bluesboy[m]: But feel free to use it all you want.  Just don't ask me to. :)
-T 1612387169 18<22cberg18>	Mershl[m]: rebase maybe?
-T 1612387231 18<24Mershl[m]18>	Ahhh, makes sense.
-T 1612387356 24*	28fab_ is now known as 18fab
-T 1612387634 18<25arethuza18>	I have a 2 monitor setup with gnome wayland on fedora 33 and it doesnt turn off my monitors when I lock the screen. It'll turn off for a second but then the monitor will turn back on. Anyone know how to fix this issue? I saw a bunch of open DPMS bugs.
-T 1612387715 18<27Dustin[m]18>	<arethuza "I have a 2 monitor setup with gn"> Oh, that's an interesting problem. I am currently on Fedora 33 with a USB-C dock attached to a monitor and it does disable the screen normally
-T 1612387772 18<25arethuza18>	is there a setting or something that I should check?
-T 1612387787 18<25janos_18>	please, if using matrix - don't quote. it junks up irc which this channel is natively
-T 1612388260 18<20cmurf18>	git bisect weirdness, I'm confused, any ideas?
-T 1612388262 18<20cmurf18>	https://paste.centos.org/view/b692fa5e
-T 1612388393 18<27Dustin[m]18>	<janos_ "please, if using matrix - don't "> Gotcha. Is that something that can be tweaked with the bridge?
-T 1612388414 18<27Dustin[m]18>	janos_: Gotcha. Is that something you can fix in the IRC bridge?
-T 1612388438 18<25janos_18>	no idea. i use irc clients when in irc
-T 1612388492 18<25janos_18>	i'm not familiar with the architecture, but a bridge seems like an odd place to address that sort of thing. i'd think the client knows it's connecting to a bridge and it adjusts its behavior and options to suit
-T 1612388585 18<27Dustin[m]18>	It's a shame the people still using IRC will get a bunch of junk in their feeds when the Matrix users are just using their clients in an expected manner
-T 1612388595 18<27Dustin[m]18>	These bridges are a bit messy
 T 1612388646 18<25janos_18>	yeah. i wouldn't care what people used if they were the only ones to deal with their choices :)
 T 1612388905 18<20cmurf18>	things will be different when Fedora moves natively to matrix, but I'm not sure about the time frame for that
 T 1612389041 18<25janos_18>	when? it's been determined as a definite?
@@ -5112,3 +4997,15 @@ T 1616841792 18<26Mac10118>	havent got 5.9 installed to test
 T 1616841795 18<26Mac10118>	whats a bisect?
 T 1616841838 18<27joydeep_taiga18>	search up git bisect, basically you build a bunch of kernel images and it finds where the bug was introduced in O(logn) time
 T 1616842398 18<28fedbot18>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1617130759 19*	Now talking on 22#fedora
+T 1617130759 22*	Topic for 22#fedora is: Fedora Linux F32, F33, F34B end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common || Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins
+T 1617130759 22*	Topic for 22#fedora set by 26Khaytsus!~khaytsus@fedora/khaytsus (24Mon Mar 29 00:08:02 2021)
+T 1617130759 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1617131128 18<19fedfu18>	Southern_Gentlem: I am stupid, boost-static package was missing. That is why cmake was throwing error. It is working fine now, even with 1.69.
+T 1617132612 18<29Imbus18>	Does anyone know how to get the c++ QtCore header in fedora?
+T 1617132679 18<29Imbus18>	nvm of course its qt-devel
+T 1617132685 18<22Southern_Gentlem18>	Imbus, what error are you hitting
+T 1617132711 18<29Imbus18>	missing header, solved now
+T 1617132729 18<29Imbus18>	trying to compile a simple qt application just because
+T 1617132750 18<29Imbus18>	just need to find the correct linking flags now
+T 1617134345 18<28fedbot18>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***

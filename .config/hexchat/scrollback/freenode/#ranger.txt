@@ -1,89 +1,3 @@
-T 1587331684 18<29rnmhdn18>	can I create hardlinks with ranger?
-T 1587331711 18<26zaeph18>	rnmhdn: `pl` or `pL` after `yy`.
-T 1587331721 18<26zaeph18>	L is relative.
-T 1587331725 18<26zaeph18>	`yy` is for copying.
-T 1587331764 18<22__monty__18>	Those are symlinks I think?
-T 1587331769 18<29rnmhdn18>	I found it
-T 1587331773 18<29rnmhdn18>	phl
-T 1587331785 18<26zaeph18>	Oh, sorry, misread that.
-T 1587331823 18<29rnmhdn18>	god
-T 1587331829 18<29rnmhdn18>	I'm in love with hardlinks
-T 1587331829 18<26zaeph18>	Yes?
-T 1587331831 18<29rnmhdn18>	:))
-T 1587331838 18<29rnmhdn18>	it's super cool and useful
-T 1587331946 18<26GermainZ18>	I prefer symlinks because if they break at least I know what they were pointing to
-T 1587331967 18<26GermainZ18>	also they're more explicit
-T 1587331981 18<26zaeph18>	Like your mum!
-T 1587331993 18<26GermainZ18>	:D
-T 1587332004 18<22__monty__18>	Well, hardlinks can't break.
-T 1587332010 18<22__monty__18>	They're more limited though.
-T 1587332019 18<22__monty__18>	No dirs, no device boundary crossing.
-T 1587332023 18<26GermainZ18>	__monty__: they can "break" if you use some weird tool which deletes and rewrites or similar for in-place modifications 
-T 1587332023 18<26zaeph18>	Like my--
-T 1587332026 18<26zaeph18>	God dang it.
-T 1587332046 18<22__monty__18>	I don't consider that breaking.
-T 1587332051 18<26GermainZ18>	I do
-T 1587332056 18<26GermainZ18>	It's broken and I have to fix it
-T 1587332067 18<26GermainZ18>	It's not really the fault of hardlinks
-T 1587332070 18<26GermainZ18>	But it is broken for me
-T 1587332071 18<22__monty__18>	That's a very common pattern in unix tools though.
-T 1587332085 18<26GermainZ18>	So I just don't use hardlinks
-T 1587332232 18<22__monty__18>	I don't tend to use them much either.
-T 1587332252 18<22__monty__18>	Many tools break the link when copying them too.
-T 1587332360 18<26zaeph18>	I used to rely on them a lot for a workflow with my music.
-T 1587332363 18<26zaeph18>	Now I just don't bother.
-T 1587332450 18<26GermainZ18>	What's the advantage over symlinks tho? Except for some poorly coded tools that may refuse to work with symlinks
-T 1587332471 18<22__monty__18>	No indirections.
-T 1587332479 18<26zaeph18>	I need that for my life.
-T 1587332481 18<22__monty__18>	And ever so slightly less data.
-T 1587332506 18<26GermainZ18>	I don't see no indirection as a benefit tho
-T 1587332542 18<22__monty__18>	Not everyone cares about performance.
-T 1587332556 18<22__monty__18>	Another thing is how it interacts with nfs for example.
-T 1587332573 18<26GermainZ18>	But does it actually affect performance? Or is it a nanosecond difference?
-T 1587332583 18<26GermainZ18>	How does it interact with nfs?
-T 1587332643 18<22__monty__18>	Hardlink, look up inode, look up linked inode, done. Symlink, look up inode, read link, look up other inode by path, read contents.
-T 1587332659 18<22__monty__18>	That's definitely gonna be more than a nanosecond.
-T 1587332698 18<22__monty__18>	Symlinks are evaluated relative to the mount. So a symlink to a file outside the NFS share will point to that file on the user's system.
-T 1587332702 18<26zaeph18>	Definitely a half-dozen nanoseconds, then.
-T 1587332711 18<26GermainZ18>	Yeah, a couple nanoseconds depending on the CPU :D
-T 1587332724 18<26zaeph18>	(Sorry for not contributing much to the conversation.  Filesystems aren't my cup of tea.
-T 1587332761 18<22__monty__18>	That *can* be used usefully, having a program on a share use a user's config for example. But that's rarely useful and the other way around, sharing files without having them in the shared directory is really common.
-T 1587332764 18<26GermainZ18>	__monty__: oh I see about nfs
-T 1587332794 18<22__monty__18>	You guys don't realize this is about disk IO. It's orders of magnitude slower.
-T 1587332819 18<26zaeph18>	Well I'll have you know I have an SSD!
-T 1587332820 18<26GermainZ18>	It's still nanoseconds
-T 1587332823 18<26zaeph18>	/s, btw.
-T 1587332875 18<22__monty__18>	A single lookup on an SSD is on the order of 0.5 ms.
-T 1587333015 18<26GermainZ18>	You're right, it's not nanoseconds
-T 1587333059 18<26GermainZ18>	But 0.5 ms is probably the worst case with modern SSDs being a fraction of that
-T 1587333064 18<22__monty__18>	It's literally millions of nanoseconds.
-T 1587333070 18<26GermainZ18>	Still in the order of a few dozen/hundred microseconds
-T 1587333137 18<29rnmhdn18>	but softlinks don't work with git do they?
-T 1587333183 18<26GermainZ18>	depends on the config
-T 1587333194 18<26GermainZ18>	but not really no
-T 1587333200 18<22__monty__18>	Why wouldn't they? I'd expect something similar to the NFS behavior.
-T 1587333233 18<26GermainZ18>	yes that's the default IIRC
-T 1587333245 18<26zaeph18>	(Neat mode for Emacs for helping you track your cursor across jumps: https://github.com/Malabarba/beacon )
-T 1587333249 18<26GermainZ18>	but that's not working depending on why you're symlinking
-T 1587333450 18<22__monty__18>	I don't tend to have many identical files across repos tbh.
-T 1587333453 18<22__monty__18>	Maybe the LICENSE?
-T 1587333503 18<26GermainZ18>	Yeah it's usually the other way around for me anyway (a symlink to a file in a git repo)
-T 1587333527 18<22__monty__18>	That's common for dotfiles yeah.
-T 1587333605 18<26GermainZ18>	zaeph: that's pretty neat
-T 1587333628 18<26zaeph18>	I like it a lot.
-T 1587333641 18<26zaeph18>	I'd have shown you a demo, but my gif-screencast doesn't pick it up.
-T 1587333655 18<26GermainZ18>	zaeph: there is one in the github repo
-T 1587333664 18<26zaeph18>	Yeah, that's why I've linked this one instead.
-T 1587333683 18<26zaeph18>	Would have been better to make you my own demo, since their gif is pretty low-quality.
-T 1587333687 18<22__monty__18>	I've had something similar in vim. Doesn't need a plugin, just a simple config.
-T 1587333703 18<26zaeph18>	__monty__: Yeah, I've also seen someone mention that on Reddit.
-T 1587333718 18<26zaeph18>	I already highlight the current line, so I wasn't in dire need of it, but it's a nice boon.
-T 1587333734 18<26zaeph18>	https://paste.xinu.at/5Th/
-T 1587333736 18<22__monty__18>	It's the emacs is a great OS lacking a nice editor thing all over again.
-T 1587333748 18<26zaeph18>	I'm fine with it.
-T 1587333761 18<26GermainZ18>	in vim I just have cursorline always on
-T 1587333786 18<26GermainZ18>	which I like better
-T 1587333796 18<26GermainZ18>	but that plugin is creative and I like it very much
 T 1587333808 18<26zaeph18>	Another package that I love in Emacs is the one that highlights texts that was added by undo/redo.
 T 1587333831 18<26zaeph18>	It doesn't have any impact on performance, too.
 T 1587333839 18<26zaeph18>	If you start moving before the animation is over, it just cancels the rest of it.
@@ -5083,3 +4997,30 @@ T 1616841955 18<26GermainZ18>	Better safe than sorry in this case :P
 T 1616841972 18<26zaeph18>	Now you sound like my ex. 🙄
 T 1616841979 18*	26zaeph has baggage.
 T 1616841984 18<26GermainZ18>	:D
+T 1617130759 19*	Now talking on 22#ranger
+T 1617130759 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1617130759 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1617130839 18<26GermainZ18>	zaeph: I am disappointed in your government choosing to announce the new measures tomorrow rather than on April 1st 
+T 1617130902 18<26zaeph18>	GermainZ: Oh don't worry; they won't announce tomorrow.
+T 1617130916 18<26zaeph18>	Wednesday is conseil de défense, Thursday is announcements.
+T 1617130929 18<26zaeph18>	…Unless Macron really wants to go live on the telly, then he can do it on Wednesday evening.
+T 1617130950 18<26GermainZ18>	zaeph: usually yes. But this time no
+T 1617130969 18<26zaeph18>	GermainZ: I've just watched the news and they didn't mention this?
+T 1617131011 18<26GermainZ18>	zaeph: random google so no clue if this particular domain's good, but I heard it from my friends -- https://www.francetvinfo.fr/sante/maladie/coronavirus/covid-19-emmanuel-macron-envisage-une-allocution-des-mercredi-soir-apres-un-nouveau-conseil-de-defense-sanitaire_4352751.html
+T 1617131062 18<26zaeph18>	'envisage' means 'is thinking about'.
+T 1617131110 18<26GermainZ18>	Well yes, he didn't announce the announcement, only that he's considering it :D
+T 1617131116 18<26GermainZ18>	but I'd say it's likely, no?
+T 1617131123 18<26zaeph18>	Honestly, ¯\_(ツ)_/¯
+T 1617131142 18<26zaeph18>	Nobody's got a clue, least of all they.
+T 1617131151 18<26GermainZ18>	:D
+T 1617131164 18<26GermainZ18>	I just think it would be funny if they announce it on April 1st
+T 1617131171 18<26zaeph18>	We're all betting on this.
+T 1617131182 18<26GermainZ18>	In a very immature way
+T 1617131186 18<26zaeph18>	We've come to call our country 'Absurdistan' in the last couple of months.
+T 1617131225 18<26zaeph18>	'Member that 2-page attestation to justify why you were going outside?  That went well.
+T 1617131401 18<26GermainZ18>	On the bright side your vaccination speed is picking up rather well compared to other European countries
+T 1617131458 18<26zaeph18>	I'm a glass half-empty kinda guy.
+T 1617131468 18<26GermainZ18>	You're a drunkard
+T 1617131509 18<26zaeph18>	I'm the bastard child of Brittany and Normandy; I was *born* for this.
+T 1617131520 18<26GermainZ18>	:D
+T 1617134658 24*	28grobi is now known as 18Guest55035
