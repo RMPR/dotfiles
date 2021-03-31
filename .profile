@@ -8,3 +8,4 @@ PATH="$PATH:$HOME/.emacs.d/bin"
 export _JAVA_AWT_WM_NONREPARENTING=1
 export WEECHAT_HOME=$HOME/.config/weechat
 export XDG_CONFIG_HOME=$HOME/.config
+export VIMCONFIG=$HOME/.vim

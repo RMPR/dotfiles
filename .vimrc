@@ -118,6 +118,12 @@ augroup END
 " Create a new file under the cursor if it doesn't already exist
 noremap <leader>gf :e <cfile><cr>
 
+" Save session 
+nnoremap <leader>ss :mksession!<CR> 
+" Reload session 
+nnoremap <leader>sl :so Session.vim<CR>
+
+
 " {{{ netrw: Configuration
 "     ====================
 let g:netrw_banner=0        " disable banner
