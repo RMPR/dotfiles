@@ -1,41 +1,3 @@
-T 1612388646 18<25janos_18>	yeah. i wouldn't care what people used if they were the only ones to deal with their choices :)
-T 1612388905 18<20cmurf18>	things will be different when Fedora moves natively to matrix, but I'm not sure about the time frame for that
-T 1612389041 18<25janos_18>	when? it's been determined as a definite?
-T 1612389057 18<27Dustin[m]18>	I was an avid IRC user for many, many years but I definitely prefer Matrix now
-T 1612389112 18<25janos_18>	i mostly want something out of my way and that i can make very information-dense and compact
-T 1612389178 18<22cberg18>	I like IRC mostly because I like the kind of people who are "still using IRC"
-T 1612389439 18<27Dustin[m]18>	There are some very IRC-like clients for Matrix now as well as integration with emacs and so on
-T 1612389497 18<20cmurf18>	janos_: yeah pretty sure it was talked about on devel@ list
-T 1612389506 18<25janos_18>	bummer
-T 1612389507 18<27Dustin[m]18>	weechat, gomuks and matrixcli for command line as well
-T 1612389558 18<20cmurf18>	here are the discussions
-T 1612389560 18<20cmurf18>	https://discussion.fedoraproject.org/t/the-future-of-real-time-chat-discussion-for-the-fedora-council/24628
-T 1612389568 18<25janos_18>	thanks! will check those out
-T 1612389576 18<20cmurf18>	https://lists.fedoraproject.org/archives/list/devel@lists.fedoraproject.org/thread/T7C25NUEKEB3GLA2GO752XISR6HHFJR7/
-T 1612389594 18<20cmurf18>	https://pagure.io/Fedora-Council/tickets/issue/342
-T 1612390612 18<25janos_18>	seems reasonable enough
-T 1612390666 18<25janos_18>	not a fan of certain driving factors, but seems decent enough as long as those cli options pan out
-T 1612391083 18*	27Dustin[m] uploaded an image: gomuks.png (163KiB) < https://matrix.org/_matrix/media/r0/download/mozilla.org/fae78df0434814a5404db2da8b2346c43f52b549/gomuks.png >
-T 1612391937 18<28linuxmodder18>	can one of these genx/z types PLEASE explain to me why they need to reinvent the wheel
-T 1612391963 18<28linuxmodder18>	matrix is decnt but nowhere near as solid and tested as irc
-T 1612391974 18<25janos_18>	woah woah now, don't loop gne-x in that
-T 1612391976 18<25janos_18>	haha
-T 1612391983 18<25janos_18>	*gen-x
-T 1612392006 18<25janos_18>	i think you may mean y/z
-T 1612392017 18<19dowdle18>	gen-not-mine
-T 1612392030 18<27Dustin[m]18>	lol
-T 1612392034 18<29avu18>	ok boomer
-T 1612392037 18<19dowdle18>	You can say, "Ok, Boomer" to me if you want.
-T 1612392041 18<25janos_18>	haha
-T 1612392048 18<25janos_18>	would actually be one if not x/y/z!
-T 1612392101 18<19dowdle18>	"boomers were born between 1946 and 1964".  I was born in 64.
-T 1612392108 18<28linuxmodder18>	I'm technically a millienal but I hate everything about my generation especially crap like this
-T 1612392113 18<27Dustin[m]18>	linuxmodder I'm not sure if it's reinventing the wheel as much as creating another wheel which can meet different needs
-T 1612392131 18<25janos_18>	dowdle: boom
-T 1612392133 18<25janos_18>	:P
-T 1612392150 18<28linuxmodder18>	Dustin[m], what needs? some youngster that can text and snapchat but not setup a simple irc account on their phone ?
-T 1612392159 18<25janos_18>	i think it's those needs which are contentious
-T 1612392168 18<28linuxmodder18>	^^
 T 1612392191 18<28linuxmodder18>	in too may cases these youngsters feel they need to reinvent their own space or tool to b relevant
 T 1612392195 18<28linuxmodder18>	and that pisses me off
 T 1612392213 18<19dowdle18>	And it MUST have a dark theme.
@@ -5035,3 +4997,16 @@ T 1617137634 18<19dowdle18>	billings: I would say broken documentation i
 T 1617137775 18<19dowdle18>	billings: It is a pretty HTML man page.
 T 1617137882 20*	Disconnected (20)
 T 1617185435 FiSHLiM plugin unloaded
+T 1617307050 19*	Now talking on 22#fedora
+T 1617307050 22*	Topic for 22#fedora is: Fedora Linux F32, F33, F34B end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common || Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins
+T 1617307050 22*	Topic for 22#fedora set by 26Khaytsus!~khaytsus@fedora/khaytsus (24Mon Mar 29 00:08:02 2021)
+T 1617307050 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1617307075 18<24chrisawi18>	kb1000: can you use java-11-openjdk ?
+T 1617307114 18<25ledeni18>	kb1000: yes 'sudo dnf downgrade java-latest-openjdk'
+T 1617307315 18<28fedbot18>	*** F33-20210315 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1617307368 18<25ledeni18>	kb1000: once you downgrade with dnf versionlock lock version that on next update don't get 16
+T 1617307575 18<29torbuntu18>	I thought you could install multiple jdk versions and use update alternatives to switch between them. That's what I used to do before I started using sdkman
+T 1617307675 18<25ledeni18>	torbuntu: yes but only 11 1.8.0 and latest are option with dnf check 'dnf se openjdk'
+T 1617307979 18<29torbuntu18>	Ah gotcha. So the two lts and a latest.
+T 1617308002 18<25ledeni18>	torbuntu: yes
+T 1617308374 24*	28Ike___ is now known as 18Ike__
