@@ -12696,3 +12696,53 @@ Apr 01 21:07:55 <ledeni>	torbuntu: yes but only 11 1.8.0 and latest are option w
 Apr 01 21:12:59 <torbuntu>	Ah gotcha. So the two lts and a latest.
 Apr 01 21:13:22 <ledeni>	torbuntu: yes
 Apr 01 21:19:34 *	Ike___ is now known as Ike__
+Apr 01 21:54:15 <maerwald>	I'm getting notification popups about software updates (I never got them before bc I don't use any of the software center stuff). Why is it showing up now and how can I silence it?
+Apr 01 21:59:13 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr  1 21:59:13 2021
+
+**** BEGIN LOGGING AT Thu Apr  1 22:03:36 2021
+
+Apr 01 22:03:36 *	Now talking on #fedora
+Apr 01 22:03:36 *	Topic for #fedora is: Fedora Linux F32, F33, F34B end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common || Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins
+Apr 01 22:03:36 *	Topic for #fedora set by Khaytsus!~khaytsus@fedora/khaytsus (Mon Mar 29 00:08:02 2021)
+Apr 01 22:03:36 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Apr 01 22:12:58 <truexfan81>	my father is trying to install skypeforlinux on his fedora 33 machine and is running into dependency problems, can this be fixed?
+Apr 01 22:13:17 <truexfan81>	https://go.skype.com/skypeforlinux-64.rpm
+Apr 01 22:13:46 <janos_>	how is he installing that rpm?
+Apr 01 22:14:12 <truexfan81>	sudo dnf install https://go.skype.com/skypeforlinux-64.rpm
+Apr 01 22:14:54 <janos_>	hrm, that should resolve the deps if the deps can be found
+Apr 01 22:15:12 <janos_>	what's the actual error?
+Apr 01 22:15:16 <truexfan81>	and some of them can't be found which is the problem
+Apr 01 22:17:10 <janos_>	you may want to go the flatpak route if skype hasn't packaged it up in a working fashion for fedora
+Apr 01 22:17:12 <truexfan81>	i just told him how to pipe it into fpaste, i'll give you the link when he gets it to me
+Apr 01 22:17:26 <janos_>	https://flathub.org/apps/details/com.skype.Client
+Apr 01 22:17:28 <janos_>	ok
+Apr 01 22:18:07 <janos_>	i just tried - it appears to want something named 'libatomic1'. i'm pretty sure it's 'libatomic'
+Apr 01 22:18:32 <truexfan81>	yeah thats the one
+Apr 01 22:18:42 <janos_>	you may be able to do this:
+Apr 01 22:18:47 <janos_>	sudo dnf install libatomic
+Apr 01 22:19:04 <janos_>	(note not libatomic1. that sounds like a mistake for fedora)
+Apr 01 22:19:23 <truexfan81>	oh we installed that already
+Apr 01 22:19:29 <coppice_>	that skype update uses a version of libatomic that hasn't made it into a fedora RPM yet
+Apr 01 22:19:42 <janos_>	and then add --skip-broken to the dnf install https://go.skype.com/skypeforlinux-64.rpm
+Apr 01 22:19:53 <janos_>	but i would personally go the flatpak route
+Apr 01 22:21:00 <janos_>	it's quite possible that rpm simply won't work until Ms fixes the reference
+Apr 01 22:22:43 <truexfan81>	alright thank you
+Apr 01 22:24:36 <truexfan81>	interesting
+Apr 01 22:24:40 <truexfan81>	now when he tells dnf to install it it's telling him "command not found"
+Apr 01 22:25:13 *	chromakey-io_ is now known as chromakey-io
+Apr 01 22:25:17 <Khaytsus>	What is he typing exactly?
+Apr 01 22:26:43 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr  1 22:26:43 2021
+
+**** BEGIN LOGGING AT Thu Apr  1 22:30:28 2021
+
+Apr 01 22:30:28 *	Now talking on #fedora
+Apr 01 22:30:28 *	Topic for #fedora is: Fedora Linux F32, F33, F34B end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common || Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins
+Apr 01 22:30:28 *	Topic for #fedora set by Khaytsus!~khaytsus@fedora/khaytsus (Mon Mar 29 00:08:02 2021)
+Apr 01 22:30:31 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Apr 01 22:30:39 <truexfan81>	mine lives 70miles away so it's not really practical for me to drive over there to fix a computer problem
+Apr 01 22:30:43 <janos_>	yeah
+Apr 01 22:33:43 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr  1 22:33:43 2021
+

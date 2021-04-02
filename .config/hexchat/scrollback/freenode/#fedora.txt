@@ -5010,3 +5010,50 @@ T 1617307675 18<25ledeni18>	torbuntu: yes but only 11 1.8.0 and latest a
 T 1617307979 18<29torbuntu18>	Ah gotcha. So the two lts and a latest.
 T 1617308002 18<25ledeni18>	torbuntu: yes
 T 1617308374 24*	28Ike___ is now known as 18Ike__
+T 1617310455 18<29maerwald18>	I'm getting notification popups about software updates (I never got them before bc I don't use any of the software center stuff). Why is it showing up now and how can I silence it?
+T 1617310753 20*	Disconnected (20)
+T 1617310811 20*	Disconnected (20Remote host closed socket)
+T 1617310865 20*	Disconnected (20Remote host closed socket)
+T 1617310908 20*	Disconnected (20Remote host closed socket)
+T 1617310978 20*	Disconnected (20Remote host closed socket)
+T 1617311016 19*	Now talking on 22#fedora
+T 1617311016 22*	Topic for 22#fedora is: Fedora Linux F32, F33, F34B end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common || Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins
+T 1617311016 22*	Topic for 22#fedora set by 26Khaytsus!~khaytsus@fedora/khaytsus (24Mon Mar 29 00:08:02 2021)
+T 1617311016 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1617311578 18<20truexfan8118>	my father is trying to install skypeforlinux on his fedora 33 machine and is running into dependency problems, can this be fixed?
+T 1617311597 18<20truexfan8118>	https://go.skype.com/skypeforlinux-64.rpm
+T 1617311626 18<25janos_18>	how is he installing that rpm?
+T 1617311652 18<20truexfan8118>	sudo dnf install https://go.skype.com/skypeforlinux-64.rpm
+T 1617311694 18<25janos_18>	hrm, that should resolve the deps if the deps can be found
+T 1617311712 18<25janos_18>	what's the actual error?
+T 1617311716 18<20truexfan8118>	and some of them can't be found which is the problem
+T 1617311830 18<25janos_18>	you may want to go the flatpak route if skype hasn't packaged it up in a working fashion for fedora
+T 1617311832 18<20truexfan8118>	i just told him how to pipe it into fpaste, i'll give you the link when he gets it to me
+T 1617311846 18<25janos_18>	https://flathub.org/apps/details/com.skype.Client
+T 1617311848 18<25janos_18>	ok
+T 1617311887 18<25janos_18>	i just tried - it appears to want something named 'libatomic1'. i'm pretty sure it's 'libatomic'
+T 1617311912 18<20truexfan8118>	yeah thats the one
+T 1617311922 18<25janos_18>	you may be able to do this:
+T 1617311927 18<25janos_18>	sudo dnf install libatomic
+T 1617311944 18<25janos_18>	(note not libatomic1. that sounds like a mistake for fedora)
+T 1617311963 18<20truexfan8118>	oh we installed that already
+T 1617311969 18<27coppice_18>	that skype update uses a version of libatomic that hasn't made it into a fedora RPM yet
+T 1617311982 18<25janos_18>	and then add --skip-broken to the dnf install https://go.skype.com/skypeforlinux-64.rpm
+T 1617311993 18<25janos_18>	but i would personally go the flatpak route
+T 1617312060 18<25janos_18>	it's quite possible that rpm simply won't work until Ms fixes the reference
+T 1617312163 18<20truexfan8118>	alright thank you
+T 1617312276 18<20truexfan8118>	interesting
+T 1617312280 18<20truexfan8118>	now when he tells dnf to install it it's telling him "command not found"
+T 1617312313 24*	28chromakey-io_ is now known as 18chromakey-io
+T 1617312317 18<26Khaytsus18>	What is he typing exactly?
+T 1617312403 20*	Disconnected (20)
+T 1617312487 20*	Disconnected (20Remote host closed socket)
+T 1617312539 20*	Disconnected (20Remote host closed socket)
+T 1617312597 20*	Disconnected (20Remote host closed socket)
+T 1617312628 19*	Now talking on 22#fedora
+T 1617312628 22*	Topic for 22#fedora is: Fedora Linux F32, F33, F34B end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common || Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins
+T 1617312628 22*	Topic for 22#fedora set by 26Khaytsus!~khaytsus@fedora/khaytsus (24Mon Mar 29 00:08:02 2021)
+T 1617312631 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1617312639 18<20truexfan8118>	mine lives 70miles away so it's not really practical for me to drive over there to fix a computer problem
+T 1617312643 18<25janos_18>	yeah
+T 1617312823 20*	Disconnected (20)
