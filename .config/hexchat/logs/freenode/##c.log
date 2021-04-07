@@ -582,3 +582,74 @@ Apr 07 15:38:41 <slidercrank>	,cjeopardy
 Apr 07 15:38:42 <candide>	Please join #cjeopardy to play C Jeopardy!
 Apr 07 15:43:30 <rl_[m]>	<slidercrank "rl_, you must specify all dimens"> I thought so myself, but perhaps I didn't know as much as I thought I did. It is so embarassing for C to not have this feature.
 Apr 07 15:44:05 <twkm>	it doesn't even have multidimensional arrays, just arrays of arrays.
+Apr 07 15:59:11 <tech_exorcist>	<slidercrank> ,cc #define COUNTOF(n) sizeof(n)/sizeof(n[0]) \n char a[][4]={{1,2,3,4}, {5,6,7,8}}; \n printf("a has dimentions %ldx%ld\n", COUNTOF(a), COUNTOF(a[0]));\n | why didn't you #include <stdio.h> ?
+Apr 07 16:00:16 <twkm>	the bot does so for you.
+Apr 07 16:00:23 <slidercrank>	tech_exorcist, why don't you ask why I didn't include int main()...? :)
+Apr 07 16:00:29 <slidercrank>	because it works :)
+Apr 07 16:01:01 <slidercrank>	makes using the bot easier
+Apr 07 16:01:53 <tech_exorcist>	oh
+Apr 07 16:02:03 <tech_exorcist>	I didn't think about main() tbh, oops
+Apr 07 16:02:06 <tech_exorcist>	my bad
+Apr 07 16:04:27 <twkm>	now the newline's before and after the printf seem odd to bother with.
+Apr 07 16:05:31 <slidercrank>	you're right
+Apr 07 16:25:07 *	lermain is now known as Jmtrix
+Apr 07 16:52:23 *	tech_exorcist is now known as StupidNormie
+Apr 07 16:53:09 *	StupidNormie is now known as tech_exorcist
+Apr 07 18:51:23 *	Disconnected ()
+**** ENDING LOGGING AT Wed Apr  7 18:51:23 2021
+
+**** BEGIN LOGGING AT Wed Apr  7 18:51:48 2021
+
+Apr 07 18:51:48 *	Now talking on ##C
+Apr 07 18:51:48 *	Topic for ##C is: C Programming | PASTE (>3 lines): http://codepad.org/ | WIKI: http://www.iso-9899.info/ | BOOKS: http://www.iso-9899.info/wiki/Books | C2X Charter: http://www.open-std.org/jtc1/sc22/wg14/www/docs/n2086.htm | the current standard: http://iso-9899.info/wiki/The_Standard | Off-topic: ##c-offtopic
+Apr 07 18:51:48 *	Topic for ##C set by twkm!twkm@rfc1459.net (Mon Dec  9 19:03:31 2019)
+Apr 07 18:51:49 -ChanServ-	[##c] Welcome to ##c! We engage in C programming discussions at all levels of expertise; don't hesitate to ask your question. If applicable, please prepare a testcase and paste it at http://ideone.com. We don't know about C++ (##c++) or C# (##csharp).
+Apr 07 18:51:49 *	Channel ##c url: http://www.iso-9899.info/
+Apr 07 19:56:35 <Acacia>	yeah I thought something like that, just not so well written out. also it seems there is a non-0 amount of maintainers who don't share my eagerness to change these things
+Apr 07 20:00:18 <JackB>	does anybody knows how to go from use case diagram to activity diagram?
+Apr 07 20:00:26 <JackB>	do I make an activity diagram for each use case? or for the whole use case diagram
+Apr 07 20:00:33 <JackB>	I am so confused
+Apr 07 20:00:36 <JackB>	I am so confused
+Apr 07 20:04:53 <twkm>	you probably want ##uml or ##cs.
+Apr 07 20:17:15 <hypercube>	hello everyone, im working on implementing user-space threading in C for a class using SIGALRM for preemption, and ran into a little bit of an issue that i couldnt debug. essentially, whenever any client code wants to add a new thread, my initializer places a mask on SIGALRMS to prevent context-swapping in the middle of a critical operation, retrieves the new context where it will create the new thread
+Apr 07 20:17:18 <hypercube>	and does everything correctly, but whenever i remove the mask before returning to the client code, i get a segmentation fault
+Apr 07 20:20:40 <JohnnyVM>	? without know the implementation its dificult to say nothing, SIGSEV its a pretty common error
+Apr 07 20:25:49 <hypercube>	JohnnyVM: sorry, ill go ahead and send the source right away
+Apr 07 20:27:51 <hypercube>	https://pastebin.com/JdDCt59H
+Apr 07 20:27:53 <hypercube>	this is the code
+Apr 07 20:30:52 <hypercube>	the exact test case which causes this code to fail is this
+Apr 07 20:31:32 <JohnnyVM>	https://godbolt.org/
+Apr 07 20:31:47 <JohnnyVM>	can you reproduce you case with that?
+Apr 07 20:31:59 <JohnnyVM>	and share the result
+Apr 07 20:33:13 <hypercube>	absolutely
+Apr 07 20:36:37 <Twix>	hypercube, why do you write your own scheduler? For learning?
+Apr 07 20:36:56 <twkm>	the paste doesn't appear to be a testcase, in that it doesn't compile thus can't exhibit the issue.
+Apr 07 20:37:31 <hypercube>	Twix: yes, it's for an operating systems class
+Apr 07 20:38:05 <hypercube>	twkm: i realized that i had missed some of the methods, im using the site that JohnnyVM shared to set everything up
+Apr 07 20:38:22 <Twix>	ah, okay. But woulnd't the dispatcher be the more interesting thing?
+Apr 07 20:38:35 <twkm>	no methods in c, but indeed stuff is missing.
+Apr 07 20:41:26 <Twix>	hypercube, you could also run your program in gdb and enter "bt" in the gdb shell after it crashed. It will print the backtrace
+Apr 07 20:45:27 <hypercube>	Twix: i think that's probably what im going to do
+Apr 07 20:46:02 <hypercube>	do you remember what the gcc option was for including extra information for debuggers to use?
+Apr 07 20:46:09 <hypercube>	i cant quite recall
+Apr 07 20:47:38 <lemonade`>	-g
+Apr 07 20:47:41 <Twix>	-g
+Apr 07 20:47:45 <Twix>	oh
+Apr 07 20:47:49 <Twix>	:>
+Apr 07 20:52:11 <hypercube>	awesome, thank you
+Apr 07 20:58:50 <Unlimiter>	how do i free memory allocated by glewInit()?
+Apr 07 21:04:14 <twkm>	you probably cannot, but if it is possible i'd expect the docs say how.
+Apr 07 21:07:59 <Unlimiter>	twkm: where be?
+Apr 07 21:09:09 <twkm>	the documentation?  i don't know.  but you are the one using the function so it's probably wise for you to locate the docs.
+Apr 07 21:09:49 <novns>	Unlimiter, it depends on a platform, you can look different DestroyContext implementations in https://github.com/nigels-com/glew/blob/master/src/visualinfo.c
+Apr 07 21:10:11 <novns>	and there's no magic function to free them all
+Apr 07 21:10:23 <Unlimiter>	novns: then how am i supposed to write cross-platform stuff?
+Apr 07 21:10:42 <Unlimiter>	i thought glew was cross-platform
+Apr 07 21:10:58 <novns>	Unlimiter, or you can write just that one you support
+Apr 07 21:11:08 <Unlimiter>	any cross-platform alternatives?
+Apr 07 21:12:10 <novns>	you can use lower level opengl yourself, glew is just a nice tool
+Apr 07 21:13:32 <novns>	and yes, you have to write cross-platform things in case of opengl
+Apr 07 21:14:09 <novns>	or just stick to one platform of your choice, and never support anything else
+Apr 07 21:16:23 *	Disconnected ()
+**** ENDING LOGGING AT Wed Apr  7 21:16:23 2021
+

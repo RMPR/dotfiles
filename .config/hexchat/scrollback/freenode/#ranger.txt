@@ -1,71 +1,3 @@
-T 1587341543 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1587341543 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1587368001 20*	Disconnected (20)
-T 1587368023 19*	Now talking on 22#ranger
-T 1587368023 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
-T 1587368023 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
-T 1587370444 18<29rnmhdn18>	I'm obsessed with hardlinks!
-T 1587370447 18<29rnmhdn18>	linux is the beeeest
-T 1587370468 18<26zaeph18>	+1
-T 1587370495 18<29rnmhdn18>	hardlinks are super useful for hiding your shit in your filesystem
-T 1587370501 18<29rnmhdn18>	lol
-T 1587370554 18<26zaeph18>	I just encrypt without a header and call it a day.
-T 1587370568 18<26zaeph18>	Sure, it might give off a pattern on a SSD, but I haven't pushed the neurosis to that point yet.
-T 1587370634 18<29rnmhdn18>	can you elaborate
-T 1587370662 18<26zaeph18>	rnmhdn: https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system
-T 1587370689 18<26zaeph18>	I use LUKS on LVM with a remote header that is itself in a passphrase-protected LUKS container.
-T 1587370747 18<26zaeph18>	Which means than when the 2nd LUKS container is not here, you cannot decrypt the main LUKS container, and it will appear as noise to your system.  Forensics might be able to tell that a filesystem is in place because of the `trim` option needed to have SSDs last longer.
-T 1587371649 18<26GermainZ18>	o/
-T 1587372340 18<25RoboBobob18>	09:18 <zaeph> __monty__: Found yet another blog-post on incorporating the slip-box in Emacs, this time not using org-roam: https://dpitt.me/blog/2020/03/zettelkasten/
-T 1587372342 18<25RoboBobob18>	09:19 <zaeph> __monty__: Haven't read it, though.
-T 1587372589 18<22__monty__18>	I don't know why but org-mode's property syntax really offends me.
-T 1587372601 18<22__monty__18>	Maybe it's the all caps.
-T 1587372604 18<26zaeph18>	It's all right, really.  I did something pretty neat with them at 4am yesterday.
-T 1587372675 18<26zaeph18>	It doesn't look too bad, and you can fold it: https://paste.xinu.at/MbCd/
-T 1587372725 18<22__monty__18>	It does look *too* bad.
-T 1587372745 18<26zaeph18>	Well, there are some codes online to remove them entirely.
-T 1587372761 18<26zaeph18>	But it's good when you need to act programmatically on entries.
-T 1587372773 18<26zaeph18>	My org-agenda custom-views make a lot of use of them.
-T 1587372913 18<22__monty__18>	Yeah, that's why it's such a shame they're *so* ugly.
-T 1587372933 18<26zaeph18>	Frankly, I don't mind them.  I hardly see them anymore, they're folded by default.
-T 1587373014 18<26GermainZ18>	kinda like your face eh?
-T 1587373033 18<26zaeph18>	…Oh. :(
-T 1587373046 18*	26GermainZ hugs zaeph
-T 1587373049 18<26GermainZ18>	I'm kidding it's ok ❤
-T 1587373051 18<26zaeph18>	Not the right moment to get on my nerves: linting my init file in Emacs.
-T 1587373057 18<26zaeph18>	And it's *nightmarish*.
-T 1587373095 18<26GermainZ18>	yup sounds like Emacs
-T 1587373123 18<26zaeph18>	You're supposed to lint your files regularly.  Couldn't do it because my file was too large, and there is something that makes the linter ragequit.
-T 1587373137 18<26GermainZ18>	What does linting do in Emacs?
-T 1587373138 18<26zaeph18>	So, slowly bisecting.  Because fuck work, amirightornah?
-T 1587373151 18<26zaeph18>	GermainZ: https://paste.xinu.at/YFIytp/
-T 1587373164 18<26GermainZ18>	Yeah so normal linting
-T 1587373171 18<26zaeph18>	Pretty much.
-T 1587373187 18<26GermainZ18>	So many warnings
-T 1587373202 18<26zaeph18>	Most of them are fakes.
-T 1587373217 18<22__monty__18>	Split up your config into modules if it's that big, sheesh. What a scrub.
-T 1587373219 18<26zaeph18>	The linter doesn't play nicely with use-package macros.
-T 1587373230 18<26zaeph18>	__monty__: Yo, I've been doing that for over a year, slowly modularising.
-T 1587373242 18<22__monty__18>	Too slowly I guess : p
-T 1587373263 18<26zaeph18>	https://paste.xinu.at/SNy/
-T 1587373266 18<26zaeph18>	It's coming around slowly.
-T 1587373278 18<26GermainZ18>	modularization rate: 1.1
-T 1587373281 18<26zaeph18>	I mean, my init.el is *only* 5503 lines after all.
-T 1587373284 18<26GermainZ18>	adding new stuff rate: 9.73
-T 1587373386 18<22__monty__18>	Lol, "emacs is so great," need so much config  you could've just implemented vim...
-T 1587373422 18<26GermainZ18>	lmao
-T 1587373431 18<26zaeph18>	Not cool, man.
-T 1587374959 18<22__monty__18>	Sorry, zaeph, I apologize if the truth hurts.
-T 1587374984 18<26zaeph18>	I'm as concise with my prose as I am with my code.
-T 1587374990 18<26zaeph18>	…I'm getting better, though.
-T 1587375016 18<26zaeph18>	But it's also because a lot of people on Emacs end up wiping their configs regularly.  I don't think I've ever done that.  I've just kept refining it from the beginning.
-T 1587375020 18<26zaeph18>	Never started tabula rasa.
-T 1587376958 18<22__monty__18>	Then it still being performant and hackable's impressive.
-T 1587376986 18<26zaeph18>	__monty__: I did optimise it.  I just made a point of only pruning, never starting from scratch.
-T 1587377006 18<26zaeph18>	Even when I transitioned to another way to set up one's init file (by jwiegley), I still kept to that word.
-T 1587380870 18<27vifon18>	Free ebooks, fellas.  https://ebookclub.tor.com/
-T 1587380895 18<26zaeph18>	vifon: Thanks!
-T 1587381047 18<22__monty__18>	Restricted to US/Canada.
 T 1587381323 18<26GermainZ18>	__monty__: VPN?
 T 1587381373 18<22__monty__18>	GermainZ: I'm not even sure they check. But I don't use VPNs
 T 1587384600 18<26zaeph18>	Ah, Emacs.  Gotta love not being able to open a file because I've got a 5000-char line in the middle of it.
@@ -5065,3 +4997,63 @@ T 1617312630 19*	Now talking on 22#ranger
 T 1617312630 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
 T 1617312630 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
 T 1617312823 20*	Disconnected (20)
+T 1617805714 19*	Now talking on 22#ranger
+T 1617805714 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1617805714 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1617805769 18<26zaeph18>	Holy smokes, ERASED is kinda great.  I'm only three episodes in, and I'm super invested in the story.
+T 1617805784 18<26zaeph18>	…I think I'm happy I made that choice!
+T 1617817883 20*	Disconnected (20)
+T 1617817908 19*	Now talking on 22#ranger
+T 1617817908 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1617817908 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1617817915 18<28zidbon18>	It's not a big deal, just thought it would save some time.
+T 1617817920 18<26zaeph18>	Uhm, from a text-based perspective, that would probably be possible, but I'm not sure how we'd support the colours.
+T 1617817943 18<26zaeph18>	If you use Emacs, you could just open the dir and browse the files with proper syntax highlighting on another buffer.
+T 1617818022 18<28zidbon18>	I might check that out.
+T 1617818078 18<28zidbon18>	I haven't installed Emacs because I don't need all the features and it's a pretty big program.
+T 1617818086 18<26zaeph18>	I guess we could probably write a custom script for scope.sh that would use a lib to only highlight the hex codes.
+T 1617818120 18<28zidbon18>	Unfortunately that's out of my league.
+T 1617818166 18<26zaeph18>	Maybe a VIM-based solution might work better?
+T 1617818180 18<26zaeph18>	You could just jump to the next file by whichever order you deem fit in VIM.
+T 1617818198 18<28zidbon18>	Good call. Maybe something with NerdTree.
+T 1617818766 18<22__monty__18>	zidbon: You can try using vimcat for previews.
+T 1617818821 18<22__monty__18>	IIRC people got it to work in one of the issues on the tracker.
+T 1617818825 18<28zidbon18>	Change that in the scope.sh file?
+T 1617818839 18<22__monty__18>	You'd add it to scope.sh, yes.
+T 1617818859 18<28zidbon18>	And you say people have had success?
+T 1617818866 18<22__monty__18>	It's not a difficult change but I believe there were open issues still, probably performance.
+T 1617818924 18<28zidbon18>	I just wonder if vimcat will use my vim plugins in the preview window.
+T 1617818978 18<22__monty__18>	I think that's what it does, yeah. It's supposed to display things just like your vim setup does.
+T 1617819102 18<28zidbon18>	You don't happen to know the name of the default preview program that I need to replace with vimcat do you?
+T 1617819243 18<22__monty__18>	highlight
+T 1617819285 18<22__monty__18>	I really recommend finding the issue/PR. I remember it having good explanation.
+T 1617819317 18<26zaeph18>	.u failure
+T 1617819323 18<26zaeph18>	Welp, Bob is still ded.
+T 1617819326 18<26zaeph18>	https://github.com/ranger/ranger/issues/657
+T 1617819341 18<28zidbon18>	Cool, thanx!
+T 1617819478 18<26zaeph18>	Pretty sure sidbon was an agent of midnight-commander.
+T 1617819485 18<26zaeph18>	They just came here to steal our corporate secrets.
+T 1617821153 18<22__monty__18>	How do you search for abc.*xyz in emacs?
+T 1617821392 18<26zaeph18>	__monty__: Regexp match inside, buffer, you mean?  Or file-name globs?
+T 1617821995 18<22__monty__18>	Reverse search.
+T 1617822015 18<22__monty__18>	Actually tmux but functions pretty emacsy.
+T 1617822233 18<26zaeph18>	__monty__: Command or function?
+T 1617822301 18<26zaeph18>	I'd just use re-search-backward with the regexp you've mentioned.
+T 1617822324 18<22__monty__18>	Tmux functions, as in works, similarly to emacs in the default config.
+T 1617822350 18<22__monty__18>	Tmux's search-up takes .* literally.
+T 1617822364 18<26zaeph18>	And there is no re- prefixed function that'd allow regexp matching?
+T 1617822378 18<22__monty__18>	I should really just configure it for vim keybindings.
+T 1617822406 18<22__monty__18>	All the emacs bindings are super dumb.
+T 1617822432 18<26zaeph18>	M-% is the default for forward regexp search in Emacs.
+T 1617822438 18<26zaeph18>	(So, M-S-5.)
+T 1617822951 18<22__monty__18>	See? Terrible.
+T 1617822998 18<26zaeph18>	I've had worse.
+T 1617823070 18<22__monty__18>	In vim it's just / and ?, because search is important enough to warrant a single character. And why would you ever not use pattern-matching search? Just escape metacharacters if the need arises.
+T 1617823086 18<22__monty__18>	Vim's the king of UX.
+T 1617823091 18<26zaeph18>	Oh, sorry, M-% is for query replace.
+T 1617823096 18<26zaeph18>	Search is C-s.
+T 1617823113 18<22__monty__18>	Yeah, C-r doesn't allow patterns in tmux.
+T 1617823163 18<26zaeph18>	In Emacs, we patch it with a fuzzy-matching, possibly-regexp matching.
+T 1617823231 18<22__monty__18>	Of course, because this is an enormous PITA otherwise.
+T 1617823239 18<26zaeph18>	Definitely.
+T 1617826583 20*	Disconnected (20)

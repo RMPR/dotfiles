@@ -4359,3 +4359,25 @@ Apr 01 22:33:43 *	Disconnected ()
 Apr 07 15:28:34 *	Now talking on #spacemacs
 Apr 07 15:28:35 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
 Apr 07 15:28:35 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 07 18:51:23 *	Disconnected ()
+**** ENDING LOGGING AT Wed Apr  7 18:51:23 2021
+
+**** BEGIN LOGGING AT Wed Apr  7 18:51:48 2021
+
+Apr 07 18:51:48 *	Now talking on #spacemacs
+Apr 07 18:51:48 *	Topic for #spacemacs is: Spacemacs' official chat is at <https://gitter.im/syl20bnr/spacemacs>.
+Apr 07 18:51:48 *	Topic for #spacemacs set by e!edk@freenode/staff/spy.edk (Mon Jul 25 23:29:49 2016)
+Apr 07 19:11:24 <FromGitter>	<alexey0308> if you add  `(setq debug-on-error t)` to the init.el file, it should show more information about the reason.
+Apr 07 19:28:16 <FromGitter>	<dalanicolai> @kjartan_oli:matrix.org Just now I was looking at the bibtex layer, and there I encountered the following syntax `(ivy-bibtex :requires ivy)` in `bibtex-packages`. This might be useful for you too...
+Apr 07 20:25:36 <FromGitter>	<fenimore> Oh thank you, that did give me more information. I see now that when I go to set `variabels` using what I think is spacemacs special syntax: `:variables`. So I'm also getting this with `python`: ⏎  ⏎ ```code paste, see link``` ⏎  ⏎ (followed by some other "closure" messages) [https://gitter.im/syl20bnr/spacemacs?at=606e0730bdf5e35b0475f876]
+Apr 07 20:40:00 <FromGitter>	<alexey0308> it looks like you do it in a wrong place: are you sure that you added such configurations to the list in `dotspacemacs-configuration-layers` where all layers are defined and not somewhere else?
+Apr 07 20:40:57 <FromGitter>	<fenimore> no I thought I was supposed to add this in the user-config section, I did add `json` and `python` to the `dotspacemacs-configuration-layers` list though
+Apr 07 20:41:34 <FromGitter>	<fenimore> I see, I'm configuring the layers in the wrong place
+Apr 07 20:49:29 <FromGitter>	<alexey0308> please take a look at the template here https://github.com/syl20bnr/spacemacs/blob/develop/core/templates/.spacemacs.template#L50
+Apr 07 20:50:06 <FromGitter>	<fenimore> Ahhh okay thank you again Alexey, this is just what I didn't understand
+Apr 07 20:50:26 <FromGitter>	<fenimore> things are going to be so easy breezy now again!
+Apr 07 20:51:38 *	Lord_of_Life_ is now known as Lord_of_Life
+Apr 07 21:02:24 <FromGitter>	<alexey0308> I'm glad it helped
+Apr 07 21:16:23 *	Disconnected ()
+**** ENDING LOGGING AT Wed Apr  7 21:16:23 2021
+

@@ -10801,3 +10801,64 @@ Apr 07 15:28:34 *	Topic for #ranger is: Official ranger file manager channel - h
 Apr 07 15:28:34 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
 Apr 07 15:29:29 <zaeph>	Holy smokes, ERASED is kinda great.  I'm only three episodes in, and I'm super invested in the story.
 Apr 07 15:29:44 <zaeph>	…I think I'm happy I made that choice!
+Apr 07 18:51:23 *	Disconnected ()
+**** ENDING LOGGING AT Wed Apr  7 18:51:23 2021
+
+**** BEGIN LOGGING AT Wed Apr  7 18:51:48 2021
+
+Apr 07 18:51:48 *	Now talking on #ranger
+Apr 07 18:51:48 *	Topic for #ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+Apr 07 18:51:48 *	Topic for #ranger set by __monty__!~toonn@unaffiliated/toonn (Tue Feb 12 19:41:59 2019)
+Apr 07 18:51:55 <zidbon>	It's not a big deal, just thought it would save some time.
+Apr 07 18:52:00 <zaeph>	Uhm, from a text-based perspective, that would probably be possible, but I'm not sure how we'd support the colours.
+Apr 07 18:52:23 <zaeph>	If you use Emacs, you could just open the dir and browse the files with proper syntax highlighting on another buffer.
+Apr 07 18:53:42 <zidbon>	I might check that out.
+Apr 07 18:54:38 <zidbon>	I haven't installed Emacs because I don't need all the features and it's a pretty big program.
+Apr 07 18:54:46 <zaeph>	I guess we could probably write a custom script for scope.sh that would use a lib to only highlight the hex codes.
+Apr 07 18:55:20 <zidbon>	Unfortunately that's out of my league.
+Apr 07 18:56:06 <zaeph>	Maybe a VIM-based solution might work better?
+Apr 07 18:56:20 <zaeph>	You could just jump to the next file by whichever order you deem fit in VIM.
+Apr 07 18:56:38 <zidbon>	Good call. Maybe something with NerdTree.
+Apr 07 19:06:06 <__monty__>	zidbon: You can try using vimcat for previews.
+Apr 07 19:07:01 <__monty__>	IIRC people got it to work in one of the issues on the tracker.
+Apr 07 19:07:05 <zidbon>	Change that in the scope.sh file?
+Apr 07 19:07:19 <__monty__>	You'd add it to scope.sh, yes.
+Apr 07 19:07:39 <zidbon>	And you say people have had success?
+Apr 07 19:07:46 <__monty__>	It's not a difficult change but I believe there were open issues still, probably performance.
+Apr 07 19:08:44 <zidbon>	I just wonder if vimcat will use my vim plugins in the preview window.
+Apr 07 19:09:38 <__monty__>	I think that's what it does, yeah. It's supposed to display things just like your vim setup does.
+Apr 07 19:11:42 <zidbon>	You don't happen to know the name of the default preview program that I need to replace with vimcat do you?
+Apr 07 19:14:03 <__monty__>	highlight
+Apr 07 19:14:45 <__monty__>	I really recommend finding the issue/PR. I remember it having good explanation.
+Apr 07 19:15:17 <zaeph>	.u failure
+Apr 07 19:15:23 <zaeph>	Welp, Bob is still ded.
+Apr 07 19:15:26 <zaeph>	https://github.com/ranger/ranger/issues/657
+Apr 07 19:15:41 <zidbon>	Cool, thanx!
+Apr 07 19:17:58 <zaeph>	Pretty sure sidbon was an agent of midnight-commander.
+Apr 07 19:18:05 <zaeph>	They just came here to steal our corporate secrets.
+Apr 07 19:45:53 <__monty__>	How do you search for abc.*xyz in emacs?
+Apr 07 19:49:52 <zaeph>	__monty__: Regexp match inside, buffer, you mean?  Or file-name globs?
+Apr 07 19:59:55 <__monty__>	Reverse search.
+Apr 07 20:00:15 <__monty__>	Actually tmux but functions pretty emacsy.
+Apr 07 20:03:53 <zaeph>	__monty__: Command or function?
+Apr 07 20:05:01 <zaeph>	I'd just use re-search-backward with the regexp you've mentioned.
+Apr 07 20:05:24 <__monty__>	Tmux functions, as in works, similarly to emacs in the default config.
+Apr 07 20:05:50 <__monty__>	Tmux's search-up takes .* literally.
+Apr 07 20:06:04 <zaeph>	And there is no re- prefixed function that'd allow regexp matching?
+Apr 07 20:06:18 <__monty__>	I should really just configure it for vim keybindings.
+Apr 07 20:06:46 <__monty__>	All the emacs bindings are super dumb.
+Apr 07 20:07:12 <zaeph>	M-% is the default for forward regexp search in Emacs.
+Apr 07 20:07:18 <zaeph>	(So, M-S-5.)
+Apr 07 20:15:51 <__monty__>	See? Terrible.
+Apr 07 20:16:38 <zaeph>	I've had worse.
+Apr 07 20:17:50 <__monty__>	In vim it's just / and ?, because search is important enough to warrant a single character. And why would you ever not use pattern-matching search? Just escape metacharacters if the need arises.
+Apr 07 20:18:06 <__monty__>	Vim's the king of UX.
+Apr 07 20:18:11 <zaeph>	Oh, sorry, M-% is for query replace.
+Apr 07 20:18:16 <zaeph>	Search is C-s.
+Apr 07 20:18:33 <__monty__>	Yeah, C-r doesn't allow patterns in tmux.
+Apr 07 20:19:23 <zaeph>	In Emacs, we patch it with a fuzzy-matching, possibly-regexp matching.
+Apr 07 20:20:31 <__monty__>	Of course, because this is an enormous PITA otherwise.
+Apr 07 20:20:39 <zaeph>	Definitely.
+Apr 07 21:16:23 *	Disconnected ()
+**** ENDING LOGGING AT Wed Apr  7 21:16:23 2021
+
