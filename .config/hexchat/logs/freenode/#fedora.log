@@ -12746,3 +12746,22 @@ Apr 01 22:30:43 <janos_>	yeah
 Apr 01 22:33:43 *	Disconnected ()
 **** ENDING LOGGING AT Thu Apr  1 22:33:43 2021
 
+**** BEGIN LOGGING AT Wed Apr  7 15:28:35 2021
+
+Apr 07 15:28:35 *	Now talking on #fedora
+Apr 07 15:28:35 *	Topic for #fedora is: Fedora Linux F32, F33, F34B end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common || Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins
+Apr 07 15:28:35 *	Topic for #fedora set by Khaytsus!~khaytsus@fedora/khaytsus (Mon Mar 29 00:08:02 2021)
+Apr 07 15:28:35 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Apr 07 15:30:05 <ledeni>	Psi-Jack: if you have rpmfusion repos you can try to install 'pulseaudio-module-bluetooth-freeworld' it's includes support for LDAC, aptX, aptX-HD and AAC codecs.
+Apr 07 15:30:23 <Psi-Jack>	That actually conflicts on 34B with pipewire pulse.
+Apr 07 15:38:30 <Khaytsus>	He doesn't need any of that
+Apr 07 15:38:41 <Khaytsus>	AAC _just_ _works_
+Apr 07 15:39:07 <Khaytsus>	AptX....  yes, rpmfusion.  And no idea about conflicts offhand, but AptX will likely not be in Fedora any time soon.
+Apr 07 15:39:42 <Khaytsus>	My test laptop here is bone stock Fedora, zero done to it, installed and updated.  LDAC and AAC just work.
+Apr 07 15:43:11 <gnafu>	I imagine RPM Fusion will need to update some of its packaging to account for PipeWire vs. PulseAudio when it comes to aptX, but that's just a guess.  34's not released yet, so I don't expect RPM Fusion to have it all figured out.
+Apr 07 15:45:29 <Khaytsus>	Yep, their adaption rate to a new release varies.  Sometimes lines up, sometimes lags
+Apr 07 15:46:29 <gnafu>	And the PipeWire change is sufficiently big that I wouldn't be surprised if there are some early hiccups.
+Apr 07 15:47:52 <coppice>	pipewire is working well for me with F33. I'm only using the pulseaudio emulation. I haven't tried the jack emulation
+Apr 07 15:48:01 <Khaytsus>	I am beginning to wonder though..  my old laptop here has _always_ had a weird bug where the radios go _hard_ blocked until you yank power/battery.
+Apr 07 15:48:26 <Khaytsus>	but I've seen it multiple times here recently.... and have seen other people say they're seeing rf block's in 34B.  Maybe coincidence.
+Apr 07 15:48:58 <Khaytsus>	I recall seeing it a few times when I was using it full time, but seldom enough to always have to figure out what the issue is ;)
