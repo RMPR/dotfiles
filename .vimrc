@@ -148,7 +148,7 @@ nnoremap ,koa :-1read $HOME/.vim/.skeleton.koa<CR>/Hello, World<CR>ci'
 nnoremap ,c :-1read $HOME/.vim/.skeleton.c<CR>/Hello, World<CR>ci'
 nnoremap ,sh :-1read $HOME/.vim/.skeleton.sh<CR>A
 nnoremap ,md :-1read $HOME/.vim/.skeleton.md<CR>jf"ci"
-
+nnoremap ,cpp :-1read $HOME/.vim/.skeleton.cpp<CR>6j_
 
 " C Programming
 " -------------

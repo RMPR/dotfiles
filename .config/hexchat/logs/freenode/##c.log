@@ -653,3 +653,49 @@ Apr 07 21:14:09 <novns>	or just stick to one platform of your choice, and never 
 Apr 07 21:16:23 *	Disconnected ()
 **** ENDING LOGGING AT Wed Apr  7 21:16:23 2021
 
+**** BEGIN LOGGING AT Thu Apr  8 13:03:10 2021
+
+Apr 08 13:03:10 *	Now talking on ##C
+Apr 08 13:03:10 *	Topic for ##C is: C Programming | PASTE (>3 lines): http://codepad.org/ | WIKI: http://www.iso-9899.info/ | BOOKS: http://www.iso-9899.info/wiki/Books | C2X Charter: http://www.open-std.org/jtc1/sc22/wg14/www/docs/n2086.htm | the current standard: http://iso-9899.info/wiki/The_Standard | Off-topic: ##c-offtopic
+Apr 08 13:03:10 *	Topic for ##C set by twkm!twkm@rfc1459.net (Mon Dec  9 19:03:31 2019)
+Apr 08 13:03:10 -ChanServ-	[##c] Welcome to ##c! We engage in C programming discussions at all levels of expertise; don't hesitate to ask your question. If applicable, please prepare a testcase and paste it at http://ideone.com. We don't know about C++ (##c++) or C# (##csharp).
+Apr 08 13:03:10 *	Channel ##c url: http://www.iso-9899.info/
+Apr 08 13:03:53 <oldlaptop>	It's also not (so far as I'm aware) ever part of a type declaration, the way * and [] can be.
+Apr 08 13:06:16 <uskerine>	I think I saw somewhere (C++) that it can be used in functions https://stackoverflow.com/questions/1081811/c-vs-in-function-declaration
+Apr 08 13:07:12 <dave0>	uskerine: c doesn't use that... in c, for the pseudo "reference", you add the * by hand
+Apr 08 13:07:51 <uskerine>	ok
+Apr 08 13:17:41 <oldlaptop>	that off-topic incremented-by-one language uses & in connection with one of its concepts, yes
+Apr 08 13:18:07 <oldlaptop>	a wag might say that they decided * needed some company in the overused-characters club
+Apr 08 13:24:09 <xace>	dave0: do you mean that foo(int *arr) is worse than foo(int arr[]) when the argument a is an array?
+Apr 08 13:24:41 <fizzie>	,clang -fblocks -lBlocksRuntime int f(int (^p)(void)) { return p() + 1; } printf("%d", f(^(void){ return 1; })); // what about ^ joining the club?
+Apr 08 13:24:44 <candide>	fizzie: 2
+Apr 08 13:25:14 <fizzie>	^ would have been a nice symbol to use in pointer declarators, because it's pointy.
+Apr 08 13:25:42 <dave0>	xace: yes if it is actually an array... i go further and put a number in the []'s to remind me of the size of the array (even though it is ignored)
+Apr 08 13:27:47 <dave0>	fizzie: forth uses @ to fetch a word "at" an address !
+Apr 08 13:28:12 <dave0>	pointy and at go together like pizza and anchovies
+Apr 08 13:31:16 <xace>	what does (^p) mean? and what does ^(void){ return 1; }) mean?
+Apr 08 13:31:32 <fizzie>	It means something that's not C.
+Apr 08 13:31:46 <fizzie>	It's a Clang/Apple extension called "Blocks".
+Apr 08 13:37:36 <Arthuria>	Hi. I need a way to extract data out of a wide char string. I'm thinking strtok wide equivalent. But it's relatively simple, get the bus/device/function values out. String format is always constant. https://onlinegdb.com/S1Det_hBu
+Apr 08 13:40:41 <fizzie>	"strtok wide equivalent" would be wcstok, though it shares all the drawbacks of strtok.
+Apr 08 13:42:01 <fizzie>	...actually, no, it doesn't. They fixed the possibly worst thing (the implicit static storage), it takes an extra `wchar_t **` parameter for state. Huh, didn't realize that. Well, that's nice.
+Apr 08 13:42:11 <fizzie>	Still mangles up the original string, but it is what it is.
+Apr 08 13:42:55 <fizzie>	swscanf's an option too, of course.
+Apr 08 13:45:04 <fizzie>	,cc int bus, dev, fun; if (swscanf(L"PCI bus 62, device 4, function 0", L"PCI bus%d, device%d, function%d", &bus, &dev, &fun) == 3) printf("(%d,%d,%d)", bus, dev, fun);
+Apr 08 13:45:06 <candide>	fizzie: (62,4,0)
+Apr 08 14:08:37 <Arthuria>	Thanks Fizzie, swscanf is definitely better in this case than wcstok
+Apr 08 14:21:29 *	candide removes channel operator status from candide
+Apr 08 15:01:22 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr  8 15:01:22 2021
+
+**** BEGIN LOGGING AT Thu Apr  8 15:04:52 2021
+
+Apr 08 15:04:52 *	Now talking on ##C
+Apr 08 15:04:52 *	Topic for ##C is: C Programming | PASTE (>3 lines): http://codepad.org/ | WIKI: http://www.iso-9899.info/ | BOOKS: http://www.iso-9899.info/wiki/Books | C2X Charter: http://www.open-std.org/jtc1/sc22/wg14/www/docs/n2086.htm | the current standard: http://iso-9899.info/wiki/The_Standard | Off-topic: ##c-offtopic
+Apr 08 15:04:52 *	Topic for ##C set by twkm!twkm@rfc1459.net (Mon Dec  9 19:03:31 2019)
+Apr 08 15:04:53 -ChanServ-	[##c] Welcome to ##c! We engage in C programming discussions at all levels of expertise; don't hesitate to ask your question. If applicable, please prepare a testcase and paste it at http://ideone.com. We don't know about C++ (##c++) or C# (##csharp).
+Apr 08 15:04:53 *	Channel ##c url: http://www.iso-9899.info/
+Apr 08 15:14:45 *	xtropro is now known as xtro
+Apr 08 15:22:52 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr  8 15:22:52 2021
+

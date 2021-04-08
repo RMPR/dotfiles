@@ -12919,3 +12919,56 @@ Apr 07 21:13:00 <dez90ed>	I came across a post about sda audio driver something 
 Apr 07 21:16:23 *	Disconnected ()
 **** ENDING LOGGING AT Wed Apr  7 21:16:23 2021
 
+**** BEGIN LOGGING AT Thu Apr  8 13:03:10 2021
+
+Apr 08 13:03:10 *	Now talking on #fedora
+Apr 08 13:03:10 *	Topic for #fedora is: Fedora Linux F32, F33, F34B end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common || Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins
+Apr 08 13:03:10 *	Topic for #fedora set by Khaytsus!~khaytsus@fedora/khaytsus (Mon Mar 29 00:08:02 2021)
+Apr 08 13:03:10 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Apr 08 13:12:24 <fedbot>	*** F33-20210405 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Apr 08 13:23:46 *	DaFiN is now known as Guest15224
+Apr 08 13:24:12 *	newnick12345 is now known as DaFiN
+Apr 08 13:27:58 *	seanBE_ is now known as seanBE
+Apr 08 13:36:19 <kiilerix>	where is abrt storing my credentials?
+Apr 08 13:40:49 <Southern_Gentlem>	OnlyHuman, a) not supported in this channel b) #fedora-qa
+Apr 08 13:41:22 <OnlyHuman>	ok thanks Southern_Gentlem
+Apr 08 13:41:54 <Southern_Gentlem>	c if something is calling that as a dep file a bugzilla
+Apr 08 13:45:55 <Southern_Gentlem>	or fix your ks
+Apr 08 13:49:04 <OnlyHuman>	looks like same anaconda error on f34 now when trying to install
+Apr 08 13:50:41 <Southern_Gentlem>	check your ks
+Apr 08 13:50:58 <OnlyHuman>	will do thanks
+Apr 08 13:51:14 <Southern_Gentlem>	see if you have anaconda-tools listed
+Apr 08 13:51:26 <OnlyHuman>	they were
+Apr 08 13:51:44 <OnlyHuman>	suspect updates
+Apr 08 13:52:45 <Southern_Gentlem>	i suspect you havent kept up with the updated ks per release
+Apr 08 14:12:27 <fedbot>	*** F33-20210405 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Apr 08 14:14:29 <OnlyHuman>	well pretty sure built an installed a fed 34
+Apr 08 14:17:42 <OnlyHuman>	was getting site-packages pyanaconda.core  line 231 error message
+Apr 08 14:18:25 <OnlyHuman>	assume when testing though ppl don't just try live iso but install too
+Apr 08 14:19:36 <OnlyHuman>	building f34 gaina
+Apr 08 14:19:42 <OnlyHuman>	again
+Apr 08 14:25:25 <Southern_Gentlem>	for rawhide you need to build on rawhide
+Apr 08 14:26:47 *	tomato3 is now known as tomato
+Apr 08 14:56:48 <OnlyHuman>	 oh was building rawhide on f34
+Apr 08 14:57:46 <OnlyHuman>	as my fed 34 system has no x after doing large update though could try on wl
+Apr 08 15:01:22 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr  8 15:01:22 2021
+
+**** BEGIN LOGGING AT Thu Apr  8 15:04:52 2021
+
+Apr 08 15:04:52 *	Now talking on #fedora
+Apr 08 15:04:52 *	Topic for #fedora is: Fedora Linux F32, F33, F34B end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common || Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins
+Apr 08 15:04:52 *	Topic for #fedora set by Khaytsus!~khaytsus@fedora/khaytsus (Mon Mar 29 00:08:02 2021)
+Apr 08 15:04:53 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Apr 08 15:09:10 <Southern_Gentlem>	i just built f34 cinn,kde (i havent tested yet
+Apr 08 15:11:42 <Southern_Gentlem>	which with the issue with dracut at the moment i suspect it not to boot
+Apr 08 15:12:20 <Southern_Gentlem>	OnlyHuman, so i think we are confused is your issue on an installed f34 ?
+Apr 08 15:12:32 <fedbot>	*** F33-20210405 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Apr 08 15:13:00 <Southern_Gentlem>	dracut issue https://bugzilla.redhat.com/show_bug.cgi?id=1945596
+Apr 08 15:13:53 <Southern_Gentlem>	that should also effect your live build
+Apr 08 15:18:33 <Southern_Gentlem>	ok my lives are booting lets see what happens on install
+Apr 08 15:19:06 <OnlyHuman>	my f34 an rawhide did boot
+Apr 08 15:19:41 <OnlyHuman>	just about to try new f34
+Apr 08 15:22:52 *	Disconnected ()
+**** ENDING LOGGING AT Thu Apr  8 15:22:52 2021
+

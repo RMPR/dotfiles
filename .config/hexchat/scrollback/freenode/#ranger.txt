@@ -1,63 +1,3 @@
-T 1587381323 18<26GermainZ18>	__monty__: VPN?
-T 1587381373 18<22__monty__18>	GermainZ: I'm not even sure they check. But I don't use VPNs
-T 1587384600 18<26zaeph18>	Ah, Emacs.  Gotta love not being able to open a file because I've got a 5000-char line in the middle of it.
-T 1587384616 18<26zaeph18>	(Regexp went rogue.)
-T 1587384626 18<26zaeph18>	(…It's been fully dispatched, now.)
-T 1587384675 18<22__monty__18>	>.<
-T 1587384796 18<26zaeph18>	Actually looks quite aesthetically pleasing: https://paste.xinu.at/zqhKSa/
-T 1587384838 18<26zaeph18>	Time to open vim and fuck things up!
-T 1587384853 18<26zaeph18>	Nevermind, only got vi installed.
-T 1587384889 18<26zaeph18>	Beautiful. https://paste.xinu.at/Jh35/
-T 1587384929 18<26zaeph18>	Even vi crashed. :D
-T 1587384981 18<26zaeph18>	Thank god for so-long-mode.
-T 1587384992 18<26zaeph18>	https://paste.xinu.at/g0qCP/
-T 1587387495 18<22__monty__18>	>.<
-T 1587391034 18<26zaeph18>	All right, I give up.
-T 1587391052 18<26zaeph18>	Been trying to fight redo corruption for a function I've written in Emacs.
-T 1587391058 18<26zaeph18>	Done, enver wanna hear about undo again.
-T 1587391063 18<26zaeph18>	redo*
-T 1587391249 18<26zaeph18>	At least I got a nice working function out of it.  Who needs redoing anyway.
-T 1587391607 18<26GermainZ18>	zaeph: vim won't have an issue with a sensible synmaxcol
-T 1587391613 18<26GermainZ18>	I'm sure Emacs has something similar
-T 1587391792 18<26zaeph18>	It does, so-long-mode.
-T 1587391816 18<26zaeph18>	I ended up fixing it.  But I got stuck on an edge case for the longest time.  History corruption on redo.
-T 1587391840 18<26zaeph18>	I could mitigate it by slowing down the execution of the function, but I didn't think it was worth it.  Bah, we'll see.
-T 1587391872 18<26GermainZ18>	why not just remove all the sleeps in your code?
-T 1587391893 18<26GermainZ18>	it's how hut improved ranger's performance by 390% in version 1.2.1.9
-T 1587391917 18<26zaeph18>	…I'll think about it.
-T 1587391927 18<26zaeph18>	I'm pretty sure that `sleep 5s` is essential, though.
-T 1587392010 18<26zaeph18>	I mean, worst case scenario, if the command fuck ups, I'll just have a not-replaced newline.  Not the end of the world.
-T 1587392031 18<26zaeph18>	And it's commented stuff too.  Anyway, this isn't making any sense to non org-moders, so I'll shut up now.
-T 1587392498 18<26GermainZ18>	Finally, sweet silence.
-T 1587392521 18<26zaeph18>	I can pick up right where I left off, so don't get cocky.
-T 1587392529 18<26zaeph18>	Sorry, I've kind of been obsessing about this today.
-T 1587392536 18<26GermainZ18>	:D
-T 1587392641 18<22__monty__18>	zaeph: Usually sleep is a wart. If something needs to be synchronised you should synchronise it.
-T 1587392776 18<26zaeph18>	Okay, now I'm confused.
-T 1587392787 18<26zaeph18>	Was the sleep thing a joke, or does it mean something that I don't know?
-T 1587392834 18<26zaeph18>	Oh, I think I've got it.  The problem with the redo wasn't due to sleep, but to a corruption that occurred in the org-agenda history.  There's nothing I can do about it, and the info online is sparse.
-T 1587392961 18<22__monty__18>	zaeph: I assumed GermainZ was referring to actual sleep commands in your code.
-T 1587393009 18<26GermainZ18>	I was joking
-T 1587393014 18<26zaeph18>	I'm pretty sure it was a joke, but GermainZ--
-T 1587393015 18<25RoboBobob18>	GermainZ's score is now -1.
-T 1587393021 18<26GermainZ18>	:(
-T 1587393029 18<26zaeph18>	.rekt GermainZ 
-T 1587393029 18<22RoboBob18>	GermainZ, ☑ java.util.ConcurRektModificationException
-T 1587393082 18<26GermainZ18>	hehehe
-T 1587393094 18<22__monty__18>	Wow, now I feel bad.
-T 1587393109 18<22__monty__18>	I assumed and made an ass out of the both of you.
-T 1587393133 18<26zaeph18>	It's OK.  We forgive you.
-T 1587393656 18*	26GermainZ slaps zaeph
-T 1587393661 18*	26GermainZ spanks* zaeph
-T 1587393668 18<26GermainZ18>	cos we're asses now
-T 1587393686 18<26zaeph18>	I'm vegan.  Don't harass asses.
-T 1587394615 18<28Luyin18>	nom nom
-T 1587394676 18<22__monty__18>	People are talking about asses, Luyin expresses his gust with "nom nom" o.O
-T 1587394721 18<26zaeph18>	#nojudgement
-T 1587394818 18<26GermainZ18>	an ass a day keeps the doctor away
-T 1587394843 18<26zaeph18>	You must be quite popular on Grindr.
-T 1587394847 18<26GermainZ18>	* results may vary depending on hygiene. 1 out of 10 doctors do not recommend.
-T 1587394910 18<26GermainZ18>	zaeph: maybe if I were gay and single
 T 1587394934 18<26GermainZ18>	but I'm only gay for vifon and our love doesn't need apps
 T 1587394936 18<26zaeph18>	Pft, you're so passé.
 T 1587394956 18<26zaeph18>	Wow dude.  I thought we had something going!
@@ -5057,3 +4997,44 @@ T 1617823163 18<26zaeph18>	In Emacs, we patch it with a fuzzy-matching, 
 T 1617823231 18<22__monty__18>	Of course, because this is an enormous PITA otherwise.
 T 1617823239 18<26zaeph18>	Definitely.
 T 1617826583 20*	Disconnected (20)
+T 1617883390 19*	Now talking on 22#ranger
+T 1617883390 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1617883390 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1617886026 18<28Luyin18>	hi!
+T 1617886066 18<28Luyin18>	https://antonz.org/python-packaging/ found this today and thought you might approve
+T 1617886075 18<28Luyin18>	(actually it was shared with me but I'm taking credit)
+T 1617886487 18<19wasamasa18>	antonz looks like a warez handle
+T 1617886502 18<28Luyin18>	it's a blog :D
+T 1617886509 18<28Luyin18>	but feel free to not click it :P
+T 1617887367 18<22__monty__18>	vifon: Maybe flit's something for you?
+T 1617888654 18<27vifon18>	Why?
+T 1617888670 18<26zaeph18>	vifon: For the Glory of Satan, of course!  ＼(●ʘ̅ㅈʘ̅●)／炎⛧炎
+T 1617888691 18<27vifon18>	ZAEPH
+T 1617888700 18<26zaeph18>	yes daddey~.
+T 1617888708 18<27vifon18>	Go to your room.
+T 1617888721 18<26zaeph18>	But muuuuum~.
+T 1617888733 18<27vifon18>	Don't make me remind you of the SNK ending!
+T 1617888742 18<26zaeph18>	Oh you *didn't*.
+T 1617888744 18<26zaeph18>	Let me forget.
+T 1617889730 18<27vifon18>	Wow, this new yerba mate I got is amazing.
+T 1617889750 18<27vifon18>	Rosamonte elaborada, if anyone is interested.
+T 1617890482 20*	Disconnected (20)
+T 1617890526 20*	Disconnected (20Remote host closed socket)
+T 1617890570 20*	Disconnected (20Remote host closed socket)
+T 1617890612 20*	Disconnected (20Remote host closed socket)
+T 1617890666 20*	Disconnected (20Remote host closed socket)
+T 1617890693 19*	Now talking on 22#ranger
+T 1617890693 22*	Topic for 22#ranger is: Official ranger file manager channel - https://ranger.github.io - https://reddit.com/r/ranger - Please note that sometimes it may take hours before a question is answered, thank you for your patience | Channel stats: https://einval.eu/pisg/ranger
+T 1617890693 22*	Topic for 22#ranger set by 26__monty__!~toonn@unaffiliated/toonn (24Tue Feb 12 19:41:59 2019)
+T 1617890715 18<22__monty__18>	For the occasional ranger release.
+T 1617890720 18<22__monty__18>	.define occasional
+T 1617890737 18<22__monty__18>	Wow, way to let me down, Robo.
+T 1617890773 18<26zaeph18>	.define lie
+T 1617890775 18<22RoboBob18>	(zaeph) lie: To be or place oneself at rest in a flat, horizontal, or recumbent position; recline. - https://is.gd/r9ZQ4C (AHD/Wordnik)
+T 1617890781 18<26zaeph18>	Tit.
+T 1617890791 18<26zaeph18>	.u lie
+T 1617890792 18<22RoboBob18>	(zaeph) [1/10] [everything] that's ever been [told] [to you] - http://lie.urbanup.com/1421332
+T 1617890796 18<26zaeph18>	Better.
+T 1617891772 20*	Disconnected (20)
+T 1617891830 20*	Disconnected (20Remote host closed socket)
+T 1617891881 20*	Disconnected (20Remote host closed socket)

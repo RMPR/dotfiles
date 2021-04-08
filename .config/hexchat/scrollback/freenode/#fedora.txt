@@ -1,168 +1,3 @@
-T 1612392775 18<27Dustin[m]18>	We can get back on topic now
-T 1612392854 18<24zcanrpm[m]18>	which matrix client do you guys use?
-T 1612392864 18<25mutk_18>	If it were not discussed here I'd have not known about it  :)
-T 1612392869 18<25farribeiro[m]18>	Fluffychat in Android
-T 1612392881 18<24zcanrpm[m]18>	for pc?
-T 1612392886 18<27Dustin[m]18>	I am using Element at the moment
-T 1612392896 18<24zcanrpm[m]18>	element's a bloated mess
-T 1612392899 18<27Dustin[m]18>	I was also playing around with Nheko and Fractal on Linux
-T 1612392901 18<28linuxmodder18>	mutk_,  fair enough but mention and divert to appriorate channel
-T 1612392907 18<25farribeiro[m]18>	<zcanrpm[m] "for pc?"> element web
-T 1612392908 18<24zcanrpm[m]18>	i can use fractal since i use gnome
-T 1612392909 18<27Dustin[m]18>	Nheko is quite lightweight
-T 1612392930 18<20fmlatghor18>	Fractal would be good if it actually worked
-T 1612392931 18<27Dustin[m]18>	On mobile I was using Pattle but the dev abandoned it
-T 1612392943 18<24zcanrpm[m]18>	<fmlatghor "Fractal would be good if it actu"> wdym
-T 1612392943 18<20fmlatghor18>	it's slow and I don't get messages on it and my messages don't really send
-T 1612392945 18<25farribeiro[m]18>	<zcanrpm[m] "i can use fractal since i use gn"> Fractal I don't know...  Not have e2ee
-T 1612392946 18<25mutk_18>	*social used to be a bit of a cesspool a while ago  :0  Maybe its better now
-T 1612392949 18<27Dustin[m]18>	Oh and there's also Hydrogen on web
-T 1612392957 18<20fmlatghor18>	so I stopped using it
-T 1612392958 18<24zcanrpm[m]18>	<farribeiro[m] "Fractal I don't know...  Not hav"> rly?
-T 1612392964 18<27Dustin[m]18>	https://hydrogen.element.io/
-T 1612392972 18<24zcanrpm[m]18>	lemme install fractal to test it
-T 1612392977 18<28linuxmodder18>	mutk_,  none of the usual suspects back then are around come join the (civil) party
-T 1612392978 18<27Dustin[m]18>	Yeah, Fractal is implementing E2EE but it's not available yet
-T 1612392980 18<20fmlatghor18>	used to use element, but there's a script for my irc client that seems to be beter
-T 1612392996 18<20fmlatghor18>	for my use
-T 1612393006 18<24zcanrpm[m]18>	writing this from fractal
-T 1612393009 18<24zcanrpm[m]18>	it's fine
-T 1612393073 18<24zcanrpm[m]18>	and it matches my gtk theme
-T 1612393077 18<25mutk_18>	liYay  :)
-T 1612393087 18<27Dustin[m]18>	Nheko did a good job with E2EE last time I used it
-T 1612393314 20*	Disconnected (20)
-T 1612437782 19*	Now talking on 22#fedora
-T 1612437782 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
-T 1612437782 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
-T 1612437782 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1612437946 18<20nh-nh[m]18>	Hello, I'd like to report a kind of bug (I guess) on fedora-workstation 33 in conjunction with keepassxc: the issue is already being discussed there: https://github.com/keepassxreboot/keepassxc/issues/5608 . In short, the search field in keepassxc doesn't take any typing input unless keppasxc is started through the terminal with "keepassxc -plateform wayland". The problem is ongoing since about October 2020. For me the
-T 1612437946 18<20nh-nh[m]18>	problem disappeared after the updates including the new kernel 5.10.11 until today's update including keepassxc V2.6.4. According to the discussions in the link above, it seems to be a Wayland and or Qt issue. Are you already aware of the bug? Can you do something about it? Should I report elsewhere? Thanks in advance for your help! 😀
-T 1612438114 18<28FranciscoD18>	nh-nh[m]: what Fedora package is this from? keepassx?
-T 1612438118 18*	28FranciscoD isn't using it
-T 1612438142 18<20nh-nh[m]18>	<FranciscoD "nh-nh: what Fedora package is th"> no: keepassxc
-T 1612438171 18<28FranciscoD18>	right, I don't see a bug here on the tracker, so perhaps best to file one: https://bugzilla.redhat.com/buglist.cgi?bug_status=NEW&bug_status=ASSIGNED&classification=Fedora&component=keepassxc&list_id=11666683&product=Fedora&product=Fedora%20EPEL
-T 1612438212 18<28FranciscoD18>	if you can also link to the upstream issue, the maintainer will be able to diagnose the issue and re-assign it to the right component
-T 1612438344 18<28FranciscoD18>	nh-nh[m]: since it's gnome on wayland, it is possibly a qt5-wayland or maybe a qgnomeplatform issue
-T 1612438351 18<28FranciscoD18>	try uninstalling that to see if it helps?
-T 1612438380 18<28FranciscoD18>	nh-nh[m]: https://github.com/FedoraQt/QGnomePlatform + https://src.fedoraproject.org/rpms/qgnomeplatform
-T 1612438395 18<28FranciscoD18>	if removing this package fixes it, the bug will go to qgnomeplatform
-T 1612438406 18<28FranciscoD18>	(there's been one or two bugs there with qt apps already)
-T 1612438755 18<20nh-nh[m]18>	<FranciscoD "try uninstalling that to see if "> Thanks for your Answers FransicoD. Do you mean uninstalling qt5-wayland, qgnomeplatform or keepassxc?
-T 1612438773 18<28FranciscoD18>	I'd start with qgnomeplatform
-T 1612438796 18<28FranciscoD18>	qt5-wayland is a core package, so that's probably a compulsory dependency
-T 1612438805 18<20nh-nh[m]18>	<FranciscoD "I'd start with qgnomeplatform"> Isn't it going to break other things?
-T 1612438825 18<28FranciscoD18>	no, it's just a theme to ensure that Qt apps on Gnome look like native GTK gnome apps
-T 1612438842 18<28FranciscoD18>	your QT apps will just look more QT like without it on Gnome
-T 1612438843 18<20nh-nh[m]18>	Ok, I try
-T 1612438860 18<28FranciscoD18>	nh-nh[m]: but do check the transaction list: hopefully it won't try to uninstall lots of other gnome things
-T 1612439081 18<20nh-nh[m]18>	<FranciscoD "nh-nh: but do check the transact"> It wants to also remove dependency qt5-qtwayland, is it still safe to do?
-T 1612439092 18<28FranciscoD18>	hrm, we can work around that
-T 1612439094 18<28FranciscoD18>	try:
-T 1612439100 18<28FranciscoD18>	sudo dnf shell
-T 1612439104 18<28FranciscoD18>	when you get the shell, do:
-T 1612439110 18<28FranciscoD18>	remove qgnomeplatform
-T 1612439117 18<28FranciscoD18>	install qt5-qtwayland
-T 1612439123 18<28FranciscoD18>	resolvedep
-T 1612439157 18<28FranciscoD18>	ts
-T 1612439158 18<28FranciscoD18>	run
-T 1612439166 18<28FranciscoD18>	(it should only include the removal of qgnomeplatform in the transaction on the `ts` step)
-T 1612439247 18<20nh-nh[m]18>	<FranciscoD "hrm, we can work around that"> Most excellent! Just learned something new! Thanks a lot!
-T 1612439260 18<20nh-nh[m]18>	Let see if it changed anything
-T 1612439299 18<20nh-nh[m]18>	I just restart and be back.
-T 1612439501 18<20nh-nh[m]18>	<FranciscoD "if removing this package fixes i"> OK, so my keepassxc isn't in darkmode anymore, but the bug is still present: I guess it means qgnomplatform can be ruled out as source of the problem.
-T 1612439516 18<28FranciscoD18>	uh, yeh
-T 1612439520 18<28FranciscoD18>	I was hoping that'd be it XD
-T 1612439538 18<28FranciscoD18>	I guess qt5-wayland is next on the candidate list, but I don't know where to start debugging that
-T 1612439557 18<28FranciscoD18>	if dnf said it was unused when you tried to remove qgnomeplatform, perhaps uninstalling it to try is next?
-T 1612439809 18<20nh-nh[m]18>	<FranciscoD "if dnf said it was unused when y"> Is there a risk of crashing gnome with that? I'll try it, but if it crashes the whole system I don't think I'll be able to get it back up. If your sure I'll still be able to reinstall qt5-qtwayland even if uninstalling it produced minor bugs I could give it a try..
-T 1612439840 18<28FranciscoD18>	It shouldnt crash gnome---it's only needed for qt apps
-T 1612439870 18<20nh-nh[m]18>	OK, so wost case some apps won't open until I reinstall it?
-T 1612439895 18<28FranciscoD18>	Yeh
-T 1612439899 18<19laolux[m]18>	If you do dnf remove something, then it will show you all dependent packages to also be removed. So, if it shows gnome, then better stop the transaction.
-T 1612439928 18<20nh-nh[m]18>	Ok, I give it a try
-T 1612439998 18<28FranciscoD18>	🤞
-T 1612440012 18<20nh-nh[m]18>	OK, gone. I restart and be back
-T 1612440250 18<20nh-nh[m]18>	<FranciscoD "🤞"> Tadaa! It solves the problem! 🤗 So, if I undestand correctly: the bug is within package qt5-qtwayland and therefore should be reported where?
-T 1612440265 18<28FranciscoD18>	ah, hrm
-T 1612440300 18<28FranciscoD18>	nh-nh[m]: here: https://bugzilla.redhat.com/buglist.cgi?bug_status=NEW&bug_status=ASSIGNED&classification=Fedora&component=qt5-qtwayland&list_id=11666771&product=Fedora&product=Fedora%20EPEL
-T 1612440308 18<28FranciscoD18>	you can login to bugzilla with your FAS account
-T 1612440422 18<20nh-nh[m]18>	<FranciscoD "nh-nh: here: https://bugzilla.re"> OK, I'll do that. Many Thanks for all the help and have a very nice day!
-T 1612440755 18<28FranciscoD18>	nh-nh[m]: you too.
-T 1612440779 18<25Strongstan18>	can anyone ping e14966.dsca.akamaiedge.net
-T 1612440804 18<28FranciscoD18>	nh-nh[m]: This doesn't necessarily mean that the bug is in this particular piece of code, but at least it's a starting point
-T 1612441149 18<19laolux[m]18>	<Strongstan "can anyone ping e14966.dsca.akam"> yes: "64 bytes from a118-215-176-101.deploy.static.akamaitechnologies.com (118.215.176.101): icmp_seq=2 ttl=56 time=9.10 ms"
-T 1612462687 20*	Disconnected (20)
-T 1612462712 19*	Now talking on 22#fedora
-T 1612462712 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
-T 1612462712 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
-T 1612462713 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1612462929 24*	28CaV31901459 is now known as 18CaV3190145
-T 1612464749 24*	28ccallahan4 is now known as 18ccallahan
-T 1612464754 24*	28MikeB67 is now known as 18dbasinge
-T 1612464786 24*	28ranzpirat9 is now known as 18ranzpirat
-T 1612466160 24*	28wa1em is now known as 18linuxmodder
-T 1612467016 18<22freebds18>	I am trying to upload a folder from my local machine to a eks pod via a jump server. Some files are getting copied some are not,
-T 1612467016 18<22freebds18>	Here is the script can anyone tell me whats wrong?
-T 1612467016 18<22freebds18>	https://termbin.com/l296
-T 1612467437 18<20fmlatghor18>	Hey guys how do install literally every manpage with rpm2cpio?
-T 1612467460 18<20fmlatghor18>	I've never used rpm2cpio, I just heard it can do this.
-T 1612467697 18<24chrisawi18>	rpm2cpio just extracts the cpio archive from an rpm
-T 1612467773 18<20fmlatghor18>	How do I do this though?
-T 1612467914 18<20fmlatghor18>	I already figured out how to get every manpage ready to print, now is to just install them
-T 1612468177 20*	Disconnected (20)
-T 1612468245 19*	Now talking on 22#fedora
-T 1612468245 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
-T 1612468245 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
-T 1612468249 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1612468447 20*	Disconnected (20)
-T 1612468761 19*	Now talking on 22#fedora
-T 1612468761 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
-T 1612468761 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
-T 1612468777 20*	Disconnected (20)
-T 1612470277 20*	Disconnected (20)
-T 1612471163 20*	Disconnected (20Remote host closed socket)
-T 1612553804 19*	Now talking on 22#fedora
-T 1612553804 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
-T 1612553804 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
-T 1612553804 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1612553818 18<22Southern_Gentlem18>	1) about home subvolume  (if i reinstall do i loose my data in the home subvolume)
-T 1612553851 18<22Southern_Gentlem18>	at install what does btrfs create
-T 1612553992 18<22Southern_Gentlem18>	https://paste.centos.org/view/dfb6225f
-T 1612554091 18<22Southern_Gentlem18>	https://paste.centos.org/view/058170c9
-T 1612554141 18<22Southern_Gentlem18>	https://paste.centos.org/view/9c40a04f
-T 1612554244 18<22Southern_Gentlem18>	thats what my logs show for 2020 202101 202102
-T 1612554256 18<22Southern_Gentlem18>	grep btrfs
-T 1612555134 24*	28Scotty_Trees2 is now known as 18Scotty_Trees
-T 1612555586 20*	Disconnected (20)
-T 1612655765 19*	Now talking on 22#fedora
-T 1612655765 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
-T 1612655765 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
-T 1612655766 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1612656008 18<19bmbouter18>	fmlatghor: so I think what's going on here is everything is in order with the launcher, but the vlc package just gives a broken launcher icon
-T 1612656029 18<19bmbouter18>	I uninstall the vlc package, the launcher icon goes away, I reinstall it, it comes back, it doesn't work
-T 1612656581 18<27exit[m]18>	What DE?
-T 1612656808 18<28linuxmodder18>	exit[m], I may have missed some context in my d/c whom are you asking?
-T 1612656846 18<27exit[m]18>	bmbouter
-T 1612656964 18<28linuxmodder18>	bmbouter, so what DE as exit[m] asked, also what version of fedora and is this a new install/updated and do you know if there are any errors shown in the logs ?
-T 1612657262 18<25ledeni18>	bmbouter did you try to run 'vlc' from terminal
-T 1612657920 18<25postroutine18>	"A regression introduced in 5.10.11 affecting NFS […] In short, the regression causes read file errors through libnfs. " https://bugs.archlinux.org/task/69491
-T 1612706575 20*	Disconnected (20)
-T 1612706604 19*	Now talking on 22#fedora
-T 1612706604 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
-T 1612706604 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
-T 1612706604 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1612707271 18<25foomf18>	I let the anaconda installer use the default settings when setting up partitions. They're all really tiny though, my / directly is only 15gb in size. My drive is 240gb, but none of the other filesystems in the df command seem to indicate where all of that went. parted shows there's a /dev/sda3 partition that's 222gb big (I guess that's where it all went), but it's mount point is "fedora_fedora" and doesn't show up in df. How do I get access to this storage
-T 1612707271 18<25foomf18>	space?
-T 1612707523 18<27MichaelP18>	Hows come in 1 distro only gives my monitor a refresh rate of 30 hz at 3840x2160 but in fedora i get the full 60 hz ?
-T 1612710402 20*	Disconnected (20)
-T 1612710427 19*	Now talking on 22#fedora
-T 1612710427 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
-T 1612710427 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
-T 1612710427 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1612711302 20*	Disconnected (20)
-T 1612711347 19*	Now talking on 22#fedora
-T 1612711347 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
-T 1612711347 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
 T 1612711348 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
 T 1612711457 18<25ledeni18>	foomf➡ try to install 'epiphany'
 T 1612711879 18<25foomf18>	ledeni: found it, thanks!
@@ -5162,3 +4997,54 @@ T 1617826283 18<28fedbot18>	*** F33-20210405 updated lives available: ht
 T 1617826320 18<29dez90ed18>	the bluetooth at the bottom which works the loudspeakers it does not work
 T 1617826380 18<29dez90ed18>	I came across a post about sda audio driver something like that that might work
 T 1617826583 20*	Disconnected (20)
+T 1617883390 19*	Now talking on 22#fedora
+T 1617883390 22*	Topic for 22#fedora is: Fedora Linux F32, F33, F34B end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common || Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins
+T 1617883390 22*	Topic for 22#fedora set by 26Khaytsus!~khaytsus@fedora/khaytsus (24Mon Mar 29 00:08:02 2021)
+T 1617883390 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1617883944 18<28fedbot18>	*** F33-20210405 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1617884626 24*	28DaFiN is now known as 18Guest15224
+T 1617884652 24*	28newnick12345 is now known as 18DaFiN
+T 1617884878 24*	28seanBE_ is now known as 18seanBE
+T 1617885379 18<20kiilerix18>	where is abrt storing my credentials?
+T 1617885649 18<22Southern_Gentlem18>	OnlyHuman, a) not supported in this channel b) #fedora-qa
+T 1617885682 18<26OnlyHuman18>	ok thanks Southern_Gentlem
+T 1617885714 18<22Southern_Gentlem18>	c if something is calling that as a dep file a bugzilla
+T 1617885955 18<22Southern_Gentlem18>	or fix your ks
+T 1617886144 18<26OnlyHuman18>	looks like same anaconda error on f34 now when trying to install
+T 1617886241 18<22Southern_Gentlem18>	check your ks
+T 1617886258 18<26OnlyHuman18>	will do thanks
+T 1617886274 18<22Southern_Gentlem18>	see if you have anaconda-tools listed
+T 1617886286 18<26OnlyHuman18>	they were
+T 1617886304 18<26OnlyHuman18>	suspect updates
+T 1617886365 18<22Southern_Gentlem18>	i suspect you havent kept up with the updated ks per release
+T 1617887547 18<28fedbot18>	*** F33-20210405 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1617887669 18<26OnlyHuman18>	well pretty sure built an installed a fed 34
+T 1617887862 18<26OnlyHuman18>	was getting site-packages pyanaconda.core  line 231 error message
+T 1617887905 18<26OnlyHuman18>	assume when testing though ppl don't just try live iso but install too
+T 1617887976 18<26OnlyHuman18>	building f34 gaina
+T 1617887982 18<26OnlyHuman18>	again
+T 1617888325 18<22Southern_Gentlem18>	for rawhide you need to build on rawhide
+T 1617888407 24*	28tomato3 is now known as 18tomato
+T 1617890208 18<26OnlyHuman18>	 oh was building rawhide on f34
+T 1617890266 18<26OnlyHuman18>	as my fed 34 system has no x after doing large update though could try on wl
+T 1617890482 20*	Disconnected (20)
+T 1617890526 20*	Disconnected (20Remote host closed socket)
+T 1617890570 20*	Disconnected (20Remote host closed socket)
+T 1617890612 20*	Disconnected (20Remote host closed socket)
+T 1617890666 20*	Disconnected (20Remote host closed socket)
+T 1617890692 19*	Now talking on 22#fedora
+T 1617890692 22*	Topic for 22#fedora is: Fedora Linux F32, F33, F34B end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common || Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins
+T 1617890692 22*	Topic for 22#fedora set by 26Khaytsus!~khaytsus@fedora/khaytsus (24Mon Mar 29 00:08:02 2021)
+T 1617890693 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1617890950 18<22Southern_Gentlem18>	i just built f34 cinn,kde (i havent tested yet
+T 1617891102 18<22Southern_Gentlem18>	which with the issue with dracut at the moment i suspect it not to boot
+T 1617891140 18<22Southern_Gentlem18>	OnlyHuman, so i think we are confused is your issue on an installed f34 ?
+T 1617891152 18<28fedbot18>	*** F33-20210405 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1617891180 18<22Southern_Gentlem18>	dracut issue https://bugzilla.redhat.com/show_bug.cgi?id=1945596
+T 1617891233 18<22Southern_Gentlem18>	that should also effect your live build
+T 1617891513 18<22Southern_Gentlem18>	ok my lives are booting lets see what happens on install
+T 1617891546 18<26OnlyHuman18>	my f34 an rawhide did boot
+T 1617891581 18<26OnlyHuman18>	just about to try new f34
+T 1617891772 20*	Disconnected (20)
+T 1617891830 20*	Disconnected (20Remote host closed socket)
+T 1617891881 20*	Disconnected (20Remote host closed socket)
