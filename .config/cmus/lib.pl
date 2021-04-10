@@ -46,7 +46,6 @@
 /home/rufus/Music/Classical Music/Top 50/Tomaso Albinoni - Adagio for strings and organ in G minor (arr. by Remo Giazotto).mp3
 /home/rufus/Music/Classical Music/Top 50/Wolfgang Amadeus Mozart Piano Concerto No.21 In C Major,K.467-II.Andante.mp3
 /home/rufus/Music/Classical Music/Top 50/Wolfgang Amadeus Mozart- Requiem Mass - Lacrimosa dies illa.mp3
-/home/rufus/Music/Dusk Till Dawn - ZAYN ft. Sia (Lyrics).mp3
 /home/rufus/Music/Instrumental/Alan Walker Faded (instrumental version) 1 Hour.mp3
 /home/rufus/Music/Instrumental/Death Note- Light's Return_Theme EXTENDED.mp3
 /home/rufus/Music/Instrumental/Lawrys_birthday_william.mp3
@@ -89,16 +88,6 @@
 /home/rufus/Music/La casa de papel - Bella Ciao.mp3
 /home/rufus/Music/Instrumental/Legend of Korra Main Theme - Legend of Korra Sound Track.mp3
 /home/rufus/Music/Instrumental/Legend of Korra The Game Soundtrack (Game Specific Music) HD Soundtrack.mp3
-/home/rufus/Music/Instrumental/Lindsey Stirling/Crystallize - Lindsey Stirling (Dubstep Violin Original Song) - YouTube.mp3
-/home/rufus/Music/Instrumental/Lindsey Stirling/First Light - Lindsey Stirling - YouTube.mp3
-/home/rufus/Music/Instrumental/Lindsey Stirling/Forgotten City from RiME - Lindsey Stirling - YouTube.mp3
-/home/rufus/Music/Instrumental/Lindsey Stirling/Lindsey Stirling - Dance of the Sugar Plum Fairy - YouTube.mp3
-/home/rufus/Music/Instrumental/Lindsey Stirling/Master of Tides - Lindsey Stirling - YouTube.mp3
-/home/rufus/Music/Instrumental/Lindsey Stirling/River Flows In You- Lindsey Stirling - YouTube.mp3
-/home/rufus/Music/Instrumental/Lindsey Stirling/Roundtable Rival - Lindsey Stirling.mp3
-/home/rufus/Music/Instrumental/Lindsey Stirling/Shadows - Lindsey Stirling (Original Song).mp3
-/home/rufus/Music/Instrumental/Lindsey Stirling/Spontaneous Me -Lindsey Stirling (original song) - YouTube.mp3
-/home/rufus/Music/Instrumental/Lindsey Stirling/Zelda Medley- Lindsey Stirling.mp3
 /home/rufus/Music/Instrumental/Main Opening Theme - Avatar The Last Airbender Soundtrack.mp3
 /home/rufus/Music/Matthew Morgan - Sun Through the Clouds.mp3
 /home/rufus/Music/Michael Nyman - One Moment.mp3
