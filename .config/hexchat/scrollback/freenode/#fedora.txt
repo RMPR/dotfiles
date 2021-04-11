@@ -1,54 +1,3 @@
-T 1612711348 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1612711457 18<25ledeni18>	foomf➡ try to install 'epiphany'
-T 1612711879 18<25foomf18>	ledeni: found it, thanks!
-T 1612712291 18<19bmbouter18>	linuxmodder: apologies I left but I back. it's fedora 32. it's an upgrade from F31 (and many before that). I've uninstalled and reinstalled vlc rpm a few times
-T 1612712353 18<19bmbouter18>	I see this logging output when I try to launch the vlc icon https://paste.centos.org/view/654e3087
-T 1612713765 18<25ledeni18>	bmbouter: try to run vlc from term just to see it is lanch that way
-T 1612713784 18<26Khaytsus18>	Is this still going on?  Wow.
-T 1612713854 18<25ledeni18>	bmbouter:*lunch
-T 1612714190 18<25ledeni18>	bmbouter➡ can you give us 'cat /usr/share/applications/vlc.desktop | fpaste'
-T 1612715078 18<19bmbouter18>	yes I can launch nicely from term
-T 1612715125 18<19bmbouter18>	https://paste.centos.org/view/6e3ed7cd
-T 1612715139 18<19bmbouter18>	and /usr/bin/vlc exists and that is what I can run successfully from the term
-T 1612715415 24*	28tmsmr1 is now known as 18tmsmr
-T 1612715534 18<28linuxmodder18>	that looks sane, not sure what is causing your issues its not the .desktop file tho
-T 1612716108 18<28fedbot18>	*** F33-20210129 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1612717388 18<25ledeni18>	bmbouter➡  i your case i will try to reset config files for vlc with rename  /home/.config/vlc to .config/vlc-old and see how is going
-T 1612718322 20*	Disconnected (20)
-T 1612719018 19*	Now talking on 22#fedora
-T 1612719018 22*	Topic for 22#fedora is: #Fedora F32, F33 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common||Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins ||
-T 1612719018 22*	Topic for 22#fedora set by 26kk4ewt!~notfred@fedora/Southern-Gentleman (24Fri Dec 11 00:23:09 2020)
-T 1612719019 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
-T 1612719682 18<19Old_Man18>	Is anyone qualified to update https://fedoraproject.org/wiki/Architectures/ARM/Raspberry_Pi ?
-T 1612719712 18<28fedbot18>	*** F33-20210129 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
-T 1612719725 18<19Old_Man18>	I think now would be the best time to do it, as people are upset at the default install of Raspberry Pi OS for installing a Microsoft repository and GPG key without asking permission.
-T 1612719762 18<19Old_Man18>	Fedora could distinguish itself as being freedom-friendly by not being so "sneaky" to its users.
-T 1612719876 18<26[R]18>	lol
-T 1612719878 18<26[R]18>	rspberry pi os is made for people that dont know what they are doing
-T 1612719887 18<26[R]18>	proiding an easy way to install code is exactly that
-T 1612719887 18<26[R]18>	lol
-T 1612719902 18<26[R]18>	i woudln't exactly classify it as sneaky
-T 1612719917 18<19Old_Man18>	[R], that sounds like a good reason for Fedora to do it properly. Do you know who might have permission to make updates to that wiki page?
-T 1612719921 18<26[R]18>	and obvilsy ythe people t hat actually knwo what they are doing, realize that
-T 1612720035 18<26[R]18>	https://fedoraproject.org/wiki/Help:Editing
-T 1612720035 18<26[R]18>	wow
-T 1612720035 18<26[R]18>	that was extremely difficult to find
-T 1612720127 18<19Old_Man18>	I guess I didn't ask my question very clearly the second time; I'll go back to the wording I used the first time I asked it: "Is anyone qualified to update https://fedoraproject.org/wiki/Architectures/ARM/Raspberry_Pi ?"
-T 1612720136 18<28linuxmodder18>	[R], taking advantage of less informed customer base it sure is tho
-T 1612720138 18<26[R]18>	Old_Man: i just linked you the page so you can edit it yourself
-T 1612720145 18<26[R]18>	if you think theres somethign wrong with it
-T 1612720160 18<26[R]18>	linuxmodder: "taking advantage"
-T 1612720160 18<26[R]18>	rofl
-T 1612720165 18<26[R]18>	people who think its is some giant spying conpiracy
-T 1612720165 18<19Old_Man18>	I mean, even if I made the text edits myself, I would want to work with someone who knows the current status of fedora-on-pi better than me, because all I know is what I read on other web pages like https://linuxhint.com/install_fedora_33_raspberry_pi4/
-T 1612720165 18<26[R]18>	are retards
-T 1612720186 18<26[R]18>	well if you think its wrong...
-T 1612720193 18<28linuxmodder18>	well, I prefer attempting to educate your userbase but not really if they wanna continue being ill informed sheep they deserve it most times
-T 1612720195 18<19Old_Man18>	Ohhhh, you're just a snarky namecaller. You're one of those people who calls names without actually contributing anything of value to any conversation on IRC. I see.
-T 1612720214 18<19Old_Man18>	Well, does anyone *besides* [R] know anything about the status of fedora-on-pi?
-T 1612720220 18<26[R]18>	so you dont know its wrong...
-T 1612720247 18<28linuxmodder18>	Old_Man,  the folks in #fedora-arm likely do
-T 1612720254 18<24g0z18>	so since I downloaded another distro and was waiting for this to lock up again before starting the install, it hasn't. what kind of selfpreservation AI wizardry is this?
 T 1612720259 18<19Old_Man18>	Thanks, linuxmodder.
 T 1612720297 18<28linuxmodder18>	and no [R] is not a random asshat namecaller but if the shoe fits he wears it well :P
 T 1612720299 18<28linuxmodder18>	love you [R]  in case it was not clear
@@ -5048,3 +4997,44 @@ T 1617891581 18<26OnlyHuman18>	just about to try new f34
 T 1617891772 20*	Disconnected (20)
 T 1617891830 20*	Disconnected (20Remote host closed socket)
 T 1617891881 20*	Disconnected (20Remote host closed socket)
+T 1618161134 19*	Now talking on 22#fedora
+T 1618161134 22*	Topic for 22#fedora is: Fedora Linux F32, F33, F34B end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common || Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins
+T 1618161134 22*	Topic for 22#fedora set by 26Khaytsus!~khaytsus@fedora/khaytsus (24Mon Mar 29 00:08:02 2021)
+T 1618161134 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1618161304 24*	28ruimonteiro is now known as 18alf75
+T 1618161524 18<28fedbot18>	*** F33-20210405 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1618161598 20*	Disconnected (20)
+T 1618161686 20*	Disconnected (20Remote host closed socket)
+T 1618161743 20*	Disconnected (20Remote host closed socket)
+T 1618161785 20*	Disconnected (20Remote host closed socket)
+T 1618161811 19*	Now talking on 22#fedora
+T 1618161811 22*	Topic for 22#fedora is: Fedora Linux F32, F33, F34B end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common || Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins
+T 1618161811 22*	Topic for 22#fedora set by 26Khaytsus!~khaytsus@fedora/khaytsus (24Mon Mar 29 00:08:02 2021)
+T 1618161812 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1618163360 18<26motorto18>	Hey , is there any place to see the default i3 config of fedora spin on the web ?
+T 1618164748 18<20NeilWolfkid[m]18>	h
+T 1618165135 18<28fedbot18>	*** F33-20210405 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1618165136 24*	28ruimonteiro is now known as 18alf1975
+T 1618165450 18<29kk4ewt18>	motorto,  like the ks ?
+T 1618165602 18<29kk4ewt18>	motorto, uname -r
+T 1618165782 18<28gnafu18>	motorto: For 34: https://pagure.io/fedora-kickstarts/tree/f34
+T 1618165793 18<28gnafu18>	Specifically: https://pagure.io/fedora-kickstarts/blob/f34/f/fedora-i3-common.ks
+T 1618166223 18<29kk4ewt18>	i have a f33 around
+T 1618166567 18<29kk4ewt18>	https://paste.centos.org/view/626d3e05
+T 1618166612 18<26motorto18>	gnafu thanks ! But I am looking at the actual i3 config on $HOME/.config/i3/confign
+T 1618166623 18<26motorto18>	I didn't seem to.find it there on that website
+T 1618166690 18<29kk4ewt18>	motorto,  shouldnt that be in the i3 package if they didnt modify
+T 1618166794 18<29kk4ewt18>	https://kojipkgs.fedoraproject.org/compose/branched/Fedora-34-20210411.n.0/compose/Spins/x86_64/iso/Fedora-i3-Live-x86_64-34-20210411.n.0.iso
+T 1618167058 18<29kk4ewt18>	motorto,  what is your real question
+T 1618167898 18<26motorto18>	If I can see the i3 config that fedora uses on the spin
+T 1618167903 18<26motorto18>	And where
+T 1618167917 18<26motorto18>	(Whithout installing the iso
+T 1618168741 18<28fedbot18>	*** F33-20210405 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1618170796 18<29kk4ewt18>	motorto,  install the spin in a vm
+T 1618170865 18<29kk4ewt18>	motorto, talk to the people in #fedora-i3
+T 1618170883 24*	28ozymandias_ is now known as 18ozymandias
+T 1618170969 18<26motorto18>	I have another question how can I install adwaita dark ?
+T 1618171971 24*	28Scotty_Trees[Zzz is now known as 18Scotty_Trees
+T 1618172005 18<20cmurf18>	has anyone with intel wireless reported a regression in kernel 5.11.12?
+T 1618172052 18<20cmurf18>	i.e. no wireless connection
+T 1618172344 18<28fedbot18>	*** F33-20210405 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***

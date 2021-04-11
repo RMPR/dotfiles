@@ -699,3 +699,166 @@ Apr 08 15:14:45 *	xtropro is now known as xtro
 Apr 08 15:22:52 *	Disconnected ()
 **** ENDING LOGGING AT Thu Apr  8 15:22:52 2021
 
+**** BEGIN LOGGING AT Sun Apr 11 18:12:14 2021
+
+Apr 11 18:12:14 *	Now talking on ##C
+Apr 11 18:12:14 *	Topic for ##C is: C Programming | PASTE (>3 lines): https://bpa.st/ | WIKI: http://www.iso-9899.info/ | BOOKS: http://www.iso-9899.info/wiki/Books | C2X Charter: http://www.open-std.org/jtc1/sc22/wg14/www/docs/n2086.htm | the current standard: http://iso-9899.info/wiki/The_Standard | Off-topic: ##c-offtopic
+Apr 11 18:12:14 *	Topic for ##C set by dho!~dho@freenode/staff/dho (Fri Apr  9 04:35:19 2021)
+Apr 11 18:12:14 -ChanServ-	[##c] Welcome to ##c! We engage in C programming discussions at all levels of expertise; don't hesitate to ask your question. If applicable, please prepare a testcase and paste it at http://ideone.com. We don't know about C++ (##c++) or C# (##csharp).
+Apr 11 18:12:14 *	Channel ##c url: http://www.iso-9899.info/
+Apr 11 18:19:58 *	Disconnected ()
+**** ENDING LOGGING AT Sun Apr 11 18:19:58 2021
+
+**** BEGIN LOGGING AT Sun Apr 11 18:23:31 2021
+
+Apr 11 18:23:31 *	Now talking on ##C
+Apr 11 18:23:31 *	Topic for ##C is: C Programming | PASTE (>3 lines): https://bpa.st/ | WIKI: http://www.iso-9899.info/ | BOOKS: http://www.iso-9899.info/wiki/Books | C2X Charter: http://www.open-std.org/jtc1/sc22/wg14/www/docs/n2086.htm | the current standard: http://iso-9899.info/wiki/The_Standard | Off-topic: ##c-offtopic
+Apr 11 18:23:31 *	Topic for ##C set by dho!~dho@freenode/staff/dho (Fri Apr  9 04:35:19 2021)
+Apr 11 18:23:32 -ChanServ-	[##c] Welcome to ##c! We engage in C programming discussions at all levels of expertise; don't hesitate to ask your question. If applicable, please prepare a testcase and paste it at http://ideone.com. We don't know about C++ (##c++) or C# (##csharp).
+Apr 11 18:23:32 *	Channel ##c url: http://www.iso-9899.info/
+Apr 11 18:31:23 <pragma->	wroathe: but do you know why kids love the taste of cinnamon toast crunch?
+Apr 11 18:32:20 <wroathe>	pragma-: That's easy. Sugar.
+Apr 11 18:32:30 *	APic grins magically.
+Apr 11 18:38:02 <nb-ben>	wroathe: do you know how to produce an EC private key from a public key in polynomial time?
+Apr 11 18:38:16 <nb-ben>	wroathe: or how to make a quantum computer to do that
+Apr 11 18:45:29 <wroathe>	nb-ben: Yes. Through math.
+Apr 11 18:47:26 <nitrix>	https://i.imgur.com/xNWld3gh.jpg
+Apr 11 18:47:49 <nitrix>	Use coding and algorithms.
+Apr 11 18:48:05 <wroathe>	nitrix: It'll never work.
+Apr 11 18:48:26 <nb-ben>	that's funny
+Apr 11 18:56:29 <BlakSAM>	Shor's, but there aren't enough qbits yet
+Apr 11 19:01:52 <wroathe>	"In 2019 an attempt was made to factor the number 35 using Shor's algorithm on an IBM Q System One, but the algorithm failed due to cumulating errors"
+Apr 11 19:02:00 <wroathe>	https://en.wikipedia.org/wiki/Shor%27s_algorithm
+Apr 11 19:02:11 <wroathe>	Sounds like there's some issues to work out
+Apr 11 19:02:50 <wroathe>	TIL I'm smarter than a quantum computer
+Apr 11 19:03:04 <BlakSAM>	Q system one is a generic quantum computer too, it's likely the first breakthroughs here will be A. in a specialized quantum computer, B. in some government facility that we won't hear about until 10 years later
+Apr 11 19:03:53 <wroathe>	There's no way in hell that B hasn't happened already
+Apr 11 19:04:13 <wroathe>	Or the governments would've been making a bigger stink about establishing backdoors
+Apr 11 19:04:14 <BlakSAM>	well like you said, there are still some issues to address :P even for them
+Apr 11 19:04:36 <wroathe>	Well, that's for the publicly available body of working on quantum computing
+Apr 11 19:04:42 <wroathe>	body of work*
+Apr 11 19:04:52 <BlakSAM>	yeah, I mean who knows I guess. Certainly not me
+Apr 11 19:11:44 <nb-ben>	well there's a $1 trillion prize for a solution
+Apr 11 19:14:07 <expert975>	when using call results as parameters of a function call, the calling order of the parameters is not defined. What if instead I'm using those results to initialize a struct? Is the call order defined in this case?
+Apr 11 19:14:46 <fizzie>	The order of evaluation is not defined for initializer lists either, whether they're function calls or not.
+Apr 11 19:15:02 <expert975>	fizzie: ok, thanks
+Apr 11 19:15:52 <fizzie>	,c11 6.7.9p23
+Apr 11 19:15:53 <candide>	http://www.iso-9899.info/n1570.html#6.7.9p23 [Initialization] The evaluations of the initialization list expressions are indeterminately sequenced with respect to one another and thus the order in which any side effects occur is unspecified.152) FOOTNOTE.152 In particular, the evaluation order need not be the same as the order of subobject initialization.
+Apr 11 19:19:13 <expert975>	can I take the address of a compound literal?
+Apr 11 19:21:32 <fizzie>	Yes.
+Apr 11 19:21:57 <fizzie>	It's a modifiable lvalue, so you can even assign to it, though I've yet to find a reasonable use case for that.
+Apr 11 19:22:18 <fizzie>	,cc (int){1} = 2;
+Apr 11 19:22:21 <candide>	fizzie: Success (no output).
+Apr 11 19:23:35 <fizzie>	Just keep in mind that at block scope it's got automatic storage duration associated with a block, and there are things that are a block that don't have the telltale {}s around them.
+Apr 11 19:24:10 <fizzie>	,cc int *p; if (1) p = &(int){123}; printf("%d", *p); // undefined behavior
+Apr 11 19:24:13 <candide>	fizzie: 123
+Apr 11 19:25:23 <expert975>	I see. My usecase is to pass a structure to a function that copies its contents
+Apr 11 19:27:05 <fizzie>	That's usually fine, because the compound literal will survive at least until the function call returns.
+Apr 11 19:27:35 <expert975>	,cc struct s{int i;}; int func(int *i){return i}; printf("%d", func(&(struct s){.i=1}));
+Apr 11 19:27:36 <candide>	expert975:  In function 'func':  warning: returning 'int *' from a function with return type 'int' makes integer from pointer without a cast [-Wint-conversion]  error: expected ';' before '}' token
+Apr 11 19:27:46 <expert975>	,cc struct s{int i;}; int func(int *i){return *i}; printf("%d", func(&(struct s){.i=1}));
+Apr 11 19:27:48 <candide>	expert975:  In function 'func':  error: expected ';' before '}' token
+Apr 11 19:27:49 *	manuel___ is now known as Maaaanu
+Apr 11 19:30:01 <expert975>	,cc struct s{int i;}; int func(struct s *s){return s->i;}; printf("%d", func(&(struct s){.i=1}));
+Apr 11 19:30:03 <candide>	expert975: 1
+Apr 11 19:30:11 <expert975>	there, that's what I meant
+Apr 11 19:33:57 <wroathe>	expert975: Another thing to consider is that you get that for free just by passing the struct instead of a pointer to the struct
+Apr 11 19:34:12 <wroathe>	expert975: int func(struct s s);
+Apr 11 19:35:01 <wroathe>	(the copying behavior, that is)
+Apr 11 19:37:54 <expert975>	wroathe: my function stores that input in another parameter, it doesn't need it on the stack. This is a vector implementation
+Apr 11 19:53:12 <nitrix>	I prefer when vectors have a direction and a magnitude. The definition that everyone uses correctly, except the C++ committee.
+Apr 11 19:55:39 <wroathe>	nitrix: Well, that definition has become the defacto standard in computing, thanks to the early work of the Bjarne and friends
+Apr 11 19:56:13 <wroathe>	nitrix: Even Haskell, which is on the more pedantic side, has a Data.Vector that fits the bill
+Apr 11 19:56:43 <wroathe>	I prefer teo call it a "resizing array" or something like that
+Apr 11 19:56:46 <wroathe>	to*
+Apr 11 19:56:59 <expert975>	I actually call my structure "List"
+Apr 11 19:59:53 <begriffs>	IIRC, .NET uses the term "list" for the resizing array, whereas C++ and Ada use "vector"
+Apr 11 20:01:33 <begriffs>	C++'s "list" has these names in other language standard libraries -- Ada doubly_linked_list, smalltalk linkedlist, .NET linkedlist, Java linkedlist
+Apr 11 20:02:03 <begriffs>	Been investigating these terminology because I'm working on making (yet another) C collection library https://github.com/begriffs/libderp
+Apr 11 20:02:31 <begriffs>	Want to have a vector, list, hashmap, and hashset initially.
+Apr 11 20:05:46 <wroathe>	Call it YACL - Yet another container library
+Apr 11 20:09:41 <et09>	this header file just has "struct cuse_dev;"
+Apr 11 20:09:43 <et09>	what's that accomplish
+Apr 11 20:09:55 <d3x0r>	begriffs https://github.com/d3x0r/SACK/blob/master/docs/tutorial/tutorial_containers.md (example is in tutorial_things.md it's nto well linked to itself yet)
+Apr 11 20:10:22 <d3x0r>	defines a abstract/opaque type that will be used with further function definitions
+Apr 11 20:10:28 <sham1>	Declares
+Apr 11 20:10:34 <d3x0r>	ya
+Apr 11 20:10:45 <et09>	what's the point of that
+Apr 11 20:10:47 <sham1>	Don't worry. I get those mixed up as well :P
+Apr 11 20:10:53 <begriffs>	d3x0r: thanks, taking a look
+Apr 11 20:11:34 <sham1>	et09: it tells the compiler that "hey, this type we're using, it's defined *somewhere*, but maybe not in this file"
+Apr 11 20:11:42 <d3x0r>	begriffs there's about 2x that actually available that falls under 'advanced' though 'peek with index' is pretty advanced
+Apr 11 20:11:48 <et09>	i'm trying to find the definition lol
+Apr 11 20:12:06 <d3x0r>	et09 why do you want the definition?
+Apr 11 20:12:14 <d3x0r>	call a function that gives one back to you
+Apr 11 20:12:22 <d3x0r>	like fopen() gives you a FILE
+Apr 11 20:12:23 <et09>	i have one already
+Apr 11 20:12:26 <fizzie>	A `struct foo;` declaration in a header makes it possible to also declare a function like `void munge(struct foo *p);` without exposing the contents of the structure to other code including the header.
+Apr 11 20:12:32 <et09>	in this code im trying to fix
+Apr 11 20:12:38 <sham1>	"Dynamic allocation? Blashemy!"
+Apr 11 20:12:41 <et09>	it has:    struct cuse_dev *my_cuse_dev = cuse_dev_create(&evdev_cuse_methods, ed, NULL, 0, 0, 0660, "%s%d", EVDEV_CUSE_DEFAULT_DEVNAME, devid);
+Apr 11 20:12:49 <d3x0r>	it's so you don't muck about with it outside fo the exposed function interface
+Apr 11 20:13:01 <et09>	and in the docs it says, if it succeeds, it returns a cuse_dev structure, or NULL on failure
+Apr 11 20:13:11 <et09>	i want to printf the result to console
+Apr 11 20:13:14 <d3x0r>	it's something like mutation guarding it... protecting it from uncontrolled changes
+Apr 11 20:13:22 <d3x0r>	%p
+Apr 11 20:14:13 <begriffs>	d3x0r: that library is gigantic. :)
+Apr 11 20:14:17 <sham1>	Mucking around in someone else's structs is rude
+Apr 11 20:14:35 <et09>	0x0
+Apr 11 20:14:35 <d3x0r>	begriffs it's evertyhing and 3 kitchen sinks :)  but it can't be much more than it is
+Apr 11 20:14:37 <et09>	so it is null?
+Apr 11 20:14:59 <d3x0r>	everything else is a app on top of it - might browse the networking interface sack exposes (which requires code to make work)
+Apr 11 20:15:07 <d3x0r>	ya
+Apr 11 20:15:09 <sham1>	et09: looks like it
+Apr 11 20:15:11 <et09>	son of a bitch
+Apr 11 20:15:25 <wroathe>	d3x0r: If you want to get users for that thing, you should really consider splitting it up into a family of libraries. I think most C/C++ developers have an aversion to kitchen sinks.
+Apr 11 20:15:31 <et09>	im so deep into this project which is "get the multimedia keys on my keyboard to work"
+Apr 11 20:15:35 <et09>	"on freebsd"
+Apr 11 20:15:42 <d3x0r>	wroathe I did - and they're even single-source/header compileable
+Apr 11 20:15:56 <et09>	which has turned into "fix a 10 year old userpace daemon for supporting USB HID devices"
+Apr 11 20:15:57 <d3x0r>	but it still lacked tutorial like things :)
+Apr 11 20:16:15 <d3x0r>	begriffs https://github.com/d3x0r/micro-C-Boost-Types
+Apr 11 20:16:26 <d3x0r>	and I really shouldn't steal a name
+Apr 11 20:16:28 <d3x0r>	or association
+Apr 11 20:16:36 <d3x0r>	it's a WIP
+Apr 11 20:16:48 <sham1>	Hmm, the docs associated with cuse_dev_create don't at least imply that it sets errno or anything
+Apr 11 20:17:05 <begriffs>	d3x0r: dude you're prolific
+Apr 11 20:17:10 <et09>	sham1: meaning what
+Apr 11 20:17:37 <sham1>	et09: well if it doesn't set that, then one needs to find another way to see why the function failed
+Apr 11 20:17:47 <et09>	mhm
+Apr 11 20:17:47 <d3x0r>	but... it's all based on the common core of containers - any +1 library requires basically a good chunk of stuff
+Apr 11 20:18:12 <sham1>	et09: I'm assuming that the program you've fixed has called cuse_init() before you're calling cuse_dev_create
+Apr 11 20:18:23 <sham1>	If not, that needs to be fixed
+Apr 11 20:18:47 <et09>	calls ucuse_init
+Apr 11 20:18:58 <sham1>	Okay good
+Apr 11 20:19:08 <et09>	do you happen to understand this lol
+Apr 11 20:19:18 <sham1>	Well no, I'm just guessing
+Apr 11 20:19:39 <sham1>	Anyway, the docs say "The device name can only contain a-z, A-Z, 0-9, dot, / and underscore characters"
+Apr 11 20:19:50 <sham1>	That might be the next thing to look at
+Apr 11 20:20:05 <et09>	it does
+Apr 11 20:20:08 <et09>	just checked
+Apr 11 20:20:10 <et09>	input/event1
+Apr 11 20:20:14 <sham1>	Mhm
+Apr 11 20:21:31 <d3x0r>	thats /dev/input/event1 ?
+Apr 11 20:21:59 <et09>	i suppose so yeah
+Apr 11 20:22:08 <sham1>	Looking at the sources I found somewhere, there seem to be three failure cases here
+Apr 11 20:22:41 <d3x0r>	you suppose so?  so you didnt specify a full path to a device?
+Apr 11 20:23:00 <et09>	no it's provided as EVDEV_CUSE_DEFAULT_DEVNAME
+Apr 11 20:23:05 <et09>	which is input/event1
+Apr 11 20:23:07 <d3x0r>	o
+Apr 11 20:23:14 <lemonade`>	struct s; declares struct s as a struct, so it can be used in another definition. if there is a struct s2 with a member involving a type struct s, while struct s has a member involving a type struct s2, then there is a chicken and egg problem -- you can't define either struct first without already having defined the other. declaring just the struct tag as struct s; allows you do break this dependency cycle.
+Apr 11 20:23:34 <d3x0r>	declaration
+Apr 11 20:25:12 <sham1>	et09: anyway, looking at the sources for cuse_dev_create, I can only see three failure cases: f_cuse being less than zero (it's an FD set by cuse_init and since the program calls it, that's probably not it if the program survives), malloc failure (which seems unlikely) or a failing IOCTL
+Apr 11 20:26:46 <et09>	im out of my depth
+Apr 11 20:27:02 <et09>	officially
+Apr 11 20:27:24 <sham1>	I'd probably ask on some relevant FreeBSD channel, but one recommendation I'd give is that since you're on FreeBSD, one thing that might help you figure out the problem is dtrace
+Apr 11 20:27:42 <et09>	freebsd channel isnt useful
+Apr 11 20:28:12 <et09>	i guess i could look into dtrace
+Apr 11 20:28:55 <et09>	the bottom line problem im having is that this uhidd daemon is noticing the usb hid keycodes, starting the broadcast to "vkbd" and evdev, but then there are no attached evdev clients
+Apr 11 20:29:04 <et09>	so while a TTY gets these keypresses, X doesn't
+Apr 11 20:29:09 <et09>	that's my working theory at least
+Apr 11 20:29:18 <et09>	thats how i got here
+Apr 11 20:29:33 <sham1>	Hmm, sounds annoying
+Apr 11 20:29:42 <sham1>	Well, I hope you find a solution :)
+Apr 11 20:29:45 <et09>	yes, you'd think this would work on a vanilla install right?
+Apr 11 20:29:50 <et09>	"volup"/"voldown"

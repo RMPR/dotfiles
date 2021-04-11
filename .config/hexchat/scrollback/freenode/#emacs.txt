@@ -1,98 +1,3 @@
-T 1613254982 18<22ngz18>	I assume all your ID properties are ready beforehand.
-T 1613254995 18<22adam_erc18>	dale yeah, this in the trouble when I tried with a regexp search earlier, the first link that came up was embedden in a code block! How would I exclude these?
-T 1613255014 18<22adam_erc18>	ngz yeah, I specify these in advance with (org-get-create-id)
-T 1613255022 18<22adam_erc18>	ngz ugh (org-id-get-create)
-T 1613255023 18<22ngz18>	With, e.g., (eq 'link (org-element-type (org-element-context)))
-T 1613255095 18<26Wafficus18>	by the way, random part on 'src' blocks in Org-Mode, I was able to easily create my own 'yassnippet' to make them CAPS for the "BEGIN_SRC" and "END_SRC" sections, and the end result is beautiful
-T 1613255099 18<26Wafficus18>	I even set it to '<s" with tab, as God intended
-T 1613255113 18<26Wafficus18>	and made one for Bash with '<b', and its awesome, would recommend if anyone likes snippets in Org-Mode, totally awesome
-T 1613255173 18<22adam_erc18>	Wafficus Ha! Yeah, Yasnippet is awesome. When you start getting more snippets than you can remember, you can combine with helm to search by name
-T 1613255248 18<22adam_erc18>	Wafficus Also, I like to maintain my snippets in babel code blocks in a single snippets.org file. I then auto tangle this on save, so I can easily search and annotate my snippets in one place.
-T 1613255317 18<22adam_erc18>	ngz thanks!
-T 1613255330 18<26Wafficus18>	adam_erc: I usually just do the 'describe-tables' command to figure out what I have, didn't know you can pipe it into Helm
-T 1613255335 18<26Wafficus18>	that's cool, I have Helm / love Helm too
-T 1613255350 18<26Wafficus18>	actually, does anyone know a good cheating command like to remember commands?
-T 1613255355 18<26Wafficus18>	*macros
-T 1613255383 18<22jamik18>	didn't think about managing snippets in org.. I'll have to do that
-T 1613255433 18<26Wafficus18>	yeah check out 'yassnippet' its neat jamik 
-T 1613255433 18<22adam_erc18>	Wafficus if you run yas-insert-snippet from helm it will pull up a list of available snippets (for your current mode) automatically.
-T 1613255433 18<28rgr18>	And to think I sent Carsten a gutschein back in the day. Early investor ;)
-T 1613255482 18<22jamik18>	Wafficus: I use yasnippet, but I don't write the snippets and tangle them with org-babel
-T 1613255498 18<22jamik18>	Which I'm now about to do
-T 1613255532 18<22jamik18>	Also I second picking snippets with helm/ivy
-T 1613255571 18<22adam_erc18>	jamik http://ix.io/2PkS this is the magic that gets it done. Just add it to the bottom of your snippets.org file
-T 1613255619 18<22jamik18>	Thanks! 8)
-T 1613255658 18<22adam_erc18>	jamik Sure! Then I add a tangle command to each snippet to tell org-mode where I want this saved out to, like this http://ix.io/2PkT
-T 1613255776 18<22adam_erc18>	jamik I also use the same technique to manage my code library in code.org. I have headers for elisp, R, python, applescipt, etc. And depending on the language I either have tangle set in the language header or for each snippet.
-T 1613255853 18<22adam_erc18>	jamik oh yeah, same deal for init.el. I save all in a config.org outline with notes, etc. and this auto-tangles to init.el after each save.
-T 1613256004 18<22jamik18>	adam_erc: Yeah, I've just started defining the tangle destinations for the snippets as you'd normally do with babel. As for my init, it just calls org-babel-load-file on my config.org
-T 1613256015 18<19parsnip18>	hmm, i want mouse scroll to work on window under mouse pointer, not necessarily the active window
-T 1613256049 18<19parsnip18>	not particularly annoying, only slightly
-T 1613256068 18<19parsnip18>	hmm, i wonder if one of the custom macos builds does this
-T 1613256082 18<22adam_erc18>	jamik I used to do it that way but found that init.el kept getting corrupted. Once I switched to having it all saved in config.org (or init.org) this became my single source of truth.
-T 1613256160 20*	Disconnected (20)
-T 1613313905 19*	Now talking on 22#emacs
-T 1613313905 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
-T 1613313905 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
-T 1613313905 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
-T 1613313989 18<26bqv18>	well yeah that's what i mean, for anything that would require a shell i just use emacs's stuff. if i run an async-shell-command instead of reaching for bash, i get a buffer as output, i get integrated history, searchable within emacs, i can script my commands in elisp, and i can flick through old command outputs as buffers rather than trying to figure out how the heck scrolling would even
-T 1613313991 18<26bqv18>	theoretically work in vterm
-T 1613314014 18<26bqv18>	some use eshell for that purpose
-T 1613314019 18<26bqv18>	i'm not a fan of eshell tbh
-T 1613314032 18<26bqv18>	but vterm i reserve for "i have this ncurses app that i can't comint well"
-T 1613314035 18<29bad_blue_bull18>	can I use Midnight Commander from Emacs?
-T 1613314047 18<29bad_blue_bull18>	I mean the hotkeys
-T 1613314049 18<26bqv18>	like that ^ :p
-T 1613314200 18<19wrycode18>	hah
-T 1613314244 18<19wrycode18>	hmm, I haven't tried that workflow, sometimes when building projects I have so many different commands that I assumed it's easier to just keep a terminal or two
-T 1613314269 18<19wrycode18>	bqv: any sort of writeup on that workflow?
-T 1613314357 18<19wrycode18>	I do love this: http://blog.binchen.org/posts/use-ivy-mode-to-search-bash-history.html
-T 1613314863 18<26bqv18>	wrycode: nah, sorry. i'm still trying to work out if i can improve it somehow, but i was vaguely inspired by howard's emacs as a shell thing
-T 1613315157 18<25genevino18>	i actually do the forbidden thing and use emacs exclusively in a termina
-T 1613315163 18<25genevino18>	+l
-T 1613315594 18<22contrapunctus18>	,shoot genevino 
-T 1613315595 18*	22fsbot loads its hipster and snubs genevino
-T 1613315606 18<22contrapunctus18>	Apt 😏
-T 1613315769 18*	20edgar-rft uses emacs for cheap excuses, excusively
-T 1613315876 18<20edgar-rft18>	rudybot: hi rüdyböt!
-T 1613315876 18<24rudybot18>	edgar-rft: hi all, do you use some session mgmt (named buffer/window sets) plugin for emacs, if so - what is it?
-T 1613315958 18<20edgar-rft18>	rudybot: yes, I'm using using session mgmt for gstfznr and srkfz!
-T 1613315963 18<24rudybot18>	edgar-rft: k will look into session mgmt  , thanks legumbre
-T 1613316002 18<29maxigas18>	any idea how can i get a list of faces that apply at point?
-T 1613316028 18<29maxigas18>	i have some white background set somewhere, and trying to debug where it is defined
-T 1613316042 18<29maxigas18>	i kind of need an emacs-inspector, like for CSS in browsers
-T 1613316130 18<20edgar-rft18>	I think M-x describe-char also gives info about faces
-T 1613317167 18<28hal900118>	Good mornoonvning everyone! Does anyone know if there is an Emacs Dynamic Module (dynamically linke library) that exposes the Guile Scheme interpreter API as Emacs Lisp built-in functions?
-T 1613317243 18<22contrapunctus18>	hal9001: you wanna write Emacs extensions in Guile? 🤔
-T 1613317267 18<22contrapunctus18>	Or extend Guile using Elisp? 😏
-T 1613317285 18<28hal900118>	contrapunctus: I was thinking of writing Emacs extensions in Guile.
-T 1613317549 18<25xristos18>	there's nothing besides experimental code that nobody is using
-T 1613317606 18<25xristos18>	and since Emacs Lisp has picked up significantly in both capabilities/new features and hype, imo you'd be wasting your time
-T 1613317617 18<28hal900118>	I know recent advances in Emacs-GCC (JIT compiling Emacs bytecode with libgccjit) will probably make Emacs Lisp a much more efficient language overall. But I personally prefer Scheme over Emacs Lisp, and I'd like to rewrite some of my own Elisp code in Guile.
-T 1613317681 18<25xristos18>	hal9001: you can always embed guile as a dynamic module, should be easy right? after all guile was designed to be an extension language
-T 1613317699 18<25xristos18>	(i'm being sarcastic, guile is terrible at that compared to say lua)
-T 1613317712 18<28hal900118>	xristos: indeed that is exactly what I am asking. Has anyone done this before? Or should I just go ahead and try doing it myself.
-T 1613317762 18<28hal900118>	I've never tried embedding Lua or Guile anywhere, so I don't know how easier one is over the other.
-T 1613317904 18<28surpador18>	Hey, not sure if this is the right place to ask this, but I don't think there's a channel for standalone info: on a Guix system I have, if I type `info readdir`, info somehow understands I want libc documentation, searches for a file called "libc", and shows me the right libc manual node.  On an Ubuntu system, when I type `info readdir`, info searches for a file called "readdir", doesn't find it, and falls back on the manpage.
-T 1613317904 18<28surpador18>	  Same info version.  Anyone know what accounts for the difference?
-T 1613317970 18<25xristos18>	surpador: libc.info
-T 1613318016 18<28surpador18>	Do you just mean the manual being installed?  Because the libc manual is installed on both systems.  Like `info libc readdir` works, just not `info readdir`
-T 1613318064 18<25xristos18>	then the dir file hasn't been created
-T 1613318075 18<25xristos18>	it's like an index for .info files
-T 1613318075 18<20pjb18>	surpador: IIRC, when installing an info file, you need to build an index.
-T 1613318084 18<25xristos18>	man install-info
-T 1613318124 18<28surpador18>	Aaah, ok, I
-T 1613318132 18<28surpador18>	I'll look into that, thanks a lot!
-T 1613318313 18<20pjb18>	Arguably, info could lazily build the index files itself when needed…
-T 1613318577 18<28surpador18>	I would kinda hope whatever dpkg does to install the files originally also builds the index but I guess not
-T 1613318621 18<26bqv18>	wasamasa: https://termbin.com/j22a
-T 1613318627 18<26bqv18>	minrepro :)
-T 1613319678 18<20pjb18>	surpador: but info files could also have been copied in otherwise.
-T 1613319814 18<28surpador18>	pjb: Yeah true, might be nice to have info just deal with it automatically if that's what you're saying
-T 1613320447 18<28surpador18>	Also, feeling kind of stupid now- I've run `install-info` on the libc.info file, and still no luck. Are there entries it skips by default or something?
-T 1613321078 18<28surpador18>	Ok, looks like either Debian or Ubuntu just distributes a glibc manual without the glibc "functions and macros" listings- I just manually copied the info file from another system and added the entries that way :(
-T 1613321602 18<19bremner18>	if I had to guess, there is a GFDL in this story somewhere
-T 1613322525 18<26bqv18>	is it really such a sin to byte-compile your init?
 T 1613322871 18<26bqv18>	nah imma start native compiling my init cause i can
 T 1613323063 18<19bremner18>	knock yerself out
 T 1613323124 18<19bremner18>	rudybot: was GB Shaw sexist when he said "all progress depends on the unreasonable man"?
@@ -5092,3 +4997,99 @@ T 1617891593 18<29Kingsy18>	quiliro: this one is bugging me. when I swit
 T 1617891772 20*	Disconnected (20)
 T 1617891830 20*	Disconnected (20Remote host closed socket)
 T 1617891881 20*	Disconnected (20Remote host closed socket)
+T 1618161133 19*	Now talking on 22#emacs
+T 1618161133 22*	Topic for 22#emacs is: Beware the fools of April | 27.2 is out | Emacs questions take priority over chit-chat | No Public Logging, racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1618161133 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Apr  1 12:46:11 2021)
+T 1618161134 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1618161598 20*	Disconnected (20)
+T 1618161686 20*	Disconnected (20Remote host closed socket)
+T 1618161743 20*	Disconnected (20Remote host closed socket)
+T 1618161785 20*	Disconnected (20Remote host closed socket)
+T 1618161812 19*	Now talking on 22#emacs
+T 1618161812 22*	Topic for 22#emacs is: Beware the fools of April | 27.2 is out | Emacs questions take priority over chit-chat | No Public Logging, racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1618161812 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Apr  1 12:46:11 2021)
+T 1618161812 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1618163338 18<28technomancy18>	thblt: does it let you use «these» as string delimiters tho?
+T 1618163695 18<22thblt18>	technomancy: it chokes on them in a surprising way.
+T 1618163740 18<27epony18>	Minall, fixed(misc)
+T 1618163752 18<27epony18>	(the default font in X.. is solid)
+T 1618163756 18<22thblt18>	(🙋) = "I have a question" -- is valid Haskell, but 
+T 1618163775 18<22thblt18>	(«») makes ghc complain of a “lexical error”.
+T 1618164779 18<22Minall18>	epony: Thanks, so fixed is what I'm looking for
+T 1618164795 18<22Minall18>	Is there somewhere I can read about this?... let me check the font manual on emacs
+T 1618164883 18<22thblt18>	You can't really have spaghetti code in functional programming, but could we call the blatant abuse of folds "origami code"?
+T 1618164905 18<22thblt18>	,origami
+T 1618164907 18<22fsbot18>	Good day for a change of scene.  Repaper the bedroom wall.
+T 1618165004 18<22thblt18>	,origami is ,noecho Origami code is bad functional code characterized by the abuse of folds.
+T 1618165006 18<22fsbot18>	Created new note for "origami"
+T 1618165009 18<22thblt18>	,botsnack
+T 1618165010 18*	22fsbot beams
+T 1618165078 24*	28ghostofDMX is now known as 18normalperson
+T 1618166501 18<29siloxid18>	does anyone know of a good channel to ask CNAME and A DNS questions?
+T 1618167069 18<20pjb18>	siloxid: /msg alis list *dns*   would give a list of candidates.
+T 1618167087 18<20pjb18>	siloxid: I guess #dns would do.
+T 1618167152 18<22Minall18>	siloxid: ##networking is an option too
+T 1618167403 18<22thblt18>	And you can always try #emacs :)
+T 1618167424 18<22Minall18>	I can't find examples on fixed fonts for emacs
+T 1618167450 18<22Minall18>	Yes, I can help you if you want, just ask, but 'Emacs questions take priority over chit-chat'... Is someone can help you, we will
+T 1618169772 18<29mplsCorwin18>	notwithstanding picking reasonable spots for a given interjection, there really aren't many technical questions that's it's rude to throw out in here.
+T 1618169850 18<22Minall18>	Hello Emacs Community!
+T 1618169908 18<22Minall18>	I have a simple centering function, that I want to use with a hotkey, the function works correctly without the hotkey, with it, an argument error raises, here's my code: http://dpaste.com/6WWW5HHBD
+T 1618169967 18<20pjb18>	Minall: those are functions.  From a keychord, you can only invoke commands.
+T 1618169977 18<20pjb18>	Minall: commands are functions that have an interactive declaration.
+T 1618169996 18<20pjb18>	Minall: however, you can call functions using the M-: command.
+T 1618169996 18<22Minall18>	Oh, let me fix it... Makes sense
+T 1618170038 18<22Minall18>	That was the reason pjb, thank you... It works now
+T 1618170039 18<20pjb18>	Minall: see ,,df set-justification
+T 1618170039 18<22fsbot18>	set-justification is an interactive compiled Lisp function in
+T 1618170040 18<22fsbot18>	‘fill.el’.
+T 1618170040 18<22fsbot18>	(set-justification BEGIN END STYLE &optional WHOLE-PAR)
+T 1618170040 18<22fsbot18>	Set the region’s justification style to STYLE. ;;[ ,more / ,dump]
+T 1618170054 18<22thblt18>	Minall: btw quite a few modes do that
+T 1618170058 18<22thblt18>	,visual-fill-column
+T 1618170059 18<22fsbot18>	visual-fill-column is [0] https://github.com/joostkremers/visual-fill-column minor mode to make visual-line-mode wrap at fill-column instead
+T 1618170060 18<22fsbot18>	[1] best run in conjunction with visual-line-mode
+T 1618170061 18<22thblt18>	and
+T 1618170067 18<22thblt18>	and ,,olivetti
+T 1618170069 18<22fsbot18>	olivetti: a brand of typewriter, why would it have anything to do with Emacs
+T 1618170085 18<20pjb18>	Minall: eg. select a region, and M-x set-justification RET center RET
+T 1618170131 18<20pjb18>	Minall: there's also ,,df center-region 
+T 1618170131 18<22fsbot18>	center-region is an interactive compiled Lisp function in
+T 1618170131 18<22fsbot18>	‘text-mode.el’.
+T 1618170131 18<22fsbot18>	(center-region FROM TO)
+T 1618170131 18<22fsbot18>	Center each nonblank line starting in the region.
+T 1618170131 18<22fsbot18>	See ‘center-line’ for more info.
+T 1618170148 18<22thblt18>	,olivetti is also a minor mode that provides a clean writing environment with a centered text column
+T 1618170151 18<22fsbot18>	Added note [1] for term "olivetti"
+T 1618170157 18<20pjb18>	You can bind it to some key, eg. (global-set-key (kbd "<f6>") 'center-region)
+T 1618170167 18<22Minall18>	I think I'm looking more for olivetti or visual-fill-column
+T 1618170169 18<22Minall18>	Thanks pjb 
+T 1618170228 18<20pjb18>	Perhaps.
+T 1618170324 18<22thblt18>	pjb: look at their code, it's just adjusting the frame margins.
+T 1618170332 18<22thblt18>	s/frame/window
+T 1618170414 18<22Minall18>	thblt: This was an experiment, I wanted to understand some elisp
+T 1618170419 18<22Minall18>	But it is quite simple
+T 1618170476 18<22thblt18>	Minall: well your code is quite good.
+T 1618170507 18<22thblt18>	Minall: just a tip you don't need to (setq a b) (setq c d), you can (setq a b c d) 
+T 1618170526 18<22Minall18>	Thanks!
+T 1618170577 18<22thblt18>	And also (interactive), as pjb said.  (interactive) is quite powerful, it's worth taking the time to learn about
+T 1618170763 18<22Minall18>	Imma read about interactive
+T 1618170792 18<22thblt18>	It "tags" the function as a command, but it also gives rules to populate arguments when called interactively.
+T 1618170794 24*	28Lord_of_Life_ is now known as 18Lord_of_Life
+T 1618170814 18<22Minall18>	So I grab the arguments for my current buffer
+T 1618170893 18<22thblt18>	from whatever. 
+T 1618171202 18<22thblt18>	Algorithms are hard.
+T 1618171380 18<22thblt18>	Let's rubberduck. Interrupt me if you want to talk Emacs.
+T 1618171554 18<22thblt18>	I have: students who apply to universities, those universities rank their applicants by order of merit or something. So I have a a set of pairs (University, [Applicant]).  Since Students also have preferences, I actually have [(University, [Applicant, Applicant's_Order_Of_Preference])].  Since universities only accept a limited number of students, some students won't be accepted. Of course, a lot of them applied to multiple
+T 1618171554 18<22thblt18>	universities.
+T 1618171609 18<20pjb18>	The question is what you want to optimize for?!
+T 1618171638 18<22thblt18>	To determine who goes where, first step is easy. If a student ranks above the admission threshold in some university, I can drop all their applications with a lower preference.
+T 1618171665 18<22thblt18>	pjb: Gloabal happiness. I want each student to get something as close to their first choice as possible.
+T 1618171673 18<22thblt18>	Global
+T 1618171708 18<22Minall18>	Universities are important
+T 1618171762 18<22thblt18>	This first algorithm is trivial. There's another one: if, for some university, none of the students above the threshold have another application of a higher preference rating, then that university's selection is now closed. So all applicants below threshold are dropped, sorry.
+T 1618171897 18<22thblt18>	Repeat those two until they stabilize (that is, f1(f2(state)) == state), there are two possible outcomes. A) All selections are closed, all good. B) Some students have still pending applications below some university's threshold, that they rank higher than the university's they're already admitted do.  
+T 1618172043 18<22thblt18>	B is interesting, because in some cases, there are actually deadlocks that can be solved. Say we have univs U1 and U2, that both can admit one student. they ranked their applicants like this: U1 (A1, A2) and U2 (A2, A1). But for A1, U2 > U1, and for A2, U1 > U2. There's an obvious solution there: delete A1's application to U1, and A2's to U2.
+T 1618172061 18<22thblt18>	Doing that, both get accepted into their first choice.
+T 1618172091 18<22thblt18>	Now, this is an easy case. The hard part is: how to generalize?
+T 1618172298 18<22thblt18>	My first idea is to find cycles.  In this case, we have a A1(pref=2)-A2(pref=2) cycle at admission rank 1, and A1(pref=1), A2(pref=2) cycle at rank 2.  Cycles: two loops (A1-A2-A1) at different "levels" of the ranking system, so that for each student in both loops, their preference for their application in the higher loop is lower than the other.
