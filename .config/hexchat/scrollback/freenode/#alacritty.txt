@@ -1,19 +1,3 @@
-T 1586040422 18<29kchibisov18>	it's a constant spam of events, etc.
-T 1586040533 18<29kchibisov18>	but it works so good with frame callbacks tbh.
-T 1586040560 18<29kchibisov18>	like resize glitches are solved with them.
-T 1586040577 18<29kchibisov18>	but yeah, I should investigate why winit blows up when I'm using them.
-T 1586040599 18<29kchibisov18>	I feel like the problem is that I dispatch_queue each time in run_return;
-T 1586040607 18<29kchibisov18>	and it triggers redraw_requested for me.
-T 1586040817 18<29kchibisov18>	So I guess I should make it in winit.
-T 1586040829 18<29kchibisov18>	like this even spam isn't good.
-T 1586040984 18<29kchibisov18>	yeah, I'll publish PR, just for some folks to try it, but I'll should add it into winit.
-T 1586041043 18<29kchibisov18>	since it fixes glitches + updates.
-T 1586041051 18<29kchibisov18>	I mean offscreen updates.
-T 1586041172 18<24UndeadLeech18>	Resize glitches shouldn't matter anymore. I've decided I'm just going to remove the ability to resize from X/Wayland/Windows/macOS.
-T 1586041179 18<24UndeadLeech18>	That would make things a lot easier.
-T 1586041183 18<29kchibisov18>	true.
-T 1586041633 18<29kchibisov18>	though we
-T 1586041646 18<29kchibisov18>	though, we'll have special flag to redraw on wayland anyway.
 T 1586041678 18<29kchibisov18>	Like you're setting dirty in it right now, which is kind of true, but on Wayland, you can't draw without it.
 T 1586041717 18<29kchibisov18>	so you'll have one bool flag anyway.
 T 1586042794 18<29kchibisov18>	btw, I can't repo any glitches due to partical write on my branch.
@@ -5013,3 +4997,6 @@ T 1618164080 18<20avih18>	this, among many others, discusses monospace f
 T 1618164283 18<22kplant18>	fira is pretty nice as well
 T 1618164306 18<20avih18>	yup. many great fonts to choose from.
 T 1618164521 18<20avih18>	regardless of looks though, the number one priority is legibility. and for me consolas is very pleasing to use for long periods of time.
+T 1618308607 19*	Now talking on 22#alacritty
+T 1618308607 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+T 1618308607 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Feb 20 01:05:57 2021)

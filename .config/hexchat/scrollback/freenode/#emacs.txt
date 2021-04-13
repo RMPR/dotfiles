@@ -1,102 +1,3 @@
-T 1613322871 18<26bqv18>	nah imma start native compiling my init cause i can
-T 1613323063 18<19bremner18>	knock yerself out
-T 1613323124 18<19bremner18>	rudybot: was GB Shaw sexist when he said "all progress depends on the unreasonable man"?
-T 1613323134 18<24rudybot18>	bremner: the reasonable man quotes shaw. the unreasonable man adapts shaw.
-T 1613323143 18<19bremner18>	well played bot.
-T 1613324319 18<29wdkrnls18>	How do I remove all blank spaces (but keep blank tabs) at the end of a file?
-T 1613324394 18<29wdkrnls18>	The Emacs regular expression variant is confusing me. I would have thought I could could just do a regex replace with `M-% [ ]$`
-T 1613324432 18<29untoreh18>	how do you add documentation support to a function to be used with company-capf?
-T 1613324642 18<27jonathanschlink18>	Hello Am connected to Emacs through SSH. Am unable to 'backspace'. When I press 'backspace' twice (with little interval) some 'help' gets opened. i simply want to use 'backspace'
-T 1613324729 18<29wdkrnls18>	untoreh: I thought that just worked automatically if you define a docstring as the first line of your elisp procedure. Atleast, that seems to be what happens for me.
-T 1613325539 18<24Aurora_v_kosmose18>	How would one obtain the "Shell:no process" line programmatically?
-T 1613325563 18<24Aurora_v_kosmose18>	It's part of the modeline for async shell buffers once the process they were running is dead
-T 1613325756 18<29wdkrnls18>	dumbest idea I can think of is just sending (insert "exit\n")
-T 1613325771 18<29wdkrnls18>	I have not tried to figure out all the complexity
-T 1613325805 18<29wdkrnls18>	I just no that I get shell :no process by doing that :)
-T 1613325872 18<24Aurora_v_kosmose18>	That only seems to work when interactively typing for me.
-T 1613325929 18<29wdkrnls18>	Can you just kill the process with a unix command?
-T 1613325953 18<24Aurora_v_kosmose18>	Presumably, but what I want to do is essentially to filter all such buffers for those with no processes, and kill the buffers.
-T 1613325966 18<24Aurora_v_kosmose18>	While leaving the active ones untouched.
-T 1613325994 18<24Aurora_v_kosmose18>	I can do that via macros on list-buffers, but it's... not exactly a great way to do it.
-T 1613326093 18<24Aurora_v_kosmose18>	Hm, get-buffer-process seems like a usable alternative to searching for a mode-line text entry.
-T 1613326196 18<29wdkrnls18>	jonathanschlink: can you use control-b?
-T 1613326372 18<24Aurora_v_kosmose18>	Ah... there we go.
-T 1613326390 18<24Aurora_v_kosmose18>	(-filter (lambda (buffer) (and (not (get-buffer-process buffer)) (equal (buffer-local-value 'major-mode buffer) 'shell-mode))) (buffer-list))
-T 1613326505 18<27jonathanschlink18>	wdkrnls: thanks. C-b removes that help. but when i use 'backspace' it comes back.
-T 1613326589 24*	28RandyT_ is now known as 18RandyT
-T 1613326815 18<24Aurora_v_kosmose18>	The reason I wanted to do this is that I tend to use Emacs to control media playback a lot, so I end up with dozens of dead async process buffers with sometimes not insignificant amounts of text in them.
-T 1613326855 18<24Aurora_v_kosmose18>	That wouldn't be a problem if Emacs' GC actually released memory, but it rarely ever does.
-T 1613326992 18<29JordiGH18>	The Great Debian Init Debate, part 5: https://www.twitch.tv/hay__
-T 1613330481 18<27nij18>	What's your favorite shell that can be run in a terminal emulator?
-T 1613330815 18<19bremner18>	every shell?
-T 1613330841 18<19bremner18>	what is a "shell" that doesn't work in a terminal emulator? Gnome Shell? Conch Shell?
-T 1613330895 18<27nij18>	can eshell be run i na terminal emulator?
-T 1613330902 18<27nij18>	s/i na/in a
-T 1613331436 18<29gagbo18>	yes ? https://gitlab.com/emacsomancer/equake
-T 1613331602 18<20pjb18>	bremner: a shell is any OS user interface.  That includes programs such as the Finder, the Workspace Manager, or even the Explorer…
-T 1613331672 18<27nij18>	gagbo: IIRC equake aims at creating a drop down emacs frame, in which eshell can happily run.
-T 1613331998 18<19bremner18>	pjb: I find this usage pretty strange. But OK. Obviously Gnome agrees with you.
-T 1613332619 18<29wgreenhouse18>	nij: https://github.com/oilshell/oil/wiki/Alternative-Shells might interest you
-T 1613332626 18<29wgreenhouse18>	a list of current and not-so-current other-than-posix shells
-T 1613332750 20*	Disconnected (20)
-T 1613333724 20*	Disconnected (20No route to host)
-T 1613333751 19*	Now talking on 22#emacs
-T 1613333751 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
-T 1613333751 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
-T 1613333751 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
-T 1613334488 18<29tazjin18>	hmm, is there a good standard file format for translation dictionaries?
-T 1613334508 18<29tazjin18>	(if there is I'd like to make a completing-read mode for it, it'd help with some language learning stuff I'm doing)
-T 1613334638 18<19parsnip18>	there's gettext, but i think that's for translating coded words in an app's UI
-T 1613334686 18<26polezaivsani18>	tazjin: did you check stardict?
-T 1613334691 18<20pjb18>	tazjin: at least, AFAIK< there are standards.
-T 1613334840 18<29tazjin18>	polezaivsani: stardict seems to be using DICT, which I had dismissed originally because it seemed to be for offline dictionaries
-T 1613334845 18<29tazjin18>	but this does seem like a good pointer, thanks for the tip
-T 1613334861 18<29tazjin18>	it also seems like there are RU-EN dictionaries in that format already, which is exactly what I want :) 
-T 1613334924 18<26polezaivsani18>	tazjin: there's also wiktionary which is wiki markup (with a twist though)
-T 1613335313 18<29tazjin18>	oh dear, tarballs from sourceforge, what path am I on here ...
-T 1613336230 20*	Disconnected (20)
-T 1613336277 20*	Disconnected (20Remote host closed socket)
-T 1613336335 20*	Disconnected (20Remote host closed socket)
-T 1613336396 20*	Disconnected (20Remote host closed socket)
-T 1613336455 20*	Disconnected (20Remote host closed socket)
-T 1613336481 19*	Now talking on 22#emacs
-T 1613336481 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
-T 1613336481 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
-T 1613336482 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
-T 1613341377 20*	Disconnected (20)
-T 1613341410 19*	Now talking on 22#emacs
-T 1613341410 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
-T 1613341410 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
-T 1613341410 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
-T 1613341414 18<26Wafficus18>	well... lets just say it already works for vterm
-T 1613341423 18<26Wafficus18>	but will Emacs recognize that urxvt is an x program
-T 1613341439 18<26Wafficus18>	or how do I replace 'vterm
-T 1613341457 18<26Wafficus18>	with whatever is needed to let Emacs know its an X program it should be starting up?
-T 1613341646 24*	28radu2429 is now known as 18radu242
-T 1613341684 18<26Wafficus18>	I ask because I can't seem to find anyone else's config for Emacs Window Manager that has tweaked it so that they would run an X program like this
-T 1613341701 18<29wgreenhouse18>	Wafficus: the exwm wiki has examples of how to make such a keybinding
-T 1613341758 18<29wgreenhouse18>	you would need to make a command that runs `start-process` or `start-process-shell-command`
-T 1613341771 18<29wgreenhouse18>	since urxvt is obviously not a lisp function but an external process 
-T 1613341920 18<26Wafficus18>	I just looked on the exwm wiki, I can't find a single instance of them running an X program:
-T 1613341920 18<26Wafficus18>	https://github.com/ch11ng/exwm/wiki
-T 1613341979 18<25bandali18>	mine's at https://git.emacsconf.org/bandali/configs/tree/.emacs.d/lisp/bandali-exwm.el
-T 1613342110 18<26bqv18>	can i make emacs not abbreviate debugger 
-T 1613342135 18<29wgreenhouse18>	see for instance https://github.com/ch11ng/exwm/wiki/Cookbook#run-or-raise
-T 1613342371 18<26Wafficus18>	back
-T 1613342377 18<26Wafficus18>	so basically this didn't work either:
-T 1613342394 18<26Wafficus18>	(global-set-key (kbd "<s-return>") 'start-process-shell-command "urxvt")
-T 1613342490 18<25genevino18>	stupid question maybe, but are you sure you shouldn't do this from your window manager?
-T 1613342546 18<29wgreenhouse18>	Wafficus: start-process-shell-command is not an interactive function so can't be bound to a key, also your syntax is wrong
-T 1613342557 18<29wgreenhouse18>	see the examples bandali and I linked
-T 1613342687 18<29wgreenhouse18>	genevino: emacs is their window manager; that's what they're asking about. just ,,exwm,, things
-T 1613342688 18<22fsbot18>	exwm is an Emacs X window manager, https://github.com/ch11ng/exwm
-T 1613342731 18<25genevino18>	oh ok, i had no idea that exists
-T 1613342740 18<27hodapp18>	pretend you still don't
-T 1613342743 18<27hodapp18>	it's best that way
-T 1613343000 18<25bandali18>	,opinion
-T 1613343000 18<22fsbot18>	Yeah, well, that's just, like, your opinion, man.
-T 1613343025 18<25genevino18>	suddenly, a big lebowski meme appears
-T 1613343033 18<27hodapp18>	boy, that must be exhausting
 T 1613343039 18*	19parsnip tries to contact a filter to catch notifications from a business, versus marketing from a business
 T 1613343063 18<19parsnip18>	i want to know when the order arrives, but not when you have 50% off
 T 1613343138 18<19parsnip18>	hodapp: idgi
@@ -5096,3 +4997,7 @@ T 1618172298 18<22thblt18>	My first idea is to find cycles.  In this cas
 T 1618172447 18<22thblt18>	For correctly chosen cycles, removing applications on the "higher" cycle will increase the chances of admission of the lower cycle, but there's a risk that a student comes from admitted to their second choice to not admitted at all -- which we don't want, because global happiness.
 T 1618172555 18<22thblt18>	So: if cycles the good approach, the question that remains is how to choose, and how to have an algorithm that runs in reasonable time and space for real-world figures of roughly 700k applicants and a few thousands "universities", with an average of 10 applications per applicant. 
 T 1618172618 18<22thblt18>	(For context, the admission system I'm trying to improve because hey it's Sunday is Parcoursup, the French higher education admission system)
+T 1618308607 19*	Now talking on 22#emacs
+T 1618308607 22*	Topic for 22#emacs is: Beware the fools of April | 27.2 is out | Emacs questions take priority over chit-chat | No Public Logging, racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1618308607 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Apr  1 12:46:12 2021)
+T 1618308607 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
