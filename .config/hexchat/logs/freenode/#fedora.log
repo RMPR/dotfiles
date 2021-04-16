@@ -13028,3 +13028,191 @@ Apr 13 11:10:07 *	Topic for #fedora set by Khaytsus!~khaytsus@fedora/khaytsus (M
 Apr 13 11:10:07 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
 **** ENDING LOGGING AT Tue Apr 13 11:18:38 2021
 
+**** BEGIN LOGGING AT Fri Apr 16 17:20:55 2021
+
+Apr 16 17:20:55 *	Now talking on #fedora
+Apr 16 17:20:55 *	Topic for #fedora is: Fedora Linux F32, F33, F34B end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common || Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins
+Apr 16 17:20:55 *	Topic for #fedora set by Khaytsus!~khaytsus@fedora/khaytsus (Mon Mar 29 00:08:02 2021)
+Apr 16 17:20:55 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Apr 16 17:22:55 <morsik>	hm… funny thing. How to install JACK devel packages on F34? ;) Because…
+Apr 16 17:22:55 <morsik>	package jack-audio-connection-kit-devel-1.9.16-2.fc34.x86_64 requires jack-audio-connection-kit = 1.9.16-2.fc34, but none of the providers can be installed
+Apr 16 17:23:00 <morsik>	package pipewire-jack-audio-connection-kit-0.3.25-1.fc34.x86_64 conflicts with jack-audio-connection-kit provided by jack-audio-connection-kit-1.9.16-2.fc34.x86_64
+Apr 16 17:23:18 <morsik>	so, it's kinda impossible to build jack application anymore when I have pipewire integration ;(
+Apr 16 17:25:47 <Southern_Gentlem>	so remove pipewire
+Apr 16 17:26:13 <morsik>	don't you feel it's stupid? remove pipewire, install jack devel, build app, remove jack, install pipewire…
+Apr 16 17:27:12 <Southern_Gentlem>	morsik, fedora is a fast moving distro, we see things other distro will wait for us to test first
+Apr 16 17:27:47 <fedbot>	*** F33-20210405 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Apr 16 17:28:42 <darkbasic4>	FIXED. This is a bug in the Fedora shim: it still points to the grub.cfg in esp/EFI/fedora despite being moved to /boot/grub2
+Apr 16 17:30:32 <morsik>	Southern_Gentlem: I know what Fedora is. I'm using it for like 15 years already.
+Apr 16 17:31:17 <Southern_Gentlem>	rookie :)
+Apr 16 17:33:48 <darkbasic4>	It seems the Fedora 34 installer creates a very basic grub.cfg in esp/EFI/fedora which loads the real grub.cfg in /boot/grub2, but somehow reinstalling shim-* doesn't recreate the tiny grub.cfg in the esp
+Apr 16 17:34:37 <darkbasic4>	I'm not sure if this is a bug which I should report or if I need to reinstall some other packages in order to recreate it
+Apr 16 17:38:18 <Caterpillar>	lol pls help, I don't manage to use tar to uncompress https://github.com/BurntSushi/ripgrep/releases/download/12.1.1/ripgrep-12.1.1-x86_64-unknown-linux-musl.tar.gz
+Apr 16 17:38:47 <Caterpillar>	maybe I messed with the file when I used wget to download it
+Apr 16 17:43:57 *	micro_sonar_guy is now known as sonarguy
+Apr 16 17:44:18 *	Sonar_Guy is now known as micro_sonar_guy
+Apr 16 17:44:58 *	sonarguy is now known as Sonar_Guy
+Apr 16 17:45:28 <razze[m]>	has anybody managed rolling their own keyboard layout with wayland? had a go at https://blog.stigok.com/2020/10/27/from-x11-xmodmap-to-wayland-xkb-custom-keyboard-layout.html but didn't work out
+Apr 16 17:56:38 <cmurf>	darkbasic4: hmmm
+Apr 16 17:57:26 <dowdle>	Caterpillar:" tar xvzf ripgrep-12.1.1-x86_64-unknown-linux-musl.tar.gz" should extract it for you.
+Apr 16 17:57:34 <cmurf>	darkbasic4: right, once you accidentaly step on the old /boot/efi/EFI/fedora/grub.cfg, it's toast
+Apr 16 17:57:43 <darkbasic4>	cmurf: https://bugzilla.redhat.com/show_bug.cgi?id=1950464
+Apr 16 17:58:51 <cmurf>	yeah it's not a grub.cfg that can go in an rpm, but maybe the upgrade logic that's used for F33->F34 can be used to create a new grub.cfg there
+Apr 16 17:58:56 <cmurf>	i'm not 100% sure...
+Apr 16 17:59:35 <darkbasic4>	also since grub.cfg is finally in the boot partition it's time to move it to btrfs as well
+Apr 16 17:59:37 <cmurf>	so to recreate it is "easy"
+Apr 16 17:59:58 <darkbasic4>	at least if you're serious about doing rollbacks in the future
+Apr 16 17:59:58 <cmurf>	it's non-obvious but once you see anyone's grub.cfg you can figure it out
+Apr 16 18:00:29 <cmurf>	https://paste.centos.org/view/b785ff96
+Apr 16 18:00:57 <darkbasic4>	cmurf: thanks
+Apr 16 18:01:00 <cmurf>	on the first line, you need to substitute the FS UUID for your /boot
+Apr 16 18:01:07 <cmurf>	you can get it from 'lsblk -f'
+Apr 16 18:01:44 <cmurf>	On the second line, you probaly don't need /boot/grub2 but rather /grub2 only
+Apr 16 18:01:51 <cmurf>	if you have a default ext4 /boot
+Apr 16 18:02:28 <cmurf>	I have a separate Btrfs $BOOT which has a subvolume named "boot" on it that gets mounted at /boot
+Apr 16 18:03:10 <cmurf>	hence that line 2 /boot/grub2  is a reference to the fact the bootloader sees the subvolume as if it were a directory
+Apr 16 18:03:10 <darkbasic4>	why separate? do you use any unsupported features on the main one?
+Apr 16 18:03:41 <cmurf>	experiments mostly
+Apr 16 18:04:11 <cmurf>	i like to make sure it's going to work as a separate 1-2G boot
+Apr 16 18:04:49 <cmurf>	all the corner cases that come up over years of using it
+Apr 16 18:06:01 <cmurf>	on Fedora when enabling encryption with "Encrypt my data" you have to have a separate boot file system right now, because while GRUB supports unlocking LUKS1/LUKS2, the installer doesn't set it up.
+Apr 16 18:07:08 <darkbasic4>	I can understand considering it didn't support LUKS2 until recently
+Apr 16 18:07:17 <darkbasic4>	Would love to see native encryption though
+Apr 16 18:07:19 <cmurf>	I have also for a long time had systems without a separate boot volume, just use either a separate boot subvolume or boot directory on the Btrfs pool used for sysroot. All that works too.
+Apr 16 18:07:39 <cmurf>	yeah GRUB 2.06 is the first to support LUKS2
+Apr 16 18:07:52 <darkbasic4>	A separate boot partition is also necessary if you want to use zfs
+Apr 16 18:07:56 <cmurf>	native encryption is coming along
+Apr 16 18:08:08 <darkbasic4>	I still use zfs on my boot but I need to disable most of the features
+Apr 16 18:08:21 <darkbasic4>	including native encryption
+Apr 16 18:08:30 <cmurf>	pretty sure Ubuntu is setting up everything on ZFS (as an option) including boot. GRUB does have a zfs module.
+Apr 16 18:08:36 <darkbasic4>	native encryption is really coming to btrfs as well?
+Apr 16 18:08:41 <cmurf>	yes
+Apr 16 18:09:07 <cmurf>	it's using the fscrypt() API in the kernel, same as ext4, f2fs, and ubifs
+Apr 16 18:09:12 <darkbasic4>	wow, I've seen patches floating for years but it somehow never materialized
+Apr 16 18:09:31 <darkbasic4>	I'm glad that someone is working seriously on it
+Apr 16 18:10:23 <cmurf>	a lot of preparatory work has been needed before the fscrypt/btrfs patches even land
+Apr 16 18:10:36 <darkbasic4>	ubuntu sets everything up automatically for zfs and it works well, but it doesn't support zraid so it's basically useless and you have to do it manually
+Apr 16 18:10:47 <darkbasic4>	but it's easy to do it manually and I really love it
+Apr 16 18:13:44 <cmurf>	I guess another reason for a separate /boot file system is in case /sysroot file system breaks
+Apr 16 18:14:00 <cmurf>	at least you can still read an initramfs and get to a prompt to figure out what's wrong
+Apr 16 18:14:49 <cmurf>	that isn't very user friendly though
+Apr 16 18:15:49 <darkbasic4>	cmurf: unfortunately it defenitely happens https://marc.info/?l=linux-btrfs&m=161847383622651&w=2
+Apr 16 18:16:13 <cmurf>	yeah i replied to that
+Apr 16 18:16:34 <darkbasic4>	didn't recognize you, thanks then :)
+Apr 16 18:17:13 <cmurf>	any file system that gets corrupt can fall over like that, so no matter what i'd like to see us have a better user experienced than a dracut prompt :P
+Apr 16 18:17:45 <cmurf>	it's still getting enhancements but there is a new rescue=all btrfs mount option, required to be ro
+Apr 16 18:18:29 <cmurf>	in theory more often than not, we should be able to mount a damaged btrfs with this mode, and use overlayfs to set up a faux read-write environment
+Apr 16 18:18:46 <darkbasic4>	btw it's been memtesting all night with no issues whatsoever :(
+Apr 16 18:18:51 <cmurf>	it'd use memory just like Live OS boots do, so the read-write part is volatile (you lose changes on a reboot)
+Apr 16 18:19:19 <cmurf>	yeah we had another user who had a corruption on month apart, and mem testing wasn't finding it
+Apr 16 18:19:58 <cmurf>	and one of the members of the working group was having abrupt (show stopper) kernel panics, and mem testing wasn't finding it
+Apr 16 18:20:46 <cmurf>	in the first case, turns out he was using higher clocked memory than his cpu can tolerate and somehow that caused the cpu to run at a higher than rated voltage ... which to me sounds like design flaws in either firmware or logic board but whatever...
+Apr 16 18:21:08 <cmurf>	thing is, some memory related problems are really pernicious and do not reproduce quickly, it's a PITA
+Apr 16 18:21:24 <darkbasic4>	but I know from experience that such errors may be due to a wide variety of causes: I recently had zfs server failing and I thought it was because of the hard disks, but it started failing with brand new ssds as well. I changed every piece of hardware, updated the bios, new PSU, switched to the secondary sata controller in the motherboard,
+Apr 16 18:21:24 <darkbasic4>	everything, but still randomly failed after a couple of weeks. I bought a new external sata controller and now it works.
+Apr 16 18:21:49 <cmurf>	Btrfs checksums everything, literally everything, and add compression on top of it, and it ends up making Btrfs something of an unintended memory tester
+Apr 16 18:21:57 <cmurf>	(and for that matter, the entire storage stack)
+Apr 16 18:22:02 <darkbasic4>	sometimes I would just want to trash everything with an hammer :)
+Apr 16 18:22:18 <cmurf>	yeah...
+Apr 16 18:22:43 <darkbasic4>	btw fuck intel because of the whole ecc consumer thing :@
+Apr 16 18:22:43 <Khaytsus>	darkbasic4: This is a family channel, such language is not acceptable.  Please remember children and their grandmothers may be watching.
+Apr 16 18:22:50 <cmurf>	all i can advise is "be a good consumer" i would even ignore warranty expirations and put up a fuss
+Apr 16 18:23:42 <cmurf>	yeah the 2nd user i referred to, the working group member, decided to just replace his memory and went with ecc since his logic board supported it; problelm gone
+Apr 16 18:24:00 <cmurf>	it's understandably frustrating, especially for those who have laptops and can't use ecc
+Apr 16 18:24:27 <darkbasic4>	I'm waiting to buy I new laptop just because of that, I've heard that DDR5 is going to have mandatory ecc
+Apr 16 18:24:27 <cmurf>	i don't have anything that can use ecc
+Apr 16 18:24:42 <cmurf>	and all the storage stuff i have is ordinary consumer stuff
+Apr 16 18:24:48 <cmurf>	i.e. junk :)
+Apr 16 18:26:30 <cmurf>	SD Card for the Raspberry Pi, bunch of laptop drives in USB SATA cases, SSD and NVMe, it's all junk. It's amazing junk, but still this setup is just itching for a day to give me grief.
+Apr 16 18:27:13 <cmurf>	And at least in your case where the file system did fall over, at least you can get your data out despite the file system not being fixable.
+Apr 16 18:27:51 <fedbot>	*** F33-20210405 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Apr 16 18:27:59 <cmurf>	The simpler cases involving fitflips --repair should be able to fix it. But less simple cases it still can't :(
+Apr 16 18:28:34 <OnlyHuman>	hi anyone good with enlightenment desktop here?
+Apr 16 18:28:38 <cmurf>	I don't they're working on enhancing that. There is also an idea of looking at iteratively fixing broken things.
+Apr 16 18:28:39 <darkbasic4>	I had very little luck with --repair in the past unfortunately
+Apr 16 18:29:37 <cmurf>	yeah --repair is pretty prone to just not doing anything because if it makes the wrong fix it can break the fs.
+Apr 16 18:31:33 <cmurf>	I still think there might be a bug in your case because the write time tree checker should have stopped writing before things got too bad.
+Apr 16 18:31:38 <darkbasic4>	I hope rescue=all works well, because I had unmountable fs in the past
+Apr 16 18:31:45 <cmurf>	bug/need for more enhancement
+Apr 16 18:31:49 <darkbasic4>	I think this as well
+Apr 16 18:31:59 <cmurf>	the write time tree checker is newish, since kernel ~5.3
+Apr 16 18:32:48 <cmurf>	it doesn't cover all possibilities but we've seen it prevent a LOT of problems
+Apr 16 18:33:31 <cmurf>	in effect like a micro fsck that verifies certain writes before they hit the disk; there is also a read time tree checker that works the same way
+Apr 16 18:34:21 <darkbasic4>	yeah btrfs is maturing quite a lot recently, would love to see some love for raid 5 as well
+Apr 16 18:35:35 <cmurf>	yeah i think raid5/6 is a low priority across the board on linux, companies have other ways of dealing with storage that implodes
+Apr 16 18:36:07 <cmurf>	like ceph, gluster, and so on
+Apr 16 18:37:16 <darkbasic4>	do someone know how to enable echo cancellation with pipewire? I'm trying to use pulseeffect's WebRTC but somehow the PulseEffects Source has no signal at all
+Apr 16 18:37:57 <cmurf>	darkbasic4: so did you get the stub grub.cfg fixed for your system? so it points to the real grub.cfg?
+Apr 16 18:38:09 <darkbasic4>	cmurf: yes, it works very well thanks
+Apr 16 18:38:17 <cmurf>	ok cool
+Apr 16 18:39:51 <darkbasic4>	Fedora 34 is going hard on me today: lots of changes and I'm really unfamiliar with pipewire
+Apr 16 18:56:43 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 16 18:56:43 2021
+
+**** BEGIN LOGGING AT Fri Apr 16 18:57:09 2021
+
+Apr 16 18:57:09 *	Now talking on #fedora
+Apr 16 18:57:09 *	Topic for #fedora is: Fedora Linux F32, F33, F34B end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common || Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins
+Apr 16 18:57:09 *	Topic for #fedora set by Khaytsus!~khaytsus@fedora/khaytsus (Mon Mar 29 00:08:02 2021)
+Apr 16 18:57:10 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Apr 16 18:58:32 <darkbasic4>	ledeni: no, what is it for? by the way, opeing OBS Studio 27.0.0-rc2 fixes PulseEffects, at least until I close it. Weird...
+Apr 16 18:59:14 <bankotsubo[m]>	Anyone use qbitorrent recently? Using Fedora 32 and whenever i launch qbittorrent the entire session crashes
+Apr 16 19:00:30 <ledeni>	darkbasic4sorry that question is for morsik
+Apr 16 19:01:00 <darkbasic4>	btw I can see the levels now, but echo cancellation does't work at all: https://github.com/wwmm/pulseeffects/issues/951
+Apr 16 19:01:40 <ledeni>	morsik➡ did you install 'jack-audio-connection-kit-devel'
+Apr 16 19:05:39 <darkbasic4>	wow trying to open both pavucontrol and pulseeffects at the same time trashes the whole pipewire. this is waaay far from being mature
+Apr 16 19:08:34 <Khaytsus>	darkbasic4: Logged a bug?
+Apr 16 19:09:47 <morsik>	ledeni: no, I did not because dependencies are broken. Someone already reported this few days ago as I found out later: https://bugzilla.redhat.com/show_bug.cgi?id=1945951
+Apr 16 19:09:59 <ledeni>	morsik➡ install jack-audio-connection-kit like 'sudo dnf install jack-audio-connection-kit --allowerasing' and after that you can install your package "jack-audio-connection-kit-devel"
+Apr 16 19:10:15 <morsik>	ledeni: that tried to remove pipewire-jack ;)
+Apr 16 19:10:17 <morsik>	so that's not solution
+Apr 16 19:11:09 <morsik>	that's nothing important to build so I'll just wait since it's already reported
+Apr 16 19:12:30 <ledeni>	morsik 👍 ok
+Apr 16 19:12:54 <darkbasic3>	Khaytsus: yes there is a stack trace in the journal https://pastebin.com/e29yHart
+Apr 16 19:13:28 <Khaytsus>	darkbasic3: Bugzilla link
+Apr 16 19:16:32 <Khaytsus>	darkbasic3: I just tried here, very simple test:  ran pavucontrol, left it alone, ran pulseeffects.  Both seem fine, no messages in logs.  Any other specifics you can think of?  If this is a broad issue it needs to be logged, although not sure pulseeffects would be a blocker (no idea)
+Apr 16 19:17:54 <Khaytsus>	I am not seeing any defaults for the eq which seems..  odd, but
+Apr 16 19:28:22 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 16 19:28:22 2021
+
+**** BEGIN LOGGING AT Fri Apr 16 19:28:46 2021
+
+Apr 16 19:28:46 *	Now talking on #fedora
+Apr 16 19:28:46 *	Topic for #fedora is: Fedora Linux F32, F33, F34B end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common || Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins
+Apr 16 19:28:46 *	Topic for #fedora set by Khaytsus!~khaytsus@fedora/khaytsus (Mon Mar 29 00:08:02 2021)
+Apr 16 19:28:46 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Apr 16 19:32:22 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 16 19:32:22 2021
+
+**** BEGIN LOGGING AT Fri Apr 16 19:35:48 2021
+
+Apr 16 19:35:48 *	Now talking on #fedora
+Apr 16 19:35:48 *	Topic for #fedora is: Fedora Linux F32, F33, F34B end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common || Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins
+Apr 16 19:35:48 *	Topic for #fedora set by Khaytsus!~khaytsus@fedora/khaytsus (Mon Mar 29 00:08:02 2021)
+Apr 16 19:35:48 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Apr 16 19:51:08 <cmurf>	darkbasic4: you might also ask about it in #pipewire for latest information on where things are at
+Apr 16 19:51:36 <cmurf>	oh yeah good to file an upstream bug report
+Apr 16 19:51:54 <cmurf>	i'm not sure it's blocker worthy but if we can get a fix in soon after release that'd be good
+Apr 16 19:52:02 <klaas>	how do sources get uploaded into https://src.fedoraproject.org/repo/pkgs/rpms ? is that part of a build process ?
+Apr 16 19:57:01 <Southern_Gentlem>	klaas, better to use koji.fedoraproject.org
+Apr 16 19:57:17 <Southern_Gentlem>	src is known to lag behind
+Apr 16 19:58:24 <Southern_Gentlem>	and everything is not there
+Apr 16 20:03:08 <nb>	It appears plymouth is still showing me the oldlogo on the boot screen
+Apr 16 20:03:18 <nb>	I tried making sure I was up to date, and dnf reinstall plymouth*
+Apr 16 20:03:21 <nb>	ideas?
+Apr 16 20:03:29 <nb>	on f34-branch
+Apr 16 20:06:30 <Southern_Gentlem>	nb i didnt think the new logo was a requirement until f35
+Apr 16 20:06:43 <nb>	It's in f34 already
+Apr 16 20:06:47 <nb>	and on most of my machines, plymouth shows it
+Apr 16 20:06:57 <nb>	I'm trying plymouth-set-default-theme -R bgrt
+Apr 16 20:07:03 <nb>	I think that might rebuild plymouth
+Apr 16 20:07:11 <Southern_Gentlem>	so file a bugzilla
+Apr 16 20:07:34 <Southern_Gentlem>	and you are using the nightly or beta release
+Apr 16 20:07:41 <nb>	Yeah, that worked
+Apr 16 20:07:47 <nb>	I just needed to force plymouth to rebuild
+Apr 16 20:08:32 <cmurf>	i think it's baked into initramfs so it would only land on a particular machine once the logos are updated and then a kernel is installed, thus creating a new initramfs
+Apr 16 20:18:39 <Southern_Gentlem>	cmurf, so the nightly should have the new logo?
+Apr 16 20:28:09 <fedbot>	*** F33-20210405 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Apr 16 20:51:22 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 16 20:51:22 2021
+

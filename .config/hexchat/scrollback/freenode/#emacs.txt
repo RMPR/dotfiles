@@ -1,7 +1,3 @@
-T 1613343039 18*	19parsnip tries to contact a filter to catch notifications from a business, versus marketing from a business
-T 1613343063 18<19parsnip18>	i want to know when the order arrives, but not when you have 50% off
-T 1613343138 18<19parsnip18>	hodapp: idgi
-T 1613343185 18<19parsnip18>	let's coin the term, "blood-thirsty marketing"
 T 1613343782 18<26Wafficus18>	wgreenhouse: I didn't see your link
 T 1613343794 18<26Wafficus18>	wgreenhouse: rather *I don't see your link, my IRC got disconnected
 T 1613343802 18<26Wafficus18>	so its not an interactive function, ok, gotcha
@@ -5001,3 +4997,120 @@ T 1618308607 19*	Now talking on 22#emacs
 T 1618308607 22*	Topic for 22#emacs is: Beware the fools of April | 27.2 is out | Emacs questions take priority over chit-chat | No Public Logging, racism, sexism, xenophobia, botwanking, or other asshattery.
 T 1618308607 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Apr  1 12:46:12 2021)
 T 1618308607 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1618590055 19*	Now talking on 22#emacs
+T 1618590055 22*	Topic for 22#emacs is: Beware the fools of April | 27.2 is out | Emacs questions take priority over chit-chat | No Public Logging, racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1618590055 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Apr  1 12:46:11 2021)
+T 1618590055 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1618590254 18<19rdrg10918>	How to prompt for an string but at the same time provide possible values? I've been using "read-string" but now I want to provide possible values so that when the user presses TAB, Emacs autocompletes. I want to mimick the behavior of pressing "TAB" in "find-file" in Vanilla Emacs.
+T 1618590327 18<19rdrg10918>	Found it! (completing-read "a: " '(a b c))
+T 1618590600 18<19rdrg10918>	Given (list (a . 1) (b . 2) (c . 3)). How can I get (list a b c)?
+T 1618590706 18<20edgar-rft18>	(mapcar 'car '((a . 1) (b . 2) (c . 3))) => (a b c)
+T 1618590764 18<20edgar-rft18>	of do you mean (list a b c) literally?
+T 1618590987 18<22thblt18>	How do you get outline to display the subtree where the point is, if it moves to an hidden part? 
+T 1618591305 18<20jlf18>	maybe ,,df reveal-mode
+T 1618591305 18<22fsbot18>	reveal-mode is an interactive autoloaded compiled Lisp function in
+T 1618591305 18<22fsbot18>	‘reveal.el’.
+T 1618591305 18<22fsbot18>	(reveal-mode &optional ARG)
+T 1618591305 18<22fsbot18>	Toggle uncloaking of invisible text near point (Reveal mode). ;;[ ,more / ,dump]
+T 1618591402 18<22thblt18>	jlf: perfect, thanks!
+T 1618591413 18<20jlf18>	yw
+T 1618591846 18<20pjb18>	rdrg109 (let  ((given '(list (a . 1) (b . 2) (c . 3)))) (cons (first given) (mapcar (function car) (rest given)))) #| --> (list a b c) |# 
+T 1618592095 18<22thblt18>	So my little Emacs modal interface almost works. 
+T 1618592103 18<22thblt18>	Well the core works.
+T 1618592280 18<22thblt18>	(I'm still not sure I'll ever use it but it works.)
+T 1618595803 20*	Disconnected (20)
+T 1618595830 19*	Now talking on 22#emacs
+T 1618595830 22*	Topic for 22#emacs is: Beware the fools of April | 27.2 is out | Emacs questions take priority over chit-chat | No Public Logging, racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1618595830 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Apr  1 12:46:11 2021)
+T 1618595830 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1618597702 20*	Disconnected (20)
+T 1618597726 19*	Now talking on 22#emacs
+T 1618597726 22*	Topic for 22#emacs is: Beware the fools of April | 27.2 is out | Emacs questions take priority over chit-chat | No Public Logging, racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1618597726 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Apr  1 12:46:11 2021)
+T 1618597726 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1618597942 20*	Disconnected (20)
+T 1618598081 20*	Disconnected (20Remote host closed socket)
+T 1618598123 20*	Disconnected (20Remote host closed socket)
+T 1618598148 19*	Now talking on 22#emacs
+T 1618598148 22*	Topic for 22#emacs is: Beware the fools of April | 27.2 is out | Emacs questions take priority over chit-chat | No Public Logging, racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1618598148 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Apr  1 12:46:12 2021)
+T 1618598148 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1618598757 18<20aidalgol18>	bpalmer: So do references?
+T 1618599247 18<27hodapp18>	last I checked, for pretty much all purposes they *are* (nullable) references. you can look at the pointer value if you want but cannot do much else with it without going through the purposely-unsafe modules that bring you outside of Go's GC and so forth
+T 1618600120 18<20bpalmer18>	aidalgol: C++ references, for example, do not support references to references, nor reassignment after initialization.
+T 1618600183 18<20bpalmer18>	aidalgol: and, of course, as hodapp points out, nullability.
+T 1618600212 18<19bremner18>	Let's demand nullability as a fundamental right
+T 1618600307 18<20bpalmer18>	Give us nulls or don't bother giving us anything!
+T 1618600356 18<19bremner18>	nulli me tangere!
+T 1618600403 18<20dale18>	How hard could it be to write an IMAP client.
+T 1618600403 18<27grym18>	molon nullon 
+T 1618600407 18<20dale18>	Hour, two tops.
+T 1618600414 18<27hodapp18>	rudybot: You cannot make the non-nulls stronger by making the nulls nonexistent.
+T 1618600415 18<24rudybot18>	hodapp: I know. They dump libraries that devs are actively using, and then on the flip you've got Win32 APIs that need to have Nulls passed where the parameters for Windows 3.1 used to go
+T 1618600435 18<20bpalmer18>	use Mail::IMAPClient; 
+T 1618600440 18<27grym18>	rudybot: the virtues of a trivalent logic are and are not easy to discuss
+T 1618600444 18<19bremner18>	dale: in python, perty easy
+T 1618600448 18<20dale18>	lol whatever grandpa
+T 1618600451 18<24rudybot18>	grym: mmm trivalent
+T 1618600517 18<20dale18>	Obviously the real answer starts with <?php
+T 1618600548 18<20dale18>	A modern, web-scale language.
+T 1618600558 18<20bpalmer18>	Of course, there's the difference between a random IMAP client, and one that manages to successfully authenticate in this complicated world
+T 1618600561 18<20dale18>	Industry-leading obfuscation and footguns.
+T 1618600564 18<20dale18>	bpalmer: So true.
+T 1618600594 18<20dale18>	I looked at a Go SASL library last night that deprecated XOAUTH2 (or maybe no 2) because OAUTHBEARER is the new standard.  Except O365 only supports the former.
+T 1618600669 18<20dale18>	I wonder if people are fuzzing Mutt enough.  And/or NeoMutt.  I can't believe there's not fertile grounds for attack there.
+T 1618600673 18<20bpalmer18>	rudybot: username and passwords should suffice, since gentlemen don't read other gentlemen's mail.
+T 1618600673 18<24rudybot18>	bpalmer: this is absurd; there's nothing about this that raw HTTP wouldn't suffice for
+T 1618600777 18<20bpalmer18>	oss-fuzz does include neomutt in its list
+T 1618600827 18<19bremner18>	Let's generate imap clients from a normal distribution.
+T 1618600854 18<20bpalmer18>	how normal is debian?
+T 1618600896 18<19bremner18>	normal as in orthogonal 
+T 1618600997 18<25cvandusen18>	rudybot:  how many sides does an orthagon have?
+T 1618601010 18<24rudybot18>	cvandusen: "We present the design and theory of a new parsing engine, YAKKER, capable of satisfying the many needs of modern programmers and modern data processing applications. In particular, our new parsing engine handles (1) full scannerless context-free grammars with (2) regular expressions as right-hand sides for defining nonterminals."
+T 1618601032 18<27natter18>	just the kind of technobabble I'm here for
+T 1618601048 18<25cvandusen18>	YAKKER is the latest social medium 
+T 1618601058 18<20dale18>	rudybot: How long would it take me to evolve an MUA via genetic algorithm?
+T 1618601058 18<24rudybot18>	dale: there is a game where players try to hack each others "programs" using a really limited instruction-like vocab. A friend of mine wrote a genetic alg. to "evolve" better scripts in school
+T 1618601128 18<20dale18>	Also, it seems hard to search for Scheme libraries.  Like, "scheme oauth" doesn't get me what I was hoping for.
+T 1618601148 18<27natter18>	time to roll your own
+T 1618601155 18<20dale18>	Scheme?  Way ahead of you.
+T 1618601199 18<27natter18>	if you want to make an apple pie from scratch, first you must create the universe etc. etc.
+T 1618601199 18<20bpalmer18>	dale: I fear this is an area where you're better off searching for a particular implementation and oauth, in the hopes that any decent library will at least announce which systems it supports.
+T 1618601214 18<19wasamasa18>	lol, expecting oauth for scheme
+T 1618601220 18<20dale18>	bpalmer: That was indeed where I turned next.
+T 1618601226 18<20dale18>	wasamasa: And then I arrived there, yes.
+T 1618601235 18<20dale18>	There is this: https://wiki.call-cc.org/eggref/5/oauth
+T 1618601246 18<19wasamasa18>	you get oauth 1.0: http://wiki.call-cc.org/eggref/4/oauth
+T 1618601246 18<20bpalmer18>	there are some oauth libraries for racket, at the least
+T 1618601246 18<19wasamasa18>	wait, someone ported it?
+T 1618601255 18<19wasamasa18>	but why
+T 1618601255 18<19wasamasa18>	it's so bad
+T 1618601273 18<19wasamasa18>	everyone uses oauth 2
+T 1618601280 18<19wasamasa18>	oauth 2 is too complex to be turned into a library
+T 1618601297 18<19wasamasa18>	everyone implements oauth 2 in a slightly different and incompatible way
+T 1618601306 18<20bpalmer18>	ouch, racket's webapi/oauth2 is "incomplete" but was designed to work (partially) with a draft of oauth 2 from 2012
+T 1618601306 18<20dale18>	Yeah, I only understand OAuth at a fairly high level, but I definitely thought I wanted 2 not 1, FSVO "wanted".
+T 1618601313 18<19wasamasa18>	so by definition it's painful
+T 1618601349 18<20dale18>	Also, I learned DavMail doesn't actually implement IDLE.  It accepts IDLE then it just polls at a configurable frequency.  I guess EWS or whatever that protocol is that it talks to Exchange with makes waiting for changes hard.
+T 1618601363 18<19wasamasa18>	https://en.wikipedia.org/wiki/OAuth#Controversy
+T 1618601408 18<20bpalmer18>	oauth3 will fix everything.
+T 1618601415 18<19wasamasa18>	there's still amendments to auth2
+T 1618601415 18<19wasamasa18>	*oauth2
+T 1618601424 18<19wasamasa18>	because they still keep finding security issues in it
+T 1618601424 18<27natter18>	we've all moved on to OIDC now - we'll just layer atop oauth2 to fix things
+T 1618601447 18<27natter18>	like a parfait of hacks and kludges
+T 1618601468 18<20dale18>	That's my second favorite parfait.
+T 1618601481 18<19wasamasa18>	https://tools.ietf.org/html/draft-ietf-oauth-security-topics-18
+T 1618601504 18<19wasamasa18>	I've met Daniel Fett a few times and he's having oodles of fun with it
+T 1618601527 18<19wasamasa18>	but then, that guy is crazy enough to do proofs of browser security on paper
+T 1618601535 18<19wasamasa18>	and still outdoing colleagues who'd rather use proof assistants
+T 1618601535 18<20dale18>	Nice.
+T 1618601551 18<19wasamasa18>	which speaks volumes about their usability
+T 1618601577 18<19wasamasa18>	yes, it's slow to do things with pen and paper, but it's even slower to never finish a proof
+T 1618601731 18<27grym18>	my agda-using sibling counts 5 LOC/day as "reasonable output" and 10 or more as a red letter day
+T 1618601786 18<27natter18>	sounds about right for my average output - but I'm writing java
+T 1618602682 20*	Disconnected (20)
+T 1618602865 20*	Disconnected (20Remote host closed socket)
+T 1618602969 20*	Disconnected (20Remote host closed socket)
+T 1618603037 20*	Disconnected (20Remote host closed socket)
+T 1618603090 20*	Disconnected (20Remote host closed socket)

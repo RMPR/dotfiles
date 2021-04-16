@@ -878,3 +878,155 @@ Apr 13 11:18:33 <mikoto-chan>	e referring to scientific notation
 Apr 13 11:18:38 FiSHLiM plugin unloaded
 **** ENDING LOGGING AT Tue Apr 13 11:18:38 2021
 
+**** BEGIN LOGGING AT Fri Apr 16 17:20:55 2021
+
+Apr 16 17:20:55 *	Now talking on ##C
+Apr 16 17:20:55 *	Topic for ##C is: C Programming | PASTE (>3 lines): https://bpa.st/ | WIKI: http://www.iso-9899.info/ | BOOKS: http://www.iso-9899.info/wiki/Books | C2X Charter: http://www.open-std.org/jtc1/sc22/wg14/www/docs/n2086.htm | the current standard: http://iso-9899.info/wiki/The_Standard | Off-topic: ##c-offtopic
+Apr 16 17:20:55 *	Topic for ##C set by dho!~dho@freenode/staff/dho (Fri Apr  9 04:35:19 2021)
+Apr 16 17:20:55 -ChanServ-	[##c] Welcome to ##c! We engage in C programming discussions at all levels of expertise; don't hesitate to ask your question. If applicable, please prepare a testcase and paste it at http://ideone.com. We don't know about C++ (##c++) or C# (##csharp).
+Apr 16 17:20:55 *	Channel ##c url: http://www.iso-9899.info/
+Apr 16 17:30:46 <shynoob>	lol cuppajoeman, I am not a complete noob
+Apr 16 17:31:32 <wroathe>	He's just a shy noob. There's a difference.
+Apr 16 17:31:54 <wroathe>	The "complete" noob has much more nutritional value, for one.
+Apr 16 17:35:20 <garo>	hm, just googled 'volatile' and most info boils down to "a variable that can change unexpected"
+Apr 16 17:35:38 <garo>	which would translate to : any variable
+Apr 16 17:35:49 <garo>	s/which/which i/
+Apr 16 17:35:52 <fstd>	i quickly googled adverbs and the info boils down to "you add a -ly"
+Apr 16 17:36:24 <dho>	garo: no, not really. it means that the value may change outside the scope of the definitions of the standard.
+Apr 16 17:36:52 <dho>	this is not true of any arbitrary variable.
+Apr 16 17:37:20 <lemonade`_>	like from a different program. or by, say, a hardware peripheral
+Apr 16 17:37:25 <caze>	garo: int i; i = 42; printf("%d\n", i); What do you expect to be output?
+Apr 16 17:37:34 <garo>	42
+Apr 16 17:37:38 *	lemonade`_ is now known as lemonade`
+Apr 16 17:37:49 <garo>	how can it be something different ?
+Apr 16 17:38:09 <caze>	garo: But if as you say, the value can be changed unexpected, then it doesn't have to be 42, does it?
+Apr 16 17:38:16 <lemonade`>	like if a different program modifies it. or by, say, a hardware peripheral
+Apr 16 17:38:35 <lemonade`>	shared memory
+Apr 16 17:38:57 <garo>	but isn't a fork counted as the same program ?
+Apr 16 17:39:12 <caze>	A fork spawns a different process.
+Apr 16 17:39:20 <lemonade`>	it's a different process from the same executable file.
+Apr 16 17:40:10 <lemonade`>	the OS effectively copies the state of the running program to make another
+Apr 16 17:40:27 <garo>	good point, but doesn't the kernel block access to that memory if it's not shared ?
+Apr 16 17:40:46 <wroathe>	Who says the kernel isn't the one modifying that memory?
+Apr 16 17:40:46 <lemonade`>	not if you previously set it up to share it
+Apr 16 17:40:56 <garo>	extremely good point !
+Apr 16 17:41:29 <garo>	so it seems i was just lucky, from now one i'll use volatile
+Apr 16 17:41:36 <wroathe>	garo: I think a better theoretical approximation for understanding volatile is that it elevates writing to and reading from memory to being an observable side effect of your program, in the same way that reading from or writing to a socket is a side effect
+Apr 16 17:41:45 <garo>	and the mmap() can i do it more highlevel ?
+Apr 16 17:43:20 <garo>	(but not as highlevel as using mpi) something inbetween mmap and mpi would be ideal
+Apr 16 17:43:45 <lemonade`>	why do you want something more "high level"? what specifically are you looking for?
+Apr 16 17:44:43 <garo>	mmap() feels really close to the hardware
+Apr 16 17:45:13 <dho>	garo: it's more applicable to a case where you're dealing with device drivers
+Apr 16 17:45:28 <wroathe>	It's not really. It's a system call, which means it's a basic unit of the interface that the kernel exposes to userland.
+Apr 16 17:45:40 <wroathe>	There's an awful lot of software plumbing in the kernel that supports it.
+Apr 16 17:45:42 <dho>	garo: for example, some drivers have port-based I/O protocols where you write a value to register A and value is yielded in register B
+Apr 16 17:46:28 <dho>	that protocol is outside the scope of C, but if you use C to write the software, and the registers are memory mapped, then volatile allows the compiler to understand it must not assume that the memory representing register B (for example) hasn't changed since the last time it was read
+Apr 16 17:46:37 <dho>	which it would be able to do normally, because it's a read-only value
+Apr 16 17:49:36 <lemonade`>	mmap works with virtual addresses, not physical addresses, if that's what your concern is.
+Apr 16 17:49:48 <fizzie>	POSIX named shared memory objects (arguably, a "higher-level" API) are utilized via mmap too. I don't think it *should* feel all that "low-level" or "close to hardware". Or even if it does, there isn't really an alternative.
+Apr 16 17:53:37 <garo>	lemonade`: large advantage, nice
+Apr 16 17:53:51 <fizzie>	That said, sharing a single long via mmap is kind of clunky, since mmap's granularity is the page. If that one value is all you *need* to share between the processes, fair enough, isn't much you can do about that. But you wouldn't want to do that sort of thing for a large number of individual long-sized chunks.
+Apr 16 17:55:31 <garo>	at the moment, 1 unsigned long is enough. At the very most after adding a gigantic amount of useless features i might need 10
+Apr 16 18:01:35 <sham1>	You might be able to do what you need with a socketpair(3)
+Apr 16 18:01:48 <sham1>	Sorry, socketpair(2)
+Apr 16 18:02:15 <sham1>	Or in general by using something like a FIFO or whatever
+Apr 16 18:02:44 <sham1>	If you're not doing a lot of file transfer, shared memory is probably not worth it
+Apr 16 18:04:08 <shynoob>	lol what did I miss
+Apr 16 18:06:21 <JohnnyVM>	someone tested if the new stdint definition INT_FASTN_MIN ar usefull? i didnt found any benchmark
+Apr 16 18:08:52 <garo>	Isn't sharing memory faster then creating sockets/fifo's ?
+Apr 16 18:11:32 <fizzie>	"Do not communicate by sharing memory; instead, share memory by communicating", is what Go famously says. (Well, maybe it's not that famous.)
+Apr 16 18:11:42 <fizzie>	Sure, a shared-memory thing might be the fastest way to move a whole lot of data from one process to another, but does that actually matter for your use case?
+Apr 16 18:11:47 <fizzie>	(The programming model is quote different for a FIFO, socket, message queue or whatnot than for shared memory, though.)
+Apr 16 18:13:38 <sham1>	I like that quote, and it often is the way one might be able to make concurrent programming nicer, and probably with fewer races and deadlocks, maybe
+Apr 16 18:13:58 <sham1>	Since sharing memory of course might lead to needing things like mutexes
+Apr 16 18:15:08 <caze>	shynoob: https://ideone.com/R8stv9
+Apr 16 18:15:52 <shynoob>	caze, linked list?
+Apr 16 18:15:55 <caze>	shynoob: Fill in the bodies of the functions push and pop. Change nothing else.
+Apr 16 18:16:01 <shynoob>	oh
+Apr 16 18:16:11 <shynoob>	LIFO
+Apr 16 18:16:15 <shynoob>	is that what it is called
+Apr 16 18:16:18 <kkd>	fizzie: but channels are also just ring buffers, right?
+Apr 16 18:17:05 <sham1>	Either unbounded or bounded FIFOs. In the latter case it probably makes sense to implement as a ring buffer
+Apr 16 18:17:30 <fizzie>	kkd: I've kind of consciously never looked under the hood, and I think that'd kind of go against the spirit of that quote. It's not really about what the facilities are, it's more about how you use them.
+Apr 16 18:19:14 <sham1>	Of course, this idea of "don't communicate by sharing memory, share memory by communicating" is useful in Go, which is the context Rob Pike said it in, but it's also useful in C. Especially when one considers that the things that are communicating don't need to be the same process. Helpful for things like privilege separation as well
+Apr 16 18:19:52 <caze>	shynoob: Also called a stack.
+Apr 16 18:20:09 <caze>	shynoob: That's why the functions are named push and pop.
+Apr 16 18:22:23 <kkd>	yeah, I do see the point they're trying to make (this 'trick' is also used in applications that do sharding of some workload, and in some cases simply communicating using message passing has proved to be much more performant than contending over a shared resource and generating more coherency traffic in the CPU).
+Apr 16 18:23:26 <fizzie>	And re that comment that didn't get any answers, INT_FAST<N>_MIN is just a constant for the minimum representable value of the corresponding int_fast<N>_t integer type, so it's hard to imagine what sort of "benchmark" you could have for that. As for the types themselves... well, maybe, but I imagine it'd be quite situational.
+Apr 16 18:24:08 <fizzie>	,cc int_fast8_t f8; int_fast16_t f16; int_fast32_t f32; int_fast64_t f64; ptype(f8); ptype(f16); ptype(f32); ptype(f64); // just out of curiosity
+Apr 16 18:24:10 <candide>	fizzie:  f8 = signed char   f16 = long   f32 = long   f64 = long
+Apr 16 18:25:14 <fizzie>	,c11 footnote.262
+Apr 16 18:25:15 <candide>	http://www.iso-9899.info/n1570.html#FOOTNOTE.262 The designated type is not guaranteed to be fastest for all purposes; if the implementation has no clear grounds for choosing one type over another, it will simply pick some integer type satisfying the signedness and width requirements.
+Apr 16 18:25:25 <sham1>	If you want the absolutely most portable way of storing at maximum 32-bit values, even if something like an int32_t isn't available. But as we can see, because they're not used that often, thye can display odd behaviours. Like being 64-bit integers on architectures like the (presumably amd64) that can handle 32-bit integers nicely on its own
+Apr 16 18:25:48 <sham1>	Same with int_leastX_t and its corresponding stuff
+Apr 16 18:27:04 <sham1>	You'd think that int_leastX_t and int_fastX_t (and their unsigned counterparts) would be equivalent to intX_t (and uintX_t respectively) on AMD64? But apparently not. Only int_fast8_t and int_least8_t seem to hit that
+Apr 16 18:28:15 <caze>	I would think that it would default to its native word size so long as it's big enough.
+Apr 16 18:31:01 <ian|>	is it okay to typedef something before defining it? https://paste.centos.org/view/63ef2656
+Apr 16 18:31:31 <ian|>	it compiles
+Apr 16 18:31:35 <caze>	Yes.
+Apr 16 18:31:38 <ian|>	nice
+Apr 16 18:32:01 <ian|>	i was putting it afterwards and it looked bad...
+Apr 16 18:32:40 <ian|>	but not as bad as anonymous with typedef built in
+Apr 16 18:37:19 <ian|>	oh one last thing
+Apr 16 18:37:26 <ian|>	void *func; can contain a function pointer?!
+Apr 16 18:37:40 <ian|>	never tested but if so... amazing
+Apr 16 18:37:50 <twkm>	technically, no.
+Apr 16 18:37:53 <caze>	ian|: POSIX allows it, but standard C does not.
+Apr 16 18:38:03 <ian|>	hmm
+Apr 16 18:38:36 <ian|>	posix defines some sort of C spec?!
+Apr 16 18:39:31 <sham1>	The POSIX specification basically extends the C language insofar as what capabilities you have within a POSIX environment
+Apr 16 18:39:37 <wroathe>	That's one of the funny quirks about C. It's impossible for mere mortals to keep track of which standards, if any, govern the behavior you're seeing when you just write a simple program
+Apr 16 18:39:50 <wroathe>	Is it the C standard? POSIX? Compiler extension?
+Apr 16 18:40:19 <caze>	C++
+Apr 16 18:40:34 <wroathe>	Same story there
+Apr 16 18:43:25 *	audiophile_ is now known as audiophile
+Apr 16 18:44:02 <ian|>	well
+Apr 16 18:44:06 <ian|>	just the way she blows
+Apr 16 18:56:43 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 16 18:56:43 2021
+
+**** BEGIN LOGGING AT Fri Apr 16 18:57:09 2021
+
+Apr 16 18:57:09 *	Now talking on ##C
+Apr 16 18:57:09 *	Topic for ##C is: C Programming | PASTE (>3 lines): https://bpa.st/ | WIKI: http://www.iso-9899.info/ | BOOKS: http://www.iso-9899.info/wiki/Books | C2X Charter: http://www.open-std.org/jtc1/sc22/wg14/www/docs/n2086.htm | the current standard: http://iso-9899.info/wiki/The_Standard | Off-topic: ##c-offtopic
+Apr 16 18:57:09 *	Topic for ##C set by dho!~dho@freenode/staff/dho (Fri Apr  9 04:35:19 2021)
+Apr 16 18:57:10 -ChanServ-	[##c] Welcome to ##c! We engage in C programming discussions at all levels of expertise; don't hesitate to ask your question. If applicable, please prepare a testcase and paste it at http://ideone.com. We don't know about C++ (##c++) or C# (##csharp).
+Apr 16 18:57:10 *	Channel ##c url: http://www.iso-9899.info/
+Apr 16 18:59:29 <kkd>	https://developers.redhat.com/blog/2021/04/16/broadening-compiler-checks-for-buffer-overflows-in-_fortify_source/
+Apr 16 18:59:59 <fizzie>	Re the `void *func` thing, while that can't, a `void (*func)(void)` -- or any other function pointer type -- can act as a "generic" function pointer, as long as you're careful to convert it back to the right type before using it. And as a corollary, a `union { void *obj; void (*func)(void); }` can store any kind of a pointer.
+Apr 16 19:06:37 <JohnnyVM>	kkd nice read
+Apr 16 19:14:10 <begriffs>	I have some static functions that I want to define at the bottom of a .c file. Thus I'll need to declare them at the top of the file so other functions can call them. Do I add the "static" keyword to the declaration, definition, or both?
+Apr 16 19:15:10 <begriffs>	(Could also define them at the top of the file, getting around the issue, but I think the code reads better to move that internal stuff out of the way to the end)
+Apr 16 19:17:23 <begriffs>	Nevermind, looks like 6.2.2 says "If the declaration of a file scope identifier for an object or a function contains the storage-class specifier static, the identifier has internal linkage." So it's a declaration thing.
+Apr 16 19:18:00 <sham1>	Although one could argue that it looks more consistent if it's done in both the definition and the declaration
+Apr 16 19:28:22 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 16 19:28:22 2021
+
+**** BEGIN LOGGING AT Fri Apr 16 19:28:46 2021
+
+Apr 16 19:28:46 *	Now talking on ##C
+Apr 16 19:28:46 *	Topic for ##C is: C Programming | PASTE (>3 lines): https://bpa.st/ | WIKI: http://www.iso-9899.info/ | BOOKS: http://www.iso-9899.info/wiki/Books | C2X Charter: http://www.open-std.org/jtc1/sc22/wg14/www/docs/n2086.htm | the current standard: http://iso-9899.info/wiki/The_Standard | Off-topic: ##c-offtopic
+Apr 16 19:28:46 *	Topic for ##C set by dho!~dho@freenode/staff/dho (Fri Apr  9 04:35:19 2021)
+Apr 16 19:28:46 -ChanServ-	[##c] Welcome to ##c! We engage in C programming discussions at all levels of expertise; don't hesitate to ask your question. If applicable, please prepare a testcase and paste it at http://ideone.com. We don't know about C++ (##c++) or C# (##csharp).
+Apr 16 19:28:46 *	Channel ##c url: http://www.iso-9899.info/
+Apr 16 19:32:22 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 16 19:32:22 2021
+
+**** BEGIN LOGGING AT Fri Apr 16 19:35:48 2021
+
+Apr 16 19:35:48 *	Now talking on ##C
+Apr 16 19:35:48 *	Topic for ##C is: C Programming | PASTE (>3 lines): https://bpa.st/ | WIKI: http://www.iso-9899.info/ | BOOKS: http://www.iso-9899.info/wiki/Books | C2X Charter: http://www.open-std.org/jtc1/sc22/wg14/www/docs/n2086.htm | the current standard: http://iso-9899.info/wiki/The_Standard | Off-topic: ##c-offtopic
+Apr 16 19:35:48 *	Topic for ##C set by dho!~dho@freenode/staff/dho (Fri Apr  9 04:35:19 2021)
+Apr 16 19:35:48 -ChanServ-	[##c] Welcome to ##c! We engage in C programming discussions at all levels of expertise; don't hesitate to ask your question. If applicable, please prepare a testcase and paste it at http://ideone.com. We don't know about C++ (##c++) or C# (##csharp).
+Apr 16 19:35:48 *	Channel ##c url: http://www.iso-9899.info/
+Apr 16 20:07:15 *	_d3x0r is now known as d3x0r
+Apr 16 20:31:44 <mendel_munkis>	finding an entry-level C job is hard.
+Apr 16 20:39:11 <pragma->	the trick is not to look for a c job but instead to look for a whatever job and then convince them to change it to c after you get hired
+Apr 16 20:42:12 <Learath2>	C backend for a website? :P
+Apr 16 20:48:15 <JohnnyVM>	pragma- from pragmatism XD
+Apr 16 20:49:20 <JohnnyVM>	Hi in big programs with its the common practice for store the config info/cli etc? a global struct?
+Apr 16 20:49:39 <JohnnyVM>	which*
+Apr 16 20:50:16 <JohnnyVM>	which is the common practice*
+Apr 16 20:51:22 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 16 20:51:22 2021
+
