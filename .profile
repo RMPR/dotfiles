@@ -1,6 +1,6 @@
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
-export GDK_BACKEND=wayland
+export GDK_BACKEND=wayland,x11
 export CLUTTER_BACKEND=wayland
 PATH="$HOME/bin:$PATH"
 PATH="$HOME/.cargo/bin:$PATH"
