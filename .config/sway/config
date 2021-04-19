@@ -38,7 +38,7 @@ bindsym $mod+T exec alacritty --class floating_terminal
 for_window [app_id="floating_terminal"] floating enable
 
 # kill focused window
-bindsym $mod+Shift+A kill
+bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher) : overriden by jdd in order to recognize flatpak apps
 bindsym $mod+d exec "rofi -i -combi-modi window,drun -show combi -modi combi -terminal alacritty -width 40 -lines 8 -font 'San Francisco Display 14' -padding 5 -show-icons -fake-transparency"
@@ -49,9 +49,9 @@ bindsym $mod+d exec "rofi -i -combi-modi window,drun -show combi -modi combi -te
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+i focus up
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
@@ -61,9 +61,9 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+i move up
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
