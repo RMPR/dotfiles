@@ -10,3 +10,4 @@ export WEECHAT_HOME=$HOME/.config/weechat
 export XDG_CONFIG_HOME=$HOME/.config
 export VIMCONFIG=$HOME/.vim
 export CLUTTER_BACKEND=x11 # Fix Shotwell
+export TERMINAL=alacritty
