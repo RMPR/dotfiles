@@ -1,87 +1,18 @@
-call plug#begin()
-Plug 'tpope/vim-fugitive'
-Plug 'mbbill/undotree'
-Plug 'jremmen/vim-ripgrep'
-Plug 'tpope/vim-commentary'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'stsewd/fzf-checkout.vim'
-Plug 'morhetz/gruvbox'
-Plug 'sbdchd/neoformat'
-Plug 'neomake/neomake'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc-rls', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
-Plug 'francoiscabrol/ranger.vim'
-Plug 'rbgrouleff/bclose.vim'
-call plug#end()
+" Install plugins first. We may configure plugins for specific languages later.
+runtime! include/plugins.vim
+" This is next because it sets language specific variables.
+runtime! include/lang.vim
 
-" Vanilla
-" -----------------------------------------------------------------------
-set inccommand=nosplit
-set runtimepath^=~/.vim runtimepath+=~/.vim/after
-let &packpath = &runtimepath
-source ~/.vimrc
+runtime! include/sets.vim
+runtime! include/keybinds.vim
+runtime! include/colors.vim
 
-if executable('rg')
-    let g:rg_drive_root='true'
-endif
-
-" Open the built-in terminal if not launched from a Terminal
-map <C-z> :split term://zsh <CR> A
-
-set splitbelow
-set splitright
-" ------------------------------------
-"  COLORSCHEME
-" ------------------------------------
-let g:gruvbox_italic=1
-
-" -----------------------------------------------------------------------
-"  FZF
-" -----------------------------------------------------------------------
-nnoremap <Leader>f :Files<CR>
-nnoremap <C-p> :GFiles<CR>
-nnoremap <Leader>b :Buffers<CR>
-
-nnoremap <leader>u :UndotreeShow<CR>
-nnoremap <Leader>/ :Rg<SPACE>
-let $FZF_DEFAULT_OPTS='--reverse'
-let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
-
-"-------------------------------------------------------------------------
-" FUGITIVE CONFIGS 
-"-------------------------------------------------------------------------
-nnoremap <leader>gs :G<CR>
-nnoremap <Leader>gj :diffget //3<CR>
-nnoremap <Leader>gf :diffget //2<CR>
-nnoremap <Leader>cc :Git commit<CR>
-nnoremap <Leader>gp :Git push<CR>
-nnoremap <Leader>gs :Gstatus<CR>
-
-nmap <leader>rr <Plug>(coc-rename)
-
-nnoremap <leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
-
-nnoremap <leader>gc :GCheckout<CR>
-nnoremap <Leader>gd :<C-u>call CocActionAsync('jumpDefinition')<CR> 
-
-" Plugin specific ------------------------------------------------------
-if (has("termguicolors"))
- set termguicolors
-endif
-colorscheme gruvbox
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-
-" open the go-to function in split, not another buffer
-let g:neomake_python_enabled_makers = ['flake8']
-call neomake#configure#automake('nrwi', 500)
-" -----------------------------------------------------------------------
-"
-
-" -----------------------------------------------------------------------
-" Ranger confs
-let g:ranger_map_keys = 0
-map <leader>r :Ranger<CR>
-let g:ranger_replace_netrw = 1
+" Tree Sitter options, must be put in the init.vim
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+-- Modules and its options go here
+highlight = { enable = true },
+incremental_selection = { enable = true },
+textobjects = { enable = true },
+}
+EOF
