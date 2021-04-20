@@ -46,6 +46,10 @@ Plug 'vim-airline/vim-airline'
 
 " Yes the Keybindings of the E ~editor~ OS don't judge me
 Plug 'tpope/vim-rsi'
+
+" Language servers
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
 call plug#end()
 
 " Telescope

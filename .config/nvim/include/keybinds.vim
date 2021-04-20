@@ -15,6 +15,10 @@ noremap <ESC><ESC> :nohlsearch<CR>
 " Reload Nvim
 noremap <F5> :source ~/.config/nvim/init.vim<CR>
 
+" Emacs muscle memory
+map <C-x><C-s> :w<CR>
+map <C-x><C-c> :wq<CR>
+
 " Snippets
 " --------
 nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>/title<CR>cit

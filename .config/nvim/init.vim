@@ -6,6 +6,7 @@ runtime! include/lang.vim
 runtime! include/sets.vim
 runtime! include/keybinds.vim
 runtime! include/colors.vim
+luafile ~/.config/nvim/lua/lsp_config.lua
 
 " Tree Sitter options, must be put in the init.vim
 lua <<EOF
