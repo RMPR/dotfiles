@@ -1,4 +1,4 @@
-export EDITOR=/usr/bin/vim
+export EDITOR=/usr/bin/vimx
 export VISUAL=/usr/bin/nvim
 export GDK_BACKEND=wayland,x11
 export CLUTTER_BACKEND=wayland

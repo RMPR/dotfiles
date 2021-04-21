@@ -19,6 +19,15 @@ noremap <F5> :source ~/.config/nvim/init.vim<CR>
 map <C-x><C-s> :w<CR>
 map <C-x><C-c> :wq<CR>
 
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+" Paths for fuzzy find
+set path +=**
+set path +=$PWD/
+
+" Create a new file under the cursor if it doesn't already exist
+noremap <leader>gf :e <cfile><cr>
+
 " Snippets
 " --------
 nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>/title<CR>cit

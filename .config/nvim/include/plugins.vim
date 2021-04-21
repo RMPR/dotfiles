@@ -44,8 +44,9 @@ Plug 'tpope/vim-fugitive'
 " Try out a status line why not
 Plug 'vim-airline/vim-airline'
 
-" Yes the Keybindings of the E ~editor~ OS don't judge me
+" Stuff from the E ~editor~ OS don't judge me
 Plug 'tpope/vim-rsi'
+Plug 'mbbill/undotree'
 
 " Language servers
 Plug 'neovim/nvim-lspconfig'
@@ -95,3 +96,11 @@ nmap <leader>gh :diffget //3<CR>
 nmap <leader>gu :diffget //2<CR>
 nmap <leader>gs :G<CR>
 
+" Completion Nvim
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
+
+" Undotree
+nnoremap <leader>u :UndotreeToggle<CR>
+
+" Remove the annoying popup
+let g:completion_enable_auto_popup = 0
