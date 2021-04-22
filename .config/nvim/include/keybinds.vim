@@ -28,6 +28,11 @@ set path +=$PWD/
 " Create a new file under the cursor if it doesn't already exist
 noremap <leader>gf :e <cfile><cr>
 
+" Save session
+nnoremap <leader>ss :mksession!<CR>
+" Reload session
+nnoremap <leader>sl :so Session.vim<CR>
+
 " Snippets
 " --------
 nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>/title<CR>cit

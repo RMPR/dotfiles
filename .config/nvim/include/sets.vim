@@ -36,7 +36,9 @@ set shortmess+=c
 " of 3000 is a bit and degrades performance.
 set synmaxcol=200
 
-" Save session
-nnoremap <leader>ss :mksession!<CR>
-" Reload session
-nnoremap <leader>sl :so Session.vim<CR>
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+" Paths for fuzzy find
+set path +=**
+set path +=$PWD/
+
