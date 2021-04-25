@@ -12,7 +12,7 @@ map <C-down>  :wincmd -<cr>
 " Hitting escape twice should clear any search highlights.
 noremap <ESC><ESC> :nohlsearch<CR>
 
-" Reload Nvim
+" Reload Nvim Config
 noremap <F5> :source ~/.config/nvim/init.vim<CR>
 
 " Emacs muscle memory
@@ -31,7 +31,21 @@ noremap <leader>gf :e <cfile><cr>
 " Save session
 nnoremap <leader>ss :mksession!<CR>
 " Reload session
-nnoremap <leader>sl :so Session.vim<CR>
+nnoremap <leader>sl :source Session.vim<CR>
+
+" Make * and # search the visual selection, thanks Drew
+xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
+
+function! s:VSetSearch(cmdtype)
+    let temp = @s
+    norm! gv"sy
+    let @/ = '\V'.substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
+    let @s = temp
+endfunction
+
+" I use <C-j> in ranger to invoke autojump, make it consistent in nvim
+" map <leader>cj :!j 
 
 " Snippets
 " --------

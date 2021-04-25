@@ -10,12 +10,3 @@ runtime! include/keybinds.vim
 runtime! include/colors.vim
 luafile $XDG_CONFIG_HOME/nvim/lua/lsp_config.lua
 
-" Tree Sitter options, must be put in the init.vim
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
--- Modules and its options go here
-highlight = { enable = true },
-incremental_selection = { enable = true },
--- textobjects = { enable = true },
-}
-EOF

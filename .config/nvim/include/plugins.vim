@@ -104,3 +104,13 @@ nnoremap <leader>u :UndotreeToggle<CR>
 
 " Remove the annoying popup
 let g:completion_enable_auto_popup = 0
+
+" Tree Sitter options, Just using Python right now so enabling all is safe
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+-- Modules and its options go here
+highlight = { enable = true },
+incremental_selection = { enable = true },
+textobjects = { enable = true },
+}
+EOF
