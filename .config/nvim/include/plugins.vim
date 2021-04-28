@@ -97,7 +97,7 @@ nmap <leader>gu :diffget //2<CR>
 nmap <leader>gs :G<CR>
 
 " Completion Nvim
-let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 " Undotree
 nnoremap <leader>u :UndotreeToggle<CR>

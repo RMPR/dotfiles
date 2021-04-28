@@ -19,7 +19,7 @@ set incsearch
 set termguicolors
 set scrolloff=10
 set noshowmode
-set completeopt=menuone,noinsert,noselect,preview
+set completeopt=menuone,noinsert,noselect
 set signcolumn=yes
 set colorcolumn=80
 set history=2000
