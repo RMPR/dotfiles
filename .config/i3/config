@@ -78,6 +78,12 @@ bindsym $mod+v split toggle
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
+# Rotate screen
+bindsym --release Ctrl+Mod1+Up exec xrandr --output eDP-1 --rotate normal
+bindsym --release Ctrl+Mod1+Left exec xrandr --output eDP-1 --rotate left
+bindsym --release Ctrl+Mod1+Right exec xrandr --output eDP-1 --rotate right
+bindsym --release Ctrl+Mod1+Down exec xrandr --output eDP-1 --rotate inverted
+
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
