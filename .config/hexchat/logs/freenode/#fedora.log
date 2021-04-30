@@ -13216,3 +13216,1179 @@ Apr 16 20:28:09 <fedbot>	*** F33-20210405 updated lives available: https://tinyu
 Apr 16 20:51:22 *	Disconnected ()
 **** ENDING LOGGING AT Fri Apr 16 20:51:22 2021
 
+**** BEGIN LOGGING AT Fri Apr 30 04:48:16 2021
+
+Apr 30 04:48:16 *	Now talking on #fedora
+Apr 30 04:48:16 *	Topic for #fedora is: Fedora Linux F32, F33, F34 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common || Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins
+Apr 30 04:48:16 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Apr 27 14:28:20 2021)
+Apr 30 04:48:17 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Apr 30 04:49:17 <cmurf[m]>	mount -o subvol=root /dev/nvme0n1p3 /mnt
+Apr 30 04:49:43 <cmurf[m]>	mount /dev/nvme0n1p2 /mnt/boot
+Apr 30 04:49:49 <cmurf[m]>	mount /dev/nvme0n1p1 /mnt/boot/efi
+Apr 30 04:49:57 <cmurf[m]>	mount -B /dev /mnt/dev
+Apr 30 04:50:15 <cmurf[m]>	mount -B /proc /mnt/proc
+Apr 30 04:50:22 <cmurf[m]>	mount -B /sys /mnt/sys
+Apr 30 04:50:27 <cmurf[m]>	mount -B /run /mnt/run
+Apr 30 04:50:45 <Bayesian_Coffee>	first one gives : `mount: /mnt: unknown filesystem type 'crypto_LUKS'.`
+Apr 30 04:50:51 <cmurf[m]>	oh duh
+Apr 30 04:50:52 <cmurf[m]>	lol
+Apr 30 04:51:23 <cmurf[m]>	cryptsetup open /dev/nvme0n1p3 hello
+Apr 30 04:51:32 <cmurf[m]>	type in the LUKS passphrase at the prompt
+Apr 30 04:51:55 <cmurf[m]>	mount -o subvol=root /dev/mapper/hello /mnt
+Apr 30 04:51:59 <cmurf[m]>	then everything else is unchanged
+Apr 30 04:53:35 *	ranzpirat8 is now known as ranzpirat
+Apr 30 04:56:02 <Bayesian_Coffee>	ok
+Apr 30 04:56:06 <Bayesian_Coffee>	got through all that
+Apr 30 04:56:38 <cmurf[m]>	chroot /mnt
+Apr 30 04:56:48 <cmurf[m]>	so nooow....
+Apr 30 04:56:51 <Bayesian_Coffee>	k
+Apr 30 04:57:48 <cmurf[m]>	go here in a web browser
+Apr 30 04:57:49 <cmurf[m]>	https://koji.fedoraproject.org/koji/buildinfo?buildID=1149359
+Apr 30 04:57:53 <cmurf[m]>	on the same computer
+Apr 30 04:58:01 <cmurf[m]>	download the x86 version of shim
+Apr 30 04:58:04 <cmurf[m]>	and install it
+Apr 30 04:58:06 <cmurf[m]>	you can just do
+Apr 30 04:58:13 <cmurf[m]>	dnf downgrade URL
+Apr 30 04:58:34 <cmurf[m]>	if you copy the URL right a right click on the download text
+Apr 30 04:58:48 <cmurf[m]>	or just download the RPM and then cd to wherever it is and
+Apr 30 04:58:51 <cmurf[m]>	dnf install *rpm
+Apr 30 04:59:06 <cmurf[m]>	dnf downgrade *rpm
+Apr 30 04:59:23 <Bayesian_Coffee>	hmm
+Apr 30 04:59:31 <Bayesian_Coffee>	what's a good url shortener, haha
+Apr 30 05:01:06 <cmurf[m]>	why?
+Apr 30 05:01:10 <cmurf[m]>	you just copy paste it
+Apr 30 05:01:20 <Bayesian_Coffee>	nah just to go to the fedora one
+Apr 30 05:01:23 <Bayesian_Coffee>	it's ok, all good
+Apr 30 05:01:32 <cmurf[m]>	ok did it install?
+Apr 30 05:01:35 <cmurf[m]>	rpm -q shim
+Apr 30 05:01:40 <Bayesian_Coffee>	ok so just to be clear, i'm doing the f34 one?
+Apr 30 05:01:46 <cmurf[m]>	it says it's 15-8
+Apr 30 05:01:55 <cmurf[m]>	there is no f34 one for shim, it's release version agnostic
+Apr 30 05:02:23 <cmurf[m]>	https://kojipkgs.fedoraproject.org//packages/shim/15/8/x86_64/shim-x64-15-8.x86_64.rpm
+Apr 30 05:02:24 <cmurf[m]>	that url
+Apr 30 05:02:32 <Bayesian_Coffee>	oh i see
+Apr 30 05:04:42 <Bayesian_Coffee>	ok that's installed
+Apr 30 05:05:46 <cmurf[m]>	ok so... now we have to gamble
+Apr 30 05:05:57 <cmurf[m]>	reboot now, or downgrade grub2 while we're at it?
+Apr 30 05:06:13 <cmurf[m]>	it's easier to upgrade than downgrade
+Apr 30 05:06:20 <cmurf[m]>	so we could just downgrade grub2 now
+Apr 30 05:06:34 <cmurf[m]>	if it boots, then upgrade grub2 and see if it still boots or not
+Apr 30 05:06:50 <Bayesian_Coffee>	idk--you tell me, what are we trying to isolate?
+Apr 30 05:07:04 <Bayesian_Coffee>	like is the shim by itself what you're expecting to work?
+Apr 30 05:07:33 <cmurf[m]>	no idea
+Apr 30 05:07:34 <cmurf[m]>	50/50
+Apr 30 05:07:39 <cmurf[m]>	maybe less
+Apr 30 05:07:47 <Bayesian_Coffee>	eh, ok let's give this a shot, then we'll try grub?
+Apr 30 05:07:51 <cmurf[m]>	it's probably grub because shim is used to boot from the USB stick
+Apr 30 05:07:55 <cmurf[m]>	but then so is grub
+Apr 30 05:08:10 <Bayesian_Coffee>	hmm, if it DOES work, then we won't know if it's the shim or if it's grub
+Apr 30 05:08:13 <cmurf[m]>	so why is this having a conniption over LUKS? it's not even something shim or grub can be aware of
+Apr 30 05:08:21 <Bayesian_Coffee>	it's not luks
+Apr 30 05:08:27 <Bayesian_Coffee>	it happened without luks too
+Apr 30 05:08:35 <cmurf[m]>	the problem happens without luks?
+Apr 30 05:08:47 <cmurf[m]>	hahaha
+Apr 30 05:08:55 <Bayesian_Coffee>	yeah, with and without
+Apr 30 05:09:05 <cmurf[m]>	so how the heck is this USB stick booting ok
+Apr 30 05:09:13 <Bayesian_Coffee>	let's try grub, if it works, then we'll upgrade grub and see
+Apr 30 05:09:15 <Bayesian_Coffee>	no idea
+Apr 30 05:09:17 <cmurf[m]>	it's the exact same shim and grub2 that get installed
+Apr 30 05:09:46 <Bayesian_Coffee>	huh
+Apr 30 05:09:54 <cmurf[m]>	you did an automatic installation with "encrypt my data" checked?
+Apr 30 05:09:58 <Bayesian_Coffee>	yeah
+Apr 30 05:10:04 <Bayesian_Coffee>	what about cpu soft lockup errors?
+Apr 30 05:10:07 <cmurf[m]>	this is bizarre
+Apr 30 05:10:31 <cmurf[m]>	why would the USB stick boot but the installation doesn't boot
+Apr 30 05:10:32 <Bayesian_Coffee>	i did see those before the usb started up
+Apr 30 05:10:34 <Bayesian_Coffee>	consistently
+Apr 30 05:10:43 <Bayesian_Coffee>	always the cpu soft lockup errors
+Apr 30 05:10:46 <cmurf[m]>	fpaste --sysinfo
+Apr 30 05:11:01 *	zodbot_ is now known as zodbot
+Apr 30 05:11:58 <Bayesian_Coffee>	https://paste.centos.org/view/60c0fd0f
+Apr 30 05:12:55 <cmurf[m]>	bingo
+Apr 30 05:12:57 <cmurf[m]>	figured it out
+Apr 30 05:13:01 <cmurf[m]>	line 198
+Apr 30 05:13:03 <Bayesian_Coffee>	!
+Apr 30 05:13:28 <cmurf[m]>	not totally figured out yet
+Apr 30 05:13:42 <cmurf[m]>	this might be an artifact of the chroot
+Apr 30 05:13:43 <cmurf[m]>	exit
+Apr 30 05:13:51 <cmurf[m]>	exit the chroot with exit
+Apr 30 05:13:54 <cmurf[m]>	and then do
+Apr 30 05:13:56 <Bayesian_Coffee>	k
+Apr 30 05:14:01 <cmurf[m]>	efibootmgr -v | fpaste
+Apr 30 05:14:24 <cmurf[m]>	chroot should have had sysfs in it though...hmm
+Apr 30 05:14:34 <Bayesian_Coffee>	https://paste.centos.org/view/59d6b443
+Apr 30 05:14:49 <cmurf[m]>	ok that's better
+Apr 30 05:15:19 <cmurf[m]>	line 3
+Apr 30 05:15:35 <cmurf[m]>	Fedora is 8th in the list
+Apr 30 05:15:46 <Bayesian_Coffee>	i think that's because i haven't booted yet
+Apr 30 05:15:57 <Bayesian_Coffee>	if i actually reboot, it does go to 1
+Apr 30 05:16:23 <Bayesian_Coffee>	after the clean install, i force shut down, then boot up again, and fedora is first
+Apr 30 05:16:25 <cmurf[m]>	no the boot order on line 3 is followed by the firmware as it is listed here
+Apr 30 05:16:57 <cmurf[m]>	how do you know?
+Apr 30 05:17:10 <Bayesian_Coffee>	i guess what i'm saying is: i reboot after a hang then access bios settings and check that
+Apr 30 05:17:14 <Bayesian_Coffee>	and i see that fedora is indeed first
+Apr 30 05:17:43 <Bayesian_Coffee>	it just hasn't been set yet, because i haven't rebooted after installing from this live disk
+Apr 30 05:17:44 <Bayesian_Coffee>	i think
+Apr 30 05:17:47 <Bayesian_Coffee>	or did i?
+Apr 30 05:17:59 <cmurf[m]>	are you still root?
+Apr 30 05:18:02 <Bayesian_Coffee>	yeah
+Apr 30 05:18:11 <cmurf[m]>	efibootmgr --bootorder 0000
+Apr 30 05:18:20 <cmurf[m]>	efibootmgr -v | fpaste
+Apr 30 05:19:03 <Bayesian_Coffee>	https://paste.centos.org/view/88c02fa0
+Apr 30 05:19:44 <cmurf[m]>	ok good
+Apr 30 05:19:54 <cmurf[m]>	umount --recursive /mnt
+Apr 30 05:20:21 <Bayesian_Coffee>	eh, do i need to cd out of /mnt to do that?
+Apr 30 05:20:27 <cmurf[m]>	yes
+Apr 30 05:20:37 <Bayesian_Coffee>	k
+Apr 30 05:20:57 <cmurf[m]>	reboot -f
+Apr 30 05:21:00 <cmurf[m]>	and pull the usb stick
+Apr 30 05:21:13 <cmurf[m]>	what happens
+Apr 30 05:21:17 <Bayesian_Coffee>	OMG
+Apr 30 05:21:22 <Bayesian_Coffee>	working!!!!
+Apr 30 05:21:52 <cmurf[m]>	ok so now we have to find out if shim is what got the bootorder all messed up
+Apr 30 05:22:13 <Bayesian_Coffee>	not out of the woods yet
+Apr 30 05:22:14 <cmurf[m]>	i will bet a donut that it did
+Apr 30 05:22:19 <Bayesian_Coffee>	it's going through some kind of boot seq
+Apr 30 05:22:33 <cmurf[m]>	when you said it's working, define working
+Apr 30 05:22:42 <cmurf[m]>	working to me means you see GRUB menu
+Apr 30 05:22:45 <Bayesian_Coffee>	haha, i saw a kernel get selected and start
+Apr 30 05:22:46 <Bayesian_Coffee>	yeah
+Apr 30 05:22:51 <cmurf[m]>	ok that's great
+Apr 30 05:23:07 <Bayesian_Coffee>	though F33 never took this long to boot...
+Apr 30 05:23:12 <Bayesian_Coffee>	it's going through a lot of stuff
+Apr 30 05:23:13 <cmurf[m]>	so now do you see a gray screen with a passphrase entry box?
+Apr 30 05:23:17 <Bayesian_Coffee>	not yet
+Apr 30 05:23:18 <cmurf[m]>	huh
+Apr 30 05:23:38 <cmurf[m]>	oh we removed rhgb quiet so it's verbose yea
+Apr 30 05:23:40 <cmurf[m]>	forgot about that
+Apr 30 05:23:52 <cmurf[m]>	so has the boot scroll stopped yet?
+Apr 30 05:24:07 <cmurf[m]>	because hidden in there is a passphrase line, but it's usually obscured by other boot scroll lines
+Apr 30 05:24:20 <cmurf[m]>	one the boot scroll stops just blindly type in the passphrase
+Apr 30 05:24:33 <Bayesian_Coffee>	k
+Apr 30 05:25:22 <Bayesian_Coffee>	i might be mistyping it over and over again
+Apr 30 05:25:27 <Bayesian_Coffee>	but it's not letting me get past
+Apr 30 05:25:30 <cmurf[m]>	don't do that
+Apr 30 05:25:49 <cmurf[m]>	the feedback here is not great
+Apr 30 05:25:52 <Bayesian_Coffee>	k
+Apr 30 05:26:03 <Bayesian_Coffee>	there's like some kind of cpu stopper thread?
+Apr 30 05:26:03 <cmurf[m]>	i mean on screen in text boot mode
+Apr 30 05:26:41 <cmurf[m]>	you can just force power off and reboot, and at the grub menu you can edit the menu entry and add back rhgb
+Apr 30 05:26:45 <Bayesian_Coffee>	feels like it keeps just cycling through the same stuff
+Apr 30 05:26:47 <Bayesian_Coffee>	oh yeah
+Apr 30 05:26:50 <Bayesian_Coffee>	will do
+Apr 30 05:26:52 <cmurf[m]>	that way you get the graphical passprase entry
+Apr 30 05:26:57 <Bayesian_Coffee>	so rhgb quiet?
+Apr 30 05:27:08 <cmurf[m]>	because clearly it has booted, it's just not starting up which is a different issue related to LUKS
+Apr 30 05:27:15 <cmurf[m]>	rhgb is all you need
+Apr 30 05:27:21 <cmurf[m]>	both is fine too
+Apr 30 05:27:32 <cmurf[m]>	stands for red hat graphical boot
+Apr 30 05:27:51 <Bayesian_Coffee>	right
+Apr 30 05:27:52 <Bayesian_Coffee>	ok
+Apr 30 05:28:26 <Bayesian_Coffee>	tpm returned invalid status...
+Apr 30 05:28:52 <cmurf[m]>	hmm
+Apr 30 05:28:55 <Bayesian_Coffee>	i don't think the rhbg took
+Apr 30 05:28:59 <Bayesian_Coffee>	it said invalid or something
+Apr 30 05:29:00 <Bayesian_Coffee>	i can try again
+Apr 30 05:29:10 <Bayesian_Coffee>	just add rhgb as a line on the entry at boot?
+Apr 30 05:29:19 <Bayesian_Coffee>	like hit e and then add in `rhgb` as its own line?
+Apr 30 05:30:33 <Bayesian_Coffee>	"can't find commang 'rhgb'"
+Apr 30 05:31:04 <cmurf[m]>	not as its own line
+Apr 30 05:31:08 <cmurf[m]>	on the linux line
+Apr 30 05:31:14 <cmurf[m]>	anywhere in there
+Apr 30 05:31:24 <cmurf[m]>	after ro, before or after rootflags
+Apr 30 05:31:32 <cmurf[m]>	but it has to be on the linux line
+Apr 30 05:32:45 <Bayesian_Coffee>	ok, got it
+Apr 30 05:33:01 <Bayesian_Coffee>	a ha! got the luks prompt
+Apr 30 05:33:02 <cmurf[m]>	the tpm message was from GRUB i assume
+Apr 30 05:33:21 <Bayesian_Coffee>	yeah that was earlier, maybe unrelated i guess
+Apr 30 05:33:25 <Bayesian_Coffee>	AND WE ARE IN
+Apr 30 05:33:46 <Bayesian_Coffee>	well, i think you solved it
+Apr 30 05:33:52 <cmurf[m]>	nope
+Apr 30 05:33:52 <Bayesian_Coffee>	but what does this mean?
+Apr 30 05:33:55 <cmurf[m]>	half way there
+Apr 30 05:33:57 <Bayesian_Coffee>	oh
+Apr 30 05:34:20 <cmurf[m]>	do the initial setup get to GNOME Terminal
+Apr 30 05:34:36 <cmurf[m]>	sudo grep efibootmgr /var/log/anaconda/program.log
+Apr 30 05:34:46 <cmurf[m]>	 * sudo grep efibootmgr /var/log/anaconda/program.log | fpaste
+Apr 30 05:35:53 <cmurf[m]>	we can't stop now because this is a really bad bug and i don't know whose bug it is
+Apr 30 05:36:01 <Bayesian_Coffee>	haha cool
+Apr 30 05:36:38 <fedbot>	*** F33-20210416 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Apr 30 05:37:02 <Bayesian_Coffee>	no text to display with that
+Apr 30 05:37:10 <Bayesian_Coffee>	grep?
+Apr 30 05:37:22 <Bayesian_Coffee>	doesn't that need a pipe? |
+Apr 30 05:38:30 <cmurf[m]>	no
+Apr 30 05:39:03 <cmurf[m]>	try it with storage.log instead
+Apr 30 05:39:34 <cmurf[m]>	bunch of things that were in program.log are now in storage.log
+Apr 30 05:40:13 <Bayesian_Coffee>	https://paste.centos.org/view/fb4d83df
+Apr 30 05:41:45 <cmurf[m]>	uh huh ok
+Apr 30 05:42:15 <cmurf[m]>	so now
+Apr 30 05:42:25 <cmurf[m]>	sudo dnf update shim-*
+Apr 30 05:42:36 <cmurf[m]>	it should update just shim-x64 to 15.4-4
+Apr 30 05:42:50 <cmurf[m]>	then reboot and let's see what happens
+Apr 30 05:43:59 <Bayesian_Coffee>	yup. freezing
+Apr 30 05:44:07 <Bayesian_Coffee>	stuck on lenovo splash
+Apr 30 05:44:09 <cmurf[m]>	ok so boot off the usb stick again
+Apr 30 05:44:25 <cmurf[m]>	sudo -i
+Apr 30 05:44:30 <cmurf[m]>	efibootmgr -v | fpaste
+Apr 30 05:44:47 <cmurf[m]>	see if the boot order is fakaked again
+Apr 30 05:45:06 <cmurf[m]>	if so there could be two bugs
+Apr 30 05:45:27 <cmurf[m]>	shim is instigator, but the firmware might have at least one bug which is the fallback isn't working
+Apr 30 05:45:58 <cmurf[m]>	its own boot order isn't being honored to eventually get to Fedora in that list, it's getting stuck on one of Lenovo's own entries in NVRAM
+Apr 30 05:46:07 <cmurf[m]>	so there is at least one firmware bug here in my opinion
+Apr 30 05:47:19 <Bayesian_Coffee>	hmm, so now even though i forcibly selected the usb drive, it's still stuck
+Apr 30 05:47:41 <Bayesian_Coffee>	i might have to change the order manually to get to the usb stick
+Apr 30 05:48:27 <cmurf[m]>	probably
+Apr 30 05:48:29 <cmurf[m]>	it's confused
+Apr 30 05:49:09 <Bayesian_Coffee>	jk, getting into the live usb now
+Apr 30 05:49:34 <Bayesian_Coffee>	selected it again and we're in
+Apr 30 05:49:55 <Bayesian_Coffee>	ok
+Apr 30 05:49:55 <cmurf[m]>	so that's another lenovo firmware bug you just found
+Apr 30 05:49:56 <cmurf[m]>	like, we might have to go to #fedora-qa channel to avoid the nasty language filter on this channel
+Apr 30 05:49:56 <Bayesian_Coffee>	haha
+Apr 30 05:49:56 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 30 05:49:56 2021
+
+**** BEGIN LOGGING AT Fri Apr 30 05:50:33 2021
+
+Apr 30 05:50:33 *	Now talking on #fedora
+Apr 30 05:50:33 *	Topic for #fedora is: Fedora Linux F32, F33, F34 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common || Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins
+Apr 30 05:50:33 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Apr 27 14:28:20 2021)
+Apr 30 05:50:33 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Apr 30 05:50:50 <Bayesian_Coffee>	https://paste.centos.org/view/cdeb4500
+Apr 30 05:52:41 <Bayesian_Coffee>	i didn't change the boot order, fwiwi
+Apr 30 05:53:06 <Bayesian_Coffee>	to get into the usb stick i mean
+Apr 30 05:53:31 <cmurf[m]>	hmmm
+Apr 30 05:53:56 <cmurf[m]>	0000 is first
+Apr 30 05:54:21 <cmurf[m]>	and yet it still gets stuck at the splash
+Apr 30 05:54:46 <cmurf[m]>	ok do this
+Apr 30 05:55:11 <cmurf[m]>	tar -acf efivars.tar /sys/firmware/efi/efivars
+Apr 30 05:55:36 <Bayesian_Coffee>	done
+Apr 30 05:56:01 <cmurf[m]>	do you have a rhbz login?
+Apr 30 05:56:26 <Bayesian_Coffee>	yeah
+Apr 30 05:56:26 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 30 05:56:26 2021
+
+**** BEGIN LOGGING AT Fri Apr 30 05:57:12 2021
+
+Apr 30 05:57:12 *	Now talking on #fedora
+Apr 30 05:57:12 *	Topic for #fedora is: Fedora Linux F32, F33, F34 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common || Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins
+Apr 30 05:57:12 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Apr 27 14:28:20 2021)
+Apr 30 05:57:12 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Apr 30 05:57:37 <cmurf[m]>	ok hold on
+Apr 30 05:58:20 <cmurf[m]>	you install this?
+Apr 30 05:58:45 <cmurf[m]>	https://download.fedoraproject.org/pub/fedora/linux/releases/34/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-34-1.2.iso
+Apr 30 05:59:10 <Bayesian_Coffee>	yeah, whatever just came from fedora media writer for macos
+Apr 30 05:59:34 <Bayesian_Coffee>	i think it's the only one out
+Apr 30 05:59:36 <Bayesian_Coffee>	workstation that is
+Apr 30 05:59:36 <cmurf[m]>	ok you need to attach that tar to this
+Apr 30 05:59:36 <cmurf[m]>	https://bugzilla.redhat.com/show_bug.cgi?id=1955416
+Apr 30 05:59:36 <cmurf[m]>	also need to do
+Apr 30 05:59:36 <cmurf[m]>	dmesg > dmesg.log
+Apr 30 05:59:36 <cmurf[m]>	attach that too
+Apr 30 05:59:36 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 30 05:59:36 2021
+
+**** BEGIN LOGGING AT Fri Apr 30 06:00:02 2021
+
+Apr 30 06:00:02 *	Now talking on #fedora
+Apr 30 06:00:02 *	Topic for #fedora is: Fedora Linux F32, F33, F34 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common || Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins
+Apr 30 06:00:02 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Apr 27 14:28:20 2021)
+Apr 30 06:00:02 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Apr 30 06:02:37 <Bayesian_Coffee>	i see it in the cli, but i don't know where the file is in the files window...
+Apr 30 06:02:53 <Bayesian_Coffee>	like why isn't ~ showing in the gui
+Apr 30 06:03:37 <Bayesian_Coffee>	nvm, got it
+Apr 30 06:05:51 <cmurf[m]>	might be easier to just make a new tab in Terminal
+Apr 30 06:05:53 <cmurf[m]>	liveuser is fine
+Apr 30 06:06:01 <cmurf[m]>	neither that tar command nor dmesg need root
+Apr 30 06:06:09 <cmurf[m]>	then the files are easier to find in firefox
+Apr 30 06:06:48 <Bayesian_Coffee>	k, plopped both in
+Apr 30 06:06:56 <GuruMeditationNo>	cmurf[m]: Hope you don't mind an unrelated question, but since you seem to grok the boot stuff, should Anaconda be installing an EFI partition and GPT on a BIOS-only system?
+Apr 30 06:07:12 <cmurf[m]>	no
+Apr 30 06:07:31 <cmurf[m]>	but it probably isn't a bios only system
+Apr 30 06:07:44 <cmurf[m]>	efibootmgr -v | fpaste
+Apr 30 06:08:08 <cmurf[m]>	it detects if /sys/firmware/efi/efivars exists, if it does, it does a UEFI installation with GPT and ESP
+Apr 30 06:08:22 <cmurf[m]>	otherwise it does MBR and stuffs GRUB into the MBR gap
+Apr 30 06:08:26 <Bayesian_Coffee>	how do i close the duplicate? i made 1955390 earlier
+Apr 30 06:08:33 <Bayesian_Coffee>	but i guess that can be closed
+Apr 30 06:08:43 <cmurf[m]>	oh don't worry about it
+Apr 30 06:09:30 <Bayesian_Coffee>	so who's to blame here? fedora shim or lenovo firmware?
+Apr 30 06:09:35 <GuruMeditationNo>	cmurf[m]: There's no indication in the BIOS screens for secure boot or anything.  It's an old Lenovo Thinkcenter, probably 2012 or so. Hang on, booting it up.
+Apr 30 06:11:53 <cmurf[m]>	Bayesian_Coffee: not sure, a lot of issues with shim are actually work arounds for other bugs
+Apr 30 06:11:58 <cmurf[m]>	bugs in firmware, and binutils, etc
+Apr 30 06:12:29 <cmurf[m]>	so it might just be shim is doing something that irks the firmware and it'll need some quirk to not do that just for this firmware
+Apr 30 06:12:33 <cmurf[m]>	no idea really i'm guessing
+Apr 30 06:13:02 <cmurf[m]>	GuruMeditationNo:  there are non-Secure Boot UEFI systems
+Apr 30 06:13:10 <cmurf[m]>	and even pre UEFI systems that are Intel EFI
+Apr 30 06:14:11 <cmurf[m]>	And some of those don't even have a CSM (compatibility support module) to present a faux BIOS, sometimes also called Legacy boot mode or even crazy enough called "UEFI disabled"
+Apr 30 06:14:15 <cmurf[m]>	so bad
+Apr 30 06:14:38 <cmurf[m]>	Bayesian_Coffee: sorry about that, your bug was fine but i'd already started writing it up because i didn't want this fish to get away
+Apr 30 06:14:57 <GuruMeditationNo>	cmurf[m]: Well, you're right, /sys/firmware/efi/efivars exists.  Problem is, it won't boot unless I manually convert the partition table to MBR and install grub by hand.
+Apr 30 06:15:23 <GuruMeditationNo>	F33 installed and booted no problem on the same machine.
+Apr 30 06:15:36 <cmurf[m]>	so it's possibly doing UEFI boot with the USB stick, but then does BIOS boot without a USB stick
+Apr 30 06:15:42 <cmurf[m]>	firmware bugs
+Apr 30 06:15:56 <Bayesian_Coffee>	no worries!
+Apr 30 06:15:57 <cmurf[m]>	so you probably do need to dig around the firmware setup and find something like UEFI enabled/disabled
+Apr 30 06:16:10 <cmurf[m]>	or something "legacy" boot related and uncheck it
+Apr 30 06:16:12 <Bayesian_Coffee>	cmurf[m]: thank you for scratching my itch
+Apr 30 06:16:23 <Bayesian_Coffee>	it was totally wild to me that it was such a catastrophic upgrade
+Apr 30 06:16:30 <Bayesian_Coffee>	and i mean thinkpads now ship fedora!!
+Apr 30 06:16:30 <cmurf[m]>	Bayesian_Coffee: it's a bad bug
+Apr 30 06:16:35 <Bayesian_Coffee>	so shame on lenovo!
+Apr 30 06:16:44 <cmurf[m]>	and thing is, it's new enough hardware and firmware that someone else is bound to run into it
+Apr 30 06:16:57 <Bayesian_Coffee>	there's a reddit thread about it
+Apr 30 06:17:02 <Bayesian_Coffee>	some guy thought he bricked his machine
+Apr 30 06:17:07 <cmurf[m]>	no doubt, it's crazy
+Apr 30 06:17:22 <cmurf[m]>	yeah
+Apr 30 06:17:35 <cmurf[m]>	well you can probably clear this up by doing a factory defaults routine in the firmware
+Apr 30 06:18:51 <Bayesian_Coffee>	i did try, but that didn't seem to work
+Apr 30 06:19:03 <Bayesian_Coffee>	anyway, thank you for poking around
+Apr 30 06:19:04 <cmurf[m]>	and what's also mean is that it boots ok from the usb stick
+Apr 30 06:19:12 <cmurf[m]>	it's the subsequent reboot that seems to get jammed
+Apr 30 06:19:13 <Bayesian_Coffee>	yeah,
+Apr 30 06:19:16 <Bayesian_Coffee>	nuts
+Apr 30 06:19:33 <cmurf[m]>	no matter what there's  a firmware bug here
+Apr 30 06:19:41 <Bayesian_Coffee>	anyway, thank you for this, looking forward to an update from lenovo
+Apr 30 06:19:53 <cmurf[m]>	but not doing fallback properly is sadly common
+Apr 30 06:20:01 <Bayesian_Coffee>	gotta go to sleep!
+Apr 30 06:20:06 <cmurf[m]>	so in your case there is an easier way to get back to the older shim
+Apr 30 06:20:21 <cmurf[m]>	which is to copy it off a fedora 33 system
+Apr 30 06:20:36 <cmurf[m]>	and just step on the files in the EFI system partition
+Apr 30 06:20:53 <cmurf[m]>	BOOTX64.EFI, shim.efi, shimx64.efi
+Apr 30 06:20:54 <Bayesian_Coffee>	yeah, will probably run f33 until i see the firmware update
+Apr 30 06:21:01 <cmurf[m]>	gotcha
+Apr 30 06:21:06 <cmurf[m]>	that also works
+Apr 30 06:21:14 <Bayesian_Coffee>	anyway, thank you for this!
+Apr 30 06:21:18 <Bayesian_Coffee>	'night
+Apr 30 06:21:19 <cmurf[m]>	np
+Apr 30 06:26:10 <GuruMeditationNo>	cmurf[m]: Yeah, it looks like this is a UEFI firmware after all.  Nothing about legacy boot or anything that looks likely.  It does have a TPM, I think.  Is there a way to clear the EFI nvram?
+Apr 30 06:36:39 <fedbot>	*** F33-20210416 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Apr 30 06:41:01 <rudrab>	Hi, xcrysden is a software (not packed by fedora). If I run in Wayland, it is giving error https://paste.centos.org/view/35ad201f
+Apr 30 06:41:58 <rudrab>	Possibly this is due to replacing x11-utils in f34, as it was working perfectly in f33 as well as f34 in xorg
+Apr 30 06:42:21 <[R]>	so talk to the author...
+Apr 30 06:42:32 <rudrab>	I have tried GDK_BACKEND=x11 ./xcrysden but I am getting the same error.
+Apr 30 06:43:03 <rudrab>	Is there any way I can run it in f34 wayland?
+Apr 30 06:43:57 *	floresta is now known as juceliofloresta
+Apr 30 06:45:10 <cmurf[m]>	GuruMeditationNo: should be 'factory defaults' in firmware setup will do it
+Apr 30 06:45:52 <rudrab>	[R]: talk to author about what? some X distro has made some Y change, hence you have to made some z change?
+Apr 30 06:46:18 <cmurf[m]>	the only way converting to MBR and BIOS GRUB after the fact could work, is if there's some legacy option in the firmware to get it to do this
+Apr 30 06:46:31 <cmurf[m]>	but efibootmgr -v | fpaste would maybe reveal what's up
+Apr 30 06:46:53 <[R]>	rudrab: if some random app isnt' working, then you need to report a bug to the author so they can fix it...
+Apr 30 06:47:47 <GuruMeditationNo>	cmurf[m]: It was something like "Load optimized settings."  So even though I had it working, I went ahead and wiped the first meg and reinstalled.  Now I'm getting an error from Anaconda "Failed to set new efi boot target.  THis is most likely a kernel or firmware bug."
+Apr 30 06:48:31 <GuruMeditationNo>	(This is mostly in the interest of science... I don't really need the machine)
+Apr 30 06:49:58 <rudrab>	[R]: The problem is reported.
+Apr 30 06:50:11 <rudrab>	You are missing the question.
+Apr 30 06:50:26 <[R]>	lol
+Apr 30 06:50:50 <rudrab>	We used to know that x11 apps run in wayland using GDK_BACKEND.
+Apr 30 06:51:14 <rudrab>	now after replacing x11-util, is there any alternative?
+Apr 30 06:51:17 <GuruMeditationNo>	cmurf[m]: https://paste.centos.org/view/a0b01759
+Apr 30 06:52:45 <rudrab>	[R]: laughing unnecessarily is madness. GWS
+Apr 30 06:58:12 <cmurf[m]>	GuruMeditationNo: yeah it's missing the hint for the bootloader
+Apr 30 06:58:39 <cmurf[m]>	it should fallback and just add a Fedora entry automatically but it isn't
+Apr 30 06:58:52 <GuruMeditationNo>	Wierd, tho, this is the first time I got an error during install.
+Apr 30 06:59:18 <cmurf[m]>	what error
+Apr 30 06:59:19 <GuruMeditationNo>	But I didn't clear the bios before... would it reuse the one from F33?
+Apr 30 07:00:01 <GuruMeditationNo>	cmurf[m]: It was something like "Load optimized settings."  So even though I had it working, I went ahead and wiped the first meg and reinstalled.  Now I'm getting an error from Anaconda "Failed to set new efi boot target.  THis is most likely a kernel or firmware bug."
+Apr 30 07:00:21 <cmurf[m]>	yeah could be true
+Apr 30 07:00:26 <cmurf[m]>	this is fedora 34 installer?
+Apr 30 07:00:40 <GuruMeditationNo>	Yeah
+Apr 30 07:01:25 <GuruMeditationNo>	I'm looking for likely error messages in the /var/log/anaconda but not finding anything.  What should I look for?
+Apr 30 07:01:26 <cmurf[m]>	fpaste --sysinfo
+Apr 30 07:02:51 <cmurf[m]>	i wonder if your problem is similar to the previous one
+Apr 30 07:03:08 <cmurf[m]>	hosed bootorder and no fallback
+Apr 30 07:03:22 <GuruMeditationNo>	https://paste.centos.org/view/5a576d8c
+Apr 30 07:04:42 <GuruMeditationNo>	Yeah, that's why I thought I'd ask you.  BTW, I'm booted from a Ventoy stick right now, but if you want to troubleshoot this cleanly, I can go from a straight image.  And I still have the Anaconda screen up.
+Apr 30 07:04:43 <cmurf[m]>	is this a netinstaller? rescue boot?
+Apr 30 07:04:49 <cmurf[m]>	or did you just reinstall?
+Apr 30 07:05:18 <GuruMeditationNo>	No, I dd'd a meg of /dev/zero to /dev/hda and reinstalled
+Apr 30 07:05:28 <GuruMeditationNo>	s/hda/sda
+Apr 30 07:05:37 <cmurf[m]>	ok so you've reinstalled but haven't yet reboot
+Apr 30 07:05:46 <cmurf[m]>	you got this bootloader related error
+Apr 30 07:05:51 <cmurf[m]>	dmesg | fpaste
+Apr 30 07:07:13 <GuruMeditationNo>	9aac9c1d
+Apr 30 07:07:59 <cmurf[m]>	another lenovo :P
+Apr 30 07:08:00 <cmurf[m]>	[    0.000000] DMI: LENOVO 3157X02/To be filled by O.E.M., BIOS 9QKT39AUS 08/10/2012
+Apr 30 07:09:07 <GuruMeditationNo>	Yep, that's what I said when you were dealing with the other one :)
+Apr 30 07:09:28 <GuruMeditationNo>	This is the last bios they made for this thing
+Apr 30 07:10:36 <cmurf[m]>	yeah
+Apr 30 07:10:46 <cmurf[m]>	so you need to file a shim bug also i think
+Apr 30 07:11:03 <cmurf[m]>	see if it can be worked around
+Apr 30 07:11:10 <cmurf[m]>	but before that need to see if old shim works
+Apr 30 07:11:36 <cmurf[m]>	https://www.reddit.com/r/Fedora/comments/mzvzvt/bricked_my_thinkpad_upgrading_to_fedora_34/gwe5p2l/?utm_source=reddit&utm_medium=web2x&context=3
+Apr 30 07:11:43 <cmurf[m]>	i wrote up a sequence
+Apr 30 07:12:00 <cmurf[m]>	start with curl command
+Apr 30 07:12:09 <cmurf[m]>	download the old shim, rpm2cpio to unpack it
+Apr 30 07:12:13 <cmurf[m]>	then copy it into place
+Apr 30 07:12:31 <cmurf[m]>	your ESP isn't mounted at /mnt so you need to use
+Apr 30 07:12:52 <cmurf[m]>	 /mnt/sysroot/boot/efi/ as the prefix
+Apr 30 07:13:23 <cmurf[m]>	i.e. the first copy command would be
+Apr 30 07:13:44 <cmurf[m]>	sudo cp ./boot/efi/EFI/BOOT/BOOTX64.EFI /mnt/sysroot/boot/efi/EFI/BOOT/BOOTX64.EFI
+Apr 30 07:14:29 <cmurf[m]>	oh one more thing
+Apr 30 07:14:41 <cmurf[m]>	can you do 'mokutil --sb-state'
+Apr 30 07:14:48 <cmurf[m]>	what do you get?
+Apr 30 07:15:17 <GuruMeditationNo>	This system doesn't support Secure Boot
+Apr 30 07:15:23 <cmurf[m]>	ok
+Apr 30 07:15:30 <cmurf[m]>	so you have two possible work arounds
+Apr 30 07:15:46 <cmurf[m]>	try old shim to confirm/deny it works and that new shim doesn't
+Apr 30 07:16:07 <cmurf[m]>	the other is to create an NVRAM entry using efibootmgr that points directly to grubx64.efi, by passing shim
+Apr 30 07:16:11 <cmurf[m]>	you don't actually need shim
+Apr 30 07:16:46 <cmurf[m]>	but the way this all works, we're using shim as the 1st bootloader for everyone so it's got to work or it's a bug
+Apr 30 07:16:49 <GuruMeditationNo>	oh, shim is the signed bootloader, right?
+Apr 30 07:17:00 <cmurf[m]>	they are both signed
+Apr 30 07:17:08 <cmurf[m]>	just by different parties
+Apr 30 07:18:18 <GuruMeditationNo>	Okay, but shim is signed by a cert that's in most firmware?
+Apr 30 07:18:48 <cmurf[m]>	yes but for nonSB systems, shim just no ops itself and is supposed to just load grubx64.efi
+Apr 30 07:19:08 <GuruMeditationNo>	And just to confirm, you want me to replace the existing /mnt/sysroot/efi/EFI/BOOT/BOOTX64.EFI?
+Apr 30 07:19:18 <cmurf[m]>	yes
+Apr 30 07:19:21 <cmurf[m]>	all of them in the list
+Apr 30 07:19:24 <cmurf[m]>	with the same file
+Apr 30 07:20:20 <cmurf[m]>	BOOTX64.EFI is shim but it's used as the default when there's no NVRAM entry for Fedora, and then adds one, but the one it adds points to shimx64.efi
+Apr 30 07:20:23 <cmurf[m]>	same file, different path
+Apr 30 07:21:24 <GuruMeditationNo>	oh, didn't see the command to paste.  uhm, let me figure out how to get it to that machine.
+Apr 30 07:22:42 <cmurf[m]>	well it's just that one file extracted from the old shim rpm
+Apr 30 07:22:52 <cmurf[m]>	and you copy it over the three you have
+Apr 30 07:23:16 <cmurf[m]>	old shim sha256sum is e6cb6a3dcbd85954e5123759461198af67658aa425a6186ffc9b57b772f9158f
+Apr 30 07:24:55 <GuruMeditationNo>	oh, I guess I can scp it from here
+Apr 30 07:27:05 <cmurf[m]>	Southern_Gentlem: F34-WORK-x86_64-LIVE-20210429R.iso installs and boots ok for me in virt-manager, no looping
+Apr 30 07:32:31 <GuruMeditationNo>	cmurf[m]: okay, I replaced all three files with the one from the rpm
+Apr 30 07:36:33 <GuruMeditationNo>	cmurf[m]: And by the way, if it's not worth your time to troubleshoot this dinosaur, I don't mind... it's mainly academic for me.  It's mainly an academic exercise, in case its a fedora bug we can nail down.
+Apr 30 07:36:39 <fedbot>	*** F33-20210416 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Apr 30 07:37:41 *	GuruMeditationNo started on Slackware, but has been out of the Linux scene for a long time...
+Apr 30 07:38:14 <cmurf[m]>	Ok if all three are replaced, reboot
+Apr 30 07:38:17 <cmurf[m]>	See what happens
+Apr 30 07:39:49 <GuruMeditationNo>	Okay, I clicked okay on the anaconda message and it went to building initramfs... let me double check it didn't ovewrite those files again
+Apr 30 07:40:26 <cmurf[m]>	It doesn't
+Apr 30 07:41:25 <GuruMeditationNo>	nope.. trying to boot from the network
+Apr 30 07:44:11 <cmurf[m]>	It's trying to not from the network?
+Apr 30 07:44:41 <cmurf[m]>	* It's trying to boot from the network?
+Apr 30 07:44:58 <GuruMeditationNo>	Yeah, sorry.  Back up in the live system now.
+Apr 30 07:46:28 <cmurf[m]>	Ok
+Apr 30 07:47:19 <GuruMeditationNo>	So those BBS entries in efibootmgr are the legacy boot mode?
+Apr 30 07:48:50 <cmurf[m]>	Not sure
+Apr 30 07:50:06 <cmurf[m]>	I guess next should be adding an nvram entry directly to grubx64.efi
+Apr 30 07:50:17 <cmurf[m]>	That should work
+Apr 30 07:50:42 <cmurf[m]>	But it also means fallback never worked on this laptop
+Apr 30 07:51:37 <cmurf[m]>	But you got some sort of efi error during installation
+Apr 30 07:51:42 <GuruMeditationNo>	You mean the earlier case?  Or mine (its a desktop)
+Apr 30 07:51:49 <cmurf[m]>	I didn't see that in the dmesg
+Apr 30 07:52:16 <cmurf[m]>	Ok desktop
+Apr 30 07:52:29 <GuruMeditationNo>	Yeah, this time.  But that was the first time I got an error... previously, it would do the install without error and just not boot.  The only change was that I cleared the BIOS settings.
+Apr 30 07:52:35 <cmurf[m]>	I'm 52 minutes after turning into a pumpkin
+Apr 30 07:53:03 <GuruMeditationNo>	okay, me too :)... you gonna be around tomorrow?
+Apr 30 07:53:50 <cmurf[m]>	Ok you could copy grubx64.efi replacing BOOTX64.EFI
+Apr 30 07:54:35 <cmurf[m]>	we know that'll work because that's how the stick is booting
+Apr 30 07:54:41 <GuruMeditationNo>	okay, what's the best way to get the chroot environment remounted?
+Apr 30 07:54:52 <cmurf[m]>	You don't
+Apr 30 07:55:03 <cmurf[m]>	Just mount the esp
+Apr 30 07:55:12 <cmurf[m]>	All files you need are there
+Apr 30 08:00:38 <GuruMeditationNo>	okay, copy the existing  fedora/grubx64.efi to BOOT/BOOTX64.EFI ?
+Apr 30 08:02:07 <cmurf[m]>	Yes
+Apr 30 08:03:23 <GuruMeditationNo>	Okay, done.  I'm just not sure how we're going to get it to boot without an entry in the efibootmgr... I'm pretty sure those BBS entries are for legacy MBR booting.  The only UEFI entry is for the USB stick.
+Apr 30 08:04:52 <cmurf[m]>	When nothing else can be found it uses BOOT/BOOTX64.EFI
+Apr 30 08:05:12 <cmurf[m]>	That's how the usb stick works
+Apr 30 08:05:41 <GuruMeditationNo>	okay, should I go ahead and reboot?
+Apr 30 08:06:38 <cmurf[m]>	Yes
+Apr 30 08:07:19 <GuruMeditationNo>	Nope.  It's trying to boot from the network card.
+Apr 30 08:08:38 <cmurf[m]>	So it's own fallback is messed up.
+Apr 30 08:09:08 <cmurf[m]>	Spec requires that it use BOOTX64.EFI
+Apr 30 08:09:37 <GuruMeditationNo>	I just tried something... Ventoy has a mode for "LocalBoot" called "Search and boot BOOTX64.EFI".  I tried that, and I get a grub> prompt.
+Apr 30 08:09:51 <cmurf[m]>	and again, it's booting from the usb stick using that fallback
+Apr 30 08:10:25 <cmurf[m]>	I don't know what ventoy is
+Apr 30 08:11:27 <CRCinAU>	ventoy is a kick ass project :)
+Apr 30 08:11:30 <GuruMeditationNo>	It's a multiboot ISO loader.
+Apr 30 08:11:43 <GuruMeditationNo>	https://www.ventoy.net/en/index.html
+Apr 30 08:12:35 <GuruMeditationNo>	But I think it does some black magic during the boot process, so I've been the live image from a plain dd'd stick for these tests
+Apr 30 08:13:06 <cmurf[m]>	Ok so grub can boot
+Apr 30 08:13:31 <cmurf[m]>	Normal it can't find grub.cfg in this configuration
+Apr 30 08:14:12 <cmurf[m]>	I think copying fedora/grub.cfg to BOoT/ will fix that
+Apr 30 08:14:22 <GuruMeditationNo>	yeah, it's pretty bare.  I do see the (hd) partitions with ls thought
+Apr 30 08:14:26 <GuruMeditationNo>	*though
+Apr 30 08:14:38 <cmurf[m]>	Would be better to add an nvram entry
+Apr 30 08:15:06 <GuruMeditationNo>	Yeah
+Apr 30 08:15:47 <cmurf[m]>	But shim is supposed to do that, so does the installer, yet no entries in nvrsm
+Apr 30 08:16:17 <cmurf[m]>	You can use
+Apr 30 08:16:18 <cmurf[m]>	configfile (hd0,gpt1)/EFI/fedora/grub.cfg
+Apr 30 08:16:44 <cmurf[m]>	Making adjustments if some of those details are wrong
+Apr 30 08:17:41 *	cmurf[m] passes out
+Apr 30 08:18:04 <GuruMeditationNo>	Yeah, it's hd1... hd0 is the USB stick.  It cleared the screen and gave a new grub> prompt.
+Apr 30 08:21:26 <GuruMeditationNo>	I'm getting pretty punchy now... want to table this for now?
+Apr 30 08:36:40 <fedbot>	*** F33-20210416 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Apr 30 08:37:48 <rishub>	is there an issue with F34 and nvidia cards?
+Apr 30 08:37:58 <rishub>	read something about it in a comment somewhere
+Apr 30 08:43:48 <cyberjunkie>	rishub, what kind of issue?
+Apr 30 08:44:42 <cyberjunkie>	cmurf[m], Are grub configs meant to be in /boot/grub2/ or in /boot/EFI/fedora/
+Apr 30 08:45:00 <cyberjunkie>	BTW, my issues are fixed, I'm using grub to boot via the EFI partition
+Apr 30 08:52:09 <qwedfg>	oh the new F34
+Apr 30 08:52:49 <qwedfg>	and there's holiday so maybe...
+Apr 30 09:01:44 <rishub>	cyberjunkie, something about nvidia drivers, wayland and F34
+Apr 30 09:02:01 <rishub>	I don't remember exactly what the deal was, but something wrong with that combo :)
+Apr 30 09:02:05 <cyberjunkie>	rishub, Wayland is a bit tacky, and not fully ready for NVIDIA
+Apr 30 09:02:15 <cyberjunkie>	but X11 works fine, install the rpmfusion drivers preferably
+Apr 30 09:02:23 <rishub>	i see. I'll hold off on upgrading for a bit i guess
+Apr 30 09:02:39 <cyberjunkie>	rishub, no issues with X11, unless you really only want wayland
+Apr 30 09:02:52 <rishub>	oh i see
+Apr 30 09:03:00 <rishub>	i thought they removed x11
+Apr 30 09:03:01 <cyberjunkie>	Wayland would crash previously, but not it runs, some glitches with some software
+Apr 30 09:03:14 <cyberjunkie>	Oh no, both exist, you can choose which one you want to boot into at the login screen
+Apr 30 09:03:36 <cyberjunkie>	if you feel like playing Wayland, you still can
+Apr 30 09:03:38 <rishub>	either way, its a busy month for me and im afraid of breaking something. It would be a bad time to have any kind of OS issue
+Apr 30 09:03:48 <cyberjunkie>	updating Fedora won't do anything
+Apr 30 09:04:09 <rishub>	it could
+Apr 30 09:04:22 <rishub>	i want to do a fresh install anyway to try btrfs
+Apr 30 13:00:02 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 30 13:00:02 2021
+
+**** BEGIN LOGGING AT Fri Apr 30 13:00:31 2021
+
+Apr 30 13:00:31 *	Now talking on #fedora
+Apr 30 13:00:31 *	Topic for #fedora is: Fedora Linux F32, F33, F34 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common || Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins
+Apr 30 13:00:31 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Tue Apr 27 14:28:20 2021)
+Apr 30 13:00:31 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Apr 30 13:03:47 *	specing_ is now known as specing
+Apr 30 13:17:05 <Southern_Gentlem>	michaeljo94, whats the problem
+Apr 30 13:18:00 <michaeljo94>	Oh was just trying to register from my Matrix Client. nvm
+Apr 30 13:23:58 <farribeiro>	open a chat to @appservice-irc:matrix.org ... and try the register
+Apr 30 13:24:13 <farribeiro>	https://fedoramagazine.org/access-freenode-using-matrix-clients/
+Apr 30 13:25:01 <farribeiro>	and chat to @freenode_NickServ:matrix.org too
+Apr 30 13:29:37 <Khaytsus>	See, matrix is much easier than IRC!
+Apr 30 13:29:48 <Khaytsus>	Pair it with never any 30-40 second latency and it's great!
+Apr 30 13:29:52 <Khaytsus>	smh
+Apr 30 13:35:14 *	mikel is now known as ghostwander
+Apr 30 13:36:44 <fedbot>	*** F33-20210416 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Apr 30 13:48:28 <Southern_Gentlem>	*** TESTERS needed for F34-20210430 Updated iso Please Join #fedora-respins to help **
+Apr 30 13:56:05 <hanspetergosteli>	hello world, this is my first element/matrix message.
+Apr 30 14:01:26 <Southern_Gentlem>	hanspetergosteli, shame your first irc message was with matrix
+Apr 30 14:09:47 <metbsd>	my fedora34 don't have bluetooth
+Apr 30 14:09:51 <metbsd>	anyone know?
+Apr 30 14:10:48 <jerome_>	metbsd, which device ?
+Apr 30 14:11:48 <metbsd>	how do i check bluetooth device?
+Apr 30 14:11:55 <Southern_Gentlem>	metbsd, f34 has bluetooth
+Apr 30 14:12:01 <Southern_Gentlem>	lsusb lspci
+Apr 30 14:12:12 <jerome_>	bah... you should know your material (so your device)...
+Apr 30 14:12:30 <metbsd>	Bus 001 Device 004: ID 0bda:b023 Realtek Semiconductor Corp. RTL8822BE Bluetooth 4.2 Adapter
+Apr 30 14:12:32 <Southern_Gentlem>	jerome_, welcome to the world of enduser support
+Apr 30 14:12:52 <jerome_>	some bluetooth goes with wifi devices, some other are dedicated and most probably linked with USB.
+Apr 30 14:12:58 <Southern_Gentlem>	jerome_, so did you checkout the f34 commonbugs
+Apr 30 14:13:15 <jerome_>	Southern_Gentlem, no
+Apr 30 14:13:40 <metbsd>	you mean rfkill?
+Apr 30 14:13:48 <jerome_>	metbsd, you have some option with lspci to check wich module is used.
+Apr 30 14:13:50 <metbsd>	it's all unblocked
+Apr 30 14:14:06 <jerome_>	(if any module is used)
+Apr 30 14:14:07 <metbsd>	Bus 001 Device 004: ID 0bda:b023 Realtek Semiconductor Corp. RTL8822BE Bluetooth 4.2 Adapter
+Apr 30 14:14:25 <metbsd>	the wifi is working. so i think realtek module is loaded
+Apr 30 14:14:37 <jerome_>	agin, you hav an option with lspci to read if a module is used and which one.
+Apr 30 14:15:05 <metbsd>	lspci|grep -i bluetooth?
+Apr 30 14:15:21 <jerome_>	metbsd, if you look at the archwiki pages, you will have some great information and proceed to achieve to make it working.
+Apr 30 14:15:35 <jerome_>	metbsd, no i think it was something like -k
+Apr 30 14:15:52 <jerome_>	yes... it is.
+Apr 30 14:16:17 <metbsd>	it's not there
+Apr 30 14:16:24 <metbsd>	bluetoothd is started
+Apr 30 14:16:34 <metbsd>	realtek module is loaded because realtek wifi is working
+Apr 30 14:16:39 <metbsd>	so i think it's a bug?
+Apr 30 14:16:44 <jerome_>	and if you don't have any module or if it is not the one you want to use with, lsmod is your firend
+Apr 30 14:17:21 <metbsd>	bluetooth             696320  46 btrtl,btintel,btbcm,bnep,btusb,rfcomm
+Apr 30 14:17:28 <metbsd>	lsmod is not my friend this time
+Apr 30 14:17:36 <jerome_>	metbsd, i'm not talking about "realtek module", but a module to use with the kernel (to load)
+Apr 30 14:17:38 <metbsd>	looks like it's loaded
+Apr 30 14:17:53 <metbsd>	ecdh_generic           16384  1 bluetooth
+Apr 30 14:18:04 <metbsd>	looks like it is loaded
+Apr 30 14:18:22 <farribeiro>	Southern_Gentlem: me too, in very years... i never used the irc until matrix
+Apr 30 14:18:28 <jerome_>	after that, you should choose wich application to use for the bluetooth service (there is some).
+Apr 30 14:18:49 <metbsd>	i restart bluetooth.service it start working
+Apr 30 14:19:10 <jerome_>	no error with this service ?
+Apr 30 14:19:16 <metbsd>	no error
+Apr 30 14:19:21 <jerome_>	so it is working
+Apr 30 14:19:24 <metbsd>	it's a bug needs to be fixed
+Apr 30 14:19:30 <Southern_Gentlem>	farribeiro, i have been on irc since proable rhl9
+Apr 30 14:19:38 <metbsd>	yes but when i boot, there's nothing
+Apr 30 14:19:49 <Southern_Gentlem>	metbsd, whats the bug?
+Apr 30 14:19:56 <jerome_>	what does it mean "there is nothing" exactly ?
+Apr 30 14:20:09 <jerome_>	because actually, there is something.
+Apr 30 14:20:10 <metbsd>	there is no device shown in bluetooth page
+Apr 30 14:20:24 <metbsd>	and the bluetooth switch will turn back to off
+Apr 30 14:20:35 <jerome_>	"bluetooth page"... i failed to figure out what page is it from.
+Apr 30 14:20:38 <Southern_Gentlem>	that there are 100K of bluetooth chips on the market and fedora is suppose to support everyone of them
+Apr 30 14:20:48 <metbsd>	setting-bluetooth
+Apr 30 14:20:48 <Southern_Gentlem>	??
+Apr 30 14:21:03 <Southern_Gentlem>	metbsd, sudo fpaste --sysinfo
+Apr 30 14:21:14 <Southern_Gentlem>	so we have an idea of what you are running
+Apr 30 14:21:23 <jerome_>	+1
+Apr 30 14:21:27 <Southern_Gentlem>	fedora has 9 Desktop environments
+Apr 30 14:21:36 <michaeljo94>	Southern_Gentlem: sounds like an enormous  kernel
+Apr 30 14:21:47 *	rhn-bry2 is now known as rhn-bry
+Apr 30 14:21:51 <metbsd>	https://paste.centos.org/view/5a7312c7
+Apr 30 14:22:01 <Southern_Gentlem>	michaeljo94, that would be linux-firmware bu yes
+Apr 30 14:22:20 <michaeljo94>	<Southern_Gentlem "michaeljo94, that would be linux"> sry my bad
+Apr 30 14:23:37 <Southern_Gentlem>	michaeljo94, rpm -qa |grep kernel yes the kernel stuff is huge thus the -modules
+Apr 30 14:24:25 <Southern_Gentlem>	metbsd, if you feel something is a bug please file a bugzilla report
+Apr 30 14:24:28 <gnafu>	metbsd: So basically, after a reboot Bluetooth is unavailable in GNOME Settings unless you restart bluetooth.service?
+Apr 30 14:24:34 <michaeljo94>	<Southern_Gentlem "michaeljo94, rpm -qa |grep kerne"> yup
+Apr 30 14:24:50 <metbsd>	i just restarted system. seems working fine now
+Apr 30 14:24:58 <metbsd>	no more bug
+Apr 30 14:25:05 <gnafu>	Nice.
+Apr 30 14:25:16 <metbsd>	and bluetooth device connect itself
+Apr 30 14:25:18 <metbsd>	good
+Apr 30 14:26:20 <gnafu>	Looks like some version of what you experienced has already been logged: https://bugzilla.redhat.com/show_bug.cgi?id=1952707
+Apr 30 14:34:05 <Southern_Gentlem>	gnafu, so that was silverblue so another needs to be filed for workstation
+Apr 30 14:34:21 <mernilio>	Hi all!
+Apr 30 14:34:40 <Abrax>	this the official chan?
+Apr 30 14:35:02 <mernilio>	sure!
+Apr 30 14:35:43 <Southern_Gentlem>	Abrax, as official as it gets
+Apr 30 14:35:51 <Abrax>	heh k
+Apr 30 14:35:53 <mernilio>	What on your mind big daddy?
+Apr 30 14:36:46 <fedbot>	*** F33-20210416 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Apr 30 14:37:35 <zcat>	Hah. Just finished btrfs-convert'ing + defragging my main raid1 ext4 data storage (music, photos, video, backups) and ~8 hours later compsize says a grand total of 227MB out of 1.7TB was saved from zstd:1 compression (not forced).
+Apr 30 14:37:46 <zcat>	Expected a low compression ratio... just not quite that low.
+Apr 30 14:37:53 *	Abrax wears his fedora.
+Apr 30 14:38:20 *	ChanServ gives channel operator status to Southern_Gentlem
+Apr 30 14:38:41 *	Southern_Gentlem has changed the topic to: Fedora Linux F32, F33, F34 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common https://tinyurl.com/f34-common || Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins
+Apr 30 14:39:20 <mernilio>	Any girl linux enthusiastt here? .. Im all about the social thing
+Apr 30 14:39:45 <Southern_Gentlem>	mernilio, this is a enduser support channel
+Apr 30 14:40:16 *	avu .oO( https://xkcd.com/322/ )
+Apr 30 14:40:42 <Southern_Gentlem>	mernilio, you have not learned that on the internet men are men, women are men, and if they are underage its the FBI
+Apr 30 14:40:55 <zcat>	I identify as human.
+Apr 30 14:41:50 <wibbit1>	hehehe
+Apr 30 14:42:09 <mernilio>	I remember a few years ago. I talked to a woman, and she was a guide in Elvis house, in tupelo, Mississippi. It made my day talking with her! :)
+Apr 30 14:42:50 <Southern_Gentlem>	except that Graceland in Memphis tn
+Apr 30 14:43:23 <mernilio>	His early years was in Tupelo.
+Apr 30 14:46:05 <mernilio>	Besides that, i've seen a southern gent... Only Charlie Daniels. R.I.P.
+Apr 30 14:48:32 <mernilio>	Maybe David Alllan Coe, Kris Kristofferson and some other folkx here on the ranch where we breed horses.
+Apr 30 14:49:49 <mernilio>	Nice talking to you'll :)
+Apr 30 15:31:02 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 30 15:31:02 2021
+
+**** BEGIN LOGGING AT Fri Apr 30 15:31:28 2021
+
+Apr 30 15:31:28 *	Now talking on #fedora
+Apr 30 15:31:28 *	Topic for #fedora is: Fedora Linux F32, F33, F34 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common https://tinyurl.com/f34-common || Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins
+Apr 30 15:31:28 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Fri Apr 30 14:38:40 2021)
+Apr 30 15:31:28 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Apr 30 15:36:47 <fedbot>	*** F33-20210416 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Apr 30 15:40:46 <Southern_Gentlem>	jgmitchell, so most likely you need to remove and reinstall your extensions
+Apr 30 15:41:51 <Khaytsus>	Every gnome tweak and extention breaks on every gnome update, has nothing to do with Fedora
+Apr 30 15:42:58 <jgmitchell>	Thanks Southern_Gentlem
+Apr 30 15:43:17 <jgmitchell>	Thankfully, I don't really modify my desktop too much
+Apr 30 15:43:58 <jgmitchell>	I switched back to linux because lately every time I boot windows it sounds like a jet engine is inside my laptop
+Apr 30 15:46:22 <jgmitchell>	most of my workday is spent on email, managing remote servers through RDP/Web GUI/SSH so Fedora is perfect for me
+Apr 30 15:47:20 <Khaytsus>	May need to air out the laptop, perhaps full of dust. I had a laptop that was always hot and fans running and canned air blew out a heck of a dust cloud
+Apr 30 15:47:44 <Terminus>	just finished migrating to F34 myself. my test VM showed a few problems like gnome crashing when i play youtube videos in firefox but i'm taking the plunge anyway.
+Apr 30 15:47:44 <Khaytsus>	But an is causing load booting seems pretty normal to me
+Apr 30 15:48:58 <Dustin[m]>	Does anyone here use Dropbox on F34?
+Apr 30 15:49:02 <zcat>	Khaytsus, more extensions than usual broke for gnome 40, and the workaround hack of just editing the metadata json to lie about compatibility didn't work.
+Apr 30 15:49:21 <Dustin[m]>	I have a friend who just updated from 33 to 34 and now Dropbox is broken. It pegs a core at 100% and doesn't function properly
+Apr 30 15:49:41 <Dustin[m]>	Just curious if anyone else has experience that and where specifically I should suggest he file a bug report
+Apr 30 15:49:42 <Terminus>	yeah, that sounds like it may just be in need of power management tweaking. i installed EL8 on my laptop and when i put load on it, CPU hit 100 C pretty quickly. fans barely turn on now that i've got proper power management configured.
+Apr 30 15:49:47 <zcat>	Khaytsus, paired down my extensions to two. Caffeine (to disable screensave/suspend), and Vitals (to replace system-monitor)
+Apr 30 15:50:08 <zcat>	Dustin[m], works fine here.
+Apr 30 15:50:19 <Dustin[m]>	Oh, no kidding
+Apr 30 15:50:49 <zcat>	Dustin[m], using the dropbox package from rpmfusion
+Apr 30 15:51:29 <Dustin[m]>	The plot thickens then
+Apr 30 15:51:41 <Terminus>	just checked and dropbox also exists on flathub.
+Apr 30 15:52:07 <Terminus>	i like checking flathub now before i look at other 3rd party repos.
+Apr 30 15:52:08 <Dustin[m]>	I'm going to ask him again if he tried the Flatpak
+Apr 30 15:52:16 <Dustin[m]>	I believe so
+Apr 30 15:52:32 <Dustin[m]>	But apparently it runs away with 100% CPU on one core and memory use begins to swell
+Apr 30 15:52:52 <Khaytsus>	Dropbox ticked me off with the 3 machine max, use my own nextcloud these days
+Apr 30 15:54:11 <jgmitchell>	I stopped using Dropbox a long time ago. Same with the other apps that showed so much promise before they realized their economics were unsustainable
+Apr 30 15:54:48 <jgmitchell>	Evernote was a favorite of mine and I even paid for it until they kept removing features
+Apr 30 15:55:07 <Khaytsus>	Ifttt same, they offer 3 free or 10/month. I'll just say no thanks
+Apr 30 16:03:43 <CRCinAU>	hahahah IFTT screwed their own pooch
+Apr 30 16:05:29 <CRCinAU>	3 free automations. so generous.
+Apr 30 16:05:39 <CRCinAU>	then $10USD/mo for the 4th.
+Apr 30 16:05:45 <CRCinAU>	like, no thanks guys.
+Apr 30 16:06:30 <knstn>	Does anyone else getting chrome-stable crashes? This is the log "Package 'google-chrome-stable' isn't signed with proper key"
+Apr 30 16:06:34 <knstn>	F33
+Apr 30 16:12:01 <mgee>	Hi, I've had trouble using virtualbox in F33 for a while, and could only make ut work in kernel-5.8.15-301.fc33.x86_64.
+Apr 30 16:12:17 <mgee>	Earlier, the akmods did work, and rebuilt for each kernel
+Apr 30 16:12:34 <mgee>	I think it is still rebuilding, but it fails due to missing signing (I think).
+Apr 30 16:12:41 <mgee>	I do not use secure boot.
+Apr 30 16:13:28 <mgee>	I now just upgraded to VirtualBox-6.1.20-2.fc33.x86_64, and it also fails using latest kernel kernel-5.11.16-200.fc33.x86_64
+Apr 30 16:14:48 <Southern_Gentlem>	mgee,  so are you using the rpmfusion vbox or from vbox
+Apr 30 16:14:51 <greenz1>	How to install(or find packages that provide)  `gtk+-3.0`, `gtk+-unix-print-3.0`, `glib-2.0`, `gobject-2.0`, and `gio-unix-2.0` libraries?
+Apr 30 16:15:14 <Southern_Gentlem>	greenz1, try that again in english please
+Apr 30 16:15:46 <greenz1>	`Library requirements (gtk+-3.0 >= 3.14.0 gtk+-unix-print-3.0 glib-2.0 gobject-2.0 gio-unix-2.0 ) not met; consider adjusting the PKG_CONFIG_PATH environment variable if your libraries are in a nonstandard prefix so pkg-config can find them.`
+Apr 30 16:15:46 <greenz1>	I am getting the followinf error. This appears to be an issues with missing libraries
+Apr 30 16:15:51 <greenz1>	 * `Library requirements (gtk+-3.0 >= 3.14.0 gtk+-unix-print-3.0 glib-2.0 gobject-2.0 gio-unix-2.0 ) not met; consider adjusting the PKG_CONFIG_PATH environment variable if your libraries are in a nonstandard prefix so pkg-config can find them.`
+Apr 30 16:15:51 <greenz1>	I am getting the following error. This appears to be an issues with missing libraries
+Apr 30 16:16:06 <Southern_Gentlem>	what are you doing would help as well
+Apr 30 16:16:15 <greenz1>	How do I find the packages that provide these libraries?
+Apr 30 16:16:24 <Southern_Gentlem>	what are you compileing
+Apr 30 16:16:33 <greenz1>	https://github.com/kaiostech/gecko-b2g/
+Apr 30 16:16:46 <greenz1>	https://github.com/kaiostech/gecko-b2g/
+Apr 30 16:16:51 <Southern_Gentlem>	dnf search dnf provides */
+Apr 30 16:17:23 <greenz1>	`dnf provides gtk+-3.0` returns empty results
+Apr 30 16:17:34 <mgee>	Southern_Gentlem: I'm using VirtualBox-6.1.20-2.fc33 from rpmfusion-free-updates and, hm, have kmod-VirtualBox-5.11.15-200.fc33.x86_64-6.1.18-1.fc33.x86_64 from @commandline
+Apr 30 16:17:42 <mgee>	maybe I have a mix?
+Apr 30 16:18:07 <Southern_Gentlem>	mgee rm the vbox from rpmfusion and try from vbox
+Apr 30 16:18:21 <ClosedWontFix[m]>	freenode_craigZombie[m]: have you tried installing the devel packages for the list you provided?
+Apr 30 16:19:03 <ClosedWontFix[m]>	start with
+Apr 30 16:19:03 <ClosedWontFix[m]>	dnf install gtk3-devel
+Apr 30 16:19:09 <ClosedWontFix[m]>	that should get you started.
+Apr 30 16:19:51 <Southern_Gentlem>	ClosedWontFix[m], i think that is for greenz1
+Apr 30 16:19:55 <greenz1>	<closedwontfix[m] "freenode_craigZombie[m]: have yo"> yes
+Apr 30 16:20:00 <mgee>	Southern_Gentlem: Ok, thx, will try. I assume you mean install virtualbox from virtualbox.org, not using any repo, right?
+Apr 30 16:20:08 <Southern_Gentlem>	yep
+Apr 30 16:20:28 <Southern_Gentlem>	mgee,  sudo fpaste --sysinfo please
+Apr 30 16:21:03 <Southern_Gentlem>	mgee,  so my next question why vbox
+Apr 30 16:21:45 <mgee>	Southern_Gentlem: https://paste.centos.org/view/9633e4fd
+Apr 30 16:22:03 <mgee>	Southern_Gentlem: I need to use Windows 10 for some progs
+Apr 30 16:22:23 <Southern_Gentlem>	so why vbox
+Apr 30 16:23:02 <Southern_Gentlem>	i am running vbox drives in VMM with no issues
+Apr 30 16:23:14 <mgee>	VMM?
+Apr 30 16:23:30 <Southern_Gentlem>	Virtual Machine Manager
+Apr 30 16:23:35 <mgee>	I'd be glad to try something other than vbox
+Apr 30 16:23:36 <Southern_Gentlem>	libvirt
+Apr 30 16:23:47 <Southern_Gentlem>	which is native in fedora
+Apr 30 16:23:56 <mgee>	Can I convert the existing win10 install and boot it?
+Apr 30 16:24:44 <Southern_Gentlem>	https://docs.fedoraproject.org/en-US/quick-docs/getting-started-with-virtualization/
+Apr 30 16:25:09 <Southern_Gentlem>	just point at the drive and boot that i dont think you have to convert anything
+Apr 30 16:25:30 <mgee>	Southern_Gentlem: Wow, thanks, will try this!
+Apr 30 16:26:07 <Southern_Gentlem>	just to be safe backup your vhd
+Apr 30 16:26:40 <mgee>	will do
+Apr 30 16:29:10 <Dustin[m]>	Dropbox had an issue with an existing folder
+Apr 30 16:29:11 <Dustin[m]>	Issue solved
+Apr 30 16:31:37 <Southern_Gentlem>	mgee, https://drive.google.com/file/d/1SmvwxZ-9GaU-NbnPmOUfCCj3gl03gRex
+Apr 30 16:33:28 <mgee>	so, ok, I should be able to mount the disk - but will I be able to actually boot Win10?
+Apr 30 16:34:01 <Southern_Gentlem>	yep thats what i do
+Apr 30 16:34:39 <mgee>	Cool. I'm doing backup now, will follow the docs and try
+Apr 30 16:35:52 <greenz1>	So, I installed all the libraries for GTK development using
+Apr 30 16:35:52 <greenz1>	`sudo dnf groupinfo "GNOME Software Development"`
+Apr 30 16:35:52 <greenz1>	But `pkg-config --modversion gtk+-3.0` cannot find the libraries. How can I get pkg-config to see the libraries?
+Apr 30 16:36:47 <fedbot>	*** F33-20210416 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Apr 30 16:37:31 <Southern_Gentlem>	greenz1, ask the person whom owns the git
+Apr 30 16:38:20 <greenz1>	Okay Southern_Gentlem:
+Apr 30 16:44:30 <mgee>	(I will go away for a while, but will try libvirt later tonight I guess, and will report back about success or not, thanks so far Southern_Gentlem)
+Apr 30 16:55:37 *	turgenevskaya is now known as TortillaSandwich
+Apr 30 17:03:10 <p4ddyf>	is there a simple rationale why Fedora gets relatively often a kernel update?
+Apr 30 17:04:59 <cws>	Because the kernel gets updated relatively often.
+Apr 30 17:05:18 <p4ddyf>	:) yes
+Apr 30 17:05:42 <Southern_Gentlem>	p4ddyf, because we stay with the mainline kernel
+Apr 30 17:06:16 <Southern_Gentlem>	excuse me stable kernel if you look at kernel.org
+Apr 30 17:06:24 *	Cha3kyung is now known as chaekyung
+Apr 30 17:06:30 <p4ddyf>	so when mainline updates lets say a typo in a description we get that too?
+Apr 30 17:06:38 <cws>	p4ddyf: I was being completely literal in what I was saying. :P
+Apr 30 17:06:42 <c4pt00>	https://www.reddit.com/r/pcmasterrace/comments/n1x1xe/google_play_store_should_a_qr_code_for_every_app/
+Apr 30 17:06:57 <p4ddyf>	cws: :)
+Apr 30 17:07:08 <p4ddyf>	my dilemma is the reboot then
+Apr 30 17:07:11 <cws>	p4ddyf: That's not how stable kernel releases work.
+Apr 30 17:07:20 <cws>	There isn't a release for every git commit.
+Apr 30 17:07:22 <Southern_Gentlem>	p4ddyf, fedora takes the mainline kernel and addsomethings and we test then its pushed to the repos
+Apr 30 17:07:39 <Southern_Gentlem>	p4ddyf, what is your issue
+Apr 30 17:08:13 <p4ddyf>	could it be an issue when i get kernel 2 and skip the reboot and in the meantime i get kernel 3 and then i reboot?
+Apr 30 17:09:02 <Southern_Gentlem>	p4ddyf, then it will try booting the newest kernel
+Apr 30 17:09:38 <Southern_Gentlem>	and depending on what kmods you use you may have to boot 2x for the kmods to build and work
+Apr 30 17:10:02 <Southern_Gentlem>	on the newest kernel
+Apr 30 17:10:45 <Southern_Gentlem>	so yes i expect we will see 5.11.17 mondayish
+Apr 30 17:11:06 <Southern_Gentlem>	depends on how many people test it over the weekend
+Apr 30 17:11:41 <p4ddyf>	and i till take the rist and skip rebooting for a while and then see
+Apr 30 17:11:49 <p4ddyf>	rist/risk
+Apr 30 17:11:59 <Peetz0r>	Hey. I just upgraded to f34 using `dnf system-upgrade` but it seems like grub is broken. I can't even get to the grub menu. It looks like all the right files are in the right spot and the uefi entry is still there.
+Apr 30 17:12:38 <Southern_Gentlem>	Peetz0r, see cmurf[m]
+Apr 30 17:13:01 <Southern_Gentlem>	cmurf[m], another customer for you
+Apr 30 17:13:19 <Southern_Gentlem>	Peetz0r, but i think he is away so stand by
+Apr 30 17:13:38 <Peetz0r>	No panic, I'm not in any hurry :)
+Apr 30 17:13:41 <Southern_Gentlem>	Peetz0r,  what Desktop Environment
+Apr 30 17:13:50 <Peetz0r>	Gnome
+Apr 30 17:14:12 <Southern_Gentlem>	so as you boot hold down the escape key should show you grub
+Apr 30 17:14:21 <Peetz0r>	This has always been an uefi install, and secure boot is disabled so that can't be the issue. Also no dual boot has ever been on there. There is full disk encryption with luks for the / partition, but no fancy encrypted /boot
+Apr 30 17:14:33 <Peetz0r>	Yes, it should, but it doesn't
+Apr 30 17:14:45 <Peetz0r>	also pressing escape should do that, it doesn't
+Apr 30 17:15:07 <Peetz0r>	also any reboot after a failed boot should give me the menu, but it doesn't
+Apr 30 17:15:09 *	Southern_Gentlem another reason i hate gnome is hiding grub
+Apr 30 17:15:30 <Peetz0r>	I actually like it. At least I used to until today :p
+Apr 30 17:15:54 <Peetz0r>	Getting the menu to popup when you need it with escape or shift has never before been an issue
+Apr 30 17:16:28 <Southern_Gentlem>	i suspect i know the issue but rather a master handle the issue
+Apr 30 17:16:42 <Peetz0r>	I do have a bootable usb with F34 on it handy and that boots fine btw
+Apr 30 17:16:58 <Peetz0r>	feel free to tell me your hunch, I think I can handle it :)
+Apr 30 17:17:27 <Southern_Gentlem>	it didnt write to the correct location
+Apr 30 17:17:55 *	cmurf[m] reads scrollback
+Apr 30 17:18:15 <Southern_Gentlem>	cmurf[m], dnf system-upgrade with luks on efi
+Apr 30 17:18:56 <Peetz0r>	yep, that's the tl;dr
+Apr 30 17:19:09 <cmurf[m]>	Yeah in the previous luks case it turned out not to be luks
+Apr 30 17:19:52 <Peetz0r>	I wouldn't suspect luks, it looks like grub it not running at all, or at least not telling me anything
+Apr 30 17:19:59 <cmurf[m]>	What make/model?
+Apr 30 17:20:12 <Peetz0r>	Thinkpad Yoga 370
+Apr 30 17:22:16 <mgee>	This is relevant, I have a F33 installation on luks, plan to do dist-upgrade on it today, before I move on with my primary machine
+Apr 30 17:22:40 <Peetz0r>	feel free to read along and/or ask me anything
+Apr 30 17:22:57 <Southern_Gentlem>	mgee, are you running on a lenovo
+Apr 30 17:23:19 <mgee>	I have one X1 carbon as well, yes
+Apr 30 17:23:28 <mgee>	but will test first on an old Dell
+Apr 30 17:23:54 <Peetz0r>	if it mattery, I'm 1 firmware version behind. I'm on 1.36 (august 2020) and there's 1.37 (octiber 2020) available
+Apr 30 17:23:58 <Peetz0r>	matters*
+Apr 30 17:24:07 <Peetz0r>	october*
+Apr 30 17:24:18 <prussian>	if you go into your firmware setup, are the efivars to even boot fedora there?
+Apr 30 17:24:29 <prussian>	you mention you can't even get into grub2 menu, no?
+Apr 30 17:24:32 <Peetz0r>	yep
+Apr 30 17:24:49 <Peetz0r>	'fedora' is still in the firmware boot menu
+Apr 30 17:24:53 <Peetz0r>	but when I pick it,. there'
+Apr 30 17:25:07 <Peetz0r>	there's just a screen with the lenovo logo on it and nothing happens
+Apr 30 17:25:30 <Peetz0r>	regardless of holding shift or mashing escape
+Apr 30 17:25:45 <Peetz0r>	lemme boot the usb again and check `efibootmgr` for more details
+Apr 30 17:25:53 <Southern_Gentlem>	Peetz0r, try something for me
+Apr 30 17:26:24 <Southern_Gentlem>	reboot and when you get the lenovo splash page type in your luks password
+Apr 30 17:26:31 <Southern_Gentlem>	enter
+Apr 30 17:26:47 <Peetz0r>	ooh, typing in my password blind :O
+Apr 30 17:26:51 <Peetz0r>	I can do that
+Apr 30 17:27:02 <Southern_Gentlem>	yep
+Apr 30 17:28:24 <Southern_Gentlem>	we have seen that as well
+Apr 30 17:28:24 <Peetz0r>	nothing happens
+Apr 30 17:28:36 <Southern_Gentlem>	and you did hit enter
+Apr 30 17:28:57 <Peetz0r>	yes I did
+Apr 30 17:29:07 <Peetz0r>	tried it twice because typos, still nothing
+Apr 30 17:29:20 <Southern_Gentlem>	rebooting each time
+Apr 30 17:29:20 <Peetz0r>	then tried again but extra slowly, still nothing
+Apr 30 17:29:25 <Southern_Gentlem>	ok
+Apr 30 17:29:31 <Peetz0r>	yes
+Apr 30 17:29:34 <Southern_Gentlem>	that was worth a shot
+Apr 30 17:30:20 <mgee>	Peetz0r: I googled "lenovo boot stuck on splash". Many hits
+Apr 30 17:30:47 <mgee>	There is this old static discharge trick as well
+Apr 30 17:31:15 <mgee>	turn off, remove power, remove battery, press power button for some time, repeat etc, then install battery, boot
+Apr 30 17:31:22 <cmurf[m]>	https://bugzilla.redhat.com/show_bug.cgi?id=1955416
+Apr 30 17:31:26 <cmurf[m]>	Sounds like that
+Apr 30 17:31:55 <akik>	any ideas why kernel 5.11.16 gets a local dhcp ip from my vdsl2 box but 5.11.15 gets it from my isp dhcp ? (f33)
+Apr 30 17:32:17 <cmurf[m]>	Can you boot from USB stick and do 'efibootnge -v | fpaste'
+Apr 30 17:32:43 <cmurf[m]>	* Can you boot from USB stick and do 'efibootmgr -v | fpaste'
+Apr 30 17:32:45 <Peetz0r>	yes I can after grabbing a 2nd usb key to transfer my wifi key, moment :p
+Apr 30 17:32:53 <mgee>	cmurf[m]: that seems spot on. And is pretty bad if it affects many
+Apr 30 17:32:59 <cmurf[m]>	Typos...
+Apr 30 17:33:58 <Southern_Gentlem>	cmurf[m], it would be good for Bay to try reinstalling with updated iso for another DE
+Apr 30 17:34:07 <cmurf[m]>	Thinkpads are pretty common.
+Apr 30 17:35:02 <akik>	i see these in systemd journal for 5.11.16: https://pastebin.com/raw/QeaxNEfw
+Apr 30 17:35:07 <mgee>	Yep, corporate as well. I actually went for thinkpad for my home computer because I though many Fedora developers have one
+Apr 30 17:35:47 <Southern_Gentlem>	and lenovo will be offering fedora installed as well
+Apr 30 17:35:58 <cmurf[m]>	Yeah. We don't know the scope of the problem yet. My speculation is thinkpads are so common that possibly some complacency has crept in to testing.
+Apr 30 17:36:10 <cmurf[m]>	It's a community effort
+Apr 30 17:36:30 <cmurf[m]>	But also this is a sneaky problem because it doesn't seem to affect USB booting.
+Apr 30 17:36:48 <fedbot>	*** F33-20210416 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Apr 30 17:36:59 <cmurf[m]>	If no one runs into or reports the problem during pre-release we don't find out until after release.
+Apr 30 17:38:34 <cmurf[m]>	There's at least one firmware bug though.
+Apr 30 17:38:38 <mgee>	yep, understandable. I might try upgrading my (somewhat old) X1 carbon later, if there is a possible fix, to see if that works
+Apr 30 17:38:56 <fedbot>	*** F34-20210430 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Apr 30 17:39:15 <cmurf[m]>	Can you boot from USB stick and do 'efibootmgr -v | fpaste'mgee
+Apr 30 17:39:29 <Peetz0r>	cmurf[m]: was working on that: https://paste.centos.org/view/8e3b98d5
+Apr 30 17:39:36 <cmurf[m]>	Ahhok
+Apr 30 17:41:30 <cmurf[m]>	That boot order is correct but there's a lot of items in that boot order I don't know if it's related
+Apr 30 17:41:57 <Peetz0r>	yes but the firmware doesn't allow me to delete all them. They'
+Apr 30 17:42:06 <cmurf[m]>	Try 'sudo efibootmgr --bootorder 0000'
+Apr 30 17:42:09 <Peetz0r>	They'll just re-appear after rebooting if I remember correctly
+Apr 30 17:42:24 <Peetz0r>	oh, ah, you mean the bootoorder thing, not the entire list
+Apr 30 17:42:25 <Peetz0r>	oops
+Apr 30 17:42:28 <Peetz0r>	lemme try that
+Apr 30 17:44:02 <Peetz0r>	no difference
+Apr 30 17:44:12 <mgee>	cmurf[m]: Not sure if you wanted to refer to me or Peetz0r regarding the fpaste above, but here's my X1 carbon (not fully update F33): https://paste.centos.org/view/c4f76bd2
+Apr 30 17:44:15 <Southern_Gentlem>	Bayesian_Coffee, what is the date on your bios please
+Apr 30 17:44:51 <Bayesian_Coffee>	don't know, don't have access to it right now. can check later
+Apr 30 17:45:50 <cmurf[m]>	Haha i am getting confused. mgee what make/model?
+Apr 30 17:45:58 <cmurf[m]>	Peetz0r: what make/model?
+Apr 30 17:46:34 <Southern_Gentlem>	Peetz0r, is a yoga mgee is an X1
+Apr 30 17:46:43 <Peetz0r>	Thinkpad Yoga 370. If it matters, I'm 1 firmware version behind. I'm on 1.36 (august 2020) and there's 1.37 (october 2020) available
+Apr 30 17:46:44 <mgee>	cmurf[m]: I have a Lenovo thinkpad X1 carbon, gen5 I think. I don't currently have any problem, still running F33.
+Apr 30 17:47:09 <Peetz0r>	firmware changelog doesn;t mention anything related, but y'never know
+Apr 30 17:47:49 <Southern_Gentlem>	cmurf[m], if it is what i am thinking how are they even booting the live in efi
+Apr 30 17:48:14 <prussian>	have you guys tried direct kernel boot?
+Apr 30 17:48:25 <Southern_Gentlem>	prussian, cant get to grub
+Apr 30 17:48:42 <prussian>	if you can setup efivars with the installer cd.
+Apr 30 17:48:59 <prussian>	worht a shot if it's some grub2 issue.
+Apr 30 17:49:00 <cmurf[m]>	Bayesian_Coffee: are you Seth?
+Apr 30 17:49:07 <Bayesian_Coffee>	yes
+Apr 30 17:49:13 <cmurf[m]>	Shows my short term memory :P
+Apr 30 17:49:56 <cmurf[m]>	mgee: ok super I'm going to disregard
+Apr 30 17:50:15 <jgawlik[m]>	Hello everyone
+Apr 30 17:50:21 <Khaytsus>	Bayesian_Coffee: So your laptop needs a firmware update!?
+Apr 30 17:50:26 <cmurf[m]>	Bayesian_Coffee: ok your firmware version is in the bug report
+Apr 30 17:50:37 <cmurf[m]>	It's super recent
+Apr 30 17:50:39 <Southern_Gentlem>	prussian, did you get that PM
+Apr 30 17:50:49 <prussian>	yes.
+Apr 30 17:50:54 <Bayesian_Coffee>	Khaytsus: yeah, pretty nuts
+Apr 30 17:51:02 <Khaytsus>	weird...  what's the fix?
+Apr 30 17:51:06 <Bayesian_Coffee>	it's wild to me that the fedora-qa team didn't test with that firmware
+Apr 30 17:51:10 <Peetz0r>	I tried direct kernel boot a while ago (f32 I think) and it wasn't possible with my setup since the boot parameters needed for disk crypto were too long for what my firmware allows me to put there if I remember correctly
+Apr 30 17:51:24 <Southern_Gentlem>	Khaytsus, dont know yet, lets let cmurf[m]  handle this
+Apr 30 17:51:47 <Khaytsus>	wat
+Apr 30 17:51:57 <Southern_Gentlem>	Bayesian_Coffee, most of QA tests in VMs
+Apr 30 17:52:23 <Peetz0r>	cmurf[m]: is it worth a shot to upgrade my firmware (even though my current firmware is recent enough)? or should I not add another variable to this mess right now?
+Apr 30 17:52:40 <Peetz0r>	for reference, here's the release notes with changelog of it: https://download.lenovo.com/pccbbs/mobiles/r0huj28d.txt
+Apr 30 17:52:53 <cmurf[m]>	Southern_Gentlem: part of the bug that's making it harder is that usb boot works, possibly because it depends on BOOT/BOOTX64.EFI being discovered rather than an nram boot order entry
+Apr 30 17:53:17 <Southern_Gentlem>	ok
+Apr 30 17:53:21 <Peetz0r>	I could try booting fro the ssd entry instead of the 'fedora' entry and see what happens
+Apr 30 17:53:37 <Khaytsus>	cmurf[m]: I wonder if one can easily boot off USB into an installed system wihtout futzing ;)
+Apr 30 17:54:03 <cmurf[m]>	It's hard to keep up when I'm doing this by phone
+Apr 30 17:54:37 <cmurf[m]>	Peetz0r: I would not add another variable
+Apr 30 17:54:41 <Southern_Gentlem>	so everyone except cmurf[m]  and Peetz0r back away from this issue
+Apr 30 17:54:48 <Peetz0r>	check
+Apr 30 17:55:15 <cmurf[m]>	Peetz0r: did you get the boot order set to just 0000? Desert boot now? Or is it the same problem?
+Apr 30 17:55:57 <cmurf[m]>	s/DesertDoes it/
+Apr 30 17:56:00 <cmurf[m]>	Haha
+Apr 30 17:56:54 <cmurf[m]>	Khaytsus:  not easily :)
+Apr 30 17:57:10 <Khaytsus>	heh
+Apr 30 17:57:23 <Southern_Gentlem>	**tag lenovo**
+Apr 30 17:57:44 <cmurf[m]>	But yeah from a USB stick we can get to grub and from grub we can use the configfile command to load the installation's grub.cfg
+Apr 30 17:58:23 <cmurf[m]>	But it requires knowing the (hdX,gptY) to load it
+Apr 30 17:58:37 <Khaytsus>	Long long ago I was migrating to a new drive and somehow missed I had removed the drive with LILO on it and wound up booting from a floppy for a while until I got around to fixing it ;)
+Apr 30 17:59:03 <cmurf[m]>	Yeah I have kind of an ugly Reddit post how to fix this.
+Apr 30 17:59:33 <cmurf[m]>	Step C starting with curl
+Apr 30 17:59:36 <cmurf[m]>	https://www.reddit.com/r/Fedora/comments/mzvzvt/comment/gwe5p2l
+Apr 30 18:01:18 <cmurf[m]>	Slightly easier is use a netinstaller on a USB stick, use the rescue boot option so that it assembles the installation for us, chroot into it , and then downgrade to shim 15-8.
+Apr 30 18:01:28 <Peetz0r>	I just saw this happening
+Apr 30 18:01:37 <Peetz0r>	https://u.pixie.town/glitch.im/QHJjCJMFBdSWlOuvqaMokyey/weird.jpeg
+Apr 30 18:01:54 <Peetz0r>	After selecting the ssd boot item insead of the fedora boot item
+Apr 30 18:02:01 <Peetz0r>	(red circle mine)
+Apr 30 18:02:17 <Peetz0r>	it was scrolling across with maybe 5 lines per second
+Apr 30 18:02:17 <cmurf[m]>	Peetz0r: ok...
+Apr 30 18:02:24 <cmurf[m]>	I have seen that before
+Apr 30 18:02:35 <cmurf[m]>	But I'm not sure why that sequence causes it
+Apr 30 18:02:38 <Bayesian_Coffee>	cmurf[m]: haha, i'm, on that thread
+Apr 30 18:02:45 <Bayesian_Coffee>	i posted your bug report from last night
+Apr 30 18:02:46 <cmurf[m]>	I guess the good news is that these bugs may all be related
+Apr 30 18:03:00 <cmurf[m]>	Bayesian_Coffee: does that screenshot look familiar? Which bug is it?
+Apr 30 18:03:02 <Peetz0r>	anyway, imma spend some time reading that thread
+Apr 30 18:03:18 <Bayesian_Coffee>	no, it's never looked like that for me
+Apr 30 18:03:43 <Bayesian_Coffee>	just stuck on the lenovo splash is my problem
+Apr 30 18:04:26 <Bayesian_Coffee>	https://www.reddit.com/r/Fedora/comments/mzvzvt/bricked_my_thinkpad_upgrading_to_fedora_34/gwe3sve?utm_source=share&utm_medium=web2x&context=3
+Apr 30 18:04:47 <Bayesian_Coffee>	https://twitter.com/sethgoldin/status/1388168529023840259
+Apr 30 18:07:26 <bkero>	For values of "bricked" meaning that the hard disk doesn't boot.
+Apr 30 18:08:42 <Bayesian_Coffee>	yeah i mean actually bricked is like interrupting a uefi update
+Apr 30 18:08:56 <Bayesian_Coffee>	but i could see how that user was concerned about not being able to boot
+Apr 30 18:09:09 <Bayesian_Coffee>	i knew something else was going on since i hadn't touched the uefi
+Apr 30 18:10:16 <ledeni>	Bayesian_Coffee: did you install f34 or couldn't boot livedvd at all
+Apr 30 18:10:36 <Bayesian_Coffee>	ledeni: installed f34
+Apr 30 18:10:53 <Bayesian_Coffee>	ledeni: can get into live usb just fine after setting it as first device to boot to
+Apr 30 18:11:12 <Bayesian_Coffee>	ledeni: but after installing, it gets stuck on splash screen
+Apr 30 18:12:04 <ledeni>	Bayesian_Coffee: ok did you try to press shift button on boot your lappy
+Apr 30 18:12:18 <Bayesian_Coffee>	no
+Apr 30 18:12:22 <Bayesian_Coffee>	what does that do?
+Apr 30 18:12:33 <Khaytsus>	Show grub
+Apr 30 18:12:38 <Peetz0r>	cmurf[m]: if we can fix it my downgrading the shim via koji, can;t we also just downgrade to the version the live usb uses?
+Apr 30 18:12:39 <Khaytsus>	ledeni: This has all been tried
+Apr 30 18:12:40 <Bayesian_Coffee>	no, you misunderstand
+Apr 30 18:12:43 <Bayesian_Coffee>	it can't get to grub
+Apr 30 18:12:56 <Peetz0r>	cmurf[m]: would skip a step fiddling with koji and a second usb drive
+Apr 30 18:13:34 <ledeni>	Bayesian_Coffee: did you try or not
+Apr 30 18:14:09 <Bayesian_Coffee>	ledeni: read the bug report--it has to do with uefi boot order being all screwed up. it's not getting to the drive with f34 installed.
+Apr 30 18:14:13 <Bayesian_Coffee>	literally can't get to grub
+Apr 30 18:15:02 <cmurf[m]>	Khaytsus: in Bayesian's case we modified grubenv to disable auto hide menu, and it still doesn't get to grub
+Apr 30 18:15:15 <Khaytsus>	Yeah, ick
+Apr 30 18:15:35 <cmurf[m]>	we're going to need an adventurous user with this problem to use the problem shim and enable shim debugging
+Apr 30 18:15:48 <cmurf[m]>	i'll add how to do that to the bug and see if we can learn anything
+Apr 30 18:16:05 *	fedora is now known as Guest86920
+Apr 30 18:18:15 <Peetz0r>	answered my own question, the shim on the live USB and the shim on my ssd is the same (broken) version
+Apr 30 18:18:32 *	jab1 is now known as jab
+Apr 30 18:18:41 <cmurf[m]>	yep
+Apr 30 18:19:09 <cmurf[m]>	you need fedora 34 beta or older (or any nightly) to get the old shim
+Apr 30 18:19:43 <cmurf[m]>	if you know how to do the assembly of the system with all the bind mounts of pseudo fs's and chroot, you can dnf downgrade to the shim-15-8 version that seems to not have the problem
+Apr 30 18:20:11 <cmurf[m]>	but i kinda need someone willing to put the new shim in debug mode and take photos :P
+Apr 30 18:20:42 <Peetz0r>	I think I could do that. But lemme first boot the old shim and confirm the upgrade actually went okay otherwise
+Apr 30 18:21:15 <cmurf[m]>	oh guys, you know what i just remembered? this shim is slated for Fedora 33 too
+Apr 30 18:21:58 <Peetz0r>	ouch
+Apr 30 18:21:58 <cmurf[m]>	ok yeah that's still in u-t and hasn't been pushed to stable
+Apr 30 18:22:08 <Peetz0r>	that's... very suboptimal
+Apr 30 18:22:39 <Southern_Gentlem>	Peetz0r, what DE
+Apr 30 18:22:45 <cmurf[m]>	well the issue is that the signing keys for the older shim are eminently going to be revoked
+Apr 30 18:22:58 <cmurf[m]>	as in within the life cycle of Fedora 34
+Apr 30 18:22:59 <Bayesian_Coffee>	oh no
+Apr 30 18:23:18 <Bayesian_Coffee>	can someone go put a blocker on it?
+Apr 30 18:23:20 <cmurf[m]>	so it was necessary to get a new shim onto F34 media
+Apr 30 18:23:22 <Peetz0r>	Yep, everything works
+Apr 30 18:23:35 <Peetz0r>	even my pulseaudio equaliser thingie survived the switch to pipewire
+Apr 30 18:23:42 <cmurf[m]>	Bayesian_Coffee:  The blocker was getting a new shim onto F34 media.
+Apr 30 18:23:55 <Bayesian_Coffee>	cmurf[m]: ah
+Apr 30 18:24:15 <Peetz0r>	So, I can now make a 2nd boot entry with the new broken shim and play around with that
+Apr 30 18:24:15 *	inflatador is now known as salonador
+Apr 30 18:24:47 <cmurf[m]>	We discussed this yesterday. Community testing is needed to discover bugs of this nature. And we had a two big shim test days and discovered bugs that were fixed. And it caused a slip because the fixed shim had to get reviewed and signed which takes a few days at least.
+Apr 30 18:25:22 <cmurf[m]>	Peetz0r: Assuming the firmware is honoring boot entries :P this might be part of the problem.
+Apr 30 18:25:47 <cmurf[m]>	Because i'm seeing in two cases that Fedora is the first in the boot order and yet they're getting stuck at the boot splash.
+Apr 30 18:25:59 <Peetz0r>	well, guess we'll find out soon
+Apr 30 18:26:14 <Southern_Gentlem>	Bayesian_Coffee, https://dl.fedoraproject.org/pub/fedora/linux/releases/test/34_Beta/Workstation/x86_64/iso/
+Apr 30 18:26:30 <Bayesian_Coffee>	Southern_Gentlem: is that new?
+Apr 30 18:26:38 <cmurf[m]>	yeah the shim on that media is the old shim
+Apr 30 18:26:41 <Southern_Gentlem>	that is the beta
+Apr 30 18:27:00 <Bayesian_Coffee>	Southern_Gentlem: can't get to this until later tonight
+Apr 30 18:27:20 <Southern_Gentlem>	cmurf[m], could he block the shim in his machine with a excludes
+Apr 30 18:27:43 <chiui>	hello, a quick question: can you umount /boot, and fsck it?
+Apr 30 18:27:52 <cmurf[m]>	found the other bug!
+Apr 30 18:27:52 <cmurf[m]>	https://bugzilla.redhat.com/show_bug.cgi?id=1954245
+Apr 30 18:28:08 <chiui>	when I try, I get that it is busy; yet it is not listed on /proc/mounts
+Apr 30 18:28:21 <cmurf[m]>	Peetz0r: did you try booting somehow that gets you this screenshot? or was it someone else?
+Apr 30 18:28:22 <Peetz0r>	mgee: you also ha da dell, right? check that bug above ^^
+Apr 30 18:28:26 <Peetz0r>	had* a*
+Apr 30 18:28:27 <cmurf[m]>	it's the first attachment
+Apr 30 18:28:30 <Bayesian_Coffee>	wow. two different uefis entirely
+Apr 30 18:28:46 <chiui>	also more weird thing: /boot has some contents when mounted, and other contents when unmounted, and both are recent? o.O
+Apr 30 18:29:31 <cmurf[m]>	chiui:  df | fpaste
+Apr 30 18:29:46 *	personinteresse[ is now known as personinteresse
+Apr 30 18:29:48 <cmurf[m]>	if you have UEFI, there's typically /boot/efi that will prevent /boot from umounting until /boot/efi is umounted
+Apr 30 18:30:05 <Peetz0r>	cmurf[m]: yep, that screenshot was me, after booting from the 'ssd' option instead of the 'fedora' option
+Apr 30 18:30:16 <Peetz0r>	it indeed looks very similar to the dell one in that bugreport
+Apr 30 18:30:19 <cmurf[m]>	OK... and you have the Yoga?
+Apr 30 18:30:25 <chiui>	https://paste.centos.org/view/5f5e3f3f
+Apr 30 18:30:25 <Peetz0r>	yp
+Apr 30 18:30:29 *	fedora_ is now known as outish
+Apr 30 18:30:31 <Peetz0r>	yep
+Apr 30 18:31:05 <chiui>	this is with /boot (and efi) unmounted ; boot mounted:  /dev/sdc2                             487652    190989     266967  42% /boot
+Apr 30 18:31:12 <cmurf[m]>	chiui: hmm not sure
+Apr 30 18:31:33 <chiui>	can you ls /boot when umounted? is it empty?
+Apr 30 18:31:35 <cmurf[m]>	it should be possible to fsck it once it's unmounted
+Apr 30 18:31:42 <cmurf[m]>	it's empty
+Apr 30 18:31:44 <chiui>	that's what I expected
+Apr 30 18:31:45 <cmurf[m]>	should be anyway
+Apr 30 18:31:48 <chiui>	and can you fsck it?
+Apr 30 18:31:56 <cmurf[m]>	yes
+Apr 30 18:32:23 <cmurf[m]>	an alternative is to just reboot and get to a grub menu, add parameter rd.break=pre-mount
+Apr 30 18:32:32 <cmurf[m]>	you'll get to a shell, and you can fsck it from there
+Apr 30 18:32:42 <Peetz0r>	while we're at it, while booted normally with the old ship, I check the boot order again, and it's back to `BootOrder: 0000,0010,0011,0012,0013,0017,0018,0019,001A,001B,001C,001D,001E`
+Apr 30 18:33:29 <Southern_Gentlem>	cmurf[m], what the shim plackage name
+Apr 30 18:33:38 *	outish is now known as fedora__
+Apr 30 18:33:39 *	fedora__ is now known as fedora_
+Apr 30 18:33:41 *	fedora_ is now known as outish
+Apr 30 18:34:04 <cmurf[m]>	Peetz0r: yeah i'm not sure to what degree the boot order matters; at least in Bayesian_Coffee case, his first boot after installation should have had Fedora in the first position like yours shows, but it didn't. It was in eighth position, and the fallback mechanism in the firmware wasn't getting to Fedora
+Apr 30 18:34:05 <cmurf[m]>	OR
+Apr 30 18:34:08 <Peetz0r>	it's `shim-x64`
+Apr 30 18:34:20 <cmurf[m]>	possible it does get to Fedora in both cases, and hangs there for some reason we don't yet understand
+Apr 30 18:34:32 <cmurf[m]>	so we really need to enable shim debug which is super messy but ...
+Apr 30 18:34:44 <cmurf[m]>	lemme find the instructions
+Apr 30 18:35:02 <cmurf[m]>	oh darn i'm not on that computer, rats
+Apr 30 18:36:19 <cmurf[m]>	Peetz0r:  you have Secure Boot enabled or disabled?
+Apr 30 18:36:41 <Peetz0r>	disabled right now, but I was planning on enabling it again later
+Apr 30 18:37:00 <Peetz0r>	I could leave it disabled for now if it makes debugging easier
+Apr 30 18:37:05 <cmurf[m]>	ok if you can enable it, then boot a USB stick with Fedora 34 beta or older on it (Fedora 33 or 32 is fine)
+Apr 30 18:37:12 <Peetz0r>	(I'm not going anywhere anyway for now)
+Apr 30 18:37:14 <cmurf[m]>	and then there's a mokutil command that'll enable debug
+Apr 30 18:37:35 <cmurf[m]>	but if SB is disabled we have to do a printf directly to efivars and i can't remember what that printf command is :P
+Apr 30 18:38:29 <cmurf[m]>	actually wait
+Apr 30 18:38:50 <Southern_Gentlem>	cmurf[m], yes wait till you get back to your computer
+Apr 30 18:38:55 <fedbot>	*** F34-20210430 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Apr 30 18:40:21 <cmurf[m]>	Peetz0r:  ok this should work from a Fedora 34 final USB stick if you have one already handy
+Apr 30 18:40:27 <cmurf[m]>	lemme reboot and test this command, brb
+Apr 30 18:41:39 <chiui>	cmurf[m], I detached and reattached the disk (yes it is a different disk than / ); I could then remount it (cleanly) and fsck it. Very weird.
+Apr 30 18:43:27 <mernilio>	MY KEYBOARD cant give me a capital S when i whas talking to a guy here from the deep american south and his evolvement with the k klux klaan
+Apr 30 18:43:58 <cmurf[m]>	Peetz0r: ok yeah that worked
+Apr 30 18:44:36 <mernilio>	Now it working.. carry on!
+Apr 30 18:44:36 <cmurf[m]>	so you want to use either bootorder or bootnext to make sure the new shim is going to be booted
+Apr 30 18:44:58 <cmurf[m]>	sorry, 'efibootmgr --bootorder' or --bootnext
+Apr 30 18:45:43 <cmurf[m]>	sudo mokutil --set-verbosity true
+Apr 30 18:46:00 <Peetz0r>	I have spent the past 10 minutes trying to create a 'fedora2' boot item which I can never boot and disappears after rebooting every time
+Apr 30 18:46:35 <cmurf[m]>	ok
+Apr 30 18:46:38 <cmurf[m]>	not sure
+Apr 30 18:46:47 <cmurf[m]>	what's the command you're using?
+Apr 30 18:46:58 <Peetz0r>	https://paste.centos.org/view/15daa828
+Apr 30 18:47:36 <Peetz0r>	(`joogaa` is the thinkpad yoga, and `doosje` is my desktop which is where I am sitting at but otherwise unrelated)
+Apr 30 18:48:05 <mernilio>	Fedora is bad in user backup.
+Apr 30 18:48:18 <cmurf[m]>	Peetz0r: \\EFI\\fedora2\\shimx64.efi
+Apr 30 18:48:24 <cmurf[m]>	huh
+Apr 30 18:48:31 <cmurf[m]>	make those double back slashes
+Apr 30 18:48:48 <cmurf[m]>	i type double but something made it single
+Apr 30 18:48:51 <cmurf[m]>	\
+Apr 30 18:48:52 <cmurf[m]>	haha
+Apr 30 18:48:56 <cmurf[m]>	 "\\"
+Apr 30 18:48:58 <cmurf[m]>	wow
+Apr 30 18:49:02 <Peetz0r>	tried that before, failed in the same way
+Apr 30 18:49:07 <Peetz0r>	also it showed up as double here :)
+Apr 30 18:49:31 <cmurf[m]>	ok let's skip all that for now
+Apr 30 18:49:37 <Peetz0r>	in both attempts it looked the same in the verbose output
+Apr 30 18:49:53 <Peetz0r>	yeah, I can just swap the directories in place for now
+Apr 30 18:50:15 <cmurf[m]>	can you make 0000 first in bootorder?
+Apr 30 18:50:18 <cmurf[m]>	right now it's 0001
+Apr 30 18:50:21 <cmurf[m]>	which doesn't exist
+Apr 30 18:50:40 <Peetz0r>	it always resets to having 0000 in front anyway
+Apr 30 18:50:51 <cmurf[m]>	hmm ok
+Apr 30 18:51:00 <Peetz0r>	see lines 4, 25, and 39 in output
+Apr 30 18:51:10 <cmurf[m]>	this is not what the spec says to do :D
+Apr 30 18:51:47 <Peetz0r>	"everyone knows the spec is just a suggestion" - firmware engineer, probably
+Apr 30 18:51:53 <Peetz0r>	(I'm glad I'm not trying to dualboot on this machine, it'd be living hell)
+Apr 30 18:52:07 <mernilio>	And if itt doesnt work consider KKK!
+Apr 30 18:52:40 <Peetz0r>	mernilio: I really want to kickban you so you should be glad I'm not an op here
+Apr 30 18:52:42 <cmurf[m]>	i see... so efivars shows it's there before reboot and then it's gone after reboot
+Apr 30 18:52:51 *	ChanServ gives channel operator status to Southern_Gentlem
+Apr 30 18:52:56 *	Southern_Gentlem sets ban on *!*@79.138.199.133.bredband.tre.se
+Apr 30 18:52:59 *	fedbot has kicked mernilio from #fedora (You are banned from this channel)
+Apr 30 18:53:03 <Peetz0r>	Southern_Gentlem: can you take a look at mernilio please?
+Apr 30 18:53:08 <Peetz0r>	thanks :)
+Apr 30 18:53:35 <Peetz0r>	cmurf[m]: yep
+Apr 30 18:53:43 <cmurf[m]>	ok so try that mokutil command
+Apr 30 18:53:48 <cmurf[m]>	see if it works without SB enabled
+Apr 30 18:54:17 <cmurf[m]>	if it fails then i guess enable SB, reboot the USB stick, retry the mokutil command
+Apr 30 18:54:28 <Southern_Gentlem>	Peetz0r, mernilio who
+Apr 30 18:55:09 <Peetz0r>	cmurf[m]: and swap in the new-broken shim too, I assume?
+Apr 30 18:56:19 <Peetz0r>	it told me 'secure boot disabled' in typical mokutil-blue and then went on booting normally
+Apr 30 18:56:49 *	Southern_Gentlem removes channel operator status from Southern_Gentlem
+Apr 30 18:57:40 <Peetz0r>	wait nvm I had the wrong shim in there
+Apr 30 18:59:27 <cmurf[m]>	Peetz0r: new shim sha256 starts with b37c6b72
+Apr 30 18:59:32 <loc_1024c1[m]>	Are steam native Linux games borked on fedora 34 workstation? They just seem to launch and crash
+Apr 30 18:59:48 <Peetz0r>	cmurf[m]: yeah I have the right one in place right now
+Apr 30 18:59:54 <Peetz0r>	and there's lots of output
+Apr 30 19:00:05 <Peetz0r>	lemme get you a photo
+Apr 30 19:00:12 <cmurf[m]>	actually...
+Apr 30 19:00:18 <cmurf[m]>	you might do video
+Apr 30 19:00:24 <cmurf[m]>	there's that much scroll
+Apr 30 19:00:47 <Peetz0r>	it stopped scrolling, presumably at the point where it hanged
+Apr 30 19:00:50 <Peetz0r>	so I should have a very readable photo already
+Apr 30 19:00:56 <cmurf[m]>	there's also two parts to the scroll, before GRUB, and after GRUB - but it depends on where yours gets stuck
+Apr 30 19:01:01 <cmurf[m]>	ok super
+Apr 30 19:01:36 <cmurf[m]>	my recommendation is to start a new bug, you can use the other one as a template though
+Apr 30 19:01:55 <cmurf[m]>	yours is a different model, and firmware, so even though it seems identical, it might not be the same problem
+Apr 30 19:02:06 <cmurf[m]>	and "me too" bugs make it harder to keep straight
+Apr 30 19:02:35 <Peetz0r>	https://u.pixie.town/glitch.im/jPlRNTFeQuudoGzSFJbzZcPz/P1060330.JPG
+Apr 30 19:02:36 <cmurf[m]>	https://bugzilla.redhat.com/show_bug.cgi?id=1955416
+Apr 30 19:02:49 <cmurf[m]>	that one; are you also stuck at splash screen?
+Apr 30 19:03:22 <Peetz0r>	that one matches exactly my issue
+Apr 30 19:03:39 <loc_1024c1[m]>	Does fedora not allow native Linux games with anti cheat to run? game works on other distros but fedora seems to not like it even tho it’s native Linux
+Apr 30 19:04:19 <Peetz0r>	loc_1024c1[m]: which game is it? I haven't heard of any game with anticheap on any non-windows platform so I'm curious
+Apr 30 19:04:27 <cmurf[m]>	ok feel free to just do "me too" but also add two things to make it clear: dmesg | grep DMI:
+Apr 30 19:04:36 <cmurf[m]>	and add the screenshot as an attachment
+Apr 30 19:04:40 *	AJC_Z0 is now known as AJ_Z0
+Apr 30 19:04:48 <loc_1024c1[m]>	<Peetz0r "loc_1024c1: which game is it? I "> Insurgency (old)
+Apr 30 19:05:20 <cmurf[m]>	if you click add attachment you can combine the comment with the screenshot
+Apr 30 19:05:35 <loc_1024c1[m]>	* > <@freenode_Peetz0r:matrix.org> loc_1024c1: which game is it? I haven't heard of any game with anticheap on any non-windows platform so I'm curious
+Apr 30 19:05:35 <loc_1024c1[m]>	Insurgency (old)
+Apr 30 19:05:35 <loc_1024c1[m]>	it works on other distros but I’m afraid due to fedora strict nature it’s not possible
+Apr 30 19:05:58 <Peetz0r>	loc_1024c1[m]: this one? https://steamdb.info/app/222880/
+Apr 30 19:06:13 <Peetz0r>	cmurf[m]: I'll do that
+Apr 30 19:06:20 <loc_1024c1[m]>	Peetz0r: yes
+Apr 30 19:06:59 <Peetz0r>	if it works on other distros it should also work on fedora
+Apr 30 19:07:40 *	fedbot sets quiet on *!loc1024c1m@gateway/shell/matrix.org/*
+Apr 30 19:07:56 <Peetz0r>	there shouldn't be much difference between steam across distros anyway
+Apr 30 19:08:09 <Peetz0r>	unless you need very recent graphics drivers or mesa, in which case fedora usually ends up as one of the better options actually - but that doesn't seem to apply here
+Apr 30 19:08:17 *	fedbot removes quiet on *!loc1024c1m@gateway/shell/matrix.org/*
+Apr 30 19:13:15 *	ChanServ gives channel operator status to Khaytsus
+Apr 30 19:13:56 <loc_1024c1[m]>	Peetz0r: yep not sure what’s going on, but my guess, it’s a play with permissions / sandbox etc
+Apr 30 19:13:58 *	Khaytsus sets ban on *!*@2.68.93.251.mobile.tre.se
+Apr 30 19:14:18 *	ChanServ removes channel operator status from Khaytsus
+Apr 30 19:15:37 <cmurf[m]>	Peetz0r: also you should probably also "me too" the steps you took to get to the first attachment screenshot in this bug
+Apr 30 19:15:37 <cmurf[m]>	https://bugzilla.redhat.com/show_bug.cgi?id=1954245
+Apr 30 19:16:21 <cmurf[m]>	but include in that comment the make/model and 'dmesg | DMI:' line to make it clear yours is not a Dell
+Apr 30 19:17:33 <Peetz0r>	I probably shoudln't upload a 200 MB video file on there, right?
+Apr 30 19:18:13 <cmurf[m]>	it won't let you
+Apr 30 19:18:15 <cmurf[m]>	20M max
+Apr 30 19:18:30 <cmurf[m]>	you'd have to put it in a file sharing service, then share the URL in the bug report
+Apr 30 19:18:41 <Peetz0r>	check. uploading elsewhere instead.
+Apr 30 19:19:12 <cmurf[m]>	when you got that screen full of hex, did it also just hang there indefinitely?
+Apr 30 19:19:53 <Peetz0r>	it was scrolling, but didn't respond to anything except the power button
+Apr 30 19:23:11 *	salonador is now known as inflatador
+Apr 30 19:48:49 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 30 19:48:49 2021
+
+**** BEGIN LOGGING AT Fri Apr 30 19:49:15 2021
+
+Apr 30 19:49:15 *	Now talking on #fedora
+Apr 30 19:49:15 *	Topic for #fedora is: Fedora Linux F32, F33, F34 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common https://tinyurl.com/f34-common || Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins
+Apr 30 19:49:15 *	Topic for #fedora set by Southern_Gentlem!~notfred@fedora/Southern-Gentleman (Fri Apr 30 14:38:40 2021)
+Apr 30 19:49:15 -ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+Apr 30 20:10:20 <Peetz0r>	cmurf[m]: I camtured the start of the matrix thingie
+Apr 30 20:10:24 <Peetz0r>	captured
+Apr 30 20:10:41 <Peetz0r>	https://u.pixie.town/glitch.im/LTRWvzCKZNYxfJXWiaSrbNbg/Screenshot_2021-04-30_21.10.26.png
+Apr 30 20:12:54 <Peetz0r>	cmurf[m]: Also, another thing I found out: the problem DOES NOT TRIGGER with secure boot enabled
+Apr 30 20:14:56 <cmurf>	zcat: music, photos, videos all tend to already be compressed and all tend to take up enormous amounts of space compared to other files so off hand it's not surprising to me
+Apr 30 20:15:20 <Peetz0r>	brb rebooting a bunch of times while changing settings to verify stuff I am finding out here
+Apr 30 20:17:11 <cmurf>	Peetz0r: if you haven't added this to existing bugs you really do have enough info to open a separate one for this particular model, and just include "see also URL, seems identical except model"
+Apr 30 20:17:48 <cmurf>	it might be a dup but the maintainer can easily deal with that
+Apr 30 20:18:00 <Peetz0r>	I have already added most info to #1955416 by now
+Apr 30 20:18:21 <cmurf>	ok that's fine
+Apr 30 20:21:58 <Peetz0r>	The matrix screensaver thing also appears while hanging if you wait for long enough
+Apr 30 20:22:37 <Peetz0r>	found that out while taking my time (multiple minutes, did not keep track) writing stuff :p
+Apr 30 20:24:29 <cmurf>	yeah at this low level things are pretty https://images.app.goo.gl/ZYMmw87uRNDeDJ927
+Apr 30 20:26:51 <Khaytsus>	Ya'll reminding me I really would like a Travelers (tv show) screensaver :(
+Apr 30 20:27:06 <Khaytsus>	Very matrix-ish, but different
+Apr 30 20:38:57 <fedbot>	*** F34-20210430 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+Apr 30 20:45:45 *	Scotty_Trees|Zzz is now known as Scotty_Trees
+Apr 30 20:46:20 <Peetz0r>	cmurf: anything I forgot to add? https://bugzilla.redhat.com/show_bug.cgi?id=1955416
+Apr 30 21:10:53 <cmurf>	Peetz0r: no, pjones is looking at it all now
+Apr 30 21:11:06 <Peetz0r>	Yep, I noticed

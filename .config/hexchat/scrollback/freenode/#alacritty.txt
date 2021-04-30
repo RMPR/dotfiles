@@ -1,33 +1,3 @@
-T 1586042803 18<29kchibisov18>	or they are really hard.
-T 1586042926 18<29kchibisov18>	Well, actually only on resize it's possible right now.
-T 1586042948 18<29kchibisov18>	Like when I fullscreen vim I see this kind of flicker.
-T 1586043601 18<24UndeadLeech18>	Okay, I think I'll move the cursors on the grid, then pass a callback to reflow, remove rotation of selection from grid by moving selection to term and hopefully that'll be semi clean.
-T 1586043622 18<29kchibisov18>	Reflow callbacks oO
-T 1586043646 18<24UndeadLeech18>	Just something simple, like passing a closure to reflow which is called when a line is added/removed.
-T 1586043667 18<24UndeadLeech18>	Instead of passing points. So that we can keep all the logic in that closure instead of having to iterate over the points in reflow.
-T 1586043688 18<24UndeadLeech18>	I might make it a trait and store selection/vi cursor on a struct implementing it.
-T 1586043741 18<24UndeadLeech18>	It's mostly to prevent havig to add a for loop to reflow for every time any of the points is modified, hopefully keeping it a bit cleaner.
-T 1586043785 18<24UndeadLeech18>	And storing the points on grid means we don't need to search the points for the smallest line to determine rotation.
-T 1586043926 18<29kchibisov18>	I really wonder how atomics should be done in a most performant way.
-T 1586043931 18<29kchibisov18>	like I feel like mutex was better for me.
-T 1586043979 18<24UndeadLeech18>	What do you mean?
-T 1586043994 18<29kchibisov18>	I mean I feel like I'm messing up order from time to time.
-T 1586043994 18<24UndeadLeech18>	Atomics should be pretty fast, you just using store/load with relaxed ordering?
-T 1586044010 18<24UndeadLeech18>	Which ordering do you use?
-T 1586044109 18<29kchibisov18>	Acquire for load and Release for store.
-T 1586044117 18<29kchibisov18>	I feel like I should use Relaxed for store.
-T 1586044123 18<24UndeadLeech18>	Have you tried relaxed for everything, just for testing?
-T 1586044132 18<29kchibisov18>	load can't use relaxed
-T 1586044154 18<29kchibisov18>	Oh, I'm wrong.
-T 1586044159 18<29kchibisov18>	It could use Relaxed.
-T 1586044165 18<29kchibisov18>	I've read it in a wrong way.
-T 1586044213 18<29kchibisov18>	let me try relaxed.
-T 1586044376 18<24UndeadLeech18>	I mean SeqCst is probably the least error prone I'd assume.
-T 1586044399 18<29kchibisov18>	I thought about that, but I only read.
-T 1586044407 18<29kchibisov18>	And stores should be before.
-T 1586044426 18<29kchibisov18>	I mean I store pretty rare, and the other time I just read it.
-T 1586044500 18<24UndeadLeech18>	SeqCst is the slowest, so probably shouldn't be used unless you really need it.
-T 1586044541 18<29kchibisov18>	I feel like I'm fine with relaxed tbh.
 T 1586044557 18<24UndeadLeech18>	That's usually how I feel too.
 T 1586044600 18<24UndeadLeech18>	Especially because wrapping my head around that gets me confused literally every single time I use it.
 T 1586044613 18<24UndeadLeech18>	So I mostly just end up trial and erroring my way through.
@@ -5027,3 +4997,31 @@ T 1618602865 20*	Disconnected (20Remote host closed socket)
 T 1618602969 20*	Disconnected (20Remote host closed socket)
 T 1618603037 20*	Disconnected (20Remote host closed socket)
 T 1618603090 20*	Disconnected (20Remote host closed socket)
+T 1619754497 19*	Now talking on 22#alacritty
+T 1619754497 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+T 1619754497 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Feb 20 01:05:57 2021)
+T 1619758196 20*	Disconnected (20)
+T 1619758233 19*	Now talking on 22#alacritty
+T 1619758233 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+T 1619758233 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Feb 20 01:05:57 2021)
+T 1619758586 20*	Disconnected (20)
+T 1619758632 19*	Now talking on 22#alacritty
+T 1619758632 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+T 1619758632 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Feb 20 01:05:57 2021)
+T 1619758776 20*	Disconnected (20)
+T 1619758802 19*	Now talking on 22#alacritty
+T 1619758802 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+T 1619758802 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Feb 20 01:05:57 2021)
+T 1619784002 20*	Disconnected (20)
+T 1619784031 19*	Now talking on 22#alacritty
+T 1619784031 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+T 1619784031 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Feb 20 01:05:57 2021)
+T 1619793062 20*	Disconnected (20)
+T 1619793088 19*	Now talking on 22#alacritty
+T 1619793088 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+T 1619793088 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Feb 20 01:05:57 2021)
+T 1619805871 24*	28alexherbo28 is now known as 18alexherbo2
+T 1619808529 20*	Disconnected (20)
+T 1619808555 19*	Now talking on 22#alacritty
+T 1619808555 22*	Topic for 22#alacritty is: Alacritty - A cross-platform, OpenGL terminal emulator <> Latest Release: v0.7.2 - https://github.com/alacritty/alacritty/releases/latest
+T 1619808555 22*	Topic for 22#alacritty set by 26UndeadLeech!~UndeadLee@alacritty/undeadleech (24Sat Feb 20 01:05:57 2021)

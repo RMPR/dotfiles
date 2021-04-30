@@ -1,120 +1,3 @@
-T 1613343782 18<26Wafficus18>	wgreenhouse: I didn't see your link
-T 1613343794 18<26Wafficus18>	wgreenhouse: rather *I don't see your link, my IRC got disconnected
-T 1613343802 18<26Wafficus18>	so its not an interactive function, ok, gotcha
-T 1613343863 18<26Wafficus18>	ah I see, so I have to make it trigger as a separate (lambda () ) function block
-T 1613343935 18<29wgreenhouse18>	Wafficus: resendinf https://github.com/ch11ng/exwm/wiki/Cookbook#run-or-raise
-T 1613343998 18<20dieggsy18>	is there an easy way to have emacs set env vars from the output of some command with output like "VAR=...\nVAR2=...". i know i can just manually parse that string and setenv getenv, but if there's a better or builtin way...
-T 1613376599 20*	Disconnected (20)
-T 1613376626 19*	Now talking on 22#emacs
-T 1613376626 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
-T 1613376626 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
-T 1613376626 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
-T 1613376766 24*	28watkinsr2 is now known as 18watkinsr
-T 1613377117 24*	28boughtly- is now known as 18boughtly
-T 1613378283 18<19twb18>	did adam west and kirk ever fight onscreen
-T 1613378288 18<27codingquark18>	Good morning!
-T 1613378472 18<19twb18>	What does DB-LSP-DISC actually *do*
-T 1613378510 18<26polezaivsani18>	Morning fellows!
-T 1613378514 18<27codingquark18>	:)
-T 1613378523 18<19twb18>	It is basically going "oh hey you're a dropbox user, too?  If you want to download definitely-not-porn.mp4, I already have a copy"
-T 1613378622 18<26polezaivsani18>	dropbox, never got anything good out of it, gotta stop trying
-T 1613378647 18<19wasamasa18>	bqv: I've spent the evening away from the computer after all and didn't regret it a bit
-T 1613378693 18<19wasamasa18>	bqv: so evaluating the file is supposed to raise an error?
-T 1613378713 18<19wasamasa18>	bqv: because M-x eval-buffer doesn't do it for sure
-T 1613378779 18<19wasamasa18>	bqv: if I byte-compile it, then eval the last form, no errors in emacs 27.1 either
-T 1613378937 18<19wasamasa18>	bqv: so you'll have to include reproduction *instructions* as well
-T 1613379678 18<25blahblah44118>	Just wanted to say hi. Been using Emacs for 3 weeks. Becoming a huge fan.
-T 1613380175 18<29holycow18>	hi guys
-T 1613380191 18<29holycow18>	i have been using emacs for a while now and really love it, realy powerful
-T 1613380196 18<29holycow18>	i am running into one problem
-T 1613380252 18<29holycow18>	i am trying to learn to code in lisp.  this means that my workflow is always having a few frames open and having to open / close / re-open the slime repl a lot because i'm a noob that doesn't know what he is doing.
-T 1613380303 18<29holycow18>	the absolutely madenning part about emacs is that opening  up a new slime repl, closing a repl, opening up a new repl ALWAYS ALWAYS ALWAYS opens the repl up in a different frame.
-T 1613380324 18<29holycow18>	the amount of clicks this forces is just unbeleivable and it totally takes me out of my train of thought
-T 1613380390 18<29holycow18>	is there a way to pin certain buffers into certain frames?  is there a way to pin frame layouts into predefined layout grids such that frame 0 --> x are laid out in specific order an such that the slime buffer opens up on a specific buffer all the time and ONLY in that buffer?
-T 1613380420 18<19twb18>	by frame do you mean window?
-T 1613380447 18<29holycow18>	C-x 2, C-x 3, etc.
-T 1613380454 18<19twb18>	yeah those are windows
-T 1613380462 18<19twb18>	OK window popup is arse in emacs
-T 1613380463 18<29holycow18>	oh!
-T 1613380468 18<19twb18>	you can tweak is some but I forget the details
-T 1613380487 18<29holycow18>	aha.  so it isn't me not knowing how to config it properly i guess?
-T 1613380488 18<19twb18>	there's some variable calls something like special-window-names which causes them to be less stupid
-T 1613380500 18<19twb18>	holycow: yeah and also that it's not easy to configure
-T 1613380510 18<19twb18>	holycow: there's no consistency so you have to fiddle-fuck around to get it how you want
-T 1613380514 18<29holycow18>	aha okay.  huh.
-T 1613380525 18<19twb18>	I mean there's no consistency between e.g. foo-mode and bar-mode popups
-T 1613380560 18<19twb18>	special-display-function
-T 1613380563 18<19twb18>	special-display-regexps
-T 1613380569 18<19twb18>	^ I think that's what I am remembering
-T 1613380572 18<29holycow18>	i think it might be time to raise some money and sponsor a pinning feature for emacs windows with perhaps some special rules capability for things like stuffing specific mime content / repls into specific windows
-T 1613380581 18<19twb18>	You set those up so that anything named "slime" pops up in a predictable way
-T 1613380600 18<19twb18>	holycow: there's a few modes like that already --- screen-el was one IIRC
-T 1613380601 18<29holycow18>	oh aha
-T 1613380607 18<19twb18>	holycow: the mailing list people know better than me
-T 1613380628 18<19twb18>	Hrm special-display-buffer-names also looks relevant
-T 1613380709 20*	Disconnected (20)
-T 1613380737 19*	Now talking on 22#emacs
-T 1613380737 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
-T 1613380737 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
-T 1613380738 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
-T 1613381551 18<22average18>	https://en.wikipedia.org/wiki/Wirth%27s_law
-T 1613381556 18<22average18>	does Wirth's law apply to Emacs ?
-T 1613383918 24*	28watkinsr4 is now known as 18watkinsr
-T 1613388804 20*	Disconnected (20)
-T 1613470139 19*	Now talking on 22#emacs
-T 1613470139 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
-T 1613470139 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
-T 1613470139 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
-T 1613473242 18<22zmagii18>	I managed to get my SVG rendering to work correctly in Emacs and EWW, but it is a tad too small for my eyes. Any ideas at this point to only increase SVG size (on Wikipedia) and leave text size unchanged?
-T 1613475641 18<20bpalmer18>	zmagii: perhaps there's some CSS you can inject? I don't recall what engine you're using to display this.
-T 1613475719 18<22contrapunctus18>	Would there be any value in a pure-Elisp Compose-key-like interface for entering special characters? 🤔
-T 1613475767 18<20bpalmer18>	contrapunctus: would that be particularly different than the various input methods?
-T 1613475815 18<22contrapunctus18>	Hm, so it'd behave the same across all platforms, and you could bind it to any key instead of the fixed set of options Linux gives you 🤔
-T 1613475847 18<22contrapunctus18>	bpalmer: is there an input method which functions like the compose key, then? 
-T 1613475940 18<22zmagii18>	bpalmer: I installed librsvg2-dev in order for the SVG to render correctly. This was necessary when building Emacs from source.
-T 1613475958 18<22zmagii18>	(Otherwise SVG rendering doesn't work correctly in EWW.)
-T 1613475969 18<20pjb18>	contrapunctus: something like C-x 8 S to get § ?
-T 1613475973 18<20bpalmer18>	contrapunctus: so M-x set-input-method RET german-postfix RET  , as an example; I type a followed by e and it turns into an a umlaut character
-T 1613476005 18<20bpalmer18>	contrapunctus: other than the a appearing in the buffer and it being "valid" to leave it alone, isn't that what compse would do?
-T 1613476054 18<22contrapunctus18>	pjb: oh WHOA. Yes!
-T 1613476068 18<20pjb18>	contrapunctus: 𝔫𝔬𝔱𝔢 𝔱𝔥𝔞𝔱 𝔶𝔬𝔲 𝔠𝔞𝔫 𝔢𝔞𝔰𝔦𝔩𝔶 𝔤𝔢𝔫𝔢𝔯𝔞𝔱𝔢 𝔞 𝔰𝔢𝔱 𝔬𝔣 𝔟𝔦𝔫𝔡𝔦𝔫𝔤𝔰 𝔱𝔬 𝔦𝔫𝔰𝔢𝔯𝔱 𝔞𝔫𝔶 𝔠𝔥𝔞𝔯𝔞𝔠𝔱𝔢𝔯 𝔶𝔬𝔲 𝔴𝔞𝔫𝔱.
-T 1613476088 18<22contrapunctus18>	bpalmer: that sounds cool too 🤔
-T 1613476091 18<20pjb18>	contrapunctus: see https://github.com/informatimago/emacs/blob/master/pjb-unicode.el
-T 1613476131 18<20bpalmer18>	contrapunctus: I don't know what characters you want, but M-x set-input-method RET TAB should show you which input methods are available.
-T 1613476166 18<20pjb18>	contrapunctus: and for rarely used unicode characters, you can use C-x 8 RET and type an hexadecimal code or a unicode character name.
-T 1613476175 18<20bpalmer18>	contrapunctus: C-x 8   (and, in particular, C-x 8 RET ) will always work if you can't find a good match, but may be inconvenient
-T 1613476188 18<20pjb18>	contrapunctus: for example, to type: CO₂  I type C O C-x 8 RET SUBSCRIPT TWO RET
-T 1613476238 18<22contrapunctus18>	bpalmer: I knew about C-x 8 RET, but not these other C-x 8 bindings :o
-T 1613476371 18<25irek18>	Hello Emacs Wizards.  I found an issue.  After "tramp" is loaded minibuffer no longer returns strings like "~/path/**/*.txt" as a single string.  Instead it returns list of paths.  This makes dired recursive globbing broken.  Any idea how to disable this behavior?
-T 1613476715 18<22contrapunctus18>	pjb, bpalmer: how does one extend the keybindings for `C-x 8 ...`? Other than the `(lambda () (interactive) (insert "..."))` way?
-T 1613513496 19*	Now talking on 22#emacs
-T 1613513496 22*	Topic for 22#emacs is: Pretest #2 for 27.2: https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.1.91.tar.xz | Emacs questions take priority over chit-chat so ask away! | No Public Logging! What happens in #emacs stays in #emacs | No racism, sexism, xenophobia, botwanking, or other asshattery.
-T 1613513496 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Thu Feb 11 21:30:00 2021)
-T 1613513496 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
-T 1613513602 18<19refusenick18>	yeah
-T 1613513706 18<24ryouma18>	is there anything in edebug or trace that will tell me when point changes?
-T 1613513743 18<22contrapunctus18>	I've got a significant number of functions in Chronometrist which can be changed to be pure functions, by changing a global variable they refer to into an argument passed to them. Should I do this? 🤔
-T 1613513779 18<22contrapunctus18>	ryouma: `(message "point - %s" (point))`?  😏
-T 1613513886 18<24ryouma18>	well it's a few thousand lines of completely un-understandable code that i did not write (not htat i am incapable or writing un-understandable code) and somewhere, text gets inserted, and then point moves for no discernable reason
-T 1613513887 18<20dale18>	ryouma: https://www.gnu.org/software/emacs/manual/html_node/elisp/Global-Break-Condition.html seems like it might be relevant.
-T 1613513980 18<20dale18>	ryouma: You could try advising insert function with some before-advice that calls debug when inserting into the buffer you're interested in?
-T 1613514098 18<24ryouma18>	that might tell me wher eit inserts, although think i know where it might be inserting.  then i would eval (setq edebug-global-break-condition (/= 0 (point)) and instrument everything and run ... from that point or something?
-T 1613514118 18<24ryouma18>	one thing is certain.  i hate debugging.
-T 1613514340 18<25skyl4rk18>	I'm a newbie when it comes to the emacs debugger, more at home with gdb. I have some trouble understanding the terminology, how do I effectively step over a function call (like gdb "next"), d to step into it and then b to continue until exiting the frame that was stepped into?
-T 1613514416 18<24ryouma18>	dale: thank you
-T 1613514427 18<24ryouma18>	contrapunctus i didn't get context for that but thanks
-T 1613514430 18<24ryouma18>	,chronometrist
-T 1613514431 18<22fsbot18>	chronometrist: [0] an Emacs time tracker with a nice UI
-T 1613514431 18<22fsbot18>	[1] https://melpa.org/#/chronometrist
-T 1613514431 18<22fsbot18>	[2] https://github.com/contrapunctus-1/chronometrist/
-T 1613514517 18<19twb18>	OK guys I have a great idea.  Get a collaboration between Мор. Утопия and Shenmue.
-T 1613514619 18<19twb18>	Both of them involve walking around talking to people a lot, but opposite extremes of unreliable-narrator NPCs
-T 1613514635 18<20bpalmer18>	contrapunctus: in many languages, that's a nice idea; it might depend on whether you would end up changing it everywhere, or some places using a parameter and some places a global.
-T 1613514691 18<25skyl4rk18>	hm, I think I got the hang of it with a bit of experimentation, stuff marked '*' in the debugger will break/enter the debugger when that call returns, so 'c' is enough
-T 1613514886 18<24ryouma18>	should apt-sources.el run prog-mode-hook, text-mode-hook, or conf-mode-hook?  it seems to run none of those.
-T 1613516031 18<19refusenick18>	twb: What's Mor. Utopia?
-T 1613516047 18<19refusenick18>	Isn't Shenmue the forklift operator guy game
-T 1613516048 18<19refusenick18>	?
 T 1613516058 18<19twb18>	refusenick: yes
 T 1613516075 18<19refusenick18>	...Moroznaya Utopia?
 T 1613516080 18<19refusenick18>	(taking random guesses)
@@ -5114,3 +4997,322 @@ T 1618602865 20*	Disconnected (20Remote host closed socket)
 T 1618602969 20*	Disconnected (20Remote host closed socket)
 T 1618603037 20*	Disconnected (20Remote host closed socket)
 T 1618603090 20*	Disconnected (20Remote host closed socket)
+T 1619754496 19*	Now talking on 22#emacs
+T 1619754496 22*	Topic for 22#emacs is: Beware the fools of April | 27.2 is out, native-comp is merged | Emacs questions take priority over chit-chat | No Public Logging, racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1619754496 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Wed Apr 28 16:02:18 2021)
+T 1619754497 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1619757355 18<29cmburnett18>	anyone have a bunch of experience with cmake-ide or cmake and emacs in general? It's not taking the include arguments, sorry if this is a stupid question:-$
+T 1619757634 18<20bpalmer18>	you're trying to use cmake to compile emacs?
+T 1619757648 18<29cmburnett18>	dear lord no
+T 1619757695 18<20bpalmer18>	ah, so you're using https://github.com/atilaneves/cmake-ide and you want to add include packages to a compilation line?
+T 1619757716 18<20bpalmer18>	are you setting cmake-ide-flags-c (and/or cmake-ide-flags-c++ )?
+T 1619757738 18<20kickingvegas18>	dieggsy: have you tried re-builder?
+T 1619757755 18<29cmburnett18>	just trying to work on a project with a cmake build system, the CMakeLists.txt has system specific includes
+T 1619757774 18<20dieggsy18>	kickingvegas: not for a long time actually. i'll see if it helps
+T 1619757841 18<29cmburnett18>	Isn't  that supposed to be retrieved from the cmake file? Sorry, thought I understood what it was doing :-D
+T 1619757940 18<20bpalmer18>	cmburnett: does cmake work on the command line?
+T 1619758196 20*	Disconnected (20)
+T 1619758233 19*	Now talking on 22#emacs
+T 1619758233 22*	Topic for 22#emacs is: Beware the fools of April | 27.2 is out, native-comp is merged | Emacs questions take priority over chit-chat | No Public Logging, racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1619758233 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Wed Apr 28 16:02:19 2021)
+T 1619758233 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1619758586 20*	Disconnected (20)
+T 1619758632 19*	Now talking on 22#emacs
+T 1619758632 22*	Topic for 22#emacs is: Beware the fools of April | 27.2 is out, native-comp is merged | Emacs questions take priority over chit-chat | No Public Logging, racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1619758632 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Wed Apr 28 16:02:18 2021)
+T 1619758632 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1619758776 20*	Disconnected (20)
+T 1619758802 19*	Now talking on 22#emacs
+T 1619758802 22*	Topic for 22#emacs is: Beware the fools of April | 27.2 is out, native-comp is merged | Emacs questions take priority over chit-chat | No Public Logging, racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1619758802 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Wed Apr 28 16:02:18 2021)
+T 1619758802 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1619763288 18<20dale18>	b
+T 1619766820 18<20bpalmer18>	Let's spend 13 months in solitude.
+T 1619767749 24*	28zap1 is now known as 18zzappie
+T 1619769352 18<27yourfate18>	hey, i'm using org to clock in/out in home office. and it cerenates this list of dates with work time. I want to have that work time as decimal hours. I googled ab it and they all use the var `org-time-clocksum-use-fractional`, but that doesn't exist in mye amcs
+T 1619784002 20*	Disconnected (20)
+T 1619784031 19*	Now talking on 22#emacs
+T 1619784031 22*	Topic for 22#emacs is: Beware the fools of April | 27.2 is out, native-comp is merged | Emacs questions take priority over chit-chat | No Public Logging, racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1619784031 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Wed Apr 28 16:02:18 2021)
+T 1619784031 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1619784559 18<26loskutak18>	Hi, I am looking for some mode that would allow me to hide/show some part of buffer identified by some comments.  There are some parts of my code, that should be hidden most of the time (boilerplate, logging, ...). What would you recommend?
+T 1619784760 18<22thblt18>	loskutak:  to hide and show, what about… *drum roll* hideshow?
+T 1619784774 18<22thblt18>	loskutak:  it's hidden under the name hs-minor-mode
+T 1619784888 18<26loskutak18>	thblt: I am aware that exists, but does it hide/show on (custom?) delimiters? I thought that is not possible
+T 1619784942 18<22thblt18>	loskutak: you need to configure it.
+T 1619785019 18<22thblt18>	loskutak: Although it seems to have defaults. In C and C++, /[ and /] in comments seem to create a block
+T 1619785100 18<26loskutak18>	thblt: so I just need to rewrite hs-block-{start,end}-regexp?
+T 1619785175 18<22thblt18>	loskutak:  I guess so, yes.
+T 1619785181 18<22thblt18>	Wait, no.
+T 1619785199 18<22thblt18>	hs-special-modes-alist maybe?
+T 1619785227 18<28catern18>	thblt: it's not just you, I customized some settings in nixpkgs to speed it up; see https://magit.vc/manual/magit/Performance.html
+T 1619785248 18<28catern18>	and specifically see https://magit.vc/manual/magit/Per_002dRepository-Configuration.html#Per_002dRepository-Configuration
+T 1619785261 18<22thblt18>	catern: ha, thank you.
+T 1619785300 18<28catern18>	i feel like there was another page in the manual about this but I can't find it, anyway those two should be sufficient
+T 1619785312 18<22thblt18>	catern:  you used the dir-locals trick for nixpkgs?
+T 1619785315 18<28catern18>	yes
+T 1619785319 18*	22thblt tries
+T 1619785367 24*	28illya_ is now known as 18illya
+T 1619790968 18<26gourdhen18>	in one org file, if I am in an org-babel src `#+BEGIN_SRC go ... #+END_SRC` and I hit enter, it automatically puts the cursor at the top of the file and opens a dedicated src buffer to edit it. In another file, it just adds a newline to the babel src area.  Enter is calling <org-return> in both cases. how should I debug it?
+T 1619791930 18<26gourdhen18>	I tried (define-key org-mode-map (kbd "RET")         #'newline) to seee what would happen, and I have the same behavior
+T 1619791962 18<22engblom18>	I wish to have the functionality so that whenever I place the cursor on one parenthese the corresponding one would blink. How would I add that?
+T 1619792057 18<26gourdhen18>	engblom: I think `(setq blink-matching-paren t)`
+T 1619792116 18<26gourdhen18>	engblom: I have this, copy what you will: https://pastebin.com/QsX46SFJ
+T 1619793062 20*	Disconnected (20)
+T 1619793088 19*	Now talking on 22#emacs
+T 1619793088 22*	Topic for 22#emacs is: Beware the fools of April | 27.2 is out, native-comp is merged | Emacs questions take priority over chit-chat | No Public Logging, racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1619793088 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Wed Apr 28 16:02:18 2021)
+T 1619793088 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1619794920 18<26gourdhen18>	I fixed my issue by binding <RET> to  #'org-return-and-maybe-indent, is that normal?
+T 1619794951 18<27nly18>	anybody knows about nodejs?
+T 1619795028 18<25cvandusen18>	Seems promising. It might catch on. 
+T 1619795042 18<27nly18>	the node app breaks in weird ways when accessed from proxy(nginx)
+T 1619795215 18<27natter18>	nly: where is emacs in this setup?
+T 1619795245 18<27nly18>	haha, i wrote it in emacs :P
+T 1619795260 18<25cvandusen18>	,emacs-related weird ways 
+T 1619795261 18<22fsbot18>	It may not be that obvious for the layman, but weird ways is indeed emacs-related, cvandusen.
+T 1619795595 18<19wasamasa18>	I've rebuilt my 27.2 package with the patch
+T 1619795845 18<19wasamasa18>	https://bugs.archlinux.org/task/70661
+T 1619796893 18<25cvandusen18>	I wonder if there'll be a 27.3 since 28.1 is a long way off.
+T 1619796916 18<19wasamasa18>	possibly, but I doubt it will include that change
+T 1619796919 18<19wasamasa18>	or will it, hm
+T 1619796963 18<25cvandusen18>	They tend not to do .3s but that just got me wondering.
+T 1619796981 18<19wasamasa18>	Stefan wants more major releases
+T 1619797034 18<29wgreenhouse18>	gotta get that version inflation going, compete with chromacs
+T 1619797110 18<19wasamasa18>	why do you make it sound like a kink
+T 1619797136 18<27grym18>	version numbers now converge on 10*\pi 
+T 1619799099 18<26theseb18>	help! c-mode is overriding my C-d customization....I added this hook but it didn't take....why?..(add-hook 'c-mode-hook '(lambda ()
+T 1619799099 18<26theseb18>	                                (global-set-key (kbd "C-d") 'kill-whole-line)))
+T 1619799099 18<26theseb18>	  (c-toggle-auto-newline 1))
+T 1619799099 18<26theseb18>	(add-hook 'c-mode-common-hook 'my-turn-on-auto-newline)
+T 1619799099 18<26theseb18>	 
+T 1619799121 18<26theseb18>	sorry...ignore last 3 lines above
+T 1619799144 18<26theseb18>	just look at 1st add-hook
+T 1619801514 18<25cvandusen18>	theseb: Try using ,,df define-key 
+T 1619801514 18<22fsbot18>	define-key is a built-in function in ‘C source code’.
+T 1619801515 18<22fsbot18>	(define-key KEYMAP KEY DEF)
+T 1619801515 18<22fsbot18>	In KEYMAP, define key sequence KEY as DEF.
+T 1619801515 18<22fsbot18>	KEYMAP is a keymap. ;;[ ,more / ,dump]
+T 1619801959 18<26theseb18>	cvandusen: thanks!
+T 1619801968 18<25cvandusen18>	yw 
+T 1619802010 18<25cvandusen18>	Also, using that, you don't need it in a hook. 
+T 1619802043 18<26theseb18>	nice
+T 1619802093 18<26theseb18>	cvandusen: why i only had this problem with C-d?
+T 1619802101 18<26theseb18>	all else was fine with global-set-key
+T 1619802195 18<25cvandusen18>	Were you trying to override a binding in a mode-map?
+T 1619802212 18<26theseb18>	cvandusen: i want to make C-d nuke entire line?
+T 1619802635 18<22thblt18>	theseb: there's C-k for that. 
+T 1619802656 18<22thblt18>	theseb: but you don't need to global-set-key on a hook, you can do it just once.
+T 1619802673 18<22thblt18>	Ha, already said, sorry.
+T 1619803503 18<26theseb18>	thblt, cvandusen : i *still* haven't been able to make C-d run 'kill-whole-line
+T 1619803510 18<26theseb18>	in c mode
+T 1619803521 18<25cvandusen18>	What does the code look like?
+T 1619803525 18<26theseb18>	i tried global-set-key and define-key
+T 1619803529 18<26theseb18>	cvandusen: just a sec
+T 1619803548 18<26theseb18>	(define-key (kbd "C-d") 'kill-whole-line)
+T 1619803551 18<26theseb18>	cvandusen: ^^^
+T 1619803589 18<26theseb18>	c-mode seems to override C-d 
+T 1619803597 18<26theseb18>	and won't give it up
+T 1619803637 18<25cvandusen18>	Did you see the format of the call to define-key?
+T 1619803695 18<26lampilelo18>	it takes a keymap as an argument
+T 1619803781 18<26theseb18>	what does a keymap look like?
+T 1619803823 18<25cvandusen18>	c-mode-map in your case 
+T 1619803900 18<25cvandusen18>	e.g. (define-key pie-ala-mode-map (kbd "C-d") 'eat-it-all-up)
+T 1619803933 18*	20edgar-rft shows theseb a map of the Florida Keys
+T 1619803949 18<26lampilelo18>	,dv c-mode-map
+T 1619803949 18<22fsbot18>	not documented as a variable.
+T 1619803972 18<26lampilelo18>	:(
+T 1619804001 18<25cvandusen18>	florida-key-lime-pie-mode-map?? 
+T 1619804002 18<22fsbot18>	Probably!
+T 1619804071 18<20edgar-rft18>	type c-mode-map in the *scratch* buffer and pres C-j at the end of it
+T 1619804697 18<26theseb18>	it worked!
+T 1619804702 18<26theseb18>	reading docs help!
+T 1619804709 18<26theseb18>	freaky
+T 1619805286 18<20edgar-rft18>	rudybot: I never tried it myself but reading the docs seems to help
+T 1619805342 18<24rudybot18>	edgar-rft: but thank you for the advice. I feel bad askking questions before reading through docs first though, so ill stop getting head of myself. emacs it seems is just 'different' lol
+T 1619805578 18<20edgar-rft18>	rudybot: is it that reading the docs helps what makes emacs different?
+T 1619805596 18<24rudybot18>	edgar-rft: reading official docs for whatever also helps.
+T 1619805655 18<20edgar-rft18>	rudybot: you mean there are secret docs hidden somewhere?
+T 1619805668 18<24rudybot18>	edgar-rft: It's hidden. Because it's secret.
+T 1619805825 18<20edgar-rft18>	rudybot: but when we can we read the hidden docs how can it help?
+T 1619805836 18<24rudybot18>	edgar-rft: Did that help? I know our docs suck. We *do* have examples, but they're kinda hidden.
+T 1619805909 18<20edgar-rft18>	sorry, I accidentally crashed freenode :-)
+T 1619806914 18<27hodapp18>	rudybot: The pun 'When the clock is hungry it goes back four seconds' is funny because of the unexpected dual meanings of four [for] and seconds.
+T 1619806934 18<24rudybot18>	hodapp: giusef`, well, with python and haskell, the tab key cycles between possible meanings of the indentation (because indentation is significant)
+T 1619808529 20*	Disconnected (20)
+T 1619808555 19*	Now talking on 22#emacs
+T 1619808555 22*	Topic for 22#emacs is: Beware the fools of April | 27.2 is out, native-comp is merged | Emacs questions take priority over chit-chat | No Public Logging, racism, sexism, xenophobia, botwanking, or other asshattery.
+T 1619808555 22*	Topic for 22#emacs set by 26jrm!~jrm@freebsd/developer/jrm (24Wed Apr 28 16:02:18 2021)
+T 1619808555 22*	Channel 22#emacs url: 24https://www.emacswiki.org/emacs/EmacsChannel
+T 1619808576 18<22thblt18>	I remember about a serious language design issue.  Can't remember which coin it was.
+T 1619808585 18<20aidalgol18>	"Cryptocurrency is literally like an eight-year-old's concept of an evil businessman. He just plugs his pollution machine in and gets money for it. It doesn't make anything, it just. Pollutes. And makes money. Like a fucking Captain Planet villain"
+T 1619808601 18<20aidalgol18>	https://twitter.com/WKDart/status/1386187042460106754
+T 1619808622 18<19wasamasa18>	ethereum, the thing that touted immutability, forked after a serious design error has been discovered
+T 1619808629 18<26yabobay18>	i was wondering, why would someone wanna use linum-mode over display-line-numbers or vice versa?
+T 1619808637 18<19wasamasa18>	for those who really like immutability, the old version is available as ethereum classic
+T 1619808650 18<29wgreenhouse18>	yabobay: new users should probably use dislay-line-numbers-mode because it is implemented in a more performant way
+T 1619808668 18<29wgreenhouse18>	linum-mode is kept around because emacs basically never removes anything
+T 1619808685 18<29wgreenhouse18>	*display-line-numbers-mode
+T 1619808699 18<20bpalmer18>	and if you really want linum, you probably want nlinum instead.
+T 1619808703 18<27grym18>	immutably stolen! until you put your thumb on the scale after the DAO hard forks, which means you're just cosplaying a, uh, centralised authority structure comprised of humans and some rules.  what's the word for that again... tip of my tongue...
+T 1619808726 18<22thblt18>	That https://www.nytimes.com/2016/06/18/business/dealbook/hacker-may-have-removed-more-than-50-million-from-experimental-cybercurrency-project.html
+T 1619808728 18<24rudybot18>	https://teensy.info/GOQSKnz5Nv
+T 1619808785 18<26yabobay18>	>emacs never removes anything< oh yeah, is there a way to get me like, a gnu emacs that has less stuff in it? so i could just put the bits and pieces i'm interested in.
+T 1619808802 18<19wasamasa18>	sure, just downgrade your emacs version
+T 1619808807 18<19wasamasa18>	see also antinews
+T 1619808809 18<19bremner18>	or just edit the source
+T 1619808820 18<19bremner18>	,turing-tarpit
+T 1619808821 18<22fsbot18>	Turing-tarpit is "Beware of the Turing tar-pit in which everything is possible but nothing of interest is easy" -- Alan Perlis
+T 1619808826 18<26yabobay18>	oh wait that's literally all the new versions are? the same emacs with more plugins?
+T 1619808831 18<19bremner18>	no
+T 1619808846 18<19wasamasa18>	read NEWS/ANTINEWS
+T 1619808848 18<19bremner18>	I'm not even sure 
+T 1619808848 18<20bpalmer18>	However, new versions contain more new stuff than they delete old stuff.
+T 1619808858 18<19wasamasa18>	that gives you an idea what has been added/removed
+T 1619808875 18<19bremner18>	anyway, if minimalism is your thing, emacs is probably not for you
+T 1619808880 18<20bpalmer18>	and each previous release probably still works, which is a big improvement over randomly deleting code.
+T 1619808904 18<19bremner18>	bpalmer: new releases also contain security fixes, for example
+T 1619808907 18<26yabobay18>	oh minimalism is fairly *not* my thing
+T 1619808941 18<20edgar-rft18>	emacs fixes security by adding moar code
+T 1619808946 18<29wgreenhouse18>	> oh wait that's literally all the new versions are? the same emacs with more plugins?
+T 1619808948 18<29wgreenhouse18>	yabobay: no, the ~20% of emacs that is the C core also mutates pretty rapidly, as does the standard library of the language, so to speak.
+T 1619808964 18<29wgreenhouse18>	but the standard library in effect includes all elisp that has ever been in emacs
+T 1619808983 18<20aidalgol18>	wgreenhouse: your xmpp quoting is showing :D
+T 1619808989 18<26yabobay18>	cause i always see like "if you wanna use this in emacs 24, just add it"
+T 1619808996 18<29wgreenhouse18>	aidalgol: is it irritating?
+T 1619809001 18<20aidalgol18>	wgreenhouse: not really
+T 1619809006 18<29wgreenhouse18>	yabobay: yes, often you can backport elisp from newer releases
+T 1619809019 18<29wgreenhouse18>	elisp itself does change, though
+T 1619809025 18<19bremner18>	,jurassic-park-fix
+T 1619809028 18<22fsbot18>	Try the Moo Shu Pork.  It is especially good today.
+T 1619809042 18<29wgreenhouse18>	bremner: "nature finds a way?"
+T 1619809060 18<19bremner18>	,jurassic-park-fix is most problems can be fixed by considering whether something should be done before considering whether it can be done
+T 1619809060 18<22fsbot18>	Created new note for "jurassic-park-fix"
+T 1619809081 18<29wgreenhouse18>	bremner: that's not fair. that eliminates whole *classes* of exciting future problems!
+T 1619809090 18<29wgreenhouse18>	the world would be so boring if everyone followed that advice
+T 1619809092 18<20bpalmer18>	sounds like somebody who isn't going to get to play with cute new frog-dinosaurs to me.
+T 1619809096 18<20edgar-rft18>	emacs has so much code that it will easily survive the next asteroid impact
+T 1619809170 18<26yabobay18>	someone should butterfly the emacs source code and see how long til it gets noticeable
+T 1619809246 18<20bpalmer18>	rudybot: the reasonable theme park developer is content to build a higher roller coaster; the unreasonable one persists in trying to adapt the jurassic world, and finds glory.
+T 1619809270 18<24rudybot18>	bpalmer: My first online purchase has been such a roller coaster of emotions.
+T 1619809340 18<20aidalgol18>	Let's spread non-malicious rumours.
+T 1619809355 18<20aidalgol18>	I heard wgreenhouse secretly cosplays as Harold Bluetooth.
+T 1619809376 18<19bremner18>	I heard aidalgol is smarter than he seems
+T 1619809404 18<19bremner18>	I may be unclear on this non-malicious thing
+T 1619809406 18<20aidalgol18>	I heard bremner spends time feeding the fairies during the winter.
+T 1619809436 18<29wgreenhouse18>	I heard rudybot sometimes tries other `#lang`s besides racket when he's off-duty
+T 1619809459 18<27grym18>	whitemailing? 
+T 1619809469 18<27grym18>	anticrime.
+T 1619809476 18<29wgreenhouse18>	damning with excessive praise
+T 1619809513 18<20aidalgol18>	I heard grym sniffs donuts before eating them.
+T 1619809652 18<20aidalgol18>	grym: Whitemailing is what people have to resort to when they have a blackmail kink but don't do anything bad.
+T 1619809681 18<27grym18>	aidalgol: 'Whitemail is the threat of revealing a person's good deeds for purposes of ruining the person's reputation (e.g. as a gangster). ' 
+T 1619809704 18<27grym18>	not that real gangsters were ever shy about that; al capone ran one of the larger soup kitchens in chicago
+T 1619809718 18<27grym18>	this way, nobody ratted on him 
+T 1619809729 18<29wgreenhouse18>	yeah, really successful organized crime is basically an affinity group
+T 1619809730 18<20aidalgol18>	lil Rico volunteers at the soup kitchen!
+T 1619809751 18<29wgreenhouse18>	esp in times and places where it's easy to be better liked and responsive to needs than the state
+T 1619809757 18<27grym18>	wgreenhouse: if you do it _right_, you're just the de-facto government of southern italy 
+T 1619809762 18<20edgar-rft18>	rudybot: anticrime is committed by antichrists only
+T 1619809765 18<24rudybot18>	edgar-rft: anticrime.
+T 1619809770 18<29wgreenhouse18>	grym: or of Tokyo, yeah.
+T 1619809798 18<29wgreenhouse18>	still can't wrap my mind around the fact that yakuza have publicly acknowledged offices one can go to
+T 1619809855 18<27grym18>	japan's legal system as a whole seems strictly worse than one is lead to believe
+T 1619809880 18<20bpalmer18>	Well, you wouldn't want to do something like bother a don on his daughter's wedding day.
+T 1619809938 18<19twb18>	at least they've put off killing everyone they promised to kill
+T 1619809947 18<20aidalgol18>	technomancy: I got to use the "get in loser" meme irl the other week.
+T 1619809962 18<19twb18>	grym: have you looked at the overlay map of orange groves vs. mafia presence
+T 1619809968 18<28technomancy18>	aidalgol: oh yeah? nice
+T 1619809970 18<27grym18>	twb: no 
+T 1619809979 18<20bpalmer18>	Certainly not organized crime, but allegedly Roger Stone got someone to hand write a letter confessing to a crime in an attempt to secure a presidential pardon; the pardon didn't materialize, but the letter apparently stuck around....
+T 1619809996 18<19twb18>	grym: AFAICT southern italy mafia essentially started as private police to protect orangerys
+T 1619809998 18<20aidalgol18>	technomancy: Was picking someone up to go get pizza, and MMS'd them that meme with "Get in loser, we're going to Sal's".
+T 1619810001 18<29wgreenhouse18>	bpalmer: and Stone may have extorted $250K in BTC for the service
+T 1619810015 18<27grym18>	bpalmer: not anyone; gaetz' buddy who flipped states evidence
+T 1619810017 18<27grym18>	dun DUN 
+T 1619810031 18<28technomancy18>	aidalgol: have you seen the game?
+T 1619810040 18<29wgreenhouse18>	the most remarkable part of this story is that anyone trusted Stone to do a task
+T 1619810042 18<20aidalgol18>	technomancy: Only screenshots.
+T 1619810059 18<28technomancy18>	yeah, it's still in development. looks really slick tho
+T 1619810090 18<20bpalmer18>	I guess cryptocurrency really has gone mainstream.
+T 1619810099 18<20aidalgol18>	wgreenhouse: grifters grifting grifters
+T 1619810112 18<20aidalgol18>	Anyone seen the movie Money Plane?
+T 1619810125 18<29wgreenhouse18>	aidalgol: game apparently does _not_ recognize game
+T 1619810128 18<27grym18>	wgreenhouse: it feels like a massive hail mary, really 
+T 1619810135 18<20aidalgol18>	wgreenhouse: ?
+T 1619810167 18<29wgreenhouse18>	aidalgol: lack of honor among thieves, etc.
+T 1619810175 18<20aidalgol18>	ah
+T 1619810234 18<19twb18>	I watched JoJo yesterday, having not read the original
+T 1619810247 18<19twb18>	I did not expect it to be about victorian british people fighting vampires
+T 1619810261 18<20aidalgol18>	twb: wut?
+T 1619810309 18<19twb18>	aidalgol: all the visuals of it are of what look like gay stereotypes being camp as fuck
+T 1619810335 18<28technomancy18>	campires
+T 1619810338 18<19twb18>	but that's basically entirely orthogonal to the actual story
+T 1619810395 18<19twb18>	Like if everyone in an Anne Rice story was dressed as a sideshow clown, and they had scenes were 50 of them got into one car, but otherwise it was unchanged
+T 1619810409 18<27tromey18>	that sounds intriguing
+T 1619810415 18<27tromey18>	you should make movies
+T 1619810605 18<28technomancy18>	save a lot on costuming that way
+T 1619810646 18<25cvandusen18>	and transportation 
+T 1619810689 18<27tromey18>	was there just the one Anne Rice movie?  somehow I thought she wrote a zillion books and expected more
+T 1619810698 18<27tromey18>	maybe Tom Cruise killed it.  or maybe it was just bad
+T 1619810743 18<28technomancy18>	is Anne Rice the author who got so mad at a fried chicken place that she put a scene in her book about how bad it was?
+T 1619810754 18<27grym18>	she's an odd lady 
+T 1619810760 18<27grym18>	(author; who's surprised?)
+T 1619810764 18<27tromey18>	that's hilarious
+T 1619810783 18<20bpalmer18>	The Interview with the Vampire series had multiple movies.
+T 1619810817 18<28technomancy18>	https://www.nola.com/entertainment_life/article_0cfca6b8-8812-5553-a391-8b0522eb10b2.html ok not a scene in a book but a full-page ad in a newspaper ???
+T 1619810817 18<22fsbot18>	Highly likely
+T 1619810825 18<20bpalmer18>	Queen of the Damned featured a pop star who died while filming it.
+T 1619810834 18<27grym18>	rip alyiah
+T 1619810848 18<20bpalmer18>	Hmm. Maybe not pop -- "R&B singer-turned-actress Aaliyah"
+T 1619810856 18<27grym18>	yep
+T 1619810880 18<27grym18>	like 3 months after lisa left-eye lopes :( 
+T 1619810925 18*	20bpalmer doesn't really know either of these people
+T 1619810949 18<27natter18>	rip in peace 90s pop culture
+T 1619810949 18<27grym18>	they both featured heavily in the soundtrack of my mid-teenage years
+T 1619811038 18<20bpalmer18>	Apparently _Exit to Eden_ was a 1994 film based on one of Anne Rice's books (written under the name Anne Rampling)
+T 1619811125 18<27grym18>	a feature of growing up within FM broadcast range of hot 97 when that meant anything, perhaps
+T 1619811275 18<20bpalmer18>	rudybot: distinguish R&B from pop
+T 1619811277 18<24rudybot18>	bpalmer: but a lot of pop-science articles don't really distinguish "artificial intelligence" from "artificial general intelligence"
+T 1619811313 18<28technomancy18>	rudybot: R&B has to be blue but pop can be any color.
+T 1619811316 18<24rudybot18>	technomancy: ,Prussian-Blue was a white nationalist pop pre-teen duo
+T 1619811336 18<28technomancy18>	ಠ_ಠ
+T 1619811540 18<27natter18>	,yow
+T 1619811540 18<22fsbot18>	So this is what it feels like to be potato salad
+T 1619811638 18<20bpalmer18>	Hmm. So Florida has proposed an expansive "deplatforming" bill, which includes this carveout: "The term does not include any information service, system, Internet search engine... operated by a company that owns and operates a theme park or entertainment complex..."
+T 1619811728 18<28technomancy18>	bpalmer: so they're trying to convince facebook to get into the business of owning and operating theme parks?
+T 1619811758 18<28technomancy18>	"Technically the law didn't say that the theme park had to be a good theme park."
+T 1619811775 18<27grym18>	didney whirl 
+T 1619811778 18<20bpalmer18>	Maybe it's an attempt at helping up the bids after a hard year for theme park operators.
+T 1619811779 18<27natter18>	Let's make Mickey Mouse bucks the national currency of Florida
+T 1619811795 18<27grym18>	it's a tacit admission that florida does what disney tells it to 
+T 1619811811 18<28technomancy18>	imagine getting a job taking tickets at a facebook-owned roller coaster that exists just to exploit this loophole
+T 1619811812 18<20bpalmer18>	No way, this is all about the Epcot regime.
+T 1619811827 18<20bpalmer18>	Oh, Epcot is Disney, too, isn't it?
+T 1619811937 18<28technomancy18>	latest Disney fun: they are trying to cheat Alan Dean Foster out of royalties for the books he wrote, claiming they bought the assets of Lucas/Fox/etc but somehow not the liabilities: https://pluralistic.net/2021/04/29/writers-must-be-paid/#pay-the-writer
+T 1619811994 18<20bpalmer18>	I believe Foster has since been paid, but it's still affecting other authors.
+T 1619812033 18<28technomancy18>	you gotta admit, "We were only buying the assets, not the liabilities" is a very, um, creative ... argument
+T 1619812042 18<20aidalgol18>	technomancy: But dontcha just *love* Disney too much to care?
+T 1619812050 18<20aidalgol18>	also *all* companies are shitty, so don't worry about it
+T 1619812072 18<25cvandusen18>	technomancy: This is what imagineers are paid for.
+T 1619812126 18<28technomancy18>	cvandusen: I'm still waiting for them to fund interstellar travel research so they can toss the writers of their films into the event horizon so that technically from our frame of reference they will stay alive for all time and thus their copyright will never expire
+T 1619812137 18<28technomancy18>	*the event horizon of a black hole
+T 1619812178 18<27tromey18>	man that is a great idea
+T 1619812179 18<25cvandusen18>	Another Disney production
+T 1619812197 18<27grym18>	dale: did you ever converge on an auctex incantation with straight? 
+T 1619812201 18<28technomancy18>	tromey: honestly depending on how much they spend on the research I might not even be mad about it
+T 1619812203 18<27natter18>	Let's make an Event Horizon (the movie)-inspired ride at Disney World
+T 1619812208 18<27natter18>	people love Sam Neil
+T 1619812214 18<22thblt18>	In Disney news, the Circle of Life is now a dot. 
+T 1619812278 18<28technomancy18>	tromey: it's like ... knowing how capitalistic parasite corporations behave, how can we trick them into using their horrific powers for good?
+T 1619812291 18<27natter18>	survey says??
+T 1619812292 18<22fsbot18>	Yes!
+T 1619812296 18<27natter18>	\o/
+T 1619812339 18<22thblt18>	technomancy: With a blockchain?
+T 1619812387 18<25cvandusen18>	rudybot: what's the best blockchain package? 
+T 1619812394 18<24rudybot18>	cvandusen: hrm why would a blockchain verification work in the context best of a single entity writing to it?
+T 1619812467 18<22thblt18>	rudybot: did you just invent the logfile?
+T 1619812470 18<24rudybot18>	thblt: let's embarrassingly overlook a configuation change and debug something using the wrong logfile.
+T 1619812487 18<28technomancy18>	way ahead of you rudybot
+T 1619812490 18<27tromey18>	that one is too real
+T 1619813252 24*	28Lord_of_Life_ is now known as 18Lord_of_Life
