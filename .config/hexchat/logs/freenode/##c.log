@@ -1470,3 +1470,34 @@ Apr 30 21:15:43 <mark4>	thats the definition for the elements of the array
 Apr 30 21:15:43 <caze>	Don't you want to do s++ somewhere?
 Apr 30 21:16:03 <mark4>	nopeoooh duh
 Apr 30 21:16:19 <fizzie>	(Or just use array indexing.)
+Apr 30 21:29:49 *	anton1 is now known as anton
+Apr 30 21:51:35 <John_Ivan>	it is a pain in the ass to find serious people.
+Apr 30 21:57:01 *	jarthur_ is now known as jarthur
+Apr 30 22:24:20 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 30 22:24:20 2021
+
+**** BEGIN LOGGING AT Sat May  1 03:56:57 2021
+
+May 01 03:56:57 *	Now talking on ##C
+May 01 03:56:57 *	Topic for ##C is: C Programming | PASTE (>3 lines): https://bpa.st/ | WIKI: http://www.iso-9899.info/ | BOOKS: http://www.iso-9899.info/wiki/Books | C2X Charter: http://www.open-std.org/jtc1/sc22/wg14/www/docs/n2086.htm | the current standard: http://iso-9899.info/wiki/The_Standard | Off-topic: ##c-offtopic
+May 01 03:56:57 *	Topic for ##C set by dho!~dho@freenode/staff/dho (Fri Apr  9 04:35:19 2021)
+May 01 03:56:58 -ChanServ-	[##c] Welcome to ##c! We engage in C programming discussions at all levels of expertise; don't hesitate to ask your question. If applicable, please prepare a testcase and paste it at http://ideone.com. We don't know about C++ (##c++) or C# (##csharp).
+May 01 03:56:58 *	Channel ##c url: http://www.iso-9899.info/
+May 01 05:21:37 <unixbsd>	hi
+May 01 05:21:45 <pony>	hi
+May 01 05:22:05 <unixbsd>	how to flush after a getchar() so that the next getchar() is not encoumbered by eventually (10) and skipped?
+May 01 05:24:13 <wroathe>	10 is a line feed, and getchar wouldn't skip it
+May 01 05:26:55 <unixbsd>	several getchar() will somehow arrive to one that is skipped soon or later
+May 01 05:28:14 <wroathe>	unixbsd: Post your code in a paste
+May 01 05:28:57 <unixbsd>	it will be very ugly.... you will cry a bit
+May 01 05:31:15 <unixbsd>	Sorry... please find the getchar() failing... in ugly c code:  https://termbin.com/yc0d
+May 01 05:42:23 <wroathe>	unixbsd: You're not even handling line feeds here. If a user types "y\n" into their terminal window stdin will then contain those two characters
+May 01 05:42:44 <wroathe>	unixbsd: For example: https://godbolt.org/z/dxr3fnGav
+May 01 05:43:08 <wroathe>	unixbsd: The input to that program is "a\n\n", as you can see in the upper right corner
+May 01 05:53:18 <wroathe>	unixbsd: what you probably want to do is add a line like while (isspace(c = getchar())); to the start of your cpresskey routine, which will then cause it to skip through any whitespace characters in the input buffer
+May 01 05:54:35 <wroathe>	unixbsd: Something like this: https://godbolt.org/z/KovGsEf4T
+May 01 05:55:26 <Maxdamantus>	I'm guessing they want to read the input without waiting for the user to press enter, in which case you'll need to try to tell the terminal that you want that behavious.
+May 01 05:56:08 <Maxdamantus>	you'd probably need to use tcsetattr to set the `IXON` iflag.
+May 01 05:56:34 <Maxdamantus>	otherwise the terminal itself will buffer input until the user presses enter or ^d
+May 01 05:58:13 <Maxdamantus>	(note that in that usual ~IXON mode, you can normally press backspace to delete characters that are still buffered by the terminal)
+May 01 06:01:16 <Maxdamantus>	er, wait, ICANON, no IXON.

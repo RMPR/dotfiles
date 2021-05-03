@@ -6155,3 +6155,172 @@ T 1619811945 24*	28Scotty_Trees|Zzz is now known as 18Scotty_Trees
 T 1619811980 18<28Peetz0r18>	cmurf: anything I forgot to add? https://bugzilla.redhat.com/show_bug.cgi?id=1955416
 T 1619813453 18<20cmurf18>	Peetz0r: no, pjones is looking at it all now
 T 1619813466 18<28Peetz0r18>	Yep, I noticed
+T 1619814179 18<27Bayesian_Coffee18>	idk how to file a bug report with lenovo so i'm calling them
+T 1619814370 24*	28tnewman9 is now known as 18tnewman
+T 1619814504 18<25gambl0re18>	hello?
+T 1619814739 18<24elxa18>	what's up?
+T 1619815000 18<19themayor18>	hey i have a question. does anyone here know about AlmaLinux?
+T 1619815071 18<25gambl0re18>	elxa: hey
+T 1619815081 18<25gambl0re18>	is fedora 34 stable now?
+T 1619815138 18<28fedbot18>	*** F34-20210430 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1619815146 24*	28anoopcs- is now known as 18anoopcs
+T 1619815239 18<29lionirdeadman18>	gambl0re: yes
+T 1619815257 18<24elxa18>	gambl0re: well I have it used it for 1-2 days only so far. I have some issues with my bluetooth headset. Sound is working fine mostly and better quality than before, but sometimes I don't get it to play any sound although system settings shows it like it always does
+T 1619815274 18<24elxa18>	I saw some pipewire errors already in the journal
+T 1619815295 18<25gambl0re18>	lionirdeadman: ok cool. its just that i was still reading about some issues relating to sound, display, media/playback. one user wasnt' even able to copy/paste
+T 1619815305 18<24elxa18>	I only suspend to ram and today the sound didn't want to come back even with headset power cycling
+T 1619815315 18<25gambl0re18>	elxa: how you likeing it so far?
+T 1619815323 18<24elxa18>	after reboot or restart of the whole desktop stack things seem to always work fine again
+T 1619815326 18<25gambl0re18>	are you using gnome?
+T 1619815330 18<29lionirdeadman18>	Well, I'm not saying it's issue-free, I'm saying it's released elxa
+T 1619815338 18<19mgee18>	Southern_Gentlem: FYI, I managed to boot my Win10 in virt-manager, but performance and screen resolution needs some working, perhaps network NATing  etc. Hope I will manage to improve it later.
+T 1619815363 18<25gambl0re18>	elxa: how is audio quality?
+T 1619815403 18<24elxa18>	yeah I've used gnome for several versions already, I like the simplicity but I tend to not use enough workspace or not use them effectively I fear
+T 1619815429 18<24elxa18>	gambl0re: better than before, I listen to classical+choir on a bose quiet comfort ii bluetooth  headset
+T 1619815439 18<25gambl0re18>	elxa: ive been using kde but i wanted to give a gnome 40 a try but i still keep reading about issues
+T 1619815461 18<24elxa18>	when audio works (99.9% of the time) I have 0 issues with it
+T 1619815481 18<25gambl0re18>	are you having any copy/paste issues?
+T 1619815494 18<25gambl0re18>	or display/graphics issues?
+T 1619815496 18<24elxa18>	gambl0re: well most complaints I read about are a) it's not the usual desktop I am used to from windows or b) it's too simplistic
+T 1619815500 18<25cdostal[m]18>	I'm loving gnome 40 personally
+T 1619815508 18<25gambl0re18>	or wifi connectivity, bluetooth connectivity?
+T 1619815519 18<29lionirdeadman18>	GNOME 40 ❤️
+T 1619815552 18<25gambl0re18>	well of course people in #fedora are not going to critique in a negative way but still would like some objective opinions
+T 1619815554 18<27sdgathman18>	abrt can't submit crash reports because retrace.fedoraproject.org seems to be down.
+T 1619815587 18<24elxa18>	gambl0re: I have no wifi but I installed f34 on my sisters super old laptop  (intel  core 2 duo afaik) and it has some broadcom wifi chip which is not working out of the box due to missing firmware (fedora afaik cannot distribute it due to licensing). I tried quite a few guides and kinda picked out of it what I needed
+T 1619815593 18<24elxa18>	so wifi seems to work perfectly
+T 1619815607 18<24elxa18>	my bluetooth works fine too
+T 1619815652 18<25gambl0re18>	elxa: thats good to hear. so do you think most of the existing issues is mostly niche?
+T 1619815668 18<25gambl0re18>	the os will work properly for 90% of users?
+T 1619815697 18<24elxa18>	if you have hardware that's well supported by opensource drivers you it's usually a walk in the park to make it work :D
+T 1619815724 18<25gambl0re18>	i have integrated intel graphics card
+T 1619815733 18<25gambl0re18>	its just that when i see posts like
+T 1619815736 18<25gambl0re18>	https://www.reddit.com/r/Fedora/comments/n109d1/copy_and_paste_not_working/
+T 1619815740 18<25gambl0re18>	it makes me wonder
+T 1619815744 18<25cdostal[m]18>	So I use it on a dell 9575. The issues I have are: no fingerprint reader. And on boot, it doesn't accept mouse or keyboard, only touchscreen. But a change to the modprobe blacklist fixes that
+T 1619815745 18<25gambl0re18>	how stable it is is
+T 1619815766 18<25cdostal[m]18>	No problems at all besides those. No crashes or anything. Runs well.
+T 1619815772 18<29lionirdeadman18>	This is likely a Wayland issue, it should be fixed soon enough I hope.
+T 1619815775 18<29lionirdeadman18>	Or to be specific, likely a KDE Wayland issue.
+T 1619815848 18<24elxa18>	gambl0re: I have slack (also a flatpak) installed and copy/paste to firefox just works
+T 1619815897 18<29lionirdeadman18>	Same here.
+T 1619815908 18<29lionirdeadman18>	All my applications are flatpaks basically.
+T 1619815924 18<25gambl0re18>	so it is an issue with the telegram flatpak?
+T 1619815947 18<25gambl0re18>	also unrelated question but if an applicaiton is both available in flatpak and snap, which one should i get?
+T 1619815948 18<24elxa18>	gambl0re: I think if you cannot live with potential early adopter bugs it's always a good idea to wait unless urgently need to upgrade for other reasons
+T 1619815991 18<25gambl0re18>	elxa: ok thanks...
+T 1619816014 18<24elxa18>	I took the risk that pipewire might force me to go back to f33 but so far it's looking good enough for my use cases
+T 1619816025 18<24elxa18>	steam / dota 2 works as before
+T 1619816040 18<25gambl0re18>	elxa: did you do a clean install or upgrade?
+T 1619816045 18<29lionirdeadman18>	It's not an issue with telegram flatpak, it's an issue with KDE Wayland afaik.
+T 1619816098 18<29lionirdeadman18>	As for whether to choose between snap or flatpak, it's up to personal preference but my preference is strongly for flatpak and I personally think snap should disappear.
+T 1619816104 18<24elxa18>	gambl0re: I always try to upgrade but got fed up with conflict resolving. Last one I had before I decided to clean install was iptables and I also wanted to give btrfs as rootfs another shot (was on ext4 before) so that meant reinstall anyways
+T 1619816121 18<24elxa18>	rsynced my whole $HOME to my NAS and back again
+T 1619816169 18<29lionirdeadman18>	I did a rebase so an upgrade personally.
+T 1619816187 18<24elxa18>	installed my usual applications and they just picked up their configuration from their usual config directories
+T 1619816197 18<25gambl0re18>	elxa: if im using fedora 33 kde, could i upgrade to fedora 34 gnome?
+T 1619816258 18<24elxa18>	certainly is, just a matter of configuration
+T 1619816258 18<25gambl0re18>	also when you copy back your $HOME back to your hdd, wouldnt your config files conflict with the new config?
+T 1619816292 18<29lionirdeadman18>	Hmm, I think if you're going to do that, you'll need to dnf swap to GNOME then do the upgrade
+T 1619816300 18<24elxa18>	gambl0re: yeah I kinda ignored these conflicts. rsync from src to dst will by default afaik not remove files that exist in dst but not in src
+T 1619816339 18<25gambl0re18>	oh i see....ok thanks i'll try install fedora 34 this weekend
+T 1619816380 18<24elxa18>	I would always make a $HOME backup if you have the space and maybe other directories you store user data in
+T 1619816444 18<25gambl0re18>	yea i already backed up my files
+T 1619816475 18<25gambl0re18>	elxa: also did you install gnome-tweeks?
+T 1619816485 18<25gambl0re18>	ive never used gnome before, what is gnome-tweeks for?
+T 1619816503 18<24elxa18>	it's a nice ui to change settings that gnome offers no gui for
+T 1619816513 18<19dowdle18>	gambl0re: Additional settings / features that aren't in the standard GNOME settings... to "tweak" it.
+T 1619816519 18<24elxa18>	I think the alternative is a cli command gsettings or something
+T 1619816554 18<25gambl0re18>	dowdle: do i just install gnome tweeks with dnf?
+T 1619816611 18<24elxa18>	yeah sudo dnf install gnome-tweaks
+T 1619816631 18<24elxa18>	it's just a collection of settings a lot of people like to tweak displayed in a nice ui
+T 1619816668 18<19dowdle18>	gambl0re: You could wiggle your nose.
+T 1619816674 18<24elxa18>	I most of the time change the themes of gdm/shell/gtk because I like more colorful themes. The default is really nice and clean, but I get tired of the gray/whiteness :D
+T 1619816727 18<29lionirdeadman18>	Adwaita is love!
+T 1619816743 18<25gambl0re18>	do you think i should follow this guide after install?
+T 1619816745 18<25gambl0re18>	https://www.fosslinux.com/46272/things-to-do-after-installing-fedora-workstation.htm
+T 1619816806 18<24elxa18>	that is highly subjective to a) your preferences and b) the applications you use
+T 1619816816 18<24elxa18>	or even your hardware
+T 1619816823 18<19dowdle18>	gambl0re: Hell no.  Fedy and snap?  No thanks.
+T 1619816858 18<24elxa18>	I have used fedy to just install any codec needed to play any media
+T 1619816872 18<24elxa18>	also using rpmfusion to get whatever is problematic for default fedora
+T 1619816877 18<25gambl0re18>	elxa: do you have any issues with video playback?
+T 1619816879 18<29lionirdeadman18>	Yeah, most seem optional, note that the nvidia instructions are backwards. Fedy seems like a big no though. Also, they confuse "flatpak support" with adding flathub, I would definitely not install snap.
+T 1619816889 18<25gambl0re18>	i read some users had issues with vlc
+T 1619816889 18<26Khaytsus18>	elxa: rpmfusion is not a problem with Fedora.
+T 1619816894 18<19dowdle18>	Hmm, fedy I thought used to be a bit fishy... but I see kwizart as part of the URL and I think that nick is an rpmfusion developer.  Did fedy become legit?
+T 1619816895 18<28gnafu18>	elxa: What's problematic about RPM Fusion?
+T 1619816901 18<26Khaytsus18>	And I don't know what Fedy is today..  but do NOT use Fedy.
+T 1619816910 18<26Khaytsus18>	It used to be _trash_.  It has changed since, but..  yeah, no.
+T 1619816945 18<29lionirdeadman18>	Their guide to install multimedia codecs is better than using fedy
+T 1619816965 18<24elxa18>	gambl0re: right now I use firefox and I have not managed to make chromium play html5 h264 video so far despite internet guides  suggesting to install whatever thirdparty build or code packs . Chrome plays it wihout issues tough
+T 1619816989 18<29lionirdeadman18>	Just install ffmpeg from rpmfusion
+T 1619816990 18<19dowdle18>	firefox++
+T 1619816990 18<29lionirdeadman18>	It will work
+T 1619817022 18<28gnafu18>	Specifically, ffmpeg-libs.
+T 1619817076 18<25gambl0re18>	elxa: yea i really wanted to use ff as my main browser but chrome just works
+T 1619817088 18<24elxa18>	is there a specific flag to make dnf pick the one from rpmfusion ? dnf install <package>@rpmfusion or something?
+T 1619817106 18<26Khaytsus18>	elxa: no?  There are no conflicts between rpmfusion and Fedora, so no need.
+T 1619817117 18<29lionirdeadman18>	no, Fedora doesn't ship ffmpeg so rpmfusion is the only option.
+T 1619817137 18<20LordRishav[m]18>	<dowdle "firefox++"> I would use Firefox if they didn't decide to make Proton design
+T 1619817139 18<19dowdle18>	My favorite video player is mpv, smplayer, vlc AND qmplay2
+T 1619817169 18<29lionirdeadman18>	Their new design isn't that bad.
+T 1619817184 18<24elxa18>	aha ok , so ffmpeg-libs-4.4-2.fc34.x86_64 is my only *ffmpeg* package installed should that be enough? Because chromium doesn't play html5 h264
+T 1619817184 18<19dowdle18>	LordRishav[m]: I saw some article saying that was horrible but I didn't understand anything they were complaining about.
+T 1619817197 18<20LordRishav[m]18>	it looks like a it is made for tablets
+T 1619817200 18<29lionirdeadman18>	I prefer GNOME Web's design personally.
+T 1619817227 18<19dowdle18>	LordRishav[m]: I remember the biggest complaint was that the address field was a few pixels bigger.  BFD.
+T 1619817246 18<24elxa18>	I often end up on one workspace with too many windows
+T 1619817246 18<20LordRishav[m]18>	Also, they removed Compact mode
+T 1619817251 18<25gambl0re18>	why you have some many video players?
+T 1619817257 18<19dowdle18>	gambl0re: Because they all suck in some way...
+T 1619817262 18<19dowdle18>	gambl0re: And one is better at one thing than another.
+T 1619817270 18<29lionirdeadman18>	Personally the thinner icons bother me quite a bit but I'll get used to it probably.
+T 1619817280 18<19dowdle18>	gambl0re: Same reason a single anything is usually not good enough.
+T 1619817293 18<25gambl0re18>	all i need is for the video player to play videos...vlc works fine
+T 1619817313 18<29lionirdeadman18>	I use Celluloid and Videos
+T 1619817319 18<19dowdle18>	gambl0re: Some do better with av1... not that I have a lot of av1 content yet.
+T 1619817326 18<28gnafu18>	elxa: I know nothing about Chromium, but ffmpeg-libs should be all Firefox needs to play H.264, etc.
+T 1619817383 18<29lionirdeadman18>	I think chromium needs something like "chromium-freeworld" or something
+T 1619817386 18<28gnafu18>	Actually, doesn't Firefox support most H.264 and AAC out of the box on Fedora nowadays?
+T 1619817386 18<24elxa18>	gnafu: oh maybe you missed my post earlier. The only browser of firefox, chromium, chrome that does *not* play (html5) h264 is chromium
+T 1619817398 18<28gnafu18>	Why bother with Chromium then?  ;-D
+T 1619817399 18<19dowdle18>	LordRishav[m]: When does proton hit?  Next Firefox release (89?) or has it hit already?
+T 1619817420 18<29lionirdeadman18>	It's currently in Firefox Beta.
+T 1619817422 18<24elxa18>	I prefer open source components as much as possible
+T 1619817435 18*	28gnafu can't remember the last time he used anything other than Firefox
+T 1619817440 18<28gnafu18>	.
+T 1619817448 18<20LordRishav[m]18>	In version 89 fully
+T 1619817448 18<20LordRishav[m]18>	Currently I see Proton like context menus in 88
+T 1619817466 24*	28philipp64_ is now known as 18philipp64
+T 1619817523 18<24elxa18>	I am not sure how far screensharing is with apps like slack or teams using wayland
+T 1619817546 18<28gnafu18>	elxa: If your preference is for open source, then I would recommend solely using Firefox.
+T 1619817553 18<24elxa18>	I'd really like to use f34 and wayland on my work laptop someday :D
+T 1619817580 18<28gnafu18>	I'm pretty sure that's working well now, at least using the flatpaks of those applications.  I think PipeWire has made that possible.
+T 1619817609 18<20LordRishav[m]18>	gnafu: Chromium is also open-source, and Brave is awesome too
+T 1619817671 18<28gnafu18>	LordRishav[m]: Right, but why bother?  I'd rather not use Chrome on any level.  I want to keep real alternatives alive, and so I use Firefox everywhere.
+T 1619817703 18<28gnafu18>	Work, personal, mobile: 100% Firefox with zero issues.
+T 1619817705 18<25gambl0re18>	whats the benefits of wayland over x
+T 1619817719 18<25gambl0re18>	is it supposed to provide smoother animations?
+T 1619817743 18<20LordRishav[m]18>	I have personally hardened Firefox so much that it has become difficult to use
+T 1619817784 18<25gambl0re18>	chrome has better developer tools and i also think ff consumes for cpu
+T 1619817860 20*	Disconnected (20)
+T 1619837817 19*	Now talking on 22#fedora
+T 1619837817 22*	Topic for 22#fedora is: Fedora Linux F32, F33, F34 end user support || Please READ: https://tinyurl.com/Fchanfaq || Common bugs: https://tinyurl.com/F32-common https://tinyurl.com/F33-common https://tinyurl.com/f34-common || Only Use Fedora,rpmfusion and Copr Repos || IRC Feedback: https://tinyurl.com/fedoraircsig || Updated F33 Live isos: https://tinyurl.com/Live-respins
+T 1619837817 22*	Topic for 22#fedora set by 26Southern_Gentlem!~notfred@fedora/Southern-Gentleman (24Fri Apr 30 14:38:41 2021)
+T 1619837818 -18ChanServ-	[#fedora] Any advice you read here is provided by individual community members. You should use it at your OWN RISK. This advice is owned by each individual, and does NOT represent the views of Freenode, Fedora or Red Hat. This channel may be logged.  You must be registered to speak.
+T 1619838381 18<29jerome_18>	how to get scsi hot swap plug able with fedora-34 ?
+T 1619838584 18<29jerome_18>	google and duckduckgo doesn't help with that and Fedora. I can do it easy with Archlinux, but failed to find any information with that and Fedora
+T 1619838789 18<27cmurf[m]18>	jerome_: doing the same thing on Fedora as you do on Arch doesn't work?
+T 1619838997 18<29jerome_18>	no because it doesn't ask for the same packages, i'm trying to search for enable on Fedora the hot swap, i think it should have something to install (my BIOS is fine for that), and maybe a kind of udev rule to add or a systemd service to enable/start... do you know something with hot plug scsi HDD with Fedora ?
+T 1619839038 18<29jerome_18>	cmurf[m], or maybe do you know a link "how to" article with Fedora and that ?
+T 1619839064 18<29jerome_18>	a kind of FedoraWiki, maybe ?
+T 1619839189 18<29jerome_18>	if you also know a full source of information about how to do anything with Fedora, i would be very happy to learn something from there and no more lmoose a lot of times to search something i already do and find easy on Archlinux.
+T 1619839425 18<29jerome_18>	i also try to enable module acpiphp (modprobe acpiphp) who does exist because no error returned, but lsmod | grep acpiphp doesn't show the module... so what ?
+T 1619839960 18<27cmurf[m]18>	jerome_: i don't know what acpiphp is, but i see a bunch of hotplug stuff is already built into the kernel
+T 1619839962 18<27cmurf[m]18>	grep HOTPLUG /boot/config-5.12.0-198.fc35.x86_64+debug
+T 1619840207 18<29jerome_18>	cmurf[m], what do you suggest that i can do to involve my Fedora-34 distro to let me see any hot pluged hdd ?
+T 1619840307 18<29jerome_18>	i read this article about rhel and centos: https://ghanshammahajan.com/how-to-detect-new-hard-disk-without-reboot-in-centosrhel/ but seems to be not adapted or already outdated as i can not find any mpt application with dnf search.
+T 1619840345 18<28fedbot18>	*** F34-20210430 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***
+T 1619841166 24*	28ranzpirat6 is now known as 18ranzpirat
+T 1619843946 18<28fedbot18>	*** F34-20210430 updated lives available: https://tinyurl.com/Live-respins2 Built by the Fedora Respin Sig more info #fedora-respins ***

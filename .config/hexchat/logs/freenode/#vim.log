@@ -924,3 +924,46 @@ Apr 30 20:27:20 <moldorcoder7>	haijuno, https://github.com/wfxr/minimap.vim
 Apr 30 20:27:39 <haijuno>	Oh wow that looks sweet!
 Apr 30 20:58:47 *	Starhowl is now known as CosmicHusky
 Apr 30 21:07:32 *	Lord_of_Life_ is now known as Lord_of_Life
+Apr 30 21:26:10 *	tnewman9 is now known as tnewman
+Apr 30 21:43:13 <t2mkn>	how can i find a special charactor using hex code i.e. 0xc3 in a file ?
+Apr 30 21:43:27 <romainl>	:j \%x
+Apr 30 21:43:35 <romainl>	:h \%x
+Apr 30 21:43:35 <digmbot>	:help \%x -> http://vimhelp.appspot.com/pattern.txt.html#%2F%5C%25x
+Apr 30 21:47:52 <Dani82>	hello, I need to remove all lines with the text ".rar/" from a text file, how can i do that? ":g/.rar//d" doesn't seem to work
+Apr 30 21:48:26 <romainl>	:g/<pattern>/<command>
+Apr 30 21:49:01 <romainl>	and the correct pattern for .rar is \.rar
+Apr 30 21:50:27 <Dani82>	so, ":g/\.rar//d"
+Apr 30 21:50:29 <Dani82>	right?
+Apr 30 21:50:43 *	romainl sigh
+Apr 30 21:50:54 <romainl>	:g/<pattern>/<command>
+Apr 30 21:52:07 <romainl>	does the pattern \.rar/ work?
+Apr 30 21:52:15 <Dani82>	no
+Apr 30 21:52:30 <SvenG>	no dpuble-slash
+Apr 30 21:52:46 <romainl>	so… refine your pattern
+Apr 30 21:53:06 <romainl>	slash must be ecaped
+Apr 30 21:53:14 <romainl>	pff
+Apr 30 21:53:16 <Dani82>	well john, .rar/ is the best i can do, i can't remove .rar
+Apr 30 21:53:19 <romainl>	escaped
+Apr 30 21:54:02 <t2mkn>	thanks romainl
+Apr 30 21:54:21 <romainl>	t2mkn: for what?
+Apr 30 21:54:28 <romainl>	ha ok
+Apr 30 21:54:46 <t2mkn>	hex  search
+Apr 30 21:54:50 <t2mkn>	:)
+Apr 30 21:55:04 <romainl>	friday night is hard
+Apr 30 21:55:42 <t2mkn>	one more question. can i move to a specific byte postion in file i.e. 7653
+Apr 30 21:56:04 <SvenG>	yes
+Apr 30 21:56:04 <romainl>	:h :goto
+Apr 30 21:56:05 <digmbot>	:help :goto -> http://vimhelp.appspot.com/motion.txt.html#%3Agoto
+Apr 30 21:56:47 <t2mkn>	ooo thanks thanks :)
+Apr 30 21:57:59 <romainl>	hmmm…
+Apr 30 22:16:19 *	Spr0cket- is now known as Spr0cket
+Apr 30 22:24:20 *	Disconnected ()
+**** ENDING LOGGING AT Fri Apr 30 22:24:20 2021
+
+**** BEGIN LOGGING AT Sat May  1 03:56:57 2021
+
+May 01 03:56:57 *	Now talking on #vim
+May 01 03:56:57 *	Topic for #vim is: Can't talk? Register https://freenode.net/kb/answer/registration | Vim 8.2 http://www.vim.org | Don't ask to ask! | Use :help and :helpgrep | WIKI: http://vim.wikia.com | PASTE: http://vpaste.net/?ft=vim | https://www.vi-improved.org
+May 01 03:56:57 *	Topic for #vim set by jamessan (Fri Dec 13 04:14:14 2019)
+May 01 03:56:58 -ChanServ-	[#vim] vim discussion .. www.vim.org, vim.sf.net, :help
+May 01 03:56:58 *	Channel #vim url: http://vi-improved.org

@@ -126,7 +126,9 @@ nnoremap <leader>sl :so Session.vim<CR>
 
 " {{{ netrw: Configuration
 "     ====================
-let g:netrw_browsex_viewer="setsid xdg-open"
+"let g:netrw_browser_viewer="setsid xdg-open"
+"let g:netrw_browsex_viewer="setsid xdg-open"
+"nmap gx yiW:!xdg-open <cWORD><CR> <C-r>" & <CR><CR>
 let g:netrw_banner=0        " disable banner
 let g:netrw_browse_split=4  " open in prior window
 let g:netrw_altv=1          " open splits to the right
