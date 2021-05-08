@@ -41,4 +41,3 @@ set synmaxcol=200
 " Paths for fuzzy find
 set path +=**
 set path +=$PWD/
-
