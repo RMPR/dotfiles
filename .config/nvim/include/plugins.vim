@@ -99,11 +99,13 @@ nmap <leader>gs :G<CR>
 " Completion Nvim
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
-" Undotree
-nnoremap <leader>u :UndotreeToggle<CR>
-
 " Remove the annoying popup
 let g:completion_enable_auto_popup = 0
+
+imap <silent> <c-p> <Plug>(completion_trigger)
+
+" Undotree
+nnoremap <leader>u :UndotreeToggle<CR>
 
 " Tree Sitter options, Just using Python right now so enabling all is safe
 lua <<EOF
