@@ -28,7 +28,7 @@ local custom_attach = function()
 end
 
 -- Just add the server name to the list of servers
-local servers = {"pyls", "rust_analyzer"}
+local servers = {"pyls", "rust_analyzer", "gopls"}
   for _, ls in ipairs(servers) do
    lsp[ls].setup {
      on_attach = custom_attach,
