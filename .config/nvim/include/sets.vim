@@ -41,3 +41,7 @@ set synmaxcol=200
 " Paths for fuzzy find
 set path +=**
 set path +=$PWD/
+
+" Open new split panes to right and bottom, feels more natural
+set splitbelow
+set splitright

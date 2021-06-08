@@ -6,6 +6,7 @@ runtime! include/plugins.vim
 "runtime! include/lang.vim
 
 runtime! include/sets.vim
+runtime! include/autos.vim
 runtime! include/keybinds.vim
 runtime! include/colors.vim
 luafile $XDG_CONFIG_HOME/nvim/lua/lsp_config.lua

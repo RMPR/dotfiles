@@ -4,6 +4,18 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" Even in the terminal
+tnoremap <C-h> <C-\><C-n><C-w>h
+tnoremap <C-j> <C-\><C-n><C-w>j
+tnoremap <C-k> <C-\><C-n><C-w>k
+tnoremap <C-l> <C-\><C-n><C-w>l
+tnoremap <C-^> <C-\><C-n><C-^>
+
+map <C-left>  :wincmd <<cr>
+map <C-right> :wincmd ><cr>
+map <C-up>    :wincmd +<cr>
+map <C-down>  :wincmd -<cr>
+
 map <C-left>  :wincmd <<cr>
 map <C-right> :wincmd ><cr>
 map <C-up>    :wincmd +<cr>
@@ -43,6 +55,10 @@ function! s:VSetSearch(cmdtype)
     let @/ = '\V'.substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
     let @s = temp
 endfunction
+
+nnoremap <C-z> :terminal<CR>
+" List available buffers and prepare :b to switch with numbers
+nnoremap <Leader>b :ls<CR>:b<Space>
 
 " I use <C-j> in ranger to invoke autojump, make it consistent in nvim
 " map <leader>cj :!j 
