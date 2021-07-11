@@ -138,7 +138,7 @@ r() {
 	return $?
 }
 bindkey '^o' ranger-cd
-bindkey -s '^n' ' nvim .^M'
+bindkey -s '^n' 'q ^u nvim .^M'
 
 # User defined aliases
 
