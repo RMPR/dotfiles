@@ -58,3 +58,5 @@
 (after! projectile (setq projectile-project-root-files-bottom-up (remove
                                                                   ".git" projectile-project-root-files-bottom-up)))
 (setq org-roam-directory "~/todos/roam")
+
+(setq org-roam-v2-ack t)
