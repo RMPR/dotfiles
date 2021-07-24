@@ -60,6 +60,9 @@ nnoremap <C-z> :terminal<CR>
 " List available buffers and prepare :b to switch with numbers
 nnoremap <Leader>b :ls<CR>:b<Space>
 
+" Search in a range hightlighted in visual mode 
+vnoremap <Leader>/ <Esc>/\%V
+
 " I use <C-j> in ranger to invoke autojump, make it consistent in nvim
 " map <leader>cj :!j 
 
