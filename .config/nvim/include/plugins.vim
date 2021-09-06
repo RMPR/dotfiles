@@ -98,6 +98,7 @@ nnoremap <leader>grom :Git rebase origin/master<CR>
 nmap <leader>gh :diffget //3<CR>
 nmap <leader>gu :diffget //2<CR>
 nmap <leader>gs :G<CR>
+nmap <leader>gp :Git push<CR>
 
 " Completion Nvim
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
