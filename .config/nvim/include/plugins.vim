@@ -54,6 +54,9 @@ Plug 'nvim-lua/completion-nvim'
 
 " Preview Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+" Github 
+Plug 'skanehira/gh.vim'
 call plug#end()
 
 " Telescope
