@@ -1,0 +1,23 @@
+auto-reload yes
+reload-threads 100
+
+include /usr/share/doc/newsboat/contrib/colorschemes/inkpot
+#inkpot  kinda-maia  nord  solarized-dark  solarized-light
+color listnormal_unread  white default bold
+
+
+# externel browser
+browser "/usr/bin/firefox %u"
+macro m set browser "/usr/bin/mpv %u"; open-in-browser ; set browser "/usr/bin/firefox %u"
+macro l set browser "/usr/bin/firefox %u"; open-in-browser
+
+# unbind keys
+# unbind-key ENTER
+unbind-key j
+unbind-key k
+
+# bind keys - vim style
+bind-key j down
+bind-key k up
+bind-key l open
+bind-key h quit
