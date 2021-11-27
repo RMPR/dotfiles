@@ -3,6 +3,7 @@ local util = require 'lspconfig/util'
 local nvim_lsp = require('lspconfig')
 local completion = require 'completion'
 
+
 -- Python Configuration
 configs.pyls = {
     default_config = {
