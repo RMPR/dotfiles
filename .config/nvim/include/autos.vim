@@ -12,3 +12,9 @@ augroup insertonenter
         autocmd! TermOpen * call InsertOnTerminal()
     endif
 augroup END
+
+augroup NumberInsertModeOnly
+    autocmd!
+    autocmd InsertEnter * setlocal norelativenumber
+    autocmd InsertLeave * setlocal relativenumber
+augroup END
