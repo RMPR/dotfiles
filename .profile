@@ -1,3 +1,4 @@
+export KDEWM=/usr/bin/i3
 export EDITOR=/usr/bin/vimx
 export VISUAL=/usr/bin/nvim
 export GDK_BACKEND=wayland,x11
