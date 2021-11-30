@@ -112,7 +112,6 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 " Remove the annoying popup
 let g:completion_enable_auto_popup = 0
-imap <silent> <c-n> <Plug>(completion_trigger)
 
 " Undotree
 nnoremap <leader>u :UndotreeToggle<CR>
@@ -127,3 +126,6 @@ textobjects = { enable = true },
 }
 EOF
 
+" Sniprun configuration
+vmap m<CR> <Plug>SnipRun
+nnoremap m<Space> :%SnipRun<Space>
