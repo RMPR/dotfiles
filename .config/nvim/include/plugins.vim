@@ -1,5 +1,11 @@
+" Auto Install vimplug if it doesn't exist
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 call plug#begin()
-"Telescope Stuff
+" Telescope Stuff
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -54,6 +60,9 @@ Plug 'nvim-lua/completion-nvim'
 
 " Preview Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'mfussenegger/nvim-dap'
+
+Plug 'michaelb/sniprun', {'do': 'bash install.sh'}
 call plug#end()
 
 " Telescope
