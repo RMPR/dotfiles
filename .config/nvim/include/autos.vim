@@ -18,3 +18,8 @@ augroup NumberInsertModeOnly
     autocmd InsertEnter * setlocal norelativenumber
     autocmd InsertLeave * setlocal relativenumber
 augroup END
+
+augroup highlight_yank
+    autocmd!
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
+augroup END
