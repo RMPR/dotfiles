@@ -16,11 +16,6 @@ map <C-right> :wincmd ><cr>
 map <C-up>    :wincmd +<cr>
 map <C-down>  :wincmd -<cr>
 
-map <C-left>  :wincmd <<cr>
-map <C-right> :wincmd ><cr>
-map <C-up>    :wincmd +<cr>
-map <C-down>  :wincmd -<cr>
-
 " Hitting escape twice should clear any search highlights.
 noremap <ESC><ESC> :nohlsearch<CR>
 
