@@ -17,11 +17,6 @@ Plug 'gruvbox-community/gruvbox'
 " Better (experimental) syntax hightlighting and goodies
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-" It's tpope ...
-" TL;DR gcc to comment (takes a count)
-" Can also use it with verbs gcap
-Plug 'tpope/vim-commentary'
-
 " cs: change surround
 " ds: delete surround
 Plug 'tpope/vim-surround'
@@ -61,6 +56,9 @@ Plug 'nvim-lua/completion-nvim'
 Plug 'mfussenegger/nvim-dap'
 
 Plug 'michaelb/sniprun', {'do': 'bash install.sh'}
+
+" Replace tpope gcc (comment line), gcb (comment block) can take a motion also
+Plug 'numToStr/Comment.nvim'
 call plug#end()
 
 " Telescope
@@ -129,3 +127,8 @@ EOF
 " Sniprun configuration
 vmap m<CR> <Plug>SnipRun
 nnoremap m<Space> :%SnipRun<Space>
+
+" Comment.nvim
+
+lua require('Comment').setup()
+
