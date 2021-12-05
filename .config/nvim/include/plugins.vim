@@ -59,6 +59,8 @@ Plug 'michaelb/sniprun', {'do': 'bash install.sh'}
 
 " Replace tpope gcc (comment line), gcb (comment block) can take a motion also
 Plug 'numToStr/Comment.nvim'
+
+Plug 'kdheepak/lazygit.nvim'
 call plug#end()
 
 " Telescope
