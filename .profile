@@ -12,3 +12,4 @@ export XDG_CONFIG_HOME=$HOME/.config
 export VIMCONFIG=$HOME/.vim
 export CLUTTER_BACKEND=x11 # Fix Shotwell
 export TERMINAL=alacritty
+_byobu_sourced=1 . /usr/bin/byobu-launch 2>/dev/null || true
