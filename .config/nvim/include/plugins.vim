@@ -10,6 +10,7 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
+Plug 'nvim-telescope/telescope-media-files.nvim'
 
 " Gruvbox Baby
 Plug 'gruvbox-community/gruvbox'
@@ -124,6 +125,10 @@ highlight = { enable = true },
 incremental_selection = { enable = true },
 textobjects = { enable = true },
 }
+EOF
+
+lua << EOF
+require('telescope').load_extension('media_files')
 EOF
 
 " Sniprun configuration
