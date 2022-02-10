@@ -1,9 +1,9 @@
 local configs = require 'lspconfig/configs'
 local util = require 'lspconfig/util'
 
-configs.pyls = {
+configs.pylsp = {
     default_config = {
-        cmd = { 'pyls' },
+        cmd = { 'pylsp' },
         filetypes = { 'python' },
         root_dir = function(fname)
             local root_files = {
