@@ -21,6 +21,11 @@ function ranger-cd
 end
 funcsave ranger-cd
 
+# Config for installing npm binaries without sudo
+set NPM_PACKAGES "$HOME/.npm-packages"
+set PATH $PATH $NPM_PACKAGES/bin
+set MANPATH $NPM_PACKAGES/share/man $MANPATH
+
 # To bind Ctrl-O to ranger-cd, save this in `~/.config/fish/config.fish`:
 bind \co ranger-cd
 bind \cn nvim .

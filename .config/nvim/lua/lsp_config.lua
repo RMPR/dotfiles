@@ -30,7 +30,7 @@ local custom_attach = function()
 end
 
 -- Just add the server name to the list of servers
-local servers = {'pylsp', 'rust_analyzer', 'gopls'}
+local servers = {'pylsp', 'rust_analyzer', 'gopls', 'bashls'}
   for _, ls in ipairs(servers) do
    nvim_lsp[ls].setup {
      on_attach = custom_attach,
