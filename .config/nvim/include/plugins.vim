@@ -83,6 +83,21 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>tr <cmd>Telescope resume<cr>
 
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
+" Delete entry from the picker https://github.com/nvim-telescope/telescope.nvim/pull/828
+lua << EOF
+require("telescope").setup {
+  pickers = {
+    buffers = {
+      sort_lastused = true,
+      mappings = {
+        i = {
+          ["<c-x><c-c>"] = "delete_buffer",
+        }
+      }
+    }
+  }
+}
+EOF
 
 " netrw: Configuration
 " ====================
