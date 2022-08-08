@@ -15,8 +15,8 @@ local custom_attach = function()
   completion.on_attach()
   -- local opts = { noremap=true, silent=true }
   -- Move cursor to the next and previous diagnostic
-  mapper("n", "<leader>n", "vim.lsp.diagnostic.goto_next()")
-  mapper("n", "<leader>p", "vim.lsp.diagnostic.goto_prev()")
+  mapper("n", "<leader>n", "vim.diagnostic.goto_next()")
+  mapper("n", "<leader>p", "vim.diagnostic.goto_prev()")
   mapper("n", "gd", "vim.lsp.buf.definition()")
   mapper("n", "<leader>gi", "vim.lsp.buf.implementation()")
   mapper("n", "<leader>sh", "vim.lsp.buf.signature_help()")
