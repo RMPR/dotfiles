@@ -58,6 +58,9 @@ nnoremap <Leader>b :ls<CR>:b<Space>
 " Search in a range hightlighted in visual mode 
 vnoremap <Leader>/ <Esc>/\%V
 
+" Reopen closed split (kinda)
+nnoremap <C-S><C-W> :vs#<CR>
+
 " I use <C-j> in ranger to invoke autojump, make it consistent in nvim
 " map <leader>cj :!j 
 
