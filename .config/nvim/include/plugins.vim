@@ -11,6 +11,9 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 
+Plug 'nvim-telescope/telescope-dap.nvim'
+Plug 'rcarriga/nvim-dap-ui'
+
 " Gruvbox Baby
 Plug 'gruvbox-community/gruvbox'
 
@@ -54,6 +57,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 
 Plug 'mfussenegger/nvim-dap'
+Plug 'mfussenegger/nvim-dap-python'
 
 Plug 'michaelb/sniprun', {'do': 'bash install.sh'}
 
@@ -64,6 +68,9 @@ Plug 'kdheepak/lazygit.nvim'
 
 " Sticky header
 Plug 'nvim-treesitter/nvim-treesitter-context'
+" Vim Script
+Plug 'folke/which-key.nvim'
+
 call plug#end()
 
 " Telescope
@@ -84,6 +91,7 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>tr <cmd>Telescope resume<cr>
+nnoremap <leader>tk <cmd>Telescope keymaps<cr>
 
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
 " Delete entry from the picker https://github.com/nvim-telescope/telescope.nvim/pull/828
@@ -149,12 +157,6 @@ EOF
 vmap m<CR> <Plug>SnipRun
 nnoremap m<Space> :%SnipRun<Space>
 
-" Comment.nvim
-
 lua require('Comment').setup()
-
-lua << EOF
-require("nvim-surround").setup({
-    -- Configuration here, or leave empty to use defaults
-})
-EOF
+lua require("nvim-surround").setup()
+lua require("which-key").setup()

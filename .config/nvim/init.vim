@@ -4,6 +4,7 @@ let mapleader = " "
 runtime! include/plugins.vim
 
 luafile $XDG_CONFIG_HOME/nvim/lua/lsp_config.lua
+luafile $XDG_CONFIG_HOME/nvim/lua/dbg/init.lua
 " This is next because it sets language specific variables.
 "runtime! include/lang.vim
 

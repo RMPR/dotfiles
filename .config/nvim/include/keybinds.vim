@@ -20,7 +20,7 @@ map <C-down>  :wincmd -<cr>
 noremap <ESC><ESC> :nohlsearch<CR>
 
 " Reload Nvim Config
-noremap <F5> :source ~/.config/nvim/init.vim<CR>
+noremap <leader><leader>s :source ~/.config/nvim/init.vim<CR>
 
 " Emacs muscle memory
 map <C-x><C-s> :w<CR>
