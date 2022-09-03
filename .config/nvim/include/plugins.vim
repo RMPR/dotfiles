@@ -19,7 +19,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " cs: change surround
 " ds: delete surround
-Plug 'tpope/vim-surround'
+Plug 'kylechui/nvim-surround'
 
 " Make tpopes plugins dot (.) repeatable
 Plug 'tpope/vim-repeat'
@@ -153,3 +153,8 @@ nnoremap m<Space> :%SnipRun<Space>
 
 lua require('Comment').setup()
 
+lua << EOF
+require("nvim-surround").setup({
+    -- Configuration here, or leave empty to use defaults
+})
+EOF
