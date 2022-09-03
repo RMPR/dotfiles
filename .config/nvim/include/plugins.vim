@@ -61,6 +61,9 @@ Plug 'michaelb/sniprun', {'do': 'bash install.sh'}
 Plug 'numToStr/Comment.nvim'
 
 Plug 'kdheepak/lazygit.nvim'
+
+" Sticky header
+Plug 'nvim-treesitter/nvim-treesitter-context'
 call plug#end()
 
 " Telescope
