@@ -70,6 +70,7 @@ Plug 'kdheepak/lazygit.nvim'
 Plug 'nvim-treesitter/nvim-treesitter-context'
 " Vim Script
 Plug 'folke/which-key.nvim'
+Plug 'voldikss/vim-floaterm'
 
 call plug#end()
 

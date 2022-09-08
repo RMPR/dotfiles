@@ -51,7 +51,8 @@ function! s:VSetSearch(cmdtype)
     let @s = temp
 endfunction
 
-nnoremap <C-z> :terminal fish<CR>
+nnoremap <C-z> :FloatermToggle<CR>
+tnoremap <C-z> <C-\><C-n>:FloatermToggle<CR>
 " List available buffers and prepare :b to switch with numbers
 nnoremap <Leader>b :ls<CR>:b<Space>
 
