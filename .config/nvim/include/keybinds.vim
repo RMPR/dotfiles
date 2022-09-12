@@ -62,6 +62,8 @@ vnoremap <Leader>/ <Esc>/\%V
 " Reopen closed split (kinda)
 nnoremap <C-S><C-W> :vs#<CR>
 
+xnoremap <leader>p "_dP
+
 " I use <C-j> in ranger to invoke autojump, make it consistent in nvim
 " map <leader>cj :!j 
 
