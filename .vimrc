@@ -6,8 +6,6 @@ set t_Co=256
 """""""
 " Vanilla Config RMPR
 """""""
-colorscheme ron
-
 if has("autocmd")
   filetype indent plugin on
 endif
