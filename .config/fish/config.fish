@@ -1,4 +1,6 @@
 if status is-interactive
+    abbr --add gco git checkout
+    abbr --add gsp git stash pop
     # Commands to run in interactive sessions can go here
 end
 
