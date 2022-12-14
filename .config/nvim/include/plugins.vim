@@ -72,6 +72,7 @@ Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'folke/which-key.nvim'
 Plug 'voldikss/vim-floaterm'
 
+Plug 'pwntester/octo.nvim'
 call plug#end()
 
 " Telescope
@@ -89,6 +90,7 @@ call plug#end()
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fgc <cmd>Telescope grep_string<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>tr <cmd>Telescope resume<cr>
@@ -145,13 +147,16 @@ let g:completion_enable_auto_popup = 0
 nnoremap <leader>u :UndotreeToggle<CR>
 
 " Tree Sitter options, Just using Python right now so enabling all is safe
+"
 lua <<EOF
-require'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup {
 -- Modules and its options go here
 highlight = { enable = true },
 incremental_selection = { enable = true },
 textobjects = { enable = true },
 }
+local ft_to_parser = require "nvim-treesitter.parsers".filetype_to_parsername
+ft_to_parser.octo = "markdown"
 EOF
 
 " Sniprun configuration
@@ -161,3 +166,4 @@ nnoremap m<Space> :%SnipRun<Space>
 lua require('Comment').setup()
 lua require("nvim-surround").setup()
 lua require("which-key").setup()
+lua require("octo").setup()
