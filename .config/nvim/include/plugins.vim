@@ -75,6 +75,8 @@ Plug 'voldikss/vim-floaterm'
 Plug 'pwntester/octo.nvim'
 call plug#end()
 
+lua require('octo').setup()
+
 " Telescope
 " <C-n>/<Down> 	Next item
 " <C-p>/<Up> 	Previous item
@@ -164,6 +166,5 @@ vmap m<CR> <Plug>SnipRun
 nnoremap m<Space> :%SnipRun<Space>
 
 lua require('Comment').setup()
-lua require("nvim-surround").setup()
-lua require("which-key").setup()
-lua require("octo").setup()
+lua require('nvim-surround').setup()
+lua require('which-key').setup()
