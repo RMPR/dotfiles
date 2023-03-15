@@ -32,6 +32,8 @@ set MANPATH $NPM_PACKAGES/share/man $MANPATH
 bind \co ranger-cd
 bind \cn nvim .
 
+# bind CTRL-Z to put the last suspended job to the foreground
+bind \cz 'fg 2>/dev/null; commandline -f repaint'
 starship init fish | source
 zoxide init fish | source
 set fish_greeting
