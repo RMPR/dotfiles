@@ -77,6 +77,7 @@ Plug 'voldikss/vim-floaterm'
 Plug 'pwntester/octo.nvim'
 Plug 'MunifTanjim/nui.nvim'
 Plug 'bennypowers/nvim-regexplainer'
+Plug 'ThePrimeagen/git-worktree.nvim'
 call plug#end()
 
 lua << EOF
@@ -330,6 +331,11 @@ nmap <leader>gp :Git push<CR>
 
 nnoremap <Leader>gy :.GBrowse!<CR>
 xnoremap <Leader>gy :'<'>GBrowse!<CR>
+" Git Worktree config
+lua require('git-worktree').setup()
+lua require('telescope').load_extension('git_worktree')
+nnoremap <leader>gwtc :lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>
+nnoremap <leader>gwtl ::lua require('telescope').extensions.git_worktree.git_worktrees()<CR>
 
 " Completion Nvim
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
@@ -360,3 +366,4 @@ nnoremap m<Space> :%SnipRun<Space>
 lua require('Comment').setup()
 lua require('nvim-surround').setup()
 lua require('which-key').setup()
+
