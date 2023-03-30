@@ -320,17 +320,27 @@ let g:rsi_no_meta = 1
 
 " Fugitive maps
 nnoremap <leader>gs :Git status<CR>
-nnoremap <leader>ga :Git fetch --all<CR>
+nnoremap <leader>gf :Git fetch<CR>
+nnoremap <leader>gF :Git pull<CR>
+nnoremap <leader>gfa :Git fetch --all<CR>
+nnoremap <leader>gb :Git branch 
+nnoremap <leader>gl :Git log<CR>
+nnoremap <leader>gr :Git rebase 
 nnoremap <leader>grum :Git rebase upstream/master<CR>
 nnoremap <leader>grom :Git rebase origin/master<CR>
 
 nmap <leader>gh :diffget //3<CR>
 nmap <leader>gu :diffget //2<CR>
 nmap <leader>gs :G<CR>
-nmap <leader>gp :Git push<CR>
+nmap <leader>gP :Git push<CR>
+nmap <leader>gPf :Git push --force<CR>
+nmap <leader>gX :Git reset 
+nmap <leader>gXh :Git reset --hard HEAD~1
+nmap <leader>gXs :Git reset --soft HEAD~1
 
 nnoremap <Leader>gy :.GBrowse!<CR>
 xnoremap <Leader>gy :'<'>GBrowse!<CR>
+
 " Git Worktree config
 lua require('git-worktree').setup()
 lua require('telescope').load_extension('git_worktree')
