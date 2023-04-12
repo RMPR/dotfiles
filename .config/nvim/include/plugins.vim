@@ -1,4 +1,4 @@
-" Auto Install vimplug if it doesn't exist
+" Aute Install vimplug if it doesn't exist
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -19,6 +19,7 @@ Plug 'gruvbox-community/gruvbox'
 
 " Better (experimental) syntax hightlighting and goodies
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
 
 " cs: change surround
 " ds: delete surround
@@ -54,9 +55,17 @@ Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-rsi'
 Plug 'mbbill/undotree'
 
-" Language servers
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
+" LSP Support
+Plug 'neovim/nvim-lspconfig'                           " Required
+Plug 'williamboman/mason.nvim', {'do': ':MasonUpdate'} " Optional
+Plug 'williamboman/mason-lspconfig.nvim'               " Optional
+
+" Autocompletion
+Plug 'hrsh7th/nvim-cmp'     " Required
+Plug 'hrsh7th/cmp-nvim-lsp' " Required
+Plug 'L3MON4D3/LuaSnip'     " Required
+
+Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v2.x'}
 
 Plug 'mfussenegger/nvim-dap'
 Plug 'mfussenegger/nvim-dap-python'
@@ -267,43 +276,6 @@ require'regexplainer'.setup {
   },
 }
 EOF
-" Telescope
-" <C-n>/<Down> 	Next item
-" <C-p>/<Up> 	Previous item
-" j/k 	Next/previous (in normal mode)
-" <CR> 	Confirm selection
-" <C-x> 	go to file selection as a split
-" <C-v> 	go to file selection as a vsplit
-" <C-t> 	go to a file in a new tab
-" <C-u> 	scroll up in preview window
-" <C-d> 	scroll down in preview window
-" <C-c> 	close telescope
-" <Esc> 	close telescope (in normal mode)
-" Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fgc <cmd>Telescope grep_string<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-nnoremap <leader>tr <cmd>Telescope resume<cr>
-nnoremap <leader>tk <cmd>Telescope keymaps<cr>
-
-nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
-" Delete entry from the picker https://github.com/nvim-telescope/telescope.nvim/pull/828
-lua << EOF
-require("telescope").setup {
-  pickers = {
-    buffers = {
-      sort_lastused = true,
-      mappings = {
-        i = {
-          ["<c-x><c-c>"] = "delete_buffer",
-        }
-      }
-    }
-  }
-}
-EOF
 
 " netrw: Configuration
 " ====================
@@ -352,22 +324,6 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 " Remove the annoying popup
 let g:completion_enable_auto_popup = 0
-
-" Undotree
-nnoremap <leader>u :UndotreeToggle<CR>
-
-" Tree Sitter options, Just using Python right now so enabling all is safe
-"
-lua <<EOF
-require('nvim-treesitter.configs').setup {
--- Modules and its options go here
-highlight = { enable = true },
-incremental_selection = { enable = true },
-textobjects = { enable = true },
-}
-local ft_to_parser = require "nvim-treesitter.parsers".filetype_to_parsername
-ft_to_parser.octo = "markdown"
-EOF
 
 " Sniprun configuration
 vmap m<CR> <Plug>SnipRun

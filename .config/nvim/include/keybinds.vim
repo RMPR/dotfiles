@@ -1,3 +1,6 @@
+" Open the parent folder in Netrw
+lua vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+
 " Move more easily between splits
 map <C-h> <C-w>h
 map <C-j> <C-w>j

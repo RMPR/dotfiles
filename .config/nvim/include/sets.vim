@@ -45,3 +45,7 @@ set path +=$PWD/
 " Open new split panes to right and bottom, feels more natural
 set splitbelow
 set splitright
+
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+set nofoldenable                     " Disable folding at startup.
