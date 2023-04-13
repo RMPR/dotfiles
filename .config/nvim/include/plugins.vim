@@ -87,6 +87,7 @@ Plug 'pwntester/octo.nvim'
 Plug 'MunifTanjim/nui.nvim'
 Plug 'bennypowers/nvim-regexplainer'
 Plug 'ThePrimeagen/git-worktree.nvim'
+Plug 'KabbAmine/zeavim.vim'
 call plug#end()
 
 lua << EOF
