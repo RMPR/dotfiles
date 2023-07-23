@@ -1,48 +1,3 @@
-T 1614005190 18<22knarkzel18>	this works
-T 1614005555 18<29chipps18>	How do I go back to the last file that I was editing
-T 1614005574 18<20bpalmer18>	chipps: C-x b , probably. Depends what you did to move away from it.
-T 1614005584 18<29MrFantastik18>	M-x previous-buffer
-T 1614005587 18<29MrFantastik18>	maybe
-T 1614005635 18<29chipps18>	Or more generally how can I cycle through the open buffers in order of last time opened?
-T 1614005654 18<27flypaper-ultimat18>	knarkzel: alternatively (setq chip8-buffer-content (vconcat (mapcar (lambda (i) (make-string 64 ?.)) (number-sequence 1 32))))
-T 1614005694 18<27flypaper-ultimat18>	chipps: with C-x <left>, C-x <right>
-T 1614005710 18<20bpalmer18>	chipps: by default, buffers will be organized in order of use in buffer-list, so previous-buffer / next-buffer (bound to the C-x arrows as flypaper-ultimat says) should do
-T 1614005807 18<20bpalmer18>	chipps: many people just use buffer switching mechanisms for C-x b (for example, iswitchb (which has been declared obsolete in favor of something I don't remember), helm, ivy, and more)
-T 1614005839 18<27grym18>	ibuffer is also handy, but a little heavy for quick switching 
-T 1614005839 18<20bpalmer18>	there's also buffer overview packages, like M-x ibuffer RET  (which I like enough to rebind C-x C-b  to invoke)
-T 1614005843 18<27grym18>	nicie for cleanup :) 
-T 1614005853 18<27grym18>	jinx!
-T 1614005887 18<20bpalmer18>	rudybot: somebody owes a coke.
-T 1614005897 18<24rudybot18>	bpalmer: somebody owes somebody a coke
-T 1614005969 18<29chipps18>	I see thanks guys
-T 1614006000 18<20bpalmer18>	I suppose I should try helm one day.
-T 1614006073 18<29MrFantastik18>	i think helm is no longer maintained
-T 1614006098 18<25cvandusen18>	rudybot: no one at the helm 
-T 1614006103 18<29MrFantastik18>	heh
-T 1614006114 18<24rudybot18>	cvandusen: I have no idea where it /should/ come from. of course, I don't care about helm at all, but that function is a new one for me.
-T 1614006114 18<29MrFantastik18>	https://github.com/emacs-helm/helm
-T 1614006134 18<29MrFantastik18>	it looks like a MR came in 10 days ago so i guess I'm mistaken
-T 1614006151 18<29MrFantastik18>	I remember reading somewhere that the maintainer was stepping down or something
-T 1614006176 18<20bpalmer18>	You never hear about unmaintained planes crashing, now do you ? It's only the ones that people are messing with that have trouble.
-T 1614006221 18<29MrFantastik18>	galaxy brain
-T 1614006254 18<27hodapp18>	rudybot: The United States military has an official mariachi band in the New Mexico National Guard, called Mariachi Nuevo México; this pays homage to the state of New Mexico's Hispano and Mexican-American heritage.
-T 1614006269 18<29MrFantastik18>	regular brain -> using up to date software
-T 1614006281 18<29MrFantastik18>	exploding brain -> last update 10 years ago
-T 1614006298 18<29MrFantastik18>	galaxy brain -> copy pasted snippet from stack overflow
-T 1614006302 18<24rudybot18>	hodapp: and a lot of other lusitano, hispano, italiano, and franco- speaking countries.
-T 1614006319 18<29MrFantastik18>	universe brain -> random pastebin curl | bash
-T 1614006401 18<20bpalmer18>	oh, hey, good news, everybody! Microsoft Word is getting text predictions next month.
-T 1614006514 18<25cvandusen18>	,fanfare Word 
-T 1614006515 18*	22fsbot hastily assembles a brass ensemble and plays a stirring fanfare in Word's general direction
-T 1614006547 18<20bpalmer18>	one wonders what the response will be for those pushing emacs as the next big word processor.
-T 1614006626 18<25cvandusen18>	blood lust 
-T 1614006645 18<22Minall18>	When opening a code snippet, I of course get the snippet
-T 1614006645 18<22Minall18>	                      in place, but when I close it, my 'layout' is now only
-T 1614006646 18<22Minall18>	                      the org file, even though I had like 3 different frames
-T 1614006648 18<22Minall18>	                      opened... How can I prevent this from happening?
-T 1614006651 18<22Minall18>	Sorry for that, really
-T 1614006700 18<25cvandusen18>	frames or windows? 
-T 1614006768 18<20bpalmer18>	what do you mean by 'open a code snippet' ?
 T 1614006976 18<29chipps18>	How can I map a c-i to org-cycle in org-mode files?
 T 1614007012 18<27flypaper-ultimat18>	Minall: you can customize the behaviour based on the value of org-src-window-setup, M-x customize-value org-src-window-setup, try some of the values and see which one you like
 T 1614007091 18<27flypaper-ultimat18>	chipps: thats already by default, C-i is the same as pressing TAB for emacs
@@ -5042,3 +4997,6 @@ T 1680733838 20*	Disconnected (20)
 T 1680733861 19*	Now talking on 22#emacs
 T 1680733861 22*	Topic for 22#emacs is: This is the unoficial users' GNU Emacs channel.  For information about Emacs press C-h (Control h) from inside Emacs and follow instructions.
 T 1680733861 22*	Topic for 22#emacs set by 26ldlework!~ldlework@freenode/staff/ldlework (24Mon Jul 18 09:45:40 2022)
+T 1690031363 19*	Now talking on 22#emacs
+T 1690031363 22*	Topic for 22#emacs is: This is the unoficial users' GNU Emacs channel.  For information about Emacs press C-h (Control h) from inside Emacs and follow instructions.
+T 1690031363 22*	Topic for 22#emacs set by 26ldlework!~ldlework@freenode/staff/ldlework (24Mon Jul 18 09:45:40 2022)

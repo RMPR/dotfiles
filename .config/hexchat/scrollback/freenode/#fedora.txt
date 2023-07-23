@@ -1,47 +1,3 @@
-T 1613083478 18<20cmurf18>	is gtk in this case a reference to gtk2? that's not included in f34 by default
-T 1613083484 18<24d9k18>	or -nographic should work too
-T 1613083566 18<24d9k18>	instead of '-serial stdio -vga none' you can just -nographic
-T 1613083664 18<20cmurf18>	oooooo it's running!
-T 1613083746 18<20cmurf18>	reproduces
-T 1613083758 18<20cmurf18>	but slightly different or maybe the line is cut off
-T 1613083762 18<24d9k18>	nice, did it crash or write time corruption
-T 1613083764 18<20cmurf18>	this line looks cut off
-T 1613083768 18<20cmurf18>	write time corruption
-T 1613083798 18<24d9k18>	you can ctrl-a + c to bring up the monitor
-T 1613083803 18<24d9k18>	quit to quit and reset to run again!
-T 1613083812 18<24d9k18>	system_reset
-T 1613083831 18<20cmurf18>	there is a line cut off
-T 1613083832 18<20cmurf18>	[   38.448497] BTRFS critical (device ram0): corrupt leaf: block=1606582272 slot=54 extent bytenr=67174400 len=1007496932279426349 invalid extent data ref had
-T 1613083852 18<20cmurf18>	may not matter
-T 1613083856 18<24d9k18>	use dmesg
-T 1613083858 18<24d9k18>	the command
-T 1613083871 18<20cmurf18>	?
-T 1613083873 18<20cmurf18>	where
-T 1613083877 18<24d9k18>	im the vm
-T 1613083883 18<24d9k18>	in*
-T 1613083904 18<20cmurf18>	no prompt
-T 1613083923 18<20cmurf18>	ctrl-a + c ?
-T 1613083935 18<24d9k18>	are in the monitor console?
-T 1613083957 18<24d9k18>	its a toggle for entering the monitor mode
-T 1613083968 18<20cmurf18>	i see - no idea what that is
-T 1613083975 18<20cmurf18>	i can do dmesg but it too is cutoff
-T 1613083993 18<24d9k18>	it should drop you into a bash shell
-T 1613084006 18<24d9k18>	spam enter
-T 1613084011 18<24d9k18>	ctrl-c
-T 1613084022 18<20cmurf18>	no scp
-T 1613084022 18<20cmurf18>	haha
-T 1613084024 18<20cmurf18>	old habit
-T 1613084041 18<20cmurf18>	yeah i'm at a bash shell but dmesg has the same issue here, it's cut off
-T 1613084049 18<24d9k18>	use less
-T 1613084059 18<20cmurf18>	?
-T 1613084062 18<24d9k18>	dmesg|less
-T 1613084115 18<20cmurf18>	ahh
-T 1613084120 18<20cmurf18>	yeah that does work
-T 1613084201 18<20cmurf18>	oh i see why i'm confused the kernel buffer is full
-T 1613084209 18<20cmurf18>	starts at 41s
-T 1613084244 18<20cmurf18>	but yeah anyway it's the same thing
-T 1613084245 18<20cmurf18>	[   74.086701] BTRFS critical (device ram0): corrupt leaf: block=1714552832 slot=34 extent bytenr=1464860672 len=1007496932187790328 invalid extent data ref h
-T 1613084247 18<20cmurf18>	ash, item has 0x0dfb591f33595bf7 key has 0x0dfb591f33595bf8
 T 1613084249 18<20cmurf18>	bit flip
 T 1613084260 18<24d9k18>	more like off by 1
 T 1613084261 18<20cmurf18>	that is awesome
@@ -5041,3 +4997,6 @@ T 1680733838 20*	Disconnected (20)
 T 1680733861 19*	Now talking on 22#fedora
 T 1680733861 22*	Topic for 22#fedora is: Unofficial fedora channel. Freenode community channel. Lets have a good time and help each other out. No spamming. Also try asking your question in #Linux
 T 1680733861 22*	Topic for 22#fedora set by 26sorcerer!unknown@freenode/staff/sorcerer (24Wed Mar  8 20:51:23 2023)
+T 1690031363 19*	Now talking on 22#fedora
+T 1690031363 22*	Topic for 22#fedora is: Unofficial fedora channel. Freenode community channel. Lets have a good time and help each other out. No spamming. Also try asking your question in #Linux
+T 1690031363 22*	Topic for 22#fedora set by 26sorcerer!unknown@freenode/staff/sorcerer (24Wed Mar  8 20:51:23 2023)
