@@ -29,7 +29,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/todos/")
+(setq org-directory "~/todos/todos")
 (setq org-agenda-files '("~/todos/todos/todos.org"))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
@@ -79,4 +79,5 @@
 (setq org-journal-date-prefix "#+TITLE: "
       org-journal-time-prefix "* "
       org-journal-date-format "%a, %Y-%m-%d"
-      org-journal-file-format "%Y-%m-%d.org")
+      org-journal-file-format "%Y-%m-%d.org"
+      org-journal-dir "~/todos/journal")

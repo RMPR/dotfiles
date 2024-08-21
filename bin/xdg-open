@@ -1,9 +1,0 @@
-#!/bin/sh
-case "${1%%:*}" in
-	mailto)
-		exec aerc "$1"
-		;;
-	*)
-		exec /usr/bin/xdg-open "$@"
-		;;
-esac

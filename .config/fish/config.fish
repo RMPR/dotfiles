@@ -1,6 +1,9 @@
 if status is-interactive
     abbr --add gco git checkout
     abbr --add gsp git stash pop
+    abbr --add gbb git bisect bad
+    abbr --add gbg git bisect good
+    abbr --add xsc xclip -selection clipboard
     # Commands to run in interactive sessions can go here
 end
 

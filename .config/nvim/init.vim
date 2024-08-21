@@ -6,10 +6,10 @@ luafile $XDG_CONFIG_HOME/nvim/after/plugin/telescope.lua
 luafile $XDG_CONFIG_HOME/nvim/after/plugin/treesitter.lua
 luafile $XDG_CONFIG_HOME/nvim/after/plugin/undotree.lua
 luafile $XDG_CONFIG_HOME/nvim/after/plugin/lsp.lua
+luafile $XDG_CONFIG_HOME/nvim/after/plugin/sg.lua
 
 luafile $XDG_CONFIG_HOME/nvim/lua/dbg/init.lua
 " This is next because it sets language specific variables.
-"runtime! include/lang.vim
 
 runtime! include/sets.vim
 runtime! include/autos.vim

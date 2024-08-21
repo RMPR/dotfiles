@@ -8,7 +8,7 @@ call plug#begin()
 " Telescope Stuff
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
 Plug 'kyazdani42/nvim-web-devicons'
 
 Plug 'nvim-telescope/telescope-dap.nvim'
@@ -88,7 +88,15 @@ Plug 'MunifTanjim/nui.nvim'
 Plug 'bennypowers/nvim-regexplainer'
 Plug 'ThePrimeagen/git-worktree.nvim'
 Plug 'KabbAmine/zeavim.vim'
+Plug 'github/copilot.vim'
+Plug 'sourcegraph/sg.nvim', { 'do': 'nvim -l build/init.lua' }
+
+Plug 'lukas-reineke/indent-blankline.nvim'
 call plug#end()
+
+lua << EOF
+require"octo".setup()
+EOF
 
 lua << EOF
 require'regexplainer'.setup {
@@ -154,6 +162,7 @@ nnoremap <leader>gfa :Git fetch --all<CR>
 nnoremap <leader>gb :Git branch 
 nnoremap <leader>gl :Git log<CR>
 nnoremap <leader>gr :Git rebase 
+nnoremap <leader>gbl :Git blame<CR>
 nnoremap <leader>grum :Git rebase upstream/master<CR>
 nnoremap <leader>grom :Git rebase origin/master<CR>
 
@@ -162,6 +171,9 @@ nmap <leader>gu :diffget //2<CR>
 nmap <leader>gs :G<CR>
 nmap <leader>gP :Git push<CR>
 nmap <leader>gPf :Git push --force<CR>
+nmap <leader>gco :Git checkout 
+nmap <leader>gco- :Git checkout -<CR>
+nmap <leader>gca :Git commit --amend<CR>
 nmap <leader>gX :Git reset 
 nmap <leader>gXh :Git reset --hard HEAD~1
 nmap <leader>gXs :Git reset --soft HEAD~1
@@ -188,3 +200,4 @@ nnoremap m<Space> :%SnipRun<Space>
 lua require('Comment').setup()
 lua require('nvim-surround').setup()
 lua require('which-key').setup()
+lua require('ibl').setup()

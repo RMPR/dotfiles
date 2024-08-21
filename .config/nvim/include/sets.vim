@@ -34,7 +34,7 @@ set shortmess+=c
 
 " There's no need to do syntax highlighting past this many columns. The default
 " of 3000 is a bit and degrades performance.
-set synmaxcol=300
+set synmaxcol=1000
 
 " Search down into subfolders
 " Provides tab-completion for all file-related tasks
